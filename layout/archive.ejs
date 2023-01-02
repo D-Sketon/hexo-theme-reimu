@@ -1,0 +1,70 @@
+
+<%
+const categoriesList = list_categories({ show_count: false });
+const tagsList = list_tags({ show_count: false });
+const archivesList = list_archives({ show_count: false });
+%>
+
+<% if (is_year() === false) { %>
+  <div id="archive">
+
+    <h1>Archives</h1>
+
+    <% if (theme.atom !== undefined) { %>
+      <p>
+        The feed is available via
+        <a href="<%=theme.atom%>">atom</a>.
+      </p>
+      <br>
+    <% } %>
+
+    <aside>
+      <h2>Categories</h2>
+      <% if (categoriesList !== "") { %>
+        <%-categoriesList%>
+      <% } else { %>
+        <p>None.</p>
+      <% } %>
+    </aside>
+    <br>
+
+    <aside>
+      <h2>Tags</h2>
+      <% if (tagsList !== "") { %>
+        <%-tagsList%>
+      <% } else { %>
+        <p>None.</p>
+      <% } %>
+    </aside>
+    <br>
+
+    <aside>
+      <h2>Archives</h2>
+      <% if (archivesList !== "") { %>
+        <%-archivesList%>
+      <% } else { %>
+        <p>None.</p>
+      <% } %>
+    </aside>
+
+  </div>
+<% } else { %>
+
+  <h1><%=page.month + '/' + page.year%></h1>
+
+  <% page.posts.each(article => { %>
+    <div class="archive-item">
+      <a href="<%=url_for(article.path)%>">
+        <%=article.title%>
+      </a>
+      <time datetime="<%=date_xml(article.date)%>">
+        <%=date(article.date)%>
+      </time>
+    </div>
+  <% }) %>
+
+  <div id="paginator">
+    <%-paginator()%>
+  </div>
+
+<% } %>
