@@ -8,11 +8,3 @@ menu:
   About: /about
   Contact: /contact
   Archives: /archives
-
-# stylesheets loaded in the <head>
-stylesheets:
-- /css/hexo-theme-reimu.css
-
-# scripts loaded in the end of the body
-scripts:
-- /js/hexo-theme-reimu.js
