@@ -32,6 +32,12 @@
   overflow: hidden
   background: rgba(255, 255, 255, 0.9)
   box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.4)
+  transition: background 0.5s
+  transition-timing-function: ease
+  &:hover
+    transition: background 0.2s
+    transition-timing-function: ease
+    background: rgba(255, 255, 255, 0.95)
 
 #banner
   position: absolute
@@ -109,6 +115,10 @@ $nav-link-wrap
   @extend $nav-link-wrap
   @media mq-mobile
     display: none
+  &:hover .main-nav-icon
+    transition: transform 1s
+    transition-timing-function: ease
+    transform: rotate(360deg)
 
 .main-nav-link
   @extend $nav-link
@@ -116,10 +126,12 @@ $nav-link-wrap
   letter-spacing: 1px
 
 .main-nav-icon
+  pointer-events: inherit
   @extend $nav-link
-  padding: 20px 10px
   background: url("images/taichi.svg") no-repeat center / 80%
-  vertical-align: middle
+  transform: rotate(0deg)
+  transition: transform 1s
+
 
 #main-nav-toggle
   display: none
