@@ -9,6 +9,8 @@ menu:
   Contact: /contact
   Archives: /archives
 
+banner: "images/banner.jpg"
+
 # Content
 excerpt_link: Read More
 fancybox: false
