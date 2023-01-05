@@ -11,7 +11,7 @@ menu:
 
 # Content
 excerpt_link: Read More
-fancybox: true
+fancybox: false
 
 # Footer
 copyright:

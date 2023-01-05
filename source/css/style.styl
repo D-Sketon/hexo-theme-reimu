@@ -2,6 +2,7 @@
 @import "_variables"
 @import "_util/mixin"
 @import "_util/grid"
+@import "_extend"
 
 global-reset()
 
@@ -11,6 +12,38 @@ input, button
   &::-moz-focus-inner
     border: 0
     padding: 0
+
+html, body, #container
+  height: 100%
+
+body
+  background: color-background
+  font: font-size font-sans
+  -webkit-text-size-adjust: 100%
+
+.outer
+  clearfix()
+  max-width: (column-width + gutter-width) * columns + gutter-width
+  margin: 0 auto
+  padding: 0 gutter-width
+
+.inner
+  column(columns)
+
+.left, .alignleft
+  float: left
+
+.right, .alignright
+  float: right
+
+.clear
+  clear: both
+
+#container
+  position: relative
+
+.mobile-nav-on
+  overflow: hidden
 
 @import "_partial/article"
 @import "_partial/archive"
