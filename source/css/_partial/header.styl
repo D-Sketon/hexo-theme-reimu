@@ -1,7 +1,7 @@
 #header
   height: banner-height
   position: relative
-  border-bottom: 1px solid color-border
+  width: 100vw
 
   &:before, &:after
     content: ""
@@ -21,18 +21,25 @@
 #header-outer
   height: 100%
   position: relative
+  max-width: 100%
+  margin: 0
 
 #header-inner
-  position: relative
+  position: sticky
+  top: 0
+  display: flex
+  justify-content: center
   overflow: hidden
+  background: rgba(255, 255, 255, 0.9)
+  box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.4)
 
 #banner
   position: absolute
   top: 0
   left: 0
   width: 100%
-  height: 100%
-  background: url(banner-url) center #000
+  height: 200%
+  background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 50%, transparent),url(banner-url) center -150px #fff
   background-size: cover
   z-index: -1
 
@@ -66,19 +73,24 @@ $logo-text
   margin-top: subtitle-size
 
 #main-nav
-  float: left
+  display: flex
+  align-items: center
   margin-left: -15px
 
 $nav-link
-  float: left
-  color: #fff
-  opacity: 0.6
+  color: red
+  opacity: 0.8
+  font-family: FontAwesome
   text-decoration: none
   text-shadow: 0 1px rgba(0, 0, 0, 0.2)
   transition: opacity 0.2s
   display: block
   padding: 20px 15px
 
+$nav-link-wrap
+  @extend $nav-link
+  padding: 0 15px
+  display: flex
   &:hover
     opacity: 1
 
@@ -93,12 +105,21 @@ $nav-link
   position: relative
   cursor: pointer
 
+.main-nav-link-wrap
+  @extend $nav-link-wrap
+  @media mq-mobile
+    display: none
+
 .main-nav-link
   @extend $nav-link
   font-weight: 300
   letter-spacing: 1px
-  @media mq-mobile
-    display: none
+
+.main-nav-icon
+  @extend $nav-link
+  padding: 20px 10px
+  background: url("images/taichi.svg") no-repeat center / 80%
+  vertical-align: middle
 
 #main-nav-toggle
   display: none
@@ -109,7 +130,8 @@ $nav-link
     display: block
 
 #sub-nav
-  float: right
+  display: flex
+  align-items: center
   margin-right: -15px
 
 #nav-rss-link
@@ -117,6 +139,7 @@ $nav-link
     content: "\f09e"
 
 #nav-search-btn
+
   &:before
     content: "\f002"
 

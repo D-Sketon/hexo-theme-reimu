@@ -11,11 +11,14 @@
                 </h2>
             <% } %>
         </div>
-        <div id="header-inner" class="inner">
+        <div id="header-inner">
             <nav id="main-nav">
                 <a id="main-nav-toggle" class="nav-icon"></a>
                 <% for (var i in theme.menu){ %>
-                    <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+                    </span>
                 <% } %>
             </nav>
             <nav id="sub-nav">
