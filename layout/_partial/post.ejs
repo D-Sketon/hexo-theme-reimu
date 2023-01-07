@@ -1,0 +1,25 @@
+<div class="post-wrap">
+    <a class="p-name article-title" href="<%- url_for(post.link, {relative: false}) %>" target="_blank"
+       itemprop="url"><%= post.title %></a>
+    </a>
+    <div class="post-cover">
+        <img data-src="https://img9.51tietu.net/pic/2019-091401/b0qvleki30xb0qvleki30x.jpg" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
+        <h1><%= post.title %></h1>
+    </div>
+    <% if (post.top){ %>
+        <div  class="post-top">
+            <div class="post-top-img"></div><div class="post-top-text">置顶</div>
+        </div>
+    <% }else{ %>
+        <div class="post-meta">
+            <a><i class="icon-calendar-fill"></i><%- date(post.date, "YYYY年MM月DD日") %></a>
+        </div>
+    <% } %>
+    <article>
+        <% if(post.excerpt) {%>
+            <%- post.excerpt %>
+        <%}  else{ %>
+            <%- post.content %>
+        <% } %>
+    </article>
+</div>
