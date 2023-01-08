@@ -1,13 +1,9 @@
-
-# html lang
-language: en
-
 # main menu navigation
 menu:
-  Home: /
-  About: /about
-  Contact: /contact
-  Archives: /archives
+  home: /
+  about: /about
+  contact: /contact
+  archives: /archives
 
 banner: "images/banner.jpg"
 

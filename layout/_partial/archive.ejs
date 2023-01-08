@@ -1,6 +1,6 @@
-<% if (pagination == 2){ %>
-    <% page.posts.each(function(post){ %>
-        <%- partial('post', {post: post, index: true}) %>
+<% if (pagination === 2){ %>
+    <% page.posts.each(function(post, i){ %>
+        <%- partial('post', {post: post, index: true, even: i % 2 === 0}) %>
     <% }) %>
 <% } else { %>
     <% var last; %>
@@ -17,7 +17,7 @@
         </div>
         <div class="archives">
             <% } %>
-            <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
+            <%- partial('archive-post', {post: post, even: i % 2 === 0}) %>
             <% }) %>
             <% if (page.posts.length){ %>
         </div>

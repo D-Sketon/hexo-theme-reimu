@@ -17,7 +17,7 @@
                 <% for (var i in theme.menu){ %>
                     <span class="main-nav-link-wrap">
                         <span class="main-nav-icon"></span>
-                        <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+                        <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= __(i) %></a>
                     </span>
                 <% } %>
             </nav>

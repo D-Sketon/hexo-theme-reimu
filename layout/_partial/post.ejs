@@ -2,28 +2,55 @@
     <!--    <a class="p-name article-title" href="<%- url_for(post.link, {relative: false}) %>" target="_blank"-->
     <!--       itemprop="url"><%= post.title %></a>-->
     <!--    </a>-->
-    <div class="post-cover">
-        <img data-src="/css/images/banner.jpg" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
-    </div>
-    <div class="post-info">
-        <% if (post.top){ %>
-            <div class="post-top">
-                <div class="post-top-img"></div>
-                <div class="post-top-text">置顶</div>
-            </div>
-        <% }else{ %>
-            <div class="post-meta">
-                <a><span class="icon-calendar"></span><%- date(post.date, "YYYY年MM月DD日") %></a>
-            </div>
-        <% } %>
-        <div class="post-title"><%= post.title %></div>
-        <article class="post-article">
-            <% if(post.excerpt) { %>
-                <%- post.excerpt %>
-            <% }  else{ %>
-                <%- post.content %>
+    <% if (even === true){ %>
+        <div class="post-cover-left">
+            <img data-src="/css/images/banner.jpg" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
+        </div>
+        <div class="post-info">
+            <% if (post.top){ %>
+                <div class="post-top">
+                    <div class="post-top-img"></div>
+                    <div class="post-top-text">置顶</div>
+                </div>
+            <% }else{ %>
+                <div class="post-meta">
+                    <a><span class="icon-calendar"></span><%- date(post.date, "YYYY年MM月DD日") %></a>
+                    <a><span class="icon-pencil"></span><%= wordcount(post.content) %></a>
+                    <a><span class="icon-clock"></span><%= min2read(post.content) %></a>
+                </div>
             <% } %>
-        </article>
-    </div>
-
+            <div class="post-title"><%= post.title %></div>
+            <article class="post-article">
+                <% if(post.excerpt) { %>
+                    <%- post.excerpt %>
+                <% }  else{ %>
+                    <%= stripHtml(post.content) %>
+                <% } %>
+            </article>
+        </div>
+    <% } else { %>
+        <div class="post-info">
+            <% if (post.top){ %>
+                <div class="post-top">
+                    <div class="post-top-img"></div>
+                    <div class="post-top-text">置顶</div>
+                </div>
+            <% }else{ %>
+                <div class="post-meta">
+                    <a><span class="icon-calendar"></span><%- date(post.date, "YYYY年MM月DD日") %></a>
+                </div>
+            <% } %>
+            <div class="post-title"><%= post.title %></div>
+            <article class="post-article">
+                <% if(post.excerpt) { %>
+                    <%- post.excerpt %>
+                <% }  else{ %>
+                    <%= stripHtml(post.content) %>
+                <% } %>
+            </article>
+        </div>
+        <div class="post-cover-right">
+            <img data-src="/css/images/banner.jpg" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
+        </div>
+    <% } %>
 </div>

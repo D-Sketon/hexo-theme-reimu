@@ -1,4 +1,3 @@
-
 categories: Categorieën
 search: Zoeken
 tags: Labels
@@ -18,3 +17,8 @@ powered_by: Powered by
 rss_feed: RSS Feed
 category: Categorie
 tag: Label
+
+home: Home
+about: About
+contact: Contact
+archives: Archives
