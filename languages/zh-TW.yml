@@ -22,3 +22,11 @@ home: 首頁
 about: 關於
 contact: 聯係
 archives: 歸檔
+
+post:
+  count:
+    one: '%d 字'
+    other: '%d 字'
+  time:
+    one: '%d 分鐘'
+    other: '%d 分鐘'

@@ -22,3 +22,11 @@ home: 首页
 about: 关于
 contact: 联系
 archives: 归档
+
+post:
+  count:
+    one: '%d 字'
+    other: '%d 字'
+  time:
+    one: '%d 分钟'
+    other: '%d 分钟'

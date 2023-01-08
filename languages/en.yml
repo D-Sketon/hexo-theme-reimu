@@ -22,3 +22,11 @@ home: Home
 about: About
 contact: Contact
 archives: Archives
+
+post:
+  count:
+    one: '%d word'
+    other: '%d words'
+  time:
+    one: '%d min'
+    other: '%d mins'
