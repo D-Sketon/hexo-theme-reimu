@@ -10,7 +10,7 @@
   height: 230px
   margin-bottom: 40px
   position: relative
-  border-radius: 20px
+  border-radius: post-radius
   background: rgba(255, 255, 255, 0.9)
   display: flex
   box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.1)
@@ -35,7 +35,7 @@
     left: 0
     width: 100%
     height: 100%
-    border-radius: 20px
+    border-radius: post-radius
     box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.1)
     opacity: 0
     transition: opacity 0.3s
@@ -113,15 +113,15 @@ $post-cover
     opacity: 1
 
 .post-cover-left
-  border-top-left-radius: 20px
-  border-bottom-left-radius: 20px
+  border-top-left-radius: post-radius
+  border-bottom-left-radius: post-radius
   -webkit-clip-path: polygon(0 0, 92% 0%, 100% 100%, 0% 100%)
   clip-path: polygon(0 0, 92% 0%, 100% 100%, 0% 100%)
   @extend $post-cover
 
 .post-cover-right
-  border-top-right-radius: 20px
-  border-bottom-right-radius: 20px
+  border-top-right-radius: post-radius
+  border-bottom-right-radius: post-radius
   -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 8% 100%)
   clip-path: polygon(0 0, 100% 0%, 100% 100%, 8% 100%)
   @extend $post-cover

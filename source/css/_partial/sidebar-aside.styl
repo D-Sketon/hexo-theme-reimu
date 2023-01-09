@@ -1,6 +1,8 @@
 #sidebar
   @media mq-normal
     column(sidebar-column)
+  position: sticky
+  top: 0
 
 .widget-wrap
   margin: block-margin 0
@@ -28,3 +30,126 @@
     ul, ol, dl
       margin-left: 15px
       list-style: disc
+
+.sidebar-wrap
+  width: 100%
+  height: 500px
+  margin-bottom: 40px
+  border-radius: post-radius
+  background: linear-gradient(to bottom, white 0%, white 70%, transparent)
+  display: flex
+  flex-shrink: 0
+  flex-direction: column
+  transition: background 0.5s
+  transition-timing-function: ease
+
+  &:hover
+    transition: background 0.5s
+    transition-timing-function: ease
+    background: linear-gradient(to bottom, white 0%, white 100%)
+
+.sidebar-author
+  display: flex
+  flex-shrink: 0
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+  img
+    display: block
+    min-width: 120px
+    min-height: 120px
+    width: 150px
+    height: 150px
+    border-radius: 50%
+    transition: opacity 200ms ease-out
+    opacity: 0
+    object-fit: cover
+    margin: 20px
+    box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.2)
+
+  img.lazyloaded
+    opacity: 1
+
+  .sidebar-author-name
+    font-weight: bold
+    font-size: 20px
+    color: #ff0088
+    margin: 10px
+
+  .sidebar-description
+    color: #777777
+
+$sidebar-state-content
+  display: flex
+  flex-direction: column
+  flex-shrink: 0
+  align-items: center
+  justify-content: center
+  padding: 0 20px
+
+  div
+    margin: 5px 0
+
+.sidebar-state
+  display: flex
+  justify-content: center
+  padding: 25px 0
+  color: #777777
+
+  .sidebar-state-article
+    @extend $sidebar-state-content
+    border-right: .0625rem solid #777777
+
+  .sidebar-state-category
+    @extend $sidebar-state-content
+
+  .sidebar-state-tag
+    @extend $sidebar-state-content
+    border-left: .0625rem solid #777777
+
+  .sidebar-state-number
+    font-weight bold
+    font-size: 20px
+
+.sidebar-social
+  display: flex
+  flex-shrink: 0
+  justify-content: center
+  align-items: center
+
+  div a
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+$siderbar-social-icon
+  margin: 0 10px
+  position: relative
+  font-size: 25px
+
+.icon-github
+  @extend $siderbar-social-icon
+  color: #191717
+  &:before
+    content: "\f09b"
+
+.icon-google
+  @extend $siderbar-social-icon
+  color: #4285F4
+  &:before
+    content: "\f0d5"
+
+.icon-facebook
+  @extend $siderbar-social-icon
+  color: #1877F2
+  &:before
+    content: "\f09a"
+
+.icon-twitter
+  @extend $siderbar-social-icon
+  color: #00aff0
+  &:before
+    content: "\f099"

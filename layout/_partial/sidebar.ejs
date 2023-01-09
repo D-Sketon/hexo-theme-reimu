@@ -2,7 +2,35 @@
 <% if (theme.sidebar === 'bottom'){ %> class="outer"
         <% } %>
 >
-    <% theme.widgets.forEach(function(widget){ %>
-        <%- partial('_widget/' + widget) %>
-    <% }) %>
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/css/images/banner.jpg" data-sizes="auto" alt="<%= config.author %>" class="lazyload">
+            <div class="sidebar-author-name">D-Sketon</div>
+            <div class="sidebar-description">D-Sketon's blog</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number"><%= site.posts.length %></div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number"><%= site.categories.length %></div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number"><%= site.tags.length %></div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            <% for (var i in theme.social){ %>
+                <div class=<%= 'icon-' + i %>>
+                    <a href=<%= theme.social[i]%> itemprop="url" target="_blank"></a>
+                </div>
+            <% } %>
+        </div>
+        <ul class="sidebar-menu">
+
+        </ul>
+    </div>
 </aside>

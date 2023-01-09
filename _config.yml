@@ -21,7 +21,6 @@ copyright:
 #   <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></br>
 #   All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></br>
 
-
 # Sidebar
 sidebar: right
 widgets:
@@ -41,6 +40,13 @@ index_widgets:
 archive_type: 'monthly'
 show_count: false
 recent_posts_limits: 5
+
+social:
+  github: https://github.com/D-Sketon
+  google: https://plus.google.com/yourname
+  twitter: https://twitter.com/yourname
+  facebook: https://www.facebook.com/yourname
+
 
 # valine comment system. https://valine.js.org
 valine:
