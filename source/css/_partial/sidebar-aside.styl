@@ -33,8 +33,7 @@
 
 .sidebar-wrap
   width: 100%
-  height: 500px
-  margin-bottom: 40px
+  height: 700px
   border-radius: post-radius
   background: linear-gradient(to bottom, white 0%, white 70%, transparent)
   display: flex
@@ -42,11 +41,6 @@
   flex-direction: column
   transition: background 0.5s
   transition-timing-function: ease
-
-  &:hover
-    transition: background 0.5s
-    transition-timing-function: ease
-    background: linear-gradient(to bottom, white 0%, white 100%)
 
 .sidebar-author
   display: flex
@@ -74,7 +68,7 @@
   .sidebar-author-name
     font-weight: bold
     font-size: 20px
-    color: #ff0088
+    color: #ff0073
     margin: 10px
 
   .sidebar-description
@@ -95,18 +89,26 @@ $sidebar-state-content
   display: flex
   justify-content: center
   padding: 25px 0
-  color: #777777
+  color: red
+  opacity: 0.6
+  transition: opacity 0.5s
+  transition-timing-function: ease
+
+  &:hover
+    transition: opacity 0.5s
+    transition-timing-function: ease
+    opacity: 1
 
   .sidebar-state-article
     @extend $sidebar-state-content
-    border-right: .0625rem solid #777777
+    border-right: 1px solid rgba(255, 0, 0, 0.5)
 
   .sidebar-state-category
     @extend $sidebar-state-content
 
   .sidebar-state-tag
     @extend $sidebar-state-content
-    border-left: .0625rem solid #777777
+    border-left: 1px solid rgba(255, 0, 0, 0.5)
 
   .sidebar-state-number
     font-weight bold
@@ -133,23 +135,90 @@ $siderbar-social-icon
 .icon-github
   @extend $siderbar-social-icon
   color: #191717
+
   &:before
     content: "\f09b"
 
 .icon-google
   @extend $siderbar-social-icon
   color: #4285F4
+
   &:before
     content: "\f0d5"
 
 .icon-facebook
   @extend $siderbar-social-icon
   color: #1877F2
+
   &:before
     content: "\f09a"
 
 .icon-twitter
   @extend $siderbar-social-icon
   color: #00aff0
+
   &:before
     content: "\f099"
+
+$menu-link
+  color: red
+  opacity: 0.8
+  text-decoration: none
+  text-shadow: 0 1px rgba(0, 0, 0, 0.2)
+  transition: opacity 0.2s
+  display: block
+  padding: 10px 15px
+
+.sidebar-menu
+  margin-top: 20px
+
+.sidebar-menu-link-wrap
+  margin: 8px 50px
+  display: flex
+
+  justify-content: center
+  border: 10px rgba(255, 0, 0, 0.3) double
+  border-radius: 10px
+  transition: border 0.5s
+  transition-timing-function: ease
+
+  &:hover
+    transition: border 0.5s
+    transition-timing-function: ease
+    border: 10px rgba(255, 0, 0, 0.6) double
+
+  &:hover .sidebar-menu-icon
+    transition: transform 1s
+    transition-timing-function: ease
+    transform: rotate(360deg)
+
+.sidebar-menu-icon
+  @extend $menu-link
+  background: url("images/taichi.svg") no-repeat center / 80%
+  transform: rotate(0deg)
+  transition: transform 1s
+
+.sidebar-menu-link
+  @extend $menu-link
+
+.link-active
+  background: red
+  border: 10px #fff double
+  box-shadow: 0 0 10px 3px rgba(255, 0, 0, 0.3)
+  opacity: 0.8
+  transition: border opacity 0.5s
+  transition-timing-function: ease
+
+  &:hover
+    transition: border opacity 0.5s
+    transition-timing-function: ease
+    border: 10px #fff double
+    opacity: 1
+
+  .sidebar-menu-link
+    color: #fff
+    opacity: 1
+
+  .sidebar-menu-icon
+    opacity: 1
+    background: url("images/taichi-fill.svg") no-repeat center / 80%
