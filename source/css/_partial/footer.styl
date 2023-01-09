@@ -1,9 +1,18 @@
 #footer
   background: linear-gradient(to top, color-footer-background 50%, transparent)
   display: flex
+  justify-content: center
   margin-top: auto
-  padding: 50px 0
+  padding: 80px 0 20px 0
   color: color-grey
+  position: relative
+
+
+  &:hover
+    .footer-line
+      transition: opacity 0.5s
+      transition-timing-function: ease
+      opacity: 0.8
 
   a
     color: color-link
@@ -12,7 +21,40 @@
     &:hover
       text-decoration: underline
 
+.footer-line
+  opacity: 0.6
+  width: 100%
+  position: absolute
+  top: 20px
+  height: 12px
+  background-image: linear-gradient(to left, rgba(255, 0, 0, 0.75) 50%, transparent 0%)
+  background-size: 150px 15px
+  background-repeat: repeat-x
+  transition: opacity 0.5s
+  transition-timing-function: ease
+
 #footer-info
   line-height: line-height
   font-size: 0.85em
   width: 100%
+
+  div
+    margin: 5px 0
+    display: flex
+    justify-content: center
+
+.icon-copyright
+  &:before
+    content: "\f1f9"
+
+.icon-pencil
+  margin: 0 5px
+
+  &:before
+    content: "\f040"
+
+.icon-clock
+  margin: 0 5px
+
+  &:before
+    content: "\f017"

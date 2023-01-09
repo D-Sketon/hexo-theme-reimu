@@ -47,6 +47,10 @@ social:
   twitter: https://twitter.com/yourname
   facebook: https://www.facebook.com/yourname
 
+footer:
+  since: 2020
+  powered: true
+  count: true
 
 # valine comment system. https://valine.js.org
 valine:

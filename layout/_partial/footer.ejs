@@ -2,13 +2,32 @@
     <% if (theme.sidebar === 'bottom'){ %>
         <%- partial('_partial/sidebar') %>
     <% } %>
+    <div class="footer-line"></div>
     <div class="outer">
+
         <div id="footer-info" class="inner">
             <% if (theme.copyright){ %>
                 <%- render(theme.copyright, 'pug'); %>
             <% } %>
-            &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %><br>
-            <%= __('powered_by') %> <a href="https://hexo.io/" target="_blank">Hexo</a>
+            <div>
+                <span class="icon-copyright"></span>
+                <%= theme.footer.since %>-<%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>
+            </div>
+            <% if(theme.footer.powered) { %>
+                <div>
+                    <%= __('powered_by') %> <a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            <% } %>
+            <% if(theme.footer.count) { %>
+                <div>
+                    <span class="icon-pencil"></span>
+                    <%= _p('post.count', totalcount(site)) %>
+                    &nbsp;|&nbsp;
+                    <span class="icon-clock"></span>
+                    <%= __(totalmin2read(site)) %>
+                </div>
+            <% } %>
         </div>
     </div>
 </footer>
