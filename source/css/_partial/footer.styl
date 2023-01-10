@@ -2,11 +2,10 @@
   background: linear-gradient(to top, color-footer-background 50%, transparent)
   display: flex
   justify-content: center
+  flex-direction: column
   margin-top: auto
   padding: 80px 0 20px 0
   color: color-grey
-  position: relative
-
 
   &:hover
     .footer-line
@@ -21,17 +20,18 @@
     &:hover
       text-decoration: underline
 
-.footer-line
-  opacity: 0.6
+$footer-line
+  opacity: 0.5
   width: 100%
-  position: absolute
-  top: 20px
   height: 12px
   background-image: linear-gradient(to left, rgba(255, 0, 0, 0.75) 50%, transparent 0%)
   background-size: 150px 15px
   background-repeat: repeat-x
   transition: opacity 0.5s
-  transition-timing-function: ease
+
+.footer-line
+  margin-top: 20px
+  @extend $footer-line
 
 #footer-info
   line-height: line-height

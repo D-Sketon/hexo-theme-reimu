@@ -2,9 +2,7 @@
     <% if (theme.sidebar === 'bottom'){ %>
         <%- partial('_partial/sidebar') %>
     <% } %>
-    <div class="footer-line"></div>
     <div class="outer">
-
         <div id="footer-info" class="inner">
             <% if (theme.copyright){ %>
                 <%- render(theme.copyright, 'pug'); %>
@@ -29,6 +27,8 @@
                 </div>
             <% } %>
         </div>
+
     </div>
+    <div class="footer-line"></div>
 </footer>
   
