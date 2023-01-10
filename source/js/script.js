@@ -21,6 +21,7 @@ const getRealPath = (pathname, desc = false) => {
     }
     return "/";
 };
+
 (function ($) {
     // Caption
     $('.article-entry').each(function (i) {
@@ -80,4 +81,60 @@ const getRealPath = (pathname, desc = false) => {
             link.className = "sidebar-menu-link-wrap link-active";
         }
     }
+
+    // codeBlock相关
+    // 魔改自 https://github.com/tangyuxian/hexo-theme-tangyuxian
+    $('pre').each(function () {
+        var parent = $(this).parent('.gutter');
+        if (parent.length === 0) {
+            $(this).wrap('<div class="code-area"></div>');
+        }
+    })
+    var $codeFigcaption = $('<div class="code-figcaption"><div class="code_lang"></div><div class="code_copy icon-copy"></div><div class="icon-chevron-down code-expand"></div></div>');
+    $('.code-area').prepend($codeFigcaption);
+
+    // 代码复制
+    new ClipboardJS('.code_copy', {
+        target: function (trigger) {
+            return trigger.parentElement.nextElementSibling;
+        }
+    });
+
+    // 代码收缩
+    $('.code-expand').on('click', function () {
+        if ($(this).parent().parent().hasClass('code-closed')) {
+            $(this).siblings('pre').find('code').show();
+            $(this).parent().parent().removeClass('code-closed');
+            // 处理gutter
+            let prev = $(this).parent().parent().parent().prev();
+            if (prev.length !== 0 && prev.hasClass('gutter')) {
+                $(prev).removeClass('code-closed');
+            }
+        } else {
+            $(this).siblings('pre').find('code').hide();
+            $(this).parent().parent().addClass('code-closed');
+            // 处理gutter
+            let prev = $(this).parent().parent().parent().prev();
+            if (prev.length !== 0 && prev.hasClass('gutter')) {
+                $(prev).addClass('code-closed');
+            }
+        }
+    });
+
+    // 代码语言
+    $('pre').each(function () {
+        var code_language = $(this).attr('class') || $(this).parents('figure').attr('class').split(' ')[1];
+
+        if (!code_language) {
+            return true;
+        }
+        var lang_name = code_language.replace("line-numbers", "").trim().replace("language-", "").trim();
+
+        // 首字母大写
+        lang_name = lang_name.slice(0, 1).toUpperCase() + lang_name.slice(1);
+        var siblings = $(this).siblings(".code-figcaption");
+        if (siblings.length !== 0) {
+            $(siblings).children(".code_lang").text(lang_name);
+        }
+    });
 })(jQuery);

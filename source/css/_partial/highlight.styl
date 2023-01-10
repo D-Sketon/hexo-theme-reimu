@@ -1,25 +1,21 @@
-
 // https://github.com/chriskempson/tomorrow-theme
-highlight-background = #2d2d2d
+highlight-background = #22272e
 highlight-current-line = #393939
 highlight-selection = #515151
 highlight-foreground = #cccccc
 highlight-comment = #999999
-highlight-red = #f2777a
-highlight-orange = #f99157
+highlight-red = #f47067
+highlight-orange = #f69d50
 highlight-yellow = #ffcc66
 highlight-green = #99cc99
 highlight-aqua = #66cccc
-highlight-blue = #6699cc
-highlight-purple = #cc99cc
+highlight-blue = #54b6ff
+highlight-purple = #dcbdfb
 
 $code-block
   background: highlight-background
-  margin: 0 article-padding * -1
   padding: 15px article-padding
-  border-style: solid
-  border-color: color-border
-  border-width: 1px 0
+  border-radius: 10px
   overflow: auto
   color: highlight-foreground
   line-height: font-size * line-height
@@ -30,45 +26,63 @@ $line-numbers
 
 .article-entry
   pre, code
-    font-family: font-mono
+    font-family: Consolas
+    font-size: 14px
+
   code
     background: color-background
-    text-shadow: 0 1px #fff
-    padding: 0 0.3em
+    padding: 1px 5px
+    border-radius: 5px
+    color: color-link
+    font-size: 85%
+
   pre
     @extend $code-block
+    border-radius: 0
+
     code
       background: none
       text-shadow: none
       padding: 0
+
   .highlight
     @extend $code-block
     pre
       border: none
       margin: 0
       padding: 0
+      border-radius: 0
+
     table
       margin: 0
       width: auto
+
     td
       border: none
       padding: 0
+
     figcaption
       clearfix()
       font-size: 0.85em
       color: highlight-comment
       line-height: 1em
       margin-bottom: 1em
+
       a
         float: right
+
     .gutter pre
       @extend $line-numbers
       text-align: right
       padding-right: 20px
+      padding-top: 40px
+
     .line
       height: font-size * line-height
+
     .line.marked
       background: highlight-selection
+
   .gist
     margin: 0 article-padding * -1
     border-style: solid
@@ -76,24 +90,30 @@ $line-numbers
     border-width: 1px 0
     background: highlight-background
     padding: 15px article-padding 15px 0
+
     .gist-file
       border: none
       font-family: font-mono
       margin: 0
+
       .gist-data
         background: none
         border: none
+
         .line-numbers
           @extend $line-numbers
           background: none
           border: none
           padding: 0 20px 0 0
+
         .line-data
           padding: 0 !important
+
       .highlight
         margin: 0
         padding: 0
         border: none
+
       .gist-meta
         background: highlight-background
         color: highlight-comment
@@ -102,9 +122,11 @@ $line-numbers
         padding: 0
         margin-top: 1em
         margin-left: article-padding
+
         a
           color: color-link
           font-weight: normal
+
           &:hover
             text-decoration: underline
 
@@ -112,6 +134,7 @@ pre
   .comment
   .title
     color: highlight-comment
+
   .variable
   .attribute
   .tag
@@ -125,6 +148,7 @@ pre
   .css .class
   .css .pseudo
     color: highlight-red
+
   .number
   .preprocessor
   .built_in
@@ -132,10 +156,12 @@ pre
   .params
   .constant
     color: highlight-orange
+
   .class
   .ruby .class .title
   .css .rules .attribute
     color: highlight-green
+
   .string
   .value
   .inheritance
@@ -143,8 +169,10 @@ pre
   .ruby .symbol
   .xml .cdata
     color: highlight-green
+
   .css .hexcolor
     color: highlight-aqua
+
   .function
   .python .decorator
   .python .title
@@ -154,6 +182,56 @@ pre
   .javascript .title
   .coffeescript .title
     color: highlight-blue
+
   .keyword
   .javascript .function
     color: highlight-purple
+
+.icon-copy
+  &:before
+    content: "\f0c5"
+
+.icon-chevron-down
+  &:before
+    content: "\f078"
+
+.code-area
+  position: relative
+
+  .code-figcaption
+    display: flex
+    height: 40px
+    align-items: center
+    flex-shrink: 0
+
+.code_copy
+  margin: 5px
+  z-index: 1
+  filter: invert(50%)
+  cursor: pointer
+  color: #fff
+
+.code_lang
+  margin: 5px
+  line-height: 0
+  font-weight: bold
+  z-index: 1
+  filter: invert(50%)
+  cursor: pointer
+
+.code-expand
+  margin: 5px
+  filter: invert(50%)
+  z-index: 1
+  cursor: pointer
+  transition: all .3s
+  transform: rotate(0deg)
+  color: #fff
+
+.code-closed .code-expand
+  transform: rotate(-180deg) !important
+  transition: all .3s
+
+.code-closed
+  pre
+    display: none
