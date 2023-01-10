@@ -1,5 +1,13 @@
+.hr-line
+  margin: 10px article-padding
+  opacity: 0.5
+  height: 3px
+  background-image: linear-gradient(to left, rgba(255, 0, 0, 0.75) 50%, transparent 0%)
+  background-size: 20px 3px
+  background-repeat: repeat-x
+
 .article
-  margin: block-margin 0
+  width: 100%
 
 .article-inner
   @extend $block
@@ -7,6 +15,7 @@
 
 .article-meta
   clearfix()
+  padding: article-padding article-padding 0
 
 .article-date
   @extend $block-caption

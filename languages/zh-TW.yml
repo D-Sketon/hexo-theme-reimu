@@ -25,8 +25,8 @@ archives: 歸檔
 
 post:
   count:
-    one: '%d 字'
-    other: '%d 字'
+    one: '%s 字'
+    other: '%s 字'
   time:
     one: '%d 分鐘'
     other: '%d 分鐘'

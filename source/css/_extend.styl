@@ -11,9 +11,8 @@ $block-caption
 
 $block
   background: #fff
-  box-shadow: 1px 2px 3px #ddd
-  border: 1px solid color-border
-  border-radius: 3px
+  //box-shadow: 1px 2px 3px #ddd
+  border-radius: post-radius
 
 $base-style
   h1
@@ -36,7 +35,13 @@ $base-style
     color: color-grey
 
   hr
-    border: 1px dashed color-border
+    //border: 1px dashed color-border
+    margin: 10px article-padding
+    opacity: 0.5
+    height: 3px
+    background-image: linear-gradient(to left, rgba(255, 0, 0, 0.75) 50%, transparent 0%)
+    background-size: 20px 3px
+    background-repeat: repeat-x
 
   strong
     font-weight: bold

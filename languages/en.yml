@@ -25,8 +25,8 @@ archives: Archives
 
 post:
   count:
-    one: '%d word'
-    other: '%d words'
+    one: '%s word'
+    other: '%s words'
   time:
     one: '%d min'
     other: '%d mins'
