@@ -52,9 +52,11 @@ footer:
   powered: true
   count: true
 
-# need https://github.com/dotcs/hexo-katexify/
+# need https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus
+# use katex
 math:
   enable: true
+  css: https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css
 
 # valine comment system. https://valine.js.org
 valine:

@@ -18,7 +18,7 @@
 <%- js('js/clipboard.min.js') %>
 
 <% if(theme.math.enable) { %>
-    <link href="/katexify/katex.min.css" rel="stylesheet"/>
+    <%- css(theme.math.css) %>
 <% } %>
 
 <% if (theme.fancybox){ %>
