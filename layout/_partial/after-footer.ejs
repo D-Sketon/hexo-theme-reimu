@@ -1,18 +1,3 @@
-<% if (config.disqus_shortname){ %>
-    <script>
-        var disqus_shortname = '<%= config.disqus_shortname %>';
-        <% if (page.permalink){ %>
-        var disqus_url = '<%= page.permalink %>';
-        <% } %>
-        (function () {
-            var dsq = document.createElement('script');
-            dsq.async = true;
-            dsq.src = 'https://' + disqus_shortname + '.disqus.com/<% if (page.comments) { %>embed.js<% } else { %>count.js<% } %>';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-<% } %>
-
 <%- js('js/jquery-3.6.3.min.js') %>
 <%- js('js/lazysizes.min.js') %>
 <%- js('js/clipboard.min.js') %>
