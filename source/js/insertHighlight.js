@@ -1,0 +1,57 @@
+(function ($) {
+    // 魔改自 https://github.com/tangyuxian/hexo-theme-tangyuxian
+    $('pre').each(function () {
+        var parent = $(this).parent('.gutter');
+        if (parent.length === 0) {
+            $(this).wrap('<div class="code-area"></div>');
+        }
+    })
+
+    const $codeFigcaption = $('<div class="code-figcaption"><div class="code-left-wrap"><div class="code-decoration"></div><div class="code-lang"></div></div><div class="code-right-wrap"><div class="code-copy icon-copy"></div><div class="icon-chevron-down code-expand"></div></div></div>');
+    $('figure.highlight').prepend($codeFigcaption);
+
+    // 代码复制
+    new ClipboardJS('.code-copy', {
+        target: function (trigger) {
+            return $(trigger).parent().parent().siblings().find('td.code')[0]
+        }
+    });
+
+    // 代码收缩
+    $('.code-expand').on('click', function () {
+        if ($(this).parent().parent().parent().hasClass('code-closed')) {
+            $(this).siblings('pre').find('code').show();
+            $(this).parent().parent().parent().removeClass('code-closed');
+            // 处理gutter
+            let prev = $(this).parent().parent().parent().parent().prev();
+            if (prev.length !== 0 && prev.hasClass('gutter')) {
+                $(prev).removeClass('code-closed');
+            }
+        } else {
+            $(this).siblings('pre').find('code').hide();
+            $(this).parent().parent().parent().addClass('code-closed');
+            // 处理gutter
+            let prev = $(this).parent().parent().parent().parent().prev();
+            if (prev.length !== 0 && prev.hasClass('gutter')) {
+                $(prev).addClass('code-closed');
+            }
+        }
+    });
+
+    // 代码语言
+    $('pre').each(function () {
+        let code_language = $(this).attr('class') || $(this).parents('figure').attr('class').split(' ')[1];
+
+        if (!code_language) {
+            return true;
+        }
+        let lang_name = code_language.replace("line-numbers", "").trim().replace("language-", "").trim();
+
+        // 首字母大写
+        lang_name = lang_name.slice(0, 1).toUpperCase() + lang_name.slice(1);
+        let children = $(this).parents('figure').children(".code-figcaption");
+        if (children.length !== 0) {
+            $(children).children('.code-left-wrap').children(".code-lang").text(lang_name);
+        }
+    });
+})(jQuery);

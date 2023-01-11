@@ -14,7 +14,7 @@ highlight-purple = #dcbdfb
 
 $code-block
   background: highlight-background
-  padding: 15px article-padding
+  padding: 0 article-padding 15px
   border-radius: 10px
   overflow: auto
   color: highlight-foreground
@@ -27,14 +27,13 @@ $line-numbers
 .article-entry
   pre, code
     font-family: Consolas
-    font-size: 14px
+    font-size: 85%
 
   code
     background: color-background
     padding: 1px 5px
     border-radius: 5px
     color: color-link
-    font-size: 85%
 
   pre
     @extend $code-block
@@ -43,6 +42,7 @@ $line-numbers
     code
       background: none
       text-shadow: none
+      color: highlight-foreground
       padding: 0
 
   .highlight
@@ -75,7 +75,6 @@ $line-numbers
       @extend $line-numbers
       text-align: right
       padding-right: 20px
-      padding-top: 40px
 
     .line
       height: font-size * line-height
@@ -195,23 +194,40 @@ pre
   &:before
     content: "\f078"
 
-.code-area
-  position: relative
+.code-figcaption
+  width: 100%
+  display: flex
+  justify-content: space-between
+  height: 40px
+  align-items: center
+  flex-shrink: 0
+  background: linear-gradient(to right, transparent 0%, #2e353f 50%, transparent 100%)
+  margin-bottom: 10px
 
-  .code-figcaption
-    display: flex
-    height: 40px
-    align-items: center
-    flex-shrink: 0
+.code-decoration
+  width: 70px
+  &:after
+    content: " ";
+    position: absolute;
+    border-radius: 50%;
+    background: #ff5f56;
+    width: 12px;
+    height: 12px;
+    -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
 
-.code_copy
+.code-left-wrap
+.code-right-wrap
+  display: flex
+
+.code-copy
   margin: 5px
   z-index: 1
   filter: invert(50%)
   cursor: pointer
   color: #fff
 
-.code_lang
+.code-lang
   margin: 5px
   line-height: 0
   font-weight: bold
