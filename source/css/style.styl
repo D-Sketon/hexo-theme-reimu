@@ -59,15 +59,10 @@ body
   .mobile-nav-on &
     left: mobile-nav-width
 
-if sidebar and sidebar isnt bottom
+if sidebar
   #main
     @media mq-large
       column(main-column)
-
-if sidebar is left
-  @media mq-large
-    #main
-      float: right
 
 @font-face
   font-family: FontAwesome
