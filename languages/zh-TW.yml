@@ -6,6 +6,7 @@ tweets: 推文
 prev: 上一頁
 next: 下一頁
 comment: 留言
+reading: 閲讀量
 archive_a: 彙整
 archive_b: 彙整：%s
 page: 第 %d 頁

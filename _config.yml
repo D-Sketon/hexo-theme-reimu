@@ -59,14 +59,16 @@ math:
   css: https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css
 
 # valine comment system. https://valine.js.org
+# version 1.5.1
+# notify and verify have been deprecated
 valine:
   enable: false # if you want to use valine,please set this value is true
   appId:  # leancloud application app id
   appKey:  # leancloud application app key
-  notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
-  verify: false # valine verify code (true/false)
   pageSize: 10 # comment list page size
-  avatar: mm # gravatar style https://valine.js.org/#/avatar
+  avatar: mp # gravatar style https://valine.js.org/#/avatar
   lang: zh-cn # i18n: zh-cn/en
   placeholder: Just go go # valine comment input placeholder(like: Please leave your footprints )
   guest_info: nick,mail,link #valine comment header info
+  recordIP: true # whether to record the IP address of the commenters
+  highlight: true # whether to highlight the code blocks
