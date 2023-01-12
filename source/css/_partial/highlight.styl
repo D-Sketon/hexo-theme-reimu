@@ -16,7 +16,7 @@ $code-block
   background: highlight-background
   padding: 0 article-padding 15px
   border-radius: 10px
-  overflow: auto
+  //overflow: auto
   color: highlight-foreground
   line-height: font-size * line-height
 
@@ -25,6 +25,20 @@ $line-numbers
   font-size: 0.85em
 
 .article-entry
+  ::-webkit-scrollbar
+    width: 10px
+    height: 10px
+    background-color: transparent
+
+  ::-webkit-scrollbar-track
+    border-radius: 10px
+    background-color: transparent
+
+
+  ::-webkit-scrollbar-thumb
+    border-radius: 10px
+    background-color: #454d59
+
   figure
     display: block
     margin-block-start: 1em
@@ -60,6 +74,7 @@ $line-numbers
 
   .highlight
     @extend $code-block
+
     pre
       border: none
       margin: 0
@@ -68,7 +83,7 @@ $line-numbers
 
     table
       margin: 0
-      width: auto
+      table-layout: fixed
 
     td
       border: none
@@ -83,6 +98,9 @@ $line-numbers
 
       a
         float: right
+
+    .gutter
+      width: 30px
 
     .gutter pre
       @extend $line-numbers
@@ -206,6 +224,12 @@ pre
 .icon-chevron-down
   &:before
     content: "\f078"
+
+.code-area
+  width: 100%
+  overflow: auto
+  transition: all 0.3s
+  transition-timing-function: ease
 
 .code-figcaption
   width: 100%
