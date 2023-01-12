@@ -59,9 +59,13 @@ body
   .mobile-nav-on &
     left: mobile-nav-width
 
+#main
+  padding: 0 5px
+
 if sidebar
   #main
     @media mq-large
+      padding: 0
       column(main-column)
 
 @font-face
@@ -74,6 +78,13 @@ if sidebar
           url(font-icon-path + ".woff?v=" + font-icon-version) format("woff"),
           url(font-icon-path + ".ttf?v=" + font-icon-version) format("truetype"),
           url(font-icon-path + ".svg?v=" + font-icon-version + "#fontawesomeregular") format("svg")
+
+@font-face
+  font-family: "Ubuntu Mono derivative Powerline"
+  font-style: normal
+  font-weight: normal
+  src: url("fonts/Ubuntu Mono derivative Powerline.ttf") format("truetype")
+
 
 @import "_partial/header"
 @import "_partial/article"

@@ -5,7 +5,7 @@
   width: 100%
   height: 100%
 
-.post-wrap
+$post-wrap
   width: 100%
   height: 230px
   margin-bottom: 40px
@@ -13,34 +13,50 @@
   border-radius: post-radius
   background: rgba(255, 255, 255, 0.9)
   display: flex
+  flex-direction: row
   box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.1)
-  transition: transform 0.3s
+  transition: all 0.3s
   transition-timing-function: ease
 
-  &:hover
-    transition: background transform 0.3s
-    transition-timing-function: ease
-    transform: rotate(1deg) scale(1.01)
-    background: rgba(255, 255, 255, 0.95)
+  @media mq-normal
+    &:hover
+      transition: background transform 0.3s
+      transition-timing-function: ease
+      transform: rotate(1deg) scale(1.01)
+      background: rgba(255, 255, 255, 0.95)
+
+      &:before
+        transition: opacity 0.3s
+        transition-timing-function: ease
+        opacity: 1
 
     &:before
+      content: ""
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      border-radius: post-radius
+      box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.1)
+      opacity: 0
       transition: opacity 0.3s
       transition-timing-function: ease
-      opacity: 1
 
-  &:before
-    content: ""
-    position: absolute
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    border-radius: post-radius
-    box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.1)
-    opacity: 0
-    transition: opacity 0.3s
-    transition-timing-function: ease
+.post-wrap-left
+  @extend $post-wrap
 
+  @media mg-normal
+    flex-direction: column
+    height: 400px
+
+.post-wrap-right
+  @extend $post-wrap
+  flex-direction: row-reverse
+
+  @media mg-normal
+    flex-direction: column
+    height: 400px
 
 .post-info
   height: 100%
@@ -97,6 +113,10 @@ $post-cover
   flex-shrink: 0
   pointer-events: none
 
+  @media mg-normal
+    width: 100%
+    height: 45%
+
   img
     display: block
     opacity: 0
@@ -112,17 +132,29 @@ $post-cover
     opacity: 1
 
 .post-cover-left
-  border-top-left-radius: post-radius
-  border-bottom-left-radius: post-radius
-  -webkit-clip-path: polygon(0 0, 92% 0%, 100% 100%, 0% 100%)
-  clip-path: polygon(0 0, 92% 0%, 100% 100%, 0% 100%)
+  @media mq-normal
+    border-top-left-radius: post-radius
+    border-bottom-left-radius: post-radius
+    -webkit-clip-path: polygon(0 0, 92% 0%, 100% 100%, 0% 100%)
+    clip-path: polygon(0 0, 92% 0%, 100% 100%, 0% 100%)
+
+  @media mg-normal
+    border-top-left-radius: post-radius
+    border-top-right-radius: post-radius
+
   @extend $post-cover
 
 .post-cover-right
-  border-top-right-radius: post-radius
-  border-bottom-right-radius: post-radius
-  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 8% 100%)
-  clip-path: polygon(0 0, 100% 0%, 100% 100%, 8% 100%)
+  @media mq-normal
+    border-top-right-radius: post-radius
+    border-bottom-right-radius: post-radius
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 8% 100%)
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 8% 100%)
+
+  @media mg-normal
+    border-top-left-radius: post-radius
+    border-top-right-radius: post-radius
+
   @extend $post-cover
 
 .post-title

@@ -25,9 +25,22 @@ $line-numbers
   font-size: 0.85em
 
 .article-entry
+  figure
+    display: block
+    margin-block-start: 1em
+    margin-block-end: 1em
+    margin-inline-start: 20px
+    margin-inline-end: 20px
+
+    @media mg-normal
+      margin-block-start: 1em
+      margin-block-end: 1em
+      margin-inline-start: 0
+      margin-inline-end: 0
+
   pre, code
-    font-family: Consolas
-    font-size: 85%
+    font-family: "Ubuntu Mono derivative Powerline"
+    font-size: 95%
 
   code
     background: color-background
@@ -199,6 +212,7 @@ pre
   display: flex
   justify-content: space-between
   height: 40px
+
   align-items: center
   flex-shrink: 0
   background: linear-gradient(to right, transparent 0%, #2e353f 50%, transparent 100%)
@@ -206,6 +220,7 @@ pre
 
 .code-decoration
   width: 70px
+
   &:after
     content: " ";
     position: absolute;
