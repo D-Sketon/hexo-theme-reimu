@@ -29,8 +29,9 @@
         <div class="sidebar-menu">
             <% for (var i in theme.menu){ %>
                 <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="<%- url_for(theme.menu[i]) %>"></a>
                     <span class="sidebar-menu-icon"></span>
-                    <a class="sidebar-menu-link " href="<%- url_for(theme.menu[i]) %>"><%= __(i) %></a>
+                    <div class="sidebar-menu-link"><%= __(i) %></div>
                 </div>
             <% } %>
         </div>

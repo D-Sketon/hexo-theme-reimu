@@ -177,6 +177,7 @@ $menu-link
 .sidebar-menu-link-wrap
   margin: 8px 50px
   display: flex
+  position: relative
 
   justify-content: center
   border: 10px rgba(255, 0, 0, 0.3) double
@@ -199,6 +200,13 @@ $menu-link
   background: url("images/taichi.svg") no-repeat center / 80%
   transform: rotate(0deg)
   transition: transform 1s
+
+.sidebar-menu-link-dummy
+  position: absolute
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
 
 .sidebar-menu-link
   @extend $menu-link

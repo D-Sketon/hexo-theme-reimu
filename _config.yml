@@ -1,9 +1,10 @@
 # main menu navigation
 menu:
   home: /
-  about: /about
-  contact: /contact
   archives: /archives
+  about: /about
+  friend: /friend
+
 
 banner: "images/banner.jpg"
 
