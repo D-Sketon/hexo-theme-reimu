@@ -15,25 +15,42 @@
 
 .article-meta
   clearfix()
+  display: flex
+  flex-direction: row-reverse;
   padding: article-padding article-padding 0
 
 .article-date
-  @extend $block-caption
-  float: left
-
-.article-category
-  float: left
-  line-height: 1em
-  color: #ccc
-  text-shadow: 0 1px #fff
-  margin-left: 8px
+  text-decoration: none
+  text-transform: uppercase
+  font-size: 14px
+  color: #ff3333
+  background: #ffd1d1
+  border-radius: 20px
+  padding: 10px 18px
+  margin: 0 12px 1em
 
   &:before
-    content: "\2022"
+    content: "\f017"
+    margin-right: 10px
+
+.article-category
+  line-height: 1em
+  display: flex
+  align-items: center
 
 .article-category-link
-  @extend $block-caption
+  text-decoration: none
+  text-transform: uppercase
+  font-size: 14px
+  color: #ff3333
+  background: #ffd1d1
+  border-radius: 20px
+  padding: 10px 18px
   margin: 0 12px 1em
+
+  &:before
+    content: "\f02e"
+    margin-right: 10px
 
 .article-header
   padding: article-padding article-padding 0
@@ -179,41 +196,59 @@
   font-size: 0.85em
   line-height: line-height
   border-top: 1px solid color-border
-  padding-top: line-height
+  padding-top: article-padding
   margin: 0 article-padding article-padding
 
   a
     color: color-grey
     text-decoration: none
 
+  .article-tag-list-link,
+  .article-share-link,
+  .article-comment-link
+    color: #ff3333
+
     &:hover
       color: color-default
 
 .article-tag-list-item
   float: left
+  text-decoration: none
+  text-transform: uppercase
+  font-size: 14px
+  background: #ffd1d1
+  border-radius: 20px
+  padding: 10px 18px
+
   margin-right: 10px
 
 .article-tag-list-link
   &:before
-    content: "#"
+    margin-right: 10px
+    content: "\f292"
 
 .article-comment-link
   float: right
+  background: #ffd1d1
+  border-radius: 20px
+  padding: 10px 18px
 
   &:before
     content: "\f075"
-    font-family: font-icon
-    padding-right: 8px
+    margin-right: 10px
 
 .article-share-link
   cursor: pointer
   float: right
   margin-left: 20px
+  font-size: 14px
+  background: #ffd1d1
+  border-radius: 20px
+  padding: 10px 18px
 
   &:before
     content: "\f064"
-    font-family: font-icon
-    padding-right: 6px
+    margin-right: 10px
 
 #article-nav
   clearfix()
@@ -234,8 +269,7 @@
   justify-content: center
   padding-left: 20px
   opacity: 0.9
-  transition: opacity 0.5s
-  transition-timing-function: ease
+  transition: opacity 0.5s ease
   height: 150px
   min-height: 150px
   flex-shrink: 0
@@ -266,8 +300,7 @@
     opacity: 1
 
   &:hover
-    transition: opacity 0.5s
-    transition-timing-function: ease
+    transition: opacity 0.5s ease
     opacity: 1
 
 .article-nav-link-right

@@ -14,21 +14,18 @@ $post-wrap
   background: rgba(255, 255, 255, 0.9)
   display: flex
   flex-direction: row
-  box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.1)
-  transition: all 0.3s
-  transition-timing-function: ease
+  //box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
+  transition: all 0.3s ease
 
   @media mq-normal
     &:hover
-      transition: background transform 0.3s
-      transition-timing-function: ease
+      transition: all 0.5s ease
       transform: rotate(1deg) scale(1.01)
       background: rgba(255, 255, 255, 0.95)
 
       &:before
-        transition: opacity 0.3s
-        transition-timing-function: ease
-        opacity: 1
+        transition: opacity 0.3s ease
+        opacity: 0.8
 
     &:before
       content: ""
@@ -38,10 +35,9 @@ $post-wrap
       width: 100%
       height: 100%
       border-radius: post-radius
-      box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.1)
+      box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
       opacity: 0
-      transition: opacity 0.3s
-      transition-timing-function: ease
+      transition: opacity 0.3s ease
 
 .post-wrap-left
   @extend $post-wrap

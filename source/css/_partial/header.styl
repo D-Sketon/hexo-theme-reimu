@@ -2,7 +2,7 @@
   height: banner-height
   position: relative
 
-  &:before, &:after
+  &:before
     content: ""
     position: absolute
     left: 0
@@ -23,12 +23,10 @@
   overflow: hidden
   background: rgba(255, 255, 255, 0.9)
   box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.2)
-  transition: background 0.2s
-  transition-timing-function: ease
+  transition: background 0.2s ease
 
   &:hover
-    transition: background 0.2s
-    transition-timing-function: ease
+    transition: background 0.2s ease
     background: rgba(255, 255, 255, 0.95)
 
 #banner
@@ -110,8 +108,7 @@ $nav-link-wrap
     display: none
 
   &:hover .main-nav-icon
-    transition: transform 1s
-    transition-timing-function: ease
+    transition: transform 1s ease
     transform: rotate(360deg)
 
 .main-nav-link
