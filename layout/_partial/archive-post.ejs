@@ -1,8 +1,16 @@
-<article class="archive-article archive-type-<%= post.layout %>">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <%- partial('post/date', {class_name: 'archive-article-date', date_format: 'MMM D'}) %>
-            <%- partial('post/title', {class_name: 'archive-article-title'}) %>
-        </header>
-    </div>
-</article>
+<li class="archive-article">
+    <span>
+        <time class="dt-published" datetime="<%= date_xml(post.date) %>"
+              itemprop="datePublished"><%= date(post.date, 'MM-DD') %></time>
+    </span>
+    <% if (post.link){ %>
+            <a class="archive-article-title" href="<%- url_for(post.link, {relative: false}) %>" target="_blank"
+               itemprop="url"><%= post.title %></a>
+    <% } else if (post.title){ %>
+        <% if (index){ %>
+                <a class="archive-article-title" href="<%- url_for(post.path) %>"><%= post.title %></a>
+        <% } else { %>
+                <%= post.title %>
+        <% } %>
+    <% } %>
+</li>

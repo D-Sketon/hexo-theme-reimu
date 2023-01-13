@@ -1,39 +1,100 @@
+.archives-outer-wrap
+  background: #fff
+  border-radius: post-radius
+  padding: 15px 0
+
 .archives-wrap
-  margin: block-margin 0
+  padding: 20px block-margin
 
 .archives
   clearfix()
+  list-style: none
 
 .archive-year-wrap
-  margin-bottom: 1em
+  margin-bottom: 2em
+  position: relative
+
+  &:before
+    content: ""
+    width: 100%
+    padding: 0 25px
+    border-bottom: 1px solid #eee
+    position: absolute
+    bottom: -15px
+    left: -30px
+    box-sizing: unset
+
+  &:after
+    transition: all 0.35s ease-out
+    content: ""
+    position: absolute
+    background: rgba(255, 0, 0, 0.8)
+    width: 1em
+    height: 7px
+    bottom: -18px
+    left: 0
+    border-radius: 10px
+    box-shadow: 0 2px 12px rgba(255, 78, 106, 0.85)
+
+  &:hover:after
+    transition: all 0.35s ease-out
+    width: 3em
 
 .archive-year
-  @extend $block-caption
+  text-decoration: none
+  text-transform: uppercase
+
+  color: black
+  margin-bottom: 15px
+  font-weight: bold
+  font-size: 25px
 
 .archives
-  column-gap: 10px
-  @media mq-tablet
-    column-count: 2
-  @media mq-normal
-    column-count: 3
+  width: 100%
 
 .archive-article
-  avoid-column-break()
+  width: 100%
+  padding: 15px 0
+  padding-left: 25px
 
-.archive-article-inner
-  @extend $block
-  padding: 10px
-  margin-bottom: 15px
+  &:before
+    content: ""
+    width: 6px
+    height: 15px
+    background: rgba(255, 0, 0, 0.75)
+    display: inline-block
+    vertical-align: middle
+    margin-top: -2px
+    margin-right: 11px
+    margin-left: -25px
+    box-shadow: 0 2px 12px rgba(255, 78, 106, 0.55)
+    opacity: 0.5
+    transition: all 0.35s ease-out
+
+  &:hover
+    &:before
+      width: 6px
+      height: 6px
+      border-radius: 50%
+      opacity: 1
+      transition: all 0.2s ease-out
+
+
+.dt-published
+  color: color-grey
+  margin-left: 5px
 
 .archive-article-title
   text-decoration: none
   font-weight: bold
-  color: color-default
-  transition: color 0.2s
-  line-height: line-height
+  color: red
+  transition: all 0.35s ease-out
+  opacity: 0.6
+  margin-left: 15px
 
   &:hover
-    color: color-link
+    transition: all 0.35s ease-out
+    opacity: 1
 
 .archive-article-footer
   margin-top: 1em
@@ -50,40 +111,46 @@
   clearfix()
   margin: block-margin auto
   background: #fff
-  box-shadow: 1px 2px 3px #ddd
-  border: 1px solid color-border
-  border-radius: 3px
+  border-radius: post-radius
   text-align: center
   color: color-grey
   overflow: hidden
 
   a, span
-    padding: 10px 20px
+    padding: 10px 15px
     line-height: 1
     height: 2ex
 
   a
     color: color-grey
     text-decoration: none
+    transition: background 0.2s ease
 
     &:hover
-      background: color-grey
+      background: #ff9c9c
+      transition: background 0.2s ease
       color: #fff
 
   .prev
     float: left
+    padding: 15px 15px
 
   .next
     float: right
+    padding: 15px 15px
 
   .page-number
     display: inline-block
+    border-radius: post-radius
+    margin: 5px 5px
     @media mq-mobile
       display: none
 
   .current
-    color: color-default
+    background: #ff5959
+    color: white
     font-weight: bold
+    box-shadow: 0 2px 12px rgba(255, 78, 106, 0.55)
 
   .space
     color: color-border
