@@ -12,24 +12,59 @@ $block
   background: #fff
   border-radius: post-radius
 
+$base-sharp
+  &:before
+    color: color-grey
+    opacity: 0.5
+    content: "\f292"
+
 $base-style
   h1
     font-size: 2em
 
   h2
     font-size: 1.5em
+    position: relative
+
+    &:before
+      content: ""
+      width: 100%
+      border-bottom: 1px solid #eee
+      position: absolute
+      bottom: -15px
+      box-sizing: unset
+
+    &:after
+      transition: all 0.35s ease-out
+      content: ""
+      position: absolute
+      background: rgba(255, 0, 0, 0.6)
+      width: 1em
+      height: 7px
+      bottom: -18px
+      left: 0
+      border-radius: 10px
+      box-shadow: 0 2px 12px rgba(255, 78, 106, 0.7)
+
+    &:hover:after
+      transition: all 0.35s ease-out
+      width: 3em
 
   h3
     font-size: 1.3em
+    @extend $base-sharp
 
   h4
     font-size: 1.2em
+    @extend $base-sharp
 
   h5
     font-size: 1em
+    @extend $base-sharp
 
   h6
     font-size: 1em
+    @extend $base-sharp
     color: color-grey
 
   hr

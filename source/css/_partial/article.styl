@@ -1,13 +1,10 @@
 .hr-line
   margin: 10px article-padding
   opacity: 0.5
-  height: 2px
-  background-image: linear-gradient(to left, rgba(255, 0, 0, 0.75) 50%, transparent 0%)
+  height: 3px
+  background-image: linear-gradient(to left, red-0 50%, transparent 0%)
   background-size: 20px 3px
   background-repeat: repeat-x
-
-.article
-  width: 100%
 
 .article-inner
   @extend $block
@@ -16,43 +13,43 @@
 .article-meta
   clearfix()
   display: flex
+  flex-direction: column
   padding: article-padding article-padding 0
 
-.article-date
+$article-meta-tag
   text-decoration: none
   text-transform: uppercase
   font-size: 14px
-  color: #ff5757
-  background: #ffdddd
+  color: red-1
+  background: red-5
   border-radius: 20px
   padding: 10px 18px
   margin: 0 12px 1em
+  box-shadow: 0 0 5px 3px red-6
+  text-shadow: 0 1px #fff
+
+.article-date
+  display: flex
+  align-items: center
+
+.article-date-link
+  @extend $article-meta-tag
 
   &:before
     content: "\f017"
     margin-right: 10px
 
 .article-category
-  line-height: 1em
   display: flex
+  flex-wrap: wrap
   align-items: center
 
 .article-category-link
-  text-decoration: none
-  text-transform: uppercase
-  font-size: 14px
-  color: #ff5757
-  background: #ffdddd
-  border-radius: 20px
-  padding: 10px 18px
-  margin: 0 12px 1em
+  @extend $article-meta-tag
 
   &:before
     content: "\f02e"
     margin-right: 10px
-
-.article-header
-  padding: article-padding article-padding 0
 
 .article-title
   text-decoration: none
@@ -78,9 +75,15 @@
   h1, h2, h3, h4, h5, h6
     font-weight: bold
 
+    &:before
+      font-weight: normal
+
   h1, h2, h3, h4, h5, h6
     line-height: line-height-title
     margin: line-height-title 0
+
+  h2
+    margin-bottom: 40px
 
   a
     color: color-link
@@ -117,8 +120,8 @@
     padding: 10px 0
 
   blockquote
-    background: #ffeeee
-    border-left: 6px #ffd0d0 solid
+    background: red-5
+    border-left: 6px red-4 solid
     margin: line-height 0
     border-radius: post-radius
 
@@ -130,7 +133,6 @@
     footer
       font-size: font-size
       margin: line-height 0
-      font-family: font-sans
 
       cite
         &:before
@@ -179,10 +181,11 @@
   line-height: 1em
   padding: 6px 15px
   border-radius: 15px
-  background: color-background
-  color: color-grey
+  background: red-5
+  color: red-1
   text-shadow: 0 1px #fff
   text-decoration: none
+  box-shadow: 0 0 5px 3px red-6
 
   &:hover
     background: color-link
@@ -192,27 +195,24 @@
 
 .article-footer
   clearfix()
-  font-size: 0.85em
-  line-height: line-height
+  font-size: 14px
   border-top: 1px solid color-border
   padding-top: article-padding
   margin: 0 article-padding article-padding
 
   a
-    color: color-grey
     text-decoration: none
 
   .article-tag-list-link,
   .article-share-link,
   .article-comment-link
-    color: #ff5757
+    color: red-1
 
 .article-tag-list-item
   float: left
   text-decoration: none
   text-transform: uppercase
-  font-size: 14px
-  background: #ffdddd
+  background: red-5
   border-radius: 20px
   padding: 10px 18px
 
@@ -225,7 +225,7 @@
 
 .article-comment-link
   float: right
-  background: #ffdddd
+  background: red-5
   border-radius: 20px
   padding: 10px 18px
 
@@ -238,7 +238,7 @@
   float: right
   margin-left: 20px
   font-size: 14px
-  background: #ffdddd
+  background: red-5
   border-radius: 20px
   padding: 10px 18px
 
@@ -257,7 +257,7 @@
     flex-direction: row
 
 .article-nav-link-wrap
-  color: #fff
+  color: color-wrap
   position: relative
   flex: 1
   display: flex
@@ -421,6 +421,10 @@ $article-share-link
     display: block
     max-width: 100%
     margin: 0 auto
+
+.katex-display
+  overflow-x: scroll
+  overflow-y: hidden
 
 /*
 $article-gallery-ctrl
