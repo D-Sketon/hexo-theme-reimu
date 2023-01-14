@@ -4,7 +4,7 @@
 <body>
 <div id="container">
     <div id="wrap">
-        <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+        <%- partial('_partial/header', {post: page}, {cache: false}) %>
         <div id="content" class="outer">
             <section id="main"><%- body %></section>
             <% if (theme.sidebar){ %>

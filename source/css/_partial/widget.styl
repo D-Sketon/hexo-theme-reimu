@@ -1,35 +1,3 @@
-.widget
-  @extend $base-style
-  line-height: line-height
-  word-wrap: break-word
-  font-size: 0.9em
-
-  ul, ol
-    list-style: none
-    margin: 0
-
-    ul, ol
-      margin: 0 20px
-
-    ul
-      list-style: disc
-
-    ol
-      list-style: decimal
-
-.category-list-count
-.tag-list-count
-.archive-list-count
-  padding-left: 5px
-  color: color-grey
-  font-size: 0.85em
-
-  &:before
-    content: "("
-
-  &:after
-    content: ")"
-
 .tagcloud
   a
     margin-right: 5px
@@ -37,27 +5,61 @@
 
 .widget-wrap
   margin: block-margin 0
+  background: #fff
+  border-radius: post-radius
+  transition: all 0.3s ease
+
+  &:hover
+    transition: all 0.3s ease
+    box-shadow: 0 0 10px 3px rgba(150, 150, 150, 0.1)
 
 .widget-title
-  @extend $block-caption
+  text-decoration: none
+  text-transform: uppercase
+  letter-spacing: 2px
+  color: color-grey
+  line-height: 1em
+  font-weight: bold
+  padding: 20px 20px 10px
 
 .widget
   color: color-sidebar-text
-  text-shadow: 0 1px #fff
-  background: color-widget-background
-  box-shadow: 0 -1px 4px color-widget-border inset
-  border: 1px solid color-widget-border
-  padding: 15px
+  padding: 10px 20px
   border-radius: 3px
 
   a
     color: color-link
     text-decoration: none
+    opacity: 0.7
 
     &:hover
-      text-decoration: underline
+      opacity: 1
 
   ul, ol, dl
     ul, ol, dl
       margin-left: 15px
-      list-style: disc
+      list-style: none
+
+
+  li
+    margin: 10px 0
+
+    &:before
+      content: ""
+      width: 5px
+      height: 10px
+      background: rgba(255, 0, 0, 0.75)
+      display: inline-block
+      vertical-align: middle
+      margin-right: 11px
+      box-shadow: 0 2px 12px rgba(255, 78, 106, 0.55)
+      opacity: 0.5
+      transition: all 0.35s ease-out
+
+    &:hover
+      &:before
+        width: 5px
+        height: 5px
+        border-radius: 50%
+        opacity: 1
+        transition: all 0.2s ease-out
