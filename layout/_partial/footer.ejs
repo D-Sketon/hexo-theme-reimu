@@ -7,7 +7,9 @@
             <% } %>
             <div>
                 <span class="icon-copyright"></span>
-                <%= theme.footer.since %>-<%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>
+                <%= theme.footer.since %>-<%= date(new Date(), 'YYYY') %>
+                <span class="footer-info-sep"></span>
+                <%= config.author || config.title %>
             </div>
             <% if(theme.footer.powered) { %>
                 <div>
@@ -22,6 +24,12 @@
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
                     <%= __(totalmin2read(site)) %>
+                </div>
+            <% } %>
+            <% if(theme.footer.busuanzi){ %>
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
                 </div>
             <% } %>
         </div>

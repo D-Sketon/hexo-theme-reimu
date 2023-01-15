@@ -1,20 +1,19 @@
-<%- js(theme.vendor.jquery) %>
-<%- js(theme.vendor.lazysizes) %>
-<%- js(theme.vendor.clipboard) %>
-
-<% if(theme.math.enable) { %>
-    <%- css(theme.math.css) %>
-<% } %>
+<%- js(theme.vendor.js.jquery) %>
+<%- js(theme.vendor.js.lazysizes) %>
+<%- js(theme.vendor.js.clipboard) %>
 
 <% if (theme.fancybox){ %>
-    <%- js(theme.vendor.fancybox) %>
+    <%- js(theme.vendor.js.fancybox) %>
+<% } %>
+<% if (theme.footer.busuanzi){ %>
+    <%- js(theme.vendor.js.busuanzi) %>
 <% } %>
 
 <%- js('js/script') %>
 <%- partial('gauges-analytics') %>
 
 <% if(theme.valine.enable && theme.valine.appId && theme.valine.appKey){ %>
-    <%- js(theme.vendor.valine) %>
+    <%- js(theme.vendor.js.valine) %>
     <script>
         var GUEST_INFO = ['nick', 'mail', 'link'];
         var guest_info = '<%= theme.valine.guest_info %>'.split(',').filter(function (item) {
@@ -34,5 +33,29 @@
             recordIP: recordIP,
             highlight: highlight
         });
+    </script>
+<% } %>
+
+<% if(theme.algolia_search.enable){ %>
+    <%- js(theme.vendor.js.algolia) %>
+    <%- js(theme.vendor.js.instantsearch) %>
+    <%- js('js/search.js') %>
+    <script>
+        var CONFIG = {
+            root: '/',
+            algolia: {
+                applicationID: "<%= config.algolia.applicationID %>",
+                apiKey: "<%= config.algolia.apiKey %>",
+                indexName: "<%= config.algolia.indexName %>",
+                hits: {
+                    "per_page": parseInt("<%= theme.algolia_search.hits.per_page %>")
+                },
+                labels: {
+                    "input_placeholder": "<%= theme.algolia_search.labels.input_placeholder %>",
+                    "hits_empty": "<%= theme.algolia_search.labels.hits_empty %>",
+                    "hits_stats": "<%= theme.algolia_search.labels.hits_stats %>"
+                }
+            }
+        };
     </script>
 <% } %>

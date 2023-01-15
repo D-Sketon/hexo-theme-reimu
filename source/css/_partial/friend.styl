@@ -2,6 +2,7 @@
   width: 100%
   display: flex
   flex-wrap: wrap
+  margin-bottom: 30px
 
 .friend-item-wrap
   width: 48%
@@ -12,6 +13,9 @@
   position: relative
   display: flex
   margin: 1%
+
+  @media mg-normal
+    width: 98%
 
   a
     position: absolute
@@ -57,6 +61,7 @@
   .friend-name
     color: red-2
     font-size: 18px
+    font-weight: bold
 
   .friend-desc
     color: color-grey

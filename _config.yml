@@ -10,7 +10,7 @@ banner: "images/banner.jpg"
 
 # Content
 excerpt_link: Read More
-fancybox: false
+fancybox: true
 
 # Footer
 copyright:
@@ -49,15 +49,15 @@ social:
   facebook: https://www.facebook.com/yourname
 
 footer:
-  since: 2020
+  since: 2020 # 2020-current_year
   powered: true
   count: true
+  busuanzi: true
 
 # need https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus
 # use katex
 math:
   enable: true
-  css: https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css
 
 # valine comment system. https://valine.js.org
 # version 1.5.1
@@ -74,9 +74,36 @@ valine:
   recordIP: true # whether to record the IP address of the commenters
   highlight: true # whether to highlight the code blocks
 
+
+# need https://github.com/thom4parisot/hexo-algolia
+# please add the following config in your _config.yml
+# algolia:
+#   applicationID: 'your applicationID'
+#   apiKey: 'your apiKey'
+#   adminApiKey: 'your adminApiKey'
+#   indexName: 'your indexName'
+#   chunkSize: 5000
+algolia_search:
+  enable: true
+  hits:
+    per_page: 10
+  labels:
+    input_placeholder: "搜索....."
+    hits_empty: "未发现与 「${query}」相关内容"
+    hits_stats: "找到${hits}条结果（用时 ${time} ms）"
+
+
 vendor:
-  jquery: https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js
-  clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js
-  lazysizes: https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js
-  fancybox: https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js
-  valine: https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js
+  js:
+    jquery: https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js
+    clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js
+    lazysizes: https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js
+    fancybox: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
+    valine: https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js
+    busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
+    algolia: https://cdn.jsdelivr.net/npm/algoliasearch@4.14.2/dist/algoliasearch-lite.umd.js
+    instantsearch: http://cdn.bootcss.com/instantsearch.js/1.5.1/instantsearch.js
+  css:
+    highlight: https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css
+    fancybox: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
+    katex: https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css
