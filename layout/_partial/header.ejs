@@ -3,13 +3,23 @@
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
             <h1 id="logo-wrap">
-                <% if (post.title){ %>
-                    <a href="<%- url_for() %>" id="logo"><%= post.title %></a>
-                <% }else{ %>
-                    <a href="<%- url_for() %>" id="logo"><%= config.title %></a>
+                <% if (post.type == '404') { %>
+                    <a href="/" id="logo">4 0 4 (ﾟ⊿ﾟ)ﾂ</a>
+                <% } else { %>
+                    <% if (post.title){ %>
+                        <a href="<%- url_for() %>" id="logo"><%= post.title %></a>
+                    <% }else if(is_archive()){ %>
+                        <a href="<%- url_for() %>" id="logo"><%- __('archives') %></a>
+                    <% }else{ %>
+                        <a href="<%- url_for() %>" id="logo"><%= config.title %></a>
+                    <% } %>
                 <% } %>
             </h1>
-            <% if ((theme.subtitle || config.subtitle) && !(post.title)){ %>
+            <% if (post.type == 404) { %>
+                <h2 id="subtitle-wrap">
+                    <a href="/" id="subtitle">满 身 疮 痍</a>
+                </h2>
+            <% }else if ((theme.subtitle || config.subtitle) && !(post.title) && !is_archive()){ %>
                 <h2 id="subtitle-wrap">
                     <a href="<%- url_for() %>" id="subtitle"><%= theme.subtitle || config.subtitle %></a>
                 </h2>

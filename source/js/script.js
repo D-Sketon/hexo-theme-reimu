@@ -83,6 +83,9 @@ const getRealPath = (pathname, desc = false) => {
         $(this).find('img').each(function () {
             if ($(this).parent().hasClass('fancybox') || $(this).parent().is('a')) return;
 
+            // ignore friendsLink
+            if ($(this).parent().hasClass('friend-icon')) return;
+
             var alt = this.alt;
 
             if (alt) $(this).after('<span class="caption">' + alt + '</span>');

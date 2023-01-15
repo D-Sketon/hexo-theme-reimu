@@ -1,20 +1,20 @@
-<%- js('js/jquery-3.6.3.min.js') %>
-<%- js('js/lazysizes.min.js') %>
-<%- js('js/clipboard.min.js') %>
+<%- js(theme.vendor.jquery) %>
+<%- js(theme.vendor.lazysizes) %>
+<%- js(theme.vendor.clipboard) %>
 
 <% if(theme.math.enable) { %>
     <%- css(theme.math.css) %>
 <% } %>
 
 <% if (theme.fancybox){ %>
-    <%- js('fancybox/jquery.fancybox.min.js') %>
+    <%- js(theme.vendor.fancybox) %>
 <% } %>
 
 <%- js('js/script') %>
 <%- partial('gauges-analytics') %>
 
 <% if(theme.valine.enable && theme.valine.appId && theme.valine.appKey){ %>
-    <%- js('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js') %>
+    <%- js(theme.vendor.valine) %>
     <script>
         var GUEST_INFO = ['nick', 'mail', 'link'];
         var guest_info = '<%= theme.valine.guest_info %>'.split(',').filter(function (item) {

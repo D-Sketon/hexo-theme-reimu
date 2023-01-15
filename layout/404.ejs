@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<%- partial('_partial/head') %>
+<body>
+<div id="container">
+    <div id="wrap">
+        <%- partial('_partial/header', {post: page}, {cache: !config.relative_link}) %>
+    </div>
+</div>
+</body>
+</html>
