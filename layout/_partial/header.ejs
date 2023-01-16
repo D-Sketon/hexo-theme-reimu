@@ -1,12 +1,14 @@
 <header id="header">
     <% if(post.cover){ %>
-        <div
-                style="background: linear-gradient(to top, rgba(238, 238, 238, 1) 0, transparent 70vh), url('<%= post.cover %>') center -120px; background-repeat: no-repeat; background-size: cover;"
-                id="banner"></div>
+        <img data-src="<%= post.cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
+<!--        <div-->
+<!--                style="background: no-repeat center / 100%; background-image: linear-gradient(to top, rgba(238, 238, 238, 1), transparent 50%), url('<%= post.cover %>'); background-repeat: no-repeat; background-size: cover;"-->
+<!--                id="banner"></div>-->
     <% }else{ %>
-        <div
-                style="background: linear-gradient(to top, rgba(238, 238, 238, 1) 0, transparent 70vh), url('/css/<%= theme.banner %>') center -120px; background-repeat: no-repeat; background-size: cover;"
-                id="banner"></div>
+        <img data-src="/css/<%= theme.banner %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
+<!--        <div-->
+<!--                style="background: linear-gradient(to top, rgba(238, 238, 238, 1), transparent 50%), url('/css/<%= theme.banner %>') no-repeat center center / auto 100%;"-->
+<!--                id="banner"></div>-->
     <% } %>
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
