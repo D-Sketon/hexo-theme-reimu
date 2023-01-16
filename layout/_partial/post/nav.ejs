@@ -2,7 +2,18 @@
     <nav id="article-nav">
         <% if (post.prev){ %>
             <div class="article-nav-link-wrap article-nav-link-left">
-                <img data-src="/css/images/banner.jpg" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
+                <% if(post.prev.cover){ %>
+                    <img data-src="<%= post.prev.cover %>" data-sizes="auto" alt="<%= post.prev.title %>"
+                         class="lazyload">
+                <% }else{ %>
+                    <% var cover = randomCover(); %>
+                    <% if(cover) { %>
+                        <img data-src="/<%= cover %>" data-sizes="auto" alt="<%= post.prev.title %>" class="lazyload">
+                    <% }else{ %>
+                        <img data-src="/css/<%= theme.banner %>" data-sizes="auto" alt="<%= post.prev.title %>"
+                             class="lazyload">
+                    <% } %>
+                <% } %>
                 <a href="<%- url_for(post.prev.path) %>"></a>
                 <div class="article-nav-caption"><%= __('newer') %></div>
                 <div class="article-nav-title">
@@ -16,7 +27,18 @@
         <% } %>
         <% if (post.next){ %>
             <div class="article-nav-link-wrap article-nav-link-right">
-                <img data-src="/css/images/banner.jpg" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
+                <% if(post.next.cover){ %>
+                    <img data-src="<%= post.next.cover %>" data-sizes="auto" alt="<%= post.next.title %>"
+                         class="lazyload">
+                <% }else{ %>
+                    <% var cover = randomCover(); %>
+                    <% if(cover) { %>
+                        <img data-src="/<%= cover %>" data-sizes="auto" alt="<%= post.next.title %>" class="lazyload">
+                    <% }else{ %>
+                        <img data-src="/css/<%= theme.banner %>" data-sizes="auto" alt="<%= post.next.title %>"
+                             class="lazyload">
+                    <% } %>
+                <% } %>
                 <a href="<%- url_for(post.next.path) %>"></a>
                 <div class="article-nav-caption"><%= __('older') %></div>
                 <div class="article-nav-title">

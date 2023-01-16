@@ -3,7 +3,7 @@
         <% if (post.link){ %>
             <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url"
                target="_blank"></a>
-        <% } else if (post.title){ %>
+        <% } else { %>
             <a class="post-link" href="<%- url_for(post.path) %>"></a>
         <% } %>
         <div class="post-cover-left">
@@ -12,7 +12,7 @@
             <% }else{ %>
                 <% var cover = randomCover();%>
                 <% if(cover) { %>
-                    <img data-src="<%= cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
+                    <img data-src="/<%= cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
                 <% }else{ %>
                     <img data-src="/css/<%= theme.banner %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
                 <% } %>
@@ -47,7 +47,7 @@
         <% if (post.link){ %>
             <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url"
                target="_blank"></a>
-        <% } else if (post.title){ %>
+        <% } else { %>
             <a class="post-link" href="<%- url_for(post.path) %>"></a>
         <% } %>
         <div class="post-cover-right">
@@ -56,7 +56,7 @@
             <% }else{ %>
                 <% var cover = randomCover();%>
                 <% if(cover) { %>
-                    <img data-src="<%= cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
+                    <img data-src="/<%= cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
                 <% }else{ %>
                     <img data-src="/css/<%= theme.banner %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
                 <% } %>

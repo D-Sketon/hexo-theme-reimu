@@ -1,5 +1,13 @@
 <header id="header">
-    <div id="banner"></div>
+    <% if(post.cover){ %>
+        <div
+                style="background: linear-gradient(to top, rgba(238, 238, 238, 1) 0, transparent 70vh), url('<%= post.cover %>') center -120px; background-repeat: no-repeat; background-size: cover;"
+                id="banner"></div>
+    <% }else{ %>
+        <div
+                style="background: linear-gradient(to top, rgba(238, 238, 238, 1) 0, transparent 70vh), url('/css/<%= theme.banner %>') center -120px; background-repeat: no-repeat; background-size: cover;"
+                id="banner"></div>
+    <% } %>
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
             <h1 id="logo-wrap">
