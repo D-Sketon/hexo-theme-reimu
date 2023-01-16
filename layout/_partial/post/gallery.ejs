@@ -2,8 +2,8 @@
     <div class="article-gallery">
         <div class="article-gallery-photos">
             <% post.photos.forEach(function(photo, i){ %>
-                <div class="article-gallery-img"><img src="<%- url_for(photo, {relative: false}) %>" itemprop="image">
-                </div>
+                <a class="article-gallery-img" data-fancybox="gallery" data-caption href="<%- url_for(photo) %>" rel="gallery_<%= post._id %>">
+                    <img src="<%- url_for(photo) %>" itemprop="image">
                 </a>
             <% }) %>
         </div>

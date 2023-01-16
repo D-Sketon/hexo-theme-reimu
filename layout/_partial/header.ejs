@@ -6,12 +6,20 @@
                 <% if (post.type == '404') { %>
                     <a href="/" id="logo">4 0 4 (ﾟ⊿ﾟ)ﾂ</a>
                 <% } else { %>
-                    <% if (post.title){ %>
-                        <a href="<%- url_for() %>" id="logo"><%= post.title %></a>
-                    <% }else if(is_archive()){ %>
-                        <a href="<%- url_for() %>" id="logo"><%- __('archives') %></a>
-                    <% }else{ %>
-                        <a href="<%- url_for() %>" id="logo"><%= config.title %></a>
+                    <% var title;
+                        if (is_archive()) {
+                            title = __('archives');
+                        } else if (is_category()) {
+                            title = __('categories');
+                        } else if (is_tag()) {
+                            title = __('tags');
+                        } else if (post.title) {
+                            title = post.title;
+                        } else {
+                            title = config.title;
+                        } %>
+                    <% if (title){ %>
+                        <a href="<%- url_for() %>" id="logo"><%= title %></a>
                     <% } %>
                 <% } %>
             </h1>
@@ -19,10 +27,24 @@
                 <h2 id="subtitle-wrap">
                     <a href="/" id="subtitle">满 身 疮 痍</a>
                 </h2>
-            <% }else if ((theme.subtitle || config.subtitle) && !(post.title) && !is_archive()){ %>
-                <h2 id="subtitle-wrap">
-                    <a href="<%- url_for() %>" id="subtitle"><%= theme.subtitle || config.subtitle %></a>
-                </h2>
+            <% } else { %>
+                <% var subtitle;
+                    if (is_archive()) {
+                        subtitle = null;
+                    } else if (is_category()) {
+                        subtitle = post.category;
+                    } else if (is_tag()) {
+                        subtitle = post.tag;
+                    } else if (post.title) {
+                        subtitle = null;
+                    } else if (theme.subtitle || config.subtitle) {
+                        subtitle = theme.subtitle || config.subtitle;
+                    } %>
+                <% if (subtitle){ %>
+                    <h2 id="subtitle-wrap">
+                        <a href="<%- url_for() %>" id="subtitle"><%= subtitle %></a>
+                    </h2>
+                <% } %>
             <% } %>
         </div>
         <div id="header-inner">
@@ -40,8 +62,10 @@
                     <a id="nav-rss-link" class="nav-icon" href="<%- url_for(theme.rss) %>"
                        title="<%= __('rss_feed') %>"></a>
                 <% } %>
-                <a id="nav-search-btn" class="nav-icon popup-trigger" title="<%= __('search') %>">
-                </a>
+                <% if (theme.algolia_search.enable){ %>
+                    <a id="nav-search-btn" class="nav-icon popup-trigger" title="<%= __('search') %>">
+                    </a>
+                <% } %>
             </nav>
             <div id="search-form-wrap">
                 <%- search_form({button: '&#xF002;', text: __('search')}) %>
