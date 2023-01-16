@@ -1,6 +1,6 @@
 categories: 分類
 search: 搜尋
-tags: 標籤
+tags: 標簽
 tagcloud: 標籤雲
 tweets: 推文
 prev: 上一頁
@@ -24,10 +24,23 @@ about: 關於
 friend: 友鏈
 archives: 歸檔
 
+sidebar:
+  post: 文章
+  category: 分類
+  tag: 標簽
+
+not_found:
+  title: 4 0 4 (ﾟ⊿ﾟ)ﾂ
+  subtitle: 満 身 創 痍
+
 post:
   count:
-    one: '%s 字'
-    other: '%s 字'
+    one: "%s 字"
+    other: "%s 字"
   time:
-    one: '%d 分鐘'
-    other: '%d 分鐘'
+    one: "%d 分鐘"
+    other: "%d 分鐘"
+
+busuanzi:
+  pv: 縂訪問量
+  uv: 縂訪客量

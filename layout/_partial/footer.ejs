@@ -29,7 +29,10 @@
             <% if(theme.footer.busuanzi){ %>
                 <div>
                     <span class="icon-eye"></span>
-                    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+                    <span id="busuanzi_container_site_pv"><%= __('busuanzi.pv') %><span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv"><%= __('busuanzi.uv') %><span id="busuanzi_value_site_uv"></span></span>
                 </div>
             <% } %>
         </div>

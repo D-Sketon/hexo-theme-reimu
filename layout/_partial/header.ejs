@@ -4,7 +4,7 @@
         <div id="header-title" class="inner">
             <h1 id="logo-wrap">
                 <% if (post.type == '404') { %>
-                    <a href="/" id="logo">4 0 4 (ﾟ⊿ﾟ)ﾂ</a>
+                    <a href="/" id="logo"><%= __("not_found.title") %></a>
                 <% } else { %>
                     <% var title;
                         if (is_archive()) {
@@ -25,7 +25,7 @@
             </h1>
             <% if (post.type == 404) { %>
                 <h2 id="subtitle-wrap">
-                    <a href="/" id="subtitle">满 身 疮 痍</a>
+                    <a href="/" id="subtitle"><%= __("not_found.subtitle") %></a>
                 </h2>
             <% } else { %>
                 <% var subtitle;

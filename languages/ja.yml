@@ -6,7 +6,7 @@ tweets: ツイート
 prev: 戻る
 next: 次へ
 comment: コメント
-reading: Readings
+reading: 閲覧数
 archive_a: アーカイブ
 archive_b: "アーカイブ: %s"
 page: ページ %d
@@ -19,15 +19,28 @@ rss_feed: RSSフィード
 category: カテゴリ
 tag: タグ
 
-home: Home
-about: About
-friend: Friend
-archives: Archives
+home: ホーム
+about: プロフィール
+friend: フレンド
+archives: アーカイブ
+
+not_found:
+  title: 4 0 4 (ﾟ⊿ﾟ)ﾂ
+  subtitle: 満 身 創 痍
+
+sidebar:
+  post: 投稿
+  category: カテゴリ
+  tag: タグ
 
 post:
   count:
-    one: '%s word'
-    other: '%s words'
+    one: "%s word"
+    other: "%s words"
   time:
-    one: '%d min'
-    other: '%d mins'
+    one: "%d min"
+    other: "%d mins"
+
+busuanzi:
+  pv: 総閲覧数
+  uv: 総閲覧者数

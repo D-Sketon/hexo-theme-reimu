@@ -78,7 +78,6 @@ valine:
   recordIP: true # whether to record the IP address of the commenters
   highlight: true # whether to highlight the code blocks
 
-
 # need https://github.com/thom4parisot/hexo-algolia
 # please add the following config in your _config.yml
 # algolia:

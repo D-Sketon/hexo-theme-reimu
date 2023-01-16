@@ -24,10 +24,23 @@ about: About
 friend: Friend
 archives: Archives
 
+sidebar:
+  post: Posts
+  category: Categories
+  tag: Tags
+
+not_found:
+  title: 4 0 4 (ﾟ⊿ﾟ)ﾂ
+  subtitle: NOT FOUND
+
 post:
   count:
-    one: '%s word'
-    other: '%s words'
+    one: "%s word"
+    other: "%s words"
   time:
-    one: '%d min'
-    other: '%d mins'
+    one: "%d min"
+    other: "%d mins"
+
+busuanzi:
+  pv: Total number of visits
+  uv: Total number of visitors

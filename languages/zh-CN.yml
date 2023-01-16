@@ -24,10 +24,23 @@ about: 关于
 friend: 友链
 archives: 归档
 
+sidebar:
+  post: 文章
+  category: 分类
+  tag: 标签
+
+not_found:
+  title: 4 0 4 (ﾟ⊿ﾟ)ﾂ
+  subtitle: 満 身 創 痍
+
 post:
   count:
-    one: '%s 字'
-    other: '%s 字'
+    one: "%s 字"
+    other: "%s 字"
   time:
-    one: '%d 分钟'
-    other: '%d 分钟'
+    one: "%d 分钟"
+    other: "%d 分钟"
+
+busuanzi:
+  pv: 总访问量
+  uv: 总访客量
