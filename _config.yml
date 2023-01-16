@@ -6,6 +6,7 @@ menu:
   friend: /friend
 
 banner: "images/banner.jpg" # themes/reimu/source/css/images/banner.jpg
+favicon: "images/favicon.ico" # themes/reimu/source/css/images/favicon.ico
 avatar: "avatar.jpg" # source/_data/avatar/avatar.jpg
 
 # Content
@@ -105,7 +106,9 @@ vendor:
     busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
     algolia: https://cdn.jsdelivr.net/npm/algoliasearch@4.14.2/dist/algoliasearch-lite.umd.js
     instantsearch: http://cdn.bootcss.com/instantsearch.js/1.5.1/instantsearch.js
+    pace: https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js
   css:
     highlight: https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css
     fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css
     katex: https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css
+    pace: https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css
