@@ -6,17 +6,21 @@
         <% } else { %>
             <a class="post-link" href="<%- url_for(post.path) %>"></a>
         <% } %>
+        <% if(post.sticky){ %>
+            <div class="post-sticky"><%= __('sticky')%></div>
+        <% } %>
         <div class="post-cover-left">
             <% if(post.cover){ %>
                 <img data-src="<%= post.cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
             <% }else{ %>
-                <% var cover = randomCover();%>
+                <% var cover = randomCover(); %>
                 <% if(cover) { %>
                     <img data-src="/<%= cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
                 <% }else{ %>
                     <img data-src="/css/<%= theme.banner %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
                 <% } %>
             <% } %>
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -54,7 +58,7 @@
             <% if(post.cover){ %>
                 <img data-src="<%= post.cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
             <% }else{ %>
-                <% var cover = randomCover();%>
+                <% var cover = randomCover(); %>
                 <% if(cover) { %>
                     <img data-src="/<%= cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
                 <% }else{ %>

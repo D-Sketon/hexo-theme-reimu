@@ -44,3 +44,5 @@ post:
 busuanzi:
   pv: 总访问量
   uv: 总访客量
+
+sticky: 置顶

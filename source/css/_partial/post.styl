@@ -166,3 +166,32 @@ $post-cover
   white-space: nowrap
   overflow: hidden
   text-overflow: ellipsis
+
+.post-sticky
+  position: absolute
+  display: flex
+  justify-content: center
+  align-items: center
+  top: 0
+  left: 0
+  width: 70px
+  height: 35px
+  background: red-5
+  color: red-1
+  font-weight: bold
+  font-size: 15px
+  z-index: 1
+
+  &:before
+    content:"\f087"
+    margin-right: 5px
+
+.post-wrap-left
+  .post-sticky
+    border-top-left-radius: post-radius
+    border-bottom-right-radius: post-radius
+
+.post-wrap-right
+  .post-sticky
+    border-top-right-radius: post-radius
+    border-bottom-left-radius: post-radius

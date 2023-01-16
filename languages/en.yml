@@ -44,3 +44,5 @@ post:
 busuanzi:
   pv: Number of visits
   uv: Number of visitors
+
+sticky: Sticky
