@@ -50,8 +50,12 @@
 .archive-article
   padding: 15px 0
   padding-left: 25px
+  position: relative
+  display: flex
+  align-items: center
 
   &:before
+    flex-shrink: 0
     content: ""
     width: 6px
     height: 15px
@@ -73,21 +77,28 @@
       opacity: 1
       transition: all 0.2s ease
 
+    .archive-article-title
+      transition: all 0.35s ease-out
+      opacity: 1
+
+.archive-article-date-wrap
+  flex-shrink: 0
+
+  a
+    text-decoration: none
+
 .dt-published
   color: color-grey
   margin-left: 5px
 
 .archive-article-title
+  display: inline-block
   text-decoration: none
   font-weight: bold
   color: red-0
   transition: all 0.35s ease-out
   opacity: 0.6
   margin-left: 15px
-
-  &:hover
-    transition: all 0.35s ease-out
-    opacity: 1
 
 #page-nav
   clearfix()
@@ -161,7 +172,7 @@
 
   .archives-tag-list-link
     color: red-1
-    font-size: 10px
+    font-size: 12px
 
     &:before
       margin-right: 10px
@@ -186,7 +197,7 @@
 
   .archives-category-list-link
     color: red-1
-    font-size: 10px
+    font-size: 14px
 
     &:before
       margin-right: 10px
