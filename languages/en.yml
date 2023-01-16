@@ -42,5 +42,5 @@ post:
     other: "%d mins"
 
 busuanzi:
-  pv: Total number of visits
-  uv: Total number of visitors
+  pv: Number of visits
+  uv: Number of visitors

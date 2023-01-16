@@ -5,8 +5,8 @@ menu:
   about: /about
   friend: /friend
 
-# banner picture
-banner: "images/banner.jpg"
+banner: "images/banner.jpg" # themes/reimu/source/css/images/banner.jpg
+avatar: "avatar.jpg" # source/_data/avatar/avatar.jpg
 
 # Content
 excerpt_link: Read More

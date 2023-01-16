@@ -13,26 +13,26 @@
             </div>
             <% if(theme.footer.powered) { %>
                 <div>
-                    <%= __('powered_by') %> <a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    <%= __('powered_by') %>&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
                     Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
                 </div>
             <% } %>
             <% if(theme.footer.count) { %>
                 <div>
                     <span class="icon-brush"></span>
-                    <%= _p('post.count', totalcount(site)) %>
+                    <%= totalcount(site) %>
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    <%= __(totalmin2read(site)) %>
+                    <%= totalmin2read(site) %>
                 </div>
             <% } %>
             <% if(theme.footer.busuanzi){ %>
                 <div>
                     <span class="icon-eye"></span>
-                    <span id="busuanzi_container_site_pv"><%= __('busuanzi.pv') %><span id="busuanzi_value_site_pv"></span></span>
+                    <span id="busuanzi_container_site_pv"><%= __('busuanzi.pv') %>&nbsp;<span id="busuanzi_value_site_pv"></span></span>
                     &nbsp;|&nbsp;
                     <span class="icon-user"></span>
-                    <span id="busuanzi_container_site_uv"><%= __('busuanzi.uv') %><span id="busuanzi_value_site_uv"></span></span>
+                    <span id="busuanzi_container_site_uv"><%= __('busuanzi.uv') %>&nbsp;<span id="busuanzi_value_site_uv"></span></span>
                 </div>
             <% } %>
         </div>
