@@ -1,7 +1,11 @@
 <% if (even === true){ %>
     <div class="post-wrap-left">
-        <a class="post-link" href="<%- url_for(post.path, {relative: false}) %>" itemprop="url"></a>
-        </a>
+        <% if (post.link){ %>
+            <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url"
+               target="_blank"></a>
+        <% } else if (post.title){ %>
+            <a class="post-link" href="<%- url_for(post.path) %>"></a>
+        <% } %>
         <div class="post-cover-left">
             <img data-src="/css/images/banner.jpg" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
         </div>
@@ -38,8 +42,12 @@
     </div>
 <% } else { %>
     <div class="post-wrap-right">
-        <a class="post-link" href="<%- url_for(post.path, {relative: false}) %>" itemprop="url"></a>
-        </a>
+        <% if (post.link){ %>
+            <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url"
+               target="_blank"></a>
+        <% } else if (post.title){ %>
+            <a class="post-link" href="<%- url_for(post.path) %>"></a>
+        <% } %>
         <div class="post-cover-right">
             <img data-src="/css/images/banner.jpg" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
         </div>
