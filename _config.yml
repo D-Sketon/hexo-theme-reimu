@@ -36,12 +36,6 @@ widgets:
 - archive
 #- recent_posts
 
-# display widgets at the bottom of index pages (pagination == 2)
-index_widgets:
-# - category
-# - tagcloud
-# - archive
-
 # Widget behavior
 archive_type: 'monthly'
 show_count: false
@@ -62,11 +56,11 @@ footer:
 # need https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus
 # use katex
 math:
-  enable: true
+  enable: false
 
 # need https://github.com/webappdevelp/hexo-filter-mermaid-diagrams
 mermaid: ## mermaid url https://github.com/knsv/mermaid
-  enable: true  # default true
+  enable: false  # default true
 
 # valine comment system. https://valine.js.org
 # version 1.5.1
@@ -92,7 +86,7 @@ valine:
 #   indexName: 'your indexName'
 #   chunkSize: 5000
 algolia_search:
-  enable: true
+  enable: false
   hits:
     per_page: 10
   labels:
@@ -100,20 +94,20 @@ algolia_search:
     hits_empty: "未发现与 「${query}」相关内容"
     hits_stats: "找到${hits}条结果（用时 ${time} ms）"
 
+# Dependent cdn links
 vendor:
   js:
-    jquery: https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js
-    clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js
-    lazysizes: https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js
-    fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js
-    valine: https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js
-    busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
-    algolia: https://cdn.jsdelivr.net/npm/algoliasearch@4.14.2/dist/algoliasearch-lite.umd.js
-    instantsearch: http://cdn.bootcss.com/instantsearch.js/1.5.1/instantsearch.js
-    pace: https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js
+    jquery: https://unpkg.com/jquery@3.6.3/dist/jquery.min.js
+    clipboard: https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js
+    lazysizes: https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js
+    fancybox: https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js
+    valine: https://unpkg.com/valine@1.5.1/dist/Valine.min.js
+    busuanzi: https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js
+    algolia: https://unpkg.com/algoliasearch@4.14.2/dist/algoliasearch-lite.umd.js
+    instantsearch: https://unpkg.com/instantsearch.js@1.5.1/dist/instantsearch.min.js
+    pace: https://unpkg.com/pace-js@1.2.4/pace.min.js
     mermaid: https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js
   css:
     highlight: https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css
-    fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css
-    katex: https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css
-    pace: https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css
+    fancybox: https://unpkg.com/@fancyapps/ui/dist/fancybox.css
+    katex: https://unpkg.com/katex@0.16.4/dist/katex.min.css

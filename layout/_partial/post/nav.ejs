@@ -8,7 +8,7 @@
                 <% }else{ %>
                     <% var cover = randomCover(); %>
                     <% if(cover) { %>
-                        <img data-src="/<%= cover %>" data-sizes="auto" alt="<%= post.prev.title %>" class="lazyload">
+                        <img data-src="<%= cover %>" data-sizes="auto" alt="<%= post.prev.title %>" class="lazyload">
                     <% }else{ %>
                         <img data-src="/css/<%= theme.banner %>" data-sizes="auto" alt="<%= post.prev.title %>"
                              class="lazyload">
@@ -33,7 +33,7 @@
                 <% }else{ %>
                     <% var cover = randomCover(); %>
                     <% if(cover) { %>
-                        <img data-src="/<%= cover %>" data-sizes="auto" alt="<%= post.next.title %>" class="lazyload">
+                        <img data-src="<%= cover %>" data-sizes="auto" alt="<%= post.next.title %>" class="lazyload">
                     <% }else{ %>
                         <img data-src="/css/<%= theme.banner %>" data-sizes="auto" alt="<%= post.next.title %>"
                              class="lazyload">
