@@ -1,7 +1,9 @@
 # hexo-theme-reimu
-一款适合东方人的博丽灵梦风格的Hexo主题  
+一款博丽灵梦风格的Hexo主题  
 融合了[landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian)和[Shoka](https://github.com/amehime/hexo-theme-shoka)三个主题
+![screenshot](https://raw.githubusercontent.com/D-Sketon/hexo-theme-reimu/main/_screenshot/Reimu.png)
 
+[English README](README.en.md)
 ## 结构
 ```txt
 .
@@ -22,7 +24,7 @@ npm install hexo-theme-reimu --save
 ```bash
 git clone https://github.com/D-Sketon/hexo-theme-reimu.git
 ```
-并修改_config.yml中的theme
+并修改 `_config.yml` 中的theme
 ```yaml
 # Extensions
 ## Plugins: https://hexo.io/plugins/
@@ -105,7 +107,7 @@ algolia_search:
 ```
 注意：搜索跳转链接为永久链接，所以请保证外层 `_config.yml` 中的 `url` 填写正确
 ### 数学公式
-数学公式基于 [Katex](algolia_search)，请安装 [hexo-renderer-markdown-it-plus](https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus)
+数学公式基于 [Katex](https://github.com/KaTeX/KaTeX)，请安装 [hexo-renderer-markdown-it-plus](https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus)
 ```bash
 npm uninstall hexo-renderer-marked --save
 npm install hexo-renderer-markdown-it-plus --save
