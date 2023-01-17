@@ -64,6 +64,10 @@ footer:
 math:
   enable: true
 
+# need https://github.com/webappdevelp/hexo-filter-mermaid-diagrams
+mermaid: ## mermaid url https://github.com/knsv/mermaid
+  enable: true  # default true
+
 # valine comment system. https://valine.js.org
 # version 1.5.1
 # notify and verify have been deprecated
@@ -107,6 +111,7 @@ vendor:
     algolia: https://cdn.jsdelivr.net/npm/algoliasearch@4.14.2/dist/algoliasearch-lite.umd.js
     instantsearch: http://cdn.bootcss.com/instantsearch.js/1.5.1/instantsearch.js
     pace: https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js
+    mermaid: https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js
   css:
     highlight: https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css
     fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css

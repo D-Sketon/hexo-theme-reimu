@@ -9,6 +9,15 @@
     <%- js(theme.vendor.js.busuanzi) %>
 <% } %>
 
+<% if (theme.mermaid.enable) { %>
+    <%- js(theme.vendor.js.mermaid) %>
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+        }
+    </script>
+<% } %>
+
 <%- js('js/script') %>
 <%- partial('gauges-analytics') %>
 

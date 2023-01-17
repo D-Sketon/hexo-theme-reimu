@@ -68,6 +68,9 @@ $article-meta-tag
   color: color-default
   padding: 0 article-padding + 15px
 
+  @media mg-normal
+    padding: 0 article-padding
+
   p, table
     line-height: line-height
     margin: line-height 0
@@ -96,6 +99,12 @@ $article-meta-tag
     margin-top: line-height
     margin-bottom: line-height
 
+  li
+    &:hover
+      &::marker
+        transition: color 0.2s ease
+        color: red-1
+
   img, video
     max-width: 100%
     height: auto
@@ -120,7 +129,7 @@ $article-meta-tag
     padding: 10px 0
 
   blockquote
-    background: red-5
+    background: red-5-5
     border-left: 6px red-4 solid
     margin: line-height 0
     border-radius: post-radius

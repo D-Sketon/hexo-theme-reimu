@@ -41,7 +41,7 @@
                 <% if(post.excerpt) { %>
                     <%- post.excerpt %>
                 <% }  else{ %>
-                    <%= stripHtml(post.content) %>
+                    <%= stripHtml(post.content).slice(0, 300) %>
                 <% } %>
             </article>
         </div>

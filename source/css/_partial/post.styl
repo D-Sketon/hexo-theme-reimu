@@ -19,12 +19,16 @@ $post-wrap
 
   @media mq-normal
     &:hover
-      transition: all 0.4s ease
+      transition: all 0.3s ease
       transform: rotate(1deg)
 
       &:before
         transition: opacity 0.3s ease
         opacity: 0.8
+
+      img
+        transition: all 0.3s ease
+        transform: scale(1.05)
 
     &:before
       content: ""
@@ -55,6 +59,7 @@ $post-wrap
 
 .post-info
   height: 100%
+  width: 100%
   padding: 20px
   overflow: hidden
   box-sizing: border-box
@@ -118,7 +123,7 @@ $post-cover
   img
     display: block
     opacity: 0
-    transition: opacity 200ms ease-out
+    transition: all 0.3s ease
     position: absolute
     left: 0
     top: 0
