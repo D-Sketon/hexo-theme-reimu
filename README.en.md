@@ -1,6 +1,7 @@
 # hexo-theme-reimu
 A Hakurei Reimu style Hexo theme.  
-A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian) and [Shoka](https://github.com/amehime/hexo-theme-shoka) themes.
+A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian) and [Shoka](https://github.com/amehime/hexo-theme-shoka) themes.  
+[Demo](https://d-sketon.github.io)   
 ![screenshot](https://raw.githubusercontent.com/D-Sketon/hexo-theme-reimu/main/_screenshot/Reimu.png)
 ## Structure
 ```txt
