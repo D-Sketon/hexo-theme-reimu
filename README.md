@@ -62,14 +62,14 @@ cover: https://example.com
 - 否则查找 `covers` 文件夹和 `covers.yml`，并从中随机挑选图片
 - 若上述文件均不存在，则显示头图
 #### 头图
-头图保存于 `themes/reimu/source/css/images/banner.jpg`，可在内层 `_config.yml`中修改
+头图保存于 `themes/reimu/source/images/banner.jpg`，可在内层 `_config.yml`中修改
 ```yaml
-banner: "images/banner.jpg"
+banner: "/images/banner.jpg"
 ```
 #### 图标
-图标保存于 `themes/reimu/source/css/images/favicon.ico`，可在内层 `_config.yml`中修改
+图标保存于 `themes/reimu/source/images/favicon.ico`，可在内层 `_config.yml`中修改
 ```yaml
-favicon: "images/favicon.ico"
+favicon: "/images/favicon.ico"
 ```
 ### 代码高亮
 为保证代码块的正确显示，请保证外层 `_config.yml` 中为如下配置

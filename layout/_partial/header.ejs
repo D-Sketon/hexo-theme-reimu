@@ -2,7 +2,7 @@
     <% if(post.cover){ %>
         <img data-src="<%= post.cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
     <% }else{ %>
-        <img data-src="/css/<%= theme.banner %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
+        <img data-src="<%= theme.banner %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
     <% } %>
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">

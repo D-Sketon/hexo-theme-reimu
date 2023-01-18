@@ -62,7 +62,7 @@ $(document).ready(function () {
                     return (
                         stats +
                         '<span class="algolia-powered">' +
-                        '  <img src="' + CONFIG.root + 'css/images/algolia_logo.svg" alt="Algolia" />' +
+                        '  <img src="' + CONFIG.root + 'images/algolia_logo.svg" alt="Algolia" />' +
                         '</span>' +
                         '<hr />'
                     );

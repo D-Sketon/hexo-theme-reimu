@@ -60,14 +60,14 @@ cover: https://example.com
 - Otherwise, look for the `covers` folder and `covers.yml` and pick a random image from it
 - If none of these files exist, display the banner
 #### banner
-The banner is stored in `themes/reimu/source/css/images/banner.jpg` and can be modified in the inner `_config.yml`
+The banner is stored in `themes/reimu/source/images/banner.jpg` and can be modified in the inner `_config.yml`
 ```yaml
-banner: "images/banner.jpg"
+banner: "/images/banner.jpg"
 ```
 #### favicon
-The favicon is stored in `themes/reimu/source/css/images/favicon.ico`，and can be modified in the inner `_config.yml`
+The favicon is stored in `themes/reimu/source/images/favicon.ico`，and can be modified in the inner `_config.yml`
 ```yaml
-favicon: "images/favicon.ico"
+favicon: "/images/favicon.ico"
 ```
 ### Code highlighting
 To ensure that the code blocks are displayed correctly, please ensure that the outer `_config.yml` is configured as follows

@@ -10,7 +10,7 @@
                     <% if(cover) { %>
                         <img data-src="<%= cover %>" data-sizes="auto" alt="<%= post.prev.title %>" class="lazyload">
                     <% }else{ %>
-                        <img data-src="/css/<%= theme.banner %>" data-sizes="auto" alt="<%= post.prev.title %>"
+                        <img data-src="<%= theme.banner %>" data-sizes="auto" alt="<%= post.prev.title %>"
                              class="lazyload">
                     <% } %>
                 <% } %>
@@ -35,7 +35,7 @@
                     <% if(cover) { %>
                         <img data-src="<%= cover %>" data-sizes="auto" alt="<%= post.next.title %>" class="lazyload">
                     <% }else{ %>
-                        <img data-src="/css/<%= theme.banner %>" data-sizes="auto" alt="<%= post.next.title %>"
+                        <img data-src="<%= theme.banner %>" data-sizes="auto" alt="<%= post.next.title %>"
                              class="lazyload">
                     <% } %>
                 <% } %>
