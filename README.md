@@ -2,7 +2,9 @@
 一款博丽灵梦风格的Hexo主题  
 融合了[landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian)和[Shoka](https://github.com/amehime/hexo-theme-shoka)三个主题  
 [Demo](https://d-sketon.github.io)  
-![screenshot](https://raw.githubusercontent.com/D-Sketon/hexo-theme-reimu/main/_screenshot/Reimu.png)
+[English README](README.en.md)
+## 截图
+![screenshot](https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/Reimu.jpg)
 
 [English README](README.en.md)
 ## 结构

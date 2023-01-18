@@ -2,7 +2,9 @@
 A Hakurei Reimu style Hexo theme.  
 A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian) and [Shoka](https://github.com/amehime/hexo-theme-shoka) themes.  
 [Demo](https://d-sketon.github.io)   
-![screenshot](https://raw.githubusercontent.com/D-Sketon/hexo-theme-reimu/main/_screenshot/Reimu.png)
+## ScreenShot
+![screenshot](https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/Reimu.jpg)
+
 ## Structure
 ```txt
 .
