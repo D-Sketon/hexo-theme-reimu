@@ -4,7 +4,7 @@
 
 [Demo](https://d-sketon.github.io)  
 
-[English README](README.en.md)  
+[English README](https://github.com/D-Sketon/hexo-theme-reimu/blob/main/README.en.md)  
 ## 截图
 ![screenshot](https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/Reimu.jpg)
 
