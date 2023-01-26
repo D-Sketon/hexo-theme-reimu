@@ -7,7 +7,6 @@
 [English README](https://github.com/D-Sketon/hexo-theme-reimu/blob/main/README.en.md)  
 ## 截图
 ![screenshot](https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/Reimu.jpg)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FD-Sketon%2Fhexo-theme-reimu.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FD-Sketon%2Fhexo-theme-reimu?ref=badge_shield)
 
 ## 结构
 ```txt
@@ -143,7 +142,4 @@ npm install hexo-generator-feed --save
 rss: atom.xml
 ```
 ## 许可
-MIT License
-
-## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FD-Sketon%2Fhexo-theme-reimu.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FD-Sketon%2Fhexo-theme-reimu?ref=badge_large)
