@@ -101,17 +101,17 @@ algolia_search:
 # Dependent cdn links
 vendor:
   js:
-    jquery: https://unpkg.com/jquery@3.6.3/dist/jquery.min.js
+    jquery: https://unpkg.com/jquery@3.7.0/dist/jquery.min.js
     clipboard: https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js
     lazysizes: https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js
-    fancybox: https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js
+    fancybox: https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
     valine: https://unpkg.com/valine@1.5.1/dist/Valine.min.js
     busuanzi: https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js
-    algolia: https://unpkg.com/algoliasearch@4.14.2/dist/algoliasearch-lite.umd.js
-    instantsearch: https://unpkg.com/instantsearch.js@1.5.1/dist/instantsearch.min.js
+    algolia: https://unpkg.com/algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js
+    instantsearch: https://unpkg.com/instantsearch.js@4.56.1/dist/instantsearch.production.min.js
     pace: https://unpkg.com/pace-js@1.2.4/pace.min.js
-    mermaid: https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js
+    mermaid: https://unpkg.com/mermaid@9.4.3/dist/mermaid.min.js
   css:
-    highlight: https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css
-    fancybox: https://unpkg.com/@fancyapps/ui/dist/fancybox.css
-    katex: https://unpkg.com/katex@0.16.4/dist/katex.min.css
+    highlight: https://cdn.jsdelivr.net/npm/typeface-source-code-pro@latest/index.min.css
+    fancybox: https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
+    katex: https://unpkg.com/katex@0.16.7/dist/katex.min.css
