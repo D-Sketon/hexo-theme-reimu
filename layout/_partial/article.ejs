@@ -78,3 +78,7 @@
 <% if (!index && post.comments && theme.twikoo.enable && theme.twikoo.envId){ %>
      <div id="comments" class="tcomment"></div>
 <% } %>
+
+<% if (!index && post.comments && theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret){ %>
+     <div id="comments" class="gtcomment"></div>
+<% } %>

@@ -115,6 +115,28 @@ twikoo:
   envId:  # 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
   region: 
 
+# https://github.com/gitalk/gitalk/blob/master/readme-cn.md
+gitalk:
+  clientID:
+  clientSecret:
+  repo:
+  owner:
+  admin:
+
+# https://giscus.app/zh-CN
+giscus:
+  repo:
+  repoId:
+  category:
+  categoryId:
+  mapping:
+  strict:
+  reactionsEnabled:
+  emitMetadata:
+  inputPosition:
+  commentTheme:
+  lang:
+
 # need https://github.com/thom4parisot/hexo-algolia
 # please add the following config in your _config.yml
 # algolia:
@@ -142,6 +164,7 @@ vendor:
     valine: https://unpkg.com/valine@1.5.1/dist/Valine.min.js
     waline: https://unpkg.com/@waline/client@v2/dist/waline.mjs
     twikoo: https://unpkg.com/twikoo@1.6.16/dist/twikoo.all.min.js
+    gitalk: https://unpkg.com/gitalk/dist/gitalk.min.js
     busuanzi: https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js
     algolia: https://unpkg.com/algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js
     instantsearch: https://unpkg.com/instantsearch.js@4.56.1/dist/instantsearch.production.min.js
@@ -152,3 +175,4 @@ vendor:
     fancybox: https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
     katex: https://unpkg.com/katex@0.16.7/dist/katex.min.css
     waline: https://unpkg.com/@waline/client@v2/dist/waline.css
+    gitalk: https://unpkg.com/gitalk/dist/gitalk.css

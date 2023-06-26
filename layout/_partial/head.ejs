@@ -46,5 +46,8 @@
     <% if (theme.waline.enable && theme.waline.serverURL){ %>
         <%- css(theme.vendor.css.waline) %>
     <% } %>
+    <% if (theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret){ %>
+        <%- css(theme.vendor.css.gitalk) %>
+    <% } %>
     <%- js(theme.vendor.js.pace)%>
 </head>
