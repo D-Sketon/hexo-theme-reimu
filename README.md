@@ -4,7 +4,17 @@
 
 [Demo](https://d-sketon.github.io)  
 
+欢迎提交ISSUE和PR！
+
 [English README](https://github.com/D-Sketon/hexo-theme-reimu/blob/main/README.en.md)  
+
+## TODO
+[  ] twikoo评论系统
+[  ] gitalk评论系统
+[  ] giscus评论系统
+[  ] 黑夜模式
+[  ] 更多动画效果
+
 ## 截图
 ![screenshot](https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/Reimu.jpg)
 
