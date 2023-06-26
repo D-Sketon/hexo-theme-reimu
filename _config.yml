@@ -117,6 +117,7 @@ twikoo:
 
 # https://github.com/gitalk/gitalk/blob/master/readme-cn.md
 gitalk:
+  enable: false
   clientID:
   clientSecret:
   repo:
@@ -125,17 +126,18 @@ gitalk:
 
 # https://giscus.app/zh-CN
 giscus:
+  enable: false
   repo:
   repoId:
   category:
   categoryId:
-  mapping:
-  strict:
-  reactionsEnabled:
-  emitMetadata:
-  inputPosition:
-  commentTheme:
-  lang:
+  mapping: mapping
+  strict: 0
+  reactionsEnabled: 1
+  emitMetadata: 0
+  inputPosition: bottom
+  commentTheme: preferred_color_scheme
+  lang: zh-CN
 
 # need https://github.com/thom4parisot/hexo-algolia
 # please add the following config in your _config.yml

@@ -93,6 +93,24 @@
     </script>
 <% } %>
 
+<% if(theme.giscus.enable){ %>
+    <script src="https://giscus.app/client.js"
+        data-repo='<%= theme.giscus.repo %>'
+        data-repo-id='<%= theme.giscus.repoId %>'
+        data-category='<%= theme.giscus.category %>'
+        data-category-id='<%= theme.giscus.categoryId %>'
+        data-mapping='<%= theme.giscus.mapping %>'
+        data-strict='<%= theme.giscus.strict %>'
+        data-reactions-enabled='<%= theme.giscus.reactionsEnabled %>'
+        data-emit-metadata='<%= theme.giscus.emitMetadata %>'
+        data-input-position='<%= theme.giscus.inputPosition %>'
+        data-theme='<%= theme.giscus.commentTheme %>'
+        data-lang='<%= theme.giscus.lang %>'
+        crossorigin="anonymous"
+        async>
+    </script>
+<% } %>
+
 <% if(theme.algolia_search.enable){ %>
     <%- js(theme.vendor.js.algolia) %>
     <%- js(theme.vendor.js.instantsearch) %>

@@ -82,3 +82,7 @@
 <% if (!index && post.comments && theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret){ %>
      <div id="comments" class="gtcomment"></div>
 <% } %>
+
+<% if (!index && post.comments && theme.giscus.enable){ %>
+     <div id="comments" class="gscomment giscus"></div>
+<% } %>

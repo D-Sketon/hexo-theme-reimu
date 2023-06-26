@@ -12,7 +12,7 @@
 - [x] waline评论系统
 - [x] twikoo评论系统（未测试）
 - [x] gitalk评论系统（未测试）
-- [ ] giscus评论系统
+- [x] giscus评论系统（未测试）
 - [ ] 黑夜模式
 - [ ] 更多动画效果
 - [ ] google字体
