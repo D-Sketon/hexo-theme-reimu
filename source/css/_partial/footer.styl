@@ -22,13 +22,15 @@
 .footer-line
   margin-top: 20px
   opacity: 0.3
-  width: 100%
+  width: 200%
   height: 10px
   background-image: linear-gradient(to left, rgba(255, 0, 0, 0.75) 50%, transparent 0%)
   background-size: 100px 10px
   background-repeat: repeat-x
   transition: opacity 0.5s
   margin-bottom: 40px
+  animation: transform-all 3s infinite
+  animation-timing-function: linear
 
 #footer-info
   line-height: line-height
@@ -79,5 +81,6 @@
   100%
     transform: rotate(360deg)
 
-
-
+@keyframes transform-all
+  100%
+    transform: translateX(-100px)

@@ -29,6 +29,13 @@
                     <%= __('comment') %>
                 </a>
             <% } %>
+            <% if (post.comments && theme.waline.enable && theme.waline.serverURL){ %>
+                <a href="<%- url_for(post.path) %>#comments" class="article-comment-link">
+                    <span class="post-comments-count waline-comment-count" data-path="<%- url_for(post.path) %>"
+                          itemprop="commentCount"></span>
+                    <%= __('comment') %>
+                </a>
+            <% } %>
             <%- partial('post/tag') %>
         </footer>
     </div>

@@ -46,7 +46,7 @@ const getRealPath = (pathname, desc = false) => {
       offset = $this.offset();
 
     if ($('#' + id).length) {
-      let box = $('#' + id);
+      var box = $('#' + id);
 
       if (box.hasClass('on')) {
         box.removeClass('on');
@@ -65,7 +65,7 @@ const getRealPath = (pathname, desc = false) => {
         '</div>'
       ].join('');
 
-      let box = $(html);
+      var box = $(html);
 
       $('body').append(box);
     }

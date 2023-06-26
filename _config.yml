@@ -108,8 +108,6 @@ waline:
     - mail
   wordLimit: 0
   pageSize: 10
-  pageview: false # 是否开启浏览量统计,可独立开启
-
 
 # need https://github.com/thom4parisot/hexo-algolia
 # please add the following config in your _config.yml
