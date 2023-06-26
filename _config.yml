@@ -117,6 +117,6 @@ vendor:
     pace: https://unpkg.com/pace-js@1.2.4/pace.min.js
     mermaid: https://unpkg.com/mermaid@9.4.3/dist/mermaid.min.js
   css:
-    highlight: https://cdn.jsdelivr.net/npm/typeface-source-code-pro@latest/index.min.css
+    highlight: https://unpkg.com/typeface-source-code-pro@1.1.13/index.css
     fancybox: https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
     katex: https://unpkg.com/katex@0.16.7/dist/katex.min.css

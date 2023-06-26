@@ -23,6 +23,15 @@ const getRealPath = (pathname, desc = false) => {
 };
 
 (function ($) {
+  // lazysizes
+  const imgs = $('.article-entry img');
+  imgs.each(function() {
+    const src = $(this).attr('src');
+    $(this).addClass('lazyload');
+    $(this).removeAttr('src');
+    $(this).attr('data-src', src);
+    $(this).attr('data-sizes','auto');
+  })
   // Share
   $('body').on('click', function () {
     $('.article-share-box.on').removeClass('on');

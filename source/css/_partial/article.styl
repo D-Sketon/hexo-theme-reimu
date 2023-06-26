@@ -110,6 +110,12 @@ $article-meta-tag
     height: auto
     display: block
     margin: auto
+    opacity: 0
+    transition: all 0.3s ease
+
+  img.lazyloaded
+    opacity: 1
+    animation: blur 0.8s ease-in-out forwards
 
   iframe
     border: none
@@ -291,7 +297,7 @@ $article-meta-tag
   img
     display: block
     opacity: 0
-    transition: opacity 200ms ease-out
+    animation: blur 0.8s ease-in-out forwards
     position: absolute
     left: 0
     top: 0
