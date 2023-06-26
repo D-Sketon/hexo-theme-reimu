@@ -9,11 +9,14 @@
 **欢迎提交ISSUE和PR！**
 
 ## TODO
-- [ ] twikoo评论系统
+- [x] waline评论系统
+- [x] twikoo评论系统（未测试）
 - [ ] gitalk评论系统
 - [ ] giscus评论系统
 - [ ] 黑夜模式
 - [ ] 更多动画效果
+- [ ] google字体
+- [ ] 加载动画
 
 ## 截图
 ![screenshot](https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/Reimu.jpg)

@@ -109,6 +109,12 @@ waline:
   wordLimit: 0
   pageSize: 10
 
+# https://twikoo.js.org
+twikoo:
+  enable: false
+  envId:  # 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+  region: 
+
 # need https://github.com/thom4parisot/hexo-algolia
 # please add the following config in your _config.yml
 # algolia:
@@ -135,6 +141,7 @@ vendor:
     fancybox: https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
     valine: https://unpkg.com/valine@1.5.1/dist/Valine.min.js
     waline: https://unpkg.com/@waline/client@v2/dist/waline.mjs
+    twikoo: https://unpkg.com/twikoo@1.6.16/dist/twikoo.all.min.js
     busuanzi: https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js
     algolia: https://unpkg.com/algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js
     instantsearch: https://unpkg.com/instantsearch.js@4.56.1/dist/instantsearch.production.min.js

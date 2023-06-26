@@ -65,6 +65,17 @@
     </script>
 <% } %>
 
+<% if(theme.twikoo.enable && theme.twikoo.envId){ %>
+    <%- js(theme.vendor.js.twikoo) %>
+    <script>
+        twikoo.init({
+            envId: '<%= theme.twikoo.envId %>',
+            el: '.tcomment',
+            region: '<%= theme.twikoo.region %>',
+        })
+    </script>
+<% } %>
+
 <% if(theme.algolia_search.enable){ %>
     <%- js(theme.vendor.js.algolia) %>
     <%- js(theme.vendor.js.instantsearch) %>
