@@ -43,5 +43,8 @@
     <% if(theme.math.enable) { %>
         <%- css(theme.vendor.css.katex) %>
     <% } %>
+    <% if (theme.waline.enable && theme.waline.serverURL){ %>
+        <%- css(theme.vendor.css.waline) %>
+    <% } %>
     <%- js(theme.vendor.js.pace)%>
 </head>

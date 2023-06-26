@@ -42,3 +42,7 @@
 
     </section>
 <% } %>
+
+<% if (!index && post.comments && theme.waline.enable && theme.waline.serverURL){ %>
+     <div id="comments" class="wcomment"></div>
+<% } %>

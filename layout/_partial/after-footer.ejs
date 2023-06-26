@@ -45,6 +45,25 @@
     </script>
 <% } %>
 
+<% if(theme.waline.enable && theme.waline.serverURL){ %>
+    <%- js(theme.vendor.js.valine) %>
+    <script type="module">
+        import { init } from "<%= theme.vendor.js.waline %>";
+
+        init({
+          el: '.wcomment',
+          serverURL: '<%= theme.waline.serverURL %>',
+          lang: '<%= theme.waline.lang %>',
+          locale: <%- JSON.stringify(theme.waline.locale) %>,
+          emoji: <%- JSON.stringify(theme.waline.emoji) %>,
+          meta: <%- JSON.stringify(theme.waline.meta) %>,
+          requiredMeta: <%-JSON.stringify(theme.waline.requiredMeta) %>,
+          wordLimit: JSON.parse('<%= theme.waline.wordLimit %>'),
+          pageSize: JSON.parse('<%= theme.waline.pageSize %>')
+        });
+    </script>
+<% } %>
+
 <% if(theme.algolia_search.enable){ %>
     <%- js(theme.vendor.js.algolia) %>
     <%- js(theme.vendor.js.instantsearch) %>
