@@ -6,9 +6,9 @@
     <% } %>
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
-            <h1 id="logo-wrap">
+            <div id="logo-wrap">
                 <% if (post.type == '404') { %>
-                    <a href="/" id="logo"><%= __("not_found.title") %></a>
+                    <a href="/" id="logo"><h1><%= __("not_found.title") %></h1></a>
                 <% } else { %>
                     <% var title;
                         if (is_archive()) {
@@ -23,10 +23,10 @@
                             title = config.title;
                         } %>
                     <% if (title){ %>
-                        <a href="<%- url_for() %>" id="logo"><%= title %></a>
+                        <a href="<%- url_for() %>" id="logo"><h1><%= title %></h1></a>
                     <% } %>
                 <% } %>
-            </h1>
+            </div>
             <% if (post.type == 404) { %>
                 <h2 id="subtitle-wrap">
                     <a href="/" id="subtitle"><%= __("not_found.subtitle") %></a>

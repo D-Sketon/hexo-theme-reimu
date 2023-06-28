@@ -16,13 +16,13 @@
                 <% } %>
                 <a href="<%- url_for(post.prev.path) %>"></a>
                 <div class="article-nav-caption"><%= __('newer') %></div>
-                <div class="article-nav-title">
+                <h3 class="article-nav-title">
                     <% if (post.prev.title){ %>
                         <%= post.prev.title %>
                     <% } else { %>
                         (no title)
                     <% } %>
-                </div>
+                </h3>
             </div>
         <% } %>
         <% if (post.next){ %>
@@ -41,13 +41,13 @@
                 <% } %>
                 <a href="<%- url_for(post.next.path) %>"></a>
                 <div class="article-nav-caption"><%= __('older') %></div>
-                <div class="article-nav-title">
+                <h3 class="article-nav-title">
                     <% if (post.next.title){ %>
                         <%= post.next.title %>
                     <% } else { %>
                         (no title)
                     <% } %>
-                </div>
+                </h3>
             </div>
         <% } %>
     </nav>

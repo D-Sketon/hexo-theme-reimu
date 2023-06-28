@@ -65,6 +65,8 @@
 
 
 #header-title
+  font-family: font-title
+  font-weight: 700
   text-align: center
   height: logo-size
   position: absolute
@@ -81,7 +83,7 @@ $logo-text
 #logo
   @extend $logo-text
   font-size: logo-size
-  font-weight: normal
+  font-weight: 700
   line-height: logo-size
   letter-spacing: 2px
   display: inline-block
@@ -184,6 +186,7 @@ $nav-link-wrap
   display: none
 
   &:before
+    font-family: font-icon
     content: "\f0c9"
   @media mq-mobile
     display: block
@@ -195,10 +198,12 @@ $nav-link-wrap
 
 #nav-rss-link
   &:before
+    font-family: font-icon
     content: "\f09e"
 
 #nav-search-btn
   &:before
+    font-family: font-icon
     content: "\f002"
 
 #search-form-wrap
