@@ -24,6 +24,7 @@
         <% } %>
         <%= config.title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%- css(theme.vendor.css.fontawesome) %>
     <%- open_graph({twitter_id: theme.twitter, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
     <% if (config.feed) { %>
         <%- feed_tag() %>

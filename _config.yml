@@ -178,3 +178,4 @@ vendor:
     katex: https://unpkg.com/katex@0.16.7/dist/katex.min.css
     waline: https://unpkg.com/@waline/client@v2/dist/waline.css
     gitalk: https://unpkg.com/gitalk/dist/gitalk.css
+    fontawesome: https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css
