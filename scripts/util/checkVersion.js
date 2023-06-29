@@ -1,6 +1,17 @@
 const https = require('node:https')
 const { version } = require('../../package.json')
 
+hexo.on('generateBefore', () => {
+  hexo.log.info(String.raw`
+  ______     ______     __     __    __     __  __    
+ /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+ \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+  \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+   \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                      
+ `)
+})
+
 hexo.on('generateAfter', () => {
   // 检查版本更新
   https.get('https://api.github.com/repos/D-Sketon/hexo-theme-reimu/releases/latest', {
