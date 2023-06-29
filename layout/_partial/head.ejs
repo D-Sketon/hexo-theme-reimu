@@ -24,7 +24,9 @@
         <% } %>
         <%= config.title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%- vendorFont(site) %>
     <%- css(theme.vendor.css.fontawesome) %>
+    <%- css('css/loader') %>
     <%- open_graph({twitter_id: theme.twitter, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
     <% if (config.feed) { %>
         <%- feed_tag() %>
@@ -51,5 +53,4 @@
         <%- css(theme.vendor.css.gitalk) %>
     <% } %>
     <%- js(theme.vendor.js.pace)%>
-    <%- vendorFont(site) %>
 </head>

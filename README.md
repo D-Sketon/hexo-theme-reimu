@@ -15,8 +15,8 @@
 - [x] giscus评论系统（未测试）
 - [ ] 黑夜模式
 - [ ] 更多动画效果
-- [ ] google字体
-- [ ] 加载动画
+- [x] google字体
+- [x] 加载动画
 
 ## 截图
 ![screenshot](https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/Reimu.jpg)

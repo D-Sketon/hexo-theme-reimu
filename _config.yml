@@ -179,3 +179,8 @@ vendor:
     waline: https://unpkg.com/@waline/client@v2/dist/waline.css
     gitalk: https://unpkg.com/gitalk/dist/gitalk.css
     fontawesome: https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css
+
+preloader:
+  enable: true
+  text: 少女祈祷中...
+  # text: Loading...
