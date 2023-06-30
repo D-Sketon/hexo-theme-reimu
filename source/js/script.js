@@ -112,9 +112,9 @@ const getRealPath = (pathname, desc = false) => {
   }
 
   // Mobile nav
-  const $container = $('#container'),
-    isMobileNavAnim = false,
-    mobileNavAnimDuration = 200;
+  const $container = $('#container');
+  let isMobileNavAnim = false;
+  let mobileNavAnimDuration = 200;
 
   const startMobileNavAnim = function () {
     isMobileNavAnim = true;
