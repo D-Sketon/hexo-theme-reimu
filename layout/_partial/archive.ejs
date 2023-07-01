@@ -3,7 +3,7 @@
         <%- partial('post', {post: post, index: true, even: i % 2 === 0}) %>
     <% }) %>
 <% } else { %>
-    <div class="archives-outer-wrap">
+    <div class="archives-outer-wrap wow fadeInUp">
         <div class="tag-wrap">
             <% site.tags.each(function(tag, i){ %>
                 <div class="archives-tag-list-item">
@@ -26,7 +26,7 @@
     </div></section>
     <% } %>
     <% last = year; %>
-    <section class="archives-wrap">
+    <section class="archives-wrap wow fadeInUp">
         <div class="archive-year-wrap">
             <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
         </div>

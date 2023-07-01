@@ -14,7 +14,6 @@ $post-wrap
   background: color-wrap
   display: flex
   flex-direction: row
-  //box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
   transition: all 0.3s ease
 
   @media mq-normal
@@ -23,8 +22,12 @@ $post-wrap
       transform: rotate(1deg)
 
       &:before
-        transition: opacity 0.3s ease
+        transition: all 0.3s ease
         opacity: 0.8
+      
+      .post-sticky
+        transition: all 0.3s ease
+        opacity: 0
 
       img
         transition: all 0.3s ease
@@ -40,7 +43,7 @@ $post-wrap
       border-radius: post-radius
       box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
       opacity: 0
-      transition: opacity 0.3s ease
+      transition: all 0.3s ease
 
 .post-wrap-left
   @extend $post-wrap
@@ -125,7 +128,7 @@ $post-cover
   img
     display: block
     opacity: 0
-    transition: opacity 200ms ease-out
+    transition: all 0.2s ease-out
     position: absolute
     left: 0
     top: 0
@@ -189,6 +192,8 @@ $post-cover
   font-weight: bold
   font-size: 15px
   z-index: 1
+  opacity: 1
+  transition: all 0.3s
 
   &:before
     font-family: font-icon

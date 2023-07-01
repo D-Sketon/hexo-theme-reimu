@@ -42,7 +42,7 @@ const loadFile = arg => {
 }
 
 const insertHtml = load => {
-  let content = `<div class="friend-wrap">`
+  let content = `<div class="friend-wrap wow fadeInUp">`
   load.forEach(item => {
     if (!item.name || !item.url)
       return
