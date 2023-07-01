@@ -53,4 +53,15 @@
         <%- css(theme.vendor.css.gitalk) %>
     <% } %>
     <%- js(theme.vendor.js.pace)%>
+    <% if (theme.animation.enable){ %>
+        <%- css(theme.vendor.css.animate) %>
+        <%- js(theme.vendor.js.wow)%>
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    <% } %>
 </head>

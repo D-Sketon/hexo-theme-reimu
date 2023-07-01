@@ -1,5 +1,5 @@
 <% if (even === true){ %>
-    <div class="post-wrap-left">
+    <div class="post-wrap-left wow fadeInUp">
         <% if (post.link){ %>
             <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url"
                target="_blank"></a>
@@ -47,7 +47,7 @@
         </div>
     </div>
 <% } else { %>
-    <div class="post-wrap-right">
+    <div class="post-wrap-right wow fadeInUp">
         <% if (post.link){ %>
             <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url"
                target="_blank"></a>
