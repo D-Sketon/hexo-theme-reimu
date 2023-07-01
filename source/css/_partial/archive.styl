@@ -1,5 +1,5 @@
 .archives-outer-wrap
-  background: color-wrap
+  background: var(--color-wrap)
   border-radius: post-radius
   padding: 15px 0
 
@@ -17,7 +17,7 @@
   &:before
     content: ""
     width: 100%
-    border-bottom: 1px solid color-background
+    border-bottom: 1px solid var(--color-background)
     position: absolute
     bottom: -15px
     box-sizing: unset
@@ -26,13 +26,13 @@
     transition: all 0.35s ease
     content: ""
     position: absolute
-    background: rgba(255, 0, 0, 0.6)
+    background: var(--color-h2-after)
     width: 1em
     height: 7px
     bottom: -18px
     left: 0
     border-radius: 10px
-    box-shadow: 0 2px 12px rgba(255, 78, 106, 0.7)
+    box-shadow: 0 2px 12px var(--color-h2-after-shadow)
 
   &:hover:after
     transition: all 0.35s ease
@@ -42,7 +42,7 @@
   text-decoration: none
   text-transform: uppercase
 
-  color: black
+  color: var(--color-default-font)
   margin-bottom: 15px
   font-weight: bold
   font-size: 25px
@@ -59,13 +59,13 @@
     content: ""
     width: 6px
     height: 15px
-    background: rgba(255, 0, 0, 0.75)
+    background: var(--color-h2-after)
     display: inline-block
     vertical-align: middle
     margin-top: -2px
     margin-right: 11px
     margin-left: -25px
-    box-shadow: 0 2px 12px rgba(255, 78, 106, 0.55)
+    box-shadow: 0 2px 12px var(--color-h2-after-shadow)
     opacity: 0.5
     transition: all 0.2s ease
 
@@ -88,14 +88,14 @@
     text-decoration: none
 
 .dt-published
-  color: color-grey
+  color: var(--color-grey)
   margin-left: 5px
 
 .archive-article-title
   display: inline-block
   text-decoration: none
   font-weight: bold
-  color: red-0
+  color: var(--red-0)
   transition: all 0.35s ease-out
   opacity: 0.6
   margin-left: 15px
@@ -103,27 +103,27 @@
 #page-nav
   clearfix()
   margin: block-margin auto
-  background: color-wrap
+  background: var(--color-wrap)
   border-radius: post-radius
   text-align: center
-  color: color-grey
+  color: var(--color-grey)
   overflow: hidden
   transition: all 0.3s ease
 
   &:hover
     transition: all 0.3s ease
-    box-shadow: 0 0 10px 3px rgba(150, 150, 150, 0.1)
+    box-shadow: 0 0 10px 3px var(--color-hover-shadow)
 
   a, span
     padding: 10px 15px
 
   a
-    color: color-grey
+    color: var(--color-grey)
     text-decoration: none
     transition: background 0.2s ease
 
     &:hover
-      background: red-2
+      background: var(--red-2)
       transition: background 0.2s ease
       color: #fff
 
@@ -143,7 +143,7 @@
       display: none
 
   .current
-    background: red-1
+    background: var(--red-1)
     color: white
     font-weight: bold
     box-shadow: 0 2px 12px rgba(255, 78, 106, 0.55)
@@ -153,7 +153,7 @@
   .space
     display: inline-block
     margin: 5px 5px
-    color: color-border
+    color: var(--color-border)
     @media mq-mobile
       display: none
 
@@ -168,14 +168,14 @@
   .archives-tag-list-item
     text-decoration: none
     text-transform: uppercase
-    background: red-5
+    background: var(--red-5)
     border-radius: 20px
     padding: 8px 15px
 
     margin: 5px
 
   .archives-tag-list-link
-    color: red-1
+    color: var(--red-1)
     font-size: 12px
 
     &:before
@@ -194,14 +194,14 @@
   .archives-category-list-item
     text-decoration: none
     text-transform: uppercase
-    background: red-6
+    background: var(--red-6)
     border-radius: 20px
     padding: 10px 20px
 
     margin: 5px
 
   .archives-category-list-link
-    color: red-1
+    color: var(--red-1)
     font-size: 14px
 
     &:before

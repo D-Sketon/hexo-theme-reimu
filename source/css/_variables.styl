@@ -1,31 +1,90 @@
-// Config
-support-for-ie = false
-vendor-prefixes = webkit moz ms official
-
 // Colors
-color-default = #555
-color-grey = #999
-color-border = red-3
-color-link = red-1
-color-background = #eee
-color-code-background = #f5f5f5
-color-sidebar-text = #777
-color-footer-background = #fff
-color-mobile-nav-background = #fff
-color-wrap = #fff
-color-twitter = #00aced
-color-facebook = #3b5998
-color-pinterest = #cb2027
-color-linkedin = #0077B5
+:root
+  --red-0: #ff0000
+  --red-1: #ff5252
+  --red-2: #ff7c7c
+  --red-3: #ffafaf
+  --red-4: #ffd0d0
+  --red-5: #ffe4e4
+  --red-5-5: #ffecec
+  --red-6: #fff3f3
 
-red-0 = #ff0000
-red-1 = #ff5252
-red-2 = #ff7c7c
-red-3 = #ffafaf
-red-4 = #ffd0d0
-red-5 = #ffe4e4
-red-5-5 = #ffecec
-red-6 = #fff3f3
+  --color-default-font: black
+  --color-default: #555
+  --color-grey: #999
+  --color-border: var(--red-3)
+  --color-link: var(--red-1)
+  --color-dark-link: darken(#ff5252, 20%)
+  --color-background: #eee
+  --color-code-background: #f5f5f5
+  --color-sidebar-text: #777
+  --color-header-background: rgba(255, 255, 255, 0.9)
+  --color-footer-background: #fff
+  --color-mobile-nav-background: #fff
+  --color-wrap: #fff
+  --color-twitter: #00aced
+  --color-facebook: #3b5998
+  --color-pinterest: #cb2027
+  --color-linkedin: #0077B5
+  --color-dark-twitter: darken(#00aced, 20%)
+  --color-dark-facebook: darken(#3b5998, 20%)
+  --color-dark-pinterest: darken(#cb2027, 20%)
+  --color-dark-linkedin: darken(#0077B5, 20%)
+
+  --color-meta-shadow: --var(--red-6)
+  --color-hover-shadow: rgba(150, 150, 150, 0.1)
+  --color-h2-after: rgba(255, 0, 0, 0.6)
+  --color-h2-after-shadow: rgba(255, 78, 106, 0.7)
+
+[data-theme="dark"]
+  &:root
+    --red-0: #ff5252
+    --red-1: #ff5252
+    --red-2: #ff7c7c
+    --red-3: #ffafaf
+    --red-4: #ffd0d0
+    --red-5: #ffe4e4
+    --red-5-5: #ffecec
+    --red-6: #fff3f3
+
+    --color-default-font: #999
+    --color-default: #999
+    --color-grey: #999
+    --color-border: var(--red-3)
+    --color-link: var(--red-1)
+    --color-dark-link: darken(#ff5252, 20%)
+    --color-background: #21252b
+    --color-code-background: #e8e8e8
+    --color-sidebar-text: #777
+    --color-header-background: #222222
+    --color-footer-background: #21252b
+    --color-mobile-nav-background: #21252b
+    --color-wrap: #272b30
+    --color-twitter: #00aced
+    --color-facebook: #3b5998
+    --color-pinterest: #cb2027
+    --color-linkedin: #0077B5
+    --color-dark-twitter: darken(#00aced, 20%)
+    --color-dark-facebook: darken(#3b5998, 20%)
+    --color-dark-pinterest: darken(#cb2027, 20%)
+    --color-dark-linkedin: darken(#0077B5, 20%)
+
+    --color-meta-shadow: rgba(0, 0, 0, 0.3)
+    --color-hover-shadow: rgba(0, 0, 0, 0.3)
+    --color-h2-after: #ff5252
+    --color-h2-after-shadow: rgba(255, 78, 106, 0.7)
+    img
+      filter: brightness(70%)
+
+    // 排除fancybox
+    .fancybox-content
+      img.lazyloaded
+        opacity: 1
+        animation: blur 0.8s ease-in-out forwards
+
+    img.lazyloaded
+      opacity: 1
+      animation: blur-darken 0.8s ease-in-out forwards
 
 // Fonts
 font-title = Mulish,'Noto Serif SC','Noto Serif JP',Mulish,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif

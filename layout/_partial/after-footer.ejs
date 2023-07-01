@@ -60,7 +60,8 @@
           requiredMeta: <%-JSON.stringify(theme.waline.requiredMeta) %>,
           wordLimit: JSON.parse('<%= theme.waline.wordLimit %>'),
           comment: true,
-          pageSize: JSON.parse('<%= theme.waline.pageSize %>')
+          pageSize: JSON.parse('<%= theme.waline.pageSize %>'),
+          dark: 'html[data-theme="dark"]'
         });
     </script>
 <% } %>

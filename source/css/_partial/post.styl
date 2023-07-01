@@ -11,7 +11,7 @@ $post-wrap
   margin-bottom: 40px
   position: relative
   border-radius: post-radius
-  background: color-wrap
+  background: var(--color-wrap)
   display: flex
   flex-direction: row
   transition: all 0.3s ease
@@ -44,6 +44,13 @@ $post-wrap
       box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
       opacity: 0
       transition: all 0.3s ease
+
+
+[data-theme="dark"] .post-wrap-left
+  box-shadow: 0 0 10px 3px var(--color-hover-shadow)
+
+[data-theme="dark"] .post-wrap-right
+  box-shadow: 0 0 10px 3px var(--color-hover-shadow)
 
 .post-wrap-left
   @extend $post-wrap
@@ -110,14 +117,14 @@ $post-wrap
   color: #777777
 
   a
-    color: color-link
+    color: var(--color-link)
 
 $post-cover
   width: 40%
   position: relative
   overflow: hidden
   min-height: 95px
-  background-color: color-wrap
+  background-color: var(--color-wrap)
   flex-shrink: 0
   pointer-events: none
 
@@ -138,7 +145,7 @@ $post-cover
 
   img.lazyloaded
     opacity: 1
-    animation: blur 0.3s ease-in-out forwards
+    animation: blur 0.8s ease-in-out forwards
 
 .post-cover-left
   @media mq-normal
@@ -168,7 +175,7 @@ $post-cover
 
 .post-title
   padding: 20px 0
-  color: color-link
+  color: var(--color-link)
   font-size: 25px
   font-weight: bold
   text-decoration: none
@@ -187,8 +194,8 @@ $post-cover
   left: 0
   width: 70px
   height: 35px
-  background: red-5
-  color: red-1
+  background: var(--red-5)
+  color: var(--red-1)
   font-weight: bold
   font-size: 15px
   z-index: 1

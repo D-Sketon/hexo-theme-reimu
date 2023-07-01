@@ -10,7 +10,7 @@
     width: 100%
     height: 150%
     z-index: -1
-    background: linear-gradient(to top, rgba(238, 238, 238, 1), transparent 50%)
+    background: linear-gradient(to top, var(--color-background), transparent 50%)
 
     @media mg-large
       height: 120%
@@ -30,7 +30,7 @@
     object-fit: cover
     opacity: 0
     transition: opacity 200ms ease-out
-    background: linear-gradient(to top, rgba(238, 238, 238, 1), transparent 50%)
+    background: linear-gradient(to top, var(--color-background), transparent 50%)
 
     @media mg-large
       height: 120%
@@ -48,13 +48,17 @@
   max-width: 100%
   margin: 0
 
+[data-theme="dark"]
+  #header-inner:hover
+    background: var(--color-header-background)
+
 #header-inner
   position: sticky
   top: 0
   display: flex
   justify-content: center
   overflow: hidden
-  background: rgba(255, 255, 255, 0.9)
+  background: var(--color-header-background)
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.1)
   transition: background 0.2s ease
   z-index: 200
@@ -62,7 +66,6 @@
   &:hover
     transition: background 0.2s ease
     background: rgba(255, 255, 255, 0.95)
-
 
 #header-title
   font-family: font-title
@@ -129,7 +132,7 @@ $logo-text
   margin-left: -15px
 
 $nav-link
-  color: red-0
+  color: var(--red-0)
   opacity: 0.8
   text-decoration: none
   text-shadow: 0 1px rgba(0, 0, 0, 0.2)
@@ -161,6 +164,13 @@ $nav-link-wrap
   padding: 20px 15px
   position: relative
   cursor: pointer
+
+[data-theme="dark"]
+  .main-nav-link, .main-nav-icon, .nav-icon, .main-nav-link-wrap
+    color: var(--red-2)
+  .main-nav-icon, .nav-icon
+    filter: brightness(120%)
+
 
 .main-nav-link-wrap
   @extend $nav-link-wrap
@@ -236,7 +246,7 @@ $nav-link-wrap
 .search-form-input
   border: none
   background: none
-  color: color-default
+  color: var(--color-default)
   width: 100%
   font: 13px font-sans
   outline: none

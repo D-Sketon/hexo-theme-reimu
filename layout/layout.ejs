@@ -4,6 +4,8 @@
     <!DOCTYPE html>
     <html <% if (config.language) { %>lang="<%- config.language %>"
             <% } %>
+          <% if (theme.dark_mode.enable) { %>data-theme="dark"
+            <% } %>
     >
     <%- partial('_partial/head', {post: page}) %>
     <body>

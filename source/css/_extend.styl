@@ -2,20 +2,20 @@ $block-caption
   text-decoration: none
   text-transform: uppercase
   letter-spacing: 2px
-  color: color-grey
+  color: var(--color-grey)
   margin-bottom: 10px
   line-height: 1em
   text-shadow: 0 1px #fff
   font-weight: bold
 
 $block
-  background: #fff
+  background: var(--color-wrap)
   border-radius: post-radius
 
 $base-sharp
   &:before
     font-family: font-icon
-    color: color-grey
+    color: var(--color-grey)
     opacity: 0.5
     content: "\f292"
 
@@ -39,13 +39,13 @@ $base-style
       transition: all 0.35s ease-out
       content: ""
       position: absolute
-      background: rgba(255, 0, 0, 0.6)
+      background: var(--color-h2-after)
       width: 1em
       height: 7px
       bottom: -18px
       left: 0
       border-radius: 10px
-      box-shadow: 0 2px 12px rgba(255, 78, 106, 0.7)
+      box-shadow: 0 2px 12px var(--color-h2-after-shadow)
 
     &:hover:after
       transition: all 0.35s ease-out
@@ -66,7 +66,7 @@ $base-style
   h6
     font-size: 1em
     @extend $base-sharp
-    color: color-grey
+    color: var(--color-grey)
 
   hr
     margin: 10px 0

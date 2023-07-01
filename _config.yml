@@ -189,3 +189,6 @@ preloader:
 
 animation:
   enable: true
+
+dark_mode:
+  enable: true

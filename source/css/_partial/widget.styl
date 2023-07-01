@@ -4,32 +4,35 @@
     margin-top: 5px
     display: inline-block
 
+[data-theme="dark"] .widget-wrap
+  box-shadow: 0 0 10px 3px var(--color-hover-shadow)
+
 .widget-wrap
   margin: block-margin 0
-  background: #fff
+  background: var(--color-wrap)
   border-radius: post-radius
   transition: all 0.3s ease
 
   &:hover
     transition: all 0.3s ease
-    box-shadow: 0 0 10px 3px rgba(150, 150, 150, 0.1)
+    box-shadow: 0 0 10px 3px var(--color-hover-shadow)
 
 .widget-title
   text-decoration: none
   text-transform: uppercase
   letter-spacing: 2px
-  color: color-grey
+  color: var(--color-grey)
   line-height: 1em
   font-weight: bold
   padding: 20px 20px 10px
 
 .widget
-  color: color-sidebar-text
+  color: var(--color-sidebar-text)
   padding: 10px 20px
   border-radius: 3px
 
   a, span
-    color: color-link
+    color: var(--color-link)
     text-decoration: none
     opacity: 0.8
     transition: all 0.3s ease
@@ -37,7 +40,7 @@
     &:hover
       transition: all 0.3s ease
       opacity: 1
-      color: red-0
+      color: var(--red-0)
 
   span
     margin-left: 5px
@@ -55,11 +58,11 @@
       content: ""
       width: 5px
       height: 10px
-      background: rgba(255, 0, 0, 0.75)
+      background: var(--color-h2-after)
       display: inline-block
       vertical-align: middle
       margin-right: 11px
-      box-shadow: 0 2px 12px rgba(255, 78, 106, 0.55)
+      box-shadow: 0 2px 12px var(--color-h2-after-shadow)
       opacity: 0.5
       transition: all 0.35s ease-out
 

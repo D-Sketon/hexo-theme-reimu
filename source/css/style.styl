@@ -23,7 +23,7 @@ html, body, #container
   height: 100%
 
 body
-  background: color-background
+  background: var(--color-background)
   -webkit-text-size-adjust: 100%
   font-family: font-sans
 
@@ -60,7 +60,7 @@ body
   left: 0
   transition: 0.2s ease-out
   z-index: 1
-  background: color-background
+  background: var(--color-background)
 
   .mobile-nav-on &
     left: mobile-nav-width
@@ -102,7 +102,7 @@ if sidebar
 
 ::-webkit-scrollbar-thumb
   border-radius: 10px
-  background-color: red-3
+  background-color: var(--red-3)
 
 .pace
   -webkit-pointer-events: none
@@ -115,7 +115,7 @@ if sidebar
   display: none
 
 .pace .pace-progress
-  background: red-1
+  background: var(--red-1)
   position: fixed
   z-index: 2000
   top: 0

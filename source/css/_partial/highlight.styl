@@ -55,10 +55,10 @@ $line-numbers
     font-size: 95%
 
   code
-    background: color-code-background
+    background: var(--color-code-background)
     padding: 1px 5px
     border-radius: 5px
-    color: color-link
+    color: var(--color-link)
 
   pre
     @extend $code-block
@@ -114,7 +114,7 @@ $line-numbers
   .gist
     margin: 0 article-padding * -1
     border-style: solid
-    border-color: color-border
+    border-color: var(--color-border)
     border-width: 1px 0
     background: highlight-background
     padding: 15px article-padding 15px 0
@@ -152,7 +152,7 @@ $line-numbers
         margin-left: article-padding
 
         a
-          color: color-link
+          color: var(--color-link)
           font-weight: normal
 
           &:hover

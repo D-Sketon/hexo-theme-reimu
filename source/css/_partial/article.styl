@@ -2,7 +2,7 @@
   margin: 10px article-padding
   opacity: 0.5
   height: 3px
-  background-image: linear-gradient(to left, red-0 50%, transparent 0%)
+  background-image: linear-gradient(to left, var(--red-0) 50%, transparent 0%)
   background-size: 20px 3px
   background-repeat: repeat-x
 
@@ -20,12 +20,12 @@ $article-meta-tag
   text-decoration: none
   text-transform: uppercase
   font-size: 14px
-  color: red-1
-  background: red-5
+  color: var(--red-1)
+  background: var(--red-5)
   border-radius: 20px
   padding: 10px 18px
   margin: 0 12px 1em
-  box-shadow: 0 0 5px 3px red-6
+  box-shadow: 0 0 5px 3px var(--color-meta-shadow)
   text-shadow: 0 1px #fff
 
 .article-date
@@ -57,17 +57,17 @@ $article-meta-tag
   text-decoration: none
   font-size: 2em
   font-weight: bold
-  color: color-default
+  color: var(--color-default)
   line-height: line-height-title
   transition: color 0.2s
 
   a&:hover
-    color: color-link
+    color: var(--color-link)
 
 .article-entry
   @extend $base-style
   clearfix()
-  color: color-default
+  color: var(--color-default)
   padding: 0 article-padding + 15px
 
   @media mg-normal
@@ -92,7 +92,7 @@ $article-meta-tag
     margin-bottom: 40px
 
   a
-    color: color-link
+    color: var(--color-link)
     text-decoration: none
 
     &:hover
@@ -106,7 +106,7 @@ $article-meta-tag
     &:hover
       &::marker
         transition: color 0.2s ease
-        color: red-1
+        color: var(--red-1)
 
   img, video
     max-width: 100%
@@ -130,16 +130,16 @@ $article-meta-tag
 
   th
     font-weight: bold
-    border-bottom: 3px solid color-border
+    border-bottom: 3px solid var(--color-border)
     padding-bottom: 0.5em
 
   td
-    border-bottom: 1px solid color-border
+    border-bottom: 1px solid var(--color-border)
     padding: 10px 0
 
   blockquote
-    background: red-5-5
-    border-left: 6px red-4 solid
+    background: var(--red-5-5)
+    border-left: 6px var(--red-4) solid
     margin: line-height 0
     border-radius: post-radius
 
@@ -171,7 +171,7 @@ $article-meta-tag
       margin-left: 1em
 
   .caption
-    color: color-grey
+    color: var(--color-grey)
     display: block
     font-size: 0.9em
     margin-top: 0.5em
@@ -199,22 +199,22 @@ $article-meta-tag
   line-height: 1em
   padding: 6px 15px
   border-radius: 15px
-  background: red-5
-  color: red-1
+  background: var(--red-5)
+  color: var(--red-1)
   text-shadow: 0 1px #fff
   text-decoration: none
-  box-shadow: 0 0 5px 3px red-6
+  box-shadow: 0 0 5px 3px var(--red-6)
 
   &:hover
-    background: color-link
+    background: var(--color-link)
     color: #fff
     text-decoration: none
-    text-shadow: 0 1px darken(color-link, 20%)
+    text-shadow: 0 1px var(--color-dark-link)
 
 .article-footer
   clearfix()
   font-size: 14px
-  border-top: 1px solid color-border
+  border-top: 1px solid var(--color-border)
   padding-top: article-padding
   margin: 0 article-padding article-padding
 
@@ -224,13 +224,13 @@ $article-meta-tag
 .article-tag-list-link,
 .article-share-link,
 .article-comment-link
-  color: red-1
+  color: var(--red-1)
 
 .article-tag-list-item
   float: left
   text-decoration: none
   text-transform: uppercase
-  background: red-5
+  background: var(--red-5)
   border-radius: 20px
   padding: 10px 18px
 
@@ -244,7 +244,7 @@ $article-meta-tag
 
 .article-comment-link
   float: right
-  background: red-5
+  background: var(--red-5)
   border-radius: 20px
   padding: 10px 18px
 
@@ -258,7 +258,7 @@ $article-meta-tag
   float: right
   margin-left: 20px
   font-size: 14px
-  background: red-5
+  background: var(--red-5)
   border-radius: 20px
   padding: 10px 18px
 
@@ -278,7 +278,8 @@ $article-meta-tag
     flex-direction: row
 
 .article-nav-link-wrap
-  color: color-wrap
+  backgroud-color: var(--color-wrap)
+  color: white
   position: relative
   flex: 1
   display: flex
@@ -303,7 +304,6 @@ $article-meta-tag
   img
     display: block
     opacity: 0
-    animation: blur 0.8s ease-in-out forwards
     position: absolute
     left: 0
     top: 0
@@ -315,6 +315,7 @@ $article-meta-tag
 
   img.lazyloaded
     opacity: 1
+    animation: blur 0.8s ease-in-out forwards
 
   &:hover
     transition: opacity 0.5s ease
@@ -355,16 +356,16 @@ $article-meta-tag
   box-sizing: border-box
   font: 14px font-sans
   padding: 0 15px
-  color: color-default
+  color: var(--color-default)
   outline: none
-  border: 1px solid color-border
+  border: 1px solid var(--color-border)
   border-radius: 3px 3px 0 0
   height: 36px
   line-height: 36px
 
 .article-share-links
   clearfix()
-  background: color-background
+  background: var(--color-background)
 
 $article-share-link
   width: 50px
@@ -391,8 +392,8 @@ $article-share-link
     content: "\f099"
 
   &:hover
-    background: color-twitter
-    text-shadow: 0 1px darken(color-twitter, 20%)
+    background: var(--color-twitter)
+    text-shadow: 0 1px var(--color-dark-twitter)
 
 .article-share-facebook
   @extend $article-share-link
@@ -401,8 +402,8 @@ $article-share-link
     content: "\f09a"
 
   &:hover
-    background: color-facebook
-    text-shadow: 0 1px darken(color-facebook, 20%)
+    background: var(--color-facebook)
+    text-shadow: 0 1px var(--color-dark-facebook)
 
 .article-share-pinterest
   @extend $article-share-link
@@ -411,8 +412,8 @@ $article-share-link
     content: "\f0d2"
 
   &:hover
-    background: color-pinterest
-    text-shadow: 0 1px darken(color-pinterest, 20%)
+    background: var(--color-pinterest)
+    text-shadow: 0 1px var(--color-dark-pinterest)
 
 .article-share-linkedin
   @extend $article-share-link
@@ -421,8 +422,8 @@ $article-share-link
     content: "\f0e1"
 
   &:hover
-    background: color-linkedin
-    text-shadow: 0 1px darken(color-linkedin, 20%)
+    background: var(--color-linkedin)
+    text-shadow: 0 1px var(--color-dark-linkedin)
 
 .article-gallery
   background: #000
