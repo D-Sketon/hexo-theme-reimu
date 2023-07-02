@@ -191,4 +191,4 @@ animation:
   enable: true
 
 dark_mode:
-  enable: true
+  enable: false
