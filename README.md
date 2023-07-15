@@ -104,7 +104,7 @@ valine:
   appKey: 'your appKey'
 ```
 
-若基于 [Waline](https://waline.js.org/)
+若基于 [Waline](https://waline.js.org/)  
 请参考其[官方文档](https://waline.js.org/guide/get-started/)完成 `LeanCloud` 的配置，并在内层 `_config_yml` 中将 `waline.enable` 改为 `true`，并填入自己的 `serverURL`
 ```yaml
 waline:
@@ -130,7 +130,7 @@ waline:
   pageSize: 10
 ```
 
-若基于 [twikoo](https://twikoo.js.org)
+若基于 [twikoo](https://twikoo.js.org)  
 请参考其[官方文档](https://twikoo.js.org/quick-start.html)完成 腾讯云 或 Vercel 部署，并在内层 `_config_yml` 中将 `twikoo.enable` 改为 `true`，并填入自己的 `envId`
 ```yml
 twikoo:
