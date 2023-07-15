@@ -95,13 +95,48 @@ prismjs:
   enable: false
 ```
 ### 站内评论
-站内评论基于 [Valine](https://valine.js.org/)  
+若基于 [Valine](https://valine.js.org/)  
 请参考其官方文档完成 `LeanCloud` 的配置，并在内层 `_config_yml` 中将 `valine.enable` 改为 `true`，并填入自己的 `appId` 和 `appKey`
 ```yaml
 valine:
   enable: true
   appId: 'your appId'
   appKey: 'your appKey'
+```
+
+若基于 [Waline](https://waline.js.org/)
+请参考其[官方文档](https://waline.js.org/guide/get-started/)完成 `LeanCloud` 的配置，并在内层 `_config_yml` 中将 `waline.enable` 改为 `true`，并填入自己的 `serverURL`
+```yaml
+waline:
+  enable: true
+  serverURL: 'your server url'
+  lang: zh-CN
+  locale: {} # https://waline.js.org/guide/features/i18n.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80
+  emoji:
+    - https://unpkg.com/@waline/emojis@1.0.1/weibo
+    - https://unpkg.com/@waline/emojis@1.0.1/alus
+    - https://unpkg.com/@waline/emojis@1.0.1/bilibili
+    - https://unpkg.com/@waline/emojis@1.0.1/qq
+    - https://unpkg.com/@waline/emojis@1.0.1/tieba
+    - https://unpkg.com/@waline/emojis@1.0.1/tw-emoji
+  meta: 
+    - nick
+    - mail
+    - link
+  requiredMeta:
+    - nick
+    - mail
+  wordLimit: 0
+  pageSize: 10
+```
+
+若基于 [twikoo](https://twikoo.js.org)
+请参考其[官方文档](https://twikoo.js.org/quick-start.html)完成 腾讯云 或 Vercel 部署，并在内层 `_config_yml` 中将 `twikoo.enable` 改为 `true`，并填入自己的 `envId`
+```yml
+twikoo:
+  enable: true
+  envId:  # 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+  region: 
 ```
 ### 站内搜索
 站内搜索基于 [Algolia](https://www.algolia.com/)，请安装 [hexo-algolia](https://github.com/thom4parisot/hexo-algolia)

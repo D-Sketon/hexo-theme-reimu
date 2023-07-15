@@ -80,7 +80,7 @@ prismjs:
   enable: false
 ```
 ### Site comments
-Site comments are based on [Valine](https://valine.js.org/)  
+If based on [Valine](https://valine.js.org/)  
 Please refer to its official documentation to complete the configuration of `LeanCloud` and change `valine.enable` to `true` in the inner `_config_yml` and fill in your own `appId` and `appKey`
 ```yaml
 valine:
@@ -88,6 +88,42 @@ valine:
   appId: 'your appId'
   appKey: 'your appKey'
 ```
+
+If based on [Waline](https://waline.js.org/)  
+Please refer to its [official documentation](https://waline.js.org/guide/get-started/) to complete the `LeanCloud` configuration and change `waline.enable` to `true` in the inner `_config_yml`, and fill in your own `serverURL`
+```yaml
+waline:
+  enable: true
+  serverURL: 'your server url'
+  lang: zh-CN
+  locale: {} # https://waline.js.org/guide/features/i18n.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80
+  emoji:
+    - https://unpkg.com/@waline/emojis@1.0.1/weibo
+    - https://unpkg.com/@waline/emojis@1.0.1/alus
+    - https://unpkg.com/@waline/emojis@1.0.1/bilibili
+    - https://unpkg.com/@waline/emojis@1.0.1/qq
+    - https://unpkg.com/@waline/emojis@1.0.1/tieba
+    - https://unpkg.com/@waline/emojis@1.0.1/tw-emoji
+  meta: 
+    - nick
+    - mail
+    - link
+  requiredMeta:
+    - nick
+    - mail
+  wordLimit: 0
+  pageSize: 10
+```
+
+If based on [twikoo](https://twikoo.js.org)
+Please refer to its [official documentation](https://twikoo.js.org/quick-start.html) to complete the Tencent Cloud or Vercel deployment, and change `twikoo.enable` to `true` in the inner `_config_yml`, and fill in your own `envId`.
+```yml
+twikoo:
+  enable: true
+  envId:  # Tencent cloud environment fill envId; Vercel environment fill address (https://xxx.vercel.app)
+  region: 
+```
+
 ### Site search
 The site search is based on [Algolia](https://www.algolia.com/), please install [hexo-algolia](https://github.com/thom4parisot/hexo-algolia)
 ```bash
