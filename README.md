@@ -54,7 +54,7 @@ theme: reimu
 #### _data
 - `avatar` 文件夹中存储作者头像，默认命名 `avatar.jpg`，可在 内层 `_config.yml` 中做如下配置
 ```yaml
-avatar: "avatar.jpg"
+avatar: "avatar.jpg" # 默认就是在avatar文件夹内寻找，请不要包含路径，否则会404
 ```
 - `covers` 文件夹中存储文章封面
 - `covers.yml` 中存储文章封面url
@@ -65,11 +65,25 @@ avatar: "avatar.jpg"
 ### 封面、头图和图标
 #### 封面
 封面显示逻辑如下
-- 如果文章的Front matter中包含cover信息，则显示该url
+- 如果文章的Front matter中包含cover的url，则该文章头图和首页缩略图均显示该url
 ```yaml
 ---
 title: Hello World
 cover: https://example.com
+---
+```
+- 如果文章的Front matter中包含cover为`false`，则该文章不显示头图（首页上仍然是随机图片）
+```yaml
+---
+title: Hello World
+cover: false
+---
+```
+- 如果文章的Front matter中包含cover为`rgb(xxx,xxx,xxx)`，则该文章头图为对应的渐变纯色（首页上仍然是随机图片）
+```yaml
+---
+title: Hello World
+cover: rgb(255,117,117)
 ---
 ```
 - 否则查找 `covers` 文件夹和 `covers.yml`，并从中随机挑选图片
@@ -83,6 +97,14 @@ banner: "/images/banner.jpg"
 图标保存于 `themes/reimu/source/images/favicon.ico`，可在内层 `_config.yml`中修改
 ```yaml
 favicon: "/images/favicon.ico"
+```
+#### 置顶
+在文章的Front-matter中添加 `sticky: true`
+```yaml
+---
+title: Hello World
+sticky: true
+---
 ```
 ### 代码高亮
 为保证代码块的正确显示，请保证外层 `_config.yml` 中为如下配置

@@ -50,11 +50,25 @@ avatar: "avatar.jpg"
 ###  Cover, banner and favicon
 #### Cover
 The logic for displaying the cover is as follows  
-- If the Front matter of the article contains cover information, the url will be displayed
+- If the article's Front matter contains the url for cover, the article's header image and home page thumbnails display that url
 ```yaml
 ---
 title: Hello World
 cover: https://example.com
+---
+```
+- If the article's Front matter contains cover as `false`, the article doesn't show the header image (it's still a random image on the front page)
+```yaml
+---
+title: Hello World
+cover: false
+---
+```
+- If the article's Front matter contains cover as `rgb(xxx,xxx,xxx)`, the article's header image is the corresponding gradient solid color (still a random image on the front page)
+```yaml
+---
+title: Hello World
+cover: rgb(255,117,117)
 ---
 ```
 - Otherwise, look for the `covers` folder and `covers.yml` and pick a random image from it
@@ -68,6 +82,14 @@ banner: "/images/banner.jpg"
 The favicon is stored in `themes/reimu/source/images/favicon.ico`，and can be modified in the inner `_config.yml`
 ```yaml
 favicon: "/images/favicon.ico"
+```
+#### topped
+Add `sticky: true` to the article's Front-matter
+```yaml
+---
+title: Hello World
+sticky: true
+---
 ```
 ### Code highlighting
 To ensure that the code blocks are displayed correctly, please ensure that the outer `_config.yml` is configured as follows
