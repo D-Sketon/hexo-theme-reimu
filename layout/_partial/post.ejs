@@ -10,7 +10,7 @@
             <div class="post-sticky"><%= __('sticky')%></div>
         <% } %>
         <div class="post-cover-left">
-            <% if(post.cover){ %>
+            <% if(post.cover && !post.cover.startsWith("rgb")){ %>
                 <img data-src="<%= post.cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
             <% }else{ %>
                 <% var cover = randomCover(); %>
