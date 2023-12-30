@@ -102,6 +102,8 @@ $sidebar-state-content
   flex-shrink: 0
   justify-content: center
   align-items: center
+  width: 70%
+  flex-wrap: wrap
 
   div a
     position: absolute
@@ -111,9 +113,13 @@ $sidebar-state-content
     height: 100%
 
 $siderbar-social-icon
-  margin: 0 10px
   position: relative
-  font-size: 25px
+  font-size: 20px
+  width: 36px
+  height: 25px
+  display: flex
+  justify-content: center
+  align-items: center
   font-family: font-icon
 
 .icon-github
@@ -132,17 +138,164 @@ $siderbar-social-icon
 
 .icon-facebook
   @extend $siderbar-social-icon
-  color: #1877F2
+  color: #3b5998
 
   &:before
     content: "\f09a"
 
 .icon-twitter
   @extend $siderbar-social-icon
-  color: #00aff0
+  color: #191717
 
   &:before
-    content: "\f099"
+    content: "\e61b"
+
+.icon-instagram
+  @extend $siderbar-social-icon
+  color: #e1306c
+
+  &:before
+    content: "\f16d"
+
+.icon-linkedin
+  @extend $siderbar-social-icon
+  color: #0e76a8
+
+  &:before
+    content: "\f08c"
+
+.icon-pinterest
+  @extend $siderbar-social-icon
+  color: #bd081c
+
+  &:before
+    content: "\f0d2"
+
+.icon-youtube
+  @extend $siderbar-social-icon
+  color: #ff0000
+
+  &:before
+    content: "\f167"
+
+.icon-vimeo
+  @extend $siderbar-social-icon
+  color: #1ab7ea
+
+  &:before
+    content: "\f194"
+
+.icon-flickr
+  @extend $siderbar-social-icon
+  color: #ff0084
+
+  &:before
+    content: "\f16e"
+
+.icon-dribbble
+  @extend $siderbar-social-icon
+  color: #ea4c89
+
+  &:before
+    content: "\f17d"
+
+.icon-behance
+  @extend $siderbar-social-icon
+  color: #1769ff
+
+  &:before
+    content: "\f1b4"
+
+.icon-bilibili
+  @extend $siderbar-social-icon
+  color: #00a1d6
+
+  &:before
+    content: "\e3d9"
+
+.icon-weibo
+  @extend $siderbar-social-icon
+  color: #e6162d
+
+  &:before
+    content: "\f18a"
+
+.icon-zhihu
+  @extend $siderbar-social-icon
+  color: #0084ff
+
+  &:before
+    content: "\f63f"
+
+.icon-douban
+  @extend $siderbar-social-icon
+  color: #007722
+
+  &:before
+    content: "\f264"
+
+.icon-reddit
+  @extend $siderbar-social-icon
+  color: #ff4500
+
+  &:before
+    content: "\f1a1"
+
+.icon-tumblr
+  @extend $siderbar-social-icon
+  color: #35465c
+
+  &:before
+    content: "\f173"
+
+.icon-medium
+  @extend $siderbar-social-icon
+  color: #00ab6c
+
+  &:before
+    content: "\f23a"
+
+.icon-deviantart
+  @extend $siderbar-social-icon
+  color: #05cc47
+
+  &:before
+    content: "\f1bd"
+
+.icon-stackoverflow
+  @extend $siderbar-social-icon
+  color: #f48024
+
+  &:before
+    content: "\f16c"
+
+.icon-keybase
+  @extend $siderbar-social-icon
+  color: #33a0ff
+
+  &:before
+    content: "\f4f5"
+
+.icon-telegram
+  @extend $siderbar-social-icon
+  color: #0088cc
+
+  &:before
+    content: "\f2c6"
+
+.icon-discord
+  @extend $siderbar-social-icon
+  color: #7289da
+
+  &:before
+    content: "\f392"
+
+.icon-steam
+  @extend $siderbar-social-icon
+  color: #171a21
+
+  &:before
+    content: "\f1b6"
 
 $menu-link
   color: var(--red-0)
