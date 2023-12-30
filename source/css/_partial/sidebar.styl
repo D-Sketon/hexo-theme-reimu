@@ -363,3 +363,25 @@ $menu-link
   .sidebar-menu-icon
     opacity: 1
     background: url("/images/taichi-fill.svg") no-repeat center / 80%
+
+.sidebar-top
+  position: fixed
+  bottom: 30px
+  right: 30px
+  width: 50px
+  height: 50px
+  background-color: var(--color-wrap)
+  border-radius: 50%
+  font-family: font-icon
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2)
+  z-index: 999
+
+  &:before
+    width: 50px
+    height: 50px
+    display: flex
+    justify-content: center
+    align-items: center
+    content: "\f062"
+    color: var(--red-1)
+    font-size: 20px
