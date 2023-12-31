@@ -27,6 +27,9 @@
   box-shadow: unset
   transition: all 0.3s ease
 
+  .hidden
+    display: none
+
   &.wrap-sticky
     position: sticky
     top: 5px
@@ -407,7 +410,7 @@ $menu-link
   box-sizing: border-box
 
 .sidebar-toc-wrapper
-  max-height: calc(100vh - 80px)
+  max-height: calc(100vh - 120px)
   overflow: auto
 
   &::-webkit-scrollbar
@@ -463,3 +466,47 @@ $menu-link
   overflow: hidden
   text-overflow: ellipsis
   white-space: nowrap
+
+$siderbar-btn-icon
+  width: 40px
+  height: 40px
+  background: var(--red-3)
+  color: white
+  font-weight: bold
+  box-shadow: 0 2px 12px rgba(255, 78, 106, 0.55)
+  border-radius: post-radius
+  display: flex
+  justify-content: center
+  align-items: center
+  margin: 20px
+  transition: all 0.3s ease
+
+.sidebar-btn-wrapper
+  display: flex
+  justify-content: center
+  position: absolute
+  bottom: 10px
+  left: 0
+  right: 0
+
+  .current
+    background: var(--red-1)
+
+  .sidebar-toc-btn
+    @extend $siderbar-btn-icon
+    &:before
+      font-family: font-icon
+      content: "\f0e8"
+
+  .sidebar-common-btn
+    @extend $siderbar-btn-icon
+    &:before
+      font-family: font-icon
+      content: "\e3af"
+
+.sidebar-common-sidebar
+  display: flex
+  flex-direction: column
+  width: 100%
+  justify-content: center
+  align-items: center

@@ -1,9 +1,17 @@
 <nav id="mobile-nav">
     <div class="sidebar-wrap">
         <% if (is_post()) { %>
-            <%- partial('sidebar/toc-sidebar') %>
+            <div class="sidebar-toc-sidebar" ><%- partial('sidebar/toc-sidebar') %></div>
+            <div class="sidebar-common-sidebar hidden"><%- partial('sidebar/common-sidebar') %></div>
         <% } else { %>
             <%- partial('sidebar/common-sidebar') %>
         <% } %>
     </div>
+    <% if (is_post()) { %>
+        <div class="sidebar-btn-wrapper">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+        </div>
+    <% } %>
 </nav>
+

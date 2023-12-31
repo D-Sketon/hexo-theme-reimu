@@ -163,6 +163,21 @@ const getRealPath = (pathname, desc = false) => {
     $container.removeClass('mobile-nav-on');
   });
 
+  $('.sidebar-toc-btn').on('click', function () {
+    if ($(this).hasClass('current')) return;
+    $('.sidebar-toc-btn').addClass('current');
+    $('.sidebar-common-btn').removeClass('current');
+    $('.sidebar-toc-sidebar').removeClass('hidden');
+    $('.sidebar-common-sidebar').addClass('hidden');
+  });
+
+  $('.sidebar-common-btn').on('click', function () {
+    if ($(this).hasClass('current')) return;
+    $('.sidebar-common-btn').addClass('current');
+    $('.sidebar-toc-btn').removeClass('current');
+    $('.sidebar-common-sidebar').removeClass('hidden');
+    $('.sidebar-toc-sidebar').addClass('hidden');
+  });
 
   const rootRealPath = getRealPath(window.location.pathname, true);
   for (let link of $('.sidebar-menu-link-wrap')) {
