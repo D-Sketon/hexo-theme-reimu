@@ -40,7 +40,7 @@
             <% if (theme.valine.enable && theme.valine.appId && theme.valine.appKey && theme.valine.visitor) { %>
                 <span id="<%- url_for(post.path, {relative: false}).endsWith("index.html") ? 
                 url_for(post.path, {relative: false}).slice(0, -10) : url_for(post.path, {relative: false})%>" 
-                    class="leancloud_visitors article-visitor-link" data-flag-title="Your Article Title">
+                    class="leancloud_visitors article-visitor-link" data-flag-title="<%= post.title %>">
                     <span class="leancloud-visitors-count">0</span>
                     <em class="post-meta-item-text"><%= __('reading') %></em>
                 </span>
