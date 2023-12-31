@@ -107,6 +107,7 @@ valine:
   guest_info: nick,mail,link #valine comment header info
   recordIP: true # whether to record the IP address of the commenters
   highlight: true # whether to highlight the code blocks
+  visitor: false # whether to display the number of visitors
 
 # https://waline.js.org/
 waline:

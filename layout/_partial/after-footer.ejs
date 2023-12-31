@@ -30,6 +30,7 @@
         });
         var recordIP = JSON.parse('<%= theme.valine.recordIP %>');
         var highlight = JSON.parse('<%= theme.valine.highlight %>');
+        var visitor = JSON.parse('<%= theme.valine.visitor %>');
 
         new Valine({
             el: '.vcomment',
@@ -40,7 +41,8 @@
             avatar: '<%= theme.valine.avatar %>',
             lang: '<%= theme.valine.lang %>',
             recordIP: recordIP,
-            highlight: highlight
+            highlight: highlight,
+            visitor: visitor,
         });
     </script>
 <% } %>
