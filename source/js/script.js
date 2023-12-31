@@ -139,7 +139,7 @@ const getRealPath = (pathname, desc = false) => {
   // Mobile nav
   const $container = $('#container');
   let isMobileNavAnim = false;
-  let mobileNavAnimDuration = 200;
+  const mobileNavAnimDuration = 200;
 
   const startMobileNavAnim = function () {
     isMobileNavAnim = true;
@@ -158,10 +158,8 @@ const getRealPath = (pathname, desc = false) => {
     $container.toggleClass('mobile-nav-on');
     stopMobileNavAnim();
   });
-
-  $('#wrap').on('click', function () {
+  $('#mask').on('click', function () {
     if (isMobileNavAnim || !$container.hasClass('mobile-nav-on')) return;
-
     $container.removeClass('mobile-nav-on');
   });
 
@@ -198,4 +196,10 @@ const getRealPath = (pathname, desc = false) => {
       $('.sidebar-top').fadeIn();
     }
   });
+
+  // toc
+  $('.toc a').on('click', function () {
+    if (isMobileNavAnim || !$container.hasClass('mobile-nav-on')) return;
+    $container.removeClass('mobile-nav-on');
+  })
 })(jQuery);

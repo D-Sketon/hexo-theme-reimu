@@ -1,13 +1,17 @@
-@media no-mobile
+@media mq-large
   #mobile-nav
     display: none
 
-@media mq-mobile
+@media mg-large
   #mobile-nav
     position: absolute
     top: 0
-    left: 0
+    left: -(mobile-nav-width)
     width: mobile-nav-width
     height: 100%
     background: var(--color-mobile-nav-background)
-    border-right: 1px solid #fff
+    z-index: 1001
+    transition: left 0.2s ease-out
+
+    .mobile-nav-on &
+      left: 0

@@ -3,13 +3,19 @@
     display: none
   @media mq-large
     column(sidebar-column)
+    position: absolute
+    top: 5px
+    bottom: 0
+    right: 0
 
 [data-theme="dark"] .sidebar-wrap
   box-shadow: 0 0 10px 3px var(--color-hover-shadow)
 
+[data-theme="dark"] #mobile-nav .sidebar-wrap
+  box-shadow: 0 0 0 0
+
 .sidebar-wrap
   width: 100%
-  height: 100%
   border-radius: post-radius
   //background: linear-gradient(to bottom, white 0%, white 70%, transparent)
   background: var(--color-wrap)
@@ -21,10 +27,18 @@
   box-shadow: unset
   transition: all 0.3s ease
 
+  &.wrap-sticky
+    position: sticky
+    top: 5px
+
   &:hover
     transition: all 0.3s ease
+    transform: scale(1.015)
     box-shadow: 0 0 10px 3px var(--color-hover-shadow)
 
+  #mobile-nav &:hover
+    transform: scale(1)
+    box-shadow: 0 0 0 0
 
 .sidebar-author
   display: flex
@@ -385,3 +399,67 @@ $menu-link
     content: "\f062"
     color: var(--red-1)
     font-size: 20px
+
+
+.sidebar-toc
+  width: 100%
+  padding: 10px 20px
+  box-sizing: border-box
+
+.sidebar-toc-wrapper
+  max-height: calc(100vh - 80px)
+  overflow: auto
+
+  &::-webkit-scrollbar
+    width: 5px
+    height: 5px
+
+.toc
+  color: var(--color-link)
+  a, span
+    color: var(--color-link)
+    text-decoration: none
+    opacity: 0.8
+    transition: all 0.3s ease
+
+    &:hover
+      color: var(--red-0)
+
+  & ol
+    margin-left: 15px
+    list-style: none
+
+  & li
+    margin: 10px 0
+
+    &:before
+      content: ""
+      width: 5px
+      height: 10px
+      background: var(--color-h2-after)
+      display: inline-block
+      vertical-align: middle
+      margin-right: 11px
+      box-shadow: 0 2px 12px var(--color-h2-after-shadow)
+      opacity: 0.5
+      transition: all 0.35s ease-out
+
+    &:hover
+      &:before
+        width: 5px
+        height: 5px
+        border-radius: 50%
+        opacity: 1
+        transition: all 0.2s ease-out
+
+.toc-title
+  letter-spacing: 2px
+  color: var(--color-grey)
+  line-height: 1em
+  font-weight: bold
+  padding: 10px 0
+
+.toc-item 
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
