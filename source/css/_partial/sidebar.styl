@@ -393,16 +393,34 @@ $menu-link
   box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2)
   z-index: 999
 
-  &:before
-    width: 50px
-    height: 50px
-    display: flex
-    justify-content: center
-    align-items: center
-    content: "\f062"
-    color: var(--red-1)
-    font-size: 20px
+  img
+    transition: all 0.3s ease
+    animation: rotate-all 3s infinite
+    animation-timing-function: linear
+    opacity: 1
 
+  .arrow-up
+    transition: all 0.3s ease
+    opacity: 0
+    &:before
+      width: 50px
+      height: 50px
+      position: absolute
+      content: "\f062"
+      color: var(--red-1)
+      font-size: 20px
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      text-align: center
+      line-height: 50px
+
+  &:hover
+    img
+      opacity: 0
+    .arrow-up
+      opacity: 1
 
 .sidebar-toc
   width: 100%

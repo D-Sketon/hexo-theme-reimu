@@ -20,7 +20,10 @@
                 <% } %>
             </div>
             <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
-            <div class="sidebar-top"></div>
+            <div class="sidebar-top">
+              <img src="/images/taichi.svg" height="50" width="50"/>
+              <div class="arrow-up"></div>
+            </div>
             <div id="mask"></div>
         </div>
         <%- partial('_partial/mobile-nav', null, {cache: false}) %>
