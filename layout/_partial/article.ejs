@@ -24,7 +24,8 @@
                class="article-share-link"><%= __('share') %></a>
             <% if (post.comments && theme.valine.enable && theme.valine.appId && theme.valine.appKey ){ %>
                 <a href="<%- url_for(post.path) %>#comments" class="article-comment-link">
-                    <span class="post-comments-count valine-comment-count" data-xid="<%- url_for(post.path, {relative: false}) %>"
+                    <span class="post-comments-count valine-comment-count" data-xid="<%- url_for(post.path, {relative: false}).endsWith("index.html") ? 
+                      url_for(post.path, {relative: false}).slice(0, -10) : url_for(post.path, {relative: false})%>"
                           itemprop="commentCount"></span>
                     <%= __('comment') %>
                 </a>
