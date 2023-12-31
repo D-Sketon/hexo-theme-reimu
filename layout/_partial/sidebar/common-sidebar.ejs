@@ -1,0 +1,35 @@
+<div class="sidebar-author">
+    <img data-src="/avatar/<%= theme.avatar%>" data-sizes="auto" alt="<%= config.author %>" class="lazyload">
+    <div class="sidebar-author-name"><%= config.author %></div>
+    <div class="sidebar-description"><%= config.description%></div>
+</div>
+<div class="sidebar-state">
+    <div class="sidebar-state-article">
+        <div><%= __("sidebar.post") %></div>
+        <div class="sidebar-state-number"><%= site.posts.length %></div>
+    </div>
+    <div class="sidebar-state-category">
+        <div><%= __("sidebar.category") %></div>
+        <div class="sidebar-state-number"><%= site.categories.length %></div>
+    </div>
+    <div class="sidebar-state-tag">
+        <div><%= __("sidebar.tag") %></div>
+        <div class="sidebar-state-number"><%= site.tags.length %></div>
+    </div>
+</div>
+<div class="sidebar-social">
+  <% for (var i in theme.social){ %>
+      <div class=<%= 'icon-' + i %>>
+          <a href=<%= theme.social[i] %> itemprop="url" target="_blank"></a>
+      </div>
+  <% } %>
+</div>
+<div class="sidebar-menu">
+  <% for (var i in theme.menu){ %>
+      <div class="sidebar-menu-link-wrap">
+          <a class="sidebar-menu-link-dummy" href="<%- url_for(theme.menu[i]) %>"></a>
+          <span class="sidebar-menu-icon"></span>
+          <div class="sidebar-menu-link"><%= __(i) %></div>
+      </div>
+  <% } %>
+</div>
