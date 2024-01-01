@@ -21,7 +21,7 @@
 - [x] 加载动画
 - [x] TOC
 - [x] 回到顶部
-- [ ] 文章统计
+- [x] 文章统计（仅Valine）
 
 ## 截图
 
@@ -48,7 +48,7 @@
 npm install hexo-theme-reimu --save
 ```
 
-或直接克隆本仓库至`/themes`文件夹下并重命名为`reimu`
+或直接克隆本仓库至 `/themes` 文件夹下并重命名为 `reimu`
 
 ```bash
 git clone https://github.com/D-Sketon/hexo-theme-reimu.git
@@ -103,7 +103,7 @@ cover: https://example.com
 ---
 ```
 
-- 如果文章的 Front matter 中包含 cover 为`false`，则该文章不显示头图（首页上仍然是随机图片）
+- 如果文章的 Front matter 中包含 cover 为 `false`，则该文章不显示头图（首页上仍然是随机图片）
 
 ```yaml
 ---
@@ -112,7 +112,7 @@ cover: false
 ---
 ```
 
-- 如果文章的 Front matter 中包含 cover 为`rgb(xxx,xxx,xxx)`，则该文章头图为对应的渐变纯色（首页上仍然是随机图片）
+- 如果文章的 Front matter 中包含 cover 为 `rgb(xxx,xxx,xxx)`，则该文章头图为对应的渐变纯色（首页上仍然是随机图片）
 
 ```yaml
 ---
@@ -126,7 +126,7 @@ cover: rgb(255,117,117)
 
 #### 头图
 
-头图保存于 `themes/reimu/source/images/banner.jpg`，可在内层 `_config.yml`中修改
+头图保存于 `themes/reimu/source/images/banner.jpg`，可在内层 `_config.yml` 中修改
 
 ```yaml
 banner: "/images/banner.jpg"
@@ -134,7 +134,7 @@ banner: "/images/banner.jpg"
 
 #### 图标
 
-图标保存于 `themes/reimu/source/images/favicon.ico`，可在内层 `_config.yml`中修改
+图标保存于 `themes/reimu/source/images/favicon.ico`，可在内层 `_config.yml` 中修改
 
 ```yaml
 favicon: "/images/favicon.ico"
