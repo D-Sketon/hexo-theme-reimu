@@ -14,8 +14,11 @@
         <div id="wrap">
             <%- partial('_partial/header', {post: page}, {cache: false}) %>
             <div id="content" class="outer">
+                <% if (theme.sidebar === 'left'){ %>
+                    <%- partial('_partial/sidebar', null) %>
+                <% } %>
                 <section id="main"><%- body %></section>
-                <% if (theme.sidebar){ %>
+                <% if (theme.sidebar === 'right'){ %>
                     <%- partial('_partial/sidebar', null) %>
                 <% } %>
             </div>
