@@ -170,6 +170,8 @@ giscus:
 #   adminApiKey: 'your adminApiKey'
 #   indexName: 'your indexName'
 #   chunkSize: 5000
+generator_search:
+  enable: false
 algolia_search:
   enable: false
   hits:

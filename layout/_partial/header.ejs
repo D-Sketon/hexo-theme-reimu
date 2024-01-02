@@ -74,6 +74,10 @@
                     <a id="nav-search-btn" class="nav-icon popup-trigger" title="<%= __('search') %>">
                     </a>
                 <% } %>
+		<% if (theme.generator_search.enable){ %>
+                    <a id="nav-search-btn" class="nav-icon popup-trigger" title="<%= __('search') %>">
+                    </a>
+                <% } %>
             </nav>
             <div id="search-form-wrap">
                 <%- search_form({button: '&#xF002;', text: __('search')}) %>

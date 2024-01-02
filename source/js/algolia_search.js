@@ -15,7 +15,7 @@ $(document).ready(function () {
       algoliaSettings.apiKey,
     ),
     searchFunction: helper => {
-      if ($('#algolia-search-input').find('input').val()) {
+      if ($('#reimu-search-input').find('input').val()) {
           helper.search();
       }
     }
@@ -28,7 +28,7 @@ $(document).ready(function () {
     }),
 
     instantsearch.widgets.searchBox({
-      container: '#algolia-search-input',
+      container: '#reimu-search-input',
       placeholder: algoliaSettings.labels.input_placeholder,
       showReset: false,
       showSubmit: false,
@@ -36,30 +36,30 @@ $(document).ready(function () {
     }),
 
     instantsearch.widgets.hits({
-      container: '#algolia-hits',
+      container: '#reimu-hits',
       templates: {
         item: data => {
           return (
-            '<a href="' + data.permalink + '" class="algolia-hit-item-link">' +
+            '<a href="' + data.permalink + '" class="reimu-hit-item-link">' +
             data._highlightResult.title.value +
             '</a>'
           );
         },
         empty: data => {
           return (
-            '<div id="algolia-hits-empty">' +
+            '<div id="reimu-hits-empty">' +
             algoliaSettings.labels.hits_empty.replace(/\$\{query}/, data.query) +
             '</div>'
           );
         }
       },
       cssClasses: {
-        item: 'algolia-hit-item'
+        item: 'reimu-hit-item'
       }
     }),
 
     instantsearch.widgets.stats({
-      container: '#algolia-stats',
+      container: '#reimu-stats',
       templates: {
         text: data => {
           const stats = algoliaSettings.labels.hits_stats
@@ -67,7 +67,7 @@ $(document).ready(function () {
             .replace(/\$\{time}/, data.processingTimeMS);
           return (
             stats +
-            '<span class="algolia-powered">' +
+            '<span class="reimu-powered">' +
             '  <img src="' + CONFIG.root + 'images/algolia_logo.svg" alt="Algolia" />' +
             '</span>' +
             '<hr />'
@@ -77,7 +77,7 @@ $(document).ready(function () {
     }),
 
     instantsearch.widgets.pagination({
-      container: '#algolia-pagination',
+      container: '#reimu-pagination',
       scrollTo: false,
       showFirst: false,
       showLast : false,
@@ -97,7 +97,7 @@ $(document).ready(function () {
     e.stopPropagation();
     $('body').append('<div class="popoverlay">').css('overflow', 'hidden');
     $('.popup').toggle();
-    $('#algolia-search-input').find('input').focus();
+    $('#reimu-search-input').find('input').focus();
   });
 
   $('.popup-btn-close').click(function () {
