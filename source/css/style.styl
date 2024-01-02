@@ -1,149 +1,222 @@
-@import "nib"
-@import "_variables"
-@import "_util/mixin"
-@import "_util/grid"
-@import "_util/animation"
-@import "_extend"
+.popup
+  display: none
+  position: fixed
+  top: 10%
+  left: 50%
+  width: 700px
+  height: 80%
+  margin-left: -350px
+  padding: 3px 0 0 10px
+  background: var(--color-wrap)
+  color: var(--color-grey)
+  z-index: 9999
+  border-radius: post-radius
 
-global-reset()
+  @media mg-normal
+    padding: 5px
+    top: 0
+    left: 0
+    margin: 0
+    width: 100%
+    height: 100%
+    border-radius: 0
 
-h1, h2, h3, h4, h5, h6
-  font-family: font-title
-  font-weight: 700
-
-input, button
-  margin: 0
-  padding: 0
-
-  &::-moz-focus-inner
-    border: 0
-    padding: 0
-
-html, body, #container
+.popoverlay
+  position: fixed
+  width: 100%
   height: 100%
+  top: 0
+  left: 0
+  z-index: 2080
+  background-color: rgba(0, 0, 0, 0.3)
 
-body
-  background: var(--color-background)
-  -webkit-text-size-adjust: 100%
-  font-family: font-sans
-
-.outer
-  clearfix()
-  max-width: (column-width + gutter-width) * columns + gutter-width
-  margin: 0 auto
-  padding: 0
+.reimu-popup
   overflow: hidden
+  padding: 0
 
-.inner
-  column(columns)
+  .popup-btn-close
+    position: absolute
+    right: 15px
+    color: var(--red-1)
+    font-size: 20px
+    font-weight: bold
+    text-transform: uppercase
+    cursor: pointer
+    padding-left: 15px
+    top: 10px
 
-.left, .alignleft
-  float: left
+    &:before
+      font-family: font-icon
+      content: "\f057"
 
-.right, .alignright
+.reimu-search
+  padding: 10px 15px 5px
+  max-height: 50px
+  border-bottom: 1px solid #ccc
+  background: #f5f5f5
+  border-top-left-radius: 5px
+  border-top-right-radius: 5px
+
+.reimu-search-input-icon
+  display: inline-block
+  width: 20px
+  font-size: 18px
+
+  &:before
+    font-family: font-icon
+    content: "\f002"
+
+.reimu-search-input
+  display: inline-block
+  width: calc(90% - 20px)
+
+  input
+    padding: 5px 0
+    width: 100%
+    outline: none
+    border: none
+    background: transparent
+
+.reimu-powered
   float: right
 
-.clear
-  clear: both
+  img
+    display: inline-block
+    height: 18px
+    vertical-align: middle
 
-#container
+.algolia-results
   position: relative
+  overflow: auto
+  padding: 10px 30px
+  box-sizing: border-box
+  height: calc(100% - 50px)
 
-.mobile-nav-on
+  hr
+    margin: 10px 0
+
+  em
+    font-weight: bold
+    margin: 0
+    padding: 0 2px
+    color: var(--red-1)
+
+#reimu-hits
+  margin-top: 10px
+  margin-left: 30px
+
+.reimu-hit-item-link
+  display: block
+  text-decoration: none
+  color: var(--red-2)
+  margin-left: 15px
+  padding: 12px 0
+
+  &:before
+    content: ""
+    width: 6px
+    height: 15px
+    background: var(--color-h2-after)
+    display: inline-block
+    vertical-align: middle
+    margin-top: -2px
+    margin-right: 11px
+    margin-left: -25px
+    box-shadow: 0 2px 12px var(--color-h2-after-shadow)
+    opacity: 0.5
+    transition: all 0.2s ease
+
+  &:hover
+    &:before
+      width: 6px
+      height: 6px
+      border-radius: 50%
+      opacity: 1
+      transition: all 0.2s ease
+
+.algolia-pagination
+  margin: 10px auto
+  background: var(--color-wrap)
+  border-radius: post-radius
+  text-align: center
+  color: var(--color-grey)
   overflow: hidden
 
-#wrap
-  height: 100%
-  width: 100%
-  position: absolute
-  top: 0
-  left: 0
-  transition: 0.2s ease-out
-  z-index: 1
-  background: var(--color-background)
+  a
+    padding: 10px 15px
+    color: var(--color-grey)
+    text-decoration: none
+    transition: background 0.2s ease
 
-#main
-  padding: 0 5px
-  max-width: 100%
-  box-sizing: border-box
+    &:hover
+      background: var(--red-2)
+      transition: background 0.2s ease
+      color: #fff
 
-#content
-  position: relative
-  padding-top: 5px
-  display: flex
-  align-items: stretch
+  .pagination-item
+    display: inline-block
 
-  &.outer
-    overflow: visible
+  .page-number
+    display: inline-block
+    border-radius: post-radius
+    margin: 5px 5px
 
-if sidebar
-  #main
-    @media mq-large
-      padding: 0
-      column(main-column)
+  .current
+    .page-number
+      color: white
+      background: var(--red-1)
+      font-weight: bold
+      box-shadow: 0 2px 6px rgba(255, 78, 106, 0.55)
 
-#mask
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  background: rgba(0, 0, 0, 0.5)
-  display: none
-  z-index: 1000
+  .disabled-item
+    display: none
 
-  .mobile-nav-on &
-    display: block
+.reimu-pagination
+  margin: 10px auto
+  background: var(--color-wrap)
+  border-radius: post-radius
+  text-align: center
+  color: var(--color-grey)
+  overflow: hidden
 
-@import "_partial/header"
-@import "_partial/article"
-@import "_partial/post"
-@import "_partial/comment"
-@import "_partial/archive"
-@import "_partial/footer"
-@import "_partial/mobile"
-@import "_partial/highlight"
-@import "_partial/widget.styl"
-@import "_partial/friend.styl"
-@import "_partial/search.styl"
+  a
+    padding: 10px 15px
+    color: var(--color-grey)
+    text-decoration: none
+    transition: background 0.2s ease
 
-if sidebar
-  @import "_partial/sidebar"
+    &:hover
+      background: var(--red-2)
+      transition: background 0.2s ease
+      color: #fff
 
-[data-theme="dark"]
-  ::-webkit-scrollbar, ::-webkit-scrollbar-track
-    background-color: #616161
+  .pagination-item
+    display: inline-block
 
-::-webkit-scrollbar
-  width: 10px
-  height: 10px
-  background-color: #f5f5f5
+  .page-number
+    display: inline-block
+    border-radius: post-radius
+    margin: 5px 5px
 
+  .current
+    .page-number
+      color: white
+      background: var(--red-1)
+      font-weight: bold
+      box-shadow: 0 2px 6px rgba(255, 78, 106, 0.55)
 
-::-webkit-scrollbar-track
-  border-radius: 10px
-  background-color: #f5f5f5
+  .disabled-item
+    display: none
 
+.ais-pagination--item__previous
+  a
+    &:before
+      font-family: font-icon
+      content: "\f104"
 
-::-webkit-scrollbar-thumb
-  border-radius: 10px
-  background-color: var(--red-3)
+.ais-pagination--item__next
+  a
+    &:before
+      font-family: font-icon
+      content: "\f105"
 
-.pace
-  -webkit-pointer-events: none
-  pointer-events: none
-  -webkit-user-select: none
-  -moz-user-select: none
-  user-select: none
-
-.pace-inactive
-  display: none
-
-.pace .pace-progress
-  background: var(--red-1)
-  position: fixed
-  z-index: 2000
-  top: 0
-  right: 100%
-  width: 100%
-  height: 2px
