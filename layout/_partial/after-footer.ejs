@@ -113,15 +113,11 @@
         async>
     </script>
 <% } %>
-<% if(theme.generator_search.enable){ %>
-    <%- js('js/generator_search.js') %>
-    <%- js(theme.vendor.js.instantsearch) %>
-<% } %>
 
 <% if(theme.algolia_search.enable){ %>
     <%- js(theme.vendor.js.algolia) %>
     <%- js(theme.vendor.js.instantsearch) %>
-    <%- js('js/algolia_search.js') %>
+    <%- js('js/search.js') %>
     <script>
         var CONFIG = {
             root: '/',
