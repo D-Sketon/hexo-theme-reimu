@@ -1,6 +1,9 @@
 $(document).ready(function () {
   let searchInput = $('#reimu-search-input');
   let searchResult = $('#reimu-hits');
+  let pagination = $('#pagination');
+  let itemsPerPage = 10;
+  let currentPage = 1;
 
   searchInput.append('<form id="search-form"><input type="text" id="search-text"></form>');
 
@@ -9,18 +12,37 @@ $(document).ready(function () {
       event.preventDefault();
       let inputText = $('#search-text').val();
       searchResult.empty();
+      pagination.empty();
       if (inputText) {
         let hits = data.filter(function (post) {
-          return post.title.toLowerCase().includes(inputText.toLowerCase()) ||
-                 post.content.toLowerCase().includes(inputText.toLowerCase());
+          return post.title && post.title.toLowerCase().includes(inputText.toLowerCase()) ||
+                 post.content && post.content.toLowerCase().includes(inputText.toLowerCase());
         });
 
-        hits.forEach(function (hit) {
-          searchResult.append('<a href="' + hit.url + '" class="reimu-hit-item-link">' + hit.title + '</a>');
+        let totalPages = Math.ceil(hits.length / itemsPerPage);
+        for (let i = 1; i <= totalPages; i++) {
+          pagination.append('<span class="page-number">' + i + '</span>');
+        }
+
+        $('.page-number').click(function () {
+          currentPage = $(this).text();
+          displayHits(hits, currentPage, itemsPerPage);
         });
+
+        displayHits(hits, currentPage, itemsPerPage);
       }
     });
   });
+
+  function displayHits(hits, page, itemsPerPage) {
+    searchResult.empty();
+    let start = (page - 1) * itemsPerPage;
+    let end = start + itemsPerPage;
+    let hitsToDisplay = hits.slice(start, end);
+    hitsToDisplay.forEach(function (hit) {
+      searchResult.append('<a href="' + hit.url + '" class="reimu-hit-item-link">' + hit.title + '</a>');
+    });
+  }
 
   $('.popup-trigger').on('click', function (e) {
     e.stopPropagation();
