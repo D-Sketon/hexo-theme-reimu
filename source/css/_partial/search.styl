@@ -171,6 +171,43 @@
   .disabled-item
     display: none
 
+.reimu-pagination
+  margin: 10px auto
+  background: var(--color-wrap)
+  border-radius: post-radius
+  text-align: center
+  color: var(--color-grey)
+  overflow: hidden
+
+  a
+    padding: 10px 15px
+    color: var(--color-grey)
+    text-decoration: none
+    transition: background 0.2s ease
+
+    &:hover
+      background: var(--red-2)
+      transition: background 0.2s ease
+      color: #fff
+
+  .pagination-item
+    display: inline-block
+
+  .page-number
+    display: inline-block
+    border-radius: post-radius
+    margin: 5px 5px
+
+  .current
+    .page-number
+      color: white
+      background: var(--red-1)
+      font-weight: bold
+      box-shadow: 0 2px 6px rgba(255, 78, 106, 0.55)
+
+  .disabled-item
+    display: none
+
 .ais-pagination--item__previous
   a
     &:before
@@ -182,3 +219,4 @@
     &:before
       font-family: font-icon
       content: "\f105"
+
