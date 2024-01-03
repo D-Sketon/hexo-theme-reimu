@@ -21,7 +21,7 @@
 - [x] 加载动画
 - [x] TOC
 - [x] 回到顶部
-- [x] 文章统计（仅Valine）
+- [x] 文章统计（仅 Valine）
 
 ## 截图
 
@@ -225,7 +225,7 @@ twikoo:
 
 ### 站内搜索
 
-站内搜索基于 [Algolia](https://www.algolia.com/)，请安装 [hexo-algolia](https://github.com/thom4parisot/hexo-algolia)
+若选择 [Algolia](https://www.algolia.com/)，请安装 [hexo-algolia](https://github.com/thom4parisot/hexo-algolia)
 
 ```bash
 npm install hexo-algolia --save
@@ -250,6 +250,24 @@ algolia_search:
 ```
 
 注意：搜索跳转链接为永久链接，所以请保证外层 `_config.yml` 中的 `url` 填写正确
+
+若选择 [hexo-generator-search](https://github.com/wzpan/hexo-generator-search)，请安装[hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
+
+并参考其 [README](https://github.com/wzpan/hexo-generator-search#readme)在外层 `_config.yml` 中添加如下配置
+
+```yml
+search:
+  path: search.json # 文件名必须为search.json
+  field: post
+  content: true
+```
+
+在内层 `_config_yml` 中将 `generator_search.enable` 改为 `true`
+
+```yaml
+generator_search:
+  enable: true
+```
 
 ### 数学公式
 

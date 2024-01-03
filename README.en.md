@@ -207,7 +207,7 @@ twikoo:
 
 ### Site search
 
-The site search is based on [Algolia](https://www.algolia.com/), please install [hexo-algolia](https://github.com/thom4parisot/hexo-algolia)
+If your site search is based on [Algolia](https://www.algolia.com/), please install [hexo-algolia](https://github.com/thom4parisot/hexo-algolia)
 
 ```bash
 npm install hexo-algolia --save
@@ -232,6 +232,24 @@ algolia_search:
 ```
 
 Note: The search link is a permanent link, so please ensure that the `url` in the outer `_config.yml` is filled in correctly
+
+If your site search is based on [hexo-generator-search](https://github.com/wzpan/hexo-generator-search), please install [hexo-generator-search](https://github.com/wzpan/ hexo-generator-search)
+
+And refer to its [README](https://github.com/wzpan/hexo-generator-search#readme) to add the following configuration to the outer `_config.yml`
+
+```yml
+search:
+  path: search.json # The filename must be search.json
+  field: post
+  content: true
+```
+
+In the inner `_config_yml` change `generator_search.enable` to `true
+
+```yaml
+generator_search:
+  enable: true
+```
 
 ### Mathematical formulas
 
