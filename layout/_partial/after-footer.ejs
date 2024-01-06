@@ -141,3 +141,10 @@
         };
     </script>
 <% } %>
+
+<% if (theme.firework.enable){ %>
+  <%- js(theme.vendor.js.firework) %>
+  <script>
+    firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'))
+  </script>
+<% } %>
