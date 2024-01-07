@@ -18,12 +18,13 @@
     </script>
 <% } %>
 
-<%- js('js/script') %>
+<%- js('js/script.js') %>
+<%- js({src: 'js/pjax_script.js', 'data-pjax': true}) %>
 <%- partial('analytics/gauges-analytics') %>
 
 <% if(theme.valine.enable && theme.valine.appId && theme.valine.appKey){ %>
-    <%- js(theme.vendor.js.valine) %>
-    <script>
+    <%- js({src: theme.vendor.js.valine, 'data-pjax': true}) %>
+    <script data-pjax>
         var GUEST_INFO = ['nick', 'mail', 'link'];
         var guest_info = '<%= theme.valine.guest_info %>'.split(',').filter(function (item) {
             return GUEST_INFO.indexOf(item) > -1
@@ -43,13 +44,14 @@
             recordIP: recordIP,
             highlight: highlight,
             visitor: visitor,
+            path: window.location.pathname
         });
     </script>
 <% } %>
 
 <% if(theme.waline.enable && theme.waline.serverURL){ %>
-    <%- js(theme.vendor.js.valine) %>
-    <script type="module">
+    <%- js({src: theme.vendor.js.valine, 'data-pjax': true}) %>
+    <script data-pjax type="module">
         import { init } from "<%= theme.vendor.js.waline %>";
 
         init({
@@ -69,8 +71,8 @@
 <% } %>
 
 <% if(theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret){ %>
-    <%- js(theme.vendor.js.gitalk) %>
-    <script>
+    <%- js({src: theme.vendor.js.gitalk, 'data-pjax': true}) %>
+    <script data-pjax>
         const gitalk = new Gitalk({
             clientID: '<%= theme.gitalk.clientID %>',
             clientSecret: '<%= theme.gitalk.clientSecret %>',
@@ -86,8 +88,8 @@
 <% } %>
 
 <% if(theme.twikoo.enable && theme.twikoo.envId){ %>
-    <%- js(theme.vendor.js.twikoo) %>
-    <script>
+    <%- js({src: theme.vendor.js.twikoo, 'data-pjax': true}) %>
+    <script data-pjax>
         twikoo.init({
             envId: '<%= theme.twikoo.envId %>',
             el: '.tcomment',
@@ -110,9 +112,11 @@
         data-theme='<%= theme.giscus.commentTheme %>'
         data-lang='<%= theme.giscus.lang %>'
         crossorigin="anonymous"
+        data-pjax
         async>
     </script>
 <% } %>
+
 <% if(theme.generator_search.enable){ %>
     <%- js('js/generator_search.js') %>
     <%- js(theme.vendor.js.instantsearch) %>
@@ -143,8 +147,25 @@
 <% } %>
 
 <% if (theme.firework.enable){ %>
-  <%- js(theme.vendor.js.firework) %>
-  <script>
-    firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'))
-  </script>
+    <%- js(theme.vendor.js.firework) %>
+    <script>
+      firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'))
+    </script>
 <% } %>
+
+<% if (theme.pjax.enable){ %>
+    <%- js(theme.vendor.js.pjax) %>
+    <script>
+        new Pjax({
+          selectors: [
+            "#header-title",
+            "#subtitle-wrap",
+            "#content",
+            '#mobile-nav',
+          ],
+          cacheBust: false
+        })
+    </script>
+    <%- js('js/pjax.js') %>
+<% } %>
+

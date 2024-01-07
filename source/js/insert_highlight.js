@@ -18,7 +18,7 @@
   });
 
   // 代码收缩
-  $('.code-expand').on('click', function () {
+  $('.code-expand').off('click').on('click', function () {
     if ($(this).parent().parent().parent().hasClass('code-closed')) {
       $(this).siblings('pre').find('code').show();
       $(this).parent().parent().parent().removeClass('code-closed');
@@ -40,7 +40,7 @@
 
   // 代码语言
   $('pre').each(function () {
-    let codeLanguage = $(this).attr('class') || $(this).parents('figure').attr('class').split(' ')[1];
+    let codeLanguage = $(this).attr('class') || $(this).parents('figure')?.attr('class')?.split(' ')[1];
 
     if (!codeLanguage) {
       return true;
