@@ -163,6 +163,39 @@
             "#content",
             '#mobile-nav',
           ],
+          switches: {
+            "#header-title": Pjax.switches.outerHTML, 
+            "#subtitle-wrap": Pjax.switches.outerHTML,
+            "#content": function(oldEl, newEl, options) {
+              function loadScripts(scripts, index) {
+                if (index < scripts.length) {
+                  var script = scripts[index];
+
+                  if ($(script).attr('src')) {
+                    $.ajax({
+                      url: $(script).attr('src'),
+                      dataType: 'script',
+                      success: function () {
+                        loadScripts(scripts, index + 1);
+                      },
+                      error: function (xhr, status, error) {
+                        console.error('Failed to load script:', $(script).attr('src'), error);
+                      }
+                    });
+                  } else {
+                    eval($(script).text());
+                    loadScripts(scripts, index + 1);
+                  }
+                }
+              }
+
+              const scripts = $(newEl.outerHTML).find('script').toArray();
+              loadScripts(scripts, 0);
+              oldEl.outerHTML = newEl.outerHTML
+              this.onSwitch()
+            },
+            "#mobile-nav": Pjax.switches.outerHTML
+          },
           cacheBust: false
         })
     </script>

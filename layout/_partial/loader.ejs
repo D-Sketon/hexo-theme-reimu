@@ -16,9 +16,25 @@
 </div>
 
 <script>
+  var time = null;
+  const startLoading = function() {
+    time = Date.now();
+    document.getElementById('loader').classList.remove("loading");
+  }
   const endLoading = function() {
-    document.body.style.overflow = 'auto';
-    document.getElementById('loader').classList.add("loading");
+    if(!time) {
+      document.body.style.overflow = 'auto';
+      document.getElementById('loader').classList.add("loading");
+    } else {
+      if(Date.now() - time > 500) {
+        time = null;
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        setTimeout(endLoading, 500 - (Date.now() - time));
+        time = null;
+      } 
+    }
   }
   window.addEventListener('load', endLoading);
   document.getElementById('loader').addEventListener('click', endLoading);

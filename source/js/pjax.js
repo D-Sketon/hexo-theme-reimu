@@ -29,4 +29,8 @@ $(document).ready(function () {
       parentNode.appendChild(script)
     })
   })
+  if(startLoading)
+    window.addEventListener('pjax:send', startLoading)
+  if(endLoading)
+    window.addEventListener('pjax:complete', endLoading)
 });
