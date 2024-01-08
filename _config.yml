@@ -227,7 +227,8 @@ firework:
 # Experimental, may have a lot of bugs, open with caution!
 pjax:
   enable: false
-
+serviceworker:
+  enable: true
 # Dependent cdn links
 vendor:
   js:

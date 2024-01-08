@@ -64,4 +64,7 @@
           }).init();
         </script>
     <% } %>
+    <% if (theme.serviceworker.enable){ %>
+        <script src="/sw.js"></script>
+    <% } %>
 </head>
