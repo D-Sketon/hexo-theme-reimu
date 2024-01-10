@@ -1,13 +1,16 @@
+<img src="https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/Reimu.png"/>
+<div align = center>
+  <img alt="NPM License" src="https://img.shields.io/npm/l/hexo-theme-reimu">
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/hexo-theme-reimu">
+  <img src="https://wakatime.com/badge/user/a6ea8444-9e83-48bb-9744-09a19ac07114/project/fe59c195-6633-4ee8-89c0-e1b24fa1fff4.svg" alt="wakatime">
+</div>
+
 # hexo-theme-reimu
 
 A Hakurei Reimu style Hexo theme.  
 A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian) and [Shoka](https://github.com/amehime/hexo-theme-shoka) themes.
 
 [Demo](https://d-sketon.github.io)
-
-## ScreenShot
-
-![screenshot](https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/Reimu.jpg)
 
 ## Structure
 
