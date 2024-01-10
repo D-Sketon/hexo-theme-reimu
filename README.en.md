@@ -300,6 +300,42 @@ Fill in the inner `_config.yml` with the generated `xml`
 rss: atom.xml
 ```
 
+### Experimental features
+
+#### firework
+
+Enabled by default
+```yaml
+firework:
+  enable: true
+```
+See [mouse-firework](https://github.com/D-Sketon/mouse-firework) for more information
+
+#### pjax
+
+Disabled by default
+```yaml
+pjax:
+  enable: false
+```
+> pjax was introduced in v0.0.10 for those who need to add music players and other users who need SPA. However, it is still experimental and may cause bugs such as **scripts not executing**, **scripts repeating**, **pages rendering mess**, etc. Please consider it carefully!
+
+#### PWA
+
+Enabled by default
+```yaml
+service_worker:
+  enable: true
+```
+
+#### live2d
+
+Disabled by default
+```yaml
+live2d:
+  enable: false
+```
+
 ## License
 
 MIT License

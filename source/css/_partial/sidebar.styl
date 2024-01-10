@@ -32,7 +32,6 @@
     top: 5px
 
   &:hover
-    transition: all 0.3s ease
     transform: scale(1.015)
     box-shadow: 0 0 10px 3px var(--color-hover-shadow)
 
@@ -93,7 +92,6 @@ $sidebar-state-content
   transition: opacity 0.5s ease
 
   &:hover
-    transition: opacity 0.5s ease
     opacity: 1
 
   .sidebar-state-article
@@ -335,18 +333,16 @@ $menu-link
   transition: border 0.5s ease
 
   &:hover
-    transition: border 0.5s ease
     border: 10px var(--color-h2-after) double
 
   &:hover .sidebar-menu-icon
-    transition: transform 1s ease
     transform: rotate(360deg)
 
 .sidebar-menu-icon
   @extend $menu-link
   background: url("/images/taichi.png") no-repeat center / 80%
   transform: rotate(0deg)
-  transition: transform 1s
+  transition: transform 1s ease
 
 .sidebar-menu-link-dummy
   position: absolute
@@ -367,7 +363,6 @@ $menu-link
   transition: border opacity 0.5s ease
 
   &:hover
-    transition: border opacity 0.5s ease
     opacity: 1
 
   .sidebar-menu-link
@@ -468,7 +463,6 @@ $menu-link
         height: 5px
         border-radius: 50%
         opacity: 1
-        transition: all 0.2s ease-out
 
 .toc-title
   letter-spacing: 2px

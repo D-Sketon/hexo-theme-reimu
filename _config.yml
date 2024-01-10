@@ -229,7 +229,7 @@ pjax:
   enable: false
 
 # Experimental
-serviceworker:
+service_worker:
   enable: true
 
 # Experimental

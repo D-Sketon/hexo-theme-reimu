@@ -7,10 +7,9 @@
 
 # hexo-theme-reimu
 
-一款博丽灵梦风格的 Hexo 主题  
-融合了[landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian)和[Shoka](https://github.com/amehime/hexo-theme-shoka)三个主题
+本人是车车人，所以制作了这样一款博丽灵梦风格的 Hexo 主题，融合了 [landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian) 和 [Shoka](https://github.com/amehime/hexo-theme-shoka) 三个主题
 
-[Demo](https://d-sketon.github.io)
+请点击 [Demo](https://d-sketon.github.io) 查看演示网站
 
 [English README](https://github.com/D-Sketon/hexo-theme-reimu/blob/main/README.en.md)
 
@@ -30,8 +29,10 @@
 - [x] TOC
 - [x] 回到顶部
 - [x] 文章统计（仅 Valine）
-- [x] 鼠标烟花（实验性）
+- [x] 鼠标烟花
 - [x] pjax（实验性）
+- [x] pwa（实验性）
+- [x] live2d（实验性）
 
 ## 结构
 
@@ -319,6 +320,42 @@ npm install hexo-generator-feed --save
 
 ```yaml
 rss: atom.xml
+```
+
+### 实验性功能
+
+#### firework
+
+默认开启
+```yaml
+firework:
+  enable: true
+```
+具体配置请查看 [mouse-firework](https://github.com/D-Sketon/mouse-firework)
+
+#### pjax
+
+默认关闭
+```yaml
+pjax:
+  enable: false
+```
+> pjax 在 v0.0.10 中被引入，用于那些需要添加音乐播放器等需要 SPA 的用户。但其仍然属于实验性质，引入后可能会出现诸如**脚本无法执行**、**脚本重复执行**、**页面渲染混乱**等 BUG。请慎重考虑！
+
+#### PWA
+
+默认开启
+```yaml
+service_worker:
+  enable: true
+```
+
+#### live2d
+
+默认关闭
+```yaml
+live2d:
+  enable: false
 ```
 
 ## 许可
