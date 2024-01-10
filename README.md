@@ -1,3 +1,10 @@
+<img src="https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/Reimu.png"/>
+<div align = center>
+  <img alt="NPM License" src="https://img.shields.io/npm/l/hexo-theme-reimu">
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/hexo-theme-reimu">
+  <img src="https://wakatime.com/badge/user/a6ea8444-9e83-48bb-9744-09a19ac07114/project/fe59c195-6633-4ee8-89c0-e1b24fa1fff4.svg" alt="wakatime">
+</div>
+
 # hexo-theme-reimu
 
 一款博丽灵梦风格的 Hexo 主题  
@@ -25,10 +32,6 @@
 - [x] 文章统计（仅 Valine）
 - [x] 鼠标烟花（实验性）
 - [x] pjax（实验性）
-
-## 截图
-
-![screenshot](https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/Reimu.jpg)
 
 ## 结构
 
