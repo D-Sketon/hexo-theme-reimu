@@ -1,23 +1,10 @@
 // https://github.com/chriskempson/tomorrow-theme
-highlight-background = #22272e
-highlight-current-line = #393939
-highlight-selection = #515151
-highlight-foreground = #cccccc
-highlight-comment = #999999
-highlight-red = #f47067
-highlight-orange = #f69d50
-highlight-yellow = #ffcc66
-highlight-green = #99cc99
-highlight-aqua = #66cccc
-highlight-blue = #54b6ff
-highlight-purple = #dcbdfb
-
 $code-block
-  background: highlight-background
+  background: var(--highlight-background)
   padding: 0 article-padding 15px
   border-radius: 10px
   //overflow: auto
-  color: highlight-foreground
+  color: var(--highlight-foreground)
   line-height: font-size * line-height
 
 $line-numbers
@@ -35,6 +22,10 @@ $line-numbers
     margin-block-end: 1em
     margin-inline-start: 0
     margin-inline-end: 0
+    transition: all 0.3s ease
+    
+    &:hover
+      box-shadow: 0 0.3125rem 0.625rem -0.125rem var(--highlight-scrollbar)
 
     ::-webkit-scrollbar
       width: 10px
@@ -48,7 +39,7 @@ $line-numbers
 
     ::-webkit-scrollbar-thumb
       border-radius: 10px
-      background-color: #454d59
+      background-color: var(--highlight-scrollbar)
 
   pre, code
     font-family: "Ubuntu Mono"
@@ -67,7 +58,7 @@ $line-numbers
     code
       background: none
       text-shadow: none
-      color: highlight-foreground
+      color: var(--highlight-foreground)
       padding: 0
 
   .highlight
@@ -90,7 +81,7 @@ $line-numbers
     figcaption
       clearfix()
       font-size: 0.85em
-      color: highlight-comment
+      color: var(--highlight-comment)
       line-height: 1em
       margin-bottom: 1em
 
@@ -109,14 +100,14 @@ $line-numbers
       height: font-size * line-height
 
     .line.marked
-      background: highlight-selection
+      background: var(--highlight-selection)
 
   .gist
     margin: 0 article-padding * -1
     border-style: solid
     border-color: var(--color-border)
     border-width: 1px 0
-    background: highlight-background
+    background: var(--highlight-background)
     padding: 15px article-padding 15px 0
 
     .gist-file
@@ -143,8 +134,8 @@ $line-numbers
         border: none
 
       .gist-meta
-        background: highlight-background
-        color: highlight-comment
+        background: var(--highlight-background)
+        color: var(--highlight-comment)
         font: 0.85em font-sans
         text-shadow: 0 0
         padding: 0
@@ -161,7 +152,7 @@ $line-numbers
 pre
   .comment
   .title
-    color: highlight-comment
+    color: var(--highlight-comment)
 
   .variable
   .attribute
@@ -175,7 +166,7 @@ pre
   .css .id
   .css .class
   .css .pseudo
-    color: highlight-red
+    color: var(--highlight-red)
 
   .number
   .preprocessor
@@ -183,12 +174,12 @@ pre
   .literal
   .params
   .constant
-    color: highlight-orange
+    color: var(--highlight-orange)
 
   .class
   .ruby .class .title
   .css .rules .attribute
-    color: highlight-green
+    color: var(--highlight-green)
 
   .string
   .value
@@ -196,10 +187,10 @@ pre
   .header
   .ruby .symbol
   .xml .cdata
-    color: highlight-green
+    color: var(--highlight-green)
 
   .css .hexcolor
-    color: highlight-aqua
+    color: var(--highlight-aqua)
 
   .function
   .python .decorator
@@ -209,11 +200,11 @@ pre
   .perl .sub
   .javascript .title
   .coffeescript .title
-    color: highlight-blue
+    color: var(--highlight-blue)
 
   .keyword
   .javascript .function
-    color: highlight-purple
+    color: var(--highlight-purple)
 
 .icon-copy
   &:before
@@ -238,7 +229,7 @@ pre
 
   align-items: center
   flex-shrink: 0
-  background: linear-gradient(to right, transparent 0%, #2e353f 50%, transparent 100%)
+  background: linear-gradient(to right, transparent 0%, var(--highlight-nav) 50%, transparent 100%)
   margin-bottom: 10px
 
 .code-decoration
