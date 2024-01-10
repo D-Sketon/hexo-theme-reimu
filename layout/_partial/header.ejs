@@ -1,3 +1,31 @@
+<div id="header-nav">
+  <nav id="main-nav">
+      <% for (var i in theme.menu){ %>
+          <span class="main-nav-link-wrap">
+              <span class="main-nav-icon"></span>
+              <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= __(i) %></a>
+          </span>
+      <% } %>
+      <a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav">
+      <% if (theme.rss){ %>
+          <a id="nav-rss-link" class="nav-icon" href="<%- url_for(theme.rss) %>"
+             title="<%= __('rss_feed') %>"></a>
+      <% } %>
+      <% if (theme.algolia_search.enable){ %>
+          <a id="nav-search-btn" class="nav-icon popup-trigger" title="<%= __('search') %>">
+          </a>
+      <% } %>
+      <% if (theme.generator_search.enable){ %>
+          <a id="nav-search-btn" class="nav-icon popup-trigger" title="<%= __('search') %>">
+          </a>
+      <% } %>
+  </nav>
+  <div id="search-form-wrap">
+      <%- search_form({button: '&#xF002;', text: __('search')}) %>
+  </div>
+</div>
 <header id="header">
     <% if(post.cover && post.cover.startsWith("rgb")){ %>
         <div style="position: absolute;top: 0;left: 0;width: 100%;height: 150%;z-index: -2;display: block;background: <%- post.cover %>"></div>
@@ -54,34 +82,6 @@
                     <% } %>
                 </h2>
             <% } %>
-        </div>
-        <div id="header-inner">
-            <nav id="main-nav">
-                <% for (var i in theme.menu){ %>
-                    <span class="main-nav-link-wrap">
-                        <span class="main-nav-icon"></span>
-                        <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= __(i) %></a>
-                    </span>
-                <% } %>
-                <a id="main-nav-toggle" class="nav-icon"></a>
-            </nav>
-            <nav id="sub-nav">
-                <% if (theme.rss){ %>
-                    <a id="nav-rss-link" class="nav-icon" href="<%- url_for(theme.rss) %>"
-                       title="<%= __('rss_feed') %>"></a>
-                <% } %>
-                <% if (theme.algolia_search.enable){ %>
-                    <a id="nav-search-btn" class="nav-icon popup-trigger" title="<%= __('search') %>">
-                    </a>
-                <% } %>
-		            <% if (theme.generator_search.enable){ %>
-                    <a id="nav-search-btn" class="nav-icon popup-trigger" title="<%= __('search') %>">
-                    </a>
-                <% } %>
-            </nav>
-            <div id="search-form-wrap">
-                <%- search_form({button: '&#xF002;', text: __('search')}) %>
-            </div>
         </div>
     </div>
 </header>

@@ -104,7 +104,6 @@ var getRealPath = (pathname, desc = false) => {
   }
 
   // Mobile nav
-  const $container = $('#container');
   let isMobileNavAnim = false;
   const mobileNavAnimDuration = 200;
 
@@ -122,12 +121,12 @@ var getRealPath = (pathname, desc = false) => {
     if (isMobileNavAnim) return;
 
     startMobileNavAnim();
-    $container.toggleClass('mobile-nav-on');
+    $('body').toggleClass('mobile-nav-on');
     stopMobileNavAnim();
   });
   $('#mask').off('click').on('click', function () {
-    if (isMobileNavAnim || !$container.hasClass('mobile-nav-on')) return;
-    $container.removeClass('mobile-nav-on');
+    if (isMobileNavAnim || !$('body').hasClass('mobile-nav-on')) return;
+    $('body').removeClass('mobile-nav-on');
   });
 
   $('.sidebar-toc-btn').off('click').on('click', function () {
@@ -181,7 +180,7 @@ var getRealPath = (pathname, desc = false) => {
 
   // toc
   $('.toc a').off('click').on('click', function () {
-    if (isMobileNavAnim || !$container.hasClass('mobile-nav-on')) return;
-    $container.removeClass('mobile-nav-on');
+    if (isMobileNavAnim || !$('body').hasClass('mobile-nav-on')) return;
+    $('body').removeClass('mobile-nav-on');
   });
 })(jQuery);

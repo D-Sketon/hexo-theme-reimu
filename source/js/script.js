@@ -38,4 +38,16 @@
   $('body').on('click', function () {
     $('.article-share-box.on').removeClass('on');
   })
+  let oldScrollTop = 0
+  window.addEventListener('scroll', function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop ||
+      document.body.scrollTop
+    let scrollStep = scrollTop - oldScrollTop;
+    oldScrollTop = scrollTop;
+    if (scrollStep < 0) {
+      $('#header-nav').removeClass('header-nav-hidden')
+    } else {
+      $('#header-nav').addClass('header-nav-hidden')
+    }
+  })
 })(jQuery);

@@ -49,23 +49,27 @@
   margin: 0
 
 [data-theme="dark"]
-  #header-inner:hover
+  #header-nav:hover
     background: var(--color-header-background)
 
-#header-inner
-  position: sticky
+#header-nav
+  position: fixed
   top: 0
+  left: 0
+  right: 0
   display: flex
   justify-content: center
   overflow: hidden
   background: var(--color-header-background)
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.1)
-  transition: background 0.2s ease
+  transition: all 0.2s ease
   z-index: 200
 
   &:hover
-    transition: background 0.2s ease
     background: rgba(255, 255, 255, 0.95)
+
+  &.header-nav-hidden
+    top: -80px
 
 #header-title
   font-family: font-title
