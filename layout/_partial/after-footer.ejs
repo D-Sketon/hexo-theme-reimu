@@ -204,3 +204,9 @@
     <%- js('js/pjax.js') %>
 <% } %>
 
+<% if (theme.live2d.enable){ %>
+    <%- js(theme.vendor.js.live2d.js) %>
+    <script>
+        live2d.init("<%- theme.vendor.js.live2d.base %>", {themeTipsPath:""});
+    </script>
+<% } %>
