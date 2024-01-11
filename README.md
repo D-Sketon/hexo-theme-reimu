@@ -232,21 +232,30 @@ twikoo:
 
 ### 站内搜索
 
-若选择 [Algolia](https://www.algolia.com/)，请安装 [hexo-algolia](https://github.com/thom4parisot/hexo-algolia)
+若选择 [Algolia](https://www.algolia.com/)，请安装 [hexo-algoliasearch](https://github.com/LouisBarranqueiro/hexo-algoliasearch)
 
 ```bash
-npm install hexo-algolia --save
+npm install hexo-algoliasearch --save
 ```
 
-并参考其 [README](https://github.com/thom4parisot/hexo-algolia#readme) 和 [为 Hexo 增加 algolia 搜索功能](https://blog.csdn.net/qq_35479468/article/details/107335663) 完成对 `Algolia` 账号的配置，并在外层 `_confg.yml` 中添加如下配置
+并参考其 [README](https://github.com/LouisBarranqueiro/hexo-algoliasearch#readme) 完成对 `Algolia` 账号的配置，并在外层 `_confg.yml` 中添加如下配置
 
 ```yml
 algolia:
-  applicationID: "your applicationID"
+  appId: "your applicationID"
   apiKey: "your apiKey"
   adminApiKey: "your adminApiKey"
   indexName: "your indexName"
   chunkSize: 5000
+  fields:
+    - content:strip:truncate,0,500
+    - excerpt:strip
+    - gallery
+    - permalink
+    - photos
+    - slug
+    - tags
+    - title
 ```
 
 在内层 `_config_yml` 中将 `algolia_search.enable` 改为 `true`

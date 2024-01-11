@@ -210,21 +210,30 @@ twikoo:
 
 ### Site search
 
-If your site search is based on [Algolia](https://www.algolia.com/), please install [hexo-algolia](https://github.com/thom4parisot/hexo-algolia)
+If your site search is based on [Algolia](https://www.algolia.com/), please install [hexo-algoliasearch](https://github.com/LouisBarranqueiro/hexo-algoliasearch)
 
 ```bash
-npm install hexo-algolia --save
+npm install hexo-algoliasearch --save
 ```
 
-and refer to its [README](https://github.com/thom4parisot/hexo-algolia#readme) to complete the configuration of the `Algolia` account, and add the following configuration to the outer `_confg.yml`
+and refer to its [README](https://github.com/LouisBarranqueiro/hexo-algoliasearch#readme) to complete the configuration of the `Algolia` account, and add the following configuration to the outer `_config.yml`
 
 ```yml
 algolia:
-  applicationID: "your applicationID"
+  appId: "your applicationID"
   apiKey: "your apiKey"
   adminApiKey: "your adminApiKey"
   indexName: "your indexName"
   chunkSize: 5000
+  fields:
+    - content:strip:truncate,0,500
+    - excerpt:strip
+    - gallery
+    - permalink
+    - photos
+    - slug
+    - tags
+    - title
 ```
 
 Change `algolia_search.enable` to `true` in the inner `_config_yml`
