@@ -31,6 +31,12 @@ $(document).ready(function () {
   })
   window.addEventListener('pjax:complete', () => {
     $('#header-nav').removeClass('header-nav-hidden')
+    mode = window.localStorage.getItem('dark_mode')
+    if (mode == 'true') {
+      document.body.dispatchEvent(new CustomEvent('dark-theme-set'))
+    } else if (mode == 'false') {
+      document.body.dispatchEvent(new CustomEvent('light-theme-set'))
+    }
   })
   if (startLoading)
     window.addEventListener('pjax:send', startLoading)

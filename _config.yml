@@ -251,7 +251,7 @@ vendor:
     algolia: https://unpkg.com/algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js
     instantsearch: https://unpkg.com/instantsearch.js@4.56.1/dist/instantsearch.production.min.js
     pace: https://unpkg.com/pace-js@1.2.4/pace.min.js
-    mermaid: https://unpkg.com/mermaid@9.4.3/dist/mermaid.min.js
+    mermaid: https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
     wow: https://unpkg.com/wowjs@1.1.3/dist/wow.min.js
     firework: https://www.unpkg.com/mouse-firework@0.0.3/dist/index.umd.js
     pjax: https://www.unpkg.com/theme-shokax-pjax@0.0.3/dist/index.umd.js

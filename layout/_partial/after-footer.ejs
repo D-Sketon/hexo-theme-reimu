@@ -6,7 +6,7 @@
   <%- js(theme.vendor.js.fancybox) %>
 <% } %>
 <% if (theme.footer.busuanzi) { %>
-  <%- js(theme.vendor.js.busuanzi) %>
+  <%- js({src: theme.vendor.js.busuanzi, defer: true}) %>
 <% } %>
 
 <%- copyright() %>
@@ -15,14 +15,67 @@
   <%- js(theme.vendor.js.mermaid) %>
   <script>
     if (window.mermaid) {
-      mermaid.initialize({
-        theme: 'forest'
-      });
+      // https://github.com/mermaid-js/mermaid/issues/1945
+      const elementCode = '.mermaid'
+      const saveOriginalData = () => {
+        return new Promise((resolve, reject) => {
+          try {
+            var els = document.querySelectorAll(elementCode),
+                count = els.length;
+            els.forEach(element => {
+              if (element.getAttribute('data-original-code') == null){
+                element.setAttribute('data-original-code', element.innerHTML)
+              }
+              count--
+              if(count == 0){
+                resolve()
+              }
+            });
+          } catch (error) {
+          reject(error) 
+          }
+        })
+      }
+      const resetProcessed = () => {
+        return new Promise((resolve, reject) => {
+          try {
+            var els = document.querySelectorAll(elementCode),
+                count = els.length;
+            els.forEach(element => {
+              if(element.getAttribute('data-original-code') != null){
+                element.removeAttribute('data-processed')
+                element.innerHTML = element.getAttribute('data-original-code')
+              }
+              count--
+              if(count == 0){
+                resolve()
+              }
+            });
+          } catch (error) {
+          reject(error) 
+          }
+        })
+      } 
+      const loadMermaid = function(theme) {
+          window.mermaid.initialize({theme})
+          window.mermaid.init({theme}, document.querySelectorAll(elementCode))
+        }
+      document.body.addEventListener('dark-theme-set', ()=>{
+        saveOriginalData()
+        .then(resetProcessed())
+        .then(loadMermaid('dark'))
+        .catch(console.error)
+      })
+      document.body.addEventListener('light-theme-set', ()=>{
+        saveOriginalData()
+        .then(resetProcessed())
+        .then(loadMermaid('default'))
+        .catch(console.error)
+      })
     }
   </script>
 <% } %>
 
-<%- js('js/script.js') %>
 <%- js({src: 'js/pjax_script.js', 'data-pjax': true}) %>
 <%- partial('analytics/gauges-analytics') %>
 
@@ -212,3 +265,5 @@
     });
   </script>
 <% } %>
+
+<%- js('js/script.js') %>

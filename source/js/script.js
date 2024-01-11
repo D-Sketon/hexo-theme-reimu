@@ -18,22 +18,25 @@
   mode = window.localStorage.getItem('dark_mode')
   if (mode == 'true') {
     $('#sub-nav').append('<a id="nav-sun-btn" class="nav-icon dark-mode-btn"></a>')
+    document.body.dispatchEvent(new CustomEvent('dark-theme-set'))
   } else if (mode == 'false') {
     $('#sub-nav').append('<a id="nav-moon-btn" class="nav-icon dark-mode-btn"></a>')
+    document.body.dispatchEvent(new CustomEvent('light-theme-set'))
   }
   $('.dark-mode-btn').on('click', function () {
     const id = $(this).attr('id')
     if (id == 'nav-sun-btn') {
       window.localStorage.setItem('dark_mode', 'false')
+      document.body.dispatchEvent(new CustomEvent('light-theme-set'))
       document.documentElement.removeAttribute('data-theme')
       $(this).attr("id", "nav-moon-btn")
     } else {
       window.localStorage.setItem('dark_mode', 'true')
+      document.body.dispatchEvent(new CustomEvent('dark-theme-set'))
       document.documentElement.setAttribute('data-theme', 'dark')
       $(this).attr("id", "nav-sun-btn")
     }
   })
-
   // Share
   $('body').on('click', () => {
     $('.article-share-box.on').removeClass('on');
