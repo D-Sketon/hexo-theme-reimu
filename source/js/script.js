@@ -35,11 +35,11 @@
   })
 
   // Share
-  $('body').on('click', function () {
+  $('body').on('click', () => {
     $('.article-share-box.on').removeClass('on');
   })
   let oldScrollTop = 0
-  window.addEventListener('scroll', function () {
+  window.addEventListener('scroll', () => {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop ||
       document.body.scrollTop
     let scrollStep = scrollTop - oldScrollTop;

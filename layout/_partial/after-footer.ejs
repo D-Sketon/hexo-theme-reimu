@@ -2,211 +2,213 @@
 <%- js(theme.vendor.js.lazysizes) %>
 <%- js(theme.vendor.js.clipboard) %>
 
-<% if (theme.fancybox){ %>
-    <%- js(theme.vendor.js.fancybox) %>
+<% if (theme.fancybox) { %>
+  <%- js(theme.vendor.js.fancybox) %>
 <% } %>
-<% if (theme.footer.busuanzi){ %>
-    <%- js(theme.vendor.js.busuanzi) %>
+<% if (theme.footer.busuanzi) { %>
+  <%- js(theme.vendor.js.busuanzi) %>
 <% } %>
 
 <%- copyright() %>
 
 <% if (theme.mermaid.enable) { %>
-    <%- js(theme.vendor.js.mermaid) %>
-    <script>
-        if (window.mermaid) {
-            mermaid.initialize({theme: 'forest'});
-        }
-    </script>
+  <%- js(theme.vendor.js.mermaid) %>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({
+        theme: 'forest'
+      });
+    }
+  </script>
 <% } %>
 
 <%- js('js/script.js') %>
 <%- js({src: 'js/pjax_script.js', 'data-pjax': true}) %>
 <%- partial('analytics/gauges-analytics') %>
 
-<% if(theme.valine.enable && theme.valine.appId && theme.valine.appKey){ %>
-    <%- js({src: theme.vendor.js.valine, 'data-pjax': true}) %>
-    <script data-pjax>
-        var GUEST_INFO = ['nick', 'mail', 'link'];
-        var guest_info = '<%= theme.valine.guest_info %>'.split(',').filter(function (item) {
-            return GUEST_INFO.indexOf(item) > -1
-        });
-        var recordIP = JSON.parse('<%= theme.valine.recordIP %>');
-        var highlight = JSON.parse('<%= theme.valine.highlight %>');
-        var visitor = JSON.parse('<%= theme.valine.visitor %>');
+<% if (theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
+  <%- js({src: theme.vendor.js.valine, 'data-pjax': true}) %>
+  <script data-pjax>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = '<%= theme.valine.guest_info %>'.split(',').filter((item) => {
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    var recordIP = JSON.parse('<%= theme.valine.recordIP %>');
+    var highlight = JSON.parse('<%= theme.valine.highlight %>');
+    var visitor = JSON.parse('<%= theme.valine.visitor %>');
 
-        new Valine({
-            el: '.vcomment',
-            appId: "<%= theme.valine.appId %>",
-            appKey: "<%= theme.valine.appKey %>",
-            placeholder: "<%= theme.valine.placeholder %>",
-            pageSize: '<%= theme.valine.pageSize %>',
-            avatar: '<%= theme.valine.avatar %>',
-            lang: '<%= theme.valine.lang %>',
-            recordIP: recordIP,
-            highlight: highlight,
-            visitor: visitor,
-            path: window.location.pathname
-        });
-    </script>
+    new Valine({
+      el: '.vcomment',
+      appId: "<%= theme.valine.appId %>",
+      appKey: "<%= theme.valine.appKey %>",
+      placeholder: "<%= theme.valine.placeholder %>",
+      pageSize: '<%= theme.valine.pageSize %>',
+      avatar: '<%= theme.valine.avatar %>',
+      lang: '<%= theme.valine.lang %>',
+      recordIP: recordIP,
+      highlight: highlight,
+      visitor: visitor,
+      path: window.location.pathname
+    });
+  </script>
 <% } %>
 
-<% if(theme.waline.enable && theme.waline.serverURL){ %>
-    <%- js({src: theme.vendor.js.valine, 'data-pjax': true}) %>
-    <script data-pjax type="module">
-        import { init } from "<%= theme.vendor.js.waline %>";
-
-        init({
-          el: '.wcomment',
-          serverURL: '<%= theme.waline.serverURL %>',
-          lang: '<%= theme.waline.lang %>',
-          locale: <%- JSON.stringify(theme.waline.locale) %>,
-          emoji: <%- JSON.stringify(theme.waline.emoji) %>,
-          meta: <%- JSON.stringify(theme.waline.meta) %>,
-          requiredMeta: <%-JSON.stringify(theme.waline.requiredMeta) %>,
-          wordLimit: JSON.parse('<%= theme.waline.wordLimit %>'),
-          comment: true,
-          pageSize: JSON.parse('<%= theme.waline.pageSize %>'),
-          dark: 'html[data-theme="dark"]'
-        });
-    </script>
+<% if (theme.waline.enable && theme.waline.serverURL) { %>
+  <%- js({src: theme.vendor.js.valine, 'data-pjax': true}) %>
+  <script data-pjax type="module">
+    import { init } from "<%= theme.vendor.js.waline %>";
+    init({
+      el: '.wcomment',
+      serverURL: '<%= theme.waline.serverURL %>',
+      lang: '<%= theme.waline.lang %>',
+      locale: <%- JSON.stringify(theme.waline.locale) %>,
+      emoji: <%- JSON.stringify(theme.waline.emoji) %>,
+      meta: <%- JSON.stringify(theme.waline.meta) %>,
+      requiredMeta: <%-JSON.stringify(theme.waline.requiredMeta) %>,
+      wordLimit: JSON.parse('<%= theme.waline.wordLimit %>'),
+      comment: true,
+      pageSize: JSON.parse('<%= theme.waline.pageSize %>'),
+      dark: 'html[data-theme="dark"]'
+    });
+  </script>
 <% } %>
 
-<% if(theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret){ %>
-    <%- js({src: theme.vendor.js.gitalk, 'data-pjax': true}) %>
-    <script data-pjax>
-        const gitalk = new Gitalk({
-            clientID: '<%= theme.gitalk.clientID %>',
-            clientSecret: '<%= theme.gitalk.clientSecret %>',
-            repo: '<%= theme.gitalk.repo %>',
-            owner: '<%= theme.gitalk.owner %>',
-            admin: <%= theme.gitalk.admin %>,
-            id: location.pathname,      // Ensure uniqueness and length less than 50
-            distractionFreeMode: false  // Facebook-like distraction free mode
-        })
-
-        gitalk.render('comments')
-    </script>
+<% if (theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret) { %>
+  <%- js({src: theme.vendor.js.gitalk, 'data-pjax': true}) %>
+  <script data-pjax>
+    const gitalk = new Gitalk({
+      clientID: '<%= theme.gitalk.clientID %>',
+      clientSecret: '<%= theme.gitalk.clientSecret %>',
+      repo: '<%= theme.gitalk.repo %>',
+      owner: '<%= theme.gitalk.owner %>',
+      admin: <%= theme.gitalk.admin %>,
+      id: location.pathname, // Ensure uniqueness and length less than 50
+      distractionFreeMode: false // Facebook-like distraction free mode
+    })
+    gitalk.render('comments')
+  </script>
 <% } %>
 
-<% if(theme.twikoo.enable && theme.twikoo.envId){ %>
-    <%- js({src: theme.vendor.js.twikoo, 'data-pjax': true}) %>
-    <script data-pjax>
-        twikoo.init({
-            envId: '<%= theme.twikoo.envId %>',
-            el: '.tcomment',
-            region: '<%= theme.twikoo.region %>',
-        })
-    </script>
+<% if (theme.twikoo.enable && theme.twikoo.envId) { %>
+  <%- js({src: theme.vendor.js.twikoo, 'data-pjax': true}) %>
+  <script data-pjax>
+    twikoo.init({
+      envId: '<%= theme.twikoo.envId %>',
+      el: '.tcomment',
+      region: '<%= theme.twikoo.region %>',
+    })
+  </script>
 <% } %>
 
-<% if(theme.giscus.enable){ %>
-    <script src="https://giscus.app/client.js"
-        data-repo='<%= theme.giscus.repo %>'
-        data-repo-id='<%= theme.giscus.repoId %>'
-        data-category='<%= theme.giscus.category %>'
-        data-category-id='<%= theme.giscus.categoryId %>'
-        data-mapping='<%= theme.giscus.mapping %>'
-        data-strict='<%= theme.giscus.strict %>'
-        data-reactions-enabled='<%= theme.giscus.reactionsEnabled %>'
-        data-emit-metadata='<%= theme.giscus.emitMetadata %>'
-        data-input-position='<%= theme.giscus.inputPosition %>'
-        data-theme='<%= theme.giscus.commentTheme %>'
-        data-lang='<%= theme.giscus.lang %>'
-        crossorigin="anonymous"
-        data-pjax
-        async>
-    </script>
+<% if (theme.giscus.enable) { %>
+  <script src="https://giscus.app/client.js"
+          data-repo='<%= theme.giscus.repo %>'
+          data-repo-id='<%= theme.giscus.repoId %>'
+          data-category='<%= theme.giscus.category %>'
+          data-category-id='<%= theme.giscus.categoryId %>'
+          data-mapping='<%= theme.giscus.mapping %>'
+          data-strict='<%= theme.giscus.strict %>'
+          data-reactions-enabled='<%= theme.giscus.reactionsEnabled %>'
+          data-emit-metadata='<%= theme.giscus.emitMetadata %>'
+          data-input-position='<%= theme.giscus.inputPosition %>'
+          data-theme='<%= theme.giscus.commentTheme %>'
+          data-lang='<%= theme.giscus.lang %>'
+          crossorigin="anonymous"
+          data-pjax
+          async>
+  </script>
 <% } %>
 
-<% if(theme.generator_search.enable){ %>
-    <%- js('js/generator_search.js') %>
-    <%- js(theme.vendor.js.instantsearch) %>
+<% if (theme.generator_search.enable) { %>
+  <%- js('js/generator_search.js') %>
+  <%- js(theme.vendor.js.instantsearch) %>
 <% } %>
 
-<% if(theme.algolia_search.enable){ %>
-    <%- js(theme.vendor.js.algolia) %>
-    <%- js(theme.vendor.js.instantsearch) %>
-    <%- js('js/algolia_search.js') %>
-    <script>
-        var CONFIG = {
-            root: '/',
-            algolia: {
-                applicationID: "<%= config.algolia.applicationID %>",
-                apiKey: "<%= config.algolia.apiKey %>",
-                indexName: "<%= config.algolia.indexName %>",
-                hits: {
-                    "per_page": parseInt("<%= theme.algolia_search.hits.per_page %>")
-                },
-                labels: {
-                    "input_placeholder": "<%= theme.algolia_search.labels.input_placeholder %>",
-                    "hits_empty": "<%= theme.algolia_search.labels.hits_empty %>",
-                    "hits_stats": "<%= theme.algolia_search.labels.hits_stats %>"
-                }
-            }
-        };
-    </script>
+<% if (theme.algolia_search.enable) { %>
+  <%- js(theme.vendor.js.algolia) %>
+  <%- js(theme.vendor.js.instantsearch) %>
+  <%- js('js/algolia_search.js') %>
+  <script>
+    var CONFIG = {
+      root: '/',
+      algolia: {
+        applicationID: "<%= config.algolia.applicationID %>",
+        apiKey: "<%= config.algolia.apiKey %>",
+        indexName: "<%= config.algolia.indexName %>",
+        hits: {
+          "per_page": parseInt("<%= theme.algolia_search.hits.per_page %>")
+        },
+        labels: {
+          "input_placeholder": "<%= theme.algolia_search.labels.input_placeholder %>",
+          "hits_empty": "<%= theme.algolia_search.labels.hits_empty %>",
+          "hits_stats": "<%= theme.algolia_search.labels.hits_stats %>"
+        }
+      }
+    };
+  </script>
 <% } %>
 
-<% if (theme.firework.enable){ %>
-    <%- js(theme.vendor.js.firework) %>
-    <script>
-      firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'))
-    </script>
+<% if (theme.firework.enable) { %>
+  <%- js(theme.vendor.js.firework) %>
+  <script>
+    firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'))
+  </script>
 <% } %>
 
-<% if (theme.pjax.enable){ %>
-    <%- js(theme.vendor.js.pjax) %>
-    <script>
-        new Pjax({
-          selectors: [
-            "#header-title",
-            "#subtitle-wrap",
-            "#content",
-            '#mobile-nav',
-          ],
-          switches: {
-            "#header-title": Pjax.switches.outerHTML, 
-            "#subtitle-wrap": Pjax.switches.outerHTML,
-            "#content": function(oldEl, newEl, options) {
-              function loadScripts(scripts, index) {
-                if (index < scripts.length) {
-                  var script = scripts[index];
+<% if (theme.pjax.enable) { %>
+  <%- js(theme.vendor.js.pjax) %>
+  <script>
+    new Pjax({
+      selectors: [
+        "#header-title",
+        "#subtitle-wrap",
+        "#content",
+        '#mobile-nav',
+      ],
+      switches: {
+        "#header-title": Pjax.switches.outerHTML,
+        "#subtitle-wrap": Pjax.switches.outerHTML,
+        "#content": function(oldEl, newEl, options) {
+          function loadScripts(scripts, index) {
+            if (index < scripts.length) {
+              var script = scripts[index];
 
-                  if ($(script).attr('src')) {
-                    $.ajax({
-                      url: $(script).attr('src'),
-                      dataType: 'script',
-                      success: function () {
-                        loadScripts(scripts, index + 1);
-                      },
-                      error: function (xhr, status, error) {
-                        console.error('Failed to load script:', $(script).attr('src'), error);
-                      }
-                    });
-                  } else {
-                    eval($(script).text());
+              if ($(script).attr('src')) {
+                $.ajax({
+                  url: $(script).attr('src'),
+                  dataType: 'script',
+                  success: () => {
                     loadScripts(scripts, index + 1);
+                  },
+                  error: (xhr, status, error) => {
+                    console.error('Failed to load script:', $(script).attr('src'), error);
                   }
-                }
+                });
+              } else {
+                eval($(script).text());
+                loadScripts(scripts, index + 1);
               }
+            }
+          }
 
-              const scripts = $(newEl.outerHTML).find('script').toArray();
-              loadScripts(scripts, 0);
-              oldEl.outerHTML = newEl.outerHTML
-              this.onSwitch()
-            },
-            "#mobile-nav": Pjax.switches.outerHTML
-          },
-          cacheBust: false
-        })
-    </script>
-    <%- js('js/pjax.js') %>
+          const scripts = $(newEl.outerHTML).find('script').toArray();
+          loadScripts(scripts, 0);
+          oldEl.outerHTML = newEl.outerHTML
+          this.onSwitch()
+        },
+        "#mobile-nav": Pjax.switches.outerHTML
+      },
+      cacheBust: false
+    })
+  </script>
+  <%- js('js/pjax.js') %>
 <% } %>
 
-<% if (theme.live2d.enable){ %>
-    <%- js(theme.vendor.js.live2d.js) %>
-    <script>
-        live2d.init("<%- theme.vendor.js.live2d.base %>", {themeTipsPath:""});
-    </script>
+<% if (theme.live2d.enable) { %>
+  <%- js(theme.vendor.js.live2d.js) %>
+  <script>
+    live2d.init("<%- theme.vendor.js.live2d.base %>", {
+      themeTipsPath: ""
+    });
+  </script>
 <% } %>

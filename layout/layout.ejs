@@ -1,53 +1,47 @@
-<% if(page.type == 404) { %>
-    <%- partial('404', {post: page}) %>
-<% }else{ %>
-    <!DOCTYPE html>
-    <html <% if (config.language) { %>lang="<%- config.language %>"
-            <% } %>
-          <% if (theme.dark_mode.enable) { %>data-theme="dark"
-            <% } %>
-    >
-    <%- partial('_partial/head', {post: page}) %>
-    <body>
+<% if (page.type == 404) { %>
+  <%- partial('404', {post: page}) %>
+<% } else { %>
+  <!DOCTYPE html>
+  <html <% if (config.language) { %>lang="<%- config.language %>" <% } %> <% if (theme.dark_mode.enable) { %>data-theme="dark" <% } %>>
+  <%- partial('_partial/head', {post: page}) %>
+  <body>
     <%- partial('_partial/loader') %>
     <div id="container">
-        <div id="wrap">
-            <%- partial('_partial/header', {post: page}, {cache: false}) %>
-            <div id="content" class="outer">
-                <% if (theme.sidebar === 'left'){ %>
-                    <%- partial('_partial/sidebar', null) %>
-                <% } %>
-                <section id="main"><%- body %></section>
-                <% if (theme.sidebar === 'right'){ %>
-                    <%- partial('_partial/sidebar', null) %>
-                <% } %>
-            </div>
-            <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
-            <div class="sidebar-top">
-              <img src="/images/taichi.png" height="50" width="50"/>
-              <div class="arrow-up"></div>
-            </div>
-            <div id="mask"></div>
+      <div id="wrap">
+        <%- partial('_partial/header', {post: page}, {cache: false}) %>
+        <div id="content" class="outer">
+          <% if (theme.sidebar === 'left') { %>
+            <%- partial('_partial/sidebar', null) %>
+          <% } %>
+          <section id="main"><%- body %></section>
+          <% if (theme.sidebar === 'right') { %>
+            <%- partial('_partial/sidebar', null) %>
+          <% } %>
         </div>
-        <%- partial('_partial/mobile-nav', null, {cache: false}) %>
-        <%- partial('_partial/after-footer') %>
+        <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+        <div class="sidebar-top">
+          <img src="/images/taichi.png" height="50" width="50" />
+          <div class="arrow-up"></div>
+        </div>
+        <div id="mask"></div>
+      </div>
+      <%- partial('_partial/mobile-nav', null, {cache: false}) %>
+      <%- partial('_partial/after-footer') %>
     </div>
     <div class="site-search">
-        <div class="reimu-popup popup">
-            <div class="reimu-search">
-                <span class="reimu-search-input-icon"></span>
-                <div class="reimu-search-input" id="reimu-search-input"></div>
-            </div>
-
-            <div class="reimu-results">
-                <div id="reimu-stats"></div>
-                <div id="reimu-hits"></div>
-                <div id="reimu-pagination" class="reimu-pagination"></div>
-            </div>
-
-            <span class="popup-btn-close"></span>
+      <div class="reimu-popup popup">
+        <div class="reimu-search">
+          <span class="reimu-search-input-icon"></span>
+          <div class="reimu-search-input" id="reimu-search-input"></div>
         </div>
+        <div class="reimu-results">
+          <div id="reimu-stats"></div>
+          <div id="reimu-hits"></div>
+          <div id="reimu-pagination" class="reimu-pagination"></div>
+        </div>
+        <span class="popup-btn-close"></span>
+      </div>
     </div>
-    </body>
-    </html>
+  </body>
+  </html>
 <% } %>

@@ -1,8 +1,8 @@
-hexo.extend.generator.register('pages', function (locals) {
+hexo.extend.generator.register('pages', (locals) => {
   return [
     {
       path: '404.html',
-      data: {type: '404'},
+      data: { type: '404' },
       layout: ['page']
     }
   ]

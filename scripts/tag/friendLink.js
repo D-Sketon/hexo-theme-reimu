@@ -8,7 +8,7 @@ const fs = require('fs')
 const path = require('path')
 const yaml = require('js-yaml')
 
-const template = ({name, url, desc, image}) => {
+const template = ({ name, url, desc, image }) => {
   return `<div class="friend-item-wrap">
     <a href="${url}"></a>
     <div class="friend-icon-wrap">

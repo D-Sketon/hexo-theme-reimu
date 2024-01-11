@@ -1,40 +1,42 @@
 <footer id="footer" class="wow fadeInUp">
-    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
-    <div class="outer">
-        <div id="footer-info" class="inner">
-            <% if (theme.copyright){ %>
-                <%- render(theme.copyright, 'pug'); %>
-            <% } %>
-            <div>
-                <span class="icon-copyright"></span>
-                <%= theme.footer.since %>-<%= date(new Date(), 'YYYY') %>
-                <span class="footer-info-sep"></span>
-                <%= config.author || config.title %>
-            </div>
-            <% if(theme.footer.powered) { %>
-                <div>
-                    <%= __('powered_by') %>&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
-                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
-                </div>
-            <% } %>
-            <% if(theme.footer.count) { %>
-                <div>
-                    <span class="icon-brush"></span>
-                    <%= totalcount(site) %>
-                    &nbsp;|&nbsp;
-                    <span class="icon-coffee"></span>
-                    <%= totalmin2read(site) %>
-                </div>
-            <% } %>
-            <% if(theme.footer.busuanzi){ %>
-                <div>
-                    <span class="icon-eye"></span>
-                    <span id="busuanzi_container_site_pv"><%= __('busuanzi.pv') %>&nbsp;<span id="busuanzi_value_site_pv"></span></span>
-                    &nbsp;|&nbsp;
-                    <span class="icon-user"></span>
-                    <span id="busuanzi_container_site_uv"><%= __('busuanzi.uv') %>&nbsp;<span id="busuanzi_value_site_uv"></span></span>
-                </div>
-            <% } %>
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <% if (theme.copyright) { %>
+        <%- render(theme.copyright, 'pug'); %>
+      <% } %>
+      <div>
+        <span class="icon-copyright"></span>
+        <%= theme.footer.since %>-<%= date(new Date(), 'YYYY') %>
+        <span class="footer-info-sep"></span>
+        <%= config.author || config.title %>
+      </div>
+      <% if (theme.footer.powered) { %>
+        <div>
+          <%= __('powered_by') %>&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+          Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
         </div>
+      <% } %>
+      <% if (theme.footer.count) { %>
+        <div>
+          <span class="icon-brush"></span>
+          <%= totalcount(site) %>
+          &nbsp;|&nbsp;
+          <span class="icon-coffee"></span>
+          <%= totalmin2read(site) %>
+        </div>
+      <% } %>
+      <% if (theme.footer.busuanzi) { %>
+        <div>
+          <span class="icon-eye"></span>
+          <span id="busuanzi_container_site_pv"><%= __('busuanzi.pv') %>&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+          &nbsp;|&nbsp;
+          <span class="icon-user"></span>
+          <span id="busuanzi_container_site_uv"><%= __('busuanzi.uv') %>&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+        </div>
+      <% } %>
     </div>
+  </div>
 </footer>

@@ -1,5 +1,4 @@
-const { htmlTag }  = require('hexo-util'
-)
+const { htmlTag } = require('hexo-util')
 hexo.extend.helper.register('vendorFont', () => {
   const fontDisplay = '&display=swap'
   const fontSubset = '&subset=latin,latin-ext'

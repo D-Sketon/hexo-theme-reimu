@@ -1,5 +1,5 @@
 // from https://blog.naaln.com/2016/07/hexo-with-algolia/
-$(document).ready(function () {
+$(document).ready(() => {
   const algoliaSettings = CONFIG.algolia;
   const isAlgoliaSettingsValid = algoliaSettings.applicationID && algoliaSettings.apiKey && algoliaSettings.indexName;
 
@@ -16,7 +16,7 @@ $(document).ready(function () {
     ),
     searchFunction: helper => {
       if ($('#reimu-search-input').find('input').val()) {
-          helper.search();
+        helper.search();
       }
     }
   });
@@ -80,7 +80,7 @@ $(document).ready(function () {
       container: '#reimu-pagination',
       scrollTo: false,
       showFirst: false,
-      showLast : false,
+      showLast: false,
       cssClasses: {
         list: 'pagination',
         item: 'pagination-item',
@@ -93,14 +93,14 @@ $(document).ready(function () {
 
   search.start();
 
-  $('.popup-trigger').on('click', function (e) {
+  $('.popup-trigger').on('click', (e) => {
     e.stopPropagation();
     $('body').append('<div class="popoverlay">').css('overflow', 'hidden');
     $('.popup').toggle();
     $('#reimu-search-input').find('input').focus();
   });
 
-  $('.popup-btn-close').click(function () {
+  $('.popup-btn-close').click(() => {
     $('.popup').hide();
     $('.popoverlay').remove();
     $('body').css('overflow', '');

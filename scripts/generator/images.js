@@ -9,9 +9,7 @@ const covers = []
 const walkFile = (dir, result, prefix) => {
   if (!fs.existsSync(dir))
     return
-
   let files = fs.listDirSync(dir)
-
   files.forEach(file => {
     result.push({
       path: prefix + file,
@@ -38,6 +36,7 @@ const loadYaml = () => {
     })
   }
 }
+
 hexo.extend.generator.register('images', function (locals) {
   let result = []
   covers.splice(0, covers.length)

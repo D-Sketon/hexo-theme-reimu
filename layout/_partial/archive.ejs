@@ -1,54 +1,54 @@
-<% if (pagination === 2){ %>
-    <% page.posts.each(function(post, i){ %>
-        <%- partial('post', {post: post, index: true, even: i % 2 === 0}) %>
-    <% }) %>
+<% if (pagination === 2) { %>
+  <% page.posts.each((post, i) => { %>
+  <%- partial('post', {post: post, index: true, even: i % 2 === 0}) %>
+  <% }) %>
 <% } else { %>
-    <div class="archives-outer-wrap wow fadeInUp">
-        <div class="tag-wrap">
-            <% site.tags.each(function(tag, i){ %>
-                <div class="archives-tag-list-item">
-                    <a class="archives-tag-list-link" href="/<%= tag.path %>"><%= tag.name %></a>
-                </div>
-            <% }) %>
-        </div>
-        <div class="category-wrap">
-            <% site.categories.each(function(cagetory, i){ %>
-                <div class="archives-category-list-item">
-                    <a class="archives-category-list-link" href="/<%= cagetory.path %>"><%= cagetory.name %></a>
-                </div>
-            <% }) %>
-        </div>
-        <% var last; %>
-        <% page.posts.each(function(post, i){ %>
-            <% var year = post.date.year(); %>
-            <% if (last != year){ %>
-                <% if (last != null){ %>
-    </div></section>
-    <% } %>
-    <% last = year; %>
-    <section class="archives-wrap wow fadeInUp">
+<div class="archives-outer-wrap wow fadeInUp">
+  <div class="tag-wrap">
+    <% site.tags.each((tag, i) => { %>
+      <div class="archives-tag-list-item">
+        <a class="archives-tag-list-link" href="/<%= tag.path %>"><%= tag.name %></a>
+      </div>
+    <% }) %>
+  </div>
+  <div class="category-wrap">
+    <% site.categories.each((cagetory, i) => { %>
+      <div class="archives-category-list-item">
+        <a class="archives-category-list-link" href="/<%= cagetory.path %>"><%= cagetory.name %></a>
+      </div>
+    <% }) %>
+  </div>
+  <% var last; %>
+  <% page.posts.each((post, i) => { %>
+    <% var year = post.date.year(); %>
+    <% if (last != year) { %>
+      <% if (last != null) { %>
+        </div></section>
+      <% } %>
+      <% last = year; %>
+      <section class="archives-wrap wow fadeInUp">
         <div class="archive-year-wrap">
-            <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
+          <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
         </div>
         <div class="archives">
-            <ul>
-                <% } %>
-                <%- partial('archive-post', {post: post, even: i % 2 === 0}) %>
-                <% }) %>
-                <% if (page.posts.length){ %>
-            </ul>
+          <ul>
+            <% } %>
+            <%- partial('archive-post', {post: post, even: i % 2 === 0}) %>
+            <% }) %>
+            <% if (page.posts.length) { %>
+          </ul>
         </div>
-    </section>
-    <% } %>
-    </div>
+      </section>
+  <% } %>
+  </div>
 <% } %>
-<% if (page.total > 1){ %>
-    <nav id="page-nav" class="wow fadeInUp">
-        <% var prev_text = "&laquo; " + __('prev');var next_text = __('next') + " &raquo;" %>
-        <%- paginator({
-            prev_text: prev_text,
-            next_text: next_text,
-            escape: false
-        }) %>
-    </nav>
+<% if (page.total > 1) { %>
+  <nav id="page-nav" class="wow fadeInUp">
+    <% var prev_text = "&laquo; " + __('prev');var next_text = __('next') + " &raquo;" %>
+    <%- paginator({
+          prev_text: prev_text,
+          next_text: next_text,
+          escape: false
+      }) %>
+  </nav>
 <% } %>

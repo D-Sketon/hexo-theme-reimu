@@ -18,7 +18,7 @@ hexo.on('generateAfter', () => {
     headers: {
       'User-Agent': 'hexo-theme-reimu'
     }
-  } , (res) => {
+  }, (res) => {
     let result = ''
     res.on('data', (data) => {
       result += data

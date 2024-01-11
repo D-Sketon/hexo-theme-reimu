@@ -17,30 +17,29 @@ self.addEventListener('install', (event) => {
   );
 });
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', (event) => {
   // 检查请求是否为 POST 或带有查询参数的 GET 这样可用避免错误缓存
   if (event.request.method === 'POST' || (event.request.method === 'GET' && event.request.url.indexOf('?') !== -1)) {
     event.respondWith(fetch(event.request));
   } else {
     event.respondWith(
       caches.match(event.request)
-        .then(function(response) {
+        .then((response) => {
           if (response) {
             return response;
           }
-          return fetch(event.request).then(function(responseToCache) {
+          return fetch(event.request).then((responseToCache) => {
             var responseToCacheClone = responseToCache.clone();
-            caches.open(VERSION).then(function(cache) {
+            caches.open(VERSION).then((cache) => {
               cache.put(event.request, responseToCacheClone);
             });
             return responseToCache;
           });
         }
-      )
+        )
     );
   }
 });
-
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(

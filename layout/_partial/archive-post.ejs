@@ -1,20 +1,18 @@
 <li class="archive-article">
-    <div class="archive-article-date-wrap">
-        <a href="<%- url_for(post.path, {relative: false}) %>">
-            <time class="dt-published" datetime="<%= date_xml(post.date) %>"
-                  itemprop="datePublished"><%= date(post.date, 'MM-DD') %></time>
-        </a>
-    </div>
-    <div class="archive-article-title-wrap">
-        <% if (post.link){ %>
-            <a class="archive-article-title" href="<%- url_for(post.link, {relative: false}) %>" target="_blank"
-               itemprop="url"><%= post.title %></a>
-        <% } else if (post.title){ %>
-            <% if (index){ %>
-                <a class="archive-article-title" href="<%- url_for(post.path, {relative: false}) %>"><%= post.title %></a>
-            <% } else { %>
-                <%= post.title %>
-            <% } %>
-        <% } %>
-    </div>
+  <div class="archive-article-date-wrap">
+    <a href="<%- url_for(post.path, {relative: false}) %>">
+      <time class="dt-published" datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, 'MM-DD') %></time>
+    </a>
+  </div>
+  <div class="archive-article-title-wrap">
+    <% if (post.link) { %>
+      <a class="archive-article-title" href="<%- url_for(post.link, {relative: false}) %>" target="_blank" itemprop="url"><%= post.title %></a>
+    <% } else if (post.title) { %>
+      <% if (index) { %>
+        <a class="archive-article-title" href="<%- url_for(post.path, {relative: false}) %>"><%= post.title %></a>
+      <% } else { %>
+        <%= post.title %>
+      <% } %>
+    <% } %>
+  </div>
 </li>

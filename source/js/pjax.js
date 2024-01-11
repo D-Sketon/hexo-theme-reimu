@@ -32,8 +32,8 @@ $(document).ready(function () {
   window.addEventListener('pjax:complete', () => {
     $('#header-nav').removeClass('header-nav-hidden')
   })
-  if(startLoading)
+  if (startLoading)
     window.addEventListener('pjax:send', startLoading)
-  if(endLoading)
+  if (endLoading)
     window.addEventListener('pjax:complete', endLoading)
 });

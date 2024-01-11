@@ -1,70 +1,69 @@
 <head>
-    <meta charset="utf-8">
-    <%- partial('analytics/google-analytics') %>
-    <%- partial('analytics/baidu-analytics') %>
-    <%
+  <meta charset="utf-8">
+  <%- partial('analytics/google-analytics') %>
+  <%- partial('analytics/baidu-analytics') %>
+  <%
     var title = page.title;
-
     if (is_archive()) {
-        title = __('archive_a');
-
-        if (is_month()) {
-            title += ': ' + page.year + '/' + page.month;
-        } else if (is_year()) {
-            title += ': ' + page.year;
-        }
+      title = __('archive_a');
+      if (is_month()) {
+        title += ': ' + page.year + '/' + page.month;
+      } else if (is_year()) {
+        title += ': ' + page.year;
+      }
     } else if (is_category()) {
-        title = __('category') + ': ' + page.category;
+      title = __('category') + ': ' + page.category;
     } else if (is_tag()) {
-        title = __('tag') + ': ' + page.tag;
+      title = __('tag') + ': ' + page.tag;
     }
-    %>
-    <title>
-        <% if (title){ %><%= title %> |
-        <% } %>
-        <%= config.title %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%- vendorFont(site) %>
-    <%- css(theme.vendor.css.fontawesome) %>
-    <%- css('css/loader') %>
-    <%- open_graph({twitter_id: theme.twitter, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
-    <% if (config.feed) { %>
-        <%- feed_tag() %>
-    <% } else if (theme.rss) { %>
-        <%- feed_tag(theme.rss) %>
+  %>
+  <title>
+    <% if (title) { %><%= title %> |
     <% } %>
-    <% if (theme.favicon){ %>
-        <%- favicon_tag(theme.favicon) %>
-    <% } %>
-    <% if (config.highlight.enable){ %>
-        <%- css(theme.vendor.css.highlight) %>
-    <% } %>
-    <%- css('css/style') %>
-    <% if (theme.fancybox){ %>
-        <%- css(theme.vendor.css.fancybox) %>
-    <% } %>
-    <% if(theme.math.enable) { %>
-        <%- css(theme.vendor.css.katex) %>
-    <% } %>
-    <% if (theme.waline.enable && theme.waline.serverURL){ %>
-        <%- css(theme.vendor.css.waline) %>
-    <% } %>
-    <% if (theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret){ %>
-        <%- css(theme.vendor.css.gitalk) %>
-    <% } %>
-    <%- js(theme.vendor.js.pace)%>
-    <% if (theme.animation.enable){ %>
-        <%- css(theme.vendor.css.animate) %>
-        <%- js(theme.vendor.js.wow)%>
-        <script>
-          new WOW({
-            offset: 0,
-            mobile: true,
-            live: false
-          }).init();
-        </script>
-    <% } %>
-    <% if (theme.service_worker.enable){ %>
-        <script src="/sw.js"></script>
-    <% } %>
+    <%= config.title %>
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%- vendorFont(site) %>
+  <%- css(theme.vendor.css.fontawesome) %>
+  <%- css('css/loader') %>
+  <%- open_graph({twitter_id: theme.twitter, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
+  <% if (config.feed) { %>
+    <%- feed_tag() %>
+  <% } else if (theme.rss) { %>
+    <%- feed_tag(theme.rss) %>
+  <% } %>
+  <% if (theme.favicon) { %>
+    <%- favicon_tag(theme.favicon) %>
+  <% } %>
+  <% if (config.highlight.enable) { %>
+    <%- css(theme.vendor.css.highlight) %>
+  <% } %>
+  <%- css('css/style') %>
+  <% if (theme.fancybox) { %>
+    <%- css(theme.vendor.css.fancybox) %>
+  <% } %>
+  <% if (theme.math.enable) { %>
+    <%- css(theme.vendor.css.katex) %>
+  <% } %>
+  <% if (theme.waline.enable && theme.waline.serverURL) { %>
+    <%- css(theme.vendor.css.waline) %>
+  <% } %>
+  <% if (theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret) { %>
+    <%- css(theme.vendor.css.gitalk) %>
+  <% } %>
+  <%- js(theme.vendor.js.pace)%>
+  <% if (theme.animation.enable) { %>
+    <%- css(theme.vendor.css.animate) %>
+    <%- js(theme.vendor.js.wow)%>
+    <script>
+      new WOW({
+        offset: 0,
+        mobile: true,
+        live: false
+      }).init();
+    </script>
+  <% } %>
+  <% if (theme.service_worker.enable) { %>
+    <script src="/sw.js"></script>
+  <% } %>
 </head>

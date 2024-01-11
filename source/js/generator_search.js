@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(() => {
   let searchInput = $('#reimu-search-input');
   let searchResult = $('#reimu-hits');
   let pagination = $('#reimu-pagination');
@@ -7,16 +7,16 @@ $(document).ready(function () {
 
   searchInput.append('<form id="search-form"><input type="text" id="search-text"></form>');
 
-  $.getJSON('/search.json', function (data) {
-    $('#search-form').on('submit', function (event) {
+  $.getJSON('/search.json', (data) => {
+    $('#search-form').on('submit', (event) => {
       event.preventDefault();
       let inputText = $('#search-text').val();
       searchResult.empty();
       pagination.empty();
       if (inputText) {
-        let hits = data.filter(function (post) {
+        let hits = data.filter((post) => {
           return post.title && post.title.toLowerCase().includes(inputText.toLowerCase()) ||
-                 post.content && post.content.toLowerCase().includes(inputText.toLowerCase());
+            post.content && post.content.toLowerCase().includes(inputText.toLowerCase());
         });
 
         let totalPages = Math.ceil(hits.length / itemsPerPage);
@@ -47,19 +47,19 @@ $(document).ready(function () {
     let start = (page - 1) * itemsPerPage;
     let end = start + itemsPerPage;
     let hitsToDisplay = hits.slice(start, end);
-    hitsToDisplay.forEach(function (hit) {
+    hitsToDisplay.forEach((hit) => {
       searchResult.append('<a href="' + hit.url + '" class="reimu-hit-item-link">' + hit.title + '</a>');
     });
   }
 
-  $('.popup-trigger').on('click', function (e) {
+  $('.popup-trigger').on('click', (e) => {
     e.stopPropagation();
     $('body').append('<div class="popoverlay">').css('overflow', 'hidden');
     $('.popup').toggle();
     $('#search-text').focus();
   });
 
-  $('.popup-btn-close').click(function () {
+  $('.popup-btn-close').click(() => {
     $('.popup').hide();
     $('.popoverlay').remove();
     $('body').css('overflow', '');

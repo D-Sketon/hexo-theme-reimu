@@ -21,14 +21,14 @@ const changeHourMinuteStr = (str) => {
     return "";
   }
 }
-const timeFn = (content, {cn = 300, en = 160} = {}) => {
+const timeFn = (content, { cn = 300, en = 160 } = {}) => {
   let len = counter(content)
   let readingTime = len[0] / cn + len[1] / en
   return readingTime < 1 ? 1 : parseInt(readingTime, 10)
 }
 
-hexo.extend.helper.register('min2read', (content, {cn = 300, en = 160} = {}) => {
-  return timeFn(content, {cn, en})
+hexo.extend.helper.register('min2read', (content, { cn = 300, en = 160 } = {}) => {
+  return timeFn(content, { cn, en })
 })
 
 hexo.extend.helper.register('wordcount', content => {

@@ -117,14 +117,14 @@ var getRealPath = (pathname, desc = false) => {
     }, mobileNavAnimDuration);
   }
 
-  $('#main-nav-toggle').off('click').on('click', function () {
+  $('#main-nav-toggle').off('click').on('click', () => {
     if (isMobileNavAnim) return;
 
     startMobileNavAnim();
     $('body').toggleClass('mobile-nav-on');
     stopMobileNavAnim();
   });
-  $('#mask').off('click').on('click', function () {
+  $('#mask').off('click').on('click', () => {
     if (isMobileNavAnim || !$('body').hasClass('mobile-nav-on')) return;
     $('body').removeClass('mobile-nav-on');
   });
@@ -164,13 +164,13 @@ var getRealPath = (pathname, desc = false) => {
   })
 
   // to top
-  $('.sidebar-top').off('click').on('click', function () {
+  $('.sidebar-top').off('click').on('click', () => {
     $('html,body').animate({ scrollTop: 0 }, 500);
   });
   if (document.documentElement.scrollTop < 10) {
     $('.sidebar-top').fadeOut();
   }
-  $(window).off('scroll').on('scroll', function () {
+  $(window).off('scroll').on('scroll', () => {
     if (document.documentElement.scrollTop < 10) {
       $('.sidebar-top').fadeOut();
     } else {
@@ -179,7 +179,7 @@ var getRealPath = (pathname, desc = false) => {
   });
 
   // toc
-  $('.toc a').off('click').on('click', function () {
+  $('.toc a').off('click').on('click', () => {
     if (isMobileNavAnim || !$('body').hasClass('mobile-nav-on')) return;
     $('body').removeClass('mobile-nav-on');
   });
