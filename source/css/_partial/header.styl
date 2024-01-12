@@ -28,7 +28,7 @@
 
     display: block
     object-fit: cover
-    transition: opacity 200ms ease-out
+    transition: all 0.3s ease
     background: linear-gradient(to top, var(--color-background), transparent 50%)
 
     @media mg-large
@@ -190,7 +190,7 @@ $nav-link-wrap
   @extend $nav-link
   background: url("/images/taichi.png") no-repeat center / 80%
   transform: rotate(0deg)
-  transition: transform 1s
+  transition: transform 1s ease
 
 
 #main-nav-toggle
@@ -236,7 +236,7 @@ $nav-link-wrap
   height: 30px
   right: -150px
   opacity: 0
-  transition: 0.2s ease-out
+  transition: all 0.2s ease
 
   &.on
     opacity: 1

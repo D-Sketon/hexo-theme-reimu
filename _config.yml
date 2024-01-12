@@ -39,11 +39,11 @@ copyright:
 # Sidebar
 sidebar: right
 widgets:
-  - category
-  #- tag
-  - tagcloud
-  - archive
-#- recent_posts
+  # - category
+  # - tag
+  # - tagcloud
+  # - archive
+  # - recent_posts
 
 # Widget behavior
 archive_type: "monthly"
@@ -51,7 +51,7 @@ show_count: false
 recent_posts_limits: 5
 
 social:
-  github: https://github.com/yourname
+  # github: https://github.com/yourname
   # google: https://plus.google.com/yourname
   # twitter: https://twitter.com/yourname
   # facebook: https://www.facebook.com/yourname
