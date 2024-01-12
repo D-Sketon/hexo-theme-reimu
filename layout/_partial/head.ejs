@@ -24,8 +24,8 @@
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <%- vendorFont(site) %>
-  <%- css(theme.vendor.css.fontawesome.high_priority) %>
-  <%- preloadStyle(theme.vendor.css.fontawesome.low_priority) %>
+  <%- css(vendorCdn(theme.vendor.css.fontawesome.high_priority)) %>
+  <%- preloadStyle(vendorCdn(theme.vendor.css.fontawesome.low_priority)) %>
   <%- css('css/loader') %>
   <%- open_graph({twitter_id: theme.twitter, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
   <% if (config.feed) { %>
@@ -37,25 +37,25 @@
     <%- favicon_tag(theme.favicon) %>
   <% } %>
   <% if (config.highlight.enable) { %>
-    <%- css(theme.vendor.css.highlight) %>
+    <%- css(vendorCdn(theme.vendor.css.highlight)) %>
   <% } %>
   <%- css('css/style') %>
   <% if (theme.fancybox) { %>
-    <%- css(theme.vendor.css.fancybox) %>
+    <%- css(vendorCdn(theme.vendor.css.fancybox)) %>
   <% } %>
   <% if (theme.math.enable) { %>
-    <%- css(theme.vendor.css.katex) %>
+    <%- css(vendorCdn(theme.vendor.css.katex)) %>
   <% } %>
   <% if (theme.waline.enable && theme.waline.serverURL) { %>
-    <%- css(theme.vendor.css.waline) %>
+    <%- css(vendorCdn(theme.vendor.css.waline)) %>
   <% } %>
   <% if (theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret) { %>
-    <%- css(theme.vendor.css.gitalk) %>
+    <%- css(vendorCdn(theme.vendor.css.gitalk)) %>
   <% } %>
-  <%- js(theme.vendor.js.pace)%>
+  <%- js(vendorCdn(theme.vendor.js.pace)) %>
   <% if (theme.animation.enable) { %>
-    <%- css(theme.vendor.css.animate) %>
-    <%- js(theme.vendor.js.wow)%>
+    <%- css(vendorCdn(theme.vendor.css.animate)) %>
+    <%- js(vendorCdn(theme.vendor.js.wow)) %>
     <script>
       new WOW({
         offset: 0,

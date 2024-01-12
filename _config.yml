@@ -39,14 +39,14 @@ copyright:
 # Sidebar
 sidebar: right
 widgets:
-- category
-#- tag
-- tagcloud
-- archive
+  - category
+  #- tag
+  - tagcloud
+  - archive
 #- recent_posts
 
 # Widget behavior
-archive_type: 'monthly'
+archive_type: "monthly"
 show_count: false
 recent_posts_limits: 5
 
@@ -77,7 +77,6 @@ social:
   # discord: https://discordapp.com/users/yourname
   # steam: https://steamcommunity.com/id/yourname
 
-
 footer:
   since: 2020 # 2020-current_year
   powered: true
@@ -91,15 +90,15 @@ math:
 
 # need https://github.com/webappdevelp/hexo-filter-mermaid-diagrams
 mermaid: ## mermaid url https://github.com/knsv/mermaid
-  enable: false  # default true
+  enable: false # default true
 
 # valine comment system. https://valine.js.org
 # version 1.5.1
 # notify and verify have been deprecated
 valine:
   enable: false # if you want to use valine,please set this value is true
-  appId:  # leancloud application app id
-  appKey:  # leancloud application app key
+  appId: # leancloud application app id
+  appKey: # leancloud application app key
   pageSize: 10 # comment list page size
   avatar: mp # gravatar style https://valine.js.org/#/avatar
   lang: zh-cn # i18n: zh-cn/en
@@ -112,7 +111,7 @@ valine:
 # https://waline.js.org/
 waline:
   enable: false
-  serverURL: 
+  serverURL:
   lang: zh-CN
   locale: {} # https://waline.js.org/guide/features/i18n.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80
   emoji:
@@ -122,7 +121,7 @@ waline:
     - https://unpkg.com/@waline/emojis@1.0.1/qq
     - https://unpkg.com/@waline/emojis@1.0.1/tieba
     - https://unpkg.com/@waline/emojis@1.0.1/tw-emoji
-  meta: 
+  meta:
     - nick
     - mail
     - link
@@ -135,8 +134,8 @@ waline:
 # https://twikoo.js.org
 twikoo:
   enable: false
-  envId:  # 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
-  region: 
+  envId: # 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+  region:
 
 # https://github.com/gitalk/gitalk/blob/master/readme-cn.md
 gitalk:
@@ -201,13 +200,13 @@ dark_mode:
 # see https://github.com/D-Sketon/mouse-firework
 firework:
   enable: true
-  options: 
+  options:
     excludeElements: ["a"]
     particles:
       - shape: circle
         move: ["emit"]
         easing: easeOutExpo
-        colors: ["#ff5252","#ff7c7c","#ffafaf","#ffd0d0"]
+        colors: ["#ff5252", "#ff7c7c", "#ffafaf", "#ffd0d0"]
         number: 20
         duration: [1200, 1800]
         shapeOptions:
@@ -238,38 +237,44 @@ live2d:
 
 # Dependent cdn links
 vendor:
+  cdn_jsdelivr_gh: https://cdn.jsdelivr.net/gh/
+  cdn_jsdelivr_npm: https://cdn.jsdelivr.net/npm/
+  fastly_jsdelivr_gh: https://fastly.jsdelivr.net/gh/
+  fastly_jsdelivr_npm: https://fastly.jsdelivr.net/npm/
+  unpkg: https://unpkg.com/
+  webcache: https://npm.webcache.cn/
   js:
-    jquery: https://unpkg.com/jquery@3.7.1/dist/jquery.min.js
-    clipboard: https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js
-    lazysizes: https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js
-    fancybox: https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
-    valine: https://unpkg.com/valine@1.5.1/dist/Valine.min.js
-    waline: https://unpkg.com/@waline/client@v2/dist/waline.mjs
-    twikoo: https://unpkg.com/twikoo@1.6.16/dist/twikoo.all.min.js
-    gitalk: https://unpkg.com/gitalk/dist/gitalk.min.js
-    busuanzi: https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js
-    algolia: https://unpkg.com/algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js
-    instantsearch: https://unpkg.com/instantsearch.js@4.56.1/dist/instantsearch.production.min.js
-    pace: https://unpkg.com/pace-js@1.2.4/pace.min.js
-    mermaid: https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
-    wow: https://unpkg.com/wowjs@1.1.3/dist/wow.min.js
-    firework: https://www.unpkg.com/mouse-firework@0.0.3/dist/index.umd.js
-    pjax: https://www.unpkg.com/theme-shokax-pjax@0.0.3/dist/index.umd.js
-    live2d: 
-      base: https://fastly.jsdelivr.net/gh/MliKiowa/plugin-live2d/
-      js: https://fastly.jsdelivr.net/gh/MliKiowa/plugin-live2d/js/live2d-autoload.js
+    jquery: webcache|jquery@3.7.1/dist/jquery.min.js
+    clipboard: webcache|clipboard@2.0.11/dist/clipboard.min.js
+    lazysizes: webcache|lazysizes@5.3.2/lazysizes.min.js
+    fancybox: webcache|@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
+    valine: webcache|valine@1.5.1/dist/Valine.min.js
+    waline: webcache|@waline/client@v2/dist/waline.mjs
+    twikoo: webcache|twikoo@1.6.16/dist/twikoo.all.min.js
+    gitalk: webcache|gitalk/dist/gitalk.min.js
+    busuanzi: webcache|busuanzi@2.3.0/bsz.pure.mini.js
+    algolia: webcache|algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js
+    instantsearch: webcache|instantsearch.js@4.56.1/dist/instantsearch.production.min.js
+    pace: webcache|pace-js@1.2.4/pace.min.js
+    mermaid: webcache|mermaid@10.6.1/dist/mermaid.min.js
+    wow: webcache|wowjs@1.1.3/dist/wow.min.js
+    firework: webcache|mouse-firework@0.0.3/dist/index.umd.js
+    pjax: webcache|theme-shokax-pjax@0.0.3/dist/index.umd.js
+    live2d:
+      base: fastly_jsdelivr_gh|MliKiowa/plugin-live2d/
+      js: fastly_jsdelivr_gh|MliKiowa/plugin-live2d/js/live2d-autoload.js
   css:
-    highlight: https://unpkg.com/typeface-source-code-pro@1.1.13/index.css
-    fancybox: https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
-    katex: https://unpkg.com/katex@0.16.9/dist/katex.min.css
-    waline: https://unpkg.com/@waline/client@v2/dist/waline.css
-    gitalk: https://unpkg.com/gitalk/dist/gitalk.css
-    fontawesome: 
+    highlight: webcache|typeface-source-code-pro@1.1.13/index.css
+    fancybox: webcache|@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
+    katex: webcache|katex@0.16.9/dist/katex.min.css
+    waline: webcache|@waline/client@v2/dist/waline.css
+    gitalk: webcache|gitalk/dist/gitalk.css
+    fontawesome:
       high_priority:
-        - https://unpkg.com/@fortawesome/fontawesome-free@6.5.1/css/regular.min.css
-        - https://unpkg.com/@fortawesome/fontawesome-free@6.5.1/css/solid.min.css
+        - webcache|@fortawesome/fontawesome-free@6.5.1/css/regular.min.css
+        - webcache|@fortawesome/fontawesome-free@6.5.1/css/solid.min.css
       low_priority:
-        - https://unpkg.com/@fortawesome/fontawesome-free@6.5.1/css/brands.min.css
-        - https://unpkg.com/@fortawesome/fontawesome-free@6.5.1/css/v5-font-face.min.css
-        - https://unpkg.com/@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css
-    animate: https://unpkg.com/wowjs@1.1.3/css/libs/animate.css
+        - webcache|@fortawesome/fontawesome-free@6.5.1/css/brands.min.css
+        - webcache|@fortawesome/fontawesome-free@6.5.1/css/v5-font-face.min.css
+        - webcache|@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css
+    animate: webcache|wowjs@1.1.3/css/libs/animate.css

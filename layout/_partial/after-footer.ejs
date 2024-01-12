@@ -1,18 +1,16 @@
-<%- js(theme.vendor.js.jquery) %>
-<%- js(theme.vendor.js.lazysizes) %>
-<%- js(theme.vendor.js.clipboard) %>
+<%- js(vendorCdn(theme.vendor.js.jquery)) %>
+<%- js(vendorCdn(theme.vendor.js.lazysizes)) %>
+<%- js(vendorCdn(theme.vendor.js.clipboard)) %>
 
 <% if (theme.fancybox) { %>
-  <%- js(theme.vendor.js.fancybox) %>
+  <%- js({src: vendorCdn(theme.vendor.js.fancybox)[0], defer: true}) %>
 <% } %>
 <% if (theme.footer.busuanzi) { %>
-  <%- js({src: theme.vendor.js.busuanzi, defer: true}) %>
+  <%- js({src: vendorCdn(theme.vendor.js.busuanzi)[0], async: true}) %>
 <% } %>
 
-<%- copyright() %>
-
 <% if (theme.mermaid.enable) { %>
-  <%- js(theme.vendor.js.mermaid) %>
+  <%- js(vendorCdn(theme.vendor.js.mermaid)) %>
   <script>
     if (window.mermaid) {
       // https://github.com/mermaid-js/mermaid/issues/1945
@@ -80,7 +78,7 @@
 <%- partial('analytics/gauges-analytics') %>
 
 <% if (theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
-  <%- js({src: theme.vendor.js.valine, 'data-pjax': true}) %>
+  <%- js({src: vendorCdn(theme.vendor.js.valine)[0], 'data-pjax': true}) %>
   <script data-pjax>
     var GUEST_INFO = ['nick', 'mail', 'link'];
     var guest_info = '<%= theme.valine.guest_info %>'.split(',').filter((item) => {
@@ -107,9 +105,9 @@
 <% } %>
 
 <% if (theme.waline.enable && theme.waline.serverURL) { %>
-  <%- js({src: theme.vendor.js.valine, 'data-pjax': true}) %>
+  <%- js({src: vendorCdn(theme.vendor.js.waline)[0], 'data-pjax': true}) %>
   <script data-pjax type="module">
-    import { init } from "<%= theme.vendor.js.waline %>";
+    import { init } from "<%= vendorCdn(theme.vendor.js.waline)[0] %>";
     init({
       el: '.wcomment',
       serverURL: '<%= theme.waline.serverURL %>',
@@ -127,7 +125,7 @@
 <% } %>
 
 <% if (theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret) { %>
-  <%- js({src: theme.vendor.js.gitalk, 'data-pjax': true}) %>
+  <%- js({src: vendorCdn(theme.vendor.js.gitalk)[0], 'data-pjax': true}) %>
   <script data-pjax>
     const gitalk = new Gitalk({
       clientID: '<%= theme.gitalk.clientID %>',
@@ -143,7 +141,7 @@
 <% } %>
 
 <% if (theme.twikoo.enable && theme.twikoo.envId) { %>
-  <%- js({src: theme.vendor.js.twikoo, 'data-pjax': true}) %>
+  <%- js({src: vendorCdn(theme.vendor.js.twikoo)[0], 'data-pjax': true}) %>
   <script data-pjax>
     twikoo.init({
       envId: '<%= theme.twikoo.envId %>',
@@ -174,12 +172,12 @@
 
 <% if (theme.generator_search.enable) { %>
   <%- js('js/generator_search.js') %>
-  <%- js(theme.vendor.js.instantsearch) %>
+  <%- js(vendorCdn(theme.vendor.js.instantsearch)) %>
 <% } %>
 
 <% if (theme.algolia_search.enable) { %>
-  <%- js(theme.vendor.js.algolia) %>
-  <%- js(theme.vendor.js.instantsearch) %>
+  <%- js(vendorCdn(theme.vendor.js.algolia)) %>
+  <%- js(vendorCdn(theme.vendor.js.instantsearch)) %>
   <%- js('js/algolia_search.js') %>
   <script>
     var CONFIG = {
@@ -202,14 +200,14 @@
 <% } %>
 
 <% if (theme.firework.enable) { %>
-  <%- js(theme.vendor.js.firework) %>
+  <%- js(vendorCdn(theme.vendor.js.firework)) %>
   <script>
     firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'))
   </script>
 <% } %>
 
 <% if (theme.pjax.enable) { %>
-  <%- js(theme.vendor.js.pjax) %>
+  <%- js(vendorCdn(theme.vendor.js.pjax)) %>
   <script>
     new Pjax({
       selectors: [
@@ -258,12 +256,14 @@
 <% } %>
 
 <% if (theme.live2d.enable) { %>
-  <%- js(theme.vendor.js.live2d.js) %>
   <script>
-    live2d.init("<%- theme.vendor.js.live2d.base %>", {
-      themeTipsPath: ""
-    });
+    function initLive2d() {
+      live2d.init("<%- vendorCdn(theme.vendor.js.live2d.base)[0] %>", {themeTipsPath: ""});
+    }
   </script>
+  <%- js({src: vendorCdn(theme.vendor.js.live2d.js)[0], onload: "initLive2d && initLive2d()", async: true})%>
 <% } %>
 
 <%- js('js/script.js') %>
+
+<%- copyright() %>
