@@ -1,17 +1,22 @@
 <img src="https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/Reimu.png"/>
 <div align = center>
+  <h1>hexo-theme-reimu</h1>
   <img alt="NPM License" src="https://img.shields.io/npm/l/hexo-theme-reimu">
+  <img alt="NPM Version" src="https://img.shields.io/npm/v/hexo-theme-reimu">
   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/hexo-theme-reimu">
   <img src="https://wakatime.com/badge/user/a6ea8444-9e83-48bb-9744-09a19ac07114/project/fe59c195-6633-4ee8-89c0-e1b24fa1fff4.svg" alt="wakatime">
+  <p align="center">
+  ❤ Hakurei Reimu ❤
+  </p>
+
+  [演示网站](https://d-sketon.github.io)
+
+  简体中文 | [English](https://github.com/D-Sketon/hexo-theme-reimu/blob/main/README.en.md)
 </div>
 
-# hexo-theme-reimu
+---
 
 本人是车车人，所以制作了这样一款博丽灵梦风格的 Hexo 主题，融合了 [landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian) 和 [Shoka](https://github.com/amehime/hexo-theme-shoka) 三个主题
-
-请点击 [Demo](https://d-sketon.github.io) 查看演示网站
-
-[English README](https://github.com/D-Sketon/hexo-theme-reimu/blob/main/README.en.md)
 
 **欢迎提交 ISSUE 和 PR！**
 
