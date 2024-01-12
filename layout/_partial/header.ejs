@@ -27,11 +27,11 @@
   <% if (post.cover && post.cover.startsWith("rgb")) { %>
     <div style="position: absolute;top: 0;left: 0;width: 100%;height: 150%;z-index: -2;display: block;background: <%- post.cover %>"></div>
   <% } else if (post.cover) { %>
-    <img data-src="<%= post.cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
+    <img fetchpriority="high" src="<%= post.cover %>" alt="<%= post.title %>">
   <% } else if (post.cover == false) { %>
 
   <% } else { %>
-    <img data-src="<%= theme.banner %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
+    <img fetchpriority="high" src="<%= theme.banner %>" alt="<%= post.title %>">
   <% } %>
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">

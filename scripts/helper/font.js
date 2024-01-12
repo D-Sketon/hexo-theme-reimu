@@ -16,8 +16,10 @@ hexo.extend.helper.register('vendorFont', () => {
   // Merge extra parameters to the final processed font string
   return fontFamilies
     ? htmlTag('link', {
-      rel: 'stylesheet',
-      href: `${fontHost}/css?family=${fontFamilies.concat(fontDisplay, fontSubset)}`
+      rel: 'preload',
+      href: `${fontHost}/css?family=${fontFamilies.concat(fontDisplay, fontSubset)}`,
+      as: "style",
+      onload: "this.onload=null;this.rel='stylesheet'"
     })
     : ''
 })

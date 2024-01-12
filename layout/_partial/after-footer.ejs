@@ -56,17 +56,17 @@
           }
         })
       } 
-      const loadMermaid = function(theme) {
-          window.mermaid.initialize({theme})
-          window.mermaid.init({theme}, document.querySelectorAll(elementCode))
-        }
-      document.body.addEventListener('dark-theme-set', ()=>{
+      const loadMermaid = (theme) => {
+        window.mermaid.initialize({theme})
+        window.mermaid.init({theme}, document.querySelectorAll(elementCode))
+      }
+      document.body.addEventListener('dark-theme-set', () => {
         saveOriginalData()
         .then(resetProcessed())
         .then(loadMermaid('dark'))
         .catch(console.error)
       })
-      document.body.addEventListener('light-theme-set', ()=>{
+      document.body.addEventListener('light-theme-set', () => {
         saveOriginalData()
         .then(resetProcessed())
         .then(loadMermaid('default'))
