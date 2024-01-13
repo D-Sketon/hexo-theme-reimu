@@ -22,7 +22,24 @@ var getRealPath = (pathname, desc = false) => {
   return "/";
 };
 
+var scrollIntoViewAndWait = (element) => {
+  return new Promise(resolve => {
+    if ('onscrollend' in window) {
+      document.addEventListener('scrollend', resolve, { once: true });
+      element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+    } else {
+      element.scrollIntoView({ block: 'center', inline: 'center' });
+      resolve()
+    }
+  });
+}
+
 (function ($) {
+  // anchor
+  $('.markdownIt-Anchor').each(function () {
+    $(this)[0].innerHTML = "&#xf292;";
+  });
+
   // Share
   $('.article-share-link').off('click').on('click', function (e) {
     e.stopPropagation();
@@ -165,7 +182,10 @@ var getRealPath = (pathname, desc = false) => {
 
   // to top
   $('.sidebar-top').off('click').on('click', () => {
-    $('html,body').animate({ scrollTop: 0 }, 500);
+    $('html')[0].scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
   if (document.documentElement.scrollTop < 10) {
     $('.sidebar-top').fadeOut();
@@ -183,4 +203,101 @@ var getRealPath = (pathname, desc = false) => {
     if (isMobileNavAnim || !$('body').hasClass('mobile-nav-on')) return;
     $('body').removeClass('mobile-nav-on');
   });
+
+  (function () {
+    const navItems = getComputedStyle(document.getElementById('sidebar')).display === 'block' ? $('#sidebar .toc li') : $('#mobile-nav .toc li');
+    if (navItems.length === 0) return;
+
+    let activeLock = null;
+
+    const sections = navItems.map(function (index) {
+      const link = $(this).children('a.toc-link');
+      const anchorScroll = (event) => {
+        event.preventDefault();
+        const target = $(decodeURI($(event.currentTarget).attr('href')));
+        activeLock = index
+        scrollIntoViewAndWait(target[0]).then(() => {
+          activateNavByIndex(index);
+          activeLock = null;
+        });
+      }
+      link.off('click').on('click', (e) => {
+        anchorScroll(e);
+      });
+      const anchor = $(decodeURI(link.attr('href')));
+      if (!anchor) return null;
+      const alink = anchor.children('a.markdownIt-Anchor');
+      alink && alink.on('click', (e) => {
+        anchorScroll(e);
+      });
+      return anchor;
+    });
+
+    const activateNavByIndex = (index) => {
+      const target = $(navItems[index]);
+      if (!target) return;
+      if (target.hasClass('current')) return;
+
+      $('.toc .active').removeClass('active current');
+
+      sections.each(function () {
+        $(this) && $(this).removeClass('active');
+      });
+
+      target.addClass('active current');
+      sections[index] && $(sections[index]).addClass('active');
+
+      let parent = navItems[index].parentNode;
+
+      while (!parent.matches('.sidebar-toc')) {
+        if (parent.matches('li')) {
+          $(parent).addClass('active');
+          const t = $(decodeURI($(parent).children('a.toc-link').attr('href')));
+          if (t) {
+            t.addClass('active');
+          }
+        }
+        parent = parent.parentNode;
+      }
+      // Scrolling to center active TOC element if TOC content is taller than viewport.
+      if (!$('.sidebar-toc-sidebar').hasClass('hidden')) {
+        $('.sidebar-toc-wrapper')[0].scrollTo({
+          top: $('.sidebar-toc-wrapper').scrollTop() + target[0].offsetTop - $('.sidebar-toc-wrapper')[0].offsetHeight / 2,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    const findIndex = (entries) => {
+      let index = 0
+      let entry = entries[index]
+
+      const p = sections.toArray().map(i => i[0])
+      if (entry.boundingClientRect.top > 0) {
+        index = p.indexOf(entry.target)
+        return index === 0 ? 0 : index - 1
+      }
+      for (; index < entries.length; index++) {
+        if (entries[index].boundingClientRect.top <= 0) {
+          entry = entries[index]
+        } else {
+          return p.indexOf(entry.target)
+        }
+      }
+      return p.indexOf(entry.target)
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      const index = findIndex(entries) + (window.diffY < 0 ? 1 : 0)
+      if (activeLock === null) {
+        activateNavByIndex(index)
+      }
+    }, {
+      rootMargin: '0px 0px -100% 0px', threshold: 0
+    })
+
+    sections.each(function () {
+      $(this).length && observer.observe($(this)[0])
+    })
+  })();
 })(jQuery);

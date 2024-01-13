@@ -11,13 +11,15 @@ $block
   background: var(--color-wrap)
   border-radius: post-radius
 
-$base-sharp
-  &:before
-    font-family: font-icon
-    color: var(--red-2)
-    opacity: 0.5
-    content: "\f292"
-    margin-right: 10px
+.markdownIt-Anchor
+  font-family: font-icon
+  opacity: 0.5
+  margin-right: 5px
+  transition: all 0.3s ease
+
+  &:hover
+    opacity: 1
+    text-decoration: none !important
 
 $base-style
   h1
@@ -52,19 +54,15 @@ $base-style
 
   h3
     font-size: 1.3em
-    @extend $base-sharp
 
   h4
     font-size: 1.2em
-    @extend $base-sharp
 
   h5
     font-size: 1em
-    @extend $base-sharp
 
   h6
     font-size: 1em
-    @extend $base-sharp
     color: var(--color-grey)
 
   hr

@@ -402,9 +402,6 @@ $menu-link
       color: var(--red-1)
       font-size: 20px
       top: 0
-      left: 0
-      right: 0
-      bottom: 0
       text-align: center
       line-height: 50px
 
@@ -463,6 +460,34 @@ $menu-link
         height: 5px
         border-radius: 50%
         opacity: 1
+
+  .toc-child 
+    display: none;
+
+  .active>.toc-child 
+    display: block;
+
+  .current>.toc-child 
+    display: block;
+
+    >.toc-item 
+      display: block;
+
+  .active>a
+    color: var(--red-0)
+    opacity: 1
+
+    &>span
+      color: var(--red-0)
+      opacity: 1
+
+  .current>a
+    color: var(--red-0)
+    opacity: 1
+
+    &>span
+      color: var(--red-0)
+      opacity: 1
 
 .toc-title
   letter-spacing: 2px

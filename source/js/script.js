@@ -45,9 +45,10 @@
   window.addEventListener('scroll', () => {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop ||
       document.body.scrollTop
-    let scrollStep = scrollTop - oldScrollTop;
+    let diffY = scrollTop - oldScrollTop;
+    window.diffY = diffY;
     oldScrollTop = scrollTop;
-    if (scrollStep < 0) {
+    if (diffY < 0) {
       $('#header-nav').removeClass('header-nav-hidden')
     } else {
       $('#header-nav').addClass('header-nav-hidden')
