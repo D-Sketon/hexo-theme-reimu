@@ -2,22 +2,6 @@
   height: banner-height
   position: relative
 
-  &:before
-    content: ""
-    position: absolute
-    left: 0
-    right: 0
-    width: 100%
-    height: 150%
-    z-index: -1
-    background: linear-gradient(to top, var(--color-background), transparent 50%)
-
-    @media mg-large
-      height: 120%
-
-    @media mg-normal
-      height: 100%
-
   img
     position: absolute
     top: 0
@@ -29,7 +13,7 @@
     display: block
     object-fit: cover
     transition: all 0.3s ease
-    background: linear-gradient(to top, var(--color-background), transparent 50%)
+    mask: linear-gradient(to top, transparent, #fff 50%)
 
     @media mg-large
       height: 120%
