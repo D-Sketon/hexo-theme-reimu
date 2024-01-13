@@ -14,7 +14,7 @@
     <% } %>
   </div>
 
-  <% if (!is_post()) { %>
+  <% if (!is_post() && theme.widgets) { %>
     <% theme.widgets.forEach((widget) => { %>
       <%- partial('_widget/' + widget) %>
     <% }) %>
