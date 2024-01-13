@@ -8,7 +8,9 @@
   })
 
   const $codeFigcaption = $('<div class="code-figcaption"><div class="code-left-wrap"><div class="code-decoration"></div><div class="code-lang"></div></div><div class="code-right-wrap"><div class="code-copy icon-copy"></div><div class="icon-chevron-down code-expand"></div></div></div>');
-  $('figure.highlight').prepend($codeFigcaption);
+  if($('figure.highlight').children('.code-figcaption').length === 0 ) {
+    $('figure.highlight').prepend($codeFigcaption);
+  }
 
   // 代码复制
   new ClipboardJS('.code-copy', {
