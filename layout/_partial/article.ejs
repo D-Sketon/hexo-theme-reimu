@@ -33,14 +33,6 @@
           <%= __('comment') %>
         </a>
       <% } %>
-      <% if (theme.valine.enable && theme.valine.appId && theme.valine.appKey && theme.valine.visitor) { %>
-        <span id="<%- url_for(post.path, {relative: false}).endsWith("index.html") ? 
-                  url_for(post.path, {relative: false}).slice(0, -10) : 
-                  url_for(post.path, {relative: false})%>" class="leancloud_visitors article-visitor-link" data-flag-title="<%= post.title %>">
-          <span class="leancloud-visitors-count">0</span>
-          <em class="post-meta-item-text"><%= __('reading') %></em>
-        </span>
-      <% } %>
       <% if (post.comments && theme.twikoo.enable && theme.twikoo.envId) { %>
         <a href="<%- url_for(post.path) %>#comments" class="article-comment-link">
           <span class="post-comments-count twikoo-comment-count" data-path="<%- url_for(post.path, {relative: false}) %>" itemprop="commentCount"></span>
@@ -60,6 +52,22 @@
             console.error(err);
           });
         </script>
+      <% } %>
+      <% if (theme.valine.enable && theme.valine.appId && theme.valine.appKey && theme.valine.visitor) { %>
+        <span id="<%- url_for(post.path, {relative: false}).endsWith("index.html") ? 
+                  url_for(post.path, {relative: false}).slice(0, -10) : 
+                  url_for(post.path, {relative: false})%>" class="leancloud_visitors article-visitor-link" data-flag-title="<%= post.title %>">
+          <span class="leancloud-visitors-count">0</span>
+          <em class="post-meta-item-text"><%= __('reading') %></em>
+        </span>
+      <% } %>
+      <% if (theme.waline.enable && theme.waline.serverURL && theme.waline.pageview) { %>
+        <span class="article-visitor-link">
+          <span class="waline-pageview-count" data-path="<%- url_for(post.path, {relative: false}).endsWith("index.html") ? 
+          url_for(post.path, {relative: false}).slice(0, -10) : 
+          url_for(post.path, {relative: false})%>">0</span>
+          <em class="post-meta-item-text"><%= __('reading') %></em>
+        </span>
       <% } %>
       <%- partial('post/tag') %>
     </footer>

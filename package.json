@@ -2,10 +2,6 @@
   "name": "hexo-theme-reimu",
   "version": "0.1.0-alpha",
   "description": "A Hakurei Reimu style Hexo theme",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/D-Sketon/hexo-theme-reimu.git"

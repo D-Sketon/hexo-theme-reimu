@@ -105,22 +105,24 @@
 <% } %>
 
 <% if (theme.waline.enable && theme.waline.serverURL) { %>
-  <%- js({src: vendorCdn(theme.vendor.js.waline)[0], 'data-pjax': true}) %>
   <script data-pjax type="module">
     import { init } from "<%= vendorCdn(theme.vendor.js.waline)[0] %>";
-    init({
-      el: '.wcomment',
-      serverURL: '<%= theme.waline.serverURL %>',
-      lang: '<%= theme.waline.lang %>',
-      locale: <%- JSON.stringify(theme.waline.locale) %>,
-      emoji: <%- JSON.stringify(theme.waline.emoji) %>,
-      meta: <%- JSON.stringify(theme.waline.meta) %>,
-      requiredMeta: <%-JSON.stringify(theme.waline.requiredMeta) %>,
-      wordLimit: JSON.parse('<%= theme.waline.wordLimit %>'),
-      comment: true,
-      pageSize: JSON.parse('<%= theme.waline.pageSize %>'),
-      dark: 'html[data-theme="dark"]'
+    if(document.querySelector('.wcomment')) {
+      init({
+        el: '.wcomment',
+        serverURL: '<%= theme.waline.serverURL %>',
+        lang: '<%= theme.waline.lang %>',
+        locale: <%- JSON.stringify(theme.waline.locale) %>,
+        emoji: <%- JSON.stringify(theme.waline.emoji) %>,
+        meta: <%- JSON.stringify(theme.waline.meta) %>,
+        requiredMeta: <%-JSON.stringify(theme.waline.requiredMeta) %>,
+        wordLimit: JSON.parse('<%= theme.waline.wordLimit %>'),
+        comment: true,
+        pageSize: JSON.parse('<%= theme.waline.pageSize %>'),
+        dark: 'html[data-theme="dark"]',
+        pageview: JSON.parse('<%= theme.waline.pageview %>'),
     });
+    }
   </script>
 <% } %>
 
