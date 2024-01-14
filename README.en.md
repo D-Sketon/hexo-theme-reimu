@@ -356,6 +356,9 @@ live2d:
   enable: false
 ```
 
+## Contributors
+[![](https://contributors-img.web.app/image?repo=D-Sketon/hexo-theme-reimu)](https://github.com/D-Sketon/hexo-theme-reimu/graphs/contributors)
+
 ## License
 
 MIT License
