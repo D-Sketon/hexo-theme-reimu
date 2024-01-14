@@ -42,7 +42,7 @@
   overflow: hidden
   background: var(--color-header-background)
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.1)
-  transition: all 0.2s ease
+  transition: all 0.3s ease
   z-index: 200
 
   &:hover
@@ -64,7 +64,6 @@
 $logo-text
   text-decoration: none
   color: #fff
-  font-weight: 300
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
 
 #logo
@@ -93,6 +92,7 @@ $logo-text
 #subtitle
   @extend $logo-text
   font-size: subtitle-size
+  font-weight: 300
   line-height: subtitle-size
   letter-spacing: 1px
 
@@ -155,7 +155,6 @@ $nav-link-wrap
   .main-nav-icon, .nav-icon
     filter: brightness(120%)
 
-
 .main-nav-link-wrap
   @extend $nav-link-wrap
   @media mq-mobile
@@ -175,7 +174,6 @@ $nav-link-wrap
   background: url("/images/taichi.png") no-repeat center / 80%
   transform: rotate(0deg)
   transition: transform 1s ease
-
 
 #main-nav-toggle
   display: none

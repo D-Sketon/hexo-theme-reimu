@@ -30,9 +30,3 @@ column(x, _columns = columns)
   float: left
   width: total-width * ((((gutter-width + column-width) * x) - gutter-width) / gridsystem-width(_columns))
   margin: 0 total-width * ((gutter-width * .5) / gridsystem-width(_columns))
-
-push(offset = 1)
-  margin-left: total-width * (((gutter-width + column-width) * offset) / gridsystem-width(columns))
-
-pull(offset = 1)
-  margin-right: total-width * (((gutter-width + column-width) * offset) / gridsystem-width(columns))
