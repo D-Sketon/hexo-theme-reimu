@@ -423,7 +423,7 @@ $menu-link
     width: 5px
     height: 5px
 
-.toc
+.sidebar-toc-wrapper
   color: var(--color-link)
   a, span
     color: var(--color-link)
@@ -459,6 +459,16 @@ $menu-link
         height: 5px
         border-radius: 50%
         opacity: 1
+
+  .toc-level-1
+    list-style: none
+
+    &:before
+      display: none
+    >a
+      width: 100%
+      display: inline-block
+      text-align: center
 
   .toc-child 
     display: none;

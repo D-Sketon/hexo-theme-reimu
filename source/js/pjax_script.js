@@ -205,7 +205,9 @@ var scrollIntoViewAndWait = (element) => {
   });
 
   (function () {
-    const navItems = getComputedStyle(document.getElementById('sidebar')).display === 'block' ? $('#sidebar .toc li') : $('#mobile-nav .toc li');
+    const navItems = getComputedStyle(document.getElementById('sidebar')).display === 'block' ?
+      $('#sidebar .sidebar-toc-wrapper li') :
+      $('#mobile-nav .sidebar-toc-wrapper li');
     if (navItems.length === 0) return;
 
     let activeLock = null;
@@ -238,7 +240,7 @@ var scrollIntoViewAndWait = (element) => {
       if (!target) return;
       if (target.hasClass('current')) return;
 
-      $('.toc .active').removeClass('active current');
+      $('.sidebar-toc-wrapper .active').removeClass('active current');
 
       sections.each(function () {
         $(this) && $(this).removeClass('active');
