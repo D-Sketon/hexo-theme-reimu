@@ -81,14 +81,23 @@ $article-meta-tag
 
   h1, h2, h3, h4, h5, h6
     font-weight: bold
+    line-height: line-height-title
+    margin: line-height-title 0
 
     &:before
       font-family: font-icon
       font-weight: normal
 
-  h1, h2, h3, h4, h5, h6
-    line-height: line-height-title
-    margin: line-height-title 0
+    a
+      font-family: font-icon
+      opacity: 0.5
+      margin-right: 5px
+      transition: all 0.3s ease
+
+      &:hover
+        opacity: 1
+        text-decoration: none !important
+
 
   h2
     margin-bottom: 40px

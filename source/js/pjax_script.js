@@ -36,7 +36,7 @@ var scrollIntoViewAndWait = (element) => {
 
 (function ($) {
   // anchor
-  $('.markdownIt-Anchor').each(function () {
+  $('.article-entry h1>a, .article-entry h2>a, .article-entry h3>a, .article-entry h4>a, .article-entry h5>a, .article-entry h6>a').each(function () {
     $(this)[0].innerHTML = "&#xf292;";
   });
 
@@ -228,7 +228,7 @@ var scrollIntoViewAndWait = (element) => {
       });
       const anchor = $(decodeURI(link.attr('href')));
       if (!anchor) return null;
-      const alink = anchor.children('a.markdownIt-Anchor');
+      const alink = anchor.children('a');
       alink && alink.on('click', (e) => {
         anchorScroll(e);
       });
