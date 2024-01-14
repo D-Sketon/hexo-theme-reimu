@@ -33,7 +33,7 @@
 - [x] 加载动画
 - [x] TOC
 - [x] 回到顶部
-- [x] 文章统计（仅 Valine）
+- [x] 文章统计（仅 Valine 和 Waline）
 - [x] 鼠标烟花
 - [x] pjax（实验性）
 - [x] pwa（实验性）
@@ -208,12 +208,12 @@ waline:
   lang: zh-CN
   locale: {} # https://waline.js.org/guide/features/i18n.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80
   emoji:
-    - https://unpkg.com/@waline/emojis@1.0.1/weibo
-    - https://unpkg.com/@waline/emojis@1.0.1/alus
-    - https://unpkg.com/@waline/emojis@1.0.1/bilibili
-    - https://unpkg.com/@waline/emojis@1.0.1/qq
-    - https://unpkg.com/@waline/emojis@1.0.1/tieba
-    - https://unpkg.com/@waline/emojis@1.0.1/tw-emoji
+    - https://unpkg.com/@waline/emojis@1.2.0/weibo
+    - https://unpkg.com/@waline/emojis@1.2.0/alus
+    - https://unpkg.com/@waline/emojis@1.2.0/bilibili
+    - https://unpkg.com/@waline/emojis@1.2.0/qq
+    - https://unpkg.com/@waline/emojis@1.2.0/tieba
+    - https://unpkg.com/@waline/emojis@1.2.0/tw-emoji
   meta:
     - nick
     - mail
@@ -223,6 +223,7 @@ waline:
     - mail
   wordLimit: 0
   pageSize: 10
+  pageview: true
 ```
 
 若基于 [twikoo](https://twikoo.js.org)  

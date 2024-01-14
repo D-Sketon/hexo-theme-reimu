@@ -208,7 +208,7 @@ var scrollIntoViewAndWait = (element) => {
     const navItems = getComputedStyle(document.getElementById('sidebar')).display === 'block' ?
       $('#sidebar .sidebar-toc-wrapper li') :
       $('#mobile-nav .sidebar-toc-wrapper li');
-    if (navItems.length === 0) return;
+    if (!navItems.length) return;
 
     let activeLock = null;
 
@@ -227,7 +227,7 @@ var scrollIntoViewAndWait = (element) => {
         anchorScroll(e);
       });
       const anchor = $(decodeURI(link.attr('href')));
-      if (!anchor) return null;
+      if (!anchor.length) return null;
       const alink = anchor.children('a');
       alink && alink.on('click', (e) => {
         anchorScroll(e);
@@ -237,7 +237,8 @@ var scrollIntoViewAndWait = (element) => {
 
     const activateNavByIndex = (index) => {
       const target = $(navItems[index]);
-      if (!target) return;
+
+      if (!target.length) return;
       if (target.hasClass('current')) return;
 
       $('.sidebar-toc-wrapper .active').removeClass('active current');
@@ -290,7 +291,7 @@ var scrollIntoViewAndWait = (element) => {
     }
 
     const observer = new IntersectionObserver((entries) => {
-      const index = findIndex(entries) + (window.diffY < 0 ? 1 : 0)
+      const index = findIndex(entries) + (window.diffY > 0 ? 1 : 0)
       if (activeLock === null) {
         activateNavByIndex(index)
       }
