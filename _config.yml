@@ -236,6 +236,8 @@ service_worker:
 live2d:
   enable: false
 
+reimu_cursor: true
+
 # Dependent cdn links
 vendor:
   cdn_jsdelivr_gh: https://cdn.jsdelivr.net/gh/

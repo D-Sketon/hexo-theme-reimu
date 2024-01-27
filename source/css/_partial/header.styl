@@ -147,7 +147,10 @@ $nav-link-wrap
   height: font-size
   padding: 20px 15px
   position: relative
-  cursor: pointer
+  if reimu_cursor
+    cursor: url(/images/cursor/reimu-cursor-pointer.cur), pointer
+  else
+    cursor: pointer
 
 [data-theme="dark"]
   .main-nav-link, .main-nav-icon, .nav-icon, .main-nav-link-wrap
@@ -174,6 +177,10 @@ $nav-link-wrap
   background: url("/images/taichi.png") no-repeat center / 80%
   transform: rotate(0deg)
   transition: transform 1s ease
+  if reimu_cursor
+    cursor: url(/images/cursor/reimu-cursor-pointer.cur), pointer !important
+  else
+    cursor: pointer
 
 #main-nav-toggle
   display: none

@@ -267,7 +267,10 @@ $article-meta-tag
     margin-right: 10px
 
 .article-share-link
-  cursor: pointer
+  if reimu_cursor
+    cursor: url(/images/cursor/reimu-cursor-pointer.cur), pointer
+  else
+    cursor: pointer
   float: right
   margin-left: 20px
   font-size: 14px

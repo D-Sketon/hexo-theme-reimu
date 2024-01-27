@@ -40,7 +40,10 @@
     font-size: 20px
     font-weight: bold
     text-transform: uppercase
-    cursor: pointer
+    if reimu_cursor
+      cursor: url(/images/cursor/reimu-cursor-pointer.cur), pointer
+    else
+      cursor: pointer
     padding-left: 15px
     top: 10px
 
@@ -78,6 +81,8 @@
 
 .reimu-powered
   float: right
+  if reimu_cursor
+    cursor: url(/images/cursor/reimu-cursor-default.cur), auto !important
 
   img
     display: inline-block

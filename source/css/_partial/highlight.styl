@@ -253,7 +253,10 @@ pre
   margin: 5px
   z-index: 1
   filter: invert(50%)
-  cursor: pointer
+  if reimu_cursor
+    cursor: url(/images/cursor/reimu-cursor-pointer.cur), pointer
+  else
+    cursor: pointer
   color: #fff
 
 .code-lang
@@ -262,13 +265,19 @@ pre
   font-weight: bold
   z-index: 1
   filter: invert(50%)
-  cursor: pointer
+  if reimu_cursor
+    cursor: url(/images/cursor/reimu-cursor-pointer.cur), pointer
+  else
+    cursor: pointer
 
 .code-expand
   margin: 5px
   filter: invert(50%)
   z-index: 1
-  cursor: pointer
+  if reimu_cursor
+    cursor: url(/images/cursor/reimu-cursor-pointer.cur), pointer
+  else
+    cursor: pointer
   transition: all .3s
   transform: rotate(0deg)
   color: #fff

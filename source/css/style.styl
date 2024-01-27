@@ -21,12 +21,30 @@ input, button
 
 html, body, #container
   height: 100%
+  if reimu_cursor
+    cursor: url(/images/cursor/reimu-cursor-default.cur), auto
 
 body
   background: var(--color-background)
   -webkit-text-size-adjust: 100%
   font-family: font-sans
   transition: background 0.3s ease
+
+if reimu_cursor
+  a
+    cursor: url(/images/cursor/reimu-cursor-pointer.cur), pointer !important
+
+  .site-search
+    input
+      cursor: url(/images/cursor/reimu-cursor-text.cur), text !important
+  
+  #main
+    span, p, code, kbd, input, textarea
+      cursor: url(/images/cursor/reimu-cursor-text.cur), text !important
+
+    nav
+      span
+        cursor: url(/images/cursor/reimu-cursor-default.cur), auto !important
 
 .outer
   clearfix()
@@ -123,11 +141,9 @@ if sidebar
   height: 10px
   background-color: #f5f5f5
 
-
 ::-webkit-scrollbar-track
   border-radius: 10px
   background-color: #f5f5f5
-
 
 ::-webkit-scrollbar-thumb
   border-radius: 10px
