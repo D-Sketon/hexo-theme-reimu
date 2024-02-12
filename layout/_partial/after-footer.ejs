@@ -75,7 +75,6 @@
 <% } %>
 
 <%- js({src: 'js/pjax_script.js', 'data-pjax': true}) %>
-<%- partial('analytics/gauges-analytics') %>
 
 <% if (theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
   <%- js({src: vendorCdn(theme.vendor.js.valine)[0], 'data-pjax': true}) %>
@@ -99,6 +98,7 @@
       recordIP: recordIP,
       highlight: highlight,
       visitor: visitor,
+      requiredFields: guest_info,
       path: window.location.pathname
     });
   </script>

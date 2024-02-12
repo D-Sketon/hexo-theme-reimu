@@ -24,7 +24,6 @@ rss: atom.xml
 # analytics
 baidu_analytics: false
 google_analytics: false
-gauges_analytics: false
 
 # Footer
 copyright:
