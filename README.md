@@ -18,6 +18,8 @@
 
 本人是车车人，所以制作了这样一款博丽灵梦风格的 Hexo 主题，融合了 [landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian) 和 [Shoka](https://github.com/amehime/hexo-theme-shoka) 三个主题
 
+[Astro](https://astro.build) 主题请参见 [astro-theme-reimu](https://github.com/D-Sketon/astro-theme-reimu)
+
 **欢迎提交 ISSUE 和 PR！**
 
 ## 路线图
