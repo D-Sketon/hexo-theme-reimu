@@ -1,11 +1,7 @@
 <% if (theme.baidu_analytics) { %>
+  <script async src="https://hm.baidu.com/hm.js?<%= theme.baidu_analytics %>"></script>
   <script data-pjax>
     var _hmt = _hmt || [];
-    (() => {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?<%= theme.baidu_analytics %>";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
+    _hmt.push(["_trackPageview", location.pathname]);
   </script>
 <% } %>
