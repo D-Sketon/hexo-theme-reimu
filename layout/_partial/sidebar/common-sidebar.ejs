@@ -20,14 +20,14 @@
 <div class="sidebar-social">
   <% for (var i in theme.social) { %>
     <div class=<%= 'icon-' + i %>>
-      <a href=<%= theme.social[i] %> itemprop="url" target="_blank"></a>
+      <a href=<%= theme.social[i] %> itemprop="url" target="_blank" aria-label="<%= i %>"></a>
     </div>
   <% } %>
 </div>
 <div class="sidebar-menu">
   <% for (var i in theme.menu) { %>
     <div class="sidebar-menu-link-wrap">
-      <a class="sidebar-menu-link-dummy" href="<%- url_for(theme.menu[i]) %>"></a>
+      <a class="sidebar-menu-link-dummy" href="<%- url_for(theme.menu[i]) %>" aria-label="<%= __(i) %>"></a>
       <span class="sidebar-menu-icon"></span>
       <div class="sidebar-menu-link"><%= __(i) %></div>
     </div>

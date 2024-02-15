@@ -2,7 +2,7 @@ const { htmlTag } = require('hexo-util')
 hexo.extend.helper.register('vendorFont', () => {
   const fontDisplay = '&display=swap'
   const fontSubset = '&subset=latin,latin-ext'
-  const fontStyles = ':300,300italic,400,400italic,700,700italic'
+  const fontStyles = ':400,400italic,700,700italic'
   const fontHost = 'https://fonts.googleapis.com'
 
   let fontFamilies = ['Mulish', 'Noto Serif SC', 'Ubuntu Mono'].map(item => {

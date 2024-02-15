@@ -1,9 +1,9 @@
 <% if (even === true) { %>
   <div class="post-wrap-left wow fadeInUp">
     <% if (post.link) { %>
-      <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url" target="_blank"></a>
+      <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url" target="_blank" aria-label="<%= post.title %>"></a>
     <% } else { %>
-      <a class="post-link" href="<%- url_for(post.path) %>"></a>
+      <a class="post-link" href="<%- url_for(post.path) %>" aria-label="<%= post.title %>"></a>
     <% } %>
     <% if (post.sticky) { %>
       <div class="post-sticky"><%= __('sticky')%></div>
@@ -22,9 +22,9 @@
     </div>
     <div class="post-info">
       <div class="post-meta">
-        <a><span class="icon-calendar"></span><%- date(post.date, "YYYY-MM-DD") %></a>
-        <a><span class="icon-pencil"></span><%= _p('post.count', wordcount(post.content)) %></a>
-        <a><span class="icon-clock"></span><%= _p('post.time', min2read(post.content)) %></a>
+        <span><span class="icon-calendar"></span><%- date(post.date, "YYYY-MM-DD") %></span>
+        <span><span class="icon-pencil"></span><%= _p('post.count', wordcount(post.content)) %></span>
+        <span><span class="icon-clock"></span><%= _p('post.time', min2read(post.content)) %></span>
       </div>
       <h2 class="post-title"><%= post.title %></h2>
       <article class="post-article">
@@ -57,17 +57,9 @@
     </div>
     <div class="post-info">
       <div class="post-meta">
-        <a><span class="icon-calendar"></span><%- date(post.date, "YYYY-MM-DD") %></a>
-        <% if (wordcount(post.content) == 1) { %>
-          <a><span class="icon-pencil"></span><%= _p('post.count', wordcount(post.content)) %></a>
-        <% } else { %>
-          <a><span class="icon-pencil"></span><%= _p('post.count', wordcount(post.content)) %></a>
-        <% } %>
-        <% if (min2read(post.content) == 1) { %>
-          <a><span class="icon-clock"></span><%= _p('post.time', min2read(post.content)) %></a>
-        <% } else { %>
-          <a><span class="icon-clock"></span><%= _p('post.time', min2read(post.content)) %></a>
-        <% } %>
+        <span><span class="icon-calendar"></span><%- date(post.date, "YYYY-MM-DD") %></span>
+        <span><span class="icon-pencil"></span><%= _p('post.count', wordcount(post.content)) %></span>
+        <span><span class="icon-clock"></span><%= _p('post.time', min2read(post.content)) %></span>
       </div>
       <h2 class="post-title"><%= post.title %></h2>
       <article class="post-article">
