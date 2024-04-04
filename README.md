@@ -190,7 +190,7 @@ highlight:
 
 ### 站内评论
 
-> 站内评论可以使用Front matter 中的 `comments` 独立控制每篇文章是否显示评论。
+> 站内评论可以使用Front matter 中的 `comments` 独立控制每篇文章是否显示评论。  
 > 当 `comments` 为 `false` 时不显示评论，`true` 或不填时根据 `_config_yml` 的配置决定是否显示。
 
 若基于 [Valine](https://valine.js.org/)  
@@ -259,7 +259,7 @@ giscus:
   lang: zh-CN
 ```
 
-若基于 [gitalk](https://gitalk.github.io/)
+若基于 [gitalk](https://gitalk.github.io/)  
 请参考其[官方文档](https://github.com/gitalk/gitalk?tab=readme-ov-file#usage)完成仓库的配置，并在内层 `_config_yml` 中将 `gitalk.enable` 改为 `true`，并填入对应的数据
 
 ```yml

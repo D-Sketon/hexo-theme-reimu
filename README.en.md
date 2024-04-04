@@ -173,7 +173,7 @@ highlight:
 
 ### Site comments
 
-> In-site comments can be controlled independently of each post using `comments` in Front matter.
+> In-site comments can be controlled independently of each post using `comments` in Front matter.  
 > Comments are not shown when `comments` is `false`, and are shown or not shown when `true` or not filled in, depending on the `_config_yml` configuration.
 
 If based on [Valine](https://valine.js.org/)  
@@ -242,7 +242,7 @@ giscus:
   lang: zh-CN
 ```
 
-If based on [gitalk](https://gitalk.github.io/)
+If based on [gitalk](https://gitalk.github.io/)  
 Please refer to its [official documentation](https://github.com/gitalk/gitalk?tab=readme-ov-file#usage) to complete the repository configuration, and change `gitalk.enable` to `true` in the inner `_config_yml` and fill in the corresponding data.
 
 ```yml
