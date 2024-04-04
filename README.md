@@ -28,7 +28,7 @@
 - [x] waline 评论系统
 - [x] twikoo 评论系统（未测试）
 - [x] gitalk 评论系统（未测试）
-- [x] giscus 评论系统（未测试）
+- [x] giscus 评论系统
 - [x] 黑夜模式
 - [x] 过渡动画效果
 - [x] google 字体
@@ -190,6 +190,9 @@ highlight:
 
 ### 站内评论
 
+> 站内评论可以使用Front matter 中的 `comments` 独立控制每篇文章是否显示评论。
+> 当 `comments` 为 `false` 时不显示评论，`true` 或不填时根据 `_config_yml` 的配置决定是否显示。
+
 若基于 [Valine](https://valine.js.org/)  
 请参考其官方文档完成 `LeanCloud` 的配置，并在内层 `_config_yml` 中将 `valine.enable` 改为 `true`，并填入自己的 `appId` 和 `appKey`
 
@@ -236,6 +239,37 @@ twikoo:
   enable: true
   envId: # 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
   region:
+```
+
+若基于 [giscus](https://giscus.app/zh-CN)，请参考文档完成仓库的配置，并在内层 `_config_yml` 中将 `giscus.enable` 改为 `true`，并填入对应的数据
+
+```yml
+giscus:
+  enable: true
+  repo: "your repo"
+  repoId: "your repoId"
+  category: "your category"
+  categoryId: "your categoryId"
+  mapping: mapping
+  strict: 0
+  reactionsEnabled: 1
+  emitMetadata: 0
+  inputPosition: bottom
+  commentTheme: preferred_color_scheme
+  lang: zh-CN
+```
+
+若基于 [gitalk](https://gitalk.github.io/)
+请参考其[官方文档](https://github.com/gitalk/gitalk?tab=readme-ov-file#usage)完成仓库的配置，并在内层 `_config_yml` 中将 `gitalk.enable` 改为 `true`，并填入对应的数据
+
+```yml
+gitalk:
+  enable: true
+  clientID: "your application client ID"
+  clientSecret: "your application client secret"
+  repo: "your repo"
+  owner: "repo owner"
+  admin: "repo owner and collaborators"
 ```
 
 ### 站内搜索

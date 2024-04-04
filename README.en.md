@@ -173,6 +173,9 @@ highlight:
 
 ### Site comments
 
+> In-site comments can be controlled independently of each post using `comments` in Front matter.
+> Comments are not shown when `comments` is `false`, and are shown or not shown when `true` or not filled in, depending on the `_config_yml` configuration.
+
 If based on [Valine](https://valine.js.org/)  
 Please refer to its official documentation to complete the configuration of `LeanCloud` and change `valine.enable` to `true` in the inner `_config_yml` and fill in your own `appId` and `appKey`
 
@@ -219,6 +222,37 @@ twikoo:
   enable: true
   envId: # Tencent cloud environment fill envId; Vercel environment fill address (https://xxx.vercel.app)
   region:
+```
+
+If based on [giscus](https://giscus.app/zh-CN), please refer to the documentation to complete the configuration of the repository and change `giscus.enable` to `true` in the inner `_config_yml`, and fill in the corresponding data.
+
+```yml
+giscus:
+  enable: true
+  repo: "your repo"
+  repoId: "your repoId"
+  category: "your category"
+  categoryId: "your categoryId"
+  mapping: mapping
+  strict: 0
+  reactionsEnabled: 1
+  emitMetadata: 0
+  inputPosition: bottom
+  commentTheme: preferred_color_scheme
+  lang: zh-CN
+```
+
+If based on [gitalk](https://gitalk.github.io/)
+Please refer to its [official documentation](https://github.com/gitalk/gitalk?tab=readme-ov-file#usage) to complete the repository configuration, and change `gitalk.enable` to `true` in the inner `_config_yml` and fill in the corresponding data.
+
+```yml
+gitalk:
+  enable: true
+  clientID: "your application client ID"
+  clientSecret: "your application client secret"
+  repo: "your repo"
+  owner: "repo owner"
+  admin: "repo owner and collaborators"
 ```
 
 ### Site search
@@ -363,4 +397,4 @@ live2d:
 
 ## License
 
-MIT License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FD-Sketon%2Fhexo-theme-reimu.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FD-Sketon%2Fhexo-theme-reimu?ref=badge_large)
