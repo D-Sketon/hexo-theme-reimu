@@ -20,7 +20,7 @@
 A Hakurei Reimu style Hexo theme.  
 A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian) and [Shoka](https://github.com/amehime/hexo-theme-shoka) themes.
 
-See [astro-theme-reimu] (https://github.com/D-Sketon/astro-theme-reimu) for the [Astro] (https://astro.build) theme.
+See [astro-theme-reimu](https://github.com/D-Sketon/astro-theme-reimu) for the [Astro](https://astro.build) theme.
 
 **ISSUE and PR Welcome!**
 
@@ -292,7 +292,7 @@ algolia_search:
 
 Note: The search link is a permanent link, so please ensure that the `url` in the outer `_config.yml` is filled in correctly
 
-If your site search is based on [hexo-generator-search](https://github.com/wzpan/hexo-generator-search), please install [hexo-generator-search](https://github.com/wzpan/ hexo-generator-search)
+If your site search is based on [hexo-generator-search](https://github.com/wzpan/hexo-generator-search), please install [hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
 
 And refer to its [README](https://github.com/wzpan/hexo-generator-search#readme) to add the following configuration to the outer `_config.yml`
 
