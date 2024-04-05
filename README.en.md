@@ -392,6 +392,13 @@ live2d:
   enable: false
 ```
 
+#### reimu cursor
+
+Enabled by default
+```yml
+reimu_cursor: true
+```
+
 ## Contributors
 [![](https://contributors-img.web.app/image?repo=D-Sketon/hexo-theme-reimu)](https://github.com/D-Sketon/hexo-theme-reimu/graphs/contributors)
 
