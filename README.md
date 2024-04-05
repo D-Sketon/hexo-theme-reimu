@@ -409,6 +409,13 @@ live2d:
   enable: false
 ```
 
+#### reimu鼠标指针
+
+默认开启
+```yml
+reimu_cursor: true
+```
+
 ## 贡献者
 [![](https://contributors-img.web.app/image?repo=D-Sketon/hexo-theme-reimu)](https://github.com/D-Sketon/hexo-theme-reimu/graphs/contributors)
 
