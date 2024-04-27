@@ -202,7 +202,7 @@ dark_mode:
 firework:
   enable: true
   options:
-    excludeElements: ["a"]
+    excludeElements: ["a", "button"]
     particles:
       - shape: circle
         move: ["emit"]

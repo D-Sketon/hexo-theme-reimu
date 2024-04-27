@@ -1,4 +1,10 @@
 <div class="sidebar-toc">
   <h3 class="toc-title"><%= __('toc') %></h3>
-  <div class="sidebar-toc-wrapper"><%- toc(page.content) %></div>
+  <div class="sidebar-toc-wrapper toc-div-class" <% if (page.encrypt == true) { %>style="display: none" <% } %>>
+      <% if (page.encrypt == true) { %>
+        <%- toc(page.origin) %>
+      <% } else { %>
+        <%- toc(page.content) %>
+      <% } %>
+  </div>
 </div>
