@@ -305,5 +305,11 @@ var scrollIntoViewAndWait = (element) => {
   };
 
   window.addEventListener('hexo-blog-decrypt', tocInit);
+  window.addEventListener('hexo-blog-decrypt', () => {
+    const script = document.createElement('script');
+    script.src = '/js/insert_highlight.js';
+    script.setAttribute('data-pjax', true);
+    document.body.appendChild(script);
+  });
   tocInit();
 })(jQuery);
