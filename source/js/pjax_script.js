@@ -37,7 +37,12 @@ var scrollIntoViewAndWait = (element) => {
 (function ($) {
   // anchor
   $('.article-entry h1>a, .article-entry h2>a, .article-entry h3>a, .article-entry h4>a, .article-entry h5>a, .article-entry h6>a').each(function () {
-    $(this)[0].innerHTML = "&#xf292;";
+    if (window.icon_font) {
+      $(this)[0].innerHTML = "&#xe635;";
+    } else {
+      // fontawesome
+      $(this)[0].innerHTML = "&#xf292;";
+    }
   });
 
   // Share
