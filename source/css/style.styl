@@ -4,6 +4,12 @@
 @import "_util/grid"
 @import "_util/animation"
 @import "_extend"
+  
+id = hexo-config("icon_font")
+if id
+  @import "iconfont"
+else
+  @import "fontawesome"
 
 global-reset()
 

@@ -2,3 +2,5 @@
 .vscode
 node_modules
 .editorconfig
+**/.tmp/*
+package-lock.json

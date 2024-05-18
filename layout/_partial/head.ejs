@@ -25,8 +25,10 @@
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <%- vendorFont(site) %>
-  <%- css(vendorCdn(theme.vendor.css.fontawesome.high_priority)) %>
-  <%- preloadStyle(vendorCdn(theme.vendor.css.fontawesome.low_priority)) %>
+  <% if (!config.icon_font) { %>
+    <%- css(vendorCdn(theme.vendor.css.fontawesome.high_priority)) %>
+    <%- preloadStyle(vendorCdn(theme.vendor.css.fontawesome.low_priority)) %>
+  <% } %>
   <%- css('css/loader') %>
   <%- open_graph({twitter_id: theme.twitter, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
   <% if (config.feed) { %>

@@ -66,7 +66,6 @@ social:
   # bilibili: https://space.bilibili.com/yourname
   # weibo: https://weibo.com/yourname
   # zhihu: https://www.zhihu.com/people/yourname
-  # douban: https://www.douban.com/people/yourname
   # reddit: https://www.reddit.com/user/yourname
   # tumblr: https://yourname.tumblr.com
   # medium: https://medium.com/@yourname
@@ -237,6 +236,8 @@ live2d:
   enable: false
 
 reimu_cursor: true
+
+icon_font: 4552607_chqjufiggz
 
 # Dependent cdn links
 vendor:
