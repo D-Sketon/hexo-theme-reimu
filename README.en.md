@@ -9,10 +9,10 @@
   ❤ Hakurei Reimu ❤
   </p>
 
-  [Demo](https://d-sketon.github.io)
+[Demo](https://d-sketon.github.io)
 
-  [简体中文](https://github.com/D-Sketon/hexo-theme-reimu/blob/main/README.md) | English
-  
+[简体中文](https://github.com/D-Sketon/hexo-theme-reimu/blob/main/README.md) | English
+
 </div>
 
 ---
@@ -62,6 +62,9 @@ theme: reimu
 
 ## Uses
 
+<details>
+<summary>Basic structure</summary>
+
 ### Basic structure
 
 For correct display, please refer to `_example` and create separate `_data`, `about` and `friend` folders in `_source`
@@ -84,6 +87,10 @@ avatar: "avatar.jpg"
 #### friend
 
 `index.md` as the **friends** page, fill in `_data.yml` with friend information to display the corresponding friend card on the page
+
+</details>
+<details>
+<summary>Cover, banner and favicon</summary>
 
 ### Cover, banner and favicon
 
@@ -148,6 +155,10 @@ sticky: true
 ---
 ```
 
+</details>
+<details>
+<summary>Code highlighting</summary>
+
 ### Code highlighting
 
 To ensure that the code blocks are displayed correctly, please ensure that the outer `_config.yml` is configured as follows
@@ -170,6 +181,10 @@ highlight:
   wrap: true
   hljs: false
 ```
+
+</details>
+<details>
+<summary>Site comments</summary>
 
 ### Site comments
 
@@ -255,6 +270,10 @@ gitalk:
   admin: "repo owner and collaborators"
 ```
 
+</details>
+<details>
+<summary>Site search</summary>
+
 ### Site search
 
 If your site search is based on [Algolia](https://www.algolia.com/), please install [hexo-algoliasearch](https://github.com/LouisBarranqueiro/hexo-algoliasearch)
@@ -310,6 +329,10 @@ generator_search:
   enable: true
 ```
 
+</details>
+<details>
+<summary>Mathematical formulas</summary>
+
 ### Mathematical formulas
 
 Math formulas are based on [Katex](https://github.com/KaTeX/KaTeX), please install [hexo-renderer-markdown-it-plus](https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus)
@@ -326,6 +349,10 @@ math:
   enable: true
 ```
 
+</details>
+<details>
+<summary>Mermaid</summary>
+
 ### Mermaid
 
 Please install [hexo-filter-mermaid-diagrams](https://github.com/webappdevelp/hexo-filter-mermaid-diagrams)
@@ -340,6 +367,10 @@ Change `mermaid.enable` to `true` in the inner `_config_yml`
 mermaid:
   enable: true
 ```
+
+</details>
+<details>
+<summary>RSS</summary>
 
 ### RSS
 
@@ -356,29 +387,65 @@ Fill in the inner `_config.yml` with the generated `xml`
 rss: atom.xml
 ```
 
+</details>
+
+<details>
+<summary>Icon</summary>
+
+### Icon
+
+Icon defaults to the iconfont provided with this project (v0.1.3+)
+
+```yml
+icon_font: 4552607_ikzjpc9jicn
+```
+
+If you want to continue using fontawesome icons, set `icon_font` to `false`, which will use the corresponding fontawesome in `vendor`.
+
+```yml
+fontawesome:
+  high_priority:
+    - webcache|@fortawesome/fontawesome-free@6.5.1/css/regular.min.css
+    - webcache|@fortawesome/fontawesome-free@6.5.1/css/solid.min.css
+  low_priority:
+    - webcache|@fortawesome/fontawesome-free@6.5.1/css/brands.min.css
+    - webcache|@fortawesome/fontawesome-free@6.5.1/css/v5-font-face.min.css
+    - webcache|@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css
+```
+
+</details>
+
+<details>
+<summary>Experimental features</summary>
+
 ### Experimental features
 
 #### firework
 
 Enabled by default
+
 ```yaml
 firework:
   enable: true
 ```
+
 See [mouse-firework](https://github.com/D-Sketon/mouse-firework) for more information
 
 #### pjax
 
 Disabled by default
+
 ```yaml
 pjax:
   enable: false
 ```
+
 > pjax was introduced in v0.0.10 for those who need to add music players and other users who need SPA. However, it is still experimental and may cause bugs such as **scripts not executing**, **scripts repeating**, **pages rendering mess**, etc. Please consider it carefully!
 
 #### PWA
 
 Enabled by default
+
 ```yaml
 service_worker:
   enable: true
@@ -387,6 +454,7 @@ service_worker:
 #### live2d
 
 Disabled by default
+
 ```yaml
 live2d:
   enable: false
@@ -395,11 +463,15 @@ live2d:
 #### reimu cursor
 
 Enabled by default
+
 ```yml
 reimu_cursor: true
 ```
 
+</details>
+
 ## Contributors
+
 [![](https://contributors-img.web.app/image?repo=D-Sketon/hexo-theme-reimu)](https://github.com/D-Sketon/hexo-theme-reimu/graphs/contributors)
 
 ## License

@@ -9,9 +9,10 @@
   ❤ Hakurei Reimu ❤
   </p>
 
-  [演示网站](https://d-sketon.github.io)
+[演示网站](https://d-sketon.github.io)
 
-  简体中文 | [English](https://github.com/D-Sketon/hexo-theme-reimu/blob/main/README.en.md)
+简体中文 | [English](https://github.com/D-Sketon/hexo-theme-reimu/blob/main/README.en.md)
+
 </div>
 
 ---
@@ -79,6 +80,9 @@ theme: reimu
 
 ## 使用
 
+<details>
+<summary>基本结构</summary>
+
 ### 基本结构
 
 为了保证显示正确，请参考 `_example` 在 `_source` 中分别建立 `_data`、`about` 和 `friend` 文件夹
@@ -101,6 +105,10 @@ avatar: "avatar.jpg" # 默认就是在avatar文件夹内寻找，请不要包含
 #### friend
 
 `index.md` 作为**友链**页面，在 `_data.yml` 中填入友链信息即可在页面上显示对应好友卡片
+
+</details>
+<details>
+<summary>封面、头图和图标</summary>
 
 ### 封面、头图和图标
 
@@ -165,6 +173,10 @@ sticky: true
 ---
 ```
 
+</details>
+<details>
+<summary>代码高亮</summary>
+
 ### 代码高亮
 
 为保证代码块的正确显示，请保证外层 `_config.yml` 中为如下配置
@@ -188,9 +200,13 @@ highlight:
   hljs: false
 ```
 
+</details>
+<details>
+<summary>站内评论</summary>
+
 ### 站内评论
 
-> 站内评论可以使用Front matter 中的 `comments` 独立控制每篇文章是否显示评论。  
+> 站内评论可以使用 Front matter 中的 `comments` 独立控制每篇文章是否显示评论。  
 > 当 `comments` 为 `false` 时不显示评论，`true` 或不填时根据 `_config_yml` 的配置决定是否显示。
 
 若基于 [Valine](https://valine.js.org/)  
@@ -272,6 +288,10 @@ gitalk:
   admin: "repo owner and collaborators"
 ```
 
+</details>
+<details>
+<summary>站内搜索</summary>
+
 ### 站内搜索
 
 若选择 [Algolia](https://www.algolia.com/)，请安装 [hexo-algoliasearch](https://github.com/LouisBarranqueiro/hexo-algoliasearch)
@@ -327,6 +347,10 @@ generator_search:
   enable: true
 ```
 
+</details>
+<details>
+<summary>数学公式</summary>
+
 ### 数学公式
 
 数学公式基于 [Katex](https://github.com/KaTeX/KaTeX)，请安装 [hexo-renderer-markdown-it-plus](https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus)
@@ -343,6 +367,10 @@ math:
   enable: true
 ```
 
+</details>
+<details>
+<summary>Mermaid</summary>
+
 ### Mermaid
 
 请安装 [hexo-filter-mermaid-diagrams](https://github.com/webappdevelp/hexo-filter-mermaid-diagrams)
@@ -357,6 +385,10 @@ npm install hexo-filter-mermaid-diagrams --save
 mermaid:
   enable: true
 ```
+
+</details>
+<details>
+<summary>RSS</summary>
 
 ### RSS
 
@@ -373,29 +405,65 @@ npm install hexo-generator-feed --save
 rss: atom.xml
 ```
 
+</details>
+
+<details>
+<summary>Icon</summary>
+
+### Icon
+
+Icon 默认使用本项目提供的 iconfont（v0.1.3+）
+
+```yml
+icon_font: 4552607_ikzjpc9jicn
+```
+
+如果想要继续使用 fontawesome 图标，请将 `icon_font` 设置为 `false`，此时会使用 `vendor` 中对应的 fontawesome
+
+```yml
+fontawesome:
+  high_priority:
+    - webcache|@fortawesome/fontawesome-free@6.5.1/css/regular.min.css
+    - webcache|@fortawesome/fontawesome-free@6.5.1/css/solid.min.css
+  low_priority:
+    - webcache|@fortawesome/fontawesome-free@6.5.1/css/brands.min.css
+    - webcache|@fortawesome/fontawesome-free@6.5.1/css/v5-font-face.min.css
+    - webcache|@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css
+```
+
+</details>
+
+<details>
+<summary>实验性功能</summary>
+
 ### 实验性功能
 
 #### firework
 
 默认开启
+
 ```yaml
 firework:
   enable: true
 ```
+
 具体配置请查看 [mouse-firework](https://github.com/D-Sketon/mouse-firework)
 
 #### pjax
 
 默认关闭
+
 ```yaml
 pjax:
   enable: false
 ```
+
 > pjax 在 v0.0.10 中被引入，用于那些需要添加音乐播放器等需要 SPA 的用户。但其仍然属于实验性质，引入后可能会出现诸如**脚本无法执行**、**脚本重复执行**、**页面渲染混乱**等 BUG。请慎重考虑！
 
 #### PWA
 
 默认开启
+
 ```yaml
 service_worker:
   enable: true
@@ -404,19 +472,24 @@ service_worker:
 #### live2d
 
 默认关闭
+
 ```yaml
 live2d:
   enable: false
 ```
 
-#### reimu鼠标指针
+#### reimu 鼠标指针
 
 默认开启
+
 ```yml
 reimu_cursor: true
 ```
 
+</details>
+
 ## 贡献者
+
 [![](https://contributors-img.web.app/image?repo=D-Sketon/hexo-theme-reimu)](https://github.com/D-Sketon/hexo-theme-reimu/graphs/contributors)
 
 ## 许可
