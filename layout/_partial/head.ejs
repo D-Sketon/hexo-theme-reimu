@@ -40,9 +40,6 @@
   <% if (theme.favicon) { %>
     <%- favicon_tag(theme.favicon) %>
   <% } %>
-  <% if (config.highlight.enable) { %>
-    <%- css(vendorCdn(theme.vendor.css.highlight)) %>
-  <% } %>
   <%- css('css/style') %>
   <% if (theme.fancybox) { %>
     <%- css(vendorCdn(theme.vendor.css.fancybox)) %>
