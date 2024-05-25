@@ -130,10 +130,10 @@ cover: rgb(255,117,117)
 
 #### banner
 
-The banner is stored in `themes/reimu/source/images/banner.jpg` and can be modified in the inner `_config.yml`
+The banner is stored in `themes/reimu/source/images/banner.webp` and can be modified in the inner `_config.yml`
 
 ```yaml
-banner: "/images/banner.jpg"
+banner: "/images/banner.webp"
 ```
 
 #### favicon

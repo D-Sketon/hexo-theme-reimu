@@ -148,10 +148,10 @@ cover: rgb(255,117,117)
 
 #### 头图
 
-头图保存于 `themes/reimu/source/images/banner.jpg`，可在内层 `_config.yml` 中修改
+头图保存于 `themes/reimu/source/images/banner.webp`，可在内层 `_config.yml` 中修改
 
 ```yaml
-banner: "/images/banner.jpg"
+banner: "/images/banner.webp"
 ```
 
 #### 图标

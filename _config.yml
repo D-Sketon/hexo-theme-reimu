@@ -5,7 +5,7 @@ menu:
   about: /about
   friend: /friend
 
-banner: "/images/banner.jpg" # themes/reimu/source/images/banner.jpg
+banner: "/images/banner.webp" # themes/reimu/source/images/banner.webp
 # You can also write it in the form of the following url
 # banner: "https://example.com"
 favicon: "/images/favicon.ico" # themes/reimu/source/images/favicon.ico
@@ -268,7 +268,6 @@ vendor:
       base: fastly_jsdelivr_gh|MliKiowa/plugin-live2d/
       js: fastly_jsdelivr_gh|MliKiowa/plugin-live2d/js/live2d-autoload.js
   css:
-    highlight: webcache|typeface-source-code-pro@1.1.13/index.css
     fancybox: webcache|@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
     katex: webcache|katex@0.16.9/dist/katex.min.css
     waline: webcache|@waline/client@v2/dist/waline.css
