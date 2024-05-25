@@ -39,9 +39,9 @@
 <% } else { %>
   <div class="post-wrap-right wow fadeInUp">
     <% if (post.link) { %>
-    <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url" target="_blank"></a>
+    <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url" target="_blank" aria-label="<%= post.title %>"></a>
     <% } else { %>
-    <a class="post-link" href="<%- url_for(post.path) %>"></a>
+    <a class="post-link" href="<%- url_for(post.path) %>" aria-label="<%= post.title %>"></a>
     <% } %>
     <div class="post-cover-right">
       <% if (post.cover) { %>
