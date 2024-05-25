@@ -89,10 +89,10 @@ theme: reimu
 
 #### \_data
 
-- `avatar` 文件夹中存储作者头像，默认命名 `avatar.jpg`，可在 内层 `_config.yml` 中做如下配置
+- `avatar` 文件夹中存储作者头像，默认命名 `avatar.webp`，可在 内层 `_config.yml` 中做如下配置
 
 ```yaml
-avatar: "avatar.jpg" # 默认就是在avatar文件夹内寻找，请不要包含路径，否则会404
+avatar: "avatar.webp" # 默认就是在avatar文件夹内寻找，请不要包含路径，否则会404
 ```
 
 - `covers` 文件夹中存储文章封面
@@ -384,6 +384,15 @@ npm install hexo-filter-mermaid-diagrams --save
 ```yaml
 mermaid:
   enable: true
+```
+
+并在需要使用 mermaid 的文章的 front-matter 中添加 `mermaid: true`
+
+```yaml
+---
+title: Hello World
+mermaid: true
+---
 ```
 
 </details>

@@ -71,10 +71,10 @@ For correct display, please refer to `_example` and create separate `_data`, `ab
 
 #### \_data
 
-- The `avatar` folder stores the author's avatar, named `avatar.jpg` by default, and can be configured in the inner `_config.yml` as follows
+- The `avatar` folder stores the author's avatar, named `avatar.webp` by default, and can be configured in the inner `_config.yml` as follows
 
 ```yaml
-avatar: "avatar.jpg"
+avatar: "avatar.webp"
 ```
 
 - The `covers` folder stores the article covers
@@ -366,6 +366,15 @@ Change `mermaid.enable` to `true` in the inner `_config_yml`
 ```yaml
 mermaid:
   enable: true
+```
+
+and add ``mermaid: true`` to the front-matter of articles that need to use mermaid.
+
+```yaml
+---
+title: Hello World
+mermaid: true
+---
 ```
 
 </details>

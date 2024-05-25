@@ -9,71 +9,6 @@
   <%- js({src: vendorCdn(theme.vendor.js.busuanzi)[0], async: true}) %>
 <% } %>
 
-<% if (theme.mermaid.enable) { %>
-  <%- js(vendorCdn(theme.vendor.js.mermaid)) %>
-  <script>
-    if (window.mermaid) {
-      // https://github.com/mermaid-js/mermaid/issues/1945
-      const elementCode = '.mermaid'
-      const saveOriginalData = () => {
-        return new Promise((resolve, reject) => {
-          try {
-            var els = document.querySelectorAll(elementCode),
-                count = els.length;
-            els.forEach(element => {
-              if (element.getAttribute('data-original-code') == null){
-                element.setAttribute('data-original-code', element.innerHTML)
-              }
-              count--
-              if(count == 0){
-                resolve()
-              }
-            });
-          } catch (error) {
-          reject(error) 
-          }
-        })
-      }
-      const resetProcessed = () => {
-        return new Promise((resolve, reject) => {
-          try {
-            var els = document.querySelectorAll(elementCode),
-                count = els.length;
-            els.forEach(element => {
-              if(element.getAttribute('data-original-code') != null){
-                element.removeAttribute('data-processed')
-                element.innerHTML = element.getAttribute('data-original-code')
-              }
-              count--
-              if(count == 0){
-                resolve()
-              }
-            });
-          } catch (error) {
-          reject(error) 
-          }
-        })
-      } 
-      const loadMermaid = (theme) => {
-        window.mermaid.initialize({theme})
-        window.mermaid.init({theme}, document.querySelectorAll(elementCode))
-      }
-      document.body.addEventListener('dark-theme-set', () => {
-        saveOriginalData()
-        .then(resetProcessed())
-        .then(loadMermaid('dark'))
-        .catch(console.error)
-      })
-      document.body.addEventListener('light-theme-set', () => {
-        saveOriginalData()
-        .then(resetProcessed())
-        .then(loadMermaid('default'))
-        .catch(console.error)
-      })
-    }
-  </script>
-<% } %>
-
 <%- js({src: 'js/pjax_script.js', 'data-pjax': true}) %>
 
 <% if (theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
@@ -211,45 +146,51 @@
 <% if (theme.pjax.enable) { %>
   <%- js(vendorCdn(theme.vendor.js.pjax)) %>
   <script>
+    function loadScripts(scripts, index) {
+      if (index < scripts.length) {
+        var script = scripts[index];
+
+        if ($(script).attr('src')) {
+          $.ajax({
+            url: $(script).attr('src'),
+            dataType: 'script',
+            success: () => {
+              loadScripts(scripts, index + 1);
+            },
+            error: (xhr, status, error) => {
+              console.error('Failed to load script:', $(script).attr('src'), error);
+            }
+          });
+        } else {
+          eval($(script).text());
+          loadScripts(scripts, index + 1);
+        }
+      }
+    }
     new Pjax({
       selectors: [
         "#header-title",
         "#subtitle-wrap",
         "#content",
         '#mobile-nav',
+        '#lazy-script'
       ],
       switches: {
         "#header-title": Pjax.switches.outerHTML,
         "#subtitle-wrap": Pjax.switches.outerHTML,
         "#content": function(oldEl, newEl, options) {
-          function loadScripts(scripts, index) {
-            if (index < scripts.length) {
-              var script = scripts[index];
-
-              if ($(script).attr('src')) {
-                $.ajax({
-                  url: $(script).attr('src'),
-                  dataType: 'script',
-                  success: () => {
-                    loadScripts(scripts, index + 1);
-                  },
-                  error: (xhr, status, error) => {
-                    console.error('Failed to load script:', $(script).attr('src'), error);
-                  }
-                });
-              } else {
-                eval($(script).text());
-                loadScripts(scripts, index + 1);
-              }
-            }
-          }
-
           const scripts = $(newEl.outerHTML).find('script').toArray();
           loadScripts(scripts, 0);
           oldEl.outerHTML = newEl.outerHTML
           this.onSwitch()
         },
-        "#mobile-nav": Pjax.switches.outerHTML
+        "#mobile-nav": Pjax.switches.outerHTML,
+        '#lazy-script': function(oldEl, newEl, options) {
+          const scripts = $(newEl.outerHTML).find('script').toArray();
+          loadScripts(scripts, 0);
+          oldEl.innerHTML = newEl.innerHTML
+          this.onSwitch()
+        },
       },
       cacheBust: false
     })
@@ -265,6 +206,86 @@
   </script>
   <%- js({src: vendorCdn(theme.vendor.js.live2d.js)[0], onload: "initLive2d && initLive2d()", async: true})%>
 <% } %>
+
+<div id="lazy-script">
+  <div>
+    <% if (theme.mermaid.enable && page.mermaid) { %>
+      <%- js({src: vendorCdn(theme.vendor.js.mermaid)[0], 'data-pjax': true}) %>
+      <script data-pjax>
+        if (window.mermaid) {
+          // https://github.com/mermaid-js/mermaid/issues/1945
+          const elementCode = '.mermaid'
+          const saveOriginalData = () => {
+            return new Promise((resolve, reject) => {
+              try {
+                var els = document.querySelectorAll(elementCode),
+                    count = els.length;
+                els.forEach(element => {
+                  if (element.getAttribute('data-original-code') == null){
+                    element.setAttribute('data-original-code', element.innerHTML)
+                  }
+                  count--
+                  if(count == 0){
+                    resolve()
+                  }
+                });
+              } catch (error) {
+              reject(error) 
+              }
+            })
+          }
+          const resetProcessed = () => {
+            return new Promise((resolve, reject) => {
+              try {
+                var els = document.querySelectorAll(elementCode),
+                    count = els.length;
+                els.forEach(element => {
+                  if(element.getAttribute('data-original-code') != null){
+                    element.removeAttribute('data-processed')
+                    element.innerHTML = element.getAttribute('data-original-code')
+                  }
+                  count--
+                  if(count == 0){
+                    resolve()
+                  }
+                });
+              } catch (error) {
+              reject(error) 
+              }
+            })
+          } 
+          const loadMermaid = (theme) => {
+            window.mermaid.initialize({theme})
+            window.mermaid.init({theme}, document.querySelectorAll(elementCode))
+          }
+          document.body.addEventListener('dark-theme-set', () => {
+            saveOriginalData()
+            .then(resetProcessed())
+            .then(loadMermaid('dark'))
+            .catch(console.error)
+          })
+          document.body.addEventListener('light-theme-set', () => {
+            saveOriginalData()
+            .then(resetProcessed())
+            .then(loadMermaid('default'))
+            .catch(console.error)
+          })
+          if(localStorage.getItem('dark_mode') == 'true') {
+            saveOriginalData()
+            .then(resetProcessed())
+            .then(loadMermaid('dark'))
+            .catch(console.error)
+          } else {
+            saveOriginalData()
+            .then(resetProcessed())
+            .then(loadMermaid('default'))
+            .catch(console.error)
+          }
+        }
+      </script>
+    <% } %>
+  </div>
+</div>
 
 <%- js('js/script.js') %>
 
