@@ -1,11 +1,15 @@
 .hr-line
-  margin: 10px article-padding
-  opacity: 0.5
-  height: 3px
-  background-image: linear-gradient(to left, var(--red-0) 50%, transparent 0%)
-  background-size: 20px 3px
+  margin: 10px article-padding + 15px
+  opacity: 0.3
+  height: 2px
+  background-image: linear-gradient(to right, var(--red-0) 50%, transparent 0%)
+  background-size: 25px 2px
   background-repeat: repeat-x
   filter: drop-shadow(0px 0px 2px red)
+  transition: opacity 0.3s ease
+
+  &:hover
+    opacity: 0.5
 
 .article-inner
   @extend $block
@@ -16,7 +20,7 @@
   clearfix()
   display: flex
   flex-direction: column
-  padding: article-padding article-padding 0
+  padding: article-padding article-padding + 15px 0
 
 $article-meta-tag
   text-decoration: none
@@ -26,7 +30,7 @@ $article-meta-tag
   background: var(--red-5)
   border-radius: 20px
   padding: 10px 18px
-  margin: 0 12px 1em
+  margin: 0 12px 1em 0
   box-shadow: 0 0 5px 3px var(--color-meta-shadow)
   transition: all 0.3s ease
 
@@ -221,8 +225,18 @@ $article-meta-tag
 .article-footer
   clearfix()
   font-size: 14px
-  border-top: 1px solid var(--color-border)
-  margin: 0 article-padding article-padding
+  margin: 0 article-padding + 15px article-padding
+
+  &:before
+    content: ""
+    display: block
+    margin-top: 10px
+    opacity: 0.3
+    height: 2px
+    background-image: linear-gradient(to right, var(--red-0) 50%, transparent 0%)
+    background-size: 25px 2px
+    background-repeat: repeat-x
+    filter: drop-shadow(0px 0px 2px red)
 
   a
     text-decoration: none

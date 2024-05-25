@@ -58,13 +58,17 @@ $base-style
 
   hr
     margin: 10px 0
-    opacity: 0.5
-    height: 3px
-    background-image: linear-gradient(to left, rgba(255, 0, 0, 0.75) 50%, transparent 0%)
-    background-size: 20px 3px
+    opacity: 0.3
+    height: 2px
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0.75) 50%, transparent 0%)
+    background-size: 25px 2px
     background-repeat: repeat-x
     border: none
     filter: drop-shadow(0px 0px 2px red)
+    transition: opacity 0.3s ease
+
+    &:hover
+      opacity: 0.5
 
     @media mg-normal
       margin: 10px 0
