@@ -13,10 +13,30 @@
   }
 
   // 代码复制
-  new ClipboardJS('.code-copy', {
+  const clipboard = new ClipboardJS('.code-copy', {
     target: function (trigger) {
       return $(trigger).parent().parent().siblings().find('td.code')[0]
     }
+  });
+  clipboard.on('success', function(e) {
+    $(e.trigger).addClass('icon-check').removeClass('icon-copy');
+    $('#copy-tooltip').get(0).innerText = window.clipboard_tips.success;
+    $('#copy-tooltip').fadeIn(200);
+    setTimeout(function () {
+      $('#copy-tooltip').fadeOut(200);
+      $(e.trigger).addClass('icon-copy').removeClass('icon-check');
+    }, 1000);
+    e.clearSelection();
+  });
+
+  clipboard.on('error', function(e) {
+    $(e.trigger).addClass('icon-times').removeClass('icon-copy');
+    $('#copy-tooltip').get(0).innerText = window.clipboard_tips.fail;
+    $('#copy-tooltip').fadeIn(200);
+    setTimeout(function () {
+      $('#copy-tooltip').fadeOut(200);
+      $(e.trigger).addClass('icon-copy').removeClass('icon-times');
+    }, 1000);
   });
 
   // 代码收缩

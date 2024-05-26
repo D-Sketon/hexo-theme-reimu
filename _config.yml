@@ -191,6 +191,10 @@ preloader:
   text: 少女祈祷中...
   # text: Loading...
 
+clipboard:
+  success: 复制成功(*^▽^*)
+  fail: 复制失败 (ﾟ⊿ﾟ)ﾂ
+
 animation:
   enable: true
 
@@ -237,7 +241,7 @@ live2d:
 
 reimu_cursor: true
 
-icon_font: 4552607_ikzjpc9jicn
+icon_font: 4552607_y484ez0be3f
 
 # Dependent cdn links
 vendor:
