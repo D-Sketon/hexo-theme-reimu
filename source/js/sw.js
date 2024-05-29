@@ -1,18 +1,16 @@
 const PreCache = [
-  '/images/taichi.png',
-  '/images/banner.webp',
-  '/images/taichi-fill.png',
-  '/css/loader.css',
-  '/css/style.css',
-  '/js/script.js'
+  "/images/taichi.png",
+  "/images/banner.webp",
+  "/images/taichi-fill.png",
+  "/css/loader.css",
+  "/css/style.css",
+  "/js/script.js",
 ];
 
-const CacheDomain = [
-  "fonts.googleapis.com"
-];
+const CacheDomain = ["fonts.googleapis.com"];
 
 // 安装时预加载必要内容
-self.addEventListener('install', (event) => {
+self.addEventListener("install", (event) => {
   console.log(`Service Worker ${VERSION} installing.`);
   event.waitUntil(
     caches.open(VERSION).then((cache) => {
@@ -37,14 +35,17 @@ async function respondRequest(request) {
   return cacheRequest(request);
 }
 
-self.addEventListener('fetch', function (event) {
+self.addEventListener("fetch", function (event) {
   var url = new URL(event.request.url);
   // 检查请求的域名是否在 CacheDomain 中
   if (CacheDomain.includes(url.hostname)) {
     event.respondWith(respondRequest(event.request));
   } else {
     // 检查请求是否为 POST 或带有查询参数的 GET 这样可避免错误缓存
-    if (event.request.method === 'POST' || (event.request.method === 'GET' && event.request.url.indexOf('?') !== -1)) {
+    if (
+      event.request.method === "POST" ||
+      (event.request.method === "GET" && event.request.url.indexOf("?") !== -1)
+    ) {
       event.respondWith(fetch(event.request));
     } else {
       event.respondWith(respondRequest(event.request));
@@ -52,7 +53,7 @@ self.addEventListener('fetch', function (event) {
   }
 });
 
-self.addEventListener('activate', (event) => {
+self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
@@ -68,12 +69,13 @@ self.addEventListener('activate', (event) => {
   console.log(`Service Worker ${VERSION} activated.`);
 });
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("/sw.js")
     .then((registration) => {
-      console.log('Service Worker 注册成功: ', registration);
+      console.log("Service Worker 注册成功: ", registration);
     })
     .catch((error) => {
-      console.log('Service Worker 注册失败: ', error);
+      console.log("Service Worker 注册失败: ", error);
     });
 }

@@ -4,9 +4,9 @@
  *   desc: 东方音mader
  *   image: https://d-sketon.top/img/icon/icon.png
  */
-const fs = require('fs')
-const path = require('path')
-const yaml = require('js-yaml')
+const fs = require("fs");
+const path = require("path");
+const yaml = require("js-yaml");
 
 const template = ({ name, url, desc, image }) => {
   return `<div class="friend-item-wrap">
@@ -24,34 +24,31 @@ const template = ({ name, url, desc, image }) => {
         ${desc}
       </div>
     </div>
-  </div>`
-}
-const loadFile = arg => {
+  </div>`;
+};
+const loadFile = (arg) => {
   if (arg) {
-    let filepath = path.join(hexo.source_dir, arg)
+    let filepath = path.join(hexo.source_dir, arg);
     if (fs.existsSync(filepath)) {
-      let content = fs.readFileSync(filepath)
-      if (!content)
-        return
-      let load = yaml.load(content)
-      if (!load)
-        return
-      return insertHtml(load)
+      let content = fs.readFileSync(filepath);
+      if (!content) return;
+      let load = yaml.load(content);
+      if (!load) return;
+      return insertHtml(load);
     }
   }
-}
+};
 
-const insertHtml = load => {
-  let content = `<div class="friend-wrap wow fadeInUp">`
-  load.forEach(item => {
-    if (!item.name || !item.url)
-      return
-    content += template(item)
-  })
-  content += `</div>`
-  return content
-}
+const insertHtml = (load) => {
+  let content = `<div class="friend-wrap wow fadeInUp">`;
+  load.forEach((item) => {
+    if (!item.name || !item.url) return;
+    content += template(item);
+  });
+  content += `</div>`;
+  return content;
+};
 
 hexo.extend.tag.register("friendsLink", (args) => {
-  return loadFile(args[0])
-})
+  return loadFile(args[0]);
+});

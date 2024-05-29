@@ -1,20 +1,18 @@
-const { htmlTag } = require('hexo-util')
-hexo.extend.helper.register('preloadStyle', (content) => {
-
+const { htmlTag } = require("hexo-util");
+hexo.extend.helper.register("preloadStyle", (content) => {
   if (!Array.isArray(content)) {
-    content = [content]
+    content = [content];
   }
 
-  let link = ''
+  let link = "";
 
-  content.forEach(item => {
-    link += htmlTag('link', {
-      rel: 'preload',
+  content.forEach((item) => {
+    link += htmlTag("link", {
+      rel: "preload",
       href: item,
       as: "style",
-      onload: "this.onload=null;this.rel='stylesheet'"
-    }
-    )
-  })
+      onload: "this.onload=null;this.rel='stylesheet'",
+    });
+  });
   return link;
-})
+});
