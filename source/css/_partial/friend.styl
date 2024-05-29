@@ -8,7 +8,7 @@
   width: 48%
   height: 100px
   background: var(--color-wrap)
-  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.05)
   border-radius: post-radius
   position: relative
   display: flex
@@ -17,7 +17,7 @@
 
   &:hover
     transform: scale(1.015)
-    box-shadow: 0 0 10px 3px rgba(255, 0, 0, 0.1)
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
 
   @media mg-normal
     width: 98%
@@ -33,6 +33,7 @@
   width: 100px
   height: 100%
   pointer-events: none
+  flex-shrink: 0
 
   .friend-icon
     height: 0
@@ -60,16 +61,27 @@
   display: flex
   justify-content: center
   flex-direction: column
-  padding-left: 8px
+  padding: 0 8px
+  overflow: hidden
 
   div
-    padding: 10px 0
+    margin: 10px 0
 
   .friend-name
     color: var(--red-2)
     font-size: 18px
     font-weight: bold
+    text-overflow: ellipsis
+    white-space: nowrap
+    width: 100%
+    overflow: hidden
 
   .friend-desc
     color: var(--color-grey)
     font-size: 14px
+    text-overflow: ellipsis
+    -webkit-line-clamp: 2
+    display: -webkit-box
+    -webkit-box-orient: vertical
+    width: 100%
+    overflow: hidden
