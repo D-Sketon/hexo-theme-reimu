@@ -135,7 +135,7 @@ var scrollIntoViewAndWait = (element) => {
     $(this)
       .find("img")
       .each(function () {
-        if ($(this).parent().hasClass("fancybox") || $(this).parent().is("a"))
+        if ($(this).parent().hasClass("fancybox") || $(this).parent().is("a") || $(this).hasClass("no-fancybox"))
           return;
 
         // ignore friendsLink

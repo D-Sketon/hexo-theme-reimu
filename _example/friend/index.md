@@ -9,7 +9,7 @@ comments: true
 - 地址： https://d-sketon.top/
 - 备用地址：https://d-sketon.github.io/
 
-# 申请方法
+## 申请方法
 - 添加本站后，在本页留言，格式如下
 
 ~~~yml
@@ -21,5 +21,5 @@ comments: true
 ```
 ~~~
 
-# 小伙伴们
+## 小伙伴们
 {% friendsLink friend/_data.yml %}
