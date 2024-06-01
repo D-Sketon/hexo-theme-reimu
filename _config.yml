@@ -17,7 +17,7 @@ avatar: "avatar.webp" # source/_data/avatar/avatar.webp
 excerpt_link: Read More
 fancybox: true
 
-# rss
+# RSS
 # need https://github.com/hexojs/hexo-generator-feed
 rss: atom.xml
 
@@ -26,15 +26,25 @@ baidu_analytics: false
 google_analytics: false
 clarity: false
 
-# Footer
+# Footer copyright
 copyright:
 # Need help choosing? Please see...
 # https://creativecommons.org/choose/
 # https://choosealicense.com/
-# You can use html like below...
+# You can use pug like below...
 # copyright: |-
-#   <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></br>
-#   All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></br>
+#   <div style="flex-direction:column;align-items: center;"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+#   All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></div>
+
+article_copyright:
+  enable: false
+  content:
+    author: true
+    link: true
+    title: false
+    date: false
+    updated: false
+    license: true
 
 # Sidebar
 sidebar: right
@@ -241,7 +251,7 @@ live2d:
 
 reimu_cursor: true
 
-icon_font: 4552607_mss8pw3adzo
+icon_font: 4552607_09mhdxci6yrk
 
 # Dependent cdn links
 vendor:

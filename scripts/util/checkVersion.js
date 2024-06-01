@@ -54,8 +54,8 @@ hexo.on("generateAfter", () => {
               );
             }
           } catch (err) {
-            hexo.log.error("Failed to detect version info. Error message:");
-            hexo.log.error(err);
+            hexo.log.warn("Failed to detect version info. Error message:");
+            hexo.log.warn(err);
           }
         });
       }
