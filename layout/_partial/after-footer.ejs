@@ -1,10 +1,7 @@
-<%- js(vendorCdn(theme.vendor.js.jquery)) %>
 <%- js(vendorCdn(theme.vendor.js.lazysizes)) %>
 <%- js(vendorCdn(theme.vendor.js.clipboard)) %>
 
-<% if (theme.footer.busuanzi) { %>
-  <%- js({src: vendorCdn(theme.vendor.js.busuanzi)[0], async: true}) %>
-<% } %>
+<%- js('js/script.js') %>
 
 <%- js({src: 'js/pjax_script.js', 'data-pjax': true}) %>
 
@@ -172,21 +169,29 @@
   <script>
     function loadScripts(scripts, index) {
       if (index < scripts.length) {
-        var script = scripts[index];
+        const script = scripts[index];
+        const src = script.getAttribute('src');
 
-        if ($(script).attr('src')) {
-          $.ajax({
-            url: $(script).attr('src'),
-            dataType: 'script',
-            success: () => {
+        if (src) {
+          fetch(src)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+              }
+              return response.text();
+            })
+            .then(scriptContent => {
+              const scriptElement = document.createElement('script');
+              scriptElement.text = scriptContent;
+              document.head.appendChild(scriptElement);
               loadScripts(scripts, index + 1);
-            },
-            error: (xhr, status, error) => {
-              console.error('Failed to load script:', $(script).attr('src'), error);
-            }
-          });
+            })
+            .catch(error => {
+              console.error('Failed to load script:', src, error);
+            });
         } else {
-          eval($(script).text());
+          // Inline script, directly evaluate
+          eval(script.textContent);
           loadScripts(scripts, index + 1);
         }
       }
@@ -203,14 +208,14 @@
         "#header-title": Pjax.switches.outerHTML,
         "#subtitle-wrap": Pjax.switches.outerHTML,
         "#content": function(oldEl, newEl, options) {
-          const scripts = $(newEl.outerHTML).find('script').toArray();
+          const scripts = [...newEl.querySelectorAll('script')];
           loadScripts(scripts, 0);
           oldEl.outerHTML = newEl.outerHTML
           this.onSwitch()
         },
         "#mobile-nav": Pjax.switches.outerHTML,
         '#lazy-script': function(oldEl, newEl, options) {
-          const scripts = $(newEl.outerHTML).find('script').toArray();
+          const scripts = [...newEl.querySelectorAll('script')];
           loadScripts(scripts, 0);
           oldEl.innerHTML = newEl.innerHTML
           this.onSwitch()
@@ -311,6 +316,8 @@
   </div>
 </div>
 
-<%- js('js/script.js') %>
-
 <%- copyright() %>
+
+<% if (theme.footer.busuanzi) { %>
+  <%- js({src: vendorCdn(theme.vendor.js.busuanzi)[0], async: true}) %>
+<% } %>

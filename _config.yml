@@ -261,7 +261,6 @@ vendor:
   unpkg: https://unpkg.com/
   webcache: https://npm.webcache.cn/
   js:
-    jquery: webcache|jquery@3.7.1/dist/jquery.min.js
     clipboard: webcache|clipboard@2.0.11/dist/clipboard.min.js
     lazysizes: webcache|lazysizes@5.3.2/lazysizes.min.js
     photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.esm.js

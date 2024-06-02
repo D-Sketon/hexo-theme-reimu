@@ -1,25 +1,13 @@
-// https://github.com/tangyuxian/hexo-theme-tangyuxian
-var getRealPath = (pathname, desc = false) => {
-  if (!pathname) {
-    pathname = window.location.pathname;
-  }
-  let names = pathname.split("/");
-  if (desc === false) {
-    for (let i = names.length - 1; i >= 0; --i) {
-      let name = names[i].trim();
-      if (name.length > 0 && name !== "/" && name !== "index.html") {
-        return name;
-      }
-    }
+var getRealPath = (pathname = window.location.pathname, desc = false) => {
+  const names = pathname.split("/").filter((name) => {
+    name = name.trim();
+    return name.length > 0 && name !== "/" && name !== "index.html";
+  });
+  if (desc) {
+    return names[0] || "/";
   } else {
-    for (let i = 0; i < names.length; ++i) {
-      let name = names[i].trim();
-      if (name.length > 0 && name !== "/" && name !== "index.html") {
-        return name;
-      }
-    }
+    return names[names.length - 1] || "/";
   }
-  return "/";
 };
 
 var scrollIntoViewAndWait = (element) => {
@@ -38,259 +26,285 @@ var scrollIntoViewAndWait = (element) => {
   });
 };
 
-(function ($) {
-  // anchor
-  $(
+// anchor
+document
+  .querySelectorAll(
     ".article-entry h1>a, .article-entry h2>a, .article-entry h3>a, .article-entry h4>a, .article-entry h5>a, .article-entry h6>a"
-  ).each(function () {
+  )
+  .forEach((element) => {
     if (window.icon_font) {
-      $(this)[0].innerHTML = "&#xe635;";
+      // iconfont
+      element.innerHTML = "&#xe635;";
     } else {
       // fontawesome
-      $(this)[0].innerHTML = "&#xf292;";
+      element.innerHTML = "&#xf292;";
     }
   });
 
-  // lightbox
-  $(".article-entry").each(function (i) {
-    $(this)
-      .find("img")
-      .each(function () {
-        if (
-          $(this).parent().hasClass("friend-icon") ||
-          $(this).parent().is("a") ||
-          $(this).hasClass("no-lightbox")
-        )
-          return;
-        $(this).wrap(
-          `<a href="${this.src}" data-pswp-width=${this.naturalWidth} data-pswp-height=${this.naturalHeight} target="_blank" class="article-gallery-item"></a>`
-        );
-      });
+// lightbox
+document.querySelectorAll(".article-entry img").forEach((element) => {
+  if (
+    element.parentElement.classList.contains("friend-icon") ||
+    element.parentElement.tagName === "A" ||
+    element.classList.contains("no-lightbox")
+  )
+    return;
+  const a = document.createElement("a");
+  a.href ? (a.href = element.src) : a.setAttribute("href", element.src);
+  a.dataset.pswpWidth = element.naturalWidth;
+  a.dataset.pswpHeight = element.naturalHeight;
+  a.target = "_blank";
+  a.classList.add("article-gallery-item");
+  element.parentNode.insertBefore(a, element);
+  element.parentNode.removeChild(element);
+  a.appendChild(element);
+});
+document
+  .querySelectorAll(".article-gallery a.article-gallery-img")
+  .forEach((a) => {
+    a.dataset.pswpWidth = a.children[0].naturalWidth;
+    a.dataset.pswpHeight = a.children[0].naturalHeight;
   });
-  $(".article-gallery").each(function (i) {
-    $(this)
-      .find("a")
-      .each(function () {
-        $(this).attr("data-pswp-width", this.children[0].naturalWidth);
-        $(this).attr("data-pswp-height", this.children[0].naturalHeight);
-      });
-  });
-  window.lightboxStatus = 'ready';
-  window.dispatchEvent(new Event('lightbox:ready'));
+window.lightboxStatus = "ready";
+window.dispatchEvent(new Event("lightbox:ready"));
 
-  // Mobile nav
-  let isMobileNavAnim = false;
-  const mobileNavAnimDuration = 200;
+// Mobile nav
+var isMobileNavAnim = false;
 
-  const startMobileNavAnim = function () {
+document
+  .getElementById("main-nav-toggle")
+  .off("click")
+  .on("click", function () {
+    if (isMobileNavAnim) return;
     isMobileNavAnim = true;
-  };
-
-  const stopMobileNavAnim = function () {
-    setTimeout(function () {
+    document.body.classList.toggle("mobile-nav-on");
+    setTimeout(() => {
       isMobileNavAnim = false;
-    }, mobileNavAnimDuration);
-  };
-
-  $("#main-nav-toggle")
-    .off("click")
-    .on("click", () => {
-      if (isMobileNavAnim) return;
-
-      startMobileNavAnim();
-      $("body").toggleClass("mobile-nav-on");
-      stopMobileNavAnim();
-    });
-  $("#mask")
-    .off("click")
-    .on("click", () => {
-      if (isMobileNavAnim || !$("body").hasClass("mobile-nav-on")) return;
-      $("body").removeClass("mobile-nav-on");
-    });
-
-  $(".sidebar-toc-btn")
-    .off("click")
-    .on("click", function () {
-      if ($(this).hasClass("current")) return;
-      $(".sidebar-toc-btn").addClass("current");
-      $(".sidebar-common-btn").removeClass("current");
-      $(".sidebar-toc-sidebar").removeClass("hidden");
-      $(".sidebar-common-sidebar").addClass("hidden");
-    });
-
-  $(".sidebar-common-btn")
-    .off("click")
-    .on("click", function () {
-      if ($(this).hasClass("current")) return;
-      $(".sidebar-common-btn").addClass("current");
-      $(".sidebar-toc-btn").removeClass("current");
-      $(".sidebar-common-sidebar").removeClass("hidden");
-      $(".sidebar-toc-sidebar").addClass("hidden");
-    });
-
-  const rootRealPath = getRealPath(window.location.pathname, true);
-  for (let link of $(".sidebar-menu-link-wrap")) {
-    let linkPath = $(link).find("a")[0].getAttribute("href");
-    if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
-      link.className = "sidebar-menu-link-wrap link-active";
-    }
-  }
-
-  // lazysizes
-  const imgs = $(".article-entry img");
-  imgs.each(function () {
-    const src = $(this).attr("src");
-    $(this).addClass("lazyload");
-    $(this).removeAttr("src");
-    $(this).attr("data-src", src);
-    $(this).attr("data-sizes", "auto");
+    }, 200);
   });
 
-  // to top
-  $(".sidebar-top")
-    .off("click")
-    .on("click", () => {
-      $("html")[0].scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    });
+document
+  .getElementById("mask")
+  .off("click")
+  .on("click", function () {
+    if (isMobileNavAnim || !document.body.classList.contains("mobile-nav-on"))
+      return;
+    document.body.classList.remove("mobile-nav-on");
+  });
+
+document.querySelectorAll(".sidebar-toc-btn").forEach((element) => {
+  element.off("click").on("click", function () {
+    if (this.classList.contains("current")) return;
+    document
+      .querySelectorAll(".sidebar-toc-btn")
+      .forEach((element) => element.classList.add("current"));
+    document
+      .querySelectorAll(".sidebar-common-btn")
+      .forEach((element) => element.classList.remove("current"));
+    document
+      .querySelectorAll(".sidebar-toc-sidebar")
+      .forEach((element) => element.classList.remove("hidden"));
+    document
+      .querySelectorAll(".sidebar-common-sidebar")
+      .forEach((element) => element.classList.add("hidden"));
+  });
+});
+
+document.querySelectorAll(".sidebar-common-btn").forEach((element) => {
+  element.off("click").on("click", function () {
+    if (this.classList.contains("current")) return;
+    document
+      .querySelectorAll(".sidebar-common-btn")
+      .forEach((element) => element.classList.add("current"));
+    document
+      .querySelectorAll(".sidebar-toc-btn")
+      .forEach((element) => element.classList.remove("current"));
+    document
+      .querySelectorAll(".sidebar-common-sidebar")
+      .forEach((element) => element.classList.remove("hidden"));
+    document
+      .querySelectorAll(".sidebar-toc-sidebar")
+      .forEach((element) => element.classList.add("hidden"));
+  });
+});
+
+(() => {
+  const rootRealPath = getRealPath(window.location.pathname, true);
+  document.querySelectorAll(".sidebar-menu-link-wrap").forEach((link) => {
+    let linkPath = link.querySelector("a").getAttribute("href");
+    if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
+      link.classList.add("link-active");
+    }
+  });
+})();
+
+// lazyload
+document.querySelectorAll(".article-entry img").forEach((element) => {
+  element.classList.add("lazyload");
+  element.setAttribute("data-src", element.src);
+  element.setAttribute("data-sizes", "auto");
+  element.removeAttribute("src");
+});
+
+// to top
+var sidebarTop = document.querySelector(".sidebar-top");
+sidebarTop.style.transition = "opacity 1s";
+sidebarTop.off("click").on("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+if (document.documentElement.scrollTop < 10) {
+  sidebarTop.style.opacity = 0;
+}
+
+window.off("scroll").on("scroll", () => {
+  const sidebarTop = document.querySelector(".sidebar-top");
   if (document.documentElement.scrollTop < 10) {
-    $(".sidebar-top").fadeOut();
+    sidebarTop.style.opacity = 0;
+  } else {
+    sidebarTop.style.opacity = 1;
   }
-  $(window)
-    .off("scroll")
-    .on("scroll", () => {
-      if (document.documentElement.scrollTop < 10) {
-        $(".sidebar-top").fadeOut();
-      } else {
-        $(".sidebar-top").fadeIn();
-      }
+});
+
+// toc
+document.querySelectorAll(".toc a").forEach((element) => {
+  element.off("click").on("click", () => {
+    if (isMobileNavAnim || !document.body.classList.contains("mobile-nav-on"))
+      return;
+    document.body.classList.remove("mobile-nav-on");
+  });
+});
+
+function tocInit() {
+  const navItems =
+    getComputedStyle(document.getElementById("sidebar")).display === "block"
+      ? document.querySelectorAll("#sidebar .sidebar-toc-wrapper li")
+      : document.querySelectorAll("#mobile-nav .sidebar-toc-wrapper li");
+  if (!navItems.length) return;
+
+  let activeLock = null;
+
+  const sections = [...navItems].map((element, index) => {
+    const link = element.querySelector("a.toc-link");
+    const anchorScroll = (event) => {
+      event.preventDefault();
+      const target = document.querySelector(
+        decodeURI(event.currentTarget.getAttribute("href"))
+      );
+      activeLock = index;
+      scrollIntoViewAndWait(target).then(() => {
+        activateNavByIndex(index);
+        activeLock = null;
+      });
+    };
+    link.off("click").on("click", (e) => {
+      anchorScroll(e);
     });
-
-  // toc
-  $(".toc a")
-    .off("click")
-    .on("click", () => {
-      if (isMobileNavAnim || !$("body").hasClass("mobile-nav-on")) return;
-      $("body").removeClass("mobile-nav-on");
-    });
-
-  function tocInit() {
-    const navItems =
-      getComputedStyle(document.getElementById("sidebar")).display === "block"
-        ? $("#sidebar .sidebar-toc-wrapper li")
-        : $("#mobile-nav .sidebar-toc-wrapper li");
-    if (!navItems.length) return;
-
-    let activeLock = null;
-
-    const sections = navItems.map(function (index) {
-      const link = $(this).children("a.toc-link");
-      const anchorScroll = (event) => {
-        event.preventDefault();
-        const target = $(decodeURI($(event.currentTarget).attr("href")));
-        activeLock = index;
-        scrollIntoViewAndWait(target[0]).then(() => {
-          activateNavByIndex(index);
-          activeLock = null;
-        });
-      };
-      link.off("click").on("click", (e) => {
+    const anchor = document.querySelector(decodeURI(link.getAttribute("href")));
+    if (!anchor) return null;
+    const alink = anchor.querySelector("a");
+    alink &&
+      alink.off("click").on("click", (e) => {
         anchorScroll(e);
       });
-      const anchor = $(decodeURI(link.attr("href")));
-      if (!anchor.length) return null;
-      const alink = anchor.children("a");
-      alink &&
-        alink.on("click", (e) => {
-          anchorScroll(e);
-        });
-      return anchor;
-    });
+    return anchor;
+  });
 
-    const activateNavByIndex = (index) => {
-      const target = $(navItems[index]);
+  const activateNavByIndex = (index) => {
+    const target = navItems[index];
 
-      if (!target.length) return;
-      if (target.hasClass("current")) return;
+    if (!target) return;
+    if (target.classList.contains("current")) return;
 
-      $(".sidebar-toc-wrapper .active").removeClass("active current");
-
-      sections.each(function () {
-        $(this) && $(this).removeClass("active");
+    document
+      .querySelectorAll(".sidebar-toc-wrapper .active")
+      .forEach((element) => {
+        element.classList.remove("active", "current");
       });
 
-      target.addClass("active current");
-      sections[index] && $(sections[index]).addClass("active");
-
-      let parent = navItems[index].parentNode;
-
-      while (!parent.matches(".sidebar-toc")) {
-        if (parent.matches("li")) {
-          $(parent).addClass("active");
-          const t = $(decodeURI($(parent).children("a.toc-link").attr("href")));
-          if (t) {
-            t.addClass("active");
-          }
-        }
-        parent = parent.parentNode;
-      }
-      // Scrolling to center active TOC element if TOC content is taller than viewport.
-      if (!$(".sidebar-toc-sidebar").hasClass("hidden")) {
-        $(".sidebar-toc-wrapper")[0].scrollTo({
-          top:
-            $(".sidebar-toc-wrapper").scrollTop() +
-            target[0].offsetTop -
-            $(".sidebar-toc-wrapper")[0].offsetHeight / 2,
-          behavior: "smooth",
-        });
-      }
-    };
-
-    const findIndex = (entries) => {
-      let index = 0;
-      let entry = entries[index];
-
-      const p = sections.toArray().map((i) => i[0]);
-      if (entry.boundingClientRect.top > 0) {
-        index = p.indexOf(entry.target);
-        return index === 0 ? 0 : index - 1;
-      }
-      for (; index < entries.length; index++) {
-        if (entries[index].boundingClientRect.top <= 0) {
-          entry = entries[index];
-        } else {
-          return p.indexOf(entry.target);
-        }
-      }
-      return p.indexOf(entry.target);
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const index = findIndex(entries) + (window.diffY > 0 ? 1 : 0);
-        if (activeLock === null) {
-          activateNavByIndex(index);
-        }
-      },
-      {
-        rootMargin: "0px 0px -100% 0px",
-        threshold: 0,
-      }
-    );
-
-    sections.each(function () {
-      $(this).length && observer.observe($(this)[0]);
+    sections.forEach((element) => {
+      element && element.classList.remove("active");
     });
-  }
 
-  window.addEventListener("hexo-blog-decrypt", tocInit);
-  window.addEventListener("hexo-blog-decrypt", () => {
+    target.classList.add("active", "current");
+    sections[index] && sections[index].classList.add("active");
+
+    let parent = target.parentNode;
+
+    while (!parent.matches(".sidebar-toc")) {
+      if (parent.matches("li")) {
+        parent.classList.add("active");
+        const t = document.querySelector(
+          decodeURI(parent.querySelector("a.toc-link").getAttribute("href"))
+        );
+        if (t) {
+          t.classList.add("active");
+        }
+      }
+      parent = parent.parentNode;
+    }
+    // Scrolling to center active TOC element if TOC content is taller than viewport.
+    if (
+      !document
+        .querySelector(".sidebar-toc-sidebar")
+        .classList.contains("hidden")
+    ) {
+      document.querySelector(".sidebar-toc-wrapper").scrollTo({
+        top:
+          document.querySelector(".sidebar-toc-wrapper").scrollTop +
+          target.offsetTop -
+          document.querySelector(".sidebar-toc-wrapper").offsetHeight / 2,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const findIndex = (entries) => {
+    let index = 0;
+    let entry = entries[index];
+
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const index = findIndex(entries) + (window.diffY > 0 ? 1 : 0);
+      if (activeLock === null) {
+        activateNavByIndex(index);
+      }
+    },
+    {
+      rootMargin: "0px 0px -100% 0px",
+      threshold: 0,
+    }
+  );
+
+  sections.forEach(function (element) {
+    element && observer.observe(element);
+  });
+}
+
+// hexo-blog-encrypt
+window
+  .off("hexo-blog-decrypt")
+  .on("hexo-blog-decrypt", tocInit)
+  .on("hexo-blog-decrypt", () => {
     const script = document.createElement("script");
     script.src = "/js/insert_highlight.js";
     script.setAttribute("data-pjax", true);
     document.body.appendChild(script);
   });
-  tocInit();
-})(jQuery);
+tocInit();
