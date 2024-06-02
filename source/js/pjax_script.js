@@ -130,41 +130,32 @@ var scrollIntoViewAndWait = (element) => {
       );
     });
 
-  // Caption
+  // lightbox
   $(".article-entry").each(function (i) {
     $(this)
       .find("img")
       .each(function () {
-        if ($(this).parent().hasClass("fancybox") || $(this).parent().is("a") || $(this).hasClass("no-fancybox"))
+        if (
+          $(this).parent().hasClass("friend-icon") ||
+          $(this).parent().is("a") ||
+          $(this).hasClass("no-lightbox")
+        )
           return;
-
-        // ignore friendsLink
-        if ($(this).parent().hasClass("friend-icon")) return;
-
-        const alt = this.alt;
-
-        if (alt) $(this).after('<span class="caption">' + alt + "</span>");
-
         $(this).wrap(
-          '<a href="' +
-            this.src +
-            '" data-fancybox="gallery" data-caption="' +
-            alt +
-            '"></a>'
+          `<a href="${this.src}" data-pswp-width=${this.naturalWidth} data-pswp-height=${this.naturalHeight} target="_blank" class="article-gallery-item"></a>`
         );
       });
-
+  });
+  $(".article-gallery").each(function (i) {
     $(this)
-      .find(".fancybox")
+      .find("a")
       .each(function () {
-        $(this).attr("rel", "article" + i);
+        $(this).attr("data-pswp-width", this.children[0].naturalWidth);
+        $(this).attr("data-pswp-height", this.children[0].naturalHeight);
       });
   });
-
-  if ($.fancybox) {
-    $.fancybox.defaults.hash = false;
-    $(".fancybox").fancybox();
-  }
+  window.lightboxStatus = 'ready';
+  window.dispatchEvent(new Event('lightbox:ready'));
 
   // Mobile nav
   let isMobileNavAnim = false;

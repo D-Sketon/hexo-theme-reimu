@@ -48,7 +48,7 @@ hexo.extend.tag.register("postLinkCard", (args) => {
   const link = url_for.call(hexo, post.path + (hash ? `#${hash}` : ""));
   if(cover === "auto") cover = hexo.theme.config.banner;
   const coverDom = cover
-    ? `<div class="post-link-card-cover-wrap"><img src=${cover} class="no-fancybox" title=${title} /></div>`
+    ? `<div class="post-link-card-cover-wrap"><img src=${cover} class="no-lightbox" title=${title} /></div>`
     : "";
   return `<div class="post-link-card-wrap">
     <div class="post-link-card">
