@@ -20,7 +20,6 @@
     </div>
     <footer class="article-footer">
       <%- articleCopyright(post) %>
-      <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" data-title="<%= post.title %>" class="article-share-link"><%= __('share') %></a>
       <% if (post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
         <a href="<%- url_for(post.path) %>#comments" class="article-comment-link">
           <span class="post-comments-count valine-comment-count" data-xid="<%- url_for(post.path, {relative: false}).endsWith("index.html") ? 

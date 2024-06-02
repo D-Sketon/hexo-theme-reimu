@@ -17,14 +17,20 @@
   }
   mode = window.localStorage.getItem("dark_mode");
   if (mode == "true") {
-    $("#sub-nav").append(
-      '<a id="nav-sun-btn" class="nav-icon dark-mode-btn"></a>'
-    );
+    document
+      .getElementById("sub-nav")
+      .insertAdjacentHTML(
+        "beforeend",
+        '<a id="nav-sun-btn" class="nav-icon dark-mode-btn"></a>'
+      );
     document.body.dispatchEvent(new CustomEvent("dark-theme-set"));
   } else if (mode == "false") {
-    $("#sub-nav").append(
-      '<a id="nav-moon-btn" class="nav-icon dark-mode-btn"></a>'
-    );
+    document
+      .getElementById("sub-nav")
+      .insertAdjacentHTML(
+        "beforeend",
+        '<a id="nav-moon-btn" class="nav-icon dark-mode-btn"></a>'
+      );
     document.body.dispatchEvent(new CustomEvent("light-theme-set"));
   }
   $(".dark-mode-btn").on("click", function () {
@@ -41,10 +47,7 @@
       $(this).attr("id", "nav-sun-btn");
     }
   });
-  // Share
-  $("body").on("click", () => {
-    $(".article-share-box.on").removeClass("on");
-  });
+
   let oldScrollTop = 0;
   window.addEventListener("scroll", () => {
     let scrollTop =
