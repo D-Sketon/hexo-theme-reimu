@@ -38,6 +38,9 @@ $(document).ready(function () {
       document.body.dispatchEvent(new CustomEvent("light-theme-set"));
     }
   });
+  window.addEventListener("pjax:send", () => {
+    window.lightboxStatus = 'loading';
+  });
   if (startLoading) window.addEventListener("pjax:send", startLoading);
   if (endLoading) window.addEventListener("pjax:complete", endLoading);
 });

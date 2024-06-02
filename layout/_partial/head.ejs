@@ -41,9 +41,7 @@
     <%- favicon_tag(theme.favicon) %>
   <% } %>
   <%- css('css/style') %>
-  <% if (theme.fancybox) { %>
-    <%- css(vendorCdn(theme.vendor.css.fancybox)) %>
-  <% } %>
+  <%- css(vendorCdn(theme.vendor.css.photoswipe)) %>
   <% if (theme.math.enable) { %>
     <%- css(vendorCdn(theme.vendor.css.katex)) %>
   <% } %>

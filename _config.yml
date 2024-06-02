@@ -15,7 +15,6 @@ avatar: "avatar.webp" # source/_data/avatar/avatar.webp
 
 # Content
 excerpt_link: Read More
-fancybox: true
 
 # RSS
 # need https://github.com/hexojs/hexo-generator-feed
@@ -265,7 +264,8 @@ vendor:
     jquery: webcache|jquery@3.7.1/dist/jquery.min.js
     clipboard: webcache|clipboard@2.0.11/dist/clipboard.min.js
     lazysizes: webcache|lazysizes@5.3.2/lazysizes.min.js
-    fancybox: webcache|@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
+    photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.esm.js
+    photoswipe_lightbox: webcache|photoswipe@5.4.4/dist/photoswipe-lightbox.esm.js
     valine: webcache|valine@1.5.1/dist/Valine.min.js
     waline: webcache|@waline/client@2.15.8/dist/waline.mjs
     twikoo: webcache|twikoo@1.6.16/dist/twikoo.all.min.js
@@ -282,7 +282,7 @@ vendor:
       base: fastly_jsdelivr_gh|MliKiowa/plugin-live2d/
       js: fastly_jsdelivr_gh|MliKiowa/plugin-live2d/js/live2d-autoload.js
   css:
-    fancybox: webcache|@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
+    photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.css
     katex: webcache|katex@0.16.9/dist/katex.min.css
     waline: webcache|@waline/client@v2/dist/waline.css
     gitalk: webcache|gitalk/dist/gitalk.css

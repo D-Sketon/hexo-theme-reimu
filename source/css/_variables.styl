@@ -109,11 +109,11 @@
     img
       filter: brightness(70%)
 
-    // 排除fancybox
-    .fancybox-content
-      img.lazyloaded
-        opacity: 1
-        animation: blur 0.8s ease-in-out forwards
+    // 排除lightbox
+    .pswp__img
+      opacity: 1
+      filter: none
+      animation: none
 
     img.lazyloaded
       opacity: 1

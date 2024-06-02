@@ -2,14 +2,39 @@
 <%- js(vendorCdn(theme.vendor.js.lazysizes)) %>
 <%- js(vendorCdn(theme.vendor.js.clipboard)) %>
 
-<% if (theme.fancybox) { %>
-  <%- js({src: vendorCdn(theme.vendor.js.fancybox)[0], defer: true}) %>
-<% } %>
 <% if (theme.footer.busuanzi) { %>
   <%- js({src: vendorCdn(theme.vendor.js.busuanzi)[0], async: true}) %>
 <% } %>
 
 <%- js({src: 'js/pjax_script.js', 'data-pjax': true}) %>
+
+<script type="module" data-pjax>
+  import PhotoSwipeLightbox from "<%- vendorCdn(theme.vendor.js.photoswipe_lightbox) %>";
+  
+  const pswp = () => {
+    if (document.querySelectorAll('.article-entry a.article-gallery-item').length > 0) {
+      new PhotoSwipeLightbox({
+        gallery: '.article-entry',
+        children: 'a.article-gallery-item',
+        pswpModule: () => import("<%- vendorCdn(theme.vendor.js.photoswipe) %>")
+      }).init();
+    }
+    if(document.querySelectorAll('.article-gallery a.article-gallery-item').length > 0) {
+      new PhotoSwipeLightbox({
+        gallery: '.article-gallery',
+        children: 'a.article-gallery-item',
+        pswpModule: () => import("<%- vendorCdn(theme.vendor.js.photoswipe) %>")
+      }).init();
+    }
+    window.lightboxStatus = 'done';
+    window.removeEventListener('lightbox:ready', pswp);
+  }
+  if(window.lightboxStatus === 'ready') {
+    pswp()
+  } else {
+    window.addEventListener('lightbox:ready', pswp);
+  }
+</script>
 
 <% if (theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
   <%- js({src: vendorCdn(theme.vendor.js.valine)[0], 'data-pjax': true}) %>
