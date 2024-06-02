@@ -242,7 +242,6 @@ $article-meta-tag
     text-decoration: none
 
 .article-tag-list-link,
-.article-share-link,
 .article-comment-link
 .article-visitor-link
   color: var(--red-1)
@@ -266,21 +265,6 @@ $article-meta-tag
   float: right
   background: var(--red-5)
   margin-left: 20px
-  border-radius: 20px
-  padding: 10px 18px
-
-  &:before
-    margin-right: 10px
-
-.article-share-link
-  if reimu_cursor
-    cursor: url(/images/cursor/reimu-cursor-pointer.cur), pointer
-  else
-    cursor: pointer
-  float: right
-  margin-left: 20px
-  font-size: 14px
-  background: var(--red-5)
   border-radius: 20px
   padding: 10px 18px
 
@@ -362,81 +346,6 @@ $article-meta-tag
   line-height: line-height
   margin-top: 0.8em
   text-shadow: 0 0.2rem 0.3rem rgba(0,0,0,.5);
-
-.article-share-box
-  position: absolute
-  display: none
-  background: #fff
-  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2)
-  border-radius: 3px
-  margin-left: -145px
-  overflow: hidden
-  z-index: 1
-
-  &.on
-    display: block
-
-.article-share-input
-  width: 100%
-  background: none
-  box-sizing: border-box
-  font: 14px font-sans
-  padding: 0 15px
-  color: var(--color-default)
-  outline: none
-  border: 1px solid var(--color-border)
-  border-radius: 3px 3px 0 0
-  height: 36px
-  line-height: 36px
-
-.article-share-links
-  clearfix()
-  background: var(--color-background)
-
-$article-share-link
-  width: 50px
-  height: 36px
-  display: block
-  float: left
-  position: relative
-  color: #999
-
-  &:before
-    font-size: 20px
-    font-family: font-icon
-    absolute-center(@font-size)
-    text-align: center
-
-  &:hover
-    color: #fff
-
-.article-share-twitter
-  @extend $article-share-link
-
-  &:hover
-    background: var(--color-twitter)
-    text-shadow: 0 1px var(--color-dark-twitter)
-
-.article-share-facebook
-  @extend $article-share-link
-
-  &:hover
-    background: var(--color-facebook)
-    text-shadow: 0 1px var(--color-dark-facebook)
-
-.article-share-pinterest
-  @extend $article-share-link
-
-  &:hover
-    background: var(--color-pinterest)
-    text-shadow: 0 1px var(--color-dark-pinterest)
-
-.article-share-linkedin
-  @extend $article-share-link
-
-  &:hover
-    background: var(--color-linkedin)
-    text-shadow: 0 1px var(--color-dark-linkedin)
 
 .article-gallery
   background: #000
