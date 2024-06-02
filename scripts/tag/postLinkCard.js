@@ -1,7 +1,7 @@
 const { url_for, escapeHTML, stripHTML } = require("hexo-util");
 
 /**
- * {% postLinkCard slug|title [background]|"auto" [escape] %}
+ * {% postLinkCard slug [cover]|"auto" [escape] %}
  */
 hexo.extend.tag.register("postLinkCard", (args) => {
   let slug = args.shift();
@@ -20,16 +20,16 @@ hexo.extend.tag.register("postLinkCard", (args) => {
   }
 
   let escape = "true";
-  let background = "";
+  let cover = "";
   if (args.length == 2) {
     escape = args.pop();
-    background = args.pop();
+    cover = args.pop();
   } else {
     const last = args[args.length - 1];
     if (last === "true" || last === "false") {
       escape = args.pop();
     } else {
-      background = last ?? "";
+      cover = last ?? "";
     }
   }
 
@@ -46,9 +46,9 @@ hexo.extend.tag.register("postLinkCard", (args) => {
   if (escape === "true") title = escapeHTML(title);
 
   const link = url_for.call(hexo, post.path + (hash ? `#${hash}` : ""));
-  if(background === "auto") background = hexo.theme.config.banner;
-  const coverDom = background
-    ? `<div class="post-link-card-cover-wrap"><img src=${background} class="no-fancybox" title=${title} /></div>`
+  if(cover === "auto") cover = hexo.theme.config.banner;
+  const coverDom = cover
+    ? `<div class="post-link-card-cover-wrap"><img src=${cover} class="no-fancybox" title=${title} /></div>`
     : "";
   return `<div class="post-link-card-wrap">
     <div class="post-link-card">
