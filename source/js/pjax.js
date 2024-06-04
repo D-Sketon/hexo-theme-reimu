@@ -1,34 +1,26 @@
 window.addEventListener("pjax:success", () => {
-  document.querySelectorAll("script[data-pjax]").forEach((element) => {
-    const { text, parentNode, id, className, type, src, dataset } = element;
-    const code = text || element.textContent || element.innerHTML || "";
-    parentNode.removeChild(element);
+  _$$("script[data-pjax]").forEach((element) => {
+    const { textContent, parentNode, id, className, type, src, dataset } =
+      element;
+    const code = textContent || "";
     const script = document.createElement("script");
-    if (id) {
-      script.id = id;
-    }
-    if (className) {
-      script.className = className;
-    }
-    if (type) {
-      script.type = type;
-    }
+
+    id && (script.id = id);
+    className && (script.className = className);
+    type && (script.type = type);
+    dataset.pjax !== undefined && (script.dataset.pjax = "");
+
     if (src) {
-      // Force synchronous loading of peripheral JS.
       script.src = src;
-      script.async = false;
+      script.async = false; // Force synchronous loading of peripheral JS
+    } else if (code) {
+      script.textContent = code;
     }
-    if (dataset.pjax !== undefined) {
-      script.dataset.pjax = "";
-    }
-    if (code !== "") {
-      script.appendChild(document.createTextNode(code));
-    }
-    parentNode.appendChild(script);
+    parentNode.replaceChild(script, element);
   });
 });
 window.addEventListener("pjax:complete", () => {
-  document.getElementById("header-nav")?.classList.remove("header-nav-hidden");
+  _$("#header-nav")?.classList.remove("header-nav-hidden");
   const mode = window.localStorage.getItem("dark_mode");
   if (mode == "true") {
     document.body.dispatchEvent(new CustomEvent("dark-theme-set"));

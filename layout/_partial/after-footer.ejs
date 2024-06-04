@@ -9,14 +9,14 @@
   import PhotoSwipeLightbox from "<%- vendorCdn(theme.vendor.js.photoswipe_lightbox) %>";
   
   const pswp = () => {
-    if (document.querySelectorAll('.article-entry a.article-gallery-item').length > 0) {
+    if (_$$('.article-entry a.article-gallery-item').length > 0) {
       new PhotoSwipeLightbox({
         gallery: '.article-entry',
         children: 'a.article-gallery-item',
         pswpModule: () => import("<%- vendorCdn(theme.vendor.js.photoswipe) %>")
       }).init();
     }
-    if(document.querySelectorAll('.article-gallery a.article-gallery-item').length > 0) {
+    if(_$$('.article-gallery a.article-gallery-item').length > 0) {
       new PhotoSwipeLightbox({
         gallery: '.article-gallery',
         children: 'a.article-gallery-item',
@@ -64,7 +64,7 @@
 <% if (theme.waline.enable && theme.waline.serverURL) { %>
   <script data-pjax type="module">
     import { init } from "<%= vendorCdn(theme.vendor.js.waline)[0] %>";
-    if(document.querySelector('.wcomment')) {
+    if(_$('.wcomment')) {
       init({
         el: '.wcomment',
         serverURL: '<%= theme.waline.serverURL %>',
@@ -247,7 +247,7 @@
           const saveOriginalData = () => {
             return new Promise((resolve, reject) => {
               try {
-                var els = document.querySelectorAll(elementCode),
+                var els = _$$(elementCode),
                     count = els.length;
                 els.forEach(element => {
                   if (element.getAttribute('data-original-code') == null){
@@ -266,7 +266,7 @@
           const resetProcessed = () => {
             return new Promise((resolve, reject) => {
               try {
-                var els = document.querySelectorAll(elementCode),
+                var els = _$$(elementCode),
                     count = els.length;
                 els.forEach(element => {
                   if(element.getAttribute('data-original-code') != null){
@@ -285,7 +285,7 @@
           } 
           const loadMermaid = (theme) => {
             window.mermaid.initialize({theme})
-            window.mermaid.init({theme}, document.querySelectorAll(elementCode))
+            window.mermaid.init({theme}, _$$(elementCode))
           }
           document.body.addEventListener('dark-theme-set', () => {
             saveOriginalData()

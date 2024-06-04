@@ -18,7 +18,7 @@ const algoliaHandler = () => {
       algoliaSettings.apiKey
     ),
     searchFunction: (helper) => {
-      if (document.querySelector("#reimu-search-input input")?.value) {
+      if (_$("#reimu-search-input input")?.value) {
         helper.search();
       }
     },
@@ -110,16 +110,16 @@ const algoliaHandler = () => {
       event.stopPropagation();
       document.body.insertAdjacentHTML("beforeend", '<div class="popoverlay">');
       document.body.style.overflow = "hidden";
-      document.querySelector(".popup").style.display = "block";
-      document.querySelector("#reimu-search-input input").focus();
+      _$(".popup").style.display = "block";
+      _$("#reimu-search-input input").focus();
     });
 
   document
     .querySelector(".popup-btn-close")
     .off("click")
     .on("click", () => {
-      document.querySelector(".popup").style.display = "none";
-      document.querySelector(".popoverlay").remove();
+      _$(".popup").style.display = "none";
+      _$(".popoverlay").remove();
       document.body.style.overflow = "";
     });
 };

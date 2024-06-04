@@ -42,7 +42,7 @@ document
   });
 
 // lightbox
-document.querySelectorAll(".article-entry img").forEach((element) => {
+_$$(".article-entry img").forEach((element) => {
   if (
     element.parentElement.classList.contains("friend-icon") ||
     element.parentElement.tagName === "A" ||
@@ -92,7 +92,7 @@ document
     document.body.classList.remove("mobile-nav-on");
   });
 
-document.querySelectorAll(".sidebar-toc-btn").forEach((element) => {
+_$$(".sidebar-toc-btn").forEach((element) => {
   element.off("click").on("click", function () {
     if (this.classList.contains("current")) return;
     document
@@ -110,7 +110,7 @@ document.querySelectorAll(".sidebar-toc-btn").forEach((element) => {
   });
 });
 
-document.querySelectorAll(".sidebar-common-btn").forEach((element) => {
+_$$(".sidebar-common-btn").forEach((element) => {
   element.off("click").on("click", function () {
     if (this.classList.contains("current")) return;
     document
@@ -130,7 +130,7 @@ document.querySelectorAll(".sidebar-common-btn").forEach((element) => {
 
 (() => {
   const rootRealPath = getRealPath(window.location.pathname, true);
-  document.querySelectorAll(".sidebar-menu-link-wrap").forEach((link) => {
+  _$$(".sidebar-menu-link-wrap").forEach((link) => {
     let linkPath = link.querySelector("a").getAttribute("href");
     if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
       link.classList.add("link-active");
@@ -139,7 +139,7 @@ document.querySelectorAll(".sidebar-common-btn").forEach((element) => {
 })();
 
 // lazyload
-document.querySelectorAll(".article-entry img").forEach((element) => {
+_$$(".article-entry img").forEach((element) => {
   element.classList.add("lazyload");
   element.setAttribute("data-src", element.src);
   element.setAttribute("data-sizes", "auto");
@@ -147,7 +147,7 @@ document.querySelectorAll(".article-entry img").forEach((element) => {
 });
 
 // to top
-var sidebarTop = document.querySelector(".sidebar-top");
+var sidebarTop = _$(".sidebar-top");
 sidebarTop.style.transition = "opacity 1s";
 sidebarTop.off("click").on("click", () => {
   window.scrollTo({
@@ -160,7 +160,7 @@ if (document.documentElement.scrollTop < 10) {
 }
 
 window.off("scroll").on("scroll", () => {
-  const sidebarTop = document.querySelector(".sidebar-top");
+  const sidebarTop = _$(".sidebar-top");
   if (document.documentElement.scrollTop < 10) {
     sidebarTop.style.opacity = 0;
   } else {
@@ -169,7 +169,7 @@ window.off("scroll").on("scroll", () => {
 });
 
 // toc
-document.querySelectorAll(".toc a").forEach((element) => {
+_$$(".toc a").forEach((element) => {
   element.off("click").on("click", () => {
     if (isMobileNavAnim || !document.body.classList.contains("mobile-nav-on"))
       return;
@@ -179,44 +179,37 @@ document.querySelectorAll(".toc a").forEach((element) => {
 
 function tocInit() {
   const navItems =
-    getComputedStyle(document.getElementById("sidebar")).display === "block"
-      ? document.querySelectorAll("#sidebar .sidebar-toc-wrapper li")
-      : document.querySelectorAll("#mobile-nav .sidebar-toc-wrapper li");
+    getComputedStyle(_$("#sidebar")).display === "block"
+      ? _$$("#sidebar .sidebar-toc-wrapper li")
+      : _$$("#mobile-nav .sidebar-toc-wrapper li");
   if (!navItems.length) return;
 
   let activeLock = null;
 
+  const anchorScroll = (event, index) => {
+    event.preventDefault();
+    const target = _$(decodeURI(event.currentTarget.getAttribute("href")));
+    activeLock = index;
+    scrollIntoViewAndWait(target).then(() => {
+      activateNavByIndex(index);
+      activeLock = null;
+    });
+  };
+
   const sections = [...navItems].map((element, index) => {
     const link = element.querySelector("a.toc-link");
-    const anchorScroll = (event) => {
-      event.preventDefault();
-      const target = document.querySelector(
-        decodeURI(event.currentTarget.getAttribute("href"))
-      );
-      activeLock = index;
-      scrollIntoViewAndWait(target).then(() => {
-        activateNavByIndex(index);
-        activeLock = null;
-      });
-    };
-    link.off("click").on("click", (e) => {
-      anchorScroll(e);
-    });
-    const anchor = document.querySelector(decodeURI(link.getAttribute("href")));
+    link.off("click").on("click", (e) => anchorScroll(e, index));
+    const anchor = _$(decodeURI(link.getAttribute("href")));
     if (!anchor) return null;
     const alink = anchor.querySelector("a");
-    alink &&
-      alink.off("click").on("click", (e) => {
-        anchorScroll(e);
-      });
+    alink?.off("click").on("click", (e) => anchorScroll(e, index));
     return anchor;
   });
 
   const activateNavByIndex = (index) => {
     const target = navItems[index];
 
-    if (!target) return;
-    if (target.classList.contains("current")) return;
+    if (!target || target.classList.contains("current")) return;
 
     document
       .querySelectorAll(".sidebar-toc-wrapper .active")
@@ -225,18 +218,18 @@ function tocInit() {
       });
 
     sections.forEach((element) => {
-      element && element.classList.remove("active");
+      element?.classList.remove("active");
     });
 
     target.classList.add("active", "current");
-    sections[index] && sections[index].classList.add("active");
+    sections[index]?.classList.add("active");
 
     let parent = target.parentNode;
 
     while (!parent.matches(".sidebar-toc")) {
       if (parent.matches("li")) {
         parent.classList.add("active");
-        const t = document.querySelector(
+        const t = _$(
           decodeURI(parent.querySelector("a.toc-link").getAttribute("href"))
         );
         if (t) {
@@ -251,11 +244,10 @@ function tocInit() {
         .querySelector(".sidebar-toc-sidebar")
         .classList.contains("hidden")
     ) {
-      document.querySelector(".sidebar-toc-wrapper").scrollTo({
+      const tocWrapper = _$(".sidebar-toc-wrapper");
+      tocWrapper.scrollTo({
         top:
-          document.querySelector(".sidebar-toc-wrapper").scrollTop +
-          target.offsetTop -
-          document.querySelector(".sidebar-toc-wrapper").offsetHeight / 2,
+          tocWrapper.scrollTop + target.offsetTop - tocWrapper.offsetHeight / 2,
         behavior: "smooth",
       });
     }
@@ -292,7 +284,7 @@ function tocInit() {
     }
   );
 
-  sections.forEach(function (element) {
+  sections.forEach((element) => {
     element && observer.observe(element);
   });
 }

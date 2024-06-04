@@ -52,38 +52,29 @@
 
   // dark_mode
   let mode = window.localStorage.getItem("dark_mode");
-  if (mode == null) {
-    const domMode = document.documentElement.getAttribute("data-theme");
-    if (domMode == null) {
-      window.localStorage.setItem("dark_mode", "false");
-    } else {
-      window.localStorage.setItem("dark_mode", "true");
-    }
-  } else {
-    if (mode == "true") {
+  const setDarkMode = (isDark) => {
+    if (isDark) {
       document.documentElement.setAttribute("data-theme", "dark");
-    } else if (mode == "false") {
+    } else {
       document.documentElement.removeAttribute("data-theme");
     }
-  }
-  mode = window.localStorage.getItem("dark_mode");
-  if (mode == "true") {
+    const iconHtml = `<a id="nav-${
+      isDark ? "sun" : "moon"
+    }-btn" class="nav-icon dark-mode-btn"></a>`;
     document
       .getElementById("sub-nav")
-      .insertAdjacentHTML(
-        "beforeend",
-        '<a id="nav-sun-btn" class="nav-icon dark-mode-btn"></a>'
-      );
-    document.body.dispatchEvent(new CustomEvent("dark-theme-set"));
-  } else if (mode == "false") {
-    document
-      .getElementById("sub-nav")
-      .insertAdjacentHTML(
-        "beforeend",
-        '<a id="nav-moon-btn" class="nav-icon dark-mode-btn"></a>'
-      );
-    document.body.dispatchEvent(new CustomEvent("light-theme-set"));
+      .insertAdjacentHTML("beforeend", iconHtml);
+    document.body.dispatchEvent(
+      new CustomEvent(isDark ? "dark-theme-set" : "light-theme-set")
+    );
+  };
+  if (mode === null) {
+    const domMode = document.documentElement.getAttribute("data-theme");
+    mode = domMode === "dark" ? "true" : "false";
+    window.localStorage.setItem("dark_mode", mode);
   }
+  setDarkMode(mode === "true");
+
   document
     .querySelector(".dark-mode-btn")
     .addEventListener("click", function () {
@@ -104,10 +95,8 @@
   let oldScrollTop = 0;
   window.addEventListener("scroll", () => {
     let scrollTop =
-      window.pageYOffset ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop;
-    let diffY = scrollTop - oldScrollTop;
+      document.documentElement.scrollTop || document.body.scrollTop;
+    const diffY = scrollTop - oldScrollTop;
     window.diffY = diffY;
     oldScrollTop = scrollTop;
     if (diffY < 0) {

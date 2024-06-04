@@ -1,5 +1,5 @@
 (() => {
-  document.querySelectorAll("pre").forEach((element) => {
+  _$$("pre").forEach((element) => {
     const parent = element.parentNode;
     if (!parent.classList.contains("gutter")) {
       const div = document.createElement("div");
@@ -21,7 +21,7 @@
       <div class="icon-chevron-down code-expand"></div>
     </div>
   </div>`;
-  document.querySelectorAll("figure.highlight").forEach((element) => {
+  _$$("figure.highlight").forEach((element) => {
     if (!element.querySelector(".code-figcaption")) {
       element.insertAdjacentHTML("afterbegin", codeFigcaption);
     }
@@ -35,11 +35,11 @@
   clipboard.on("success", function (e) {
     e.trigger.classList.add("icon-check");
     e.trigger.classList.remove("icon-copy");
-    document.getElementById("copy-tooltip").innerText =
+    _$("#copy-tooltip").innerText =
       window.clipboard_tips.success;
-    document.getElementById("copy-tooltip").style.opacity = 1;
+    _$("#copy-tooltip").style.opacity = 1;
     setTimeout(() => {
-      document.getElementById("copy-tooltip").style.opacity = 0;
+      _$("#copy-tooltip").style.opacity = 0;
       e.trigger.classList.add("icon-copy");
       e.trigger.classList.remove("icon-check");
     }, 1000);
@@ -49,18 +49,18 @@
   clipboard.on("error", function (e) {
     e.trigger.classList.add("icon-times");
     e.trigger.classList.remove("icon-copy");
-    document.getElementById("copy-tooltip").innerText =
+    _$("#copy-tooltip").innerText =
       window.clipboard_tips.fail;
-    document.getElementById("copy-tooltip").style.opacity = 1;
+    _$("#copy-tooltip").style.opacity = 1;
     setTimeout(() => {
-      document.getElementById("copy-tooltip").style.opacity = 0;
+      _$("#copy-tooltip").style.opacity = 0;
       e.trigger.classList.add("icon-copy");
       e.trigger.classList.remove("icon-times");
     }, 1000);
   });
 
   // 代码收缩
-  document.querySelectorAll(".code-expand").forEach((element) => {
+  _$$(".code-expand").forEach((element) => {
     element.off("click").on("click", function () {
       const figure = element.closest("figure");
       if (figure.classList.contains("code-closed")) {
@@ -72,7 +72,7 @@
   });
 
   // 代码语言
-  document.querySelectorAll("figure.highlight").forEach((element) => {
+  _$$("figure.highlight").forEach((element) => {
     let codeLanguage = element.className.split(" ")[1];
     if (!codeLanguage) {
       return;

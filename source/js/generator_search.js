@@ -1,7 +1,7 @@
 (() => {
-  const searchInput = document.getElementById("reimu-search-input");
-  const searchResult = document.getElementById("reimu-hits");
-  const pagination = document.getElementById("reimu-pagination");
+  const searchInput = _$("#reimu-search-input");
+  const searchResult = _$("#reimu-hits");
+  const pagination = _$("#reimu-pagination");
   const itemsPerPage = 10;
   let currentPage = 1;
 
@@ -22,7 +22,7 @@
         .off("submit")
         .on("submit", (event) => {
           event.preventDefault();
-          const inputText = document.getElementById("search-text").value;
+          const inputText = _$("#search-text").value;
           searchResult.innerHTML = "";
           pagination.innerHTML = "";
           if (inputText) {
@@ -54,7 +54,7 @@
               pagination.querySelector("ul").appendChild(pageItem);
             }
 
-            document.querySelectorAll(".page-number").forEach((element) => {
+            _$$(".page-number").forEach((element) => {
               element.off("click").on("click", (event) => {
                 event.preventDefault();
                 currentPage = element.innerText;
@@ -104,16 +104,16 @@
       event.stopPropagation();
       document.body.insertAdjacentHTML("beforeend", '<div class="popoverlay">');
       document.body.style.overflow = "hidden";
-      document.querySelector(".popup").style.display = "block";
-      document.getElementById("search-text").focus();
+      _$(".popup").style.display = "block";
+      _$("#search-text").focus();
     });
 
   document
     .querySelector(".popup-btn-close")
     .off("click")
     .on("click", () => {
-      document.querySelector(".popup").style.display = "none";
-      document.querySelector(".popoverlay").remove();
+      _$(".popup").style.display = "none";
+      _$(".popoverlay").remove();
       document.body.style.overflow = "";
     });
 })();
