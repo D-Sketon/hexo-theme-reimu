@@ -19,12 +19,6 @@ body
   clearfix()
   width: 100%
 
-row(_columns = columns)
-  clearfix()
-  display: block
-  width: total-width * ((gutter-width + gridsystem-width(_columns)) / gridsystem-width(_columns))
-  margin: 0 total-width * (((gutter-width * .5) / gridsystem-width(_columns)) * -1)
-
 column(x, _columns = columns)
   display: inline
   float: left

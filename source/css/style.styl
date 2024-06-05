@@ -1,12 +1,11 @@
-@import "nib"
+@import "nib/reset"
+@import "nib/clearfix"
 @import "_variables"
-@import "_util/mixin"
 @import "_util/grid"
 @import "_util/animation"
 @import "_extend"
-  
-id = hexo-config("icon_font")
-if id
+
+if hexo-config("icon_font")
   @import "iconfont"
 else
   @import "fontawesome"
@@ -157,7 +156,6 @@ if sidebar
   background-color: var(--red-3)
 
 .pace
-  -webkit-pointer-events: none
   pointer-events: none
   -webkit-user-select: none
   -moz-user-select: none
