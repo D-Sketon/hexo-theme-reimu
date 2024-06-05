@@ -16,11 +16,11 @@
   </div>
   <script>
     var time = null;
-    const startLoading = () => {
+    var startLoading = () => {
       time = Date.now();
       document.getElementById('loader').classList.remove("loading");
     }
-    const endLoading = () => {
+    var endLoading = () => {
       if (!time) {
         document.body.style.overflow = 'auto';
         document.getElementById('loader').classList.add("loading");
@@ -39,5 +39,5 @@
     document.getElementById('loader').addEventListener('click', endLoading);
   </script>
 <% } %>
-<div id="copy-tooltip" style="display: none; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+<div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
 </div>

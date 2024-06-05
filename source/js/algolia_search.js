@@ -1,5 +1,5 @@
 // from https://blog.naaln.com/2016/07/hexo-with-algolia/
-$(document).ready(() => {
+const algoliaHandler = () => {
   const algoliaSettings = CONFIG.algolia;
   const isAlgoliaSettingsValid =
     algoliaSettings.applicationID &&
@@ -18,7 +18,7 @@ $(document).ready(() => {
       algoliaSettings.apiKey
     ),
     searchFunction: (helper) => {
-      if ($("#reimu-search-input").find("input").val()) {
+      if (_$("#reimu-search-input input")?.value) {
         helper.search();
       }
     },
@@ -103,16 +103,29 @@ $(document).ready(() => {
 
   search.start();
 
-  $(".popup-trigger").on("click", (e) => {
-    e.stopPropagation();
-    $("body").append('<div class="popoverlay">').css("overflow", "hidden");
-    $(".popup").toggle();
-    $("#reimu-search-input").find("input").focus();
-  });
+  document
+    .querySelector(".popup-trigger")
+    .off("click")
+    .on("click", (event) => {
+      event.stopPropagation();
+      document.body.insertAdjacentHTML("beforeend", '<div class="popoverlay">');
+      document.body.style.overflow = "hidden";
+      _$(".popup").style.display = "block";
+      _$("#reimu-search-input input").focus();
+    });
 
-  $(".popup-btn-close").click(() => {
-    $(".popup").hide();
-    $(".popoverlay").remove();
-    $("body").css("overflow", "");
-  });
-});
+  document
+    .querySelector(".popup-btn-close")
+    .off("click")
+    .on("click", () => {
+      _$(".popup").style.display = "none";
+      _$(".popoverlay").remove();
+      document.body.style.overflow = "";
+    });
+};
+
+if (document.readyState !== "loading") {
+  algoliaHandler();
+} else {
+  document.addEventListener("DOMContentLoaded", algoliaHandler);
+}

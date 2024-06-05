@@ -1,77 +1,81 @@
-(function ($) {
-  // 魔改自 https://github.com/tangyuxian/hexo-theme-tangyuxian
-  $("pre").each(function () {
-    const parent = $(this).parent(".gutter");
-    if (parent.length === 0) {
-      $(this).wrap('<div class="code-area"></div>');
+(() => {
+  _$$("pre").forEach((element) => {
+    const parent = element.parentNode;
+    if (!parent.classList.contains("gutter")) {
+      const div = document.createElement("div");
+      div.classList.add("code-area");
+      parent.insertBefore(div, element);
+      parent.removeChild(element);
+      div.appendChild(element);
     }
   });
 
-  const $codeFigcaption = $(
-    '<div class="code-figcaption"><div class="code-left-wrap"><div class="code-decoration"></div><div class="code-lang"></div></div><div class="code-right-wrap"><div class="code-copy icon-copy"></div><div class="icon-chevron-down code-expand"></div></div></div>'
-  );
-  if ($("figure.highlight").children(".code-figcaption").length === 0) {
-    $("figure.highlight").prepend($codeFigcaption);
-  }
+  const codeFigcaption = `
+  <div class="code-figcaption">
+    <div class="code-left-wrap">
+      <div class="code-decoration"></div>
+      <div class="code-lang"></div>
+    </div>
+    <div class="code-right-wrap">
+      <div class="code-copy icon-copy"></div>
+      <div class="icon-chevron-down code-expand"></div>
+    </div>
+  </div>`;
+  _$$("figure.highlight").forEach((element) => {
+    if (!element.querySelector(".code-figcaption")) {
+      element.insertAdjacentHTML("afterbegin", codeFigcaption);
+    }
+  });
 
   // 代码复制
   const clipboard = new ClipboardJS(".code-copy", {
-    target: function (trigger) {
-      return $(trigger).parent().parent().siblings().find("td.code")[0];
-    },
+    target: (trigger) =>
+      trigger.parentNode.parentNode.nextElementSibling.querySelector("td.code"),
   });
   clipboard.on("success", function (e) {
-    $(e.trigger).addClass("icon-check").removeClass("icon-copy");
-    $("#copy-tooltip").get(0).innerText = window.clipboard_tips.success;
-    $("#copy-tooltip").fadeIn(200);
-    setTimeout(function () {
-      $("#copy-tooltip").fadeOut(200);
-      $(e.trigger).addClass("icon-copy").removeClass("icon-check");
+    e.trigger.classList.add("icon-check");
+    e.trigger.classList.remove("icon-copy");
+    _$("#copy-tooltip").innerText =
+      window.clipboard_tips.success;
+    _$("#copy-tooltip").style.opacity = 1;
+    setTimeout(() => {
+      _$("#copy-tooltip").style.opacity = 0;
+      e.trigger.classList.add("icon-copy");
+      e.trigger.classList.remove("icon-check");
     }, 1000);
     e.clearSelection();
   });
 
   clipboard.on("error", function (e) {
-    $(e.trigger).addClass("icon-times").removeClass("icon-copy");
-    $("#copy-tooltip").get(0).innerText = window.clipboard_tips.fail;
-    $("#copy-tooltip").fadeIn(200);
-    setTimeout(function () {
-      $("#copy-tooltip").fadeOut(200);
-      $(e.trigger).addClass("icon-copy").removeClass("icon-times");
+    e.trigger.classList.add("icon-times");
+    e.trigger.classList.remove("icon-copy");
+    _$("#copy-tooltip").innerText =
+      window.clipboard_tips.fail;
+    _$("#copy-tooltip").style.opacity = 1;
+    setTimeout(() => {
+      _$("#copy-tooltip").style.opacity = 0;
+      e.trigger.classList.add("icon-copy");
+      e.trigger.classList.remove("icon-times");
     }, 1000);
   });
 
   // 代码收缩
-  $(".code-expand")
-    .off("click")
-    .on("click", function () {
-      if ($(this).parent().parent().parent().hasClass("code-closed")) {
-        $(this).siblings("pre").find("code").show();
-        $(this).parent().parent().parent().removeClass("code-closed");
-        // 处理gutter
-        let prev = $(this).parent().parent().parent().parent().prev();
-        if (prev.length !== 0 && prev.hasClass("gutter")) {
-          $(prev).removeClass("code-closed");
-        }
+  _$$(".code-expand").forEach((element) => {
+    element.off("click").on("click", function () {
+      const figure = element.closest("figure");
+      if (figure.classList.contains("code-closed")) {
+        figure.classList.remove("code-closed");
       } else {
-        $(this).siblings("pre").find("code").hide();
-        $(this).parent().parent().parent().addClass("code-closed");
-        // 处理gutter
-        let prev = $(this).parent().parent().parent().parent().prev();
-        if (prev.length !== 0 && prev.hasClass("gutter")) {
-          $(prev).addClass("code-closed");
-        }
+        figure.classList.add("code-closed");
       }
     });
+  });
 
   // 代码语言
-  $("pre").each(function () {
-    let codeLanguage =
-      $(this).attr("class") ||
-      $(this).parents("figure")?.attr("class")?.split(" ")[1];
-
+  _$$("figure.highlight").forEach((element) => {
+    let codeLanguage = element.className.split(" ")[1];
     if (!codeLanguage) {
-      return true;
+      return;
     }
     let langName = codeLanguage
       .replace("line-numbers", "")
@@ -79,14 +83,11 @@
       .replace("language-", "")
       .trim();
 
-    // 首字母大写
-    langName = langName.slice(0, 1).toUpperCase() + langName.slice(1);
-    let children = $(this).parents("figure").children(".code-figcaption");
-    if (children.length !== 0) {
-      $(children)
-        .children(".code-left-wrap")
-        .children(".code-lang")
-        .text(langName);
+    // 大写
+    langName = langName.toUpperCase();
+    const children = element.querySelector(".code-lang");
+    if (children) {
+      children.innerText = langName;
     }
   });
-})(jQuery);
+})();

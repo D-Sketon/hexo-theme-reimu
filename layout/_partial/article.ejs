@@ -47,7 +47,7 @@
             ],
             includeReply: false
           }).then((res) => {
-            document.querySelector('.twikoo-comment-count').innerText = res[0].count;
+            _$('.twikoo-comment-count').innerText = res[0].count;
           }).catch((err) => {
             console.error(err);
           });

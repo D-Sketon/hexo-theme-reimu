@@ -1,10 +1,7 @@
-<%- js(vendorCdn(theme.vendor.js.jquery)) %>
 <%- js(vendorCdn(theme.vendor.js.lazysizes)) %>
 <%- js(vendorCdn(theme.vendor.js.clipboard)) %>
 
-<% if (theme.footer.busuanzi) { %>
-  <%- js({src: vendorCdn(theme.vendor.js.busuanzi)[0], async: true}) %>
-<% } %>
+<%- js('js/script.js') %>
 
 <%- js({src: 'js/pjax_script.js', 'data-pjax': true}) %>
 
@@ -12,14 +9,14 @@
   import PhotoSwipeLightbox from "<%- vendorCdn(theme.vendor.js.photoswipe_lightbox) %>";
   
   const pswp = () => {
-    if (document.querySelectorAll('.article-entry a.article-gallery-item').length > 0) {
+    if (_$$('.article-entry a.article-gallery-item').length > 0) {
       new PhotoSwipeLightbox({
         gallery: '.article-entry',
         children: 'a.article-gallery-item',
         pswpModule: () => import("<%- vendorCdn(theme.vendor.js.photoswipe) %>")
       }).init();
     }
-    if(document.querySelectorAll('.article-gallery a.article-gallery-item').length > 0) {
+    if(_$$('.article-gallery a.article-gallery-item').length > 0) {
       new PhotoSwipeLightbox({
         gallery: '.article-gallery',
         children: 'a.article-gallery-item',
@@ -67,7 +64,7 @@
 <% if (theme.waline.enable && theme.waline.serverURL) { %>
   <script data-pjax type="module">
     import { init } from "<%= vendorCdn(theme.vendor.js.waline)[0] %>";
-    if(document.querySelector('.wcomment')) {
+    if(_$('.wcomment')) {
       init({
         el: '.wcomment',
         serverURL: '<%= theme.waline.serverURL %>',
@@ -172,21 +169,29 @@
   <script>
     function loadScripts(scripts, index) {
       if (index < scripts.length) {
-        var script = scripts[index];
+        const script = scripts[index];
+        const src = script.getAttribute('src');
 
-        if ($(script).attr('src')) {
-          $.ajax({
-            url: $(script).attr('src'),
-            dataType: 'script',
-            success: () => {
+        if (src) {
+          fetch(src)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+              }
+              return response.text();
+            })
+            .then(scriptContent => {
+              const scriptElement = document.createElement('script');
+              scriptElement.text = scriptContent;
+              document.head.appendChild(scriptElement);
               loadScripts(scripts, index + 1);
-            },
-            error: (xhr, status, error) => {
-              console.error('Failed to load script:', $(script).attr('src'), error);
-            }
-          });
+            })
+            .catch(error => {
+              console.error('Failed to load script:', src, error);
+            });
         } else {
-          eval($(script).text());
+          // Inline script, directly evaluate
+          eval(script.textContent);
           loadScripts(scripts, index + 1);
         }
       }
@@ -203,14 +208,14 @@
         "#header-title": Pjax.switches.outerHTML,
         "#subtitle-wrap": Pjax.switches.outerHTML,
         "#content": function(oldEl, newEl, options) {
-          const scripts = $(newEl.outerHTML).find('script').toArray();
+          const scripts = [...newEl.querySelectorAll('script')];
           loadScripts(scripts, 0);
           oldEl.outerHTML = newEl.outerHTML
           this.onSwitch()
         },
         "#mobile-nav": Pjax.switches.outerHTML,
         '#lazy-script': function(oldEl, newEl, options) {
-          const scripts = $(newEl.outerHTML).find('script').toArray();
+          const scripts = [...newEl.querySelectorAll('script')];
           loadScripts(scripts, 0);
           oldEl.innerHTML = newEl.innerHTML
           this.onSwitch()
@@ -242,7 +247,7 @@
           const saveOriginalData = () => {
             return new Promise((resolve, reject) => {
               try {
-                var els = document.querySelectorAll(elementCode),
+                var els = _$$(elementCode),
                     count = els.length;
                 els.forEach(element => {
                   if (element.getAttribute('data-original-code') == null){
@@ -261,7 +266,7 @@
           const resetProcessed = () => {
             return new Promise((resolve, reject) => {
               try {
-                var els = document.querySelectorAll(elementCode),
+                var els = _$$(elementCode),
                     count = els.length;
                 els.forEach(element => {
                   if(element.getAttribute('data-original-code') != null){
@@ -280,7 +285,7 @@
           } 
           const loadMermaid = (theme) => {
             window.mermaid.initialize({theme})
-            window.mermaid.init({theme}, document.querySelectorAll(elementCode))
+            window.mermaid.init({theme}, _$$(elementCode))
           }
           document.body.addEventListener('dark-theme-set', () => {
             saveOriginalData()
@@ -311,6 +316,8 @@
   </div>
 </div>
 
-<%- js('js/script.js') %>
-
 <%- copyright() %>
+
+<% if (theme.footer.busuanzi) { %>
+  <%- js({src: vendorCdn(theme.vendor.js.busuanzi)[0], async: true}) %>
+<% } %>
