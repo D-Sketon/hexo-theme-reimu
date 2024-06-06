@@ -42,13 +42,13 @@ hexo.extend.tag.register("postLinkCard", (args) => {
 
   let title = post.title || post.slug;
   // Let attribute be the true post title so it appears in tooltip.
-  const attrTitle = escapeHTML(post.title || post.slug);
+  const attrTitle = escapeHTML(title);
   if (escape === "true") title = escapeHTML(title);
 
   const link = url_for.call(hexo, post.path + (hash ? `#${hash}` : ""));
   if(cover === "auto") cover = hexo.theme.config.banner;
   const coverDom = cover
-    ? `<div class="post-link-card-cover-wrap"><img src=${cover} class="no-lightbox" title=${title} /></div>`
+    ? `<div class="post-link-card-cover-wrap"><img src="${cover}" class="no-lightbox" title="${attrTitle}" alt="${attrTitle}"/></div>`
     : "";
   return `<div class="post-link-card-wrap">
     <div class="post-link-card">

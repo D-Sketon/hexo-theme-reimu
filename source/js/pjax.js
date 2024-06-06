@@ -27,6 +27,11 @@ window.addEventListener("pjax:complete", () => {
   } else if (mode == "false") {
     document.body.dispatchEvent(new CustomEvent("light-theme-set"));
   }
+  // destroy waline
+  if(window.walineInstance) {
+    window.walineInstance.destroy();
+    window.walineInstance = null;
+  }
 });
 window.addEventListener("pjax:send", () => {
   window.lightboxStatus = "loading";

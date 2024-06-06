@@ -1,46 +1,57 @@
 (function () {
   // A Simple EventListener
-  HTMLElement.prototype.on = function (name, listener, options) {
-    if (!this.__listeners__) {
-      this.__listeners__ = {};
-    }
-    if (!this.__listeners__[name]) {
-      this.__listeners__[name] = [];
-    }
-    // Check if the listener is already added
-    for (let [l, o] of this.__listeners__[name]) {
-      if (l === listener && JSON.stringify(o) === JSON.stringify(options)) {
-        return this; // Listener is already added, do nothing
+  [Element, Document, Window].forEach((target) => {
+    target.prototype._addEventListener = target.prototype.addEventListener;
+    target.prototype._removeEventListener =
+      target.prototype.removeEventListener;
+    target.prototype.addEventListener = target.prototype.on = function (
+      name,
+      listener,
+      options
+    ) {
+      if (!this.__listeners__) {
+        this.__listeners__ = {};
       }
-    }
-    this.__listeners__[name].push([listener, options]);
-    this.addEventListener(name, listener, options);
-    return this;
-  };
-  HTMLElement.prototype.off = function (name, listener, options) {
-    if (!this.__listeners__ || !this.__listeners__[name]) {
+      if (!this.__listeners__[name]) {
+        this.__listeners__[name] = [];
+      }
+      // Check if the listener is already added
+      for (let [l, o] of this.__listeners__[name]) {
+        if (l === listener && JSON.stringify(o) === JSON.stringify(options)) {
+          return this; // Listener is already added, do nothing
+        }
+      }
+      this.__listeners__[name].push([listener, options]);
+      this._addEventListener(name, listener, options);
       return this;
-    }
-    if (!listener) {
-      // remove all event listeners
-      this.__listeners__[name].forEach(([listener, options]) => {
-        this.removeEventListener(name, listener, options);
-      });
-      delete this.__listeners__[name];
+    };
+    target.prototype.removeEventListener = target.prototype.off = function (
+      name,
+      listener,
+      options
+    ) {
+      if (!this.__listeners__ || !this.__listeners__[name]) {
+        return this;
+      }
+      if (!listener) {
+        // remove all event listeners
+        this.__listeners__[name].forEach(([listener, options]) => {
+          this.removeEventListener(name, listener, options);
+        });
+        delete this.__listeners__[name];
+        return this;
+      }
+      this._removeEventListener(name, listener, options);
+      this.__listeners__[name] = this.__listeners__[name].filter(
+        ([l, o]) =>
+          l !== listener || JSON.stringify(o) !== JSON.stringify(options)
+      );
+      if (this.__listeners__[name].length === 0) {
+        delete this.__listeners__[name];
+      }
       return this;
-    }
-    this.removeEventListener(name, listener, options);
-    this.__listeners__[name] = this.__listeners__[name].filter(
-      ([l, o]) =>
-        l !== listener || JSON.stringify(o) !== JSON.stringify(options)
-    );
-    if (this.__listeners__[name].length === 0) {
-      delete this.__listeners__[name];
-    }
-    return this;
-  };
-  window.on = HTMLElement.prototype.on.bind(window);
-  window.off = HTMLElement.prototype.off.bind(window);
+    };
+  });
   // Simple Selector
   window._$ = (selector) => {
     if (selector.startsWith("#")) {

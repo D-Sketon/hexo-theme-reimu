@@ -65,7 +65,7 @@
   <script data-pjax type="module">
     import { init } from "<%= vendorCdn(theme.vendor.js.waline)[0] %>";
     if(_$('.wcomment')) {
-      init({
+      window.walineInstance = init({
         el: '.wcomment',
         serverURL: '<%= theme.waline.serverURL %>',
         lang: '<%= theme.waline.lang %>',
