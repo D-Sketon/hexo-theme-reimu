@@ -1,4 +1,4 @@
-const PreCache = [
+let preCache = [
   "/images/taichi.png",
   "/images/banner.webp",
   "/images/taichi-fill.png",
@@ -7,23 +7,26 @@ const PreCache = [
   "/js/script.js",
 ];
 
-const CacheDomain = ["fonts.googleapis.com"];
+preCache = preCache.map((url) => pathname + url.slice(1));
+
+const cacheDomain = [
+  "fonts.googleapis.com",
+  "npm.webcache.cn",
+  "unpkg.com",
+  "fastly.jsdelivr.net",
+  "cdn.jsdelivr.net",
+];
 
 // 安装时预加载必要内容
 self.addEventListener("install", (event) => {
   console.log(`Service Worker ${VERSION} installing.`);
-  event.waitUntil(
-    caches.open(VERSION).then((cache) => {
-      return cache.addAll(PreCache);
-    })
-  );
+  event.waitUntil(caches.open(VERSION).then((cache) => cache.addAll(preCache)));
 });
 
 async function cacheRequest(request) {
-  const responseToCache = await fetch(request);
-  const responseToCacheClone = responseToCache.clone();
+  const responseToCache = await fetch(request, { mode: "no-cors" });
   const cache = await caches.open(VERSION);
-  cache.put(request, responseToCacheClone);
+  cache.put(request, responseToCache.clone());
   return responseToCache;
 }
 
@@ -35,20 +38,20 @@ async function respondRequest(request) {
   return cacheRequest(request);
 }
 
-self.addEventListener("fetch", function (event) {
-  var url = new URL(event.request.url);
+self.addEventListener("fetch", (event) => {
+  const url = new URL(event.request.url);
   // 检查请求的域名是否在 CacheDomain 中
-  if (CacheDomain.includes(url.hostname)) {
+  if (cacheDomain.includes(url.hostname)) {
     event.respondWith(respondRequest(event.request));
   } else {
     // 检查请求是否为 POST 或带有查询参数的 GET 这样可避免错误缓存
     if (
       event.request.method === "POST" ||
-      (event.request.method === "GET" && event.request.url.indexOf("?") !== -1)
+      (event.request.method === "GET" && url.search)
     ) {
-      event.respondWith(fetch(event.request));
+      event.respondWith(fetch(event.request, { mode: "no-cors" }));
     } else {
-      event.respondWith(respondRequest(event.request));
+      event.respondWith(respondRequest(event.request, { mode: "no-cors" }));
     }
   }
 });
@@ -71,7 +74,7 @@ self.addEventListener("activate", (event) => {
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
-    .register("/sw.js")
+    .register(`${pathname}sw.js`)
     .then((registration) => {
       console.log("Service Worker 注册成功: ", registration);
     })

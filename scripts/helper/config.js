@@ -1,3 +1,5 @@
+const getPathname = require("../util/getPathname");
+
 hexo.extend.helper.register("themeConfig", () => {
   const { config } = hexo.theme;
   const icon_font = config.icon_font;
@@ -9,6 +11,7 @@ hexo.extend.helper.register("themeConfig", () => {
   if (clipboard_tips) {
     _global.push(`window.clipboard_tips = ${JSON.stringify(clipboard_tips)};`);
   }
+  _global.push(`window.theme_pathname = '${getPathname(hexo)}';`);
   return `
   <script>${_global.join("")}</script>
   `;
