@@ -140,6 +140,7 @@ _$$(".sidebar-common-btn").forEach((element) => {
 
 // lazyload
 _$$(".article-entry img").forEach((element) => {
+  if(element.classList.contains('lazyload'))  return;
   element.classList.add("lazyload");
   element.setAttribute("data-src", element.src);
   element.setAttribute("data-sizes", "auto");

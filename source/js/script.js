@@ -54,7 +54,7 @@
   });
   // Simple Selector
   window._$ = (selector) => {
-    if (selector.startsWith("#")) {
+    if (selector.startsWith("#") && !selector.includes(' ')) {
       return document.getElementById(selector.slice(1));
     }
     return document.querySelector(selector);

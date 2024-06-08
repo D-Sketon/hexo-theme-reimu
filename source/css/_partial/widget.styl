@@ -1,8 +1,8 @@
 .tagcloud
   a
+    display: inline-block
     margin-right: 5px
     margin-top: 5px
-    display: inline-block
 
 [data-theme="dark"] .widget-wrap
   box-shadow: 0 0 10px 3px var(--color-hover-shadow)
@@ -11,7 +11,7 @@
   margin: block-margin 0
   background: var(--color-wrap)
   border-radius: post-radius
-  transition: all 0.3s ease
+  transition: all .3s ease
 
   &:hover
     transform: scale(1.015)
@@ -34,8 +34,8 @@
   a, span
     color: var(--color-link)
     text-decoration: none
-    opacity: 0.8
-    transition: all 0.3s ease
+    opacity: .8
+    transition: all .3s ease
 
     &:hover
       opacity: 1
@@ -49,21 +49,20 @@
       margin-left: 15px
       list-style: none
 
-
   li
     margin: 10px 0
 
     &:before
       content: ""
+      display: inline-block
       width: 5px
       height: 10px
       background: var(--color-h2-after)
-      display: inline-block
       vertical-align: middle
       margin-right: 11px
       box-shadow: 0 2px 12px var(--color-h2-after-shadow)
-      opacity: 0.5
-      transition: all 0.3s ease
+      opacity: .5
+      transition: all .3s ease
 
     &:hover
       &:before

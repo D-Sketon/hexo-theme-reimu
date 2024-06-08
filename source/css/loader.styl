@@ -1,30 +1,21 @@
 [data-theme="dark"]
   #loader 
-    .loading-left-bg
-      background-color: rgba(37, 37, 37, 0.9)
-    
-    .loading-right-bg
-      background-color: rgba(37, 37, 37, 0.9)
+    .loading-bg
+      background-color: rgba(37, 37, 37, .9)
 
     .spinner-box .loading-word
       color: #ff5252
 
-#loader 
-  .loading-left-bg
+#loader
+  .loading-bg
     position: fixed
     z-index: 1000
     width: 50%
     height: 100%
-    background-color: rgba(255, 255, 255, 0.9)
+    background-color: rgba(255, 255, 255, .9)
     transition: all .8s ease
 
   .loading-right-bg
-    position: fixed
-    z-index: 1000
-    width: 50%
-    height: 100%
-    background-color: rgba(255, 255, 255, 0.9)
-    transition: all .8s ease
     right: 0
 
   .spinner-box
@@ -39,25 +30,21 @@
     transition: all .5s ease
 
     .loading-taichi
-      opacity: 0.65
-      animation: rotate-all 2s infinite
-      animation-timing-function: linear
+      opacity: .65
+      animation: rotate-all 2s linear infinite
 
     .loading-word
       position: absolute
-      color: rgba(255, 0, 0, 0.65)
+      color: rgba(255, 0, 0, .65)
       top: calc(50% + 110px)
       left: 50%
       transform: translate(-50%, -50%)
-      font-size: 1.2rem
-      font-weight: 700
-      font-family: Mulish,'Noto Serif SC','Noto Serif JP',Mulish,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif
+      font: 700 1.2rem Mulish,'Noto Serif SC','Noto Serif JP',-apple-system,'PingFang SC','Microsoft YaHei',sans-serif
 
 #loader.loading 
   .loading-left-bg
 	  transform: translate(-100%, 0)
 
-#loader.loading 
   .loading-right-bg
 	  transform: translate(100%, 0)
 
@@ -66,6 +53,7 @@
     opacity: 0
     visibility: hidden
 
+vendors = official
 
 @keyframes rotate-all
   100%

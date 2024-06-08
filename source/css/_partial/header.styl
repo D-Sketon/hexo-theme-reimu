@@ -22,7 +22,6 @@
     @media mg-normal
       height: 100%
 
-
 #header-outer
   height: 100%
   position: relative
@@ -43,7 +42,7 @@
   overflow: hidden
   background: var(--color-header-background)
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.1)
-  transition: all 0.3s ease
+  transition: all .3s ease
   z-index: 200
 
   &:hover
@@ -129,7 +128,7 @@ $nav-link-wrap
   @extend $nav-link
   padding: 0 15px
   display: flex
-  transition: all 0.3s ease
+  transition: all .3s ease
 
   &:hover
     opacity: 1
@@ -149,7 +148,7 @@ $nav-link-wrap
   padding: 20px 15px
   position: relative
   if reimu_cursor
-    cursor: url(/images/cursor/reimu-cursor-pointer.cur), pointer
+    cusor: var(--cursor-pointer)
   else
     cursor: pointer
 
@@ -179,7 +178,7 @@ $nav-link-wrap
   transform: rotate(0deg)
   transition: transform 1s ease
   if reimu_cursor
-    cursor: url(/images/cursor/reimu-cursor-pointer.cur), pointer !important
+    cusor: var(--cursor-pointer)
   else
     cursor: pointer
 
@@ -196,8 +195,8 @@ $nav-link-wrap
 
 #nav-sun-btn
   &:before
-    font-weight: 900
+    font-weight: 700
 
 #nav-moon-btn
   &:before
-    font-weight: 900
+    font-weight: 700

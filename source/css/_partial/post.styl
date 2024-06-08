@@ -14,17 +14,17 @@ $post-wrap
   background: var(--color-wrap)
   display: flex
   flex-direction: row
-  transition: all 0.3s ease
+  transition: all .3s ease
 
   @media mq-normal
     &:hover
       transform: scale(1.015)
 
       &:before
-        opacity: 0.8
+        opacity: .8
 
       img
-        transition: all 0.3s ease
+        transition: all .3s ease
         transform: scale(1.05)
 
     &:before
@@ -35,9 +35,9 @@ $post-wrap
       width: 100%
       height: 100%
       border-radius: post-radius
-      box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
+      box-shadow: 0 0 10px 3px rgba(0, 0, 0, .1)
       opacity: 0
-      transition: all 0.3s ease
+      transition: all .3s ease
 
 
 [data-theme="dark"] .post-wrap-left
@@ -113,7 +113,7 @@ $post-cover
   img
     display: block
     opacity: 0
-    transition: all 0.2s ease
+    transition: all .2s ease
     position: absolute
     left: 0
     top: 0
@@ -123,31 +123,27 @@ $post-cover
 
   img.lazyloaded
     opacity: 1
-    animation: blur 0.8s ease forwards
+    animation: blur .8s ease forwards
 
 .post-cover-left
   @media mq-normal
-    border-top-left-radius: post-radius
-    border-bottom-left-radius: post-radius
+    border-radius: post-radius 0 0 post-radius
     -webkit-clip-path: polygon(0 0, 92% 0%, 100% 100%, 0% 100%)
     clip-path: polygon(0 0, 92% 0%, 100% 100%, 0% 100%)
 
   @media mg-normal
-    border-top-left-radius: post-radius
-    border-top-right-radius: post-radius
+    border-radius: post-radius post-radius 0 0
 
   @extend $post-cover
 
 .post-cover-right
   @media mq-normal
-    border-top-right-radius: post-radius
-    border-bottom-right-radius: post-radius
+    border-radius: 0 post-radius post-radius 0
     -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 8% 100%)
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 8% 100%)
 
   @media mg-normal
-    border-top-left-radius: post-radius
-    border-top-right-radius: post-radius
+    border-radius: post-radius post-radius 0 0
 
   @extend $post-cover
 
@@ -177,7 +173,7 @@ $post-cover
   font-size: 15px
   z-index: 1
   opacity: 1
-  transition: all 0.3s ease
+  transition: all .3s ease
 
   &:before
     margin-right: 5px

@@ -12,7 +12,8 @@
     opacity: 0.5
 
 .article-inner
-  @extend $block
+  background: var(--color-wrap)
+  border-radius: post-radius
   overflow: hidden
   transition: all 0.3s ease
 
@@ -53,7 +54,7 @@ $article-meta-tag
   @extend $article-meta-tag
 
   &:before
-    font-weight: 900
+    font-weight: 700
     margin-right: 10px
 
 .article-title

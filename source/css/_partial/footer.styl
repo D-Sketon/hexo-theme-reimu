@@ -9,7 +9,6 @@
 
   &:hover
     .footer-line
-      transition: opacity 0.3s ease
       opacity: 0.5
 
   a
@@ -20,17 +19,13 @@
       text-decoration: underline
 
 .footer-line
-  margin-top: 20px
+  margin: 20px 0 40px
   opacity: 0.3
   width: 200%
   height: 10px
-  background-image: linear-gradient(to left, rgba(255, 0, 0, 0.75) 50%, transparent 0%)
-  background-size: 100px 10px
-  background-repeat: repeat-x
-  transition: opacity 0.3s
-  margin-bottom: 40px
-  animation: transform-all 3s infinite
-  animation-timing-function: linear
+  background: linear-gradient(to left, rgba(255, 0, 0, 0.75) 50%, transparent 0%) repeat-x 0 0 / 100px 10px
+  transition: opacity 0.3s ease
+  animation: transform-all 3s linear infinite
   filter: drop-shadow(0px 0px 2px red)
 
 #footer-info
@@ -60,8 +55,9 @@
   width: 25px
   opacity: 0.6
   background: url("/images/taichi.png") no-repeat center / 80%
-  animation: rotate-all 3s infinite
-  animation-timing-function: linear
+  animation: rotate-all 3s linear infinite
+
+vendors = official
 
 @keyframes rotate-all
   100%
