@@ -178,6 +178,16 @@ _$$(".toc a").forEach((element) => {
   });
 });
 
+_$$(".sidebar-menu-link-dummy").forEach((element) => {
+  element.off("click").on("click", () => {
+    if (isMobileNavAnim || !document.body.classList.contains("mobile-nav-on"))
+      return;
+    setTimeout(() => {
+      document.body.classList.remove("mobile-nav-on");
+    }, 200);
+  });
+});
+
 function tocInit() {
   const navItems =
     getComputedStyle(_$("#sidebar")).display === "block"

@@ -20,6 +20,7 @@
     width: 100%
     height: 100%
     border-radius: 0
+    max-height: 100%
 
 .popoverlay
   position: fixed
@@ -39,25 +40,27 @@
     color: var(--red-1)
     font: 20px bold
     text-transform: uppercase
+    vertical-align: middle
     if reimu_cursor
-      cusor: var(--cursor-pointer)
+      cursor: var(--cursor-pointer)
     else
       cursor: pointer
     padding-left: 15px
-    top: 10px
+    top: 8px
 
 .reimu-search
-  padding: 10px 15px 5px
+  padding: 8px 15px
   max-height: 50px
   border-bottom: 1px solid #ccc
   background: #f5f5f5
-  border-top-left-radius: 5px
-  border-top-right-radius: 5px
+  border-radius: 5px 5px 0 0
 
 .reimu-search-input-icon
   display: inline-block
   width: 20px
   font-size: 18px
+  vertical-align: middle
+  margin-right: 5px
 
 .reimu-search-input
   display: inline-block
@@ -73,7 +76,7 @@
 .reimu-powered
   float: right
   if reimu_cursor
-    cusor: var(--cursor-default) !important
+    cursor: var(--cursor-default) !important
 
   img
     display: inline-block
