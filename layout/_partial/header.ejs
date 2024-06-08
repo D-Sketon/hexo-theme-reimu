@@ -28,7 +28,7 @@
   <% } else if (post.cover == false) { %>
 
   <% } else { %>
-    <img fetchpriority="high" src="<%= theme.banner %>" alt="<%= post.title %>">
+    <img fetchpriority="high" src="<%- pathname().slice(0, -1) %><%= theme.banner %>" alt="<%= post.title %>">
   <% } %>
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">

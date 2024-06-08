@@ -129,10 +129,10 @@ _$$(".sidebar-common-btn").forEach((element) => {
 });
 
 (() => {
-  const rootRealPath = getRealPath(window.location.pathname, true);
+  const rootRealPath = getRealPath(window.location.pathname);
   _$$(".sidebar-menu-link-wrap").forEach((link) => {
     let linkPath = link.querySelector("a").getAttribute("href");
-    if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
+    if (linkPath && getRealPath(linkPath) === rootRealPath) {
       link.classList.add("link-active");
     }
   });
