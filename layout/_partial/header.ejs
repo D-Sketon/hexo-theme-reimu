@@ -28,7 +28,16 @@
   <% } else if (post.cover == false) { %>
 
   <% } else { %>
-    <img fetchpriority="high" src="<%- url_for(theme.banner, {relative: false}) %>" alt="<%= post.title %>">
+    <% if (theme.banner_srcset.enable) { %>
+      <picture>
+        <% for (var i of theme.banner_srcset.srcset) { %>
+          <source media="<%= i.media %>" srcset="<%- url_for(i.src, {relative: false}) %>">
+        <% } %>
+        <img fetchpriority="high" src="<%- url_for(theme.banner, {relative: false}) %>" alt="<%= post.title %>">
+      </picture>
+    <% } else { %>
+      <img fetchpriority="high" src="<%- url_for(theme.banner, {relative: false}) %>" alt="<%= post.title %>">
+    <% } %>
   <% } %>
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">

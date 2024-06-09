@@ -8,10 +8,20 @@ menu:
 banner: "/images/banner.webp" # themes/reimu/source/images/banner.webp
 # You can also write it in the form of the following url
 # banner: "https://example.com"
+banner_srcset:
+  enable: false
+  srcset:
+    - src: "/images/banner-600w.webp"
+      media: "(max-width: 479px)"
+    - src: "/images/banner-800w.webp"
+      media: "(max-width: 799px)"
+    - src: "/images/banner.webp"
+      media: "(min-width: 800px)"
 favicon: "/images/favicon.ico" # themes/reimu/source/images/favicon.ico
 # You can also write it in the form of the following url
 # favicon: "https://example.com"
 avatar: "avatar.webp" # source/_data/avatar/avatar.webp
+
 
 # Content
 excerpt_link: Read More
