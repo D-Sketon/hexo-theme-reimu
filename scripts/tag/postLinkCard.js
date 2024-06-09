@@ -1,5 +1,4 @@
 const { url_for, escapeHTML, stripHTML } = require("hexo-util");
-const getPathname = require("../util/getPathname");
 
 /**
  * {% postLinkCard slug [cover]|"auto" [escape] %}
@@ -47,7 +46,7 @@ hexo.extend.tag.register("postLinkCard", (args) => {
   if (escape === "true") title = escapeHTML(title);
 
   const link = url_for.call(hexo, post.path + (hash ? `#${hash}` : ""));
-  if(cover === "auto") cover = getPathname(hexo).slice(0, -1) + hexo.theme.config.banner;
+  if(cover === "auto") cover = url_for.call(hexo, hexo.theme.config.banner);
   const coverDom = cover
     ? `<div class="post-link-card-cover-wrap"><img src="${cover}" class="no-lightbox" title="${attrTitle}" alt="${attrTitle}"/></div>`
     : "";

@@ -9,7 +9,7 @@
           <% if (cover) { %>
             <img data-src="<%= cover %>" data-sizes="auto" alt="<%= post.prev.title %>" class="lazyload">
           <% } else { %>
-            <img data-src="<%- pathname().slice(0, -1) %><%= theme.banner %>" data-sizes="auto" alt="<%= post.prev.title %>" class="lazyload">
+            <img data-src="<%- url_for(theme.banner, {relative: false}) %>" data-sizes="auto" alt="<%= post.prev.title %>" class="lazyload">
           <% } %>
         <% } %>
         <a href="<%- url_for(post.prev.path) %>"></a>
@@ -32,7 +32,7 @@
         <% if (cover) { %>
           <img data-src="<%= cover %>" data-sizes="auto" alt="<%= post.next.title %>" class="lazyload">
         <% } else { %>
-          <img data-src="<%- pathname().slice(0, -1) %><%= theme.banner %>" data-sizes="auto" alt="<%= post.next.title %>" class="lazyload">
+          <img data-src="<%- url_for(theme.banner, {relative: false}) %>" data-sizes="auto" alt="<%= post.next.title %>" class="lazyload">
         <% } %>
       <% } %>
       <a href="<%- url_for(post.next.path) %>"></a>

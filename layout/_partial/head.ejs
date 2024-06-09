@@ -66,6 +66,6 @@
     </script>
   <% } %>
   <% if (theme.service_worker.enable) { %>
-    <script src="<%- pathname() %>sw.js"></script>
+    <script src="<%- url_for('/sw.js', {relative: false}) %>"></script>
   <% } %>
 </head>

@@ -1,14 +1,3 @@
-let preCache = [
-  "/images/taichi.png",
-  "/images/banner.webp",
-  "/images/taichi-fill.png",
-  "/css/loader.css",
-  "/css/style.css",
-  "/js/script.js",
-];
-
-preCache = preCache.map((url) => pathname + url.slice(1));
-
 const cacheDomain = [
   "fonts.googleapis.com",
   "npm.webcache.cn",
@@ -23,19 +12,26 @@ self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(VERSION).then((cache) => cache.addAll(preCache)));
 });
 
-async function cacheRequest(request) {
-  const responseToCache = await fetch(request, { mode: "no-cors" });
-  const cache = await caches.open(VERSION);
-  cache.put(request, responseToCache.clone());
-  return responseToCache;
+async function cacheRequest(request, options) {
+  try {
+    const responseToCache = await fetch(request);
+    const cache = await caches.open(VERSION);
+    cache.put(request, responseToCache.clone());
+    return responseToCache;
+  } catch (e) {
+    const responseToCache = await fetch(request, options);
+    const cache = await caches.open(VERSION);
+    cache.put(request, responseToCache.clone());
+    return responseToCache;
+  }
 }
 
-async function respondRequest(request) {
+async function respondRequest(request, options) {
   const response = await caches.match(request);
   if (response) {
     return response;
   }
-  return cacheRequest(request);
+  return cacheRequest(request, options);
 }
 
 self.addEventListener("fetch", (event) => {
@@ -49,7 +45,11 @@ self.addEventListener("fetch", (event) => {
       event.request.method === "POST" ||
       (event.request.method === "GET" && url.search)
     ) {
-      event.respondWith(fetch(event.request, { mode: "no-cors" }));
+      try {
+        event.respondWith(fetch(event.request));
+      } catch (e) {
+        event.respondWith(fetch(event.request, { mode: "no-cors" }));
+      }
     } else {
       event.respondWith(respondRequest(event.request, { mode: "no-cors" }));
     }
@@ -74,7 +74,7 @@ self.addEventListener("activate", (event) => {
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
-    .register(`${pathname}sw.js`)
+    .register(swPath)
     .then((registration) => {
       console.log("Service Worker 注册成功: ", registration);
     })
