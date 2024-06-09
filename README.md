@@ -1,4 +1,4 @@
-<img src="https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/Reimu_dark.png"/>
+<img src="https://fastly.jsdelivr.net/gh/D-Sketon/blog-img/Reimu_.png"/>
 <div align = center>
   <h1>hexo-theme-reimu</h1>
   <img alt="NPM License" src="https://img.shields.io/npm/l/hexo-theme-reimu">
