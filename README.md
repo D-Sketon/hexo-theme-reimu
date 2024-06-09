@@ -9,7 +9,7 @@
   ❤ Hakurei Reimu ❤
   </p>
 
-[演示网站](https://d-sketon.github.io)
+[演示网站](https://d-sketon.github.io) | [开发日志](https://d-sketon.github.io/20240601/hexo-theme-reimu-log/)
 
 简体中文 | [English](https://github.com/D-Sketon/hexo-theme-reimu/blob/main/README.en.md)
 
