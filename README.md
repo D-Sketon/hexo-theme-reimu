@@ -23,24 +23,33 @@
 
 **欢迎提交 ISSUE 和 PR！**
 
-## 路线图
+## 特性
 
-- [x] valine 评论系统
-- [x] waline 评论系统
-- [x] twikoo 评论系统（未测试）
-- [x] gitalk 评论系统（未测试）
-- [x] giscus 评论系统
-- [x] 黑夜模式
-- [x] 过渡动画效果
-- [x] google 字体
-- [x] 加载动画
-- [x] TOC
-- [x] 回到顶部
-- [x] 文章统计（仅 Valine 和 Waline）
-- [x] 鼠标烟花
-- [x] pjax（实验性）
-- [x] pwa（实验性）
-- [x] live2d（实验性）
+- 所有的博客常规功能
+- 兼容 Hexo v6+
+- 响应式布局
+- 代码高亮，代码粘贴
+- 支持 KaTeX 展示数学公式
+- 支持 Mermaid 展示流程图
+- Algolia / hexo-generator-search 搜索支持
+- valine / waline / twikoo / gitalk / giscus 评论系统
+- valine / waline 文章阅读统计
+- 不蒜子访客统计
+- 支持 RSS
+- 同时支持 iconfont 和 fontawesome
+- 黑夜模式
+- 图片懒加载
+- 加载动画
+- TOC
+- 回到顶部
+- 鼠标动画
+- pjax
+- ServiceWorker
+- live2d
+- reimu 鼠标指针
+- 内部提供内链/外链/友链卡片的标签插件
+- 支持文章底部版权声明
+- 支持配置自定义 CDN 源
 
 ## 结构
 
@@ -443,9 +452,9 @@ fontawesome:
 </details>
 
 <details>
-<summary>实验性功能</summary>
+<summary>高级功能</summary>
 
-### 实验性功能
+### 高级功能
 
 #### firework
 
@@ -469,7 +478,7 @@ pjax:
 
 > pjax 在 v0.0.10 中被引入，用于那些需要添加音乐播放器等需要 SPA 的用户。但其仍然属于实验性质，引入后可能会出现诸如**脚本无法执行**、**脚本重复执行**、**页面渲染混乱**等 BUG。请慎重考虑！
 
-#### PWA
+#### ServiceWorker
 
 默认开启
 
@@ -495,6 +504,55 @@ live2d:
 reimu_cursor: true
 ```
 
+#### 头图响应式（v0.2.0+）
+
+默认关闭，打开后并提供对应尺寸的图片和媒体查询可以在一定程度上提高移动端的 LCP
+```yml
+banner_srcset:
+enable: false
+srcset:
+  - src: "/images/banner-600w.webp"
+    media: "(max-width: 479px)"
+  - src: "/images/banner-800w.webp"
+    media: "(max-width: 799px)"
+  - src: "/images/banner.webp"
+    media: "(min-width: 800px)"
+```
+
+#### 文章版权声明（v0.2.0+）
+
+默认关闭
+```yml
+article_copyright:
+enable: false # 是否展示版权卡片？
+content:
+  author: # true | false 版权卡片展示作者？
+  link: # true | false 版权卡片展示链接？
+  title: # true | false 版权卡片展示标题？
+  date: # true | false 版权卡片展示创建日期？
+  updated: # true | false 版权卡片展示更新日期？
+  license: # true | false 版权卡片展示协议？
+```
+
+</details>
+
+<details>
+<summary>Vendor</summary>
+
+### Vendor
+
+v0.1.0 对 `vendor` 进行了较大程度的重构，目前 `vendor` 路径的组成方式为：`:cdn|:package@:version/:file`，`:cdn`可在 `vendor` 中自行配置。目前自带以下 CDN 源：
+
+```yaml
+cdn_jsdelivr_gh: https://cdn.jsdelivr.net/gh/ # 仅针对github加速
+cdn_jsdelivr_npm: https://cdn.jsdelivr.net/npm/ # 仅针对npm加速
+fastly_jsdelivr_gh: https://fastly.jsdelivr.net/gh/ # 仅针对github加速
+fastly_jsdelivr_npm: https://fastly.jsdelivr.net/npm/ # 仅针对npm加速
+unpkg: https://unpkg.com/ # 仅针对npm加速
+webcache: https://npm.webcache.cn/ # 仅针对npm加速
+```
+
+用户可根据网络状况自行切换 CDN 源。
 </details>
 
 ## 贡献者

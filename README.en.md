@@ -24,6 +24,34 @@ See [astro-theme-reimu](https://github.com/D-Sketon/astro-theme-reimu) for the [
 
 **ISSUE and PR Welcome!**
 
+## Features
+
+- All the regular features of the blog
+- Compatible with Hexo v6+
+- Responsive Layout
+- Code Highlighting, Code Pasting
+- Supports KaTeX for displaying math formulas
+- Mermaid for flowcharts
+- Algolia / hexo-generator-search search support
+- valine / waline / twikoo / gitalk / giscus comment system
+- valine / waline article reading statistics
+- Busuanzi Visitor Statistics
+- RSS support
+- Both iconfont and fontawesome are supported.
+- Night mode
+- Lazy image loading
+- Load Animation
+- TOC
+- Back to top
+- Mouse firework animation
+- pjax
+- ServiceWorker
+- live2d
+- reimu Mouse Pointer
+- Internal tag plugin for providing internal/external/friendly link cards
+- Support the bottom of the article copyright statement
+- Support for configuring custom CDN sources
+
 ## Structure
 
 ```txt
@@ -425,9 +453,9 @@ fontawesome:
 </details>
 
 <details>
-<summary>Experimental features</summary>
+<summary>Advanced features</summary>
 
-### Experimental features
+### Advanced features
 
 #### firework
 
@@ -451,7 +479,7 @@ pjax:
 
 > pjax was introduced in v0.0.10 for those who need to add music players and other users who need SPA. However, it is still experimental and may cause bugs such as **scripts not executing**, **scripts repeating**, **pages rendering mess**, etc. Please consider it carefully!
 
-#### PWA
+#### ServiceWorker
 
 Enabled by default
 
@@ -477,7 +505,56 @@ Enabled by default
 reimu_cursor: true
 ```
 
+#### Responsive Banner Image (v0.2.0+)
+
+Disabled by default, enable it on and providing the corresponding size of the image and media query can improve the LCP on mobile to some extent
+```yml
+banner_srcset:
+enable: false
+srcset:
+  - src: "/images/banner-600w.webp"
+    media: "(max-width: 479px)"
+  - src: "/images/banner-800w.webp"
+    media: "(max-width: 799px)"
+  - src: "/images/banner.webp"
+    media: "(min-width: 800px)"
+```
+
+#### Article copyright notice (v0.2.0+)
+
+Disabled by default
+``` yml
+article_copyright: 
+enable: false # Is the copyright card displayed?
+content: # true | false Does the copyright card show the author?
+  author: # true | false Do copyright cards show author?
+  link: # true | false Do you want to show links?
+  title: # true | false Do you show the title of the copyrighted card?
+  date: # true | false The date the copyrighted card was created?
+  updated: # true | false Copyright card show updated date?
+  license: # true | false Copyright Card Showcase Agreement?
+```
+
 </details>
+
+<summary>Vendor</summary>
+
+### Vendor
+
+v0.1.0 is a major refactoring of `vendor`, the `vendor` path is now composed of `:cdn|:package@:version/:file`, and `:cdn` can be configured in `vendor` itself. It currently comes with the following CDN sources:
+
+```yaml
+cdn_jsdelivr_gh: https://cdn.jsdelivr.net/gh/ # github acceleration only
+cdn_jsdelivr_npm: https://cdn.jsdelivr.net/npm/ # npm acceleration only
+fastly_jsdelivr_gh: https://fastly.jsdelivr.net/gh/ # github acceleration only
+fastly_jsdelivr_npm: https://fastly.jsdelivr.net/npm/ # npm acceleration only
+unpkg: https://unpkg.com/ # npm acceleration only
+webcache: https://npm.webcache.cn/ # npm acceleration only
+```
+
+Users can switch between CDN sources according to network conditions.
+</details>
+
 
 ## Contributors
 
