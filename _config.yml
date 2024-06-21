@@ -70,6 +70,7 @@ show_count: false
 recent_posts_limits: 5
 
 social:
+  # email: mailto:xxx@gmail.com
   # github: https://github.com/yourname
   # google: https://plus.google.com/yourname
   # twitter: https://twitter.com/yourname
@@ -260,7 +261,7 @@ live2d:
 
 reimu_cursor: true
 
-icon_font: 4552607_09mhdxci6yrk
+icon_font: 4552607_tq6stt6tcg
 
 # Dependent cdn links
 vendor:
