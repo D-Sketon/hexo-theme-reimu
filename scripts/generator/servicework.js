@@ -1,9 +1,10 @@
 const fs = require("hexo-fs");
 const { url_for } = require("hexo-util");
+const path = require("path");
 let timeVersion = Date.now();
 
 hexo.extend.generator.register("ServiceWorker", (locals) => {
-  let filePath = "themes/reimu/source/js/sw.js";
+  let filePath = path.join(hexo.theme_dir, "source/js/sw.js");
   let content = fs.readFileSync(filePath);
   content = 'const VERSION = "' + timeVersion + '";\n' + content;
   content =
