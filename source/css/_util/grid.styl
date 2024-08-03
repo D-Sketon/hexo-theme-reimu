@@ -20,7 +20,5 @@ body
   width: 100%
 
 column(x, _columns = columns)
-  display: inline
-  float: left
   width: total-width * ((((gutter-width + column-width) * x) - gutter-width) / gridsystem-width(_columns))
   margin: 0 total-width * ((gutter-width * .5) / gridsystem-width(_columns))

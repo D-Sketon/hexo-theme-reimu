@@ -184,7 +184,7 @@ $article-meta-tag
       margin-left: 1em
 
   .caption
-    color: var(--color-grey)
+    color: var(--grey-9)
     display: block
     font-size: 0.9em
     margin-top: 0.5em
@@ -210,18 +210,18 @@ $article-meta-tag
 .article-more-link a
   display: inline-block
   line-height: 1em
-  padding: 6px 15px
-  border-radius: 15px
+  padding: 10px 18px
+  border-radius: 20px
   background: var(--red-5)
   color: var(--red-1)
   text-decoration: none
-  box-shadow: 0 0 5px 3px var(--red-6)
+  box-shadow: 0 0 5px 3px var(--color-meta-shadow)
+  transition: all 0.3s ease
 
   &:hover
     background: var(--color-link)
     color: #fff
     text-decoration: none
-    text-shadow: 0 1px var(--color-dark-link)
 
 .article-footer
   clearfix()
@@ -290,7 +290,6 @@ $article-meta-tag
     flex-direction: row
 
 .article-nav-link-wrap
-  backgroud-color: var(--color-wrap)
   color: white
   position: relative
   flex: 1
@@ -311,23 +310,17 @@ $article-meta-tag
     left: 0
     width: 100%
     height: 100%
-    filter: brightness(80%)
+    filter: brightness(70%)
 
   img
     display: block
     opacity: 0
-    position: absolute
-    left: 0
-    top: 0
     object-fit: cover
-    width: 100%
-    height: 100%
     z-index: -1
 
 
   img.lazyloaded
     opacity: 1
-    animation: blur 0.8s ease-in-out forwards
 
   &:hover
     opacity: 1

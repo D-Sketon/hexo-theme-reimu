@@ -69,7 +69,7 @@
     margin: 10px
 
   .sidebar-description
-    color: #777777
+    color: var(--grey-7)
 
 $sidebar-state-content
   display: flex
@@ -395,15 +395,7 @@ $menu-link
     height: auto
     transform: scaleY(1)
 
-  .active>a
-    color: var(--red-0)
-    opacity: 1
-
-    &>span
-      color: var(--red-0)
-      opacity: 1
-
-  .current>a
+  .active>a, .current>a
     color: var(--red-0)
     opacity: 1
 
@@ -413,7 +405,7 @@ $menu-link
 
 .toc-title
   letter-spacing: 2px
-  color: var(--color-grey)
+  color: var(--grey-9)
   line-height: 1em
   font-weight: bold
   padding: 10px 0
