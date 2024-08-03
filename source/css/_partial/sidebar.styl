@@ -131,6 +131,10 @@ $sidebar-state-content
   width: 36px
   height: 25px
   font: 20px font-icon
+  transition: transform .2s ease
+
+  &:hover
+    transform: scale(1.2)
 
 .icon-email
   color: #ff7777
@@ -374,16 +378,22 @@ $menu-link
       text-align: center
 
   .toc-child 
-    display: none;
+    transform: scaleY(0)
+    height: 0
+    overflow: hidden
+    transition: all .3s ease
+    transform-origin: top
+
+    >.toc-item:last-child
+      margin-bottom: 0
 
   .active>.toc-child 
-    display: block;
+    height: auto
+    transform: scaleY(1)
 
   .current>.toc-child 
-    display: block;
-
-    >.toc-item 
-      display: block;
+    height: auto
+    transform: scaleY(1)
 
   .active>a
     color: var(--red-0)
@@ -409,7 +419,7 @@ $menu-link
   padding: 10px 0
 
 .toc-item 
-  // overflow: hidden
+  overflow: hidden
   text-overflow: ellipsis
   white-space: nowrap
 

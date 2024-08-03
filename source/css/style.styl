@@ -35,9 +35,14 @@ html, body, #container
 body
   background: var(--color-background)
   -webkit-text-size-adjust: 100%
+  -webkit-font-smoothing: antialiased
   text-size-adjust: 100%
   font-family: font-title
   transition: background 0.3s ease
+
+  ::selection
+    background: var(--red-1)
+    color: #fff
 
 if reimu_cursor
   a

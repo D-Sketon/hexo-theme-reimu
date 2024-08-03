@@ -58,14 +58,12 @@
               element.off("click").on("click", (event) => {
                 event.preventDefault();
                 currentPage = element.innerText;
-                document
-                  .querySelectorAll(".ais-Pagination-item")
-                  .forEach((element) => {
-                    element.classList.remove(
-                      "ais-Pagination-item--selected",
-                      "current"
-                    );
-                  });
+                _$$(".ais-Pagination-item").forEach((element) => {
+                  element.classList.remove(
+                    "ais-Pagination-item--selected",
+                    "current"
+                  );
+                });
                 element.parentNode.classList.add(
                   "ais-Pagination-item--selected",
                   "current"
