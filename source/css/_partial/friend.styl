@@ -35,27 +35,27 @@
   pointer-events: none
   flex-shrink: 0
 
-  .friend-icon
-    height: 0
-    width: 100%
-    padding-bottom: 100%
-    position: relative
+.friend-icon
+  height: 0
+  width: 100%
+  padding-bottom: 100%
+  position: relative
 
-    img
-      display: block
-      opacity: 0
-      transition: opacity 0.2s
-      position: absolute
-      left: 15%
-      top: 15%
-      object-fit: cover
-      border-radius: 50%
-      width: 70%
-      height: 70%
+  img
+    display: block
+    opacity: 0
+    transition: opacity 0.2s
+    position: absolute
+    left: 15%
+    top: 15%
+    object-fit: cover
+    border-radius: 50%
+    width: 70%
+    height: 70%
 
-    img.lazyloaded
-      opacity: 1
-      animation: blur 0.8s forwards
+  img.lazyloaded
+    opacity: 1
+    animation: blur 0.8s forwards
 
 .friend-info-wrap
   display: flex
@@ -67,21 +67,21 @@
   div
     padding: 10px 0
 
-  .friend-name
-    color: var(--red-2)
-    font-size: 18px
-    font-weight: bold
-    text-overflow: ellipsis
-    white-space: nowrap
-    width: 100%
-    overflow: hidden
+.friend-name
+  color: var(--red-2)
+  font-size: 18px
+  font-weight: bold
+  text-overflow: ellipsis
+  white-space: nowrap
+  width: 100%
+  overflow: hidden
 
-  .friend-desc
-    color: var(--grey-9)
-    font-size: 14px
-    text-overflow: ellipsis
-    -webkit-line-clamp: 2
-    display: -webkit-box
-    -webkit-box-orient: vertical
-    width: 100%
-    overflow: hidden
+.friend-desc
+  color: var(--grey-9)
+  font-size: 14px
+  text-overflow: ellipsis
+  -webkit-line-clamp: 2
+  display: -webkit-box
+  -webkit-box-orient: vertical
+  width: 100%
+  overflow: hidden
