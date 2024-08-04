@@ -13,7 +13,7 @@ $base-style
       border-bottom: 1px solid var(--color-h2-border)
       bottom: -15px
       box-sizing: unset
-      transition: all .3s ease
+      transition: .3s
 
     &:after
       content: ""
@@ -25,7 +25,7 @@ $base-style
       left: 0
       border-radius: 10px
       box-shadow: 0 2px 12px var(--color-h2-after-shadow)
-      transition: all .3s ease
+      transition: .3s
 
     &:hover:after
       width: 3em
@@ -41,7 +41,7 @@ $base-style
 
   h6
     font-size: 1em
-    color: var(--color-grey)
+    color: var(--grey-9)
 
   hr
     margin: 10px 0
@@ -52,13 +52,10 @@ $base-style
     background-repeat: repeat-x
     border: none
     filter: drop-shadow(0px 0px 2px red)
-    transition: opacity .3s ease
+    transition: opacity .3s
 
     &:hover
       opacity: .5
-
-    @media mg-normal
-      margin: 10px 0
 
   strong
     font-weight: bold
