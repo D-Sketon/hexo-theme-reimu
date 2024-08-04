@@ -21,7 +21,7 @@
   justify-content: center
   align-items: center
   box-shadow: unset
-  transition: all .3s ease
+  transition: .3s
 
   .hidden
     display: none
@@ -52,7 +52,7 @@
     width: 100px
     height: 100px
     border-radius: 50%
-    transition: opacity .3s ease
+    transition: opacity .3s
     opacity: 0
     object-fit: cover
     margin: 20px
@@ -60,7 +60,7 @@
 
   img.lazyloaded
     opacity: 1
-    animation: blur .8s ease forwards
+    animation: blur .8s forwards
 
   .sidebar-author-name
     font-weight: bold
@@ -88,7 +88,7 @@ $sidebar-state-content
   padding: 25px 0
   color: var(--red-0)
   opacity: .6
-  transition: opacity .5s ease
+  transition: opacity .5s
 
   &:hover
     opacity: 1
@@ -131,7 +131,7 @@ $sidebar-state-content
   width: 36px
   height: 25px
   font: 20px font-icon
-  transition: transform .2s ease
+  transition: transform .2s
 
   &:hover
     transform: scale(1.2)
@@ -235,7 +235,7 @@ $menu-link
   justify-content: center
   border: 10px rgba(255, 0, 0, .3) double
   border-radius: 10px
-  transition: border .5s ease
+  transition: border .5s
 
   &:hover
     border: 10px var(--color-h2-after) double
@@ -247,7 +247,7 @@ $menu-link
   @extend $menu-link
   background: url("../images/taichi.png") no-repeat center / 80%
   transform: rotate(0deg)
-  transition: transform 1s ease
+  transition: transform 1s
   pointer-events: none
 
 .sidebar-menu-link-dummy
@@ -266,7 +266,7 @@ $menu-link
   border: 10px var(--color-wrap) double
   box-shadow: 0 0 10px 3px rgba(255, 0, 0, .3)
   opacity: 0.8
-  transition: border opacity 0.5s ease
+  transition: border opacity 0.5s
 
   &:hover
     opacity: 1
@@ -290,16 +290,15 @@ $menu-link
   font-family: font-icon
   box-shadow: 1px 2px 10px rgba(0, 0, 0, .2)
   z-index: 999
-  transition: all .3s ease
+  transition: .3s
 
   img
-    transition: all .3s ease
-    animation: rotate-all 3s infinite
-    animation-timing-function: linear
+    transition: .3s
+    animation: rotate-all 3s linear infinite
     opacity: 1
 
   .arrow-up
-    transition: all .3s ease
+    transition: .3s
     opacity: 0
     &:before
       width: 50px
@@ -323,6 +322,7 @@ $menu-link
   box-sizing: border-box
 
 .sidebar-toc-wrapper
+  color: var(--color-link)
   max-height: calc(100vh - 120px)
   overflow: auto
 
@@ -330,13 +330,11 @@ $menu-link
     width: 5px
     height: 5px
 
-.sidebar-toc-wrapper
-  color: var(--color-link)
   a, span
     color: var(--color-link)
     text-decoration: none
     opacity: 0.8
-    transition: all .3s ease
+    transition: .3s
 
     &:hover
       color: var(--red-0)
@@ -358,7 +356,7 @@ $menu-link
       margin-right: 11px
       box-shadow: 0 2px 12px var(--color-h2-after-shadow)
       opacity: 0.5
-      transition: all .3s ease
+      transition: .3s
 
     &:hover
       &:before
@@ -381,17 +379,13 @@ $menu-link
     transform: scaleY(0)
     height: 0
     overflow: hidden
-    transition: all .3s ease
+    transition: .3s
     transform-origin: top
 
     >.toc-item:last-child
       margin-bottom: 0
 
-  .active>.toc-child 
-    height: auto
-    transform: scaleY(1)
-
-  .current>.toc-child 
+  .active>.toc-child, .current>.toc-child
     height: auto
     transform: scaleY(1)
 
@@ -427,7 +421,7 @@ $siderbar-btn-icon
   box-shadow: 0 2px 12px rgba(255, 78, 106, 0.55)
   border-radius: post-radius
   margin: 20px
-  transition: all .3s ease
+  transition: .3s
 
   [data-theme="dark"] &
     filter: brightness(.8)

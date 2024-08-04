@@ -14,7 +14,7 @@ $post-wrap
   background: var(--color-wrap)
   display: flex
   flex-direction: row
-  transition: all .3s ease
+  transition: .3s
 
   @media mq-normal
     &:hover
@@ -24,7 +24,7 @@ $post-wrap
         opacity: .8
 
       img
-        transition: all .3s ease
+        transition: .3s
         transform: scale(1.05)
 
     &:before
@@ -37,13 +37,10 @@ $post-wrap
       border-radius: post-radius
       box-shadow: 0 0 10px 3px rgba(0, 0, 0, .1)
       opacity: 0
-      transition: all .3s ease
+      transition: .3s
 
 
-[data-theme="dark"] .post-wrap-left
-  box-shadow: 0 0 10px 3px var(--color-hover-shadow)
-
-[data-theme="dark"] .post-wrap-right
+[data-theme="dark"] .post-wrap-left, [data-theme="dark"] .post-wrap-right
   box-shadow: 0 0 10px 3px var(--color-hover-shadow)
 
 .post-wrap-left
@@ -116,7 +113,7 @@ $post-cover
   img
     display: block
     opacity: 0
-    transition: all .2s ease
+    transition: .2s
     position: absolute
     left: 0
     top: 0
@@ -126,7 +123,7 @@ $post-cover
 
   img.lazyloaded
     opacity: 1
-    animation: blur .8s ease forwards
+    animation: blur .8s forwards
 
 .post-cover-left
   @media mq-normal
@@ -176,7 +173,7 @@ $post-cover
   font-size: 15px
   z-index: 1
   opacity: 1
-  transition: all .3s ease
+  transition: .3s
 
   &:before
     margin-right: 5px

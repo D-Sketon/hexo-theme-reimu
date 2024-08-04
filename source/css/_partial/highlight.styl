@@ -22,7 +22,7 @@ $line-numbers
     margin-block-end: 1em
     margin-inline-start: 0
     margin-inline-end: 0
-    transition: all 0.3s ease
+    transition: 0.3s
     
     &:hover
       box-shadow: 0 0.3125rem 0.625rem -0.125rem var(--highlight-scrollbar)
@@ -44,7 +44,7 @@ $line-numbers
   pre, code, kbd
     font-family: "Ubuntu Mono"
     font-size: 95%
-    transition: all 0.3s ease
+    transition: 0.3s
 
   code, kbd
     background: var(--color-code-background)
@@ -179,8 +179,6 @@ pre
   .class
   .ruby .class .title
   .css .rules .attribute
-    color: var(--highlight-green)
-
   .string
   .value
   .inheritance
@@ -209,7 +207,7 @@ pre
 .code-area
   width: 100%
   overflow: auto
-  transition: all 0.3s ease
+  transition: 0.3s
 
 .code-figcaption
   width: 100%
@@ -267,13 +265,13 @@ pre
     cursor: var(--cursor-pointer)
   else
     cursor: pointer
-  transition: all .3s
+  transition: .3s
   transform: rotate(0deg)
   color: #fff
 
 .code-closed .code-expand
   transform: rotate(-180deg) !important
-  transition: all .3s
+  transition: .3s
 
 .code-closed
   pre

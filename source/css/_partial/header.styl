@@ -12,7 +12,7 @@
 
     display: block
     object-fit: cover
-    transition: all 0.3s ease
+    transition: 0.3s
     -webkit-mask: linear-gradient(to top, transparent, #fff 50%)
     mask: linear-gradient(to top, transparent, #fff 50%)
 
@@ -42,7 +42,7 @@
   overflow: hidden
   background: var(--color-header-background)
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.1)
-  transition: all .3s ease
+  transition: .3s
   z-index: 200
 
   &:hover
@@ -127,7 +127,7 @@ $nav-link-wrap
   @extend $nav-link
   padding: 0 15px
   display: flex
-  transition: all .3s ease
+  transition: .3s
 
   &:hover
     opacity: 1
@@ -161,7 +161,7 @@ $nav-link-wrap
     display: none
 
   &:hover .main-nav-icon
-    transition: transform 1s ease
+    transition: transform 1s
     transform: rotate(360deg)
 
 .main-nav-link
@@ -173,7 +173,7 @@ $nav-link-wrap
   @extend $nav-link
   background: url("../images/taichi.png") no-repeat center / 80%
   transform: rotate(0deg)
-  transition: transform 1s ease
+  transition: transform 1s
   if reimu_cursor
     cursor: var(--cursor-pointer)
   else
@@ -190,10 +190,5 @@ $nav-link-wrap
   align-items: center
   margin-right: -15px
 
-#nav-sun-btn
-  &:before
-    font-weight: 700
-
-#nav-moon-btn
-  &:before
-    font-weight: 700
+#nav-sun-btn:before, #nav-moon-btn:before
+  font-weight: 700
