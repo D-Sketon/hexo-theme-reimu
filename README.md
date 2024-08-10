@@ -94,7 +94,7 @@ theme: reimu
 
 ### 基本结构
 
-为了保证显示正确，请参考 `_example` 在 `_source` 中分别建立 `_data`、`about` 和 `friend` 文件夹
+为了保证显示正确，请参考 `_example` 在 `source` 中分别建立 `_data`、`about` 和 `friend` 文件夹
 
 #### \_data
 
