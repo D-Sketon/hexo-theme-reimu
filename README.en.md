@@ -95,7 +95,7 @@ theme: reimu
 
 ### Basic structure
 
-For correct display, please refer to `_example` and create separate `_data`, `about` and `friend` folders in `_source`
+For correct display, please refer to `_example` and create separate `_data`, `about` and `friend` folders in `source`
 
 #### \_data
 
