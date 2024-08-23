@@ -14,31 +14,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the current repository
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Step 2: Checkout the external repository
       - name: Checkout external repository
         uses: actions/checkout@v2
         with:
           repository: D-Sketon/reimu-playground
           path: reimu-playground
 
-      # Step 3: Copy this repository to the external repository's directory
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          working-directory: reimu-playground
+          node-version: '18'
+
       - name: Copy this repository to the external repository's directory
         run: cp -r ./* reimu-playground/themes/reimu
 
-      # Step 4: Change directory to the external repo's root directory
       - name: Change directory to the external repo's root directory
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
         working-directory: reimu-playground
         run: |
           npm install
           hexo generate
 
-      # Step 5: Deploy to Surge
       - name: Deploy to Surge
         run: npx surge --project ./public --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
