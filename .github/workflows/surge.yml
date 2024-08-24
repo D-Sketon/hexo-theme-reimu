@@ -34,11 +34,9 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Change directory to the external repo's root directory
+      - name: Deploy to Surge
         run: |
           cd reimu-playground
           npm install
           npx hexo generate
-
-      - name: Deploy to Surge
-        run: npx surge --project ./public --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+          npx surge --project ./public --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
