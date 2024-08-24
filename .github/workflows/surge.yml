@@ -27,8 +27,8 @@ jobs:
 
       - name: Copy files to target directory
         run: |
+          ls
           cp -r reimu/* reimu-playground/themes/reimu
-          cp -r reimu/.git reimu-playground/themes/reimu
           cd reimu-playground
 
       - name: Install Node
