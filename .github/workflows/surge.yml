@@ -1,9 +1,6 @@
 name: Deploy to Surge
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
