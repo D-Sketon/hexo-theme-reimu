@@ -33,12 +33,14 @@ html, body, #container
     cursor: var(--cursor-default)
 
 body
+  clearfix()
+  width: 100%
   background: var(--color-background)
   -webkit-text-size-adjust: 100%
   -webkit-font-smoothing: antialiased
   text-size-adjust: 100%
   font-family: font-title
-  transition: background 0.3s ease
+  transition: background 0.3s
 
   ::selection
     background: var(--red-1)
@@ -92,7 +94,7 @@ if reimu_cursor
   left: 0
   height: 100%
   width: 100%
-  transition: 0.3s ease
+  transition: 0.3s
   background: var(--color-background)
 
 #main

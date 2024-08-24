@@ -8,7 +8,7 @@
   margin-left: -350px
   padding: 3px 0 0 10px
   background: var(--color-wrap)
-  color: var(--color-grey)
+  color: var(--grey-9)
   z-index: 9999
   border-radius: post-radius
 
@@ -30,23 +30,24 @@
   top: 0
   left: 0
   background-color: rgba(0, 0, 0, .3)
+
 .reimu-popup
   overflow: hidden
   padding: 0
 
-  .popup-btn-close
-    position: absolute
-    right: 15px
-    color: var(--red-1)
-    font: 20px bold
-    text-transform: uppercase
-    vertical-align: middle
-    if reimu_cursor
-      cursor: var(--cursor-pointer)
-    else
-      cursor: pointer
-    padding-left: 15px
-    top: 8px
+.popup-btn-close
+  position: absolute
+  right: 15px
+  color: var(--red-1)
+  font: 20px bold
+  text-transform: uppercase
+  vertical-align: middle
+  if reimu_cursor
+    cursor: var(--cursor-pointer)
+  else
+    cursor: pointer
+  padding-left: 15px
+  top: 8px
 
 .reimu-search
   padding: 8px 15px
@@ -122,28 +123,27 @@
     margin-left: -25px
     box-shadow: 0 2px 12px var(--color-h2-after-shadow)
     opacity: 0.5
-    transition: all 0.2s ease
+    transition: 0.2s
 
-  &:hover
-    &:before
-      width: 6px
-      height: 6px
-      border-radius: 50%
-      opacity: 1
+  &:hover:before
+    width: 6px
+    height: 6px
+    border-radius: 50%
+    opacity: 1
 
 .reimu-pagination
   margin: 10px auto
   background: var(--color-wrap)
   border-radius: post-radius
   text-align: center
-  color: var(--color-grey)
+  color: var(--grey-9)
   overflow: hidden
 
   a
     padding: 10px 15px
-    color: var(--color-grey)
+    color: var(--grey-9)
     text-decoration: none
-    transition: background 0.2s ease
+    transition: background 0.2s
 
     &:hover
       background: var(--red-2)
@@ -155,7 +155,7 @@
   .page-number
     display: inline-block
     border-radius: post-radius
-    margin: 5px 5px
+    margin: 5px
 
   .current
     .page-number
