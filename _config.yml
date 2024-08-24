@@ -291,6 +291,7 @@ vendor:
     live2d:
       base: fastly_jsdelivr_gh|MliKiowa/plugin-live2d/
       js: fastly_jsdelivr_gh|MliKiowa/plugin-live2d/js/live2d-autoload.js
+    md5: webcache|blueimp-md5@2.19.0/js/md5.min.js
   css:
     photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.css
     katex: webcache|katex@0.16.9/dist/katex.min.css
