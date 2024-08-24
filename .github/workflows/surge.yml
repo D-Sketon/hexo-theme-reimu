@@ -1,0 +1,57 @@
+name: Deploy to Surge
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          path: reimu
+
+      - name: Checkout external repository
+        uses: actions/checkout@v4
+        with:
+          repository: D-Sketon/reimu-playground
+          path: reimu-playground
+
+      - name: Copy files to target directory
+        run: |
+          cp -r reimu/* reimu-playground/themes/reimu
+
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+
+      - name: Deploy to Surge
+        run: |
+          cd reimu-playground
+          npm install
+          npx hexo generate
+          npx surge --project ./public --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+
+      - name: Find Comment
+        uses: peter-evans/find-comment@v3
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: "github-actions[bot]"
+
+      - name: Create or update deployment comment
+        if: success()
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            🚀 Deployed on [${{ secrets.SURGE_DOMAIN }}](${{ secrets.SURGE_DOMAIN }})
+          edit-mode: replace
+        env:
+          SURGE_DOMAIN: ${{ secrets.SURGE_DOMAIN }}
