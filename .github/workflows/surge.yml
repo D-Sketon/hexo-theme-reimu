@@ -31,13 +31,12 @@ jobs:
 
       - name: Install Node
         uses: actions/setup-node@v2
-        working-directory: reimu-playground
         with:
           node-version: '18'
 
       - name: Change directory to the external repo's root directory
-        working-directory: reimu-playground
         run: |
+          cd reimu-playground
           npm install
           hexo generate
 
