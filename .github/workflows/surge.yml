@@ -40,17 +40,14 @@ jobs:
           npx hexo generate
           npx surge --project ./public --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
 
-      - name: Send GitHub Bot Notification
+      - name: Create or update deployment comment
         if: success()
-        uses: actions/github-script@v6
+        uses: peter-evans/create-or-update-comment@v3
         with:
-          script: |
-            const surgeDomain = process.env.SURGE_DOMAIN;
-            github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: `🚀 已经部署在 [${surgeDomain}](${surgeDomain})`
-            });
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            🚀 Deployed on [${{ secrets.SURGE_DOMAIN }}](${{ secrets.SURGE_DOMAIN }})
+          edit-mode: replace
         env:
           SURGE_DOMAIN: ${{ secrets.SURGE_DOMAIN }}
