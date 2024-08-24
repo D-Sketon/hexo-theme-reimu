@@ -38,7 +38,7 @@ jobs:
         run: |
           cd reimu-playground
           npm install
-          hexo generate
+          npx hexo generate
 
       - name: Deploy to Surge
         run: npx surge --project ./public --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
