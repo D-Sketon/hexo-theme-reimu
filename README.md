@@ -480,11 +480,11 @@ pjax:
 
 #### ServiceWorker
 
-默认开启
+默认关闭
 
 ```yaml
 service_worker:
-  enable: true
+  enable: false
 ```
 
 #### live2d

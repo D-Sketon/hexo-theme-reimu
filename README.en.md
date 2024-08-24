@@ -481,11 +481,11 @@ pjax:
 
 #### ServiceWorker
 
-Enabled by default
+Disabled by default
 
 ```yaml
 service_worker:
-  enable: true
+  enable: false
 ```
 
 #### live2d
@@ -536,7 +536,7 @@ content: # true | false Does the copyright card show the author?
 ```
 
 </details>
-
+<details>
 <summary>Vendor</summary>
 
 ### Vendor
