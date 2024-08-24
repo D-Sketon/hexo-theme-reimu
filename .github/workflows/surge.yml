@@ -15,25 +15,28 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          path: reimu
 
       - name: Checkout external repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: D-Sketon/reimu-playground
           path: reimu-playground
 
+      - name: Copy files to target directory
+        run: |
+          cp -r reimu/* reimu-playground/themes/reimu
+          cp -r reimu/.git reimu-playground/themes/reimu
+          cd reimu-playground
+
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          working-directory: reimu-playground
           node-version: '18'
 
-      - name: Copy this repository to the external repository's directory
-        run: cp -r ./* reimu-playground/themes/reimu
-
       - name: Change directory to the external repo's root directory
-        working-directory: reimu-playground
         run: |
           npm install
           hexo generate
