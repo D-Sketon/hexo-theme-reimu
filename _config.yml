@@ -165,7 +165,7 @@ gitalk:
   repo:
   owner:
   admin:
-
+  md5: false
 # https://giscus.app/zh-CN
 giscus:
   enable: false
