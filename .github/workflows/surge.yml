@@ -1,4 +1,3 @@
-
 name: Deploy to Surge
 
 on:
@@ -32,7 +31,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Deploy to Surge
         run: |
@@ -40,3 +39,18 @@ jobs:
           npm install
           npx hexo generate
           npx surge --project ./public --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+
+      - name: Send GitHub Bot Notification
+        if: success()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const surgeDomain = process.env.SURGE_DOMAIN;
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `🚀 已经部署在 [${surgeDomain}](${surgeDomain})`
+            });
+        env:
+          SURGE_DOMAIN: ${{ secrets.SURGE_DOMAIN }}
