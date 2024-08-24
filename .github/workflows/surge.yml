@@ -42,9 +42,9 @@ jobs:
 
       - name: Create or update deployment comment
         if: success()
-        uses: peter-evans/create-or-update-comment@v3
+        uses: peter-evans/create-or-update-comment@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             🚀 Deployed on [${{ secrets.SURGE_DOMAIN }}](${{ secrets.SURGE_DOMAIN }})
