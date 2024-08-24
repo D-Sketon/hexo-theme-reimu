@@ -28,15 +28,15 @@ jobs:
       - name: Copy files to target directory
         run: |
           cp -r reimu/* reimu-playground/themes/reimu
-          cd reimu-playground
-          ls
 
       - name: Install Node
         uses: actions/setup-node@v2
+        working-directory: reimu-playground
         with:
           node-version: '18'
 
       - name: Change directory to the external repo's root directory
+        working-directory: reimu-playground
         run: |
           npm install
           hexo generate
