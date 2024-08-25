@@ -242,6 +242,17 @@
   <%- js({src: vendorCdn(theme.vendor.js.live2d.js)[0], onload: "initLive2d && initLive2d()", async: true})%>
 <% } %>
 
+<% if (theme.quicklink.enable) { %>
+  <%- js(vendorCdn(theme.vendor.js.quicklink)) %>
+  <script data-pjax>
+    quicklink.listen({
+      timeout: <%= theme.quicklink.timeout %>,
+      priority: <%= theme.quicklink.priority %>,
+      ignores: <%- JSON.stringify(theme.quicklink.ignores) %>
+    });
+  </script>
+<% } %>
+
 <div id="lazy-script">
   <div>
     <% if (theme.mermaid.enable && page.mermaid) { %>

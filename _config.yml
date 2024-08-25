@@ -252,6 +252,19 @@ pjax:
   enable: false
 
 # Experimental
+# https://github.com/GoogleChromeLabs/quicklink
+quicklink:
+  enable: true
+  # The `requestIdleCallback` timeout, in milliseconds.
+  timeout: 3000
+  # Whether or not the URLs within the options.el container should be treated as high priority.
+  # When true, quicklink will attempt to use the fetch() API if supported (rather than link[rel=prefetch]).
+  priority: true
+  # Determine if a URL should be prefetched.
+  # Only support string
+  ignores: []
+
+# Experimental
 service_worker:
   enable: false
 
@@ -292,6 +305,7 @@ vendor:
       base: fastly_jsdelivr_gh|MliKiowa/plugin-live2d/
       js: fastly_jsdelivr_gh|MliKiowa/plugin-live2d/js/live2d-autoload.js
     md5: webcache|blueimp-md5@2.19.0/js/md5.min.js
+    quicklink: webcache|quicklink@2.3.0/dist/quicklink.umd.js
   css:
     photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.css
     katex: webcache|katex@0.16.9/dist/katex.min.css

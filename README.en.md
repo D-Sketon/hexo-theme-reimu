@@ -296,6 +296,7 @@ gitalk:
   repo: "your repo"
   owner: "repo owner"
   admin: "repo owner and collaborators"
+  md5: false # Whether to use md5 to encrypt the path
 ```
 
 </details>
@@ -533,6 +534,18 @@ content: # true | false Does the copyright card show the author?
   date: # true | false The date the copyrighted card was created?
   updated: # true | false Copyright card show updated date?
   license: # true | false Copyright Card Showcase Agreement?
+```
+
+#### quicklink (v0.2.3+)
+
+Enabled by default
+
+```yaml
+quicklink:
+  enable: true
+  timeout: 3000 # Timeout for quicklink
+  priority: true # Whether to prioritize loading the page
+  ignores: [] # Ignore the specified link, only support string
 ```
 
 </details>

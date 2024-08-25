@@ -295,6 +295,7 @@ gitalk:
   repo: "your repo"
   owner: "repo owner"
   admin: "repo owner and collaborators"
+  md5: false # 是否使用 md5 加密路径
 ```
 
 </details>
@@ -517,6 +518,17 @@ srcset:
     media: "(max-width: 799px)"
   - src: "/images/banner.webp"
     media: "(min-width: 800px)"
+```
+
+#### quicklink（v0.2.3+）
+
+默认开启，打开后可以在用户停留在页面时预加载链接，提高用户体验
+```yml
+quicklink:
+  enable: true
+  timeout: 3000 # 预加载超时时间
+  priority: true # 是否优先加载
+  ignores: [] # 忽略的链接，仅支持字符串
 ```
 
 #### 文章版权声明（v0.2.0+）
