@@ -146,6 +146,9 @@ if sidebar
 @import "_partial/search.styl"
 @import "_partial/card.styl"
 
+if hexo-config("service_worker.enable")
+  @import "_partial/notification.styl"
+  
 if sidebar
   @import "_partial/sidebar"
 

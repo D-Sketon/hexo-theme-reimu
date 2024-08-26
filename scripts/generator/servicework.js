@@ -16,7 +16,6 @@ hexo.extend.generator.register("ServiceWorker", (locals) => {
   "${url_for.call(hexo, "/css/style.css")}",
   "${url_for.call(hexo, "/js/script.js")}",
 ];\n` + content;
-  content = `const swPath = "${url_for.call(hexo, "/sw.js")}";\n` + content;
   return {
     path: "sw.js",
     data: content,

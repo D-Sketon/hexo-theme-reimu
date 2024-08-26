@@ -54,7 +54,11 @@
   });
   // Simple Selector
   window._$ = (selector) => {
-    if (selector.startsWith("#") && !selector.includes(' ') && !selector.includes('.')) {
+    if (
+      selector.startsWith("#") &&
+      !selector.includes(" ") &&
+      !selector.includes(".")
+    ) {
       return document.getElementById(selector.slice(1));
     }
     return document.querySelector(selector);
@@ -115,7 +119,57 @@
         .getElementById("header-nav")
         .classList.remove("header-nav-hidden");
     } else {
-      document.getElementById("header-nav").classList.add("header-nav-hidden");
+      _$("#header-nav").classList.add("header-nav-hidden");
     }
   });
+
+  // service worker
+  if ("serviceWorker" in navigator && window.swPath) {
+    _$("#notification-update-btn").onclick = function () {
+      try {
+        navigator.serviceWorker.getRegistration().then((reg) => {
+          reg.waiting.postMessage("skipWaiting");
+        });
+      } catch (e) {
+        window.location.reload();
+      }
+    };
+
+    function emitUpdate() {
+      _$(".notification-wrapper").classList.add("show");
+    }
+
+    navigator.serviceWorker
+      .register(swPath)
+      .then((registration) => {
+        console.log("Service Worker 注册成功: ", registration);
+        if (registration.waiting) {
+          emitUpdate();
+          return;
+        }
+        registration.onupdatefound = () => {
+          console.log("Service Worker 更新中...");
+          const installingWorker = registration.installing;
+          installingWorker.onstatechange = () => {
+            if (installingWorker.state === "installed") {
+              if (navigator.serviceWorker.controller) {
+                emitUpdate();
+              }
+            }
+          };
+        };
+      })
+      .catch((error) => {
+        console.log("Service Worker 注册失败: ", error);
+      });
+
+    let refreshing = false;
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (refreshing) {
+        return;
+      }
+      refreshing = true;
+      window.location.reload();
+    });
+  }
 })();
