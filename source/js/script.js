@@ -54,7 +54,11 @@
   });
   // Simple Selector
   window._$ = (selector) => {
-    if (selector.startsWith("#") && !selector.includes(' ') && !selector.includes('.')) {
+    if (
+      selector.startsWith("#") &&
+      !selector.includes(" ") &&
+      !selector.includes(".")
+    ) {
       return document.getElementById(selector.slice(1));
     }
     return document.querySelector(selector);
@@ -115,7 +119,7 @@
         .getElementById("header-nav")
         .classList.remove("header-nav-hidden");
     } else {
-      document.getElementById("header-nav").classList.add("header-nav-hidden");
+      _$("#header-nav").classList.add("header-nav-hidden");
     }
   });
 })();

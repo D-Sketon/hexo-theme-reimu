@@ -47,3 +47,9 @@ busuanzi:
   uv: 総閲覧者数
 
 sticky: 固定
+
+service_worker:
+  title: 新しいバージョンが見つかりました
+  content: ウェブサイトに新しいコンテンツがあるようです。更新しますか？
+  confirm: 更新
+  cancel: キャンセル

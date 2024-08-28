@@ -16,11 +16,15 @@ async function cacheRequest(request, options) {
   try {
     const responseToCache = await fetch(request);
     const cache = await caches.open(VERSION);
+    if (!/^https?:$/i.test(new URL(request.url).protocol))
+      return responseToCache;
     cache.put(request, responseToCache.clone());
     return responseToCache;
   } catch (e) {
     const responseToCache = await fetch(request, options);
     const cache = await caches.open(VERSION);
+    if (!/^https?:$/i.test(new URL(request.url).protocol))
+      return responseToCache;
     cache.put(request, responseToCache.clone());
     return responseToCache;
   }
@@ -72,13 +76,9 @@ self.addEventListener("activate", (event) => {
   console.log(`Service Worker ${VERSION} activated.`);
 });
 
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register(swPath)
-    .then((registration) => {
-      console.log("Service Worker 注册成功: ", registration);
-    })
-    .catch((error) => {
-      console.log("Service Worker 注册失败: ", error);
-    });
-}
+self.addEventListener("message", (event) => {
+  console.log("Service Worker: message received");
+  if (event.data === "skipWaiting") {
+    self.skipWaiting();
+  }
+});

@@ -338,3 +338,7 @@
 <% if (theme.footer.busuanzi) { %>
   <%- js({src: vendorCdn(theme.vendor.js.busuanzi)[0], async: true}) %>
 <% } %>
+
+<% if (theme.service_worker.enable) { %>
+  <%- js('js/service_worker.js') %>
+<% } %>
