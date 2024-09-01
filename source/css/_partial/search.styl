@@ -1,5 +1,5 @@
 .popup
-  display: none
+  visibility: hidden
   position: fixed
   top: 10%
   left: 50%
@@ -11,6 +11,14 @@
   color: var(--grey-9)
   z-index: 9999
   border-radius: post-radius
+  opacity: 0
+  transform: scale(0.5)
+  transition: 0.3s
+
+  &.show
+    visibility: visible
+    opacity: 1
+    transform: scale(1)
 
   @media mg-normal
     padding: 5px
@@ -36,20 +44,17 @@
   padding: 0
 
 .popup-btn-close
-  position: absolute
-  right: 15px
   color: var(--red-1)
   font: 20px bold
-  text-transform: uppercase
-  vertical-align: middle
   if reimu_cursor
     cursor: var(--cursor-pointer)
   else
     cursor: pointer
   padding-left: 15px
-  top: 8px
 
 .reimu-search
+  display: flex
+  align-items: center
   padding: 8px 15px
   max-height: 50px
   border-bottom: 1px solid #ccc
@@ -64,8 +69,7 @@
   margin-right: 5px
 
 .reimu-search-input
-  display: inline-block
-  width: calc(90% - 20px)
+  flex: 1
 
   input
     padding: 5px 0
@@ -114,7 +118,7 @@
   &:before
     content: ""
     width: 6px
-    height: 15px
+    height: 12px
     background: var(--color-h2-after)
     display: inline-block
     vertical-align: middle
@@ -126,7 +130,6 @@
     transition: 0.2s
 
   &:hover:before
-    width: 6px
     height: 6px
     border-radius: 50%
     opacity: 1
@@ -143,10 +146,11 @@
     padding: 10px 15px
     color: var(--grey-9)
     text-decoration: none
-    transition: background 0.2s
+    transition: 0.2s
 
     &:hover
       background: var(--red-2)
+      box-shadow: 0 0 6px rgba(255, 78, 106, 0.55)
       color: #fff
 
   .pagination-item
@@ -162,7 +166,7 @@
       color: white
       background: var(--red-1)
       font-weight: bold
-      box-shadow: 0 2px 6px rgba(255, 78, 106, 0.55)
+      box-shadow: 0 0 6px rgba(255, 78, 106, 0.55)
 
   .disabled-item
     display: none
