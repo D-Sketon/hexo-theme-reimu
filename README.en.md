@@ -210,6 +210,19 @@ highlight:
   hljs: false
 ```
 
+The code block also provides a code paste function. Click the copy button in the upper right corner of the code block to copy the code. In the inner `_config.yml`, you can configure the copy function.   
+`success` is the prompt when the copy is successful, and `fail` is the prompt when the copy fails. In addition, you can configure the copyright statement. When the number of characters copied is greater than `count`, the content copied will be followed by the `content` copyright.
+
+```yaml
+clipboard:
+  success: 复制成功(*^▽^*)
+  fail: 复制失败 (ﾟ⊿ﾟ)ﾂ
+  copyright:
+    enable: false
+    count: 50 # The number of characters when the copyright is displayed
+    content: 本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！
+```
+
 </details>
 <details>
 <summary>Site comments</summary>

@@ -209,6 +209,19 @@ highlight:
   hljs: false
 ```
 
+代码块同时提供了代码粘贴功能，点击代码块右上角的复制按钮即可复制代码。在内层 `_config.yml` 中可以对复制功能进行配置。  
+`success` 为复制成功时的提示，`fail` 为复制失败时的提示。此外，可以配置版权声明，当复制的字符数大于 `count` 时会在复制的内容后面添加 `content` 版权声明。
+
+```yaml
+clipboard:
+  success: 复制成功(*^▽^*)
+  fail: 复制失败 (ﾟ⊿ﾟ)ﾂ
+  copyright:
+    enable: false
+    count: 50 # 大于多少字符添加版权声明
+    content: 本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！
+```
+
 </details>
 <details>
 <summary>站内评论</summary>
