@@ -108,9 +108,12 @@ const algoliaHandler = () => {
     .off("click")
     .on("click", (event) => {
       event.stopPropagation();
-      document.body.insertAdjacentHTML("beforeend", '<div class="popoverlay">');
+      document.body.insertAdjacentHTML("beforeend", '<div class="popoverlay"></div>');
+      const scrollWidth = window.innerWidth - document.documentElement.offsetWidth;
+      _$("#container").style.marginRight = scrollWidth + "px";
+      _$("#header-nav").style.marginRight = scrollWidth + "px";
+      _$(".popup").classList.add("show");
       document.body.style.overflow = "hidden";
-      _$(".popup").style.display = "block";
       _$("#reimu-search-input input").focus();
     });
 
@@ -118,8 +121,10 @@ const algoliaHandler = () => {
     .querySelector(".popup-btn-close")
     .off("click")
     .on("click", () => {
-      _$(".popup").style.display = "none";
+      _$(".popup").classList.remove("show");
       _$(".popoverlay").remove();
+      _$("#container").style.marginRight = "";
+      _$("#header-nav").style.marginRight = "";
       document.body.style.overflow = "";
     });
 };
