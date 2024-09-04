@@ -279,8 +279,8 @@ live2d:
 reimu_cursor: true
 
 outdate:
-  enable: true
-  daysAgo: -1 # The number of days after which the article is considered outdated
+  enable: false
+  daysAgo: 180 # The number of days after which the article is considered outdated
   message: 本文最后更新于 {time}，请注意文中内容可能已经发生变化。
 
 icon_font: 4552607_tq6stt6tcg
