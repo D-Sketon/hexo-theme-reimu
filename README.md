@@ -559,6 +559,16 @@ content:
   license: # true | false 版权卡片展示协议？
 ```
 
+#### 过期提醒（v0.2.4+）
+
+默认关闭
+```yml
+outdate:
+  enable: false
+  daysAgo: 180 # 多少天前的文章算过期
+  message: 本文最后更新于 {time}，请注意文中内容可能已经发生变化。
+```
+
 </details>
 
 <details>
