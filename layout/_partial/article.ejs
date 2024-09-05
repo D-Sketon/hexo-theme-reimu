@@ -7,6 +7,9 @@
     <div class="hr-line"></div>
     <%- partial('post/gallery') %>
     <div class="e-content article-entry" itemprop="articleBody">
+      <% if (theme.outdate.enable) { %>
+        <blockquote id="outdate-blockquote" style="display: none;"><p></p></blockquote>
+      <% } %>
       <% if (post.excerpt && index) { %>
         <%- post.excerpt %>
         <% if (theme.excerpt_link) { %>

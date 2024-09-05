@@ -561,6 +561,17 @@ quicklink:
   ignores: [] # Ignore the specified link, only support string
 ```
 
+#### outdate warning (v0.2.4+)
+
+Disabled by default
+
+```yaml
+outdate:
+  enable: false
+  daysAgo: 180 # The number of days after which the article is considered outdated
+  message: 本文最后更新于 {time}，请注意文中内容可能已经发生变化。
+```
+
 </details>
 <details>
 <summary>Vendor</summary>
