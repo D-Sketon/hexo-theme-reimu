@@ -311,8 +311,8 @@ vendor:
     firework: webcache|mouse-firework@0.0.4/dist/index.umd.js
     pjax: webcache|theme-shokax-pjax@0.0.3/dist/index.umd.js
     live2d:
-      base: fastly_jsdelivr_gh|MliKiowa/plugin-live2d/
-      js: fastly_jsdelivr_gh|MliKiowa/plugin-live2d/js/live2d-autoload.js
+      base: fastly_jsdelivr_gh|D-Sketon/plugin-live2d/
+      js: fastly_jsdelivr_gh|D-Sketon/plugin-live2d/js/live2d-autoload.js
     md5: webcache|blueimp-md5@2.19.0/js/md5.min.js
     quicklink: webcache|quicklink@2.3.0/dist/quicklink.umd.js
   css:
