@@ -1,8 +1,5 @@
 .post-link-card-wrap
-  position: relative
   display: flex
-  width: 100%
-  align-items: center
   justify-content: center
   margin: 20px 0
 
@@ -31,8 +28,6 @@
     left: 0
 
 .post-link-card-cover-wrap
-  position: relative
-  overflow: hidden
   height: 66px
   width: 68px
   padding-right: 20px
@@ -63,30 +58,23 @@
 .post-link-card-item-wrap
   display: flex
   flex-direction: column
-  flex-shrink: 5
-  width: 100%
   justify-content: center
-  height: 66px
   overflow: hidden
+
+  div
+    padding: 5px 0
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
 
 .post-link-card-title
   font-size: 18px
   font-weight: 700
-  padding: 5px 0
   color: var(--red-1)
-  text-overflow: ellipsis
-  white-space: nowrap
-  overflow: hidden
-  width: 100%
 
 .post-link-card-excerpt
   font-size: 14px
   color: var(--grey-9)
-  padding: 5px 0
-  text-overflow: ellipsis
-  white-space: nowrap
-  overflow: hidden
-  width: 100%
 
   .icon-link
     font-size: 12px

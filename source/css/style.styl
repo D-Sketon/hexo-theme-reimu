@@ -4,7 +4,7 @@ vendor-prefixes = official
 @import "nib/reset"
 @import "nib/clearfix"
 @import "_variables"
-@import "_util/animation"
+@import "_animation"
 @import "_extend"
 
 if hexo-config("icon_font")
@@ -130,13 +130,13 @@ if sidebar
 @import "_partial/footer"
 @import "_partial/mobile"
 @import "_partial/highlight"
-@import "_partial/widget.styl"
-@import "_partial/friend.styl"
-@import "_partial/search.styl"
-@import "_partial/card.styl"
+@import "_partial/widget"
+@import "_partial/friend"
+@import "_partial/search"
+@import "_partial/card"
 
 if hexo-config("service_worker.enable")
-  @import "_partial/notification.styl"
+  @import "_partial/notification"
   
 if sidebar
   @import "_partial/sidebar"
