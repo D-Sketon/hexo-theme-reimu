@@ -66,6 +66,8 @@
 
 ## 安装
 
+> 纯小白可以直接使用 [reimu-template](https://github.com/D-Sketon/reimu-template)。其中预先安装了 hexo, hexo-theme-reimu 和其他功能包，只需 克隆仓库-安装依赖-修改配置 即可获得一个基本的博客！
+
 使用 npm
 
 ```bash

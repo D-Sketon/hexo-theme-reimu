@@ -67,6 +67,8 @@ See [astro-theme-reimu](https://github.com/D-Sketon/astro-theme-reimu) for the [
 
 ## Installation
 
+> The pure beginner can use [reimu-template](https://github.com/D-Sketon/reimu-template) directly. It comes with hexo, hexo-theme-reimu and other packages pre-installed, so just clone the repository - install dependencies - change the configuration and you've got a basic blog!
+
 Using npm
 
 ```bash
