@@ -43,9 +43,13 @@
     <%- favicon_tag(theme.favicon) %>
   <% } %>
   <%- css('css/style') %>
-  <%- css(vendorCdn(theme.vendor.css.photoswipe)) %>
+  <%- asyncCss(vendorCdn(theme.vendor.css.photoswipe)) %>
   <% if (theme.math.enable) { %>
-    <%- css(vendorCdn(theme.vendor.css.katex)) %>
+    <% if (is_post() || is_page()) { %>
+      <%- css(vendorCdn(theme.vendor.css.katex)) %>
+    <% } else { %>
+      <%- asyncCss(vendorCdn(theme.vendor.css.katex)) %>
+    <% } %>
   <% } %>
   <% if (theme.waline.enable && theme.waline.serverURL) { %>
     <%- css(vendorCdn(theme.vendor.css.waline)) %>

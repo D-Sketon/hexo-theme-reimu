@@ -7,7 +7,12 @@ const algoliaHandler = () => {
     algoliaSettings.indexName;
 
   if (!isAlgoliaSettingsValid) {
-    window.console.error("Algolia Settings are invalid.");
+    console.error("Algolia Settings are invalid.");
+    return;
+  }
+
+  if (!window.instantsearch) {
+    console.error("Algolia InstantSearch is not loaded.");
     return;
   }
 
