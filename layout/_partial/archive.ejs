@@ -23,21 +23,19 @@
     <% var year = post.date.year(); %>
     <% if (last != year) { %>
       <% if (last != null) { %>
-        </div></section>
+        </section>
       <% } %>
       <% last = year; %>
       <section class="archives-wrap wow fadeInUp">
         <div class="archive-year-wrap">
           <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
         </div>
-        <div class="archives">
-          <ul>
-            <% } %>
-            <%- partial('archive-post', {post: post, even: i % 2 === 0}) %>
-            <% }) %>
-            <% if (page.posts.length) { %>
-          </ul>
-        </div>
+        <ul>
+          <% } %>
+          <%- partial('archive-post', {post: post, even: i % 2 === 0}) %>
+          <% }) %>
+          <% if (page.posts.length) { %>
+        </ul>
       </section>
   <% } %>
   </div>

@@ -6,53 +6,30 @@
   height: 100%
 
 $post-wrap
-  width: 100%
   height: 230px
   margin-bottom: 40px
   position: relative
   border-radius: post-radius
   background: var(--color-wrap)
   display: flex
-  flex-direction: row
   transition: .3s
 
   @media mq-normal
     &:hover
       transform: scale(1.015)
-
-      &:before
-        opacity: .8
+      box-shadow: 0 0 10px 3px rgba(0, 0, 0, .1)
 
       img
-        transition: .3s
         transform: scale(1.05)
-
-    &:before
-      content: ""
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
-      height: 100%
-      border-radius: post-radius
-      box-shadow: 0 0 10px 3px rgba(0, 0, 0, .1)
-      opacity: 0
-      transition: .3s
-
 
 [data-theme="dark"] .post-wrap-left, [data-theme="dark"] .post-wrap-right
   box-shadow: 0 0 10px 3px var(--color-hover-shadow)
 
-.post-wrap-left
-  @extend $post-wrap
-
-  @media mg-normal
-    flex-direction: column
-    height: 400px
-
 .post-wrap-right
-  @extend $post-wrap
   flex-direction: row-reverse
+
+.post-wrap-left, .post-wrap-right
+  @extend $post-wrap
 
   @media mg-normal
     flex-direction: column
@@ -62,7 +39,6 @@ $post-wrap
   height: 100%
   width: 100%
   padding: 20px
-  overflow: hidden
   box-sizing: border-box
 
 .post-meta
@@ -85,7 +61,6 @@ $post-wrap
       margin: 0
 
 .post-article
-  width: 100%
   display: -webkit-box
   -webkit-box-orient: vertical
   -webkit-line-clamp: 3
@@ -151,8 +126,6 @@ $post-cover
   padding: 20px 0
   color: var(--color-link)
   font-size: 25px
-  font-weight: bold
-  text-decoration: none
   letter-spacing: 1px
   white-space: nowrap
   overflow: hidden
@@ -172,7 +145,6 @@ $post-cover
   font-weight: bold
   font-size: 15px
   z-index: 1
-  opacity: 1
   transition: .3s
 
   &:before
