@@ -1,13 +1,9 @@
 font-icon = "iconfont"
 id = hexo-config("icon_font")
 _a = '//at.alicdn.com/t/c/font_' + id + '.woff2'
-_b = '//at.alicdn.com/t/c/font_' + id + '.woff'
-_c = '//at.alicdn.com/t/c/font_' + id + '.ttf'
 @font-face
   font-family: font-icon;
-  src: url(_a) format('woff2'),
-       url(_b) format('woff'),
-       url(_c) format('truetype');
+  src: url(_a) format('woff2');
   font-display: swap;
 
 .tag-wrap

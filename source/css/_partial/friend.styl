@@ -1,5 +1,4 @@
 .friend-wrap
-  width: 100%
   display: flex
   flex-wrap: wrap
   margin-bottom: 30px
@@ -66,22 +65,18 @@
 
   div
     margin: 10px 0
+    overflow: hidden
+    text-overflow: ellipsis
 
 .friend-name
   color: var(--red-2)
   font-size: 18px
   font-weight: bold
-  text-overflow: ellipsis
   white-space: nowrap
-  width: 100%
-  overflow: hidden
 
 .friend-desc
   color: var(--grey-9)
   font-size: 14px
-  text-overflow: ellipsis
   -webkit-line-clamp: 2
   display: -webkit-box
   -webkit-box-orient: vertical
-  width: 100%
-  overflow: hidden

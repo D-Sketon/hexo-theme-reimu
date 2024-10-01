@@ -4,8 +4,7 @@ vendor-prefixes = official
 @import "nib/reset"
 @import "nib/clearfix"
 @import "_variables"
-@import "_util/grid"
-@import "_util/animation"
+@import "_animation"
 @import "_extend"
 
 if hexo-config("icon_font")
@@ -33,7 +32,6 @@ html, body, #container
     cursor: var(--cursor-default)
 
 body
-  clearfix()
   width: 100%
   background: var(--color-background)
   -webkit-text-size-adjust: 100%
@@ -61,25 +59,6 @@ if reimu_cursor
     nav
       span
         cursor: var(--cursor-default) !important
-
-.outer
-  clearfix()
-  max-width: (column-width + gutter-width) * columns + gutter-width
-  margin: 0 auto
-  padding: 0
-  overflow: hidden
-
-.inner
-  column(columns)
-
-.left
-  float: left
-
-.right
-  float: right
-
-.clear
-  clear: both
 
 #container
   position: relative
@@ -110,15 +89,16 @@ if reimu_cursor
   display: flex
   padding-top: 5px
   align-items: stretch
-
-  &.outer
-    overflow: visible
+  max-width: 1220px;
+  margin: 0 auto;
+  overflow: visible;
 
 if sidebar
   #main
     @media mq-large
       padding: 0
-      column(main-column)
+      width: 73%
+      margin: 0 1%
 
 #mask
   display: none
@@ -141,13 +121,13 @@ if sidebar
 @import "_partial/footer"
 @import "_partial/mobile"
 @import "_partial/highlight"
-@import "_partial/widget.styl"
-@import "_partial/friend.styl"
-@import "_partial/search.styl"
-@import "_partial/card.styl"
+@import "_partial/widget"
+@import "_partial/friend"
+@import "_partial/search"
+@import "_partial/card"
 
 if hexo-config("service_worker.enable")
-  @import "_partial/notification.styl"
+  @import "_partial/notification"
   
 if sidebar
   @import "_partial/sidebar"
