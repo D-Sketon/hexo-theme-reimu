@@ -1,10 +1,10 @@
 <% if (post.categories && post.categories.length) { %>
-  <div class="article-category wow slideInLeft">
-    <%- list_categories(post.categories, {
-              show_count: false,
-              class: 'article-category',
-              style: 'none',
-              separator: ''
-            }) %>
+  <div class="article-category">
+    <%- listCategories(post.categories, {
+      show_count: false,
+      class: 'article-category',
+      style: 'none',
+      separator: ''
+    }, "zoom-in") %>
   </div>
 <% } %>

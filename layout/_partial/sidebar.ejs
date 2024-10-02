@@ -1,5 +1,5 @@
 <aside id="sidebar">
-  <div class="sidebar-wrap wow fadeInRight <% if (is_post()) { %>wrap-sticky<% } %>">
+  <div class="sidebar-wrap <% if (is_post()) { %>wrap-sticky<% } %>" data-aos="fade-up">
     <% if (is_post()) { %>
       <div class="sidebar-toc-sidebar"><%- partial('sidebar/toc-sidebar') %></div>
       <div class="sidebar-common-sidebar hidden"><%- partial('sidebar/common-sidebar') %></div>

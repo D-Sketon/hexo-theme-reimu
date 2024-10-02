@@ -3,6 +3,25 @@
 
 <%- js('js/script.js') %>
 
+<% if (theme.animation.enable) { %>
+  <%- js('js/aos.js') %>
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+<% } %>
+
 <%- js({src: 'js/pjax_script.js', 'data-pjax': true}) %>
 
 <script type="module" data-pjax>

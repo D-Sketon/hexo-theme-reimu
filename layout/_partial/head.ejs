@@ -59,14 +59,6 @@
   <% } %>
   <%- js(vendorCdn(theme.vendor.js.pace)) %>
   <% if (theme.animation.enable) { %>
-    <%- css(vendorCdn(theme.vendor.css.animate)) %>
-    <%- js(vendorCdn(theme.vendor.js.wow)) %>
-    <script>
-      new WOW({
-        offset: 0,
-        mobile: true,
-        live: false
-      }).init();
-    </script>
+    <%- css(vendorCdn(theme.vendor.css.aos)) %>
   <% } %>
 </head>
