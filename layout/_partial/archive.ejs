@@ -6,14 +6,14 @@
 <div class="archives-outer-wrap" data-aos="fade-up">
   <div class="tag-wrap">
     <% site.tags.each((tag, i) => { %>
-      <div class="archives-tag-list-item">
+      <div class="archives-tag-list-item" data-aos="zoom-in">
         <a class="archives-tag-list-link" href="/<%= tag.path %>"><%= tag.name %></a>
       </div>
     <% }) %>
   </div>
   <div class="category-wrap">
     <% site.categories.each((cagetory, i) => { %>
-      <div class="archives-category-list-item">
+      <div class="archives-category-list-item" data-aos="zoom-in">
         <a class="archives-category-list-link" href="/<%= cagetory.path %>"><%= cagetory.name %></a>
       </div>
     <% }) %>
