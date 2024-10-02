@@ -1,8 +1,10 @@
 <% if (site.posts.length) { %>
-  <div class="widget-wrap" data-aos="fade-up">
-    <h3 class="widget-title"><%= __('archive_a') %></h3>
-    <div class="widget">
-      <%- list_archives({show_count: theme.show_count, type: theme.archive_type}) %>
+  <div class="widget-wrapper">
+    <div class="widget-wrap" data-aos="fade-up">
+      <h3 class="widget-title"><%= __('archive_a') %></h3>
+      <div class="widget">
+        <%- list_archives({show_count: theme.show_count, type: theme.archive_type}) %>
+      </div>
     </div>
   </div>
 <% } %>

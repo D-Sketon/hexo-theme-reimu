@@ -1,8 +1,10 @@
 <% if (site.tags.length) { %>
-  <div class="widget-wrap" data-aos="fade-up">
-    <h3 class="widget-title"><%= __('tagcloud') %></h3>
-    <div class="widget tagcloud">
-      <%- tagcloud() %>
+  <div class="widget-wrapper">
+    <div class="widget-wrap" data-aos="fade-up">
+      <h3 class="widget-title"><%= __('tagcloud') %></h3>
+      <div class="widget tagcloud">
+        <%- tagcloud() %>
+      </div>
     </div>
   </div>
 <% } %>

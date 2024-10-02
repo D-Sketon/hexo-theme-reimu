@@ -6,6 +6,7 @@
   height: 100%
 
 $post-wrap
+  width: 100%
   height: 230px
   margin-bottom: 40px
   position: relative
@@ -14,6 +15,11 @@ $post-wrap
   display: flex
   transition: .3s
 
+[data-theme="dark"] .post-wrap-left, [data-theme="dark"] .post-wrap-right
+  box-shadow: 0 0 10px 3px var(--color-hover-shadow)
+
+.post-wrapper
+  transition: .3s
   @media mq-normal
     &:hover
       transform: scale(1.015)
@@ -21,9 +27,6 @@ $post-wrap
 
       img
         transform: scale(1.05)
-
-[data-theme="dark"] .post-wrap-left, [data-theme="dark"] .post-wrap-right
-  box-shadow: 0 0 10px 3px var(--color-hover-shadow)
 
 .post-wrap-right
   flex-direction: row-reverse

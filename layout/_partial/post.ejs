@@ -1,4 +1,5 @@
 <% if (even === true) { %>
+  <div class="post-wrapper">
   <div class="post-wrap-left" data-aos="fade-up">
     <% if (post.link) { %>
       <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url" target="_blank" aria-label="<%= post.title %>"></a>
@@ -36,7 +37,9 @@
       </article>
     </div>
   </div>
+  </div>
 <% } else { %>
+  <div class="post-wrapper">
   <div class="post-wrap-right" data-aos="fade-up">
     <% if (post.link) { %>
     <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url" target="_blank" aria-label="<%= post.title %>"></a>
@@ -70,5 +73,6 @@
         <% } %>
       </article>
     </div>
+  </div>
   </div>
 <% } %>

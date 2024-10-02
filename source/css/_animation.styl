@@ -22,8 +22,9 @@ vendors = official
   100%
     transform: translateX(-100px)
 
-body [data-aos='fade-up'] 
-  transform: translate3d(0, 30px, 0)
+if hexo-config("animation.enable")
+  body [data-aos='fade-up'] 
+    transform: translate3d(0, 30px, 0)
 
-body [data-aos='zoom-in'] 
-  transform: scale(0.8)
+  body [data-aos='zoom-in'] 
+    transform: scale(0.8)

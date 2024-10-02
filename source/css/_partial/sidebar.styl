@@ -12,6 +12,12 @@
 [data-theme="dark"] #mobile-nav .sidebar-wrap
   box-shadow: 0 0 0 0
 
+.sidebar-wrapper
+  transition: .3s
+  &:hover
+    transform: scale(1.015)
+    box-shadow: 0 0 10px 3px var(--color-hover-shadow)
+
 .sidebar-wrap
   width: 100%
   border-radius: post-radius
@@ -29,14 +35,6 @@
   &.wrap-sticky
     position: sticky
     top: 5px
-
-  &:hover
-    transform: scale(1.015)
-    box-shadow: 0 0 10px 3px var(--color-hover-shadow)
-
-  #mobile-nav &:hover
-    transform: scale(1)
-    box-shadow: 0 0 0 0
 
 .sidebar-author
   display: flex
