@@ -71,6 +71,13 @@
     }, 1000);
   });
 
+  // clear clipboard when pjax:send
+  if (window.Pjax) {
+    window.addEventListener("pjax:send", () => {
+      clipboard.destroy();
+    }, { once: true });
+  }
+
   // 代码收缩
   _$$(".code-expand").forEach((element) => {
     element.off("click").on("click", function () {

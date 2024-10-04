@@ -122,4 +122,10 @@
       _$("#header-nav").classList.add("header-nav-hidden");
     }
   });
+
+  if (window.Pace) {
+    Pace.on('done', function () {
+      Pace.sources[0].elements = [];
+    });
+  }
 })();

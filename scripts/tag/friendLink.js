@@ -40,7 +40,7 @@ const loadFile = (arg) => {
 };
 
 const insertHtml = (load) => {
-  let content = `<div class="friend-wrap wow fadeInUp">`;
+  let content = `<div class="friend-wrap" data-aos="zoom-in">`;
   load.forEach((item) => {
     if (!item.name || !item.url) return;
     content += template(item);
