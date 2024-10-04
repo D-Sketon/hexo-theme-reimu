@@ -51,6 +51,10 @@
   else
     cursor: pointer
   padding-left: 15px
+  transition: 0.3s
+
+  &:hover
+    opacity: .8
 
 .reimu-search
   display: flex
@@ -93,7 +97,10 @@
   overflow: auto
   padding: 10px 30px
   box-sizing: border-box
-  height: calc(100% - 50px)
+  max-height: calc(100% - 50px)
+
+  @media mq-normal
+    min-height: 300px
 
   hr
     margin: 10px 0
@@ -107,6 +114,10 @@
 #reimu-hits
   margin-top: 10px
   margin-left: 10px
+
+  mark
+    background: var(--red-1)
+    color: white
 
 .reimu-hit-item-link
   display: block
@@ -136,7 +147,6 @@
 
 .reimu-pagination
   margin: 10px auto
-  background: var(--color-wrap)
   border-radius: post-radius
   text-align: center
   color: var(--grey-9)
@@ -171,3 +181,10 @@
   .disabled-item
     display: none
 
+
+.reimu-bg
+  position: absolute
+  right: 0
+  bottom: 0
+  z-index: -1
+  opacity: .5
