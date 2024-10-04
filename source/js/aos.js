@@ -4,9 +4,7 @@ var debounce = (func, delay) => {
   let timeoutId;
 
   return (...args) => {
-    if (timeoutId) {
-      clearTimeout(timeoutId);
-    }
+    clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
       func.apply(this, args);
     }, delay);
@@ -14,8 +12,7 @@ var debounce = (func, delay) => {
 };
 
 var throttle = (func, limit) => {
-  let lastFunc;
-  let lastRan;
+  let lastFunc, lastRan;
 
   return (...args) => {
     const context = this;
@@ -34,6 +31,7 @@ var throttle = (func, limit) => {
 
 var __aosScrollHandler;
 var __aosResizeHandler;
+var __observer;
 
 (() => {
   let options = {
@@ -50,19 +48,19 @@ var __aosResizeHandler;
   let $aosElements = [];
   let initialized = false;
 
-  const getOffset = function (el) {
-    let _x = 0;
-    let _y = 0;
+  const getOffset = (el) => {
+    let left = 0;
+    let top = 0;
 
-    while (el && !isNaN(el.offsetLeft) && !isNaN(el.offsetTop)) {
-      _x += el.offsetLeft - (el.tagName != "BODY" ? el.scrollLeft : 0);
-      _y += el.offsetTop - (el.tagName != "BODY" ? el.scrollTop : 0);
+    while (el) {
+      left += el.offsetLeft - (el.tagName != "BODY" ? el.scrollLeft : 0);
+      top += el.offsetTop - (el.tagName != "BODY" ? el.scrollTop : 0);
       el = el.offsetParent;
     }
 
     return {
-      top: _y,
-      left: _x,
+      top,
+      left,
     };
   };
 
@@ -75,25 +73,21 @@ var __aosResizeHandler;
   };
 
   const observe = (fn) => {
-    let callback = fn;
-    const observer = new MutationObserver((mutations) => {
-      if (!mutations) return;
+    __observer?.disconnect();
 
-      mutations.forEach((mutation) => {
-        const addedNodes = [...mutation.addedNodes];
-        const removedNodes = [...mutation.removedNodes];
-        const allNodes = [...addedNodes, ...removedNodes];
-
-        if (containsAOSNode(allNodes)) {
-          return callback();
-        }
-      });
+    __observer = new MutationObserver((mutations) => {
+      if (
+        mutations?.some(({ addedNodes, removedNodes }) =>
+          containsAOSNode([...addedNodes, ...removedNodes])
+        )
+      ) {
+        fn();
+      }
     });
 
-    observer.observe(window.document.documentElement, {
+    __observer.observe(document.documentElement, {
       childList: true,
       subtree: true,
-      removedNodes: true,
     });
   };
 
@@ -108,7 +102,7 @@ var __aosResizeHandler;
   };
 
   const handleScroll = ($elements, once) => {
-    const threshold = window.innerHeight + window.pageYOffset;
+    const threshold = window.innerHeight + window.scrollY;
     $elements.forEach((el) => setState(el, threshold, once));
   };
 
@@ -122,12 +116,12 @@ var __aosResizeHandler;
       anchorPlacement: el.getAttribute("data-aos-anchor-placement"),
     };
 
-    if (attrs.offset && !isNaN(attrs.offset)) {
+    if (attrs.offset) {
       additionalOffset = parseInt(attrs.offset);
     }
 
-    if (attrs.anchor && _$$(attrs.anchor)) {
-      el = _$$(attrs.anchor)[0];
+    if (attrs.anchor) {
+      el = _$(attrs.anchor) || el;
     }
 
     elementOffsetTop = getOffset(el).top;
@@ -162,7 +156,7 @@ var __aosResizeHandler;
         break;
     }
 
-    if (!attrs.anchorPlacement && !attrs.offset && !isNaN(optionalOffset)) {
+    if (!attrs.anchorPlacement && !attrs.offset) {
       additionalOffset = optionalOffset;
     }
 
@@ -206,6 +200,7 @@ var __aosResizeHandler;
         node.removeAttribute("data-aos-duration");
         node.removeAttribute("data-aos-delay");
       });
+      return;
     }
     document.body.setAttribute("data-aos-easing", options.easing);
     document.body.setAttribute("data-aos-duration", options.duration);
@@ -225,7 +220,7 @@ var __aosResizeHandler;
         refresh(true);
       });
     }
-    
+
     if (__aosResizeHandler) {
       window.off("resize", __aosResizeHandler);
       window.off("orientationchange", __aosResizeHandler);

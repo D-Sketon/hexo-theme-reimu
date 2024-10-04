@@ -327,4 +327,4 @@ vendor:
         - webcache|@fortawesome/fontawesome-free@6.5.1/css/brands.min.css
         - webcache|@fortawesome/fontawesome-free@6.5.1/css/v5-font-face.min.css
         - webcache|@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css
-    aos: webcache|aos@2.3.4/dist/aos.css
+    aos: webcache|@reimujs/aos@0.0.1/dist/aos.css
