@@ -19,5 +19,6 @@ hexo.extend.helper.register("articleCopyright", (post) => {
     ${date ? dateDom : ""}
     ${updated ? updatedDom : ""}
     ${license ? licenseDom : ""}
+    ${license ? '<span class="icon-creative-commons article-copyright-bg"></span>' : ""}
   </blockquote>`;
 });
