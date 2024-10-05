@@ -43,7 +43,7 @@
     <div id="header-title">
       <% if (post.type == '404') { %>
         <a href="/" id="logo">
-          <h1><%= __("not_found.title") %></h1>
+          <h1 data-aos="slide-up"><%= __("not_found.title") %></h1>
         </a>
       <% } else { %>
         <% var title;
@@ -60,7 +60,7 @@
             } %>
         <% if (title) { %>
           <a href="<%- url_for() %>" id="logo">
-            <h1><%= title %></h1>
+            <h1 data-aos="slide-up"><%= title %></h1>
           </a>
         <% } %>
       <% } %>
@@ -81,7 +81,7 @@
             } else if (theme.subtitle || config.subtitle) {
               subtitle = theme.subtitle || config.subtitle;
             } %>
-        <h2 id="subtitle-wrap">
+        <h2 id="subtitle-wrap" data-aos="slide-down">
           <% if (subtitle) { %>
             <a href="<%- url_for() %>" id="subtitle"><%= subtitle %></a>
           <% } %>

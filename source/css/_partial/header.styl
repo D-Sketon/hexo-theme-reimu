@@ -1,4 +1,5 @@
 #header
+  min-height: 400px
   height: banner-height
   position: relative
 
@@ -108,7 +109,7 @@ $nav-link
   color: var(--red-0)
   opacity: 0.8
   text-decoration: none
-  transition: opacity 0.2s
+  transition: 0.2s
   padding: 20px 15px
 
 $nav-link-wrap
@@ -132,6 +133,10 @@ $nav-link-wrap
   font-size: font-size
   width: font-size
   height: font-size
+  will-change: transform
+  &:hover
+    opacity: 1
+    transform: scale(1.1)
 
 [data-theme="dark"]
   .main-nav-link, .nav-icon, .main-nav-link-wrap

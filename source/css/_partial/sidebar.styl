@@ -54,6 +54,11 @@
     object-fit: cover
     margin: 20px
     box-shadow: 0 0 15px 5px rgba(255, 0, 0, .2)
+    will-change: transform
+    transition: .3s
+
+    &:hover
+      transform: scale(1.05)
 
   img.lazyloaded
     opacity: 1
