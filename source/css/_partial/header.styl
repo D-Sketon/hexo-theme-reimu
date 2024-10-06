@@ -144,12 +144,11 @@ $nav-link-wrap
 
 .main-nav-link-wrap
   @extend $nav-link-wrap
-  @media mq-mobile
+  @media mg-normal
     display: none
 
-  &:hover .main-nav-icon
-    transition: transform 1s
-    transform: rotate(360deg)
+  &:hover .main-nav-icon:before
+    transform: rotate(90deg) scale(1.1)
 
 .main-nav-link
   @extend $nav-link
@@ -157,19 +156,26 @@ $nav-link-wrap
 
 .main-nav-icon
   @extend $nav-link
-  background: url("../images/taichi.png") no-repeat center / 80%
-  transform: rotate(0deg)
-  transition: transform 1s
-  will-change: transform
+  // background: url("../images/taichi.png") no-repeat center / 80%
   if reimu_cursor
     cursor: var(--cursor-pointer)
   else
     cursor: pointer
+  padding: 15px 5px
+  display: flex
+  align-items: center
+
+  &:before
+    font-size: 24px
+    font-weight: 400
+    transform: rotate(90deg)
+    transition: transform 0.3s
+    will-change: transform
 
 #main-nav-toggle
   display: none
 
-  @media mg-large
+  @media mg-normal
     display: block
 
 #sub-nav

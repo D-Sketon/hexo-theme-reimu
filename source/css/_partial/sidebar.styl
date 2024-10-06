@@ -53,7 +53,7 @@
     opacity: 0
     object-fit: cover
     margin: 20px
-    box-shadow: 0 0 15px 5px rgba(255, 0, 0, .2)
+    box-shadow: 0 0 15px 5px rgba(255, 78, 106, 0.55)
     will-change: transform
     transition: .3s
 
@@ -88,7 +88,7 @@ $sidebar-state-content
   justify-content: center
   padding: 25px 0
   color: var(--red-0)
-  opacity: .6
+  opacity: .7
   transition: opacity .5s
 
   &:hover
@@ -96,14 +96,14 @@ $sidebar-state-content
 
   .sidebar-state-article
     @extend $sidebar-state-content
-    border-right: 1px solid rgba(255, 0, 0, .5)
+    border-right: 1px solid var(--red-1)
 
   .sidebar-state-category
     @extend $sidebar-state-content
 
   .sidebar-state-tag
     @extend $sidebar-state-content
-    border-left: 1px solid rgba(255, 0, 0, .5)
+    border-left: 1px solid var(--red-1)
 
   .sidebar-state-number
     font-weight bold
@@ -130,7 +130,10 @@ $sidebar-state-content
   align-items: center
   width: 36px
   height: 25px
-  font: 20px font-icon
+  if hexo-config("icon_font")
+    font: 20px font-icon
+  else
+    font: 20px var(--font-icon)
   transition: transform .2s
   will-change: transform
 
@@ -216,13 +219,13 @@ $sidebar-state-content
   color: #171a21
 
 $menu-link
-  color: var(--red-0)
+  color: var(--color-link)
   opacity: 0.8
   text-decoration: none
-  text-shadow: 0 1px rgba(0, 0, 0, 0.2)
   transition: opacity .2s
   display: block
   padding: 10px 15px
+  font-weight: 700
 
 .sidebar-menu
   margin: 20px 0
@@ -234,23 +237,29 @@ $menu-link
   position: relative
 
   justify-content: center
-  border: 10px rgba(255, 0, 0, .3) double
-  border-radius: 10px
+  border: 10px rgba(255, 88, 88, 0.3) double
   transition: border .5s
 
   &:hover
     border: 10px var(--color-h2-after) double
 
-  &:hover .sidebar-menu-icon
-    transform: rotate(360deg)
+  &:hover .sidebar-menu-icon:before
+    transform: rotate(90deg) scale(1.1)
 
 .sidebar-menu-icon
   @extend $menu-link
-  background: url("../images/taichi.png") no-repeat center / 80%
-  transform: rotate(0deg)
-  transition: transform 1s
+  // background: url("../images/taichi.png") no-repeat center / 80%
+  &:before
+    font-size: 24px
+    font-weight: 400
+    transform: rotate(90deg)
+    transition: transform .3s
+    will-change: transform
+
   pointer-events: none
-  will-change: transform
+  padding: 5px 5px
+  display: flex
+  align-items: center
 
 .sidebar-menu-link-dummy
   position: absolute
@@ -266,7 +275,7 @@ $menu-link
 .link-active
   background: var(--red-0)
   border: 10px var(--color-wrap) double
-  box-shadow: 0 0 10px 3px rgba(255, 0, 0, .3)
+  box-shadow: 0 0 10px 3px rgba(255, 78, 106, 0.55)
   opacity: 0.8
 
   &:hover
@@ -278,7 +287,8 @@ $menu-link
 
   .sidebar-menu-icon
     opacity: 1
-    background: url("../images/taichi-fill.png") no-repeat center / 80%
+    color: #fff
+    // background: url("../images/taichi-fill.png") no-repeat center / 80%
 
 .sidebar-top
   position: fixed
