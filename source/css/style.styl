@@ -28,6 +28,7 @@ input, button
 
 html, body, #container
   height: 100%
+  scroll-behavior: smooth
   if reimu_cursor
     cursor: var(--cursor-default)
 
@@ -123,8 +124,11 @@ if sidebar
 @import "_partial/highlight"
 @import "_partial/widget"
 @import "_partial/friend"
-@import "_partial/search"
 @import "_partial/card"
+@import "_partial/top"
+
+if hexo-config("algolia_search.enable") or hexo-config("generator_search.enable")
+  @import "_partial/search"
 
 if hexo-config("service_worker.enable")
   @import "_partial/notification"
