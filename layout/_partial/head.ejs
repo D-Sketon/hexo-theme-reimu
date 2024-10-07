@@ -54,10 +54,18 @@
     <% } %>
   <% } %>
   <% if (theme.waline.enable && theme.waline.serverURL) { %>
-    <%- css(vendorCdn(theme.vendor.css.waline)) %>
+    <% if (is_post() || is_page()) { %>
+      <%- css(vendorCdn(theme.vendor.css.waline)) %>
+    <% } else { %>
+      <%- asyncCss(vendorCdn(theme.vendor.css.waline)) %>
+    <% } %>
   <% } %>
   <% if (theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret) { %>
-    <%- css(vendorCdn(theme.vendor.css.gitalk)) %>
+    <% if (is_post() || is_page()) { %>
+      <%- css(vendorCdn(theme.vendor.css.gitalk)) %>
+    <% } else { %>
+      <%- asyncCss(vendorCdn(theme.vendor.css.gitalk)) %>
+    <% } %>
   <% } %>
   <%- js(vendorCdn(theme.vendor.js.pace)) %>
   <% if (theme.animation.enable) { %>
