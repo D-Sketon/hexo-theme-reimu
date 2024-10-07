@@ -13,9 +13,14 @@
 
 .widget-wrapper
   transition: .3s
+
+  .aos-animate
+    transition: .3s !important
+    &:hover
+      box-shadow: 0 0 10px 3px var(--color-hover-shadow)
+
   &:hover
     transform: scale(1.015)
-    box-shadow: 0 0 10px 3px var(--color-hover-shadow)
 
 .widget-title
   text-transform: uppercase

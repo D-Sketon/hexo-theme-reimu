@@ -14,9 +14,14 @@
 
 .sidebar-wrapper
   transition: .3s
+
+  .aos-animate
+    transition: .3s !important
+    &:hover
+      box-shadow: 0 0 10px 3px var(--color-hover-shadow)
+
   &:hover
     transform: scale(1.015)
-    box-shadow: 0 0 10px 3px var(--color-hover-shadow)
 
   &.wrap-sticky
     position: sticky
@@ -433,6 +438,7 @@ $siderbar-btn-icon
   border-radius: post-radius
   margin: 20px
   transition: .3s
+  will-change: transform
 
   &:hover
     transform: scale(1.05)
@@ -451,10 +457,7 @@ $siderbar-btn-icon
   .current
     background: var(--red-1)
 
-  .sidebar-toc-btn
-    @extend $siderbar-btn-icon
-
-  .sidebar-common-btn
+  .sidebar-toc-btn, .sidebar-common-btn
     @extend $siderbar-btn-icon
 
 .sidebar-common-sidebar

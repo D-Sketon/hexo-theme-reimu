@@ -22,14 +22,17 @@ $post-wrap
   border-radius: post-radius
   transition: .3s
 
+  .aos-animate
+    transition: .3s !important
+    @media mq-normal
+      &:hover
+        box-shadow: 0 0 10px 3px var(--color-hover-shadow)
   img
     will-change: transform
 
   @media mq-normal
     &:hover
-      transform: scale(1.015)
-      box-shadow: 0 0 10px 3px rgba(0, 0, 0, .1)
-
+      transform: scale(1.01)
       img
         transform: scale(1.05)
 
