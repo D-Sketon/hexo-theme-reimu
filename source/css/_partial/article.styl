@@ -1,9 +1,9 @@
 .hr-line
   margin: 10px article-padding + 15px
   opacity: 0.3
-  height: 2px
+  height: 4px
   background-image: linear-gradient(to right, var(--red-0) 50%, transparent 0%)
-  background-size: 25px 2px
+  background-size: 50px 4px
   background-repeat: repeat-x
   filter: drop-shadow(0px 0px 2px red)
   transition: opacity 0.3s
@@ -142,7 +142,10 @@ $article-meta-tag
     border-radius: post-radius
     transition: 0.3s
     padding: 1px 10px
-    box-shadow: 0 0 5px 3px var(--color-meta-shadow)
+    box-shadow: 0 0 5px 2px var(--color-meta-shadow)
+
+    &:hover
+      box-shadow: 0 0 6px 6px var(--color-meta-shadow)
 
     footer
       font-size: font-size
@@ -211,16 +214,21 @@ $article-meta-tag
   font-size: 14px
   margin: 0 article-padding + 15px article-padding
 
+  &:hover
+    &:before
+      opacity: 0.5
+
   &:before
     content: ""
     display: block
     margin-top: 10px
     opacity: 0.3
-    height: 2px
+    height: 4px
     background-image: linear-gradient(to right, var(--red-0) 50%, transparent 0%)
-    background-size: 25px 2px
+    background-size: 50px 4px
     background-repeat: repeat-x
     filter: drop-shadow(0px 0px 2px red)
+    transition: .3s
 
   a
     text-decoration: none

@@ -32,7 +32,9 @@
   <% } else { %>
     <link rel="preload" href="//at.alicdn.com/t/c/font_<%- theme.icon_font %>.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <% } %>
-  <%- css('css/loader') %>
+  <% if (theme.preloader.enable) { %>
+    <%- css('css/loader') %>
+  <% } %>
   <%- open_graph({twitter_id: theme.twitter, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
   <% if (config.feed) { %>
     <%- feed_tag() %>

@@ -1,5 +1,5 @@
 <article id="<%= post.layout %>-<%= post.slug %>" class="h-entry article article-type-<%= post.layout %>" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
+  <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
       <%- partial('post/category') %>
@@ -24,20 +24,20 @@
     <footer class="article-footer">
       <%- articleCopyright(post) %>
       <% if (post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
-        <a href="<%- url_for(post.path) %>#comments" class="article-comment-link">
+        <a data-aos="zoom-in" href="<%- url_for(post.path) %>#comments" class="article-comment-link">
           <span class="post-comments-count valine-comment-count" data-xid="<%- url_for(post.path, {relative: false}).endsWith("index.html") ? 
                         url_for(post.path, {relative: false}).slice(0, -10) : url_for(post.path, {relative: false})%>" itemprop="commentCount"></span>
           <%= __('comment') %>
         </a>
       <% } %>
       <% if (post.comments !== false && theme.waline.enable && theme.waline.serverURL) { %>
-        <a href="<%- url_for(post.path) %>#comments" class="article-comment-link">
+        <a data-aos="zoom-in" href="<%- url_for(post.path) %>#comments" class="article-comment-link">
           <span class="post-comments-count waline-comment-count" data-path="<%- url_for(post.path, {relative: false}) %>" itemprop="commentCount"></span>
           <%= __('comment') %>
         </a>
       <% } %>
       <% if (post.comments !== false && theme.twikoo.enable && theme.twikoo.envId) { %>
-        <a href="<%- url_for(post.path) %>#comments" class="article-comment-link">
+        <a data-aos="zoom-in" href="<%- url_for(post.path) %>#comments" class="article-comment-link">
           <span class="post-comments-count twikoo-comment-count" data-path="<%- url_for(post.path, {relative: false}) %>" itemprop="commentCount"></span>
           <%= __('comment') %>
         </a>
@@ -57,7 +57,7 @@
         </script>
       <% } %>
       <% if (post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey && theme.valine.visitor) { %>
-        <span id="<%- url_for(post.path, {relative: false}).endsWith("index.html") ? 
+        <span data-aos="zoom-in" id="<%- url_for(post.path, {relative: false}).endsWith("index.html") ? 
                   url_for(post.path, {relative: false}).slice(0, -10) : 
                   url_for(post.path, {relative: false})%>" class="leancloud_visitors article-visitor-link" data-flag-title="<%= post.title %>">
           <span class="leancloud-visitors-count">0</span>
@@ -65,7 +65,7 @@
         </span>
       <% } %>
       <% if (post.comments !== false && theme.waline.enable && theme.waline.serverURL && theme.waline.pageview) { %>
-        <span class="article-visitor-link">
+        <span data-aos="zoom-in" class="article-visitor-link">
           <span class="waline-pageview-count" data-path="<%- url_for(post.path, {relative: false}).endsWith("index.html") ? 
           url_for(post.path, {relative: false}).slice(0, -10) : 
           url_for(post.path, {relative: false})%>">0</span>

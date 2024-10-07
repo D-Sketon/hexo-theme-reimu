@@ -27,20 +27,23 @@
       </div>
       <%- partial('_partial/mobile-nav', null, {cache: false}) %>
     </div>
-    <div class="site-search">
-      <div class="reimu-popup popup">
-        <div class="reimu-search">
-          <div class="reimu-search-input-icon"></div>
-          <div class="reimu-search-input" id="reimu-search-input"></div>
-          <div class="popup-btn-close"></div>
-        </div>
-        <div class="reimu-results">
-          <div id="reimu-stats"></div>
-          <div id="reimu-hits"></div>
-          <div id="reimu-pagination" class="reimu-pagination"></div>
+    <% if (theme.algolia_search.enable || theme.generator_search.enable) { %>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div class="reimu-search-input" id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="<%- url_for('/images/reimu.png', {relative: false}) %>"/>
         </div>
       </div>
-    </div>
+    <% } %>
     <%- partial('_partial/after-footer') %>
   </body>
   </html>

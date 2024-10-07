@@ -19,7 +19,7 @@
   opacity: 0.3
   width: 200%
   height: 10px
-  background: linear-gradient(to left, rgba(255, 0, 0, 0.75) 50%, transparent 0%) repeat-x 0 0 / 100px 10px
+  background: linear-gradient(to left, var(--red-1) 50%, transparent 0%) repeat-x 0 0 / 100px 10px
   transition: opacity 0.3s
   animation: transform-all 3s linear infinite
   filter: drop-shadow(0px 0px 2px red)
@@ -38,7 +38,7 @@
 
 .footer-info-sep
   width: 25px
-  opacity: 0.6
+  opacity: 0.8
   background: url("../images/taichi.png") no-repeat center / 80%
   animation: rotate-all 3s linear infinite
 
@@ -49,7 +49,10 @@
   border-radius: 5px
   transition: .3s
   padding: 5px 10px
-  box-shadow: 0 0 5px 3px var(--color-meta-shadow)
+  box-shadow: 0 0 5px 2px var(--color-meta-shadow)
+  position: relative
+  overflow: hidden
+  word-break: break-all
 
   p
     font-size: 14px;
@@ -65,3 +68,11 @@
 
     &:hover
       text-decoration: underline
+
+.article-copyright-bg
+  font-size: 120px
+  color: var(--red-3)
+  opacity: .2
+  position: absolute
+  right: -15px
+  bottom: -40px

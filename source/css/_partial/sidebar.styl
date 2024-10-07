@@ -14,9 +14,18 @@
 
 .sidebar-wrapper
   transition: .3s
+
+  .aos-animate
+    transition: .3s !important
+    &:hover
+      box-shadow: 0 0 10px 3px var(--color-hover-shadow)
+
   &:hover
     transform: scale(1.015)
-    box-shadow: 0 0 10px 3px var(--color-hover-shadow)
+
+  &.wrap-sticky
+    position: sticky
+    top: 5px
 
 .sidebar-wrap
   width: 100%
@@ -31,10 +40,6 @@
 
   .hidden
     display: none
-
-  &.wrap-sticky
-    position: sticky
-    top: 5px
 
 .sidebar-author
   display: flex
@@ -53,7 +58,12 @@
     opacity: 0
     object-fit: cover
     margin: 20px
-    box-shadow: 0 0 15px 5px rgba(255, 0, 0, .2)
+    box-shadow: 0 0 15px 5px rgba(255, 78, 106, 0.55)
+    will-change: transform
+    transition: .3s
+
+    &:hover
+      transform: scale(1.05)
 
   img.lazyloaded
     opacity: 1
@@ -83,7 +93,7 @@ $sidebar-state-content
   justify-content: center
   padding: 25px 0
   color: var(--red-0)
-  opacity: .6
+  opacity: .7
   transition: opacity .5s
 
   &:hover
@@ -91,14 +101,14 @@ $sidebar-state-content
 
   .sidebar-state-article
     @extend $sidebar-state-content
-    border-right: 1px solid rgba(255, 0, 0, .5)
+    border-right: 1px solid var(--red-1)
 
   .sidebar-state-category
     @extend $sidebar-state-content
 
   .sidebar-state-tag
     @extend $sidebar-state-content
-    border-left: 1px solid rgba(255, 0, 0, .5)
+    border-left: 1px solid var(--red-1)
 
   .sidebar-state-number
     font-weight bold
@@ -125,8 +135,12 @@ $sidebar-state-content
   align-items: center
   width: 36px
   height: 25px
-  font: 20px font-icon
+  if hexo-config("icon_font")
+    font: 20px font-icon
+  else
+    font: 20px var(--font-icon)
   transition: transform .2s
+  will-change: transform
 
   &:hover
     transform: scale(1.2)
@@ -210,13 +224,13 @@ $sidebar-state-content
   color: #171a21
 
 $menu-link
-  color: var(--red-0)
+  color: var(--color-link)
   opacity: 0.8
   text-decoration: none
-  text-shadow: 0 1px rgba(0, 0, 0, 0.2)
   transition: opacity .2s
   display: block
   padding: 10px 15px
+  font-weight: 700
 
 .sidebar-menu
   margin: 20px 0
@@ -228,22 +242,29 @@ $menu-link
   position: relative
 
   justify-content: center
-  border: 10px rgba(255, 0, 0, .3) double
-  border-radius: 10px
+  border: 10px rgba(255, 88, 88, 0.3) double
   transition: border .5s
 
   &:hover
     border: 10px var(--color-h2-after) double
 
-  &:hover .sidebar-menu-icon
-    transform: rotate(360deg)
+  &:hover .sidebar-menu-icon:before
+    transform: rotate(90deg) scale(1.1)
 
 .sidebar-menu-icon
   @extend $menu-link
-  background: url("../images/taichi.png") no-repeat center / 80%
-  transform: rotate(0deg)
-  transition: transform 1s
+  // background: url("../images/taichi.png") no-repeat center / 80%
+  &:before
+    font-size: 24px
+    font-weight: 400
+    transform: rotate(90deg)
+    transition: transform .3s
+    will-change: transform
+
   pointer-events: none
+  padding: 5px 5px
+  display: flex
+  align-items: center
 
 .sidebar-menu-link-dummy
   position: absolute
@@ -259,7 +280,7 @@ $menu-link
 .link-active
   background: var(--red-0)
   border: 10px var(--color-wrap) double
-  box-shadow: 0 0 10px 3px rgba(255, 0, 0, .3)
+  box-shadow: 0 0 10px 3px rgba(255, 78, 106, 0.55)
   opacity: 0.8
 
   &:hover
@@ -271,43 +292,9 @@ $menu-link
 
   .sidebar-menu-icon
     opacity: 1
-    background: url("../images/taichi-fill.png") no-repeat center / 80%
+    color: #fff
+    // background: url("../images/taichi-fill.png") no-repeat center / 80%
 
-.sidebar-top
-  position: fixed
-  bottom: 30px
-  right: 30px
-  width: 50px
-  height: 50px
-  background-color: var(--color-wrap)
-  border-radius: 50%
-  font-family: font-icon
-  box-shadow: 1px 2px 10px rgba(0, 0, 0, .2)
-  z-index: 999
-
-  img
-    transition: .3s
-    animation: rotate-all 3s linear infinite
-    opacity: 1
-
-  .arrow-up
-    transition: .3s
-    opacity: 0
-    &:before
-      width: 50px
-      height: 50px
-      position: absolute
-      color: var(--red-1)
-      font-size: 20px
-      top: 0
-      text-align: center
-      line-height: 50px
-
-  &:hover
-    img
-      opacity: 0
-    .arrow-up
-      opacity: 1
 
 .sidebar-toc
   width: 100%
@@ -337,7 +324,8 @@ $menu-link
     list-style: none
 
   & li
-    margin: 10px 0
+    margin: 7px 0
+    padding: 2px 0
 
     &:before
       content: ""
@@ -415,6 +403,10 @@ $siderbar-btn-icon
   border-radius: post-radius
   margin: 20px
   transition: .3s
+  will-change: transform
+
+  &:hover
+    transform: scale(1.05)
 
   [data-theme="dark"] &
     filter: brightness(.8)
@@ -430,10 +422,7 @@ $siderbar-btn-icon
   .current
     background: var(--red-1)
 
-  .sidebar-toc-btn
-    @extend $siderbar-btn-icon
-
-  .sidebar-common-btn
+  .sidebar-toc-btn, .sidebar-common-btn
     @extend $siderbar-btn-icon
 
 .sidebar-common-sidebar

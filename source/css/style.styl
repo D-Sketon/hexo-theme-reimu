@@ -28,6 +28,7 @@ input, button
 
 html, body, #container
   height: 100%
+  scroll-behavior: smooth
   if reimu_cursor
     cursor: var(--cursor-default)
 
@@ -89,7 +90,7 @@ if reimu_cursor
   display: flex
   padding-top: 5px
   align-items: stretch
-  max-width: 1220px;
+  max-width: 1350px;
   margin: 0 auto;
   overflow: visible;
 
@@ -123,14 +124,24 @@ if sidebar
 @import "_partial/highlight"
 @import "_partial/widget"
 @import "_partial/friend"
-@import "_partial/search"
 @import "_partial/card"
+@import "_partial/top"
+
+if hexo-config("algolia_search.enable") or hexo-config("generator_search.enable")
+  @import "_partial/search"
 
 if hexo-config("service_worker.enable")
   @import "_partial/notification"
   
 if sidebar
   @import "_partial/sidebar"
+
+// for Pull Quotes
+.left
+  float: left
+
+.right
+  float: right
 
 [data-theme="dark"]
   ::-webkit-scrollbar, ::-webkit-scrollbar-track

@@ -193,6 +193,7 @@ _$$(".sidebar-menu-link-dummy").forEach((element) => {
 });
 
 function tocInit() {
+  if (!_$("#sidebar")) return;
   const navItems =
     getComputedStyle(_$("#sidebar")).display === "block"
       ? _$$("#sidebar .sidebar-toc-wrapper li")

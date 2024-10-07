@@ -1,4 +1,5 @@
 #header
+  min-height: 400px
   height: banner-height
   position: relative
 
@@ -108,7 +109,7 @@ $nav-link
   color: var(--red-0)
   opacity: 0.8
   text-decoration: none
-  transition: opacity 0.2s
+  transition: 0.2s
   padding: 20px 15px
 
 $nav-link-wrap
@@ -132,6 +133,10 @@ $nav-link-wrap
   font-size: font-size
   width: font-size
   height: font-size
+  will-change: transform
+  &:hover
+    opacity: 1
+    transform: scale(1.1)
 
 [data-theme="dark"]
   .main-nav-link, .nav-icon, .main-nav-link-wrap
@@ -139,31 +144,40 @@ $nav-link-wrap
 
 .main-nav-link-wrap
   @extend $nav-link-wrap
-  @media mq-mobile
+  @media mg-normal
     display: none
 
-  &:hover .main-nav-icon
-    transition: transform 1s
-    transform: rotate(360deg)
+  &:hover .main-nav-icon:before
+    transform: rotate(90deg) scale(1.1)
 
 .main-nav-link
   @extend $nav-link
   letter-spacing: 1px
+  font-weight: 700
+  opacity: 0.7
 
 .main-nav-icon
   @extend $nav-link
-  background: url("../images/taichi.png") no-repeat center / 80%
-  transform: rotate(0deg)
-  transition: transform 1s
+  // background: url("../images/taichi.png") no-repeat center / 80%
   if reimu_cursor
     cursor: var(--cursor-pointer)
   else
     cursor: pointer
+  padding: 15px 5px
+  display: flex
+  align-items: center
+
+  &:before
+    font-size: 24px
+    font-weight: 400
+    transform: rotate(90deg)
+    transition: transform 0.3s
+    will-change: transform
 
 #main-nav-toggle
   display: none
 
-  @media mg-large
+  @media mg-normal
     display: block
 
 #sub-nav
