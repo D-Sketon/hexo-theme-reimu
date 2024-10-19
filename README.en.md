@@ -30,9 +30,9 @@ See [astro-theme-reimu](https://github.com/D-Sketon/astro-theme-reimu) for the [
 - Compatible with Hexo v6+
 - Responsive Layout
 - Code Highlighting, Code Pasting
-- Supports KaTeX for displaying math formulas
+- KaTeX for displaying math formulas
 - Mermaid for flowcharts
-- Algolia / hexo-generator-search search support
+- Algolia / hexo-generator-search search
 - valine / waline / twikoo / gitalk / giscus comment system
 - valine / waline article reading statistics
 - Busuanzi Visitor Statistics
@@ -51,19 +51,6 @@ See [astro-theme-reimu](https://github.com/D-Sketon/astro-theme-reimu) for the [
 - Internal tag plugin for providing internal/external/friendly link cards
 - Support the bottom of the article copyright statement
 - Support for configuring custom CDN sources
-
-## Structure
-
-```txt
-.
-├── _screenshot screenshot
-├── _example    example source folder structure
-├── _config.yml theme configuration
-├── languages
-├── layout
-├── scripts
-└── source
-```
 
 ## Installation
 

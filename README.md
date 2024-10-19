@@ -29,13 +29,13 @@
 - 兼容 Hexo v6+
 - 响应式布局
 - 代码高亮，代码粘贴
-- 支持 KaTeX 展示数学公式
-- 支持 Mermaid 展示流程图
-- Algolia / hexo-generator-search 搜索支持
+- KaTeX 展示数学公式
+- Mermaid 展示流程图
+- Algolia / hexo-generator-search 搜索
 - valine / waline / twikoo / gitalk / giscus 评论系统
 - valine / waline 文章阅读统计
 - 不蒜子访客统计
-- 支持 RSS
+- RSS
 - 同时支持 iconfont 和 fontawesome
 - 黑夜模式
 - 图片懒加载
@@ -48,21 +48,8 @@
 - live2d
 - reimu 鼠标指针
 - 内部提供内链/外链/友链卡片的标签插件
-- 支持文章底部版权声明
-- 支持配置自定义 CDN 源
-
-## 结构
-
-```txt
-.
-├── _screenshot 截图
-├── _example    示例source文件夹内结构
-├── _config.yml 主题配置
-├── languages
-├── layout
-├── scripts
-└── source
-```
+- 文章底部版权声明
+- 配置自定义 CDN 源
 
 ## 安装
 
