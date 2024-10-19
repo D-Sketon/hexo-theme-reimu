@@ -54,14 +54,12 @@ hexo.on("generateAfter", () => {
               );
             }
           } catch (err) {
-            hexo.log.warn("Failed to detect version info. Error message:");
-            hexo.log.warn(err);
+            hexo.log.warn("Failed to detect version info. You can get the latest version info at https://github.com/D-Sketon/hexo-theme-reimu/releases");
           }
         });
       }
     )
     .on("error", (err) => {
-      hexo.log.error("Failed to detect version info. Error message:");
-      hexo.log.error(err);
+      hexo.log.error("Failed to detect version info. You can get the latest version info at https://github.com/D-Sketon/hexo-theme-reimu/releases");
     });
 });

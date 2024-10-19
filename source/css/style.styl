@@ -160,20 +160,21 @@ if sidebar
   border-radius: 10px
   background-color: var(--red-3)
 
-.pace
-  pointer-events: none
-  -webkit-user-select: none
-  -moz-user-select: none
-  user-select: none
+if hexo-config("pace.enable")
+  .pace
+    pointer-events: none
+    -webkit-user-select: none
+    -moz-user-select: none
+    user-select: none
 
-.pace-inactive
-  display: none
+  .pace-inactive
+    display: none
 
-.pace .pace-progress
-  position: fixed
-  z-index: 2000
-  top: 0
-  right: 100%
-  width: 100%
-  height: 2px
-  background: var(--red-1)
+  .pace .pace-progress
+    position: fixed
+    z-index: 2000
+    top: 0
+    right: 100%
+    width: 100%
+    height: 2px
+    background: var(--red-1)

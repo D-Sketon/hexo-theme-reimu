@@ -69,7 +69,9 @@
       <%- asyncCss(vendorCdn(theme.vendor.css.gitalk)) %>
     <% } %>
   <% } %>
-  <%- js(vendorCdn(theme.vendor.js.pace)) %>
+  <% if (theme.pace.enable) { %>
+    <%- js(vendorCdn(theme.vendor.js.pace)) %>
+  <% } %>
   <% if (theme.animation.enable) { %>
     <%- css(vendorCdn(theme.vendor.css.aos)) %>
   <% } %>

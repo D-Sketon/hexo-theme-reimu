@@ -223,6 +223,10 @@ preloader:
   text: 少女祈祷中...
   # text: Loading...
 
+# https://github.com/CodeByZach/pace
+pace:
+  enable: true
+
 clipboard:
   success: 复制成功(*^▽^*)
   fail: 复制失败 (ﾟ⊿ﾟ)ﾂ
