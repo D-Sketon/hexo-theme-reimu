@@ -1,5 +1,5 @@
 <% if (post.prev || post.next) { %>
-  <nav id="article-nav" data-aos="fade-up">
+  <nav id="article-nav" data-aos="<%= theme.animation.options.article.nav %>">
     <% if (post.prev) { %>
       <div class="article-nav-link-wrap article-nav-link-left">
         <% if (post.prev.cover) { %>

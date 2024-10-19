@@ -3,17 +3,17 @@
   <%- partial('post', {post: post, index: true, even: i % 2 === 0}) %>
   <% }) %>
 <% } else { %>
-<div class="archives-outer-wrap" data-aos="fade-up">
+<div class="archives-outer-wrap" data-aos="<%= theme.animation.options.archive.whole %>">
   <div class="tag-wrap">
     <% site.tags.each((tag, i) => { %>
-      <div class="archives-tag-list-item" data-aos="zoom-in">
+      <div class="archives-tag-list-item" data-aos="<%= theme.animation.options.archive.tag %>">
         <a class="archives-tag-list-link" href="/<%= tag.path %>"><%= tag.name %></a>
       </div>
     <% }) %>
   </div>
   <div class="category-wrap">
     <% site.categories.each((cagetory, i) => { %>
-      <div class="archives-category-list-item" data-aos="zoom-in">
+      <div class="archives-category-list-item" data-aos="<%= theme.animation.options.archive.category %>">
         <a class="archives-category-list-link" href="/<%= cagetory.path %>"><%= cagetory.name %></a>
       </div>
     <% }) %>
@@ -26,7 +26,7 @@
         </section>
       <% } %>
       <% last = year; %>
-      <section class="archives-wrap" data-aos="fade-up">
+      <section class="archives-wrap" data-aos="<%= theme.animation.options.archive.section %>">
         <div class="archive-year-wrap">
           <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
         </div>
@@ -41,7 +41,7 @@
   </div>
 <% } %>
 <% if (page.total > 1) { %>
-  <nav id="page-nav" data-aos="fade-up">
+  <nav id="page-nav" data-aos="<%= theme.animation.options.archive.nav %>">
     <% var prev_text = "&laquo; " + __('prev');var next_text = __('next') + " &raquo;" %>
     <%- paginator({
           prev_text: prev_text,

@@ -231,8 +231,31 @@ clipboard:
     count: 50 # The number of characters when the copyright is displayed
     content: 本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！
 
+# see https://github.com/D-Sketon/aos.js
 animation:
   enable: true
+  options:
+    header:
+      title: slide-up
+      subTitle: slide-down
+    home:
+      post: fade-up
+      widget: fade-up
+      sidebar: fade-up
+    article:
+      whole: fade-up
+      date: zoom-in
+      category: zoom-in
+      tag: zoom-in
+      comment: zoom-in
+      reading: zoom-in
+      nav: fade-up
+    archive:
+      whole: fade-up
+      tag: zoom-in
+      category: zoom-in
+      section: fade-up
+      nav: fade-up
 
 dark_mode:
   enable: false

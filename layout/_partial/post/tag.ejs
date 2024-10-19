@@ -1,6 +1,6 @@
 <% if (post.tags && post.tags.length) { %>
   <%- listTags(post.tags, {
-        show_count: false,
-        class: 'article-tag'
-      }, 'zoom-in') %>
+    show_count: false,
+    class: 'article-tag'
+  }, theme.animation.options.article.tag) %>
 <% } %>

@@ -1,6 +1,6 @@
 <% if (site.tags.length) { %>
   <div class="widget-wrapper">
-    <div class="widget-wrap" data-aos="fade-up">
+    <div class="widget-wrap" data-aos="<%= theme.animation.options.home.widget %>">
       <h3 class="widget-title"><%= __('tagcloud') %></h3>
       <div class="widget tagcloud">
         <%- tagcloud() %>
