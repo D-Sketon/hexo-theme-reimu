@@ -4,7 +4,9 @@ hexo.extend.helper.register("vendorFont", () => {
   const fontStyles = ":400,400italic,700,700italic";
   const fontHost = "https://fonts.googleapis.com";
 
-  let fontFamilies = ["Mulish", "Noto Serif SC", "Ubuntu Mono"]
+  const basicConfigFontFamilies = [...(hexo.theme.config.font?.article ?? []), ...(hexo.theme.config.font?.code ?? [])]
+
+  const fontFamilies = basicConfigFontFamilies
     .map((item) => item + fontStyles)
     .filter((item) => item !== "")
     .join("|");

@@ -320,6 +320,16 @@ outdate:
 
 icon_font: 4552607_tq6stt6tcg
 
+# https://fonts.google.com/
+font:
+  article:
+    - Mulish
+    - Noto Serif SC
+  code:
+    # - Ubuntu Mono
+    # - Source Code Pro
+    # - JetBrains Mono
+
 # Dependent cdn links
 vendor:
   cdn_jsdelivr_gh: https://cdn.jsdelivr.net/gh/
