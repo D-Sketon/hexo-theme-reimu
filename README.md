@@ -83,11 +83,11 @@ theme: reimu
 
 ### 基本结构
 
-为了保证显示正确，请参考 `_example` 在 `source` 中分别建立 `_data`、`about` 和 `friend` 文件夹
+为了保证显示正确，请参考 `_example` 在 `source` 中分别建立 `_data`、`about` 和 `friend` 文件夹 （注意：是博客根目录下的 `source` 文件夹，而不是主题中的 `source` ！）
 
 #### \_data
 
-- `avatar` 文件夹中存储作者头像，默认命名 `avatar.webp`，可在 内层 `_config.yml` 中做如下配置
+- `avatar` 文件夹中存储作者头像，默认命名 `avatar.webp`，可在内层 `_config.yml` 中做如下配置
 
 ```yaml
 avatar: "avatar.webp" # 默认就是在avatar文件夹内寻找，请不要包含路径，否则会404
@@ -178,7 +178,7 @@ sticky: true
 ### 代码高亮
 
 为保证代码块的正确显示，请保证外层 `_config.yml` 中为如下配置
-(<7.0.0)
+(Hexo <7.0.0)
 
 ```yaml
 highlight:
@@ -189,7 +189,7 @@ prismjs:
   enable: false
 ```
 
-(>=7.0.0)
+(Hexo >=7.0.0)
 
 ```yaml
 syntax_highlighter: highlight.js

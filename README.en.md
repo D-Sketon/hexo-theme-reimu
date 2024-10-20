@@ -179,7 +179,7 @@ sticky: true
 ### Code highlighting
 
 To ensure that the code blocks are displayed correctly, please ensure that the outer `_config.yml` is configured as follows
-(<7.0.0)
+(Hexo <7.0.0)
 
 ```yaml
 highlight:
@@ -190,7 +190,7 @@ prismjs:
   enable: false
 ```
 
-(>=7.0.0)
+(Hexo >=7.0.0)
 
 ```yaml
 syntax_highlighter: highlight.js
