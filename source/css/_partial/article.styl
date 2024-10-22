@@ -72,15 +72,26 @@ $article-meta-tag
     line-height: line-height-title
     margin: line-height-title 0
 
-    &:before
-      font-family: font-icon
-      font-weight: normal
+    if hexo-config("icon_font")
+      &:before
+        font-family: font-icon
+        font-weight: normal
 
-    a
-      font-family: font-icon
-      opacity: 0.5
-      margin-right: 5px
-      transition: 0.3s
+      a
+        font-family: font-icon
+        opacity: 0.5
+        margin-right: 5px
+        transition: 0.3s
+    else
+      &:before
+        font-family: var(--font-icon)
+        font-weight: normal
+
+      a
+        font-family: var(--font-icon)
+        opacity: 0.5
+        margin-right: 5px
+        transition: 0.3s
 
       &:hover
         opacity: 1
