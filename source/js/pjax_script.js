@@ -81,7 +81,7 @@ document
 
 document
   .getElementById("mask")
-  .off("click")
+  ?.off("click")
   .on("click", function () {
     if (isMobileNavAnim || !document.body.classList.contains("mobile-nav-on"))
       return;
@@ -145,15 +145,17 @@ _$$(".article-entry img").forEach((element) => {
 
 // to top
 var sidebarTop = _$(".sidebar-top");
-sidebarTop.style.transition = "opacity 1s";
-sidebarTop.off("click").on("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
+if (sidebarTop) {
+  sidebarTop.style.transition = "opacity 1s";
+  sidebarTop.off("click").on("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   });
-});
-if (document.documentElement.scrollTop < 10) {
-  sidebarTop.style.opacity = 0;
+  if (document.documentElement.scrollTop < 10) {
+    sidebarTop.style.opacity = 0;
+  }  
 }
 
 var __sidebarTopScrollHandler;

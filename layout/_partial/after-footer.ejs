@@ -185,7 +185,7 @@
 <% if (theme.firework.enable) { %>
   <%- js(vendorCdn(theme.vendor.js.firework)) %>
   <script>
-    firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'))
+    window.firework && window.firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'))
   </script>
 <% } %>
 
@@ -221,7 +221,7 @@
         }
       }
     }
-    new Pjax({
+    window.Pjax && new window.Pjax({
       selectors: [
         "#header img",
         "head title",
@@ -266,7 +266,7 @@
 <% if (theme.quicklink.enable) { %>
   <%- js(vendorCdn(theme.vendor.js.quicklink)) %>
   <script data-pjax>
-    quicklink.listen({
+    window.quicklink?.listen({
       timeout: <%= theme.quicklink.timeout %>,
       priority: <%= theme.quicklink.priority %>,
       ignores: <%- JSON.stringify(theme.quicklink.ignores) %>

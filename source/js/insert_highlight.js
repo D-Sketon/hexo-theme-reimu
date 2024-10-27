@@ -26,6 +26,41 @@
       element.insertAdjacentHTML("afterbegin", codeFigcaption);
     }
   });
+  // 代码收缩
+  _$$(".code-expand").forEach((element) => {
+    element.off("click").on("click", function () {
+      const figure = element.closest("figure");
+      if (figure.classList.contains("code-closed")) {
+        figure.classList.remove("code-closed");
+      } else {
+        figure.classList.add("code-closed");
+      }
+    });
+  });
+
+  // 代码语言
+  _$$("figure.highlight").forEach((element) => {
+    let codeLanguage = element.className.split(" ")[1];
+    if (!codeLanguage) {
+      return;
+    }
+    let langName = codeLanguage
+      .replace("line-numbers", "")
+      .trim()
+      .replace("language-", "")
+      .trim();
+
+    // 大写
+    langName = langName.toUpperCase();
+    const children = element.querySelector(".code-lang");
+    if (children) {
+      children.innerText = langName;
+    }
+  });
+
+  if (!window.ClipboardJS) {
+    return;
+  }
 
   // 代码复制
   const clipboard = new ClipboardJS(".code-copy", {
@@ -77,36 +112,4 @@
       clipboard.destroy();
     }, { once: true });
   }
-
-  // 代码收缩
-  _$$(".code-expand").forEach((element) => {
-    element.off("click").on("click", function () {
-      const figure = element.closest("figure");
-      if (figure.classList.contains("code-closed")) {
-        figure.classList.remove("code-closed");
-      } else {
-        figure.classList.add("code-closed");
-      }
-    });
-  });
-
-  // 代码语言
-  _$$("figure.highlight").forEach((element) => {
-    let codeLanguage = element.className.split(" ")[1];
-    if (!codeLanguage) {
-      return;
-    }
-    let langName = codeLanguage
-      .replace("line-numbers", "")
-      .trim()
-      .replace("language-", "")
-      .trim();
-
-    // 大写
-    langName = langName.toUpperCase();
-    const children = element.querySelector(".code-lang");
-    if (children) {
-      children.innerText = langName;
-    }
-  });
 })();
