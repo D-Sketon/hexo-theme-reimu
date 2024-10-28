@@ -53,3 +53,5 @@ service_worker:
   content: The website seems to have new content, do you want to update?
   confirm: Update
   cancel: Cancel
+
+sponsor: Sponsor

@@ -316,3 +316,9 @@ window
     document.body.appendChild(script);
   });
 tocInit();
+
+_$('.sponsor-button-wrapper')?.off('click').on('click', () => {
+  _$('.sponsor-button-wrapper')?.classList.toggle('active');
+  _$('.sponsor-tip')?.classList.toggle('active');
+  _$('.sponsor-qr')?.classList.toggle('active');
+});

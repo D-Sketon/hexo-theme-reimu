@@ -1,0 +1,78 @@
+.sponsor-wrapper
+  display: flex
+  justify-content: center
+  flex-direction: column
+  align-items: center
+  margin: 5px 0
+  margin-top: 10px
+
+.sponsor-title
+  font-size: 18px
+  letter-spacing: 2px
+  color: var(--color-link)
+  opacity: 0.8
+  text-decoration: none
+  transition: opacity .2s
+  display: block
+  padding: 10px 0
+  font-weight: 700
+  user-select: none
+
+.sponsor-icon
+  width: 30px
+  margin: 0 10px
+
+.sponsor-button-wrapper
+  margin: 8px 50px
+  display: flex
+  position: relative
+  width: fit-content
+  justify-content: center
+  border: 10px rgba(255, 88, 88, 0.3) double
+  transition: border .5s
+  if reimu_cursor
+    cursor: var(--cursor-pointer)
+  else
+    cursor: pointer
+
+  &:hover
+    border: 10px var(--color-h2-after) double
+
+  &:hover + .sponsor-tip
+    opacity: .8
+
+  &.active
+    border: 10px var(--color-h2-after) double
+
+.sponsor-tip
+  transition: opacity .2s
+  color: var(--color-link)
+  opacity: 0
+  font-size: 14px
+  font-weight: 700
+  letter-spacing: 1px
+
+  &.active
+    opacity: .8
+
+.sponsor-qr
+  gap: 5px
+  width: 100%
+  flex-wrap: wrap
+  justify-content: center
+  display: none
+  margin-top: 5px
+
+  &.active
+    display: flex
+
+.sponsor-qr-image-wrapper
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.sponsor-qr-name
+  font-size: 14px
+  opacity: 0.9
+  color: var(--color-default)
+  margin-top: 8px

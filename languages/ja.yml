@@ -53,3 +53,5 @@ service_worker:
   content: ウェブサイトに新しいコンテンツがあるようです。更新しますか？
   confirm: 更新
   cancel: キャンセル
+
+sponsor: スポンサー

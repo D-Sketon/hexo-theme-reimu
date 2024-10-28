@@ -1,0 +1,18 @@
+<div class="sponsor-wrapper">
+  <div class="sponsor-button-wrapper">
+    <div class="footer-info-sep sponsor-icon"></div>
+    <div class="sponsor-title"><%= __('sponsor') %></div>
+    <div class="footer-info-sep sponsor-icon"></div>
+  </div>
+  <div class="sponsor-tip"><%- theme.sponsor.tip %></div>
+  <% if (theme.sponsor.qr?.length) { %>
+    <div class="sponsor-qr">
+      <% for (var i of theme.sponsor.qr) { %>
+        <div class="sponsor-qr-image-wrapper">
+          <img src="<%- url_for(i.src, {relative: false}) %>" alt=<%- i.name %> width="200" />
+          <p class="sponsor-qr-name"><%- i.name %></p>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
+</div>

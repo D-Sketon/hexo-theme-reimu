@@ -340,6 +340,16 @@ icp:
   beian:  # 网安备案号
   recordcode: # 网安备案链接中的recordcode参数
 
+
+sponsor:
+  enable: false
+  tip: 请作者喝杯咖啡吧！
+  qr:
+    # - name: 支付宝
+    #   src: "/sponsor/alipay.jpg"
+    # - name: 微信
+    #   src: "/sponsor/wechat.png"
+
 # Dependent cdn links
 vendor:
   cdn_jsdelivr_gh: https://cdn.jsdelivr.net/gh/

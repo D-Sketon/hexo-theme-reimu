@@ -27,6 +27,11 @@
       <% } else if (post.copyright !== false && theme.article_copyright.enable) { %>
         <%- articleCopyright(post) %>
       <% } %>
+      <% if (post.sponsor === true) { %>
+        <%- partial('post/sponsor') %>
+      <% } else if (post.sponsor !== false && theme.sponsor.enable) { %>
+        <%- partial('post/sponsor') %>
+      <% } %>
       <% if (post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
         <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- url_for(post.path) %>#comments" class="article-comment-link">
           <span class="post-comments-count valine-comment-count" data-xid="<%- url_for(post.path, {relative: false}).endsWith("index.html") ? 
