@@ -548,6 +548,14 @@ content:
   license: # true | false 版权卡片展示协议？
 ```
 
+此外，也可以通过文章的 front-matter 控制，其优先级高于全局配置
+
+```yaml
+---
+copyright: true # 是否展示版权卡片？
+---
+```
+
 #### 过期提醒（v0.2.4+）
 
 默认关闭
@@ -568,6 +576,14 @@ sponsor:
   qr:
     - name: 支付宝 # 二维码名称
       src: "/sponsor/alipay.jpg" # 二维码路径，请自行填写
+```
+
+此外，也可以通过文章的 front-matter 控制，其优先级高于全局配置
+
+```yaml
+---
+sponsor: true # 是否展示赞助二维码？
+---
 ```
 
 </details>
