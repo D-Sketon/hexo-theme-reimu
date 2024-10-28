@@ -538,6 +538,14 @@ content: # true | false Does the copyright card show the author?
   license: # true | false Copyright Card Showcase Agreement?
 ```
 
+Besides, you can also control it through the front-matter of the article, which takes precedence over the global configuration
+
+```yaml
+---
+copyright: true # Whether to display the copyright card
+---
+```
+
 #### quicklink (v0.2.3+)
 
 Enabled by default
@@ -559,6 +567,27 @@ outdate:
   enable: false
   daysAgo: 180 # The number of days after which the article is considered outdated
   message: 本文最后更新于 {time}，请注意文中内容可能已经发生变化。
+```
+
+#### sponsor (v0.3.2+)
+
+Disabled by default
+
+```yaml
+sponsor:
+  enable: false # Whether to enable sponsorship
+  tip: 请作者喝杯咖啡吧！ # Sponsorship prompt
+  qr:
+    - name: 支付宝 # Payment method
+      src: "/sponsor/alipay.jpg" # QR code
+```
+
+Besides, you can also control it through the front-matter of the article, which takes precedence over the global configuration
+
+```yaml
+---
+sponsor: true # Whether to display the sponsorship
+---
 ```
 
 </details>

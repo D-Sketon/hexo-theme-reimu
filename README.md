@@ -558,6 +558,18 @@ outdate:
   message: 本文最后更新于 {time}，请注意文中内容可能已经发生变化。
 ```
 
+#### 赞助（v0.3.2+）
+
+默认关闭
+```yml
+sponsor:
+  enable: false # 是否展示赞助二维码？
+  tip: 请作者喝杯咖啡吧！ # 赞助提示
+  qr:
+    - name: 支付宝 # 二维码名称
+      src: "/sponsor/alipay.jpg" # 二维码路径，请自行填写
+```
+
 </details>
 
 <details>
