@@ -36,7 +36,7 @@
     <%- css('css/loader') %>
   <% } %>
   <% if (theme.open_graph) { %>
-    <%- open_graph({twitter_card: theme.open_graph.options?.twitter_card, twitter_id: theme.open_graph.options?.twitter_id, twitter_site: theme.open_graph.options?.twitter_site, twitter_image: theme.open_graph.options?.twitter_image, google_plus: theme.open_graph.options?.google_plus, fb_admins: theme.open_graph.options?.fb_admins, fb_app_id: theme.open_graph.options?.fb_app_id}) %>
+    <%- open_graph({image: page.photos || theme.open_graph.options?.default_og_image || [], twitter_card: theme.open_graph.options?.twitter_card, twitter_id: theme.open_graph.options?.twitter_id, twitter_site: theme.open_graph.options?.twitter_site, twitter_image: theme.open_graph.options?.twitter_image, google_plus: theme.open_graph.options?.google_plus, fb_admins: theme.open_graph.options?.fb_admins, fb_app_id: theme.open_graph.options?.fb_app_id}) %>
   <% } %>
   <% if (config.feed) { %>
     <%- feed_tag() %>

@@ -34,6 +34,7 @@ open_graph:
     #google_plus: <g+:profile_link>
     #fb_admins: <fb:admin_id>
     #fb_app_id: <fb:app_id>
+    default_og_image: /images/banner.webp # the default og:image for Open Graph, support absolute path
 
 # Content
 excerpt_link: Read More
