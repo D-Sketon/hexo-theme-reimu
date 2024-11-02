@@ -122,11 +122,15 @@ if sidebar
 @import "_partial/footer"
 @import "_partial/mobile"
 @import "_partial/highlight"
-@import "_partial/widget"
 @import "_partial/friend"
 @import "_partial/card"
 @import "_partial/top"
-@import "_partial/sponsor"
+
+if post-has-sponsor
+  @import "_partial/sponsor"
+
+if site-has-widget
+  @import "_partial/widget"
 
 if hexo-config("algolia_search.enable") or hexo-config("generator_search.enable")
   @import "_partial/search"

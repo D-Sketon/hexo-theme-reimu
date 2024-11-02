@@ -46,37 +46,38 @@
   background: url("../images/taichi.png") no-repeat center / 80%
   animation: rotate-all 3s linear infinite
 
-.article-copyright
-  background: var(--red-5-5)
-  border-left: 6px var(--red-4) solid
-  margin: 1.8em 0
-  border-radius: 5px
-  transition: .3s
-  padding: 5px 10px
-  box-shadow: 0 0 5px 2px var(--color-meta-shadow)
-  position: relative
-  overflow: hidden
-  word-break: break-all
+if post-has-copyright
+  .article-copyright
+    background: var(--red-5-5)
+    border-left: 6px var(--red-4) solid
+    margin: 1.8em 0
+    border-radius: 5px
+    transition: .3s
+    padding: 5px 10px
+    box-shadow: 0 0 5px 2px var(--color-meta-shadow)
+    position: relative
+    overflow: hidden
+    word-break: break-all
 
-  p
-    font-size: 14px;
-    line-height: 2;
-    color: var(--color-default)
+    p
+      font-size: 14px;
+      line-height: 2;
+      color: var(--color-default)
 
-    strong
-      font-weight: 700
+      strong
+        font-weight: 700
 
-  a
-    color: var(--color-default)
-    text-decoration: none
+    a
+      color: var(--color-default)
+      text-decoration: none
 
-    &:hover
-      text-decoration: underline
+      &:hover
+        text-decoration: underline
 
-.article-copyright-bg
-  font-size: 120px
-  color: var(--red-3)
-  opacity: .2
-  position: absolute
-  right: -15px
-  bottom: -40px
+  .article-copyright-bg
+    font-size: 120px
+    color: var(--red-3)
+    opacity: .2
+    position: absolute
+    right: -15px
+    bottom: -40px
