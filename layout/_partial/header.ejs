@@ -10,7 +10,7 @@
   </nav>
   <nav id="sub-nav">
     <% if (theme.rss) { %>
-      <a id="nav-rss-link" class="nav-icon" href="<%- url_for(theme.rss) %>" title="<%= __('rss_feed') %>"></a>
+      <a id="nav-rss-link" class="nav-icon" href="<%- url_for(theme.rss) %>" title="<%= __('rss_feed') %>" target="_blank"></a>
     <% } %>
     <% if (theme.algolia_search.enable) { %>
       <a id="nav-search-btn" class="nav-icon popup-trigger" title="<%= __('search') %>"></a>
