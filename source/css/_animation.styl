@@ -28,3 +28,6 @@ if hexo-config("animation.enable")
 
   body [data-aos='zoom-in'] 
     transform: scale(0.8)
+  
+  [data-aos^=fade],  [data-aos^=zoom]
+    transition-property: all !important
