@@ -89,17 +89,17 @@
   <% } %>
 </article>
 <% if (!index && post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
-  <section id="comments" class="vcomment"></section>
+  <section id="comments" class="vcomment" data-aos="<%= theme.animation.options.article.whole %>"></section>
 <% } %>
 <% if (!index && post.comments !== false && theme.waline.enable && theme.waline.serverURL) { %>
-  <div id="comments" class="wcomment"></div>
+  <div id="comments" class="wcomment" data-aos="<%= theme.animation.options.article.whole %>"></div>
 <% } %>
 <% if (!index && post.comments !== false && theme.twikoo.enable && theme.twikoo.envId) { %>
-  <div id="comments" class="tcomment"></div>
+  <div id="comments" class="tcomment" data-aos="<%= theme.animation.options.article.whole %>"></div>
 <% } %>
 <% if (!index && post.comments !== false && theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret) { %>
-  <div id="comments" class="gtcomment"></div>
+  <div id="comments" class="gtcomment" data-aos="<%= theme.animation.options.article.whole %>"></div>
 <% } %>
 <% if (!index && post.comments !== false && theme.giscus.enable) { %>
-  <div id="comments" class="gscomment giscus"></div>
+  <div id="comments" class="gscomment giscus" data-aos="<%= theme.animation.options.article.whole %>"></div>
 <% } %>

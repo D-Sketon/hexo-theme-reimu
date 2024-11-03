@@ -136,21 +136,26 @@
 <% } %>
 
 <% if (theme.giscus.enable && page.comments !== false) { %>
-  <script src="https://giscus.app/client.js"
-          data-repo='<%= theme.giscus.repo %>'
-          data-repo-id='<%= theme.giscus.repoId %>'
-          data-category='<%= theme.giscus.category %>'
-          data-category-id='<%= theme.giscus.categoryId %>'
-          data-mapping='<%= theme.giscus.mapping %>'
-          data-strict='<%= theme.giscus.strict %>'
-          data-reactions-enabled='<%= theme.giscus.reactionsEnabled %>'
-          data-emit-metadata='<%= theme.giscus.emitMetadata %>'
-          data-input-position='<%= theme.giscus.inputPosition %>'
-          data-theme='<%= theme.giscus.commentTheme %>'
-          data-lang='<%= theme.giscus.lang %>'
-          crossorigin="anonymous"
-          data-pjax
-          async>
+  <script data-pjax>
+    var giscusContainer = document.querySelector('.giscus');
+    if (giscusContainer) {
+      const giscusScript = document.createElement('script');
+      giscusScript.src = 'https://giscus.app/client.js';
+      giscusScript.setAttribute('data-repo', '<%= theme.giscus.repo %>');
+      giscusScript.setAttribute('data-repo-id', '<%= theme.giscus.repoId %>');
+      giscusScript.setAttribute('data-category', '<%= theme.giscus.category %>'); 
+      giscusScript.setAttribute('data-category-id', '<%= theme.giscus.categoryId %>');
+      giscusScript.setAttribute('data-mapping', '<%= theme.giscus.strict %>');
+      giscusScript.setAttribute('data-strict', '<%= theme.giscus.strict %>');
+      giscusScript.setAttribute('data-reactions-enabled', '<%= theme.giscus.reactionsEnabled %>');
+      giscusScript.setAttribute('data-emit-metadata', '<%= theme.giscus.emitMetadata %>');
+      giscusScript.setAttribute('data-input-position', '<%= theme.giscus.inputPosition %>');
+      giscusScript.setAttribute('data-theme', '<%= theme.giscus.commentTheme %>');
+      giscusScript.setAttribute('data-lang', '<%= theme.giscus.lang %>');
+      giscusScript.setAttribute('crossorigin', 'anonymous');
+      giscusScript.async = true;
+      giscusContainer.appendChild(giscusScript);
+    }
   </script>
 <% } %>
 
