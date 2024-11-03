@@ -6,7 +6,7 @@
   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/hexo-theme-reimu">
   <img src="https://wakatime.com/badge/user/a6ea8444-9e83-48bb-9744-09a19ac07114/project/fe59c195-6633-4ee8-89c0-e1b24fa1fff4.svg" alt="wakatime">
   <p align="center">
-  ❤ Hakurei Reimu ❤
+  💘 博麗 霊夢 💘
   </p>
 
 [演示网站](https://d-sketon.github.io) | [开发日志](https://d-sketon.github.io/20240601/hexo-theme-reimu-log/)
@@ -19,7 +19,8 @@
 
 本人是车车人，所以制作了这样一款博丽灵梦风格的 Hexo 主题，融合了 [landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian) 和 [Shoka](https://github.com/amehime/hexo-theme-shoka) 三个主题
 
-[Astro](https://astro.build) 主题请参见 [astro-theme-reimu](https://github.com/D-Sketon/astro-theme-reimu)
+[Astro](https://astro.build) 主题请参见 [astro-theme-reimu](https://github.com/D-Sketon/astro-theme-reimu)  
+[Hugo](https://gohugo.io) 主题仍然在开发中~ [hugo-theme-reimu](https://github.com/D-Sketon/hugo-theme-reimu)
 
 **欢迎提交 ISSUE 和 PR！**
 

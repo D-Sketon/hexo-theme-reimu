@@ -6,7 +6,7 @@
   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/hexo-theme-reimu">
   <img src="https://wakatime.com/badge/user/a6ea8444-9e83-48bb-9744-09a19ac07114/project/fe59c195-6633-4ee8-89c0-e1b24fa1fff4.svg" alt="wakatime">
   <p align="center">
-  ❤ Hakurei Reimu ❤
+  💘 Hakurei Reimu 💘
   </p>
 
 [Demo](https://d-sketon.github.io)
