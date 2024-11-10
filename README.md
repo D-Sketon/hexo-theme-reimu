@@ -21,7 +21,7 @@
 
 [Astro](https://astro.build) 主题请参见 [astro-theme-reimu](https://github.com/D-Sketon/astro-theme-reimu)
 
-[Hugo](https://gohugo.io) 主题仍然在开发中~ [hugo-theme-reimu](https://github.com/D-Sketon/hugo-theme-reimu)
+[Hugo](https://gohugo.io) 主题请参见 [hugo-theme-reimu](https://github.com/D-Sketon/hugo-theme-reimu)
 
 **欢迎提交 ISSUE 和 PR！**
 

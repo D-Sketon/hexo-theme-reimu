@@ -22,6 +22,8 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 
 See [astro-theme-reimu](https://github.com/D-Sketon/astro-theme-reimu) for the [Astro](https://astro.build) theme.
 
+See [hugo-theme-reimu](https://github.com/D-Sketon/hugo-theme-reimu) for the [Hugo](https://gohugo.io) theme.
+
 **ISSUE and PR Welcome!**
 
 ## Features
