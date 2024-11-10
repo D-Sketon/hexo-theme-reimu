@@ -176,7 +176,7 @@ __sidebarTopScrollHandler = () => {
 window.on("scroll", __sidebarTopScrollHandler);
 
 // toc
-_$$(".toc a").forEach((element) => {
+_$$(".toc li").forEach((element) => {
   element.off("click").on("click", () => {
     if (isMobileNavAnim || !document.body.classList.contains("mobile-nav-on"))
       return;

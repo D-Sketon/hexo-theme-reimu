@@ -219,10 +219,10 @@ clipboard:
 ### Site comments
 
 > In-site comments can be controlled independently of each post using `comments` in Front matter.  
-> Comments are not shown when `comments` is `false`, and are shown or not shown when `true` or not filled in, depending on the `_config_yml` configuration.
+> Comments are not shown when `comments` is `false`, and are shown or not shown when `true` or not filled in, depending on the `_config.yml` configuration.
 
 If based on [Valine](https://valine.js.org/)  
-Please refer to its official documentation to complete the configuration of `LeanCloud` and change `valine.enable` to `true` in the inner `_config_yml` and fill in your own `appId` and `appKey`
+Please refer to its official documentation to complete the configuration of `LeanCloud` and change `valine.enable` to `true` in the inner `_config.yml` and fill in your own `appId` and `appKey`
 
 ```yaml
 valine:
@@ -232,7 +232,7 @@ valine:
 ```
 
 If based on [Waline](https://waline.js.org/)  
-Please refer to its [official documentation](https://waline.js.org/guide/get-started/) to complete the `LeanCloud` configuration and change `waline.enable` to `true` in the inner `_config_yml`, and fill in your own `serverURL`
+Please refer to its [official documentation](https://waline.js.org/guide/get-started/) to complete the `LeanCloud` configuration and change `waline.enable` to `true` in the inner `_config.yml`, and fill in your own `serverURL`
 
 ```yaml
 waline:
@@ -260,7 +260,7 @@ waline:
 ```
 
 If based on [twikoo](https://twikoo.js.org)  
-Please refer to its [official documentation](https://twikoo.js.org/quick-start.html) to complete the Tencent Cloud or Vercel deployment, and change `twikoo.enable` to `true` in the inner `_config_yml`, and fill in your own `envId`.
+Please refer to its [official documentation](https://twikoo.js.org/quick-start.html) to complete the Tencent Cloud or Vercel deployment, and change `twikoo.enable` to `true` in the inner `_config.yml`, and fill in your own `envId`.
 
 ```yml
 twikoo:
@@ -269,7 +269,7 @@ twikoo:
   region:
 ```
 
-If based on [giscus](https://giscus.app/zh-CN), please refer to the documentation to complete the configuration of the repository and change `giscus.enable` to `true` in the inner `_config_yml`, and fill in the corresponding data.
+If based on [giscus](https://giscus.app/zh-CN), please refer to the documentation to complete the configuration of the repository and change `giscus.enable` to `true` in the inner `_config.yml`, and fill in the corresponding data.
 
 ```yml
 giscus:
@@ -288,7 +288,7 @@ giscus:
 ```
 
 If based on [gitalk](https://gitalk.github.io/)  
-Please refer to its [official documentation](https://github.com/gitalk/gitalk?tab=readme-ov-file#usage) to complete the repository configuration, and change `gitalk.enable` to `true` in the inner `_config_yml` and fill in the corresponding data.
+Please refer to its [official documentation](https://github.com/gitalk/gitalk?tab=readme-ov-file#usage) to complete the repository configuration, and change `gitalk.enable` to `true` in the inner `_config.yml` and fill in the corresponding data.
 
 ```yml
 gitalk:
@@ -333,7 +333,7 @@ algolia:
     - title
 ```
 
-Change `algolia_search.enable` to `true` in the inner `_config_yml`
+Change `algolia_search.enable` to `true` in the inner `_config.yml`
 
 ```yaml
 algolia_search:
@@ -353,7 +353,7 @@ search:
   content: true
 ```
 
-In the inner `_config_yml` change `generator_search.enable` to `true
+In the inner `_config.yml` change `generator_search.enable` to `true
 
 ```yaml
 generator_search:
@@ -373,7 +373,7 @@ npm uninstall hexo-renderer-marked --save
 npm install hexo-renderer-markdown-it-plus --save
 ```
 
-Change `math.enable` to `true` in the inner `_config_yml`
+Change `math.enable` to `true` in the inner `_config.yml`
 
 ```yaml
 math:
@@ -392,7 +392,7 @@ Please install [hexo-filter-mermaid-diagrams](https://github.com/webappdevelp/he
 npm install hexo-filter-mermaid-diagrams --save
 ```
 
-Change `mermaid.enable` to `true` in the inner `_config_yml`
+Change `mermaid.enable` to `true` in the inner `_config.yml`
 
 ```yaml
 mermaid:
