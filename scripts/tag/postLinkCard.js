@@ -45,7 +45,7 @@ hexo.extend.tag.register("postLinkCard", (args) => {
   const attrTitle = escapeHTML(title);
   if (escape === "true") title = escapeHTML(title);
 
-  const link = url_for.call(hexo, post.path + (hash ? `#${hash}` : ""));
+  const link = url_for.call(hexo, "/" + post.path + (hash ? `#${hash}` : ""), { relative: false });
   if(cover === "auto") cover = url_for.call(hexo, hexo.theme.config.banner);
   const coverDom = cover
     ? `<div class="post-link-card-cover-wrap"><img src="${cover}" class="no-lightbox" title="${attrTitle}" alt="${attrTitle}"/></div>`

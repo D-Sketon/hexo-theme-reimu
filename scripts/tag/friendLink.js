@@ -10,7 +10,7 @@ const yaml = require("js-yaml");
 
 const template = ({ name, url, desc, image }) => {
   return `<div class="friend-item-wrap">
-    <a href="${url}"></a>
+    <a href="${url}" rel="noopener external nofollow noreferrer" target="_blank"></a>
     <div class="friend-icon-wrap">
       <div class="friend-icon">
           <img data-src="${image}" data-sizes="auto" alt="${name}" class="lazyload">
