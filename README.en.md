@@ -550,11 +550,11 @@ copyright: true # Whether to display the copyright card
 
 #### quicklink (v0.2.3+)
 
-Enabled by default
+Disabled by default
 
 ```yaml
 quicklink:
-  enable: true
+  enable: false
   timeout: 3000 # Timeout for quicklink
   priority: true # Whether to prioritize loading the page
   ignores: [] # Ignore the specified link, only support string

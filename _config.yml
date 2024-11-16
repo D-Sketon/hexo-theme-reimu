@@ -298,7 +298,7 @@ pjax:
 # Experimental
 # https://github.com/GoogleChromeLabs/quicklink
 quicklink:
-  enable: true
+  enable: false
   # The `requestIdleCallback` timeout, in milliseconds.
   timeout: 3000
   # Whether or not the URLs within the options.el container should be treated as high priority.

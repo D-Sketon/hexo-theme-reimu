@@ -526,10 +526,10 @@ srcset:
 
 #### quicklink（v0.2.3+）
 
-默认开启，打开后可以在用户停留在页面时预加载链接，提高用户体验
+默认关闭，打开后可以在用户停留在页面时预加载链接，提高用户体验
 ```yml
 quicklink:
-  enable: true
+  enable: false
   timeout: 3000 # 预加载超时时间
   priority: true # 是否优先加载
   ignores: [] # 忽略的链接，仅支持字符串
