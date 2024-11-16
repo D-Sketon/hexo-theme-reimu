@@ -3,7 +3,7 @@
     <% if (post.prev) { %>
       <div class="article-nav-link-wrap article-nav-link-left">
         <% if (post.prev.cover) { %>
-          <img data-src="<%= post.prev.cover %>" data-sizes="auto" alt="<%= post.prev.title %>" class="lazyload">
+          <img data-src="<%- url_for(post.prev.cover, {relative: false}) %>" data-sizes="auto" alt="<%= post.prev.title %>" class="lazyload">
         <% } else { %>
           <% var cover = randomCover(); %>
           <% if (cover) { %>
@@ -26,7 +26,7 @@
     <% if (post.next) { %>
     <div class="article-nav-link-wrap article-nav-link-right">
       <% if (post.next.cover) { %>
-        <img data-src="<%= post.next.cover %>" data-sizes="auto" alt="<%= post.next.title %>" class="lazyload">
+        <img data-src="<%- url_for(post.next.cover, {relative: false}) %>" data-sizes="auto" alt="<%= post.next.title %>" class="lazyload">
       <% } else { %>
         <% var cover = randomCover(); %>
         <% if (cover) { %>

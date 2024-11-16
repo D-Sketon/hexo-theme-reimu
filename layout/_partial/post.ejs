@@ -10,7 +10,7 @@
     <% } %>
     <div class=<% if (even === true) { %>"post-cover-left"<% } else { %>"post-cover-right"<% } %>>
       <% if (post.cover && !post.cover.startsWith("rgb")) { %>
-        <img data-src="<%= post.cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
+        <img data-src="<%- url_for(post.cover, {relative: false}) %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
       <% } else { %>
         <% var cover = randomCover(); %>
         <% if (cover) { %>

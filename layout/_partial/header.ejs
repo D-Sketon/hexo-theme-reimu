@@ -24,7 +24,7 @@
   <% if (post.cover && post.cover.startsWith("rgb")) { %>
     <div style="position: absolute;top: 0;left: 0;width: 100%;height: 150%;z-index: -2;display: block;background: <%- post.cover %>;mask: linear-gradient(to top, transparent, #fff 50%);"></div>
   <% } else if (post.cover) { %>
-    <img fetchpriority="high" src="<%= post.cover %>" alt="<%= post.title %>">
+    <img fetchpriority="high" src="<%- url_for(post.cover, {relative: false}) %>" alt="<%= post.title %>">
   <% } else if (post.cover == false) { %>
 
   <% } else { %>
