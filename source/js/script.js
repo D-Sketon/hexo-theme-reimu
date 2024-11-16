@@ -129,3 +129,30 @@
     });
   }
 })();
+
+var safeImport = async function(url, integrity) {
+  if (!integrity) {
+    return import(url);
+  }
+  const response = await fetch(url);
+  const moduleContent = await response.text();
+
+  const actualHash = await crypto.subtle.digest(
+    'SHA-384',
+    new TextEncoder().encode(moduleContent)
+  );
+  const hashBase64 = 'sha384-' + btoa(
+    String.fromCharCode(...new Uint8Array(actualHash))
+  );
+
+  if (hashBase64 !== integrity) {
+    throw new Error(`Integrity check failed for ${url}`);
+  }
+
+  const blob = new Blob([moduleContent], { type: 'application/javascript' });
+  const blobUrl = URL.createObjectURL(blob);
+  const module = await import(blobUrl);
+  URL.revokeObjectURL(blobUrl);
+
+  return module;
+};

@@ -1,5 +1,5 @@
 <% if (theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
-  <%- js({src: vendorCdn(theme.vendor.js.valine)[0], 'data-pjax': true}) %>
+  <%- js({src: vendorCdn(theme.vendor.js.valine)[0], integrity: vendorCdnIntegrity(theme.vendor.js.valine)[0], crossorigin: "anonymous", 'data-pjax': true}) %>
   <script data-pjax>
     var GUEST_INFO = ['nick', 'mail', 'link'];
     var guest_info = '<%= theme.valine.guest_info %>'.split(',').filter((item) => {
@@ -28,7 +28,7 @@
 
 <% if (theme.waline.enable && theme.waline.serverURL) { %>
   <script data-pjax type="module">
-    import { init } from "<%= vendorCdn(theme.vendor.js.waline)[0] %>";
+    const { init } = await safeImport("<%= vendorCdn(theme.vendor.js.waline) %>", "<%= vendorCdnIntegrity(theme.vendor.js.waline) %>")
     if(_$('.wcomment')) {
       window.walineInstance = init({
         el: '.wcomment',
@@ -49,9 +49,9 @@
 <% } %>
 
 <% if (theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret) { %>
-  <%- js({src: vendorCdn(theme.vendor.js.gitalk)[0], 'data-pjax': true}) %>
+  <%- js({src: vendorCdn(theme.vendor.js.gitalk)[0], integrity: vendorCdnIntegrity(theme.vendor.js.gitalk)[0], crossorigin: "anonymous", 'data-pjax': true}) %>
   <% if (theme.gitalk.md5) { %>
-    <%- js({src: vendorCdn(theme.vendor.js.md5)[0], 'data-pjax': true}) %>
+    <%- js({src: vendorCdn(theme.vendor.js.md5)[0], integrity: vendorCdnIntegrity(theme.vendor.js.md5)[0], crossorigin: "anonymous", 'data-pjax': true}) %>
   <% } %>
   <script data-pjax>
     var gitalkId = <%= theme.gitalk.md5 ? 'md5(location.pathname)' : 'location.pathname' %>;
@@ -71,7 +71,7 @@
 <% } %>
 
 <% if (theme.twikoo.enable && theme.twikoo.envId) { %>
-  <%- js({src: vendorCdn(theme.vendor.js.twikoo)[0], 'data-pjax': true}) %>
+  <%- js({src: vendorCdn(theme.vendor.js.twikoo)[0], integrity: vendorCdnIntegrity(theme.vendor.js.twikoo)[0], crossorigin: "anonymous", 'data-pjax': true}) %>
   <script data-pjax>
     twikoo.init({
       envId: '<%= theme.twikoo.envId %>',

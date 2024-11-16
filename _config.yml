@@ -360,26 +360,60 @@ vendor:
   unpkg: https://unpkg.com/
   webcache: https://npm.webcache.cn/
   js:
-    clipboard: webcache|clipboard@2.0.11/dist/clipboard.min.js
-    lazysizes: webcache|lazysizes@5.3.2/lazysizes.min.js
-    photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.esm.min.js
-    photoswipe_lightbox: webcache|photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js
-    valine: webcache|valine@1.5.1/dist/Valine.min.js
-    waline: webcache|@waline/client@2.15.8/dist/waline.mjs
-    twikoo: webcache|twikoo@1.6.16/dist/twikoo.all.min.js
-    gitalk: webcache|gitalk/dist/gitalk.min.js
-    busuanzi: webcache|busuanzi@2.3.0/bsz.pure.mini.js
-    algolia: webcache|algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js
-    instantsearch: webcache|instantsearch.js@4.56.1/dist/instantsearch.production.min.js
-    pace: webcache|pace-js@1.2.4/pace.min.js
-    mermaid: webcache|mermaid@9.4.3/dist/mermaid.min.js
-    firework: webcache|mouse-firework@0.0.4/dist/index.umd.js
-    pjax: webcache|theme-shokax-pjax@0.0.3/dist/index.umd.js
+    clipboard: 
+      src: webcache|clipboard@2.0.11/dist/clipboard.min.js
+      integrity: sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q
+    lazysizes: 
+      src: webcache|lazysizes@5.3.2/lazysizes.min.js
+      integrity: sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf+e
+    photoswipe:
+      src: webcache|photoswipe@5.4.4/dist/photoswipe.esm.min.js
+      integrity: sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s
+    photoswipe_lightbox:
+      src: webcache|photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js
+      integrity: sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/
+    valine:
+      src: webcache|valine@1.5.1/dist/Valine.min.js
+      integrity: sha384-3ma91AExDeMAZ1rjTjaP8V2A2obQE+s5ltKRwYlwdpArz9xVbp0tF3b0VV2ACNPn
+    waline:
+      src: webcache|@waline/client@2.15.8/dist/waline.mjs
+      integrity: sha384-9sbqJjrfGjbkI6/PI4nU/MvBfEmkkPC4YK9I4zBeMIf1CVCZdCMH/KinBEAZII/5
+    twikoo:
+      src: webcache|twikoo@1.6.16/dist/twikoo.all.min.js
+      integrity: sha384-lDHsr5aZmkMS0eKnsUu6e9RWP+dRmn7sgjRAKGOAoXfMyzbUK6Qi86zZK7R+KvRV
+    gitalk:
+      src: webcache|gitalk@1.8.0/dist/gitalk.min.js
+      integrity: sha384-kspnZUWBoSWwoJHa0hBCXYbHGbhvU/lcEH5O8eVbSDhbPwsiVUTp/aGX/z/5EuMA
+    busuanzi:
+      src: webcache|busuanzi@2.3.0/bsz.pure.mini.js
+      integrity: sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S
+    algolia:
+      src: webcache|algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js
+      integrity: sha384-xvLS0jfKuoREs7pqkRI/OI8GcqohO5S+jQz7ZBtQXnsXmD+9jDOOY4cL6dCPzlrk
+    instantsearch:
+      src: webcache|instantsearch.js@4.56.1/dist/instantsearch.production.min.js
+      integrity: sha384-hHJCflT4KBLQyHfKO9vpstIcFKn/Y+KHTORelMMEn7mOp2AVPp+7fr03dLgZiV3J
+    pace:
+      src: webcache|pace-js@1.2.4/pace.min.js
+      integrity: sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8
+    mermaid:
+      src: webcache|mermaid@9.4.3/dist/mermaid.min.js
+      integrity: sha384-aG3Gai4tbCHF0iXo48HwLoOZyut7mBl50oMC9GD1m75xyHfJDv6w8hD/kZRD47aJ
+    firework:
+      src: webcache|mouse-firework@0.0.6/dist/index.umd.js
+      integrity: sha384-vkGvf25gm1C1PbcoD5dNfc137HzNL/hr1RKA5HniJOaawtvUmH5lTVFgFAruE9Ge
+    pjax:
+      src: webcache|theme-shokax-pjax@0.0.3/dist/index.umd.js
+      integrity: sha384-xneY1WY8hOfUzswrE4CrYq35N4BdVcxqxwHPr9zawE/jMSCxD+jAPU55x/jj3wlf
     live2d:
       base: fastly_jsdelivr_gh|D-Sketon/plugin-live2d/
       js: fastly_jsdelivr_gh|D-Sketon/plugin-live2d/js/live2d-autoload.js
-    md5: webcache|blueimp-md5@2.19.0/js/md5.min.js
-    quicklink: webcache|quicklink@2.3.0/dist/quicklink.umd.js
+    md5:
+      src: webcache|blueimp-md5@2.19.0/js/md5.min.js
+      integrity: sha384-JmVtRz6RWiXnA14QbIOJzPuU3MidULOpBP66deeLLyyoF4Tr/gZlbkHkL6vTthxH
+    quicklink:
+      src: webcache|quicklink@2.3.0/dist/quicklink.umd.js
+      integrity: sha384-aD7FsuQkS1ohgFKY41fJfeA+Wd/QRNnrOd9Bs58K3FzKdJJv8yPnYU8Tnp5z1agS
   css:
     photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.css
     katex: webcache|katex@0.16.9/dist/katex.min.css
@@ -393,4 +427,4 @@ vendor:
         - webcache|@fortawesome/fontawesome-free@6.5.1/css/brands.min.css
         - webcache|@fortawesome/fontawesome-free@6.5.1/css/v5-font-face.min.css
         - webcache|@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css
-    aos: webcache|@reimujs/aos@0.0.1/dist/aos.css
+    aos: webcache|@reimujs/aos@0.1.0/dist/aos.css

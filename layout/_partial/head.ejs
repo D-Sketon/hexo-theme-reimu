@@ -70,7 +70,7 @@
     <% } %>
   <% } %>
   <% if (theme.pace.enable) { %>
-    <%- js(vendorCdn(theme.vendor.js.pace)) %>
+    <%- js({src: vendorCdn(theme.vendor.js.pace)[0], integrity: vendorCdnIntegrity(theme.vendor.js.pace)[0], crossorigin: "anonymous"}) %>
   <% } %>
   <% if (theme.animation.enable) { %>
     <%- css(vendorCdn(theme.vendor.css.aos)) %>

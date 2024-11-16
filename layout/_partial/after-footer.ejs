@@ -1,5 +1,5 @@
-<%- js(vendorCdn(theme.vendor.js.lazysizes)) %>
-<%- js(vendorCdn(theme.vendor.js.clipboard)) %>
+<%- js({ src: vendorCdn(theme.vendor.js.lazysizes)[0], integrity: vendorCdnIntegrity(theme.vendor.js.lazysizes)[0], crossorigin: "anonymous"}) %>
+<%- js({ src: vendorCdn(theme.vendor.js.clipboard)[0], integrity: vendorCdnIntegrity(theme.vendor.js.clipboard)[0], crossorigin: "anonymous"}) %>
 
 <%- js('js/script.js') %>
 
@@ -47,20 +47,20 @@
       }
     };
   </script>
-  <%- js({src: vendorCdn(theme.vendor.js.algolia)[0], defer: true}) %>
-  <%- js({src: vendorCdn(theme.vendor.js.instantsearch)[0], defer: true}) %>
+  <%- js({src: vendorCdn(theme.vendor.js.algolia)[0], integrity: vendorCdnIntegrity(theme.vendor.js.algolia)[0], crossorigin: "anonymous", defer: true}) %>
+  <%- js({src: vendorCdn(theme.vendor.js.instantsearch)[0], integrity: vendorCdnIntegrity(theme.vendor.js.instantsearch)[0], crossorigin: "anonymous", defer: true}) %>
   <%- js({src: 'js/algolia_search.js', defer: true}) %>
 <% } %>
 
 <% if (theme.firework.enable) { %>
-  <%- js(vendorCdn(theme.vendor.js.firework)) %>
+  <%- js({src: vendorCdn(theme.vendor.js.firework)[0], integrity: vendorCdnIntegrity(theme.vendor.js.firework)[0], crossorigin: "anonymous"}) %>
   <script>
     window.firework && window.firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'))
   </script>
 <% } %>
 
 <% if (theme.pjax.enable) { %>
-  <%- js(vendorCdn(theme.vendor.js.pjax)) %>
+  <%- js({src: vendorCdn(theme.vendor.js.pjax)[0], integrity: vendorCdnIntegrity(theme.vendor.js.pjax)[0], crossorigin: "anonymous"}) %>
   <script>
     function loadScripts(scripts, index) {
       if (index < scripts.length) {
@@ -139,7 +139,7 @@
 <% } %>
 
 <% if (theme.quicklink.enable) { %>
-  <%- js(vendorCdn(theme.vendor.js.quicklink)) %>
+  <%- js({src: vendorCdn(theme.vendor.js.quicklink)[0], integrity: vendorCdnIntegrity(theme.vendor.js.quicklink)[0], crossorigin: "anonymous"}) %>
   <script data-pjax>
     window.quicklink?.listen({
       timeout: <%= theme.quicklink.timeout %>,
@@ -152,7 +152,7 @@
 <div id="lazy-script">
   <div>
     <% if (theme.mermaid.enable && page.mermaid) { %>
-      <%- js({src: vendorCdn(theme.vendor.js.mermaid)[0], 'data-pjax': true}) %>
+      <%- js({src: vendorCdn(theme.vendor.js.mermaid)[0], integrity: vendorCdnIntegrity(theme.vendor.js.mermaid)[0], crossorigin: "anonymous", 'data-pjax': true}) %>
       <script data-pjax>
         if (window.mermaid) {
           // https://github.com/mermaid-js/mermaid/issues/1945
@@ -233,21 +233,21 @@
     <% } %>
     <% if (is_post() || is_page()) { %>
       <script type="module" data-pjax>
-        import PhotoSwipeLightbox from "<%- vendorCdn(theme.vendor.js.photoswipe_lightbox) %>";
+        const PhotoSwipeLightbox = (await safeImport("<%- vendorCdn(theme.vendor.js.photoswipe_lightbox) %>", "<%- vendorCdnIntegrity(theme.vendor.js.photoswipe_lightbox) %>")).default;
         
         const pswp = () => {
           if (_$$('.article-entry a.article-gallery-item').length > 0) {
             new PhotoSwipeLightbox({
               gallery: '.article-entry',
               children: 'a.article-gallery-item',
-              pswpModule: () => import("<%- vendorCdn(theme.vendor.js.photoswipe) %>")
+              pswpModule: () => safeImport("<%- vendorCdn(theme.vendor.js.photoswipe) %>", "<%- vendorCdnIntegrity(theme.vendor.js.photoswipe) %>")
             }).init();
           }
           if(_$$('.article-gallery a.article-gallery-item').length > 0) {
             new PhotoSwipeLightbox({
               gallery: '.article-gallery',
               children: 'a.article-gallery-item',
-              pswpModule: () => import("<%- vendorCdn(theme.vendor.js.photoswipe) %>")
+              pswpModule: () => safeImport("<%- vendorCdn(theme.vendor.js.photoswipe) %>", "<%- vendorCdnIntegrity(theme.vendor.js.photoswipe) %>")
             }).init();
           }
           window.lightboxStatus = 'done';
@@ -268,7 +268,7 @@
 <%- outdate() %>
 
 <% if (theme.footer.busuanzi) { %>
-  <%- js({src: vendorCdn(theme.vendor.js.busuanzi)[0], async: true}) %>
+  <%- js({src: vendorCdn(theme.vendor.js.busuanzi)[0], integrity: vendorCdnIntegrity(theme.vendor.js.busuanzi)[0], crossorigin: "anonymous", async: true}) %>
 <% } %>
 
 <% if (theme.service_worker.enable) { %>
