@@ -30,8 +30,8 @@
 
 <% if (theme.algolia_search.enable) { %>
   <script>
-    var CONFIG = {
-      root: '/',
+    var ALGOLIA_CONFIG = {
+      logo: "<%- url_for('/images/algolia_logo.svg', { relative: false }) %>",
       algolia: {
         applicationID: "<%= config.algolia.appId %>",
         apiKey: "<%= config.algolia.apiKey %>",
