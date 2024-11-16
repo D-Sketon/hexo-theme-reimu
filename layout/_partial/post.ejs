@@ -1,6 +1,5 @@
-<% if (even === true) { %>
-  <div class="post-wrapper">
-  <div class="post-wrap-left" data-aos="<%= theme.animation.options.home.post %>">
+<div class="post-wrapper">
+  <div class=<% if (even === true) { %>"post-wrap-left"<% } else { %>"post-wrap-right"<% } %> data-aos="<%= theme.animation.options.home.post %>">
     <% if (post.link) { %>
       <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url" target="_blank" aria-label="<%= post.title %>" rel="noopener external nofollow noreferrer"></a>
     <% } else { %>
@@ -9,7 +8,7 @@
     <% if (post.sticky) { %>
       <div class="post-sticky"><%= __('sticky')%></div>
     <% } %>
-    <div class="post-cover-left">
+    <div class=<% if (even === true) { %>"post-cover-left"<% } else { %>"post-cover-right"<% } %>>
       <% if (post.cover && !post.cover.startsWith("rgb")) { %>
         <img data-src="<%= post.cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
       <% } else { %>
@@ -37,45 +36,4 @@
       </article>
     </div>
   </div>
-  </div>
-<% } else { %>
-  <div class="post-wrapper">
-  <div class="post-wrap-right" data-aos="<%= theme.animation.options.home.post %>">
-    <% if (post.link) { %>
-      <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url" target="_blank" aria-label="<%= post.title %>" rel="noopener external nofollow noreferrer"></a>
-    <% } else { %>
-      <a class="post-link" href="<%- url_for(post.path) %>" aria-label="<%= post.title %>"></a>
-    <% } %>
-    <% if (post.sticky) { %>
-      <div class="post-sticky"><%= __('sticky')%></div>
-    <% } %>
-    <div class="post-cover-right">
-      <% if (post.cover && !post.cover.startsWith("rgb")) { %>
-        <img data-src="<%= post.cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
-      <% } else { %>
-        <% var cover = randomCover(); %>
-        <% if (cover) { %>
-          <img data-src="<%= cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
-        <% } else { %>
-          <img data-src="<%- url_for(theme.banner, {relative: false}) %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
-        <% } %>
-      <% } %>
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span><%- date(post.date, "YYYY-MM-DD") %></span>
-        <span><span class="icon-pencil"></span><%= _p('post.count', wordcount(post.content)) %></span>
-        <span><span class="icon-clock"></span><%= _p('post.time', min2read(post.content)) %></span>
-      </div>
-      <h2 class="post-title"><%= post.title %></h2>
-      <article class="post-article">
-        <% if (post.excerpt) { %>
-          <%- post.excerpt %>
-        <% } else { %>
-          <%= stripHtml(post.content).slice(0, 300) %>
-        <% } %>
-      </article>
-    </div>
-  </div>
-  </div>
-<% } %>
+</div>

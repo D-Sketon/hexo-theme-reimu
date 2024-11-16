@@ -71,7 +71,13 @@
       <% } else { %>
         <% var subtitle;
             if (is_archive()) {
-              subtitle = null;
+              if (is_month()) {
+                subtitle = page.year + '/' + page.month;
+              } else if (is_year()) {
+                subtitle = page.year;
+              } else {
+                subtitle = null;
+              }
             } else if (is_category()) {
               subtitle = post.category;
             } else if (is_tag()) {

@@ -1,6 +1,6 @@
-<% if (pagination === 2) { %>
+<% if (home === true) { %>
   <% page.posts.each((post, i) => { %>
-  <%- partial('post', {post: post, index: true, even: i % 2 === 0}) %>
+    <%- partial('post', {post: post, even: i % 2 === 0}) %>
   <% }) %>
 <% } else { %>
 <div class="archives-outer-wrap" data-aos="<%= theme.animation.options.archive.whole %>">
@@ -32,7 +32,7 @@
         </div>
         <ul>
           <% } %>
-          <%- partial('archive-post', {post: post, even: i % 2 === 0}) %>
+          <%- partial('archive-post', {post: post}) %>
           <% }) %>
           <% if (page.posts.length) { %>
         </ul>

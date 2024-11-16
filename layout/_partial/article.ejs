@@ -10,13 +10,17 @@
       <% if (theme.outdate.enable) { %>
         <blockquote id="outdate-blockquote" style="display: none;"><p></p></blockquote>
       <% } %>
-      <% if (post.excerpt && index) { %>
-        <%- post.excerpt %>
-        <% if (theme.excerpt_link) { %>
-          <p class="article-more-link">
-            <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
-          </p>
+      <% if (post.excerpt || post.link) { %>
+        <% if (post.excerpt) { %>
+          <p><%- post.excerpt %></p>
         <% } %>
+        <p class="article-more-link">
+          <% if (post.link) { %>
+            <a href="<%- url_for(post.link, {relative: false}) %>" target="_blank" itemprop="url" rel="noopener external nofollow noreferrer"><%= theme.excerpt_link || "Read More" %></a>
+          <% } else { %>
+            <a href="<%- url_for(post.path) %>"><%= theme.excerpt_link || "Read More" %></a>
+          <% } %>
+        </p>
       <% } else { %>
         <%- post.content %>
       <% } %>
@@ -84,22 +88,20 @@
       <%- partial('post/tag') %>
     </footer>
   </div>
-  <% if (!index) { %>
-    <%- partial('post/nav') %>
-  <% } %>
+  <%- partial('post/nav') %>
 </article>
-<% if (!index && post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
+<% if (post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
   <section id="comments" class="vcomment" data-aos="<%= theme.animation.options.article.whole %>"></section>
 <% } %>
-<% if (!index && post.comments !== false && theme.waline.enable && theme.waline.serverURL) { %>
+<% if (post.comments !== false && theme.waline.enable && theme.waline.serverURL) { %>
   <div id="comments" class="wcomment" data-aos="<%= theme.animation.options.article.whole %>"></div>
 <% } %>
-<% if (!index && post.comments !== false && theme.twikoo.enable && theme.twikoo.envId) { %>
+<% if (post.comments !== false && theme.twikoo.enable && theme.twikoo.envId) { %>
   <div id="comments" class="tcomment" data-aos="<%= theme.animation.options.article.whole %>"></div>
 <% } %>
-<% if (!index && post.comments !== false && theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret) { %>
+<% if (post.comments !== false && theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret) { %>
   <div id="comments" class="gtcomment" data-aos="<%= theme.animation.options.article.whole %>"></div>
 <% } %>
-<% if (!index && post.comments !== false && theme.giscus.enable) { %>
+<% if (post.comments !== false && theme.giscus.enable) { %>
   <div id="comments" class="gscomment giscus" data-aos="<%= theme.animation.options.article.whole %>"></div>
 <% } %>
