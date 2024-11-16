@@ -29,7 +29,7 @@
       <h2 class="post-title"><%= post.title %></h2>
       <article class="post-article">
         <% if (post.excerpt) { %>
-          <%- post.excerpt %>
+          <%= stripHtml(post.excerpt) %>
         <% } else { %>
           <%= stripHtml(post.content).slice(0, 300) %>
         <% } %>
