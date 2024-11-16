@@ -1,0 +1,106 @@
+<% if (theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
+  <%- js({src: vendorCdn(theme.vendor.js.valine)[0], 'data-pjax': true}) %>
+  <script data-pjax>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = '<%= theme.valine.guest_info %>'.split(',').filter((item) => {
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    var recordIP = JSON.parse('<%= theme.valine.recordIP %>');
+    var highlight = JSON.parse('<%= theme.valine.highlight %>');
+    var visitor = JSON.parse('<%= theme.valine.visitor %>');
+
+    new Valine({
+      el: '.vcomment',
+      appId: "<%= theme.valine.appId %>",
+      appKey: "<%= theme.valine.appKey %>",
+      placeholder: "<%= theme.valine.placeholder %>",
+      pageSize: '<%= theme.valine.pageSize %>',
+      avatar: '<%= theme.valine.avatar %>',
+      lang: '<%= theme.valine.lang %>',
+      recordIP: recordIP,
+      highlight: highlight,
+      visitor: visitor,
+      requiredFields: guest_info,
+      path: window.location.pathname
+    });
+  </script>
+<% } %>
+
+<% if (theme.waline.enable && theme.waline.serverURL) { %>
+  <script data-pjax type="module">
+    import { init } from "<%= vendorCdn(theme.vendor.js.waline)[0] %>";
+    if(_$('.wcomment')) {
+      window.walineInstance = init({
+        el: '.wcomment',
+        serverURL: '<%= theme.waline.serverURL %>',
+        lang: '<%= theme.waline.lang %>',
+        locale: <%- JSON.stringify(theme.waline.locale) %>,
+        emoji: <%- JSON.stringify(theme.waline.emoji) %>,
+        meta: <%- JSON.stringify(theme.waline.meta) %>,
+        requiredMeta: <%-JSON.stringify(theme.waline.requiredMeta) %>,
+        wordLimit: JSON.parse('<%= theme.waline.wordLimit %>'),
+        comment: true,
+        pageSize: JSON.parse('<%= theme.waline.pageSize %>'),
+        dark: 'html[data-theme="dark"]',
+        pageview: JSON.parse('<%= theme.waline.pageview %>'),
+    });
+    }
+  </script>
+<% } %>
+
+<% if (theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret) { %>
+  <%- js({src: vendorCdn(theme.vendor.js.gitalk)[0], 'data-pjax': true}) %>
+  <% if (theme.gitalk.md5) { %>
+    <%- js({src: vendorCdn(theme.vendor.js.md5)[0], 'data-pjax': true}) %>
+  <% } %>
+  <script data-pjax>
+    var gitalkId = <%= theme.gitalk.md5 ? 'md5(location.pathname)' : 'location.pathname' %>;
+    var gitalk = new Gitalk({
+      clientID: '<%= theme.gitalk.clientID %>',
+      clientSecret: '<%= theme.gitalk.clientSecret %>',
+      repo: '<%= theme.gitalk.repo %>',
+      owner: '<%= theme.gitalk.owner %>',
+      admin: <%- JSON.stringify(theme.gitalk.admin) %>,
+      id: gitalkId, // Ensure uniqueness and length less than 50
+      distractionFreeMode: false // Facebook-like distraction free mode
+    })
+    if (document.getElementById('comments')) {
+      gitalk.render('comments')
+    }
+  </script>
+<% } %>
+
+<% if (theme.twikoo.enable && theme.twikoo.envId) { %>
+  <%- js({src: vendorCdn(theme.vendor.js.twikoo)[0], 'data-pjax': true}) %>
+  <script data-pjax>
+    twikoo.init({
+      envId: '<%= theme.twikoo.envId %>',
+      el: '.tcomment',
+      region: '<%= theme.twikoo.region %>',
+    })
+  </script>
+<% } %>
+
+<% if (theme.giscus.enable && page.comments !== false) { %>
+  <script data-pjax>
+    var giscusContainer = document.querySelector('.giscus');
+    if (giscusContainer) {
+      const giscusScript = document.createElement('script');
+      giscusScript.src = 'https://giscus.app/client.js';
+      giscusScript.setAttribute('data-repo', '<%= theme.giscus.repo %>');
+      giscusScript.setAttribute('data-repo-id', '<%= theme.giscus.repoId %>');
+      giscusScript.setAttribute('data-category', '<%= theme.giscus.category %>'); 
+      giscusScript.setAttribute('data-category-id', '<%= theme.giscus.categoryId %>');
+      giscusScript.setAttribute('data-mapping', '<%= theme.giscus.strict %>');
+      giscusScript.setAttribute('data-strict', '<%= theme.giscus.strict %>');
+      giscusScript.setAttribute('data-reactions-enabled', '<%= theme.giscus.reactionsEnabled %>');
+      giscusScript.setAttribute('data-emit-metadata', '<%= theme.giscus.emitMetadata %>');
+      giscusScript.setAttribute('data-input-position', '<%= theme.giscus.inputPosition %>');
+      giscusScript.setAttribute('data-theme', '<%= theme.giscus.commentTheme %>');
+      giscusScript.setAttribute('data-lang', '<%= theme.giscus.lang %>');
+      giscusScript.setAttribute('crossorigin', 'anonymous');
+      giscusScript.async = true;
+      giscusContainer.appendChild(giscusScript);
+    }
+  </script>
+<% } %>

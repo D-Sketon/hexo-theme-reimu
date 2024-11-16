@@ -10,16 +10,10 @@
       <% if (theme.outdate.enable) { %>
         <blockquote id="outdate-blockquote" style="display: none;"><p></p></blockquote>
       <% } %>
-      <% if (post.excerpt || post.link) { %>
-        <% if (post.excerpt) { %>
-          <p><%- post.excerpt %></p>
-        <% } %>
+      <% if (post.excerpt && post.link) { %>
+        <p><%- post.excerpt %></p>
         <p class="article-more-link">
-          <% if (post.link) { %>
-            <a href="<%- url_for(post.link, {relative: false}) %>" target="_blank" itemprop="url" rel="noopener external nofollow noreferrer"><%= theme.excerpt_link || "Read More" %></a>
-          <% } else { %>
-            <a href="<%- url_for(post.path) %>"><%= theme.excerpt_link || "Read More" %></a>
-          <% } %>
+          <a href="<%- url_for(post.link, {relative: false}) %>" target="_blank" itemprop="url" rel="noopener external nofollow noreferrer"><%= theme.excerpt_link || "Read More" %></a>
         </p>
       <% } else { %>
         <%- post.content %>
