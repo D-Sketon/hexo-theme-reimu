@@ -57,10 +57,6 @@ _$$(".article-entry img").forEach((element) => {
   element.parentNode.removeChild(element);
   a.appendChild(element);
 });
-_$$(".article-gallery a.article-gallery-img").forEach((a) => {
-  a.dataset.pswpWidth = a.children[0].naturalWidth;
-  a.dataset.pswpHeight = a.children[0].naturalHeight;
-});
 window.lightboxStatus = "ready";
 window.dispatchEvent(new Event("lightbox:ready"));
 
