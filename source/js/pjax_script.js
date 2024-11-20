@@ -49,8 +49,16 @@ _$$(".article-entry img").forEach((element) => {
     return;
   const a = document.createElement("a");
   a.href ? (a.href = element.src) : a.setAttribute("href", element.src);
-  a.dataset.pswpWidth = element.naturalWidth;
-  a.dataset.pswpHeight = element.naturalHeight;
+  if (element.naturalWidth || element.naturalHeight) {
+    a.dataset.pswpWidth = element.naturalWidth;
+    a.dataset.pswpHeight = element.naturalHeight;
+  } else {
+    console.warn("Image naturalWidth and naturalHeight cannot be obtained right now, fallback to onload.");
+    element.onload = () => {
+      a.dataset.pswpWidth = element.naturalWidth;
+      a.dataset.pswpHeight = element.naturalHeight;
+    };
+  }
   a.target = "_blank";
   a.classList.add("article-gallery-item");
   element.parentNode.insertBefore(a, element);
