@@ -416,8 +416,8 @@ vendor:
       integrity: sha384-aD7FsuQkS1ohgFKY41fJfeA+Wd/QRNnrOd9Bs58K3FzKdJJv8yPnYU8Tnp5z1agS
   css:
     photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.css
-    katex: webcache|katex@0.16.9/dist/katex.min.css
-    waline: webcache|@waline/client@v2/dist/waline.css
+    katex: webcache|katex@0.16.11/dist/katex.min.css
+    waline: webcache|@waline/client@2.15.8/dist/waline.css
     gitalk: webcache|gitalk/dist/gitalk.css
     fontawesome:
       high_priority:

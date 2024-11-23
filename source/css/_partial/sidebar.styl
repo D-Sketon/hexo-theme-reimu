@@ -283,7 +283,7 @@ $menu-link
     will-change: transform
 
   pointer-events: none
-  padding: 5px 5px
+  padding: 5px
   display: flex
   align-items: center
 
@@ -389,13 +389,9 @@ $menu-link
     height: auto
     transform: scaleY(1)
 
-  .active>a, .current>a
+  .active>a, .current>a, .active>a>span, .current>a>span
     color: var(--red-0)
     opacity: 1
-
-    &>span
-      color: var(--red-0)
-      opacity: 1
 
 .toc-title
   letter-spacing: 2px
