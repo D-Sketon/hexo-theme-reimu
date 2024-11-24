@@ -150,7 +150,7 @@ _$$(".article-entry img").forEach((element) => {
 // to top
 var sidebarTop = _$(".sidebar-top");
 if (sidebarTop) {
-  sidebarTop.style.transition = "opacity 1s";
+  sidebarTop.style.transition = "all .3s";
   sidebarTop.off("click").on("click", () => {
     window.scrollTo({
       top: 0,
