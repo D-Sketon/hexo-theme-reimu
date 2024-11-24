@@ -32,7 +32,7 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
   const widgetConfig = hexo.theme.config.widgets;
   const siteHasWidget = Array.isArray(widgetConfig) && widgetConfig.length > 0;
 
-  const socialKeys = Object.keys(hexo.theme.config.social);
+  const socialKeys = Object.keys(hexo.theme.config.social || {});
 
   style
     .define("basic-families", basicFamilies.length ? basicFamilies + "," : "")
