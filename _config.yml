@@ -115,7 +115,7 @@ footer:
   count: true
   busuanzi: true
 
-# need https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus
+# need https://github.com/D-Sketon/hexo-renderer-markdown-it-plus
 # use katex
 math:
   enable: false

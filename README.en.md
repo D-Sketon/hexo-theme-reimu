@@ -370,11 +370,11 @@ generator_search:
 
 ### Mathematical formulas
 
-Math formulas are based on [Katex](https://github.com/KaTeX/KaTeX), please install [hexo-renderer-markdown-it-plus](https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus)
+Math formulas are based on [Katex](https://github.com/KaTeX/KaTeX), please install [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)
 
 ```bash
 npm uninstall hexo-renderer-marked --save
-npm install hexo-renderer-markdown-it-plus --save
+npm install @reimujs/hexo-renderer-markdown-it-plus --save
 ```
 
 Change `math.enable` to `true` in the inner `_config.yml`

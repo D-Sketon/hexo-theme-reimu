@@ -369,11 +369,11 @@ generator_search:
 
 ### 数学公式
 
-数学公式基于 [Katex](https://github.com/KaTeX/KaTeX)，请安装 [hexo-renderer-markdown-it-plus](https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus)
+数学公式基于 [Katex](https://github.com/KaTeX/KaTeX)，请安装 [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)
 
 ```bash
 npm uninstall hexo-renderer-marked --save
-npm install hexo-renderer-markdown-it-plus --save
+npm install @reimujs/hexo-renderer-markdown-it-plus --save
 ```
 
 在内层 `_config.yml` 中将 `math.enable` 改为 `true`
