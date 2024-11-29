@@ -13,10 +13,7 @@
   .sidebar-top-taichi
     width: 50px
     height: 50px
-    opacity: .8;
-    background-color: var(--red-1);
-    -webkit-mask: url(../images/taichi.png) no-repeat center / 100%;
-    mask: url(../images/taichi.png) no-repeat center / 100%;
+    opacity: .8
     transition: .3s
     animation: rotate-all 3s linear infinite
     opacity: 1
@@ -39,3 +36,17 @@
       opacity: 0
     .arrow-up
       opacity: 1
+
+@supports (-webkit-mask: url(../images/taichi.png) no-repeat center / 100%)
+  .sidebar-top-taichi
+    background-color: var(--red-1)
+    -webkit-mask: url(../images/taichi.png) no-repeat center / 100%
+
+@supports (mask: url(../images/taichi.png) no-repeat center / 100%)
+  .sidebar-top-taichi
+    background-color: var(--red-1)
+    mask: url(../images/taichi.png) no-repeat center / 100%
+
+@supports not ((mask: url(../images/taichi.png) no-repeat center / 100%) and (-webkit-mask: url(../images/taichi.png) no-repeat center / 100%))
+  .sidebar-top-taichi
+    background: url(../images/taichi.png) no-repeat center / 100%

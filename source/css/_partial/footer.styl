@@ -43,11 +43,21 @@
 .footer-info-sep
   width: 25px
   opacity: 0.8
-  background-color: var(--red-1);
-  -webkit-mask: url("../images/taichi.png") no-repeat center / 80%
-  mask: url("../images/taichi.png") no-repeat center / 80%
-  // background: url("../images/taichi.png") no-repeat center / 80%
   animation: rotate-all 3s linear infinite
+
+@supports (-webkit-mask: url(../images/taichi.png) no-repeat center / 80%)
+  .footer-info-sep
+    background-color: var(--red-1)
+    -webkit-mask: url(../images/taichi.png) no-repeat center / 80%
+
+@supports (mask: url(../images/taichi.png) no-repeat center / 80%)
+  .footer-info-sep
+    background-color: var(--red-1)
+    mask: url(../images/taichi.png) no-repeat center / 80%
+
+@supports not ((mask: url(../images/taichi.png) no-repeat center / 80%) and (-webkit-mask: url(../images/taichi.png) no-repeat center / 80%))
+  .footer-info-sep
+    background: url(../images/taichi.png) no-repeat center / 80%
 
 if post-has-copyright
   .article-copyright
