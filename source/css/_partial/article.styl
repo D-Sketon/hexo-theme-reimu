@@ -373,3 +373,19 @@ $article-meta-tag
   overflow-x: auto
   overflow-y: hidden
 
+.katex
+  width: calc(100% - 2px)
+
+.katex-html
+  padding: 3px
+  .base
+    margin: 0 auto
+
+.katex-html:has(span.tag)
+  display: flex !important
+
+
+.katex-display>.katex>.katex-html>.tag
+  position: relative !important
+  float: right
+  margin-left: 0.25rem
