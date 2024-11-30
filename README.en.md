@@ -46,7 +46,6 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 - Lazy image loading
 - Load Animation
 - TOC
-- Back to top
 - Mouse firework animation
 - pjax
 - ServiceWorker
@@ -55,6 +54,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 - Internal tag plugin for providing internal/external/friendly link cards
 - Support the bottom of the article copyright statement
 - Support for configuring custom CDN sources
+- Highly customizable
 
 ## Installation
 
@@ -612,6 +612,10 @@ Disabled by default
 sponsor:
   enable: false # Whether to enable sponsorship
   tip: 请作者喝杯咖啡吧！ # Sponsorship prompt
+  icon:
+    url: "../images/taichi.png" # this path is relative to the css/style.css, so it needs to go up one level to reach the images folder
+    rotate: true
+    mask: true # whether to use the images as a mask
   qr:
     - name: 支付宝 # Payment method
       src: "/sponsor/alipay.jpg" # QR code

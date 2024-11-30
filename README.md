@@ -45,7 +45,6 @@
 - 图片懒加载
 - 加载动画
 - TOC
-- 回到顶部
 - 鼠标动画
 - pjax
 - ServiceWorker
@@ -54,6 +53,7 @@
 - 内部提供内链/外链/友链卡片的标签插件
 - 文章底部版权声明
 - 配置自定义 CDN 源
+- 高度自定义
 
 ## 安装
 
@@ -608,6 +608,10 @@ outdate:
 sponsor:
   enable: false # 是否展示赞助二维码？
   tip: 请作者喝杯咖啡吧！ # 赞助提示
+  icon:
+    url: "../images/taichi.png" # 赞助图标，相对于 css/style.css 的路径，所以需要向上一级才能找到 images 文件夹
+    rotate: true # 是否旋转图标
+    mask: true # 是否将图片作为遮罩（即只显示 png 图片的轮廓）
   qr:
     - name: 支付宝 # 二维码名称
       src: "/sponsor/alipay.jpg" # 二维码路径，请自行填写
