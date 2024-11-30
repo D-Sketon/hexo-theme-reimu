@@ -33,7 +33,7 @@
 - 兼容 Hexo v6+
 - 响应式布局
 - 代码高亮，代码粘贴
-- KaTeX 展示数学公式
+- KaTeX / MathJax3 展示数学公式
 - Mermaid 展示流程图
 - Algolia / hexo-generator-search 搜索
 - valine / waline / twikoo / gitalk / giscus 评论系统

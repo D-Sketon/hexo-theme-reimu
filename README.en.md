@@ -34,7 +34,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 - Compatible with Hexo v6+
 - Responsive Layout
 - Code Highlighting, Code Pasting
-- KaTeX for displaying math formulas
+- KaTeX / MathJax3 for displaying math formulas
 - Mermaid for flowcharts
 - Algolia / hexo-generator-search search
 - valine / waline / twikoo / gitalk / giscus comment system
