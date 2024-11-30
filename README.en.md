@@ -472,7 +472,7 @@ rss: atom.xml
 Icon defaults to the iconfont provided with this project (v0.1.3+)
 
 ```yml
-icon_font: 4552607_y484ez0be3f
+icon_font: 4552607_tq6stt6tcg
 ```
 
 If you want to continue using fontawesome icons, set `icon_font` to `false`, which will use the corresponding fontawesome in `vendor`.
