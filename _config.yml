@@ -281,7 +281,7 @@ generator_search:
 preloader:
   enable: true
   text: 少女祈祷中...
-  # text: Loading...
+  icon:  # default use inline svg for fast speed, you can use a image url, like '/images/taichi.png'
 
 # https://github.com/CodeByZach/pace
 pace:
