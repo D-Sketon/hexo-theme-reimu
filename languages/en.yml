@@ -55,3 +55,8 @@ service_worker:
   cancel: Cancel
 
 sponsor: Sponsor
+
+home_categories:
+  count: 
+    one: "%d post"
+    other: "%d posts"

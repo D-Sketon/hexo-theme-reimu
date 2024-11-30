@@ -1,4 +1,28 @@
 <% if (home === true) { %>
+  <% if (theme.home_categories?.enable) { %>
+    <div class="post-categories-wrapper" data-aos="<%= theme.animation.options.home.post %>">
+      <% for (var content of theme.home_categories.content) { %>
+        <div class="post-categories-wrap">
+          <% var c = parseHomeCategories(content.categories); %>
+          <a class="post-link" href="<%= url_for(c.url, {relative: false}) %>" aria-label=""></a>
+          <div class="post-categories-cover">
+            <% if (content.cover) { %>
+              <img data-src="<%- url_for(content.cover, {relative: false}) %>" data-sizes="auto" alt="<%= c.name %>" class="lazyload">
+            <% } else { %>
+              <% var cover = randomCover(); %>
+              <% if (cover) { %>
+                <img data-src="<%= cover %>" data-sizes="auto" alt="<%= c.name %>" class="lazyload">
+              <% } else { %>
+                <img data-src="<%- url_for(theme.banner, {relative: false}) %>" data-sizes="auto" alt="<%= c.name %>" class="lazyload">
+              <% } %>
+            <% } %>
+            <h2><%= c.name %></h2>
+            <h3><%= _p('home_categories.count', c.count) %></h3>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
   <% page.posts.each((post, i) => { %>
     <%- partial('post', {post: post, even: i % 2 === 0}) %>
   <% }) %>

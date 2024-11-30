@@ -55,3 +55,8 @@ service_worker:
   cancel: キャンセル
 
 sponsor: スポンサー
+
+home_categories:
+  count:
+    one: "%s 記事"
+    other: "%s 記事"
