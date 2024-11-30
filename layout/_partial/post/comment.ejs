@@ -86,6 +86,7 @@
     var giscusContainer = document.querySelector('.giscus');
     if (giscusContainer) {
       const giscusScript = document.createElement('script');
+      const domMode = document.documentElement.getAttribute("data-theme");
       giscusScript.src = 'https://giscus.app/client.js';
       giscusScript.setAttribute('data-repo', '<%= theme.giscus.repo %>');
       giscusScript.setAttribute('data-repo-id', '<%= theme.giscus.repoId %>');
@@ -96,7 +97,7 @@
       giscusScript.setAttribute('data-reactions-enabled', '<%= theme.giscus.reactionsEnabled %>');
       giscusScript.setAttribute('data-emit-metadata', '<%= theme.giscus.emitMetadata %>');
       giscusScript.setAttribute('data-input-position', '<%= theme.giscus.inputPosition %>');
-      giscusScript.setAttribute('data-theme', '<%= theme.giscus.commentTheme %>');
+      giscusScript.setAttribute('data-theme', domMode === 'dark' ? 'dark' : 'light');
       giscusScript.setAttribute('data-lang', '<%= theme.giscus.lang %>');
       giscusScript.setAttribute('crossorigin', 'anonymous');
       giscusScript.async = true;

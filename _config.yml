@@ -223,7 +223,7 @@ giscus:
   reactionsEnabled: 1
   emitMetadata: 0
   inputPosition: bottom
-  commentTheme: preferred_color_scheme
+  # commentTheme: light # this option is invalid, because the theme is set by the theme itself
   lang: zh-CN
 
 # need https://github.com/thom4parisot/hexo-algolia
