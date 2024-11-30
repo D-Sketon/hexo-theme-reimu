@@ -57,7 +57,7 @@ hexo.extend.tag.register("postLinkCard", (args) => {
       <div class="post-link-card-item-wrap">
         <div class="post-link-card-title">${title}</div>
         <div class="post-link-card-excerpt">${
-          post.excerpt ?? stripHTML(post._content).slice(0, 200)
+          post.excerpt ? stripHTML(post.excerpt) : stripHTML(post._content).slice(0, 200)
         }</div>
       </div>
     </div>
