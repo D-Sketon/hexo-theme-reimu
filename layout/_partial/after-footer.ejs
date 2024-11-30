@@ -285,3 +285,8 @@
   }
 </script>
 <% } %>
+
+<% if (theme.math.enable && theme.math.browserRender) { %>
+  <%- js({src: vendorCdn(theme.vendor.js.katex)[0], integrity: vendorCdnIntegrity(theme.vendor.js.katex)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
+  <%- js({src: vendorCdn(theme.vendor.js.katex_auto_render)[0], integrity: vendorCdnIntegrity(theme.vendor.js.katex_auto_render)[0], crossorigin: "anonymous", defer: true, onload: "renderMathInElement(document.body);", 'data-pjax': true}) %>
+<% } %>

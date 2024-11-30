@@ -115,10 +115,12 @@ footer:
   count: true
   busuanzi: true
 
-# need https://github.com/D-Sketon/hexo-renderer-markdown-it-plus
+# It's better to use https://github.com/D-Sketon/hexo-renderer-markdown-it-plus for better performance
+# If you don't want to use it, please set `browserRender` to true to enable browser rendering
 # use katex
 math:
   enable: false
+  browserRender: false
 
 # need https://github.com/webappdevelp/hexo-filter-mermaid-diagrams
 mermaid: ## mermaid url https://github.com/knsv/mermaid
@@ -338,9 +340,8 @@ font:
 # ICP 备案
 icp:
   icpnumber: # ICP备案号
-  beian:  # 网安备案号
+  beian: # 网安备案号
   recordcode: # 网安备案链接中的recordcode参数
-
 
 sponsor:
   enable: false
@@ -360,10 +361,10 @@ vendor:
   unpkg: https://unpkg.com/
   webcache: https://npm.webcache.cn/
   js:
-    clipboard: 
+    clipboard:
       src: webcache|clipboard@2.0.11/dist/clipboard.min.js
       integrity: sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q
-    lazysizes: 
+    lazysizes:
       src: webcache|lazysizes@5.3.2/lazysizes.min.js
       integrity: sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf+e
     photoswipe:
@@ -414,6 +415,12 @@ vendor:
     quicklink:
       src: webcache|quicklink@2.3.0/dist/quicklink.umd.js
       integrity: sha384-aD7FsuQkS1ohgFKY41fJfeA+Wd/QRNnrOd9Bs58K3FzKdJJv8yPnYU8Tnp5z1agS
+    katex:
+      src: webcache|katex@0.16.11/dist/katex.min.js
+      integrity: sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg
+    katex_auto_render:
+      src: webcache|katex@0.16.11/dist/contrib/auto-render.min.js
+      integrity: sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk
   css:
     photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.css
     katex: webcache|katex@0.16.11/dist/katex.min.css

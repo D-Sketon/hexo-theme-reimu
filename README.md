@@ -369,7 +369,8 @@ generator_search:
 
 ### 数学公式
 
-数学公式基于 [Katex](https://github.com/KaTeX/KaTeX)，请安装 [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)
+数学公式基于 [Katex](https://github.com/KaTeX/KaTeX)  
+如果想要基于服务端渲染，请安装 [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)
 
 ```bash
 npm uninstall hexo-renderer-marked --save
@@ -381,7 +382,18 @@ npm install @reimujs/hexo-renderer-markdown-it-plus --save
 ```yaml
 math:
   enable: true
+  browserRender: false
 ```
+
+如果想要基于客户端渲染，则无需安装插件，只需在内层 `_config.yml` 中将 `math.enable` 改为 `true`，并将 `browserRender` 也改为 `true`
+
+```yaml
+math:
+  enable: true
+  browserRender: true
+```
+
+> 请注意，基于客户端渲染的数学公式可能会导致页面加载速度变慢，尤其是在移动端
 
 </details>
 <details>

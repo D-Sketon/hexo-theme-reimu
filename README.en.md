@@ -370,7 +370,8 @@ generator_search:
 
 ### Mathematical formulas
 
-Math formulas are based on [Katex](https://github.com/KaTeX/KaTeX), please install [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)
+Math formulas are based on [Katex](https://github.com/KaTeX/KaTeX)  
+If you want to use server-side rendering, please install [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)
 
 ```bash
 npm uninstall hexo-renderer-marked --save
@@ -382,7 +383,18 @@ Change `math.enable` to `true` in the inner `_config.yml`
 ```yaml
 math:
   enable: true
+  browserRender: false
 ```
+
+If you want to use client-side rendering, you don't need to install the above plugin, just change `math.enable` to `true` in the inner `_config.yml`, and change `browserRender` to `true`
+
+```yaml
+math:
+  enable: true
+  browserRender: true
+```
+
+> Note: The client-side rendering of the formula is not as good as the server-side rendering, and the server-side rendering is recommended.
 
 </details>
 <details>
