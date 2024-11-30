@@ -44,21 +44,28 @@
 .footer-info-sep
   width: 25px
   opacity: 0.8
-  animation: rotate-all 3s linear infinite
 
-@supports (-webkit-mask: url(../images/taichi.png) no-repeat center / 80%)
-  .footer-info-sep
-    background-color: var(--red-1)
-    -webkit-mask: url(../images/taichi.png) no-repeat center / 80%
+  &.rotate
+    animation: rotate-all 3s linear infinite
 
-@supports (mask: url(../images/taichi.png) no-repeat center / 80%)
-  .footer-info-sep
-    background-color: var(--red-1)
-    mask: url(../images/taichi.png) no-repeat center / 80%
+if hexo-config("footer.icon.mask")
+  @supports (-webkit-mask: var(--footer-icon) no-repeat center / 80%)
+    .footer-info-sep
+      background-color: var(--red-1)
+      -webkit-mask: var(--footer-icon) no-repeat center / 80%
 
-@supports not ((mask: url(../images/taichi.png) no-repeat center / 80%) and (-webkit-mask: url(../images/taichi.png) no-repeat center / 80%))
+  @supports (mask: var(--footer-icon) no-repeat center / 80%)
+    .footer-info-sep
+      background-color: var(--red-1)
+      mask: var(--footer-icon) no-repeat center / 80%
+
+  @supports not ((mask: var(--footer-icon) no-repeat center / 80%) and (-webkit-mask: var(--footer-icon) no-repeat center / 80%))
+    .footer-info-sep
+      background: var(--footer-icon) no-repeat center / 80%
+
+else
   .footer-info-sep
-    background: url(../images/taichi.png) no-repeat center / 80%
+      background: var(--footer-icon) no-repeat center / 80%
 
 if post-has-copyright
   .article-copyright

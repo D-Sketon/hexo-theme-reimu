@@ -15,8 +15,11 @@
     height: 50px
     opacity: .8
     transition: .3s
-    animation: rotate-all 3s linear infinite
+    border-radius: 50%
     opacity: 1
+
+    &.rotate
+      animation: rotate-all 3s linear infinite
 
   .arrow-up
     transition: .3s
@@ -37,16 +40,21 @@
     .arrow-up
       opacity: 1
 
-@supports (-webkit-mask: url(../images/taichi.png) no-repeat center / 100%)
-  .sidebar-top-taichi
-    background-color: var(--red-1)
-    -webkit-mask: url(../images/taichi.png) no-repeat center / 100%
+if hexo-config("top.icon.mask")
+  @supports (-webkit-mask: var(--top-icon) no-repeat center / 100%)
+    .sidebar-top-taichi
+      background-color: var(--red-1)
+      -webkit-mask: var(--top-icon) no-repeat center / 100%
 
-@supports (mask: url(../images/taichi.png) no-repeat center / 100%)
-  .sidebar-top-taichi
-    background-color: var(--red-1)
-    mask: url(../images/taichi.png) no-repeat center / 100%
+  @supports (mask: var(--top-icon) no-repeat center / 100%)
+    .sidebar-top-taichi
+      background-color: var(--red-1)
+      mask: var(--top-icon) no-repeat center / 100%
 
-@supports not ((mask: url(../images/taichi.png) no-repeat center / 100%) and (-webkit-mask: url(../images/taichi.png) no-repeat center / 100%))
+  @supports not ((mask: var(--top-icon) no-repeat center / 100%) and (-webkit-mask: var(--top-icon) no-repeat center / 100%))
+    .sidebar-top-taichi
+      background: var(--top-icon) no-repeat center / 100%
+
+else
   .sidebar-top-taichi
-    background: url(../images/taichi.png) no-repeat center / 100%
+      background: var(--top-icon) no-repeat center / 100%

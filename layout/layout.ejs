@@ -19,10 +19,12 @@
           <% } %>
         </div>
         <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
-        <div class="sidebar-top">
-          <div class="sidebar-top-taichi"></div>
-          <div class="arrow-up"></div>
-        </div>
+        <% if (theme.top.enable) { %>
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi <%- theme.top.icon?.rotate ? 'rotate' : '' %>"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <% } %>
         <div id="mask" class="hide"></div>
       </div>
       <%- partial('_partial/mobile-nav', null, {cache: false}) %>

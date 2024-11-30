@@ -34,11 +34,20 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
 
   const socialKeys = Object.keys(hexo.theme.config.social || {});
 
+  const footerIcon =
+    hexo.theme.config.footer.icon.url || "../images/taichi.png";
+  const sponsorIcon =
+    hexo.theme.config.sponsor.icon.url || "../images/taichi.png";
+  const topIcon = hexo.theme.config.top.icon.url || "../images/taichi.png";
+
   style
     .define("basic-families", basicFamilies.length ? basicFamilies + "," : "")
     .define("code-families", codeFamilies.length ? codeFamilies + "," : "")
     .define("post-has-sponsor", postHasSponsor)
     .define("post-has-copyright", postHasCopyright)
     .define("site-has-widget", siteHasWidget)
-    .define("social-keys", socialKeys);
+    .define("social-keys", socialKeys)
+    .define("footer-icon", footerIcon)
+    .define("sponsor-icon", sponsorIcon)
+    .define("top-icon", topIcon);
 });

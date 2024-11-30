@@ -21,6 +21,29 @@
 .sponsor-icon
   width: 30px
   margin: 0 10px
+  opacity: 0.8
+
+  &.rotate
+    animation: rotate-all 3s linear infinite
+
+if hexo-config("sponsor.icon.mask")
+  @supports (-webkit-mask: var(--sponsor-icon) no-repeat center / 80%)
+    .sponsor-icon
+      background-color: var(--red-1)
+      -webkit-mask: var(--sponsor-icon) no-repeat center / 80%
+
+  @supports (mask: var(--sponsor-icon) no-repeat center / 80%)
+    .sponsor-icon
+      background-color: var(--red-1)
+      mask: var(--sponsor-icon) no-repeat center / 80%
+
+  @supports not ((mask: var(--sponsor-icon) no-repeat center / 80%) and (-webkit-mask: var(--sponsor-icon) no-repeat center / 80%))
+    .sponsor-icon
+      background: var(--sponsor-icon) no-repeat center / 80%
+
+else
+  .sponsor-icon
+    background: var(--sponsor-icon) no-repeat center / 80%
 
 .sponsor-button-wrapper
   margin: 8px 50px

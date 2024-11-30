@@ -36,7 +36,7 @@ home_categories:
   enable: false
   content:
     - categories: # string (single-layer category) or array (multi-layer category)
-      cover:  # empty means random cover
+      cover: # empty means random cover
 
 # Open Graph
 # see https://hexo.io/docs/helpers#open-graph
@@ -126,12 +126,23 @@ social:
   # discord: https://discordapp.com/users/yourname
   # steam: https://steamcommunity.com/id/yourname
 
+# To Top
+top:
+  enable: true
+  icon:
+    url: "../images/taichi.png" # this path is relative to the css/style.css, so it needs to go up one level to reach the images folder
+    rotate: true
+    mask: true # whether to use the images as a mask
+
 footer:
   since: 2020 # 2020-current_year
   powered: true
   count: true
   busuanzi: true
-
+  icon:
+    url: "../images/taichi.png" # this path is relative to the css/style.css, so it needs to go up one level to reach the images folder
+    rotate: true
+    mask: true # whether to use the images as a mask
 
 math:
   enable: false
@@ -145,29 +156,28 @@ math:
   # mathjax does not need any hexo plugins (no support for server rendering currently)
   mathjax:
     enable: false
-    options: {
-      tex: {
-        tags: "ams",
-        useLabelIds: true,
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        displayMath: [['$$','$$'], ['\\[','\\]']],
-        processEscapes: true,
-        processEnvironments: true,
-        autoload: {
-          color: [],
-          colorv2: ['color']
-        },
-        packages: {'[+]': ['noerrors']}
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-        ignoreHtmlClass: 'tex2jax_ignore',
-        processHtmlClass: 'tex2jax_process'
-      },
-      loader: {
-        load: ['input/asciimath', '[tex]/noerrors']
+    options:
+      {
+        tex:
+          {
+            tags: "ams",
+            useLabelIds: true,
+            inlineMath: [["$", "$"], ['\\(', '\\)']],
+            displayMath: [["$$", "$$"], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            autoload: { color: [], colorv2: ["color"] },
+            packages: { "[+]": ["noerrors"] },
+          },
+        options:
+          {
+            skipHtmlTags:
+              ["script", "noscript", "style", "textarea", "pre", "code"],
+            ignoreHtmlClass: "tex2jax_ignore",
+            processHtmlClass: "tex2jax_process",
+          },
+        loader: { load: ["input/asciimath", "[tex]/noerrors"] },
       }
-    }
 
 # need https://github.com/webappdevelp/hexo-filter-mermaid-diagrams
 mermaid: ## mermaid url https://github.com/knsv/mermaid
@@ -393,6 +403,10 @@ icp:
 sponsor:
   enable: false
   tip: 请作者喝杯咖啡吧！
+  icon:
+    url: "../images/taichi.png" # this path is relative to the css/style.css, so it needs to go up one level to reach the images folder
+    rotate: true
+    mask: true # whether to use the images as a mask
   qr:
     # - name: 支付宝
     #   src: "/sponsor/alipay.jpg"

@@ -9,7 +9,7 @@
     <div>
       <span class="icon-copyright"></span>
       <%= theme.footer.since %>-<%= date(new Date(), 'YYYY') %>
-      <span class="footer-info-sep"></span>
+      <span class="footer-info-sep <%- theme.footer.icon?.rotate ? 'rotate' : '' %>"></span>
       <%= config.author || config.title %>
     </div>
     <% if (theme.footer.powered) { %>

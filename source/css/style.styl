@@ -128,7 +128,9 @@ if sidebar
 @import "_partial/highlight"
 @import "_partial/friend"
 @import "_partial/card"
-@import "_partial/top"
+
+if hexo-config("top.enable")
+  @import "_partial/top"
 
 if post-has-sponsor
   @import "_partial/sponsor"
