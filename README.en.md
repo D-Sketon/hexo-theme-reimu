@@ -629,6 +629,18 @@ sponsor: true # Whether to display the sponsorship
 ---
 ```
 
+#### home categories card (v1.0.0+)
+
+Disable by default, enable it to display the category card on the homepage, which can replace the directory in the widget
+
+```yaml
+home_categories:
+  enable: false # Whether to display the home category card?
+  content:
+    - categories: # Category name, the format is consistent with the categories in the front-matter, which can be a string (single-level category) or an array (multi-level category)
+      cover: # Card cover, if not filled in, a random cover will be used
+```
+
 </details>
 <details>
 <summary>Vendor</summary>

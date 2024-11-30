@@ -625,6 +625,17 @@ sponsor: true # 是否展示赞助二维码？
 ---
 ```
 
+#### 首页目录卡片（v1.0.0+）
+
+默认关闭，打开后可以在首页展示目录卡片，用于代替 widget 中的目录
+```yml
+home_categories:
+  enable: false # 是否展示首页目录卡片？
+  content:
+    - categories: # 目录名称，格式和 front-matter 中的 categories 一致，可以为字符串（单级分类）或数组（多级分类）
+      cover: # 卡片封面，不填则使用随机封面
+```
+
 </details>
 
 <details>
