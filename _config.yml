@@ -3,16 +3,16 @@
 menu:
   - name: home
     url: /
-    icon: e62b # icon use hex code, if you use fontawesome, you can use 'f6ad' as taichi icon
+    icon: # default use taichi icon, you can use a hexadecimal representation of fontawesome or icon_font, like 'f0c1'
   - name: archives
     url: /archives
-    icon: e62b
+    icon:
   - name: about
     url: /about
-    icon: e62b
+    icon:
   - name: friend
     url: /friend
-    icon: e62b
+    icon:
 
 banner: "/images/banner.webp" # themes/reimu/source/images/banner.webp
 # You can also write it in the form of the following url
@@ -54,6 +54,7 @@ open_graph:
 
 # Content
 excerpt_link: Read More
+anchor_icon: # default use '#' icon, you can use a hexadecimal representation of fontawesome or icon_font, like 'f0c1'
 
 # RSS
 # need https://github.com/hexojs/hexo-generator-feed

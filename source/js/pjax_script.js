@@ -30,12 +30,12 @@ var scrollIntoViewAndWait = (element) => {
 _$$(
   ".article-entry h1>a, .article-entry h2>a, .article-entry h3>a, .article-entry h4>a, .article-entry h5>a, .article-entry h6>a"
 ).forEach((element) => {
-  if (window.icon_font) {
+  if (window.REIMU_CONFIG.icon_font) {
     // iconfont
-    element.innerHTML = "&#xe635;";
+    element.innerHTML = window.REIMU_CONFIG.anchor_icon ? `&#x${window.REIMU_CONFIG.anchor_icon};` : "&#xe635;";
   } else {
     // fontawesome
-    element.innerHTML = "&#xf292;";
+    element.innerHTML = window.REIMU_CONFIG.anchor_icon ? `&#x${window.REIMU_CONFIG.anchor_icon};` : "&#xf292;";
   }
 });
 

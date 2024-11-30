@@ -73,9 +73,9 @@
       selection.addRange(range);
 
       let selectedText = selection.toString();
-      if (window.clipboard_tips.copyright?.enable) {
-        if (selectedText.length >= window.clipboard_tips.copyright?.count) {
-          selectedText = selectedText + "\n\n" + window.clipboard_tips.copyright?.content ?? '';
+      if (window.REIMU_CONFIG.clipboard_tips.copyright?.enable) {
+        if (selectedText.length >= window.REIMU_CONFIG.clipboard_tips.copyright?.count) {
+          selectedText = selectedText + "\n\n" + window.REIMU_CONFIG.clipboard_tips.copyright?.content ?? '';
         }
       }
       return selectedText;
@@ -84,7 +84,7 @@
   clipboard.on("success", function (e) {
     e.trigger.classList.add("icon-check");
     e.trigger.classList.remove("icon-copy");
-    _$("#copy-tooltip").innerText = window.clipboard_tips.success;
+    _$("#copy-tooltip").innerText = window.REIMU_CONFIG.clipboard_tips.success;
     _$("#copy-tooltip").style.opacity = 1;
     setTimeout(() => {
       _$("#copy-tooltip").style.opacity = 0;
@@ -97,7 +97,7 @@
   clipboard.on("error", function (e) {
     e.trigger.classList.add("icon-times");
     e.trigger.classList.remove("icon-copy");
-    _$("#copy-tooltip").innerText = window.clipboard_tips.fail;
+    _$("#copy-tooltip").innerText = window.REIMU_CONFIG.clipboard_tips.fail;
     _$("#copy-tooltip").style.opacity = 1;
     setTimeout(() => {
       _$("#copy-tooltip").style.opacity = 0;
