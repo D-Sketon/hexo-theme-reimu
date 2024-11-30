@@ -150,6 +150,12 @@ $nav-link-wrap
   &:hover .main-nav-icon:before
     transform: rotate(90deg) scale(1.1)
 
+  &:hover .main-nav-icon
+    transform: scale(1.1)
+
+  &:hover .main-nav-icon.rotate
+    transform: rotate(90deg) scale(1.1)
+
 .main-nav-link
   @extend $nav-link
   letter-spacing: 1px
@@ -165,6 +171,13 @@ $nav-link-wrap
   padding: 15px 5px
   display: flex
   align-items: center
+  font-size: 24px
+  font-weight: 400
+  transition: transform 0.3s
+  will-change: transform
+
+  &.rotate
+    transform: rotate(90deg)
 
   &:before
     font-size: 24px

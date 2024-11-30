@@ -1,10 +1,21 @@
 <div id="header-nav">
   <nav id="main-nav">
-    <% for (var i in theme.menu) { %>
-      <span class="main-nav-link-wrap">
-        <div class="main-nav-icon icon-taichi"></div>
-        <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= __(i) %></a>
-      </span>
+    <% if (!Array.isArray(theme.menu)) { %>
+      <% for (let i in theme.menu) { %>
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon-taichi"></div>
+          <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= __(i) %></a>
+        </span>
+      <% } %>
+    <% } else { %>
+      <% for (let item of theme.menu) { %>
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon <%= (item.icon) === 'e62b' || (item.icon) === 'f6ad' ? 'rotate' : '' %>">
+            <%- item.icon ? `&#x${item.icon};` : (theme.icon_font ? '&#xe62b;' : '&#xf6ad;') %>
+          </div>
+          <a class="main-nav-link" href="<%- url_for(item.url) %>"><%= __(item.name) %></a>
+        </span>
+      <% } %>
     <% } %>
     <a id="main-nav-toggle" class="nav-icon"></a>
   </nav>
@@ -30,7 +41,7 @@
   <% } else { %>
     <% if (theme.banner_srcset.enable) { %>
       <picture>
-        <% for (var i of theme.banner_srcset.srcset) { %>
+        <% for (let i of theme.banner_srcset.srcset) { %>
           <source media="<%= i.media %>" srcset="<%- url_for(i.src, {relative: false}) %>">
         <% } %>
         <img fetchpriority="high" src="<%- url_for(theme.banner, {relative: false}) %>" alt="<%= post.title %>">

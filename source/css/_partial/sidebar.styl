@@ -273,14 +273,28 @@ $menu-link
   &:hover .sidebar-menu-icon:before
     transform: rotate(90deg) scale(1.1)
 
+  &:hover .sidebar-menu-icon
+    transform: scale(1.1)
+
+  &:hover .sidebar-menu-icon.rotate
+    transform: rotate(90deg) scale(1.1)
+
 .sidebar-menu-icon
   @extend $menu-link
+  font-size: 24px
+  font-weight: 400
+  transition: transform .3s
+  will-change: transform
+
   &:before
     font-size: 24px
     font-weight: 400
     transform: rotate(90deg)
     transition: transform .3s
     will-change: transform
+  
+  &.rotate
+    transform: rotate(90deg)
 
   pointer-events: none
   padding: 5px

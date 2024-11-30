@@ -1,9 +1,18 @@
 # main menu navigation
+# for more icon information, please visit https://github.com/D-Sketon/hexo-theme-reimu/issues/30
 menu:
-  home: /
-  archives: /archives
-  about: /about
-  friend: /friend
+  - name: home
+    url: /
+    icon: e62b # icon use hex code, if you use fontawesome, you can use 'f6ad' as taichi icon
+  - name: archives
+    url: /archives
+    icon: e62b
+  - name: about
+    url: /about
+    icon: e62b
+  - name: friend
+    url: /friend
+    icon: e62b
 
 banner: "/images/banner.webp" # themes/reimu/source/images/banner.webp
 # You can also write it in the form of the following url
