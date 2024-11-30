@@ -115,12 +115,42 @@ footer:
   count: true
   busuanzi: true
 
-# It's better to use https://github.com/D-Sketon/hexo-renderer-markdown-it-plus for better performance
-# If you don't want to use it, please set `browserRender` to true to enable browser rendering
-# use katex
+
 math:
   enable: false
-  browserRender: false
+  # if you want to use katex
+  # It's better to use https://github.com/D-Sketon/hexo-renderer-markdown-it-plus for better performance
+  # If you don't want to use it, please set `autoRender` to true to enable browser rendering
+  katex:
+    enable: false
+    autoRender: false
+  # if you want to use mathjax
+  # mathjax does not need any hexo plugins (no support for server rendering currently)
+  mathjax:
+    enable: false
+    options: {
+      tex: {
+        tags: "ams",
+        useLabelIds: true,
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        autoload: {
+          color: [],
+          colorv2: ['color']
+        },
+        packages: {'[+]': ['noerrors']}
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      },
+      loader: {
+        load: ['input/asciimath', '[tex]/noerrors']
+      }
+    }
 
 # need https://github.com/webappdevelp/hexo-filter-mermaid-diagrams
 mermaid: ## mermaid url https://github.com/knsv/mermaid
@@ -421,6 +451,9 @@ vendor:
     katex_auto_render:
       src: webcache|katex@0.16.11/dist/contrib/auto-render.min.js
       integrity: sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk
+    mathjax:
+      src: webcache|mathjax@3.2.2/es5/tex-mml-chtml.js
+      integrity: sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei
   css:
     photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.css
     katex: webcache|katex@0.16.11/dist/katex.min.css

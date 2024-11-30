@@ -370,7 +370,12 @@ generator_search:
 
 ### Mathematical formulas
 
-Math formulas are based on [Katex](https://github.com/KaTeX/KaTeX)  
+Disable by default, enable math formula support by changing `math.enable` to `true` in the inner `_config.yml`
+
+> Note: Do not enable both KaTeX and MathJax3
+
+#### KaTeX
+
 If you want to use server-side rendering, please install [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)
 
 ```bash
@@ -378,23 +383,37 @@ npm uninstall hexo-renderer-marked --save
 npm install @reimujs/hexo-renderer-markdown-it-plus --save
 ```
 
-Change `math.enable` to `true` in the inner `_config.yml`
+Change `math.katex.enable` to `true` in the inner `_config.yml`
 
 ```yaml
 math:
   enable: true
-  browserRender: false
+  katex:
+    enable: true
+    autoRender: false
 ```
 
-If you want to use client-side rendering, you don't need to install the above plugin, just change `math.enable` to `true` in the inner `_config.yml`, and change `browserRender` to `true`
+If you want to use client-side rendering, you don't need to install the above plugin, just change `math.katex.enable` to `true` in the inner `_config.yml`, and change `autoRender` to `true`
 
 ```yaml
 math:
   enable: true
-  browserRender: true
+  katex:
+    enable: true
+    autoRender: true
 ```
 
-> Note: The client-side rendering of the formula is not as good as the server-side rendering, and the server-side rendering is recommended.
+#### MathJax3
+
+If you want to use MathJax3, please change `math.mathjax.enable` to `true` in the inner `_config.yml`
+
+```yaml
+math:
+  enable: true
+  mathjax:
+    enable: true
+    options: # MathJax3 Options
+```
 
 </details>
 <details>

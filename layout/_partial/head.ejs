@@ -49,10 +49,12 @@
   <%- css('css/style') %>
   <%- asyncCss(vendorCdn(theme.vendor.css.photoswipe)) %>
   <% if (theme.math.enable) { %>
-    <% if (is_post() || is_page()) { %>
-      <%- css(vendorCdn(theme.vendor.css.katex)) %>
-    <% } else { %>
-      <%- asyncCss(vendorCdn(theme.vendor.css.katex)) %>
+    <% if (theme.math.katex.enable) { %>
+      <% if (is_post() || is_page()) { %>
+        <%- css(vendorCdn(theme.vendor.css.katex)) %>
+      <% } else { %>
+        <%- asyncCss(vendorCdn(theme.vendor.css.katex)) %>
+      <% } %>
     <% } %>
   <% } %>
   <% if (theme.waline.enable && theme.waline.serverURL) { %>
