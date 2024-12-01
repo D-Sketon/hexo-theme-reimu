@@ -10,7 +10,7 @@
     <% } else { %>
       <% for (let item of theme.menu) { %>
         <span class="main-nav-link-wrap">
-          <div class="main-nav-icon icon <%= item.icon === 'e62b' || item.icon === 'f6ad' || !item.icon ? 'rotate' : '' %>">
+          <div class="main-nav-icon icon <%= (item.icon === 'e62b' && theme.icon_font) || (item.icon === 'f6ad' && !theme.icon_font) || !item.icon ? 'rotate' : '' %>">
             <%- item.icon ? `&#x${item.icon};` : (theme.icon_font ? '&#xe62b;' : '&#xf6ad;') %>
           </div>
           <a class="main-nav-link" href="<%- url_for(item.url) %>"><%= __(item.name) %></a>
