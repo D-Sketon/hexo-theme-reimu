@@ -178,9 +178,9 @@ sticky: true
 
 </details>
 <details>
-<summary>Code highlighting</summary>
+<summary>Code Block</summary>
 
-### Code highlighting
+### Code Block
 
 To ensure that the code blocks are displayed correctly, please ensure that the outer `_config.yml` is configured as follows
 (Hexo <7.0.0)
@@ -214,6 +214,13 @@ clipboard:
     enable: false
     count: 50 # The number of characters when the copyright is displayed
     content: 本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！
+```
+
+v1.1.0 add configuration to control the default expansion status of the code block, `expand` can be set to `true`, `false` or a number, the number means that when the number of lines of the code block is greater than the number, it is collapsed by default.
+
+```yaml
+code_block:
+  expand: true # true | false | number
 ```
 
 </details>
@@ -494,6 +501,15 @@ fontawesome:
 
 ### Advanced features
 
+#### Pace
+
+Enabled by default
+
+```yaml
+pace:
+  enable: true
+```
+
 #### firework
 
 Enabled by default
@@ -638,6 +654,180 @@ home_categories:
   content:
     - categories: # Category name, the format is consistent with the categories in the front-matter, which can be a string (single-level category) or an array (multi-level category)
       cover: # Card cover, if not filled in, a random cover will be used
+    - categories:
+      cover:
+```
+
+</details>
+
+
+<details>
+<summary>Inner Card Tag</summary>
+
+### Inner Card Tag
+
+#### friendLink
+
+```yaml
+{% friendsLink path %}
+```
+
+The first parameter `path` represents the path of the friend link yaml
+
+#### postLinkCard
+
+```yaml
+{% postLinkCard slug [cover]|"auto" [escape] %}
+```
+
+The first parameter is the `slug` of the article; the second parameter (optional) is the cover displayed on the card, if set to `auto`, the blog's `banner` is automatically used; the third parameter (optional) indicates whether the article title is escaped
+
+#### externalLinkCard
+
+```yaml
+{% externalLinkCard title link [cover]|"auto" %}
+```
+
+The first parameter is the title of the article; the second parameter is the external link of the article; the third parameter (optional) is the cover displayed on the card, if set to `auto`, the default cover is automatically used
+
+</details>
+
+<details>
+<summary>Customize theme</summary>
+
+
+#### Customize theme color
+
+hexo-theme-reimu supports customizing theme colors through CSS variables. You can customize your theme colors by modifying the CSS variables under the `:root` pseudo-class.
+
+The variable file is located at `source/css/_variables.styl`, where you can find all the CSS variables, but you only need to modify the variables under the following pseudo-classes:
+
+```stylus
+:root
+  --red-0: hsl(0, 100%, 50%)
+  --red-1: hsl(0, 100%, 66%)
+  --red-2: hsl(0, 100%, 74%)
+  --red-3: hsl(0, 100%, 84%)
+  --red-4: hsl(0, 100%, 91%)
+  --red-5: hsl(0, 100%, 95%)
+  --red-5-5: hsl(0, 100%, 96%)
+  --red-6: hsl(0, 100%, 98%)
+
+  --color-red-6-shadow: hsla(0, 100%, 65%, 0.6)
+  --color-red-3-shadow: hsla(0, 100%, 65%, 0.3)
+
+
+[data-theme="dark"]
+  root
+    --red-4: hsla(0, 100%, 91%, 0.5)
+    --red-5: hsla(0, 100%, 95%, 0.2)
+    --red-5-5: hsla(0, 100%, 96%, 0.1)
+    --red-6: hsla(0, 100%, 98%, 0.2)
+```
+
+#### Customize theme font
+
+You can define Google fonts through the following configuration:
+
+```yaml
+# https://fonts.google.com/
+font:
+  article:
+    - Mulish
+    - Noto Serif SC
+  code:
+    # - Ubuntu Mono
+    # - Source Code Pro
+    # - JetBrains Mono
+```
+
+v1.1.0 added the `local_font` configuration to define local fonts, which have a lower priority than Google fonts:
+
+```yaml
+local_font:
+  article:
+    - "-apple-system"
+    - PingFang SC
+    - Microsoft YaHei
+    - sans-serif
+  code:
+    - Menlo
+    - Monaco
+    - Consolas
+    - monospace
+```
+
+#### Customize theme icon
+
+v1.0.0 adds a lot of configuration to change the original icon, you can change the icon by modifying the following configuration:
+
+##### Header / Sidebar Icon
+
+The structure of the `menu` configuration in v1.0.0 has changed, allowing users to customize the icon. When the icon is empty, the Taiji icon is used by default. You can fill in a hexadecimal number to customize the icon, and support fontawesome and icon font.
+
+```yaml
+menu:
+  - name: home
+    url: /
+    icon: # if the icon is empty, the Taiji icon is used by default
+  - name: archives
+    url: /archives
+    icon: f0c1 # You can fill in the fontawesome / iconfont icon code
+  - name: about
+    url: /about
+    icon:
+  - name: friend
+    url: /friend
+    icon:
+```
+
+##### Footer / Back to Top / Sponsor Icon
+
+v1.1.0 add `icon` configuration to the `footer`, `top`, `sponsor` configuration for custom icons.
+
+- `url` is the path of the icon, which is relative to the path of `css/style.css`, so you need to go up one level to find the images folder.
+- `rotate` is whether to rotate the icon, the default is `true`.
+- `mask` is whether to use the image as a mask (i.e., only display the outline of the png image), the default is `true`.
+
+```yaml
+footer:
+  icon:
+    url: "../images/taichi.png"
+    rotate: true
+    mask: true
+
+top:
+  icon:
+    url: "../images/taichi.png"
+    rotate: true
+    mask: true
+
+sponsor:
+  icon:
+    url: "../images/taichi.png"
+    rotate: true
+    mask: true
+```
+
+##### Loading Icon
+
+v1.1.0 adds the `icon` configuration to the `preloader` configuration for custom icons. When the icon is empty, the default svg is used, which is inlined to ensure the loading speed of the first screen. You can fill in a link to customize the loading icon.
+
+Do not use too large icons to avoid affecting loading speed.
+
+```yaml
+preloader:
+  enable: true
+  text: 少女祈祷中...
+  icon: # if the icon is empty, the default svg is used, which is inlined to ensure the loading speed of the first screen. You can fill in a link to customize the loading icon, such as '/images/taichi.png'
+```
+
+##### Anchor Icon
+
+v1.1.0 adds the `icon` configuration to the `anchor_icon` configuration for custom icons. When the icon is empty, the default `#` icon is used. You can fill in a hexadecimal number to customize the icon, and support fontawesome and icon font.
+
+```yaml
+anchor_icon: # if the icon is empty, the default # icon is used
 ```
 
 </details>
@@ -659,7 +849,6 @@ webcache: https://npm.webcache.cn/ # npm acceleration only
 
 Users can switch between CDN sources according to network conditions.
 </details>
-
 
 ## Contributors
 
