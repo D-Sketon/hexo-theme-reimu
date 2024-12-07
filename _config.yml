@@ -190,6 +190,13 @@ math:
 mermaid:
   enable: false
 
+code_block:
+  # whether to expand the code block by default
+  # true means expand all code blocks by default
+  # false means collapse all code blocks by default
+  # number means collapse the code block by default when the number of lines exceeds the specified value
+  expand: true
+
 ########################################
 # Analytics
 ########################################
@@ -394,6 +401,8 @@ home_categories:
   content:
     - categories: # string (single-layer category) or array (multi-layer category)
       cover: # empty means random cover
+    - categories:
+      cover:
 
 # whether to display the notification when the article is outdated
 outdate:
