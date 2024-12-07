@@ -7,7 +7,7 @@
   <div class="sponsor-tip"><%- theme.sponsor.tip %></div>
   <% if (theme.sponsor.qr?.length) { %>
     <div class="sponsor-qr">
-      <% for (var i of theme.sponsor.qr) { %>
+      <% for (let i of theme.sponsor.qr) { %>
         <div class="sponsor-qr-image-wrapper">
           <img src="<%- url_for(i.src, {relative: false}) %>" alt=<%- i.name %> width="200" />
           <p class="sponsor-qr-name"><%- i.name %></p>

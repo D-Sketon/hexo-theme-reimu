@@ -5,7 +5,7 @@
         <% if (post.prev.cover) { %>
           <img data-src="<%- url_for(post.prev.cover, {relative: false}) %>" data-sizes="auto" alt="<%= post.prev.title %>" class="lazyload">
         <% } else { %>
-          <% var cover = randomCover(); %>
+          <% let cover = randomCover(); %>
           <% if (cover) { %>
             <img data-src="<%= cover %>" data-sizes="auto" alt="<%= post.prev.title %>" class="lazyload">
           <% } else { %>
@@ -28,7 +28,7 @@
       <% if (post.next.cover) { %>
         <img data-src="<%- url_for(post.next.cover, {relative: false}) %>" data-sizes="auto" alt="<%= post.next.title %>" class="lazyload">
       <% } else { %>
-        <% var cover = randomCover(); %>
+        <% let cover = randomCover(); %>
         <% if (cover) { %>
           <img data-src="<%= cover %>" data-sizes="auto" alt="<%= post.next.title %>" class="lazyload">
         <% } else { %>

@@ -161,7 +161,7 @@
           const saveOriginalData = () => {
             return new Promise((resolve, reject) => {
               try {
-                var els = _$$(elementCode),
+                let els = _$$(elementCode),
                     count = els.length;
                 els.forEach(element => {
                   if (element.getAttribute('data-original-code') == null){
@@ -180,7 +180,7 @@
           const resetProcessed = () => {
             return new Promise((resolve, reject) => {
               try {
-                var els = _$$(elementCode),
+                let els = _$$(elementCode),
                     count = els.length;
                 els.forEach(element => {
                   if(element.getAttribute('data-original-code') != null){

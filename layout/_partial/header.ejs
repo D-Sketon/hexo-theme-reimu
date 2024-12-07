@@ -57,7 +57,7 @@
           <h1 data-aos="<%= theme.animation.options.header.title %>"><%= __("not_found.title") %></h1>
         </a>
       <% } else { %>
-        <% var title;
+        <% let title;
             if (is_archive()) {
               title = __('archives');
             } else if (is_category()) {
@@ -80,7 +80,7 @@
           <a href="/" id="subtitle"><%= __("not_found.subtitle") %></a>
         </h2>
       <% } else { %>
-        <% var subtitle;
+        <% let subtitle;
             if (is_archive()) {
               if (is_month()) {
                 subtitle = page.year + '/' + page.month;

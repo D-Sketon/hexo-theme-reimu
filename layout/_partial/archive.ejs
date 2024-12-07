@@ -1,15 +1,15 @@
 <% if (home === true) { %>
   <% if (theme.home_categories?.enable) { %>
     <div class="post-categories-wrapper" data-aos="<%= theme.animation.options.home.post %>">
-      <% for (var content of theme.home_categories.content) { %>
+      <% for (let content of theme.home_categories.content) { %>
         <div class="post-categories-wrap">
-          <% var c = parseHomeCategories(content.categories); %>
+          <% let c = parseHomeCategories(content.categories); %>
           <a class="post-link" href="<%= url_for(c.url, {relative: false}) %>" aria-label=""></a>
           <div class="post-categories-cover">
             <% if (content.cover) { %>
               <img data-src="<%- url_for(content.cover, {relative: false}) %>" data-sizes="auto" alt="<%= c.name %>" class="lazyload">
             <% } else { %>
-              <% var cover = randomCover(); %>
+              <% let cover = randomCover(); %>
               <% if (cover) { %>
                 <img data-src="<%= cover %>" data-sizes="auto" alt="<%= c.name %>" class="lazyload">
               <% } else { %>
@@ -66,7 +66,7 @@
 <% } %>
 <% if (page.total > 1) { %>
   <nav id="page-nav" data-aos="<%= theme.animation.options.archive.nav %>">
-    <% var prev_text = "&laquo; " + __('prev');var next_text = __('next') + " &raquo;" %>
+    <% let prev_text = "&laquo; " + __('prev');let next_text = __('next') + " &raquo;" %>
     <%- paginator({
           prev_text: prev_text,
           next_text: next_text,

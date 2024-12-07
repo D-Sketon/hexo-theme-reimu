@@ -5,7 +5,7 @@
   <%- partial('analytics/baidu-analytics') %>
   <%- themeConfig() %>
   <%
-    var title = page.title;
+    let title = page.title;
     if (is_archive()) {
       title = __('archive_a');
       if (is_month()) {
