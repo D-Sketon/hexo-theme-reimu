@@ -12,9 +12,7 @@ const walkFile = (dir, result, prefix) => {
   files.forEach((file) => {
     result.push({
       path: prefix + file,
-      data: function () {
-        return fs.createReadStream(dir + file);
-      },
+      data: () => fs.createReadStream(dir + file),
     });
     if (dir === coverDir) {
       covers.push("/" + prefix + file);
@@ -35,7 +33,7 @@ const loadYaml = () => {
 };
 
 hexo.extend.generator.register("images", function (locals) {
-  let result = [];
+  const result = [];
   covers.splice(0, covers.length);
   walkFile(avatarDir, result, "avatar/");
   walkFile(coverDir, result, "covers/");
