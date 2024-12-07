@@ -9,12 +9,9 @@
       listener,
       options
     ) {
-      if (!this.__listeners__) {
-        this.__listeners__ = {};
-      }
-      if (!this.__listeners__[name]) {
-        this.__listeners__[name] = [];
-      }
+      this.__listeners__ = this.__listeners__ || {};
+      this.__listeners__[name] = this.__listeners__[name] || [];
+
       // Check if the listener is already added
       for (let [l, o] of this.__listeners__[name]) {
         if (l === listener && JSON.stringify(o) === JSON.stringify(options)) {
@@ -109,13 +106,13 @@
   });
 
   if (window.Pace) {
-    Pace.on("done", function () {
+    Pace.on("done", () => {
       Pace.sources[0].elements = [];
     });
   }
 })();
 
-var safeImport = async function (url, integrity) {
+var safeImport = async (url, integrity) => {
   if (!integrity) {
     return import(url);
   }

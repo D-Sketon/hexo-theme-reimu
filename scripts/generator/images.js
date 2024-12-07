@@ -32,7 +32,7 @@ const loadYaml = () => {
   }
 };
 
-hexo.extend.generator.register("images", function (locals) {
+hexo.extend.generator.register("images", (locals) => {
   const result = [];
   covers.splice(0, covers.length);
   walkFile(avatarDir, result, "avatar/");
