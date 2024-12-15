@@ -690,6 +690,9 @@ home_categories:
 
 其中第一个参数为文章的 `slug`；第二个参数（可选）为卡片展示的封面，如果设置为 `auto` 则自动使用博客的 `banner`；第三个参数（可选）表示文章标题是否被转义
 
+> slug 的生成算法：https://github.com/hexojs/hexo-util/blob/master/lib/slugize.ts
+> 简单来说就是去除文章标题的不可见字符，把文章的标题中的特殊字符 `\s~!@#$%^&*()\-_+=[]{}|\;:"'<>,.?/` 全换成分隔符 `-`，合并连续分隔符并去除首尾分隔符
+
 #### externalLinkCard 外链卡片
 
 ```yaml

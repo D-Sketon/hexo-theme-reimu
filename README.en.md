@@ -696,6 +696,8 @@ The first parameter `path` represents the path of the friend link yaml
 
 The first parameter is the `slug` of the article; the second parameter (optional) is the cover displayed on the card, if set to `auto`, the blog's `banner` is automatically used; the third parameter (optional) indicates whether the article title is escaped
 
+> The slug generation algorithm: https://github.com/hexojs/hexo-util/blob/master/lib/slugize.ts
+
 #### externalLinkCard
 
 ```yaml
