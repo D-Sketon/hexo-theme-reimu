@@ -376,20 +376,20 @@ generator_search:
 
 ### Mathematical formulas
 
-Disable by default, enable math formula support by changing `math.enable` to `true` in the inner `_config.yml`
-
-> Note: Do not enable both KaTeX and MathJax3
-
-#### KaTeX
-
-If you want to use server-side rendering, please install [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)
+please install [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)
 
 ```bash
 npm uninstall hexo-renderer-marked --save
 npm install @reimujs/hexo-renderer-markdown-it-plus --save
 ```
 
-Change `math.katex.enable` to `true` in the inner `_config.yml`
+Disable by default, enable math formula support by changing `math.enable` to `true` in the inner `_config.yml`
+
+> Note: Do not enable both KaTeX and MathJax3
+
+#### KaTeX
+
+If you want to use server-side rendering, please change `math.katex.enable` to `true` in the inner `_config.yml`
 
 ```yaml
 math:
@@ -399,7 +399,7 @@ math:
     autoRender: false
 ```
 
-If you want to use client-side rendering, you don't need to install the above plugin, just change `math.katex.enable` to `true` in the inner `_config.yml`, and change `autoRender` to `true`
+If you want to use client-side rendering, please change `math.katex.enable` to `true` in the inner `_config.yml`, and change `autoRender` to `true`
 
 ```yaml
 math:
@@ -407,6 +407,13 @@ math:
   katex:
     enable: true
     autoRender: true
+```
+
+And add the following configuration to the outer `_config.yml`
+
+```yaml
+markdown_it_plus:
+  rawLaTeX: true
 ```
 
 #### MathJax3
@@ -419,6 +426,13 @@ math:
   mathjax:
     enable: true
     options: # MathJax3 Options
+```
+
+And add the following configuration to the outer `_config.yml`
+
+```yaml
+markdown_it_plus:
+  rawLaTeX: true
 ```
 
 </details>

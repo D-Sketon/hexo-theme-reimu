@@ -375,20 +375,20 @@ generator_search:
 
 ### 数学公式
 
-默认关闭，在内层 `_config.yml` 中将 `math.enable` 改为 `true` 可以开启数学公式支持
-
-> 注意不要同时开启 KaTeX 和 MathJax3
-
-#### KaTeX
-
-如果想要基于服务端渲染，请安装 [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)
+请安装 [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)
 
 ```bash
 npm uninstall hexo-renderer-marked --save
 npm install @reimujs/hexo-renderer-markdown-it-plus --save
 ```
 
-在内层 `_config.yml` 中将 `math.katex.enable` 改为 `true`
+默认关闭，在内层 `_config.yml` 中将 `math.enable` 改为 `true` 可以开启数学公式支持
+
+> 注意不要同时开启 KaTeX 和 MathJax3
+
+#### KaTeX
+
+如果想要基于服务端渲染，在内层 `_config.yml` 中将 `math.katex.enable` 改为 `true`
 
 ```yaml
 math:
@@ -398,7 +398,7 @@ math:
     autoRender: false
 ```
 
-如果想要基于客户端渲染，则无需安装插件，只需在内层 `_config.yml` 中将 `math.katex.enable` 改为 `true`，并将 `autoRender` 也改为 `true`
+如果想要基于客户端渲染，在内层 `_config.yml` 中将 `math.katex.enable` 改为 `true`，并将 `autoRender` 也改为 `true`
 
 ```yaml
 math:
@@ -406,6 +406,13 @@ math:
   katex:
     enable: true
     autoRender: true
+```
+
+在外层 `_config.yml` 中添加如下配置
+
+```yaml
+markdown_it_plus:
+  rawLaTeX: true
 ```
 
 #### MathJax3
@@ -418,6 +425,13 @@ math:
   mathjax:
     enable: true
     options: # MathJax 配置
+```
+
+在外层 `_config.yml` 中添加如下配置
+
+```yaml
+markdown_it_plus:
+  rawLaTeX: true
 ```
 
 </details>
