@@ -519,6 +519,7 @@ player:
       preload: 
       volume:
       mutex:
+      listFolded:
   meting:
     # https://github.com/metowolf/MetingJS
     # if you want to use meting, please enable aplayer first
