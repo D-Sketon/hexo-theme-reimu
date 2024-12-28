@@ -139,6 +139,10 @@
   <%- js({src: vendorCdn(theme.vendor.js.live2d.js)[0], onload: "initLive2d && initLive2d()", async: true})%>
 <% } %>
 
+<% if (theme.live2d_widgets.enable) { %>
+  <%- js({src: vendorCdn(theme.vendor.js.live2d_widgets)[0], integrity: vendorCdnIntegrity(theme.vendor.js.live2d_widgets)[0], crossorigin: "anonymous"}) %>
+<% } %>
+
 <% if (theme.quicklink.enable) { %>
   <%- js({src: vendorCdn(theme.vendor.js.quicklink)[0], integrity: vendorCdnIntegrity(theme.vendor.js.quicklink)[0], crossorigin: "anonymous"}) %>
   <script data-pjax>
