@@ -129,6 +129,9 @@ if sidebar
 @import "_partial/friend"
 @import "_partial/card"
 
+if hexo-config("live2d.enable")
+  @import "_partial/live2d"
+
 if hexo-config("top.enable")
   @import "_partial/top"
 

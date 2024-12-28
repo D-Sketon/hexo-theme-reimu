@@ -496,6 +496,7 @@ service_worker:
 # Experimental
 live2d:
   enable: false
+  position: left # left or right
 
 ########################################
 # Vendor
