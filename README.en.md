@@ -49,11 +49,12 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 - Mouse firework animation
 - pjax
 - ServiceWorker
-- live2d
+- live2d / live2d-widgets
 - reimu Mouse Pointer
 - Internal tag plugin for providing internal/external/friendly link cards
 - Support the bottom of the article copyright statement
 - Support for configuring custom CDN sources
+- Aplayer / Meting music player
 - Highly customizable
 
 ## Installation
@@ -562,6 +563,17 @@ Disabled by default
 ```yaml
 live2d:
   enable: false
+  position: left # left | right
+```
+
+#### live2d-widgets
+
+Disabled by default
+
+```yaml
+live2d_widgets:
+  enable: false
+  position: left # left | right
 ```
 
 #### reimu cursor
@@ -670,6 +682,60 @@ home_categories:
       cover: # Card cover, if not filled in, a random cover will be used
     - categories:
       cover:
+```
+
+#### Music Player (v1.2.0+)
+
+> Please open Pjax before using it, otherwise the player will automatically pause
+
+Use Aplayer + Meting (optional) disabled by default
+
+##### Aplayer
+
+Set `player.aplayer.enable` to `true` and configure it in `player.aplayer.options` according to [Aplayer Docs](https://aplayer.js.org/#/home?id=options)
+
+```yaml
+player:
+  aplayer:
+    enable: true
+    options:
+      audio: [] # audio list
+      fixed:
+      autoplay:
+      loop:
+      order:
+      preload: 
+      volume:
+      mutex:
+      listFolded:
+```
+
+##### Aplayer + Meting
+
+Set `player.aplayer.enable` and `player.meting.enable` to `true` at the same time, and configure it in `player.meting.options` according to [Meting Docs](https://github.com/metowolf/MetingJS?tab=readme-ov-file#option), `player.aplayer.options` is the Aplayer configuration
+
+```yaml
+player:
+  aplayer:
+    enable: true
+    options:
+      audio: [] # this option will be overwritten by meting
+      fixed:
+      autoplay:
+      loop:
+      order:
+      preload: 
+      volume:
+      mutex:
+      listFolded:
+  meting:
+    enable: true
+    meting_api: # custom api
+    options:
+      id: 
+      server: 
+      type: 
+      auto:
 ```
 
 </details>
