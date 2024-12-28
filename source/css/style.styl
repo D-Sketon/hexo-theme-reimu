@@ -153,6 +153,9 @@ if hexo-config("service_worker.enable")
 if sidebar
   @import "_partial/sidebar"
 
+if hexo-config("player.aplayer.enable")
+  @import "_partial/aplayer"
+
 // for Pull Quotes
 .left
   float: left

@@ -503,6 +503,33 @@ live2d_widgets:
   enable: false
   position: left # left or right
 
+# Experimental
+# Please turn on pjax to use this feature
+player:
+  # if you enable meting, you must enable aplayer first
+  aplayer:
+    # https://github.com/DIYgod/APlayer
+    enable: false
+    options:
+      audio: []
+      fixed:
+      autoplay:
+      loop:
+      order:
+      preload: 
+      volume:
+      mutex:
+  meting:
+    # https://github.com/metowolf/MetingJS
+    # if you want to use meting, please enable aplayer first
+    enable: false
+    meting_api: # custom api
+    options:
+      id: 2265921590
+      server: netease
+      type: playlist
+      auto:
+
 ########################################
 # Vendor
 ########################################
@@ -583,6 +610,12 @@ vendor:
     mathjax:
       src: webcache|mathjax@3.2.2/es5/tex-mml-chtml.js
       integrity: sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei
+    aplayer:
+      src: webcache|aplayer@1.10.1/dist/APlayer.min.js
+      integrity: sha384-gdGYZwHnfJM54evoZhpO0s6ZF5BQiybkiyW7VXr+h5UfruuRL/aORyw+5+HZoU6e
+    meting:
+      src: webcache|meting@2.0.1/dist/Meting.min.js
+      integrity: sha384-ASVlpKF80A22OXTK3tfEjZm1EL6uFMKIC4p8+0maanw1S/IyB+Y4JG+ZDU7GpKE8
   css:
     photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.css
     katex: webcache|katex@0.16.11/dist/katex.min.css
@@ -597,3 +630,4 @@ vendor:
         - webcache|@fortawesome/fontawesome-free@6.5.1/css/v5-font-face.min.css
         - webcache|@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css
     aos: webcache|@reimujs/aos@0.1.0/dist/aos.css
+    aplayer: webcache|aplayer@1.10.1/dist/APlayer.min.css

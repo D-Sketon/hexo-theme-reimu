@@ -1,0 +1,54 @@
+.aplayer {
+  margin: 0 0 40px !important;
+  border-radius: post-radius !important;
+  background: var(--color-wrap) !important;
+  transition: all .3s;
+  font-family: font-basic !important;
+  button, .aplayer-icon {
+    &:hover {
+      path {
+        fill: var(--color-link) !important;
+      }
+    }
+  }
+}
+.aplayer.aplayer-fixed {
+  margin: 0 !important;
+}
+.aplayer.aplayer-fixed .aplayer-body {
+  background: var(--color-wrap) !important;
+  transition: all .3s;
+}
+.aplayer.aplayer-fixed .aplayer-info {
+  transition: all .3s;
+  border-top: 1px solid var(--color-h2-border) !important;
+}
+.aplayer.aplayer-fixed .aplayer-list {
+  border: 1px solid var(--color-h2-border) !important;
+  transition: all .3s;
+}
+.aplayer.aplayer-withlist .aplayer-info {
+  transition: all .3s;
+  border-bottom: 1px solid var(--color-h2-border) !important;
+}
+.aplayer-title, .aplayer-list-title, .aplayer-music {
+  color: var(--color-link) !important;
+}
+.aplayer .aplayer-list ol li {
+  transition: all .3s;
+  border-top: 1px solid var(--color-h2-border) !important;
+}
+.aplayer-lrc {
+  &::before {
+    background: none !important;
+  }
+  &::after {
+    background: none !important;
+  }
+}
+.aplayer .aplayer-list ol li.aplayer-list-light {
+  background: var(--color-hover-shadow) !important;
+}
+.aplayer .aplayer-list ol li:hover {
+  background: var(--color-hover-shadow) !important;
+}

@@ -103,7 +103,9 @@
         "head title",
         "#header-title",
         "#subtitle-wrap",
-        "#content",
+        "#main",
+        ".sidebar-widget",
+        ".sidebar-wrapper",
         '#mobile-nav',
         '#lazy-script'
       ],
@@ -298,6 +300,34 @@
     <%- js({src: vendorCdn(theme.vendor.js.mathjax)[0], integrity: vendorCdnIntegrity(theme.vendor.js.mathjax)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
     <script data-pjax>
       window.MathJax = <%- JSON.stringify(theme.math.mathjax.options) %>;
+    </script>
+  <% } %>
+<% } %>
+
+<% if (theme.player.aplayer.enable) { %>
+  <%- js({src: vendorCdn(theme.vendor.js.aplayer)[0], integrity: vendorCdnIntegrity(theme.vendor.js.aplayer)[0], crossorigin: "anonymous"}) %>
+  <% if (!theme.player.meting.enable) { %>
+    <script>
+      const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        audio: <%- JSON.stringify(theme.player.aplayer.options.audio) %> || [],
+        fixed: <%= JSON.stringify(theme.player.aplayer.options.fixed) %> || false,
+        autoplay: <%= JSON.stringify(theme.player.aplayer.options.autoplay) %> || false,
+        loop: '<%= theme.player.aplayer.options.loop %>' || 'all',
+        order: '<%= theme.player.aplayer.options.order %>' || 'list',
+        preload: '<%= theme.player.aplayer.options.preload %>' || 'auto',
+        volume: <%= JSON.stringify(theme.player.aplayer.options.volume) %> || 0.7,
+        mutex: <%= JSON.stringify(theme.player.aplayer.options.mutex) %> || true,
+      });
+    </script>
+  <% } %>
+<% } %>
+
+<% if (theme.player.meting.enable) { %>
+  <%- js({src: vendorCdn(theme.vendor.js.meting)[0], integrity: vendorCdnIntegrity(theme.vendor.js.meting)[0], crossorigin: "anonymous"}) %>
+  <% if (theme.player.meting.meting_api) { %>
+    <script>
+      var meting_api = "<%= theme.player.meting.meting_api %>";
     </script>
   <% } %>
 <% } %>
