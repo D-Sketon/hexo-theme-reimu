@@ -458,6 +458,7 @@ article_copyright:
 # Back To Top
 top:
   enable: true
+  position: right # left or right
   icon:
     url: "../images/taichi.png" # this path is relative to the css/style.css, so it needs to go up one level to reach the images folder
     rotate: true
