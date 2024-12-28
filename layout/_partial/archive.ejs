@@ -2,6 +2,7 @@
   <% if (theme.home_categories?.enable) { %>
     <div class="post-categories-wrapper" data-aos="<%= theme.animation.options.home.post %>">
       <% for (let content of theme.home_categories.content) { %>
+        <% if (content.categories) { %>
         <div class="post-categories-wrap">
           <% let c = parseHomeCategories(content.categories); %>
           <a class="post-link" href="<%= url_for(c.url, {relative: false}) %>" aria-label=""></a>
@@ -20,6 +21,7 @@
             <h3><%= _p('home_categories.count', c.count) %></h3>
           </div>
         </div>
+        <% } %>
       <% } %>
     </div>
   <% } %>
