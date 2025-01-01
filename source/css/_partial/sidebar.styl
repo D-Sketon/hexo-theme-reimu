@@ -1,10 +1,16 @@
 #sidebar
-  @media mg-large
-    display: none
-  @media mq-large
-    width: 23%
-    margin: 0 1%
-    height: inherit
+  display: none
+
+.sidebar-left,
+.sidebar-right
+  #sidebar
+    display: block
+    @media mg-large
+      display: none
+    @media mq-large
+      width: 23%
+      margin: 0 1%
+      height: inherit
 
 [data-theme="dark"] .sidebar-wrap
   box-shadow: 0 0 10px 3px var(--color-hover-shadow)

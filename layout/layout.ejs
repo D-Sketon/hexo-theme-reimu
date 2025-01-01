@@ -9,14 +9,9 @@
     <div id="container">
       <div id="wrap">
         <%- partial('_partial/header', {post: page}, {cache: false}) %>
-        <div id="content">
-          <% if (theme.sidebar === 'left') { %>
-            <%- partial('_partial/sidebar', null) %>
-          <% } %>
+        <div id="content" <% if (page.sidebar === 'left' || page.sidebar === undefined && theme.sidebar === 'left') { %>class="sidebar-left" <% } %> <% if (page.sidebar === 'right' || page.sidebar === undefined && theme.sidebar === 'right') { %>class="sidebar-right" <% } %>>
+          <%- partial('_partial/sidebar', null) %>
           <section id="main"><%- body %></section>
-          <% if (theme.sidebar === 'right') { %>
-            <%- partial('_partial/sidebar', null) %>
-          <% } %>
         </div>
         <% if (theme.player.aplayer.enable && !theme.player.meting.enable && theme.player.aplayer.options.fixed === true) { %>
           <div id="aplayer" theme="var(--color-link)" data-aos="<%= theme.animation.options.home.sidebar %>"></div>

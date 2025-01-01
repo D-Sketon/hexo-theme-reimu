@@ -94,12 +94,16 @@ if reimu_cursor
   margin: 0 auto;
   overflow: visible;
 
-if sidebar
+.sidebar-left,
+.sidebar-right
   #main
     @media mq-large
       padding: 0
       width: 73%
       margin: 0 1%
+
+#content.sidebar-right
+  flex-direction: row-reverse
 
 #mask
   z-index: 1000
@@ -198,3 +202,4 @@ if hexo-config("pace.enable")
     width: 100%
     height: 2px
     background: var(--red-1)
+

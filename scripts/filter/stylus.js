@@ -38,6 +38,14 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
   postHasSponsor = postHasSponsor || hexo.theme.config.sponsor.enable;
   postHasCopyright =
     postHasCopyright || hexo.theme.config.article_copyright.enable;
+  
+  // sidebar
+  let postHasSidebar = false;
+  hexo.locals.get("posts").forEach((post) => {
+    if (post.sidebar) {
+      postHasSidebar = true;
+    }
+  });
 
   // widgets
   const widgetConfig = hexo.theme.config.widgets;
@@ -73,6 +81,7 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
     )
     .define("post-has-sponsor", postHasSponsor)
     .define("post-has-copyright", postHasCopyright)
+    .define("post-has-sidebar", postHasSidebar)
     .define("site-has-widget", siteHasWidget)
     .define("social-keys", socialKeys)
     .define("footer-icon", footerIcon)

@@ -182,7 +182,7 @@ __sidebarTopScrollHandler = () => {
 window.on("scroll", __sidebarTopScrollHandler);
 
 // toc
-_$$(".toc li").forEach((element) => {
+_$$("#mobile-nav .toc li").forEach((element) => {
   element.off("click").on("click", () => {
     if (isMobileNavAnim || !document.body.classList.contains("mobile-nav-on"))
       return;
@@ -191,7 +191,7 @@ _$$(".toc li").forEach((element) => {
   });
 });
 
-_$$(".sidebar-menu-link-dummy").forEach((element) => {
+_$$("#mobile-nav .sidebar-menu-link-dummy").forEach((element) => {
   element.off("click").on("click", () => {
     if (isMobileNavAnim || !document.body.classList.contains("mobile-nav-on"))
       return;
