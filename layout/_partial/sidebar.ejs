@@ -1,8 +1,8 @@
 <aside id="sidebar">
-  <% if (theme.player.aplayer.enable && !theme.player.meting.enable) { %>
+  <% if (theme.player.aplayer.enable && !theme.player.meting.enable && theme.player.aplayer.options.fixed !== true) { %>
     <div id="aplayer" theme="var(--color-link)" data-aos="<%= theme.animation.options.home.sidebar %>"></div>
   <% } %>
-  <% if (theme.player.meting.enable) { %>
+  <% if (theme.player.meting.enable && theme.player.aplayer.options.fixed !== true) { %>
     <meting-js
       theme="var(--color-link)"
       <% if (theme.player.meting.options.id != null) { %>id="<%= theme.player.meting.options.id %>"<% } %>
