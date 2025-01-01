@@ -214,7 +214,7 @@ function tocInit() {
 
   const anchorScroll = (event, index) => {
     event.preventDefault();
-    const target = _$(decodeURI(event.currentTarget.getAttribute("href")));
+    const target = document.getElementById(decodeURI(event.currentTarget.getAttribute("href")).slice(1));
     activeLock = index;
     scrollIntoViewAndWait(target).then(() => {
       activateNavByIndex(index);
@@ -225,7 +225,7 @@ function tocInit() {
   const sections = [...navItems].map((element, index) => {
     const link = element.querySelector("a.toc-link");
     link.off("click").on("click", (e) => anchorScroll(e, index));
-    const anchor = _$(decodeURI(link.getAttribute("href")));
+    const anchor = document.getElementById(decodeURI(link.getAttribute("href")).slice(1));
     if (!anchor) return null;
     const alink = anchor.querySelector("a");
     alink?.off("click").on("click", (e) => anchorScroll(e, index));
@@ -253,8 +253,8 @@ function tocInit() {
     while (!parent.matches(".sidebar-toc")) {
       if (parent.matches("li")) {
         parent.classList.add("active");
-        const t = _$(
-          decodeURI(parent.querySelector("a.toc-link").getAttribute("href"))
+        const t = document.getElementById(
+          decodeURI(parent.querySelector("a.toc-link").getAttribute("href").slice(1))
         );
         if (t) {
           t.classList.add("active");
