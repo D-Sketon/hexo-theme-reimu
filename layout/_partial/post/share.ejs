@@ -1,6 +1,6 @@
 <div class="share-wrapper">
   <% for(let share of theme.share) { %>
-    <a href="<%= shareLink(post, share) %>" target="_blank" rel="noopener noreferrer" title="<%= post.title %>">
+    <a href="<%= shareLink(post, share) %>" <% if (share !== "weixin") { %>target="_blank" rel="noopener noreferrer"<% } %> title="<%= post.title %>">
       <div class="share-icon icon icon-<%- share %>">
         <% if (share === 'weixin') { %>
           <div id="share-weixin">

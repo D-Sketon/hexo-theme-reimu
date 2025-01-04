@@ -5,7 +5,7 @@ const shareMap = {
   linkedin: (url, title, desc) => `https://www.linkedin.com/shareArticle?url=${url}&title=${title}&summary=${desc}&mini=true&ro=true`,
   reddit: (url, title) => `https://www.reddit.com/submit?url=${url}&title=${title}`,
   qq: (url, title, desc, source) => `http://connect.qq.com/widget/shareqq/index.html?url=${url}&title=${title}&desc=${desc}&source=${source}`,
-  weixin: () => `javascript:`,
+  weixin: () => `javascript:;`,
 }
 
 const util = require("hexo-util");
