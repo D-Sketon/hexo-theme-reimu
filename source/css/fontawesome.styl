@@ -157,12 +157,12 @@ if ('google' in social-keys)
     &:before
       content: "\f0d5"
 
-if ('facebook' in social-keys)
+if ('facebook' in social-keys) || ('facebook' in share-keys)
   .icon-facebook
     &:before
       content: "\f09a"
 
-if ('twitter' in social-keys)
+if ('twitter' in social-keys) || ('twitter' in share-keys)
   .icon-twitter
     &:before
       content: "\e61b"
@@ -172,7 +172,7 @@ if ('instagram' in social-keys)
     &:before
       content: "\f16d"
 
-if ('linkedin' in social-keys)
+if ('linkedin' in social-keys) || ('linkedin' in share-keys)
   .icon-linkedin
     &:before
       content: "\f08c"
@@ -212,7 +212,7 @@ if ('bilibili' in social-keys)
     &:before
       content: "\e3d9"
 
-if ('weibo' in social-keys)
+if ('weibo' in social-keys) || ('weibo' in share-keys)
   .icon-weibo
     &:before
       content: "\f18a"
@@ -222,7 +222,7 @@ if ('zhihu' in social-keys)
     &:before
       content: "\f63f"
 
-if ('reddit' in social-keys)
+if ('reddit' in social-keys) || ('reddit' in share-keys)
   .icon-reddit
     &:before
       content: "\f1a1"
@@ -308,6 +308,23 @@ if ('email' in social-keys)
   &:before
     font-family: var(--font-icon)
     content: "\f6ad"
+
+if ('weixin' in share-keys)
+  .icon-weixin
+    &:before
+      font-family: var(--font-icon)
+      content: "\f1d7"
+
+if ('qq' in share-keys)
+  .icon-qq
+    &:before
+      font-family: var(--font-icon)
+      content: "\f1d6"
+
+.icon-image
+  &:before
+    font-family: var(--font-icon)
+    content: "\f03e"
 
 .icon
   font-family: var(--font-icon)

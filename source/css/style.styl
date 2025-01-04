@@ -160,6 +160,9 @@ if sidebar
 if hexo-config("player.aplayer.enable")
   @import "_partial/aplayer"
 
+if site-has-share
+  @import "_partial/share"
+
 // for Pull Quotes
 .left
   float: left

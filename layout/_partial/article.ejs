@@ -30,6 +30,9 @@
       <% } else if (post.sponsor !== false && theme.sponsor.enable) { %>
         <%- partial('post/sponsor') %>
       <% } %>
+      <% if (Array.isArray(theme.share) && theme.share.length) { %>
+        <%- partial('post/share') %>
+      <% } %>
       <% if (post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
         <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- url_for(post.path) %>#comments" class="article-comment-link">
           <span class="post-comments-count valine-comment-count" data-xid="<%- url_for(post.path, {relative: false}).endsWith("index.html") ? 

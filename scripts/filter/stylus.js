@@ -53,6 +53,7 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
 
   // social keys
   const socialKeys = Object.keys(hexo.theme.config.social || {});
+  const shareKeys = hexo.theme.config.share || [];
 
   // custom icons
   const footerIcon =
@@ -83,7 +84,9 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
     .define("post-has-copyright", postHasCopyright)
     .define("post-has-sidebar", postHasSidebar)
     .define("site-has-widget", siteHasWidget)
+    .define("site-has-share", shareKeys.length > 0)
     .define("social-keys", socialKeys)
+    .define("share-keys", shareKeys)
     .define("footer-icon", footerIcon)
     .define("sponsor-icon", sponsorIcon)
     .define("top-icon", topIcon);

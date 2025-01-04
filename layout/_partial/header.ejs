@@ -50,7 +50,7 @@
       <% } %>
     </picture>
     <% if (theme.banner_srcset.enable) { %>
-      <img src="" alt="<%= post.title %>">
+      <img src="" alt="<%= post.title %>" style="visibility: hidden;">
     <% } else { %>
       <img fetchpriority="high" src="<%- url_for(theme.banner, {relative: false}) %>" alt="<%= post.title %>">
     <% } %>

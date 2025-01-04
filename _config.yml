@@ -131,7 +131,7 @@ anchor_icon: # default use '#' icon, you can use a hexadecimal representation of
 reimu_cursor: true
 
 # set to false to enable fontawesome
-icon_font: 4552607_tq6stt6tcg
+icon_font: 4552607_bq08450reo
 
 # https://fonts.google.com/
 # Google Fonts, higher priority than local_font
@@ -464,6 +464,15 @@ top:
     rotate: true
     mask: true # whether to use the images as a mask
 
+share:
+  # - facebook
+  # - twitter
+  # - linkedin
+  # - reddit
+  # - weibo
+  # - qq
+  # - weixin
+
 ########################################
 # Experimental features
 ########################################
@@ -617,6 +626,12 @@ vendor:
     meting:
       src: webcache|meting@2.0.1/dist/Meting.min.js
       integrity: sha384-ASVlpKF80A22OXTK3tfEjZm1EL6uFMKIC4p8+0maanw1S/IyB+Y4JG+ZDU7GpKE8
+    qrcode:
+      src: webcache|qrcode@1.4.4/build/qrcode.min.js
+      integrity: sha384-0RsG1yo/crf/1Qc14sho26SXXOTngNCjgJw7fuvXBt9W/OChF/Ijx+aUuBDqQwEk
+    html2image:
+      src: webcache|html-to-image@1.11.11/dist/html-to-image.js
+      integrity: sha384-UbfRVKN3/elS1r7JcK2FhmPP+KlJ4CvYwbyYD7tH+uTkbT9bNJr9eJeQ0FoFbAgz
   css:
     photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.css
     katex: webcache|katex@0.16.11/dist/katex.min.css

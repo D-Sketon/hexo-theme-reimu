@@ -1,0 +1,27 @@
+<div class="share-wrapper">
+  <% for(let share of theme.share) { %>
+    <a href="<%= shareLink(post, share) %>" target="_blank" rel="noopener noreferrer" title="<%= post.title %>">
+      <div class="share-icon icon icon-<%- share %>">
+        <% if (share === 'weixin') { %>
+          <div id="share-weixin">
+            <div class="share-weixin-dom">
+              <div class="share-weixin-content">
+                <img id="share-weixin-banner"> 
+                <div id="share-weixin-title"></div>
+                <div id="share-weixin-desc"></div>
+              </div>
+              <div class="share-weixin-qrcode">
+                <div class="share-weixin-info">
+                  <div id="share-weixin-author"></div>
+                  <div id="share-weixin-theme">Powered By hexo-theme-reimu</div>
+                </div>
+                <img id="share-weixin-qr" >
+              </div>
+            </div>
+            <div class="share-weixin-canvas"></div>
+          </div>
+        <% } %>
+      </div>
+    </a>
+  <% } %>
+</div>
