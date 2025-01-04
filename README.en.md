@@ -55,6 +55,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 - Support the bottom of the article copyright statement
 - Support for configuring custom CDN sources
 - Aplayer / Meting music player
+- share card
 - Highly customizable
 
 ## Installation
@@ -581,7 +582,12 @@ live2d_widgets:
 Enabled by default
 
 ```yml
-reimu_cursor: true
+reimu_cursor:
+  enable: true
+  cursor:
+    default: ../images/cursor/reimu-cursor-default.png
+    pointer: ../images/cursor/reimu-cursor-pointer.png
+    text: ../images/cursor/reimu-cursor-text.png
 ```
 
 #### Responsive Banner Image (v0.2.0+)

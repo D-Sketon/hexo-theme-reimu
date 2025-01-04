@@ -62,6 +62,24 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
     hexo.theme.config.sponsor.icon.url || "../images/taichi.png";
   const topIcon = hexo.theme.config.top.icon.url || "../images/taichi.png";
 
+  // reimu_cursor
+  // just for compatible
+  const cursor = hexo.theme.config.reimu_cursor;
+  let cursorEnabled = true;
+  let cursorDefault = "../images/cursor/reimu-cursor-default.png";
+  let cursorPointer = "../images/cursor/reimu-cursor-pointer.png";
+  let cursorText = "../images/cursor/reimu-cursor-text.png";
+  if (typeof cursor === "boolean") {
+    // old config
+    cursorEnabled = cursor;
+  } else if (typeof cursor === "object") {
+    // new config
+    cursorEnabled = cursor.enable;
+    cursorDefault = cursor.cursor.default || cursorDefault;
+    cursorPointer = cursor.cursor.pointer || cursorPointer;
+    cursorText = cursor.cursor.text || cursorText;
+  }
+
   style
     .define(
       "article-families",
@@ -89,5 +107,9 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
     .define("share-keys", shareKeys)
     .define("footer-icon", footerIcon)
     .define("sponsor-icon", sponsorIcon)
-    .define("top-icon", topIcon);
+    .define("top-icon", topIcon)
+    .define("cursor-enabled", cursorEnabled)
+    .define("cursor-default", cursorDefault)
+    .define("cursor-pointer", cursorPointer)
+    .define("cursor-text", cursorText);
 });

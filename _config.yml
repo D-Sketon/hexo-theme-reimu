@@ -128,7 +128,12 @@ recent_posts_limits: 5
 
 anchor_icon: # default use '#' icon, you can use a hexadecimal representation of fontawesome or icon_font, like 'f0c1'
 
-reimu_cursor: true
+reimu_cursor:
+  enable: true
+  cursor:
+    default: ../images/cursor/reimu-cursor-default.png  # this path is relative to the css/style.css, so it needs to go up one level to reach the images folder
+    pointer: ../images/cursor/reimu-cursor-pointer.png
+    text: ../images/cursor/reimu-cursor-text.png
 
 # set to false to enable fontawesome
 icon_font: 4552607_bq08450reo

@@ -54,6 +54,7 @@
 - 文章底部版权声明
 - 配置自定义 CDN 源
 - Aplayer / Meting 音乐播放器
+- 分享卡片
 - 高度自定义
 
 ## 安装
@@ -580,7 +581,12 @@ live2d_widgets:
 默认开启
 
 ```yml
-reimu_cursor: true
+reimu_cursor:
+  enable: true
+  cursor:
+    default: ../images/cursor/reimu-cursor-default.png
+    pointer: ../images/cursor/reimu-cursor-pointer.png
+    text: ../images/cursor/reimu-cursor-text.png
 ```
 
 #### 头图响应式（v0.2.0+）
