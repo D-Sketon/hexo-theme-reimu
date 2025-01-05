@@ -493,7 +493,7 @@ rss: atom.xml
 Icon 默认使用本项目提供的 iconfont（v0.1.3+）
 
 ```yml
-icon_font: 4552607_tq6stt6tcg
+icon_font: 4552607_bq08450reo
 ```
 
 如果想要继续使用 fontawesome 图标，请将 `icon_font` 设置为 `false`，此时会使用 `vendor` 中对应的 fontawesome
@@ -545,7 +545,7 @@ pjax:
   enable: false
 ```
 
-> pjax 在 v0.0.10 中被引入，用于那些需要添加音乐播放器等需要 SPA 的用户。但其仍然属于实验性质，引入后可能会出现诸如**脚本无法执行**、**脚本重复执行**、**页面渲染混乱**等 BUG。请慎重考虑！
+> pjax 在 v0.0.10 中被引入，用于那些需要添加音乐播放器等需要 SPA 的用户。经过一段时间的迭代后已基本上稳定，但引入后仍然可能会出现诸如**脚本无法执行**、**脚本重复执行**、**页面渲染混乱**等 BUG。请慎重考虑！
 
 #### ServiceWorker
 
@@ -739,6 +739,23 @@ player:
       auto:
 ```
 
+#### 分享（v1.3.0+）
+
+默认关闭，目前支持 `facebook`、`twitter`、`linkedin`、`reddit`、`weibo`、`qq`、`weixin`。
+
+```yml
+share:
+  # - facebook
+  # - twitter
+  # - linkedin
+  # - reddit
+  # - weibo
+  # - qq
+  # - weixin
+```
+
+`weixin` 状态下会生成带有二维码的分享卡片，可保存到本地后分享到微信朋友圈（注意，当文章封面存在跨域问题时无法使用 html-to-image 正确生成含图片的卡片！）
+
 </details>
 
 <details>
@@ -777,6 +794,8 @@ player:
 
 <details>
 <summary>自定义主题</summary>
+
+hexo-theme-reimu 主题支持高度的自定义，你可以通过修改 `_config.yml` 来定制你的主题。
 
 #### 定制主题颜色
 
@@ -910,6 +929,19 @@ v1.0.0 增加了 `anchor_icon` 配置用于自定义锚点图标，默认使用 
 
 ```yaml
 anchor_icon: # 不填默认使用 # 图标
+```
+
+##### 鼠标图标（v1.3.0+）
+
+v1.3.0 增加了 `reimu_cursor.cursor` 配置用于自定义鼠标图标，你可以填写一个相对于 `css/style.css` 的路径来自定义鼠标图标。
+
+```yaml
+reimu_cursor:
+  enable: true
+  cursor:
+    default: ../images/cursor/reimu-cursor-default.png
+    pointer: ../images/cursor/reimu-cursor-pointer.png
+    text: ../images/cursor/reimu-cursor-text.png
 ```
 
 </details>

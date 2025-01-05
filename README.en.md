@@ -494,7 +494,7 @@ rss: atom.xml
 Icon defaults to the iconfont provided with this project (v0.1.3+)
 
 ```yml
-icon_font: 4552607_tq6stt6tcg
+icon_font: 4552607_bq08450reo
 ```
 
 If you want to continue using fontawesome icons, set `icon_font` to `false`, which will use the corresponding fontawesome in `vendor`.
@@ -744,6 +744,23 @@ player:
       auto:
 ```
 
+#### Share Link / Card (v1.3.0+)
+
+Disabled by default, currently supports `facebook`, `twitter`, `linkedin`, `reddit`, `weibo`, `qq`, `weixin`.
+
+```yaml
+share:
+  # - facebook
+  # - twitter
+  # - linkedin
+  # - reddit
+  # - weibo
+  # - qq
+  # - weixin
+```
+
+`weixin` will generate a share card with a QR code, which can be saved locally and shared to WeChat Moments (Note: When there is a cross-domain issue with the article cover, html-to-image cannot correctly generate a card with an image!)
+
 </details>
 
 
@@ -783,6 +800,7 @@ The first parameter is the title of the article; the second parameter is the ext
 <details>
 <summary>Customize theme</summary>
 
+hexo-theme-reimu supports highly customizable themes, you can customize your theme by modifying `_config.yml`.
 
 #### Customize theme color
 
@@ -916,6 +934,19 @@ v1.1.0 adds the `icon` configuration to the `anchor_icon` configuration for cust
 
 ```yaml
 anchor_icon: # if the icon is empty, the default # icon is used
+```
+
+##### Cursor Icon (v1.3.0+)
+
+v1.3.0 adds the `reimu_cursor.cursor` configuration for customizing the mouse cursor icon. You can fill in a path relative to `css/style.css` to customize the mouse cursor icon.
+
+```yaml
+reimu_cursor:
+  enable: true
+  cursor:
+    default: ../images/cursor/reimu-cursor-default.png
+    pointer: ../images/cursor/reimu-cursor-pointer.png
+    text: ../images/cursor/reimu-cursor-text.png
 ```
 
 </details>
