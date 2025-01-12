@@ -2,10 +2,6 @@ name: 问题报告
 description: 使用过程中遇到的BUG
 labels: ["bug 🐞"]
 body:
-  - type: "markdown"
-    attributes:
-      value: |
-        标题请简要描述问题
   - type: "textarea"
     id: describe
     attributes:
@@ -54,6 +50,6 @@ body:
       label: 你的网站的 `_config.reimu.yml` (可选)
       description: |
         请将你的 `_config.reimu.yml` 粘贴在此处 (注意: 请勿包含敏感信息)
-      placeholder: _config.yml
+      placeholder: _config.reimu.yml
       # value: |
       render: yaml

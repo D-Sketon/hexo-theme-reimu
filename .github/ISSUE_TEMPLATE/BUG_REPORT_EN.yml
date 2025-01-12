@@ -2,10 +2,6 @@ name: Bug Report
 description: Report a bug encountered while using reimu
 labels: ["bug 🐞"]
 body:
-  - type: "markdown"
-    attributes:
-      value: |
-        Please briefly describe the issue
   - type: "textarea"
     id: describe
     attributes:
@@ -54,6 +50,6 @@ body:
       label: Your Site's `_config.reimu.yml` (optional)
       description: |
         Please paste your `_config.reimu.yml` here (Note: Do not include sensitive information)
-      placeholder: _config.yml
+      placeholder: _config.reimu.yml
       # value: |
       render: yaml
