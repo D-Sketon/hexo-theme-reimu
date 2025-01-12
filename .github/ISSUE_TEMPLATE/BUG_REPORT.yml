@@ -1,6 +1,6 @@
 name: 问题报告
 description: 使用过程中遇到的BUG
-labels: ["bug 🐞"]
+labels: ["bug"]
 body:
   - type: "textarea"
     id: describe

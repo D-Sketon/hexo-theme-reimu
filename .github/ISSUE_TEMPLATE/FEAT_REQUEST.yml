@@ -1,6 +1,6 @@
 name: 功能请求
 description: 对 reimu 的建议或功能请求
-labels: ["enhancement 🚀"]
+labels: ["enhancement"]
 body:
   - type: "textarea"
     id: describe

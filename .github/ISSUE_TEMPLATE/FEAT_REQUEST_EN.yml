@@ -1,6 +1,6 @@
 name: Feature Request
 description: Suggest a feature or enhancement for reimu
-labels: ["enhancement 🚀"]
+labels: ["enhancement"]
 body:
   - type: "textarea"
     id: describe
