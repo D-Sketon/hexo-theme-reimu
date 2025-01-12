@@ -13,4 +13,4 @@ body:
       description: |
         Describe the feature in detail, and paste any reference links here
     validations:
-      required: true]
+      required: true
