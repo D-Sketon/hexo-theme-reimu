@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 问题讨论 & Ask a Question, Help, Discuss
+    url: https://github.com/D-Sketon/hexo-theme-reimu/discussions
+    about: I have a question, help for hexo-theme-reimu (e.g. Customize)

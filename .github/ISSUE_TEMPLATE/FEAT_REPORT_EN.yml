@@ -1,0 +1,16 @@
+name: Feature Request
+description: Suggest a feature or enhancement for reimu
+labels: ["enhancement 🚀"]
+body:
+  - type: "markdown"
+    attributes:
+      value: |
+        Please briefly describe the feature
+  - type: "textarea"
+    id: describe
+    attributes:
+      label: Description
+      description: |
+        Describe the feature in detail, and paste any reference links here
+    validations:
+      required: true]

@@ -1,0 +1,59 @@
+name: 问题报告
+description: 使用过程中遇到的BUG
+labels: ["bug 🐞"]
+body:
+  - type: "markdown"
+    attributes:
+      value: |
+        标题请简要描述问题
+  - type: "textarea"
+    id: describe
+    attributes:
+      label: 问题描述
+      description: |
+        详细描述问题或者错误,如有报错请粘贴于此。
+    validations:
+      required: true
+  - type: "textarea"
+    id: step
+    attributes:
+      label: 复现步骤
+      description: |
+        在问题发生时你做了什么
+      placeholder: |
+        1. Step1
+        2. Step2
+        3. etc.
+        ...
+    validations:
+      required: false
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      label: 你的 Hexo 和 插件版本
+      description: |
+        请运行 `npm ls --depth 0` 并将结果粘贴在此处
+      placeholder: npm ls --depth 0
+      # value:
+      render: text
+  - type: textarea
+    validations:
+      required: false
+    attributes:
+      label: 你的网站的 `_config.yml` (可选)
+      description: |
+        请将你的 `_config.yml` 粘贴在此处 (注意: 请勿包含敏感信息)
+      placeholder: _config.yml
+      # value: |
+      render: yaml
+  - type: textarea
+    validations:
+      required: false
+    attributes:
+      label: 你的网站的 `_config.reimu.yml` (可选)
+      description: |
+        请将你的 `_config.reimu.yml` 粘贴在此处 (注意: 请勿包含敏感信息)
+      placeholder: _config.yml
+      # value: |
+      render: yaml

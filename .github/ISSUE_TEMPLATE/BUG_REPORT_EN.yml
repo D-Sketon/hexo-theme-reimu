@@ -1,0 +1,59 @@
+name: Bug Report
+description: Report a bug encountered while using reimu
+labels: ["bug 🐞"]
+body:
+  - type: "markdown"
+    attributes:
+      value: |
+        Please briefly describe the issue
+  - type: "textarea"
+    id: describe
+    attributes:
+      label: Description
+      description: |
+        Describe the issue in detail, and paste any error messages here
+    validations:
+      required: true
+  - type: "textarea"
+    id: step
+    attributes:
+      label: Reproduction Steps
+      description: |
+        What did you do when the issue occurred
+      placeholder: |
+        1. Step1
+        2. Step2
+        3. etc.
+        ...
+    validations:
+      required: false
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      label: Your Hexo and Plugin Versions
+      description: |
+        Please run `npm ls --depth 0` and paste the result here
+      placeholder: npm ls --depth 0
+      # value:
+      render: text
+  - type: textarea
+    validations:
+      required: false
+    attributes:
+      label: Your Site's `_config.yml` (optional)
+      description: |
+        Please paste your `_config.yml` here (Note: Do not include sensitive information)
+      placeholder: _config.yml
+      # value: |
+      render: yaml
+  - type: textarea
+    validations:
+      required: false
+    attributes:
+      label: Your Site's `_config.reimu.yml` (optional)
+      description: |
+        Please paste your `_config.reimu.yml` here (Note: Do not include sensitive information)
+      placeholder: _config.yml
+      # value: |
+      render: yaml
