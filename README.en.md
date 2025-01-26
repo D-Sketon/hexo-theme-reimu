@@ -548,6 +548,8 @@ pjax:
 
 > pjax was introduced in v0.0.10 for those who need to add music players and other users who need SPA. However, it is still experimental and may cause bugs such as **scripts not executing**, **scripts repeating**, **pages rendering mess**, etc. Please consider it carefully!
 
+> pjax cannot be used with `relative_link: true`!
+
 #### ServiceWorker
 
 Disabled by default
