@@ -17,6 +17,9 @@
 
 ---
 
+> [!WARNING]
+> Versions below v1.0.0 have been deprecated. Please upgrade to version v1.0.0 or above as soon as possible.
+
 A Hakurei Reimu style Hexo theme.  
 A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian) and [Shoka](https://github.com/amehime/hexo-theme-shoka) themes.
 
