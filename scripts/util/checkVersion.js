@@ -13,7 +13,7 @@ hexo.on("generateBefore", () => {
 });
 
 hexo.on("generateAfter", () => {
-  // 检查版本更新
+  if (!hexo.theme.config.theme_version_check) return;
   https
     .get(
       "https://api.github.com/repos/D-Sketon/hexo-theme-reimu/releases/latest",

@@ -1,7 +1,8 @@
 ########################################
 # Basic Configuration
 ########################################
-
+theme_version_check: true
+theme_config_check: true
 # main menu navigation
 # for more icon information, please visit https://github.com/D-Sketon/hexo-theme-reimu/issues/30
 menu:
