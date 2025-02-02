@@ -469,8 +469,13 @@ $siderbar-btn-icon
   display: flex
   flex-direction: column
   width: 100%
-  justify-content: center
   align-items: center
+  overflow-y: auto
+  max-height: calc(100vh - 120px)
+
+  &::-webkit-scrollbar
+    width: 5px
+    height: 5px
 
 .sidebar-toc-sidebar
   width: 100%
