@@ -162,6 +162,10 @@
   </script>
 <% } %>
 
+<% if (theme.mermaid.enable && page.mermaid) { %>
+  <%- js({src: vendorCdn(theme.vendor.js.dompurify)[0], integrity: vendorCdnIntegrity(theme.vendor.js.dompurify)[0], crossorigin: "anonymous"}) %>
+<% } %>
+
 <div id="lazy-script">
   <div>
     <% if (post?.permalink) { %>
@@ -214,7 +218,7 @@
                 els.forEach(element => {
                   if(element.getAttribute('data-original-code') != null){
                     element.removeAttribute('data-processed')
-                    element.innerHTML = element.getAttribute('data-original-code')
+                    element.innerHTML = DOMPurify.sanitize(element.getAttribute('data-original-code'))
                   }
                   count--
                   if(count == 0){

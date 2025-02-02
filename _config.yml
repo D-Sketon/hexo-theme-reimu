@@ -635,6 +635,9 @@ vendor:
     html2image:
       src: webcache|html-to-image@1.11.11/dist/html-to-image.js
       integrity: sha384-UbfRVKN3/elS1r7JcK2FhmPP+KlJ4CvYwbyYD7tH+uTkbT9bNJr9eJeQ0FoFbAgz
+    dompurify:
+      src: webcache|dompurify@3.2.4/dist/purify.min.js
+      integrity: sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu
   css:
     photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.css
     katex: webcache|katex@0.16.11/dist/katex.min.css
