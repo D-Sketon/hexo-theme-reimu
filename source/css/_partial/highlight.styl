@@ -63,7 +63,15 @@ $line-numbers
       padding: 0
 
   .highlight
+    overflow: hidden
+    interpolate-size: allow-keywords
     @extend $code-block
+
+    &.code-closed
+      pre
+        height: 0
+        opacity: 0
+        overflow: hidden
 
     pre
       border: none
@@ -91,6 +99,7 @@ $line-numbers
 
     .gutter
       width: 30px
+      vertical-align: top
 
     .gutter pre
       @extend $line-numbers
@@ -285,7 +294,3 @@ pre
 .code-closed .code-expand
   transform: rotate(-180deg) !important
   transition: .3s
-
-.code-closed
-  pre
-    display: none

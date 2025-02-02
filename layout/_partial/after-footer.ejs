@@ -162,10 +162,6 @@
   </script>
 <% } %>
 
-<% if (theme.mermaid.enable && page.mermaid) { %>
-  <%- js({src: vendorCdn(theme.vendor.js.dompurify)[0], integrity: vendorCdnIntegrity(theme.vendor.js.dompurify)[0], crossorigin: "anonymous"}) %>
-<% } %>
-
 <div id="lazy-script">
   <div>
     <% if (post?.permalink) { %>
@@ -187,6 +183,7 @@
     <% } %>   
     <% if (theme.mermaid.enable && page.mermaid) { %>
       <%- js({src: vendorCdn(theme.vendor.js.mermaid)[0], integrity: vendorCdnIntegrity(theme.vendor.js.mermaid)[0], crossorigin: "anonymous", 'data-pjax': true}) %>
+      <%- js({src: vendorCdn(theme.vendor.js.dompurify)[0], integrity: vendorCdnIntegrity(theme.vendor.js.dompurify)[0], crossorigin: "anonymous"}) %>
       <script data-pjax>
         if (window.mermaid) {
           // https://github.com/mermaid-js/mermaid/issues/1945
