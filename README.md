@@ -32,33 +32,59 @@
 
 ## 特性
 
-- 所有的博客常规功能
-- 兼容 Hexo v6+
-- 响应式布局
-- 代码高亮，代码粘贴
-- KaTeX / MathJax3 展示数学公式
-- Mermaid 展示流程图
-- Algolia / hexo-generator-search 搜索
-- valine / waline / twikoo / gitalk / giscus 评论系统
-- valine / waline 文章阅读统计
-- 不蒜子访客统计
-- RSS
-- 同时支持 iconfont 和 fontawesome
-- 黑夜模式
-- 图片懒加载
-- 加载动画
-- TOC
-- 鼠标动画
-- pjax
-- ServiceWorker
-- live2d / live2d-widgets
-- reimu 鼠标指针
-- 内部提供内链/外链/友链卡片的标签插件
-- 文章底部版权声明
-- 配置自定义 CDN 源
-- Aplayer / Meting 音乐播放器
-- 分享卡片
-- 高度自定义
+### 基础功能
+- ✨ 完整的博客功能
+- 🔄 兼容 Hexo6 及以上版本
+- 📱 响应式布局
+- 🎨 黑暗模式支持
+
+### 代码与数学
+- 🖥️ 代码高亮与复制
+- ➗ KaTeX / MathJax3 数学公式支持
+- 📊 Mermaid 流程图支持
+
+### 搜索与评论
+- 🔍 Algolia 搜索集成
+- 💬 多评论系统支持：
+  - Valine
+  - Waline
+  - Twikoo
+  - Gitalk
+  - Giscus
+
+### 统计与分析
+- 📊 文章阅读统计（Valine / Waline）
+- 👥 访客统计（不蒜子）
+
+### 媒体与交互功能
+- 🎵 音乐播放器支持：
+  - Aplayer
+  - Meting
+- 🖼️ 图片懒加载
+- ⚡ 加载动画
+- 🌙 暗黑模式
+- 🖱️ 鼠标特效：
+  - 动画效果
+  - 灵梦鼠标指针
+- 👾 Live2D / Live2D-widgets 集成
+
+### 导航与结构
+- 📑 目录导航（TOC）
+- 🔄 PJAX 支持
+- 🔧 ServiceWorker 实现
+- 📰 RSS 订阅
+
+### 设计与自定义
+- 🎨 图标支持：
+  - Iconfont
+  - FontAwesome
+- 🔗 内置标签插件：
+  - 内部链接
+  - 外部链接
+  - 友情链接
+- ©️ 文章版权声明
+- 🌐 自定义 CDN 源配置
+- 🎨 分享卡片功能
 
 ## 安装
 

@@ -33,33 +33,59 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 
 ## Features
 
-- All the regular features of the blog
-- Compatible with Hexo v6+
-- Responsive Layout
-- Code Highlighting, Code Pasting
-- KaTeX / MathJax3 for displaying math formulas
-- Mermaid for flowcharts
-- Algolia / hexo-generator-search search
-- valine / waline / twikoo / gitalk / giscus comment system
-- valine / waline article reading statistics
-- Busuanzi Visitor Statistics
-- RSS support
-- Both iconfont and fontawesome are supported.
-- Night mode
-- Lazy image loading
-- Load Animation
-- TOC
-- Mouse firework animation
-- pjax
-- ServiceWorker
-- live2d / live2d-widgets
-- reimu Mouse Pointer
-- Internal tag plugin for providing internal/external/friendly link cards
-- Support the bottom of the article copyright statement
-- Support for configuring custom CDN sources
-- Aplayer / Meting music player
-- share card
-- Highly customizable
+### Basic Functions
+- ✨ Full blog functionality
+- 🔄 Compatible with Hexo6+
+- 📱 Responsive layout
+- 🎨 Dark mode support
+
+### Code & Math
+- 🖥️ Code highlighting and copying
+- ➗ KaTeX / MathJax3 math formula support
+- 📊 Mermaid flowchart support
+
+### Search & Comments
+- 🔍 Algolia search integration
+- 💬 Multiple comment systems support:
+  - Valine
+  - Waline
+  - Twikoo
+  - Gitalk
+  - Giscus
+
+### Statistics & Analytics
+- 📊 Article reading statistics (Valine / Waline)
+- 👥 Visitor statistics (Busuanzi)
+
+### Media & Interactive Features
+- 🎵 Music player support:
+  - Aplayer
+  - Meting
+- 🖼️ Lazy loading for images
+- ⚡ Loading animations
+- 🌙 Dark mode
+- 🖱️ Mouse effects:
+  - Animation effects
+  - Reimu cursor style
+- 👾 Live2D / Live2D-widgets integration
+
+### Navigation & Structure
+- 📑 Table of Contents (TOC)
+- 🔄 PJAX support
+- 🔧 ServiceWorker implementation
+- 📰 RSS feed
+
+### Design & Customization
+- 🎨 Icon support:
+  - Iconfont
+  - FontAwesome
+- 🔗 Custom tag plugins for:
+  - Internal links
+  - External links
+  - Friend links
+- ©️ Article copyright declaration
+- 🌐 Custom CDN source configuration
+- 🎨 Share card functionality
 
 ## Installation
 
