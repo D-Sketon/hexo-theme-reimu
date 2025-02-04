@@ -89,7 +89,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 
 ## Installation
 
-> The pure beginner can use [reimu-template](https://github.com/D-Sketon/reimu-template) directly. It comes with hexo, hexo-theme-reimu and other packages pre-installed, so just clone the repository - install dependencies - change the configuration and you've got a basic blog!
+> For beginners, you can directly use [reimu-template](https://github.com/D-Sketon/reimu-template). It comes pre-installed with hexo, hexo-theme-reimu and other functional packages. You only need to clone the repository, install dependencies, and modify the configuration to get a basic blog!
 
 Using npm
 
@@ -97,13 +97,13 @@ Using npm
 npm install hexo-theme-reimu --save
 ```
 
-or clone this repository to the `/themes` folder and rename it to `reimu`
+Or clone this repository directly to the `/themes` folder and rename it to `reimu`
 
 ```bash
 git clone https://github.com/D-Sketon/hexo-theme-reimu.git
 ```
 
-and change the theme in `_config.yml`
+And modify the theme in `_config.yml`
 
 ```yaml
 # Extensions
@@ -112,45 +112,45 @@ and change the theme in `_config.yml`
 theme: reimu
 ```
 
-## Uses
+## Usage
 
 <details>
 <summary>Basic structure</summary>
 
 ### Basic structure
 
-For correct display, please refer to `_example` and create separate `_data`, `about` and `friend` folders in `source`
+To ensure correct display, please refer to `_example` and create `_data`, `about`, and `friend` folders in `source` (Note: This is the `source` folder in your blog's root directory, not the one in the theme!)
 
 #### \_data
 
-- The `avatar` folder stores the author's avatar, named `avatar.webp` by default, and can be configured in the inner `_config.yml` as follows
+- The `avatar` folder stores the author's avatar, default named `avatar.webp`. You can configure it in the inner `_config.yml` as follows:
 
 ```yaml
-avatar: "avatar.webp"
+avatar: "avatar.webp" # By default, it looks for the avatar in the avatar folder. Do not include the path, or it will result in a 404 error
 ```
 
-- The `covers` folder stores the article covers
-- The `covers.yml` file stores the article cover urls
+- The `covers` folder stores article cover images
+- The `covers.yml` stores article cover URLs
 
 #### about
 
-`index.md` as the **about** page
+`index.md` serves as the **About** page
 
 #### friend
 
-`index.md` as the **friends** page, fill in `_data.yml` with friend information to display the corresponding friend card on the page
+`index.md` serves as the **Friends** page. Fill in friend link information in `_data.yml` to display corresponding friend cards on the page
 
 </details>
 <details>
-<summary>Cover, banner and favicon</summary>
+<summary>Cover Images, Banner and Favicon</summary>
 
-### Cover, banner and favicon
+### Cover Images, Banner, and Favicon
 
-#### Cover
+#### Cover Images
 
-The logic for displaying the cover is as follows
+The cover image display logic is as follows:
 
-- If the article's Front matter contains the url for cover, the article's header image and home page thumbnails display that url
+- If the article's Front matter contains a cover URL, both the article header image and homepage thumbnail will display this URL
 
 ```yaml
 ---
@@ -159,7 +159,7 @@ cover: https://example.com
 ---
 ```
 
-- If the article's Front matter contains cover as `false`, the article doesn't show the header image (it's still a random image on the front page)
+- If the article's Front matter contains cover: `false`, no header image will be displayed for that article (the homepage will still show a random image)
 
 ```yaml
 ---
@@ -168,7 +168,7 @@ cover: false
 ---
 ```
 
-- If the article's Front matter contains cover as `rgb(xxx,xxx,xxx)`, the article's header image is the corresponding gradient solid color (still a random image on the front page)
+- If the article's Front matter contains cover: `rgb(xxx,xxx,xxx)`, the article's header image will be a gradient of that solid color (the homepage will still show a random image)
 
 ```yaml
 ---
@@ -177,12 +177,12 @@ cover: rgb(255,117,117)
 ---
 ```
 
-- Otherwise, look for the `covers` folder and `covers.yml` and pick a random image from it
-- If none of these files exist, display the banner
+- Otherwise, it will search for images in the `covers` folder and `covers.yml` and randomly select one
+- If none of the above files exist, it will display the default banner image
 
 #### banner
 
-The banner is stored in `themes/reimu/source/images/banner.webp` and can be modified in the inner `_config.yml`
+The banner image is stored at `themes/reimu/source/images/banner.webp`, and can be modified in the inner `_config.yml`:
 
 ```yaml
 banner: "/images/banner.webp"
@@ -190,15 +190,15 @@ banner: "/images/banner.webp"
 
 #### favicon
 
-The favicon is stored in `themes/reimu/source/images/favicon.ico`，and can be modified in the inner `_config.yml`
+The favicon is stored at `themes/reimu/source/images/favicon.ico`, and can be modified in the inner `_config.yml`:
 
 ```yaml
 favicon: "/images/favicon.ico"
 ```
 
-#### topped
+#### Pinned Posts
 
-Add `sticky: true` to the article's Front-matter
+Add `sticky: true` to the article's Front-matter to pin it:
 
 ```yaml
 ---
@@ -209,11 +209,11 @@ sticky: true
 
 </details>
 <details>
-<summary>Code Block</summary>
+<summary>Code Blocks</summary>
 
-### Code Block
+### Code Blocks
 
-To ensure that the code blocks are displayed correctly, please ensure that the outer `_config.yml` is configured as follows
+To ensure proper display of code blocks, make sure your outer `_config.yml` has the following configuration:  
 (Hexo <7.0.0)
 
 ```yaml
@@ -234,8 +234,9 @@ highlight:
   hljs: false
 ```
 
-The code block also provides a code paste function. Click the copy button in the upper right corner of the code block to copy the code. In the inner `_config.yml`, you can configure the copy function.   
-`success` is the prompt when the copy is successful, and `fail` is the prompt when the copy fails. In addition, you can configure the copyright statement. When the number of characters copied is greater than `count`, the content copied will be followed by the `content` copyright.
+Code blocks also provide a code copying feature - click the copy button in the top right corner of the code block to copy the code. You can configure the copy functionality in the inner `_config.yml`.  
+
+`success` is the prompt shown when copying is successful, `fail` is shown when copying fails. Additionally, you can configure copyright notices - when the copied text exceeds `count` characters, the `content` copyright notice will be added after the copied content.
 
 ```yaml
 clipboard:
@@ -243,11 +244,11 @@ clipboard:
   fail: 复制失败 (ﾟ⊿ﾟ)ﾂ
   copyright:
     enable: false
-    count: 50 # The number of characters when the copyright is displayed
+    count: 50 # Add copyright notice when character count exceeds this number
     content: 本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！
 ```
 
-v1.1.0 add configuration to control the default expansion status of the code block, `expand` can be set to `true`, `false` or a number, the number means that when the number of lines of the code block is greater than the number, it is collapsed by default.
+v1.1.0 added configuration to control the default expansion state of code blocks. `expand` can be set to `true`, `false`, or a number - the number indicates that code blocks will be collapsed by default when the number of lines exceeds this value.
 
 ```yaml
 code_block:
@@ -260,11 +261,11 @@ code_block:
 
 ### Site comments
 
-> In-site comments can be controlled independently of each post using `comments` in Front matter.  
-> Comments are not shown when `comments` is `false`, and are shown or not shown when `true` or not filled in, depending on the `_config.yml` configuration.
+> Site comments can be individually controlled for each article using `comments` in the Front matter.  
+> When `comments` is `false`, comments won't be displayed. When it's `true` or not specified, the display will be determined by the `_config.yml` configuration.
 
-If based on [Valine](https://valine.js.org/)  
-Please refer to its official documentation to complete the configuration of `LeanCloud` and change `valine.enable` to `true` in the inner `_config.yml` and fill in your own `appId` and `appKey`
+If using [Valine](https://valine.js.org/)  
+Please refer to their official documentation to complete the `LeanCloud` configuration, then set `valine.enable` to `true` in the inner `_config.yml` and fill in your `appId` and `appKey`
 
 ```yaml
 valine:
@@ -273,8 +274,8 @@ valine:
   appKey: "your appKey"
 ```
 
-If based on [Waline](https://waline.js.org/)  
-Please refer to its [official documentation](https://waline.js.org/guide/get-started/) to complete the `LeanCloud` configuration and change `waline.enable` to `true` in the inner `_config.yml`, and fill in your own `serverURL`
+If using [Waline](https://waline.js.org/)  
+Please refer to their [official documentation](https://waline.js.org/guide/get-started/) to complete the `LeanCloud` configuration, then set `waline.enable` to `true` in the inner `_config.yml` and fill in your `serverURL`
 
 ```yaml
 waline:
@@ -301,17 +302,17 @@ waline:
   pageview: true
 ```
 
-If based on [twikoo](https://twikoo.js.org)  
-Please refer to its [official documentation](https://twikoo.js.org/quick-start.html) to complete the Tencent Cloud or Vercel deployment, and change `twikoo.enable` to `true` in the inner `_config.yml`, and fill in your own `envId`.
+If using [twikoo](https://twikoo.js.org)  
+Please refer to their [official documentation](https://twikoo.js.org/quick-start.html) to complete Tencent Cloud or Vercel deployment, then set `twikoo.enable` to `true` in the inner `_config.yml` and fill in your `envId`
 
 ```yml
 twikoo:
   enable: true
-  envId: # Tencent cloud environment fill envId; Vercel environment fill address (https://xxx.vercel.app)
+  envId: # For Tencent Cloud environment, fill in envId; For Vercel environment, fill in the URL (https://xxx.vercel.app)
   region:
 ```
 
-If based on [giscus](https://giscus.app/zh-CN), please refer to the documentation to complete the configuration of the repository and change `giscus.enable` to `true` in the inner `_config.yml`, and fill in the corresponding data.
+If using [giscus](https://giscus.app/), please refer to the documentation to complete repository configuration, then set `giscus.enable` to `true` in the inner `_config.yml` and fill in the corresponding data
 
 ```yml
 giscus:
@@ -328,8 +329,8 @@ giscus:
   lang: zh-CN
 ```
 
-If based on [gitalk](https://gitalk.github.io/)  
-Please refer to its [official documentation](https://github.com/gitalk/gitalk?tab=readme-ov-file#usage) to complete the repository configuration, and change `gitalk.enable` to `true` in the inner `_config.yml` and fill in the corresponding data.
+If using [gitalk](https://gitalk.github.io/)  
+Please refer to their [official documentation](https://github.com/gitalk/gitalk?tab=readme-ov-file#usage) to complete repository configuration, then set `gitalk.enable` to `true` in the inner `_config.yml` and fill in the corresponding data
 
 ```yml
 gitalk:
@@ -348,13 +349,13 @@ gitalk:
 
 ### Site search
 
-If your site search is based on [Algolia](https://www.algolia.com/), please install [hexo-algoliasearch](https://github.com/LouisBarranqueiro/hexo-algoliasearch)
+If choosing [Algolia](https://www.algolia.com/), please install [hexo-algoliasearch](https://github.com/LouisBarranqueiro/hexo-algoliasearch)
 
 ```bash
 npm install hexo-algoliasearch --save
 ```
 
-and refer to its [README](https://github.com/LouisBarranqueiro/hexo-algoliasearch#readme) to complete the configuration of the `Algolia` account, and add the following configuration to the outer `_config.yml`
+Then refer to its [README](https://github.com/LouisBarranqueiro/hexo-algoliasearch#readme) to complete the `Algolia` account configuration, and add the following configuration to the outer `_config.yml`
 
 ```yml
 algolia:
@@ -374,16 +375,16 @@ algolia:
     - title
 ```
 
-Change `algolia_search.enable` to `true` in the inner `_config.yml`
+In the inner `_config.yml`, set `algolia_search.enable` to `true`
 
 ```yaml
 algolia_search:
   enable: true
 ```
 
-Note: The search link is a permanent link, so please ensure that the `url` in the outer `_config.yml` is filled in correctly
+Note: The search redirect link is a permanent link, so please ensure the `url` in the outer `_config.yml` is filled in correctly.
 
-If your site search is based on [hexo-generator-search](https://github.com/wzpan/hexo-generator-search), please install [hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
+If choosing [hexo-generator-search](https://github.com/wzpan/hexo-generator-search), please install [hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
 
 And refer to its [README](https://github.com/wzpan/hexo-generator-search#readme) to add the following configuration to the outer `_config.yml`
 
@@ -394,7 +395,7 @@ search:
   content: true
 ```
 
-In the inner `_config.yml` change `generator_search.enable` to `true
+In the inner `_config.yml`, set `generator_search.enable` to `true`
 
 ```yaml
 generator_search:
@@ -414,13 +415,13 @@ npm uninstall hexo-renderer-marked --save
 npm install @reimujs/hexo-renderer-markdown-it-plus --save
 ```
 
-Disable by default, enable math formula support by changing `math.enable` to `true` in the inner `_config.yml`
+Mathematical formula support is disabled by default. To enable it, set `math.enable` to `true` in the inner `_config.yml`
 
-> Note: Do not enable both KaTeX and MathJax3
+> Note: Do not enable both KaTeX and MathJax3 simultaneously
 
 #### KaTeX
 
-If you want to use server-side rendering, please change `math.katex.enable` to `true` in the inner `_config.yml`
+For server-side rendering, set `math.katex.enable` to `true` in the inner `_config.yml`
 
 ```yaml
 math:
@@ -430,7 +431,7 @@ math:
     autoRender: false
 ```
 
-If you want to use client-side rendering, please change `math.katex.enable` to `true` in the inner `_config.yml`, and change `autoRender` to `true`
+For client-side rendering, set both `math.katex.enable` and `autoRender` to `true` in the inner `_config.yml`
 
 ```yaml
 math:
@@ -440,7 +441,7 @@ math:
     autoRender: true
 ```
 
-And add the following configuration to the outer `_config.yml`
+Add the following configuration to the outer `_config.yml`
 
 ```yaml
 markdown_it_plus:
@@ -449,7 +450,7 @@ markdown_it_plus:
 
 #### MathJax3
 
-If you want to use MathJax3, please change `math.mathjax.enable` to `true` in the inner `_config.yml`
+To use MathJax3, set `math.mathjax.enable` to `true` in the inner `_config.yml`
 
 ```yaml
 math:
@@ -459,7 +460,7 @@ math:
     options: # MathJax3 Options
 ```
 
-And add the following configuration to the outer `_config.yml`
+Add the following configuration to the outer `_config.yml`
 
 ```yaml
 markdown_it_plus:
@@ -468,9 +469,9 @@ markdown_it_plus:
 
 </details>
 <details>
-<summary>Mermaid</summary>
+<summary>Mermaid Diagrams</summary>
 
-### Mermaid
+### Mermaid Diagrams
 
 Please install [hexo-filter-mermaid-diagrams](https://github.com/webappdevelp/hexo-filter-mermaid-diagrams)
 
@@ -478,14 +479,14 @@ Please install [hexo-filter-mermaid-diagrams](https://github.com/webappdevelp/he
 npm install hexo-filter-mermaid-diagrams --save
 ```
 
-Change `mermaid.enable` to `true` in the inner `_config.yml`
+Set `mermaid.enable` to `true` in the inner `_config.yml`
 
 ```yaml
 mermaid:
   enable: true
 ```
 
-and add ``mermaid: true`` to the front-matter of articles that need to use mermaid.
+And add `mermaid: true` to the front-matter of any article where you want to use mermaid diagrams
 
 ```yaml
 ---
@@ -506,8 +507,9 @@ Please install [hexo-generator-feed](https://github.com/hexojs/hexo-generator-fe
 npm install hexo-generator-feed --save
 ```
 
-and refer to its [README](https://github.com/hexojs/hexo-generator-feed#readme) to complete the configuration of the `feed` in the outer `_config.yml`  
-Fill in the inner `_config.yml` with the generated `xml`
+Refer to its [README](https://github.com/hexojs/hexo-generator-feed#readme) to complete the `feed` configuration in the outer `_config.yml`   
+
+Then add the generated `xml` path to the inner `_config.yml`
 
 ```yaml
 rss: atom.xml
@@ -520,13 +522,13 @@ rss: atom.xml
 
 ### Icon
 
-Icon defaults to the iconfont provided with this project (v0.1.3+)
+By default, this project uses its own provided iconfont (v0.1.3+)
 
 ```yml
 icon_font: 4552607_bq08450reo
 ```
 
-If you want to continue using fontawesome icons, set `icon_font` to `false`, which will use the corresponding fontawesome in `vendor`.
+If you want to continue using fontawesome icons, set `icon_font` to `false`. This will use the corresponding fontawesome from the `vendor`
 
 ```yml
 fontawesome:
@@ -546,7 +548,7 @@ fontawesome:
 
 ### Advanced features
 
-#### Pace
+#### Pace Progress Bar
 
 Enabled by default
 
@@ -555,7 +557,7 @@ pace:
   enable: true
 ```
 
-#### firework
+#### Firework
 
 Enabled by default
 
@@ -564,9 +566,9 @@ firework:
   enable: true
 ```
 
-See [mouse-firework](https://github.com/D-Sketon/mouse-firework) for more information
+For detailed configuration, please check [mouse-firework](https://github.com/D-Sketon/mouse-firework)
 
-#### pjax
+#### PJAX
 
 Disabled by default
 
@@ -575,9 +577,9 @@ pjax:
   enable: false
 ```
 
-> pjax was introduced in v0.0.10 for those who need to add music players and other users who need SPA. However, it is still experimental and may cause bugs such as **scripts not executing**, **scripts repeating**, **pages rendering mess**, etc. Please consider it carefully!
+> PJAX was introduced in v0.0.10 for users who need SPA features like music players. After several iterations, it's mostly stable but may still cause issues like **script execution failures**, **script duplicate execution**, or **page rendering problems**. Please consider carefully!
 
-> pjax cannot be used with `relative_link: true`!
+> PJAX cannot be used with `relative_link: true`!
 
 #### ServiceWorker
 
@@ -588,7 +590,7 @@ service_worker:
   enable: false
 ```
 
-#### live2d
+#### Live2D
 
 Disabled by default
 
@@ -598,7 +600,7 @@ live2d:
   position: left # left | right
 ```
 
-#### live2d-widgets
+#### Live2D Widgets
 
 Disabled by default
 
@@ -608,7 +610,7 @@ live2d_widgets:
   position: left # left | right
 ```
 
-#### reimu cursor
+#### Reimu Cursor
 
 Enabled by default
 
@@ -621,9 +623,10 @@ reimu_cursor:
     text: ../images/cursor/reimu-cursor-text.png
 ```
 
-#### Responsive Banner Image (v0.2.0+)
+#### Responsive Banner (v0.2.0+)
 
-Disabled by default, enable it on and providing the corresponding size of the image and media query can improve the LCP on mobile to some extent
+Disabled by default. When enabled and provided with corresponding image sizes and media queries, it can improve mobile LCP performance
+
 ```yml
 banner_srcset:
 enable: false
@@ -636,100 +639,101 @@ srcset:
     media: "(min-width: 800px)"
 ```
 
-#### Article copyright notice (v0.2.0+)
+#### Article Copyright Notice (v0.2.0+)
 
 Disabled by default
+
 ``` yml
 article_copyright: 
-enable: false # Is the copyright card displayed?
-content: # true | false Does the copyright card show the author?
-  author: # true | false Do copyright cards show author?
-  link: # true | false Do you want to show links?
-  title: # true | false Do you show the title of the copyrighted card?
-  date: # true | false The date the copyrighted card was created?
-  updated: # true | false Copyright card show updated date?
-  license: # true | false Copyright Card Showcase Agreement?
+  enable: false # Display copyright card?
+  content:
+    author: # true | false Show author in copyright card?
+    link: # true | false Show link in copyright card?
+    title: # true | false Show title in copyright card?
+    date: # true | false Show creation date in copyright card?
+    updated: # true | false Show update date in copyright card?
+    license: # true | false Show license in copyright card?
 ```
 
-Besides, you can also control it through the front-matter of the article, which takes precedence over the global configuration
+Additionally, this can be controlled through article front-matter, which takes precedence over global configuration
 
 ```yaml
 ---
-copyright: true # Whether to display the copyright card
+copyright: true # Display copyright card?
 ---
 ```
 
-#### quicklink (v0.2.3+)
+#### Quicklink (v0.2.3+)
 
-Disabled by default
+Disabled by default. When enabled, it preloads links while users stay on the page to improve user experience
 
 ```yaml
 quicklink:
   enable: false
-  timeout: 3000 # Timeout for quicklink
+  timeout: 3000 # Preload timeout
   priority: true # Whether to prioritize loading the page
-  ignores: [] # Ignore the specified link, only support string
+  ignores: [] # Ignore the specified link, supports strings only
 ```
 
-#### outdate warning (v0.2.4+)
+#### Outdate Content Warning (v0.2.4+)
 
 Disabled by default
 
 ```yaml
 outdate:
   enable: false
-  daysAgo: 180 # The number of days after which the article is considered outdated
+  daysAgo: 180 # How many days old before an article is considered outdated
   message: 本文最后更新于 {time}，请注意文中内容可能已经发生变化。
 ```
 
-#### sponsor (v0.3.2+)
+#### Sponsorship (v0.3.2+)
 
 Disabled by default
 
 ```yaml
 sponsor:
-  enable: false # Whether to enable sponsorship
-  tip: 请作者喝杯咖啡吧！ # Sponsorship prompt
+  enable: false # Display sponsorship QR code?
+  tip: Buy the author a coffee! # Sponsorship prompt
   icon:
-    url: "../images/taichi.png" # this path is relative to the css/style.css, so it needs to go up one level to reach the images folder
-    rotate: true
-    mask: true # whether to use the images as a mask
+    url: "../images/taichi.png" # Sponsorship icon, path relative to css/style.css, so need to go up one level to find images folder
+    rotate: true # Rotate icon?
+    mask: true # Use image as mask (only show PNG image outline)?
   qr:
-    - name: 支付宝 # Payment method
-      src: "/sponsor/alipay.jpg" # QR code
+    - name: Alipay # QR code name
+      src: "/sponsor/alipay.jpg" # QR code path, please fill in yourself
 ```
 
-Besides, you can also control it through the front-matter of the article, which takes precedence over the global configuration
+Additionally, this can be controlled through article front-matter, which takes precedence over global configuration
 
 ```yaml
 ---
-sponsor: true # Whether to display the sponsorship
+sponsor: true # Display sponsorship QR code?
 ---
 ```
 
-#### home categories card (v1.0.0+)
+#### Home Categories Card (v1.0.0+)
 
-Disable by default, enable it to display the category card on the homepage, which can replace the directory in the widget
+Disabled by default. When enabled, displays category cards on homepage as an alternative to widget categories
 
 ```yaml
 home_categories:
-  enable: false # Whether to display the home category card?
+  enable: false # Display home categories card?
   content:
-    - categories: # Category name, the format is consistent with the categories in the front-matter, which can be a string (single-level category) or an array (multi-level category)
-      cover: # Card cover, if not filled in, a random cover will be used
+    - categories: # Category name, format matches categories in front-matter, can be string (single-level) or array (multi-level)
+      cover: # Card cover, uses random cover if not specified
     - categories:
       cover:
 ```
 
 #### Music Player (v1.2.0+)
 
-> Please open Pjax before using it, otherwise the player will automatically pause
+> It's recommended to enable Pjax first, otherwise the player may auto-pause
 
-Use Aplayer + Meting (optional) disabled by default
+Uses Aplayer + Meting (optional), disabled by default
 
-##### Aplayer
+##### Pure Aplayer
 
-Set `player.aplayer.enable` to `true` and configure it in `player.aplayer.options` according to [Aplayer Docs](https://aplayer.js.org/#/home?id=options)
+Set `player.aplayer.enable` to `true` and configure `player.aplayer.options` according to [Aplayer Docs](https://aplayer.js.org/#/home?id=options)
 
 ```yaml
 player:
@@ -749,7 +753,7 @@ player:
 
 ##### Aplayer + Meting
 
-Set `player.aplayer.enable` and `player.meting.enable` to `true` at the same time, and configure it in `player.meting.options` according to [Meting Docs](https://github.com/metowolf/MetingJS?tab=readme-ov-file#option), `player.aplayer.options` is the Aplayer configuration
+Set both `player.aplayer.enable` and `player.meting.enable` to `true`, configure `player.meting.options` according to [Meting Docs](https://github.com/metowolf/MetingJS?tab=readme-ov-file#option), `player.aplayer.options` is for Aplayer configuration
 
 ```yaml
 player:
@@ -790,54 +794,54 @@ share:
   # - weixin
 ```
 
-`weixin` will generate a share card with a QR code, which can be saved locally and shared to WeChat Moments (Note: When there is a cross-domain issue with the article cover, html-to-image cannot correctly generate a card with an image!)
+For `weixin`, it generates a share card with QR code that can be saved locally and shared to WeChat Moments (Note: when the article cover has cross-origin issues, html-to-image cannot correctly generate cards with images!)
 
 </details>
 
-
 <details>
-<summary>Inner Card Tag</summary>
+<summary>Built-in Card Tags</summary>
 
-### Inner Card Tag
+### Built-in Card Tags
 
-#### friendLink
+#### friendLink - Friend Link Card
 
 ```yaml
 {% friendsLink path %}
 ```
 
-The first parameter `path` represents the path of the friend link yaml
+The first parameter `path` indicates the path to the friend links yaml file
 
-#### postLinkCard
+#### postLinkCard - Internal Link Card
 
 ```yaml
 {% postLinkCard slug [cover]|"auto" [escape] %}
 ```
 
-The first parameter is the `slug` of the article; the second parameter (optional) is the cover displayed on the card, if set to `auto`, the blog's `banner` is automatically used; the third parameter (optional) indicates whether the article title is escaped
+The first parameter is the article's `slug`; the second parameter (optional) is the cover image displayed on the card, if set to `auto` it will automatically use the blog's `banner`; the third parameter (optional) indicates whether the article title should be escaped
 
-> The slug generation algorithm: https://github.com/hexojs/hexo-util/blob/master/lib/slugize.ts
+> Slug generation algorithm: https://github.com/hexojs/hexo-util/blob/master/lib/slugize.ts
+> In simple terms, it removes invisible characters from the article title and replaces special characters `\s~!@#$%^&*()\-_+=[]{}|\;:"'<>,.?/` with the separator `-`, merges consecutive separators and removes leading/trailing separators
 
-#### externalLinkCard
+#### externalLinkCard - External Link Card
 
 ```yaml
 {% externalLinkCard title link [cover]|"auto" %}
 ```
 
-The first parameter is the title of the article; the second parameter is the external link of the article; the third parameter (optional) is the cover displayed on the card, if set to `auto`, the default cover is automatically used
+The first parameter is the article title; the second parameter is the external link to the article; the third parameter (optional) is the cover image displayed on the card, if set to `auto` it will automatically use the default cover
 
 </details>
 
 <details>
 <summary>Customize theme</summary>
 
-hexo-theme-reimu supports highly customizable themes, you can customize your theme by modifying `_config.yml`.
+The hexo-theme-reimu theme supports extensive customization. You can customize your theme by modifying `_config.yml`.
 
-#### Customize theme color
+#### Customize Theme Colors
 
-hexo-theme-reimu supports customizing theme colors through CSS variables. You can customize your theme colors by modifying the CSS variables under the `:root` pseudo-class.
+The hexo-theme-reimu theme supports theme color customization through CSS variables. You can customize your theme colors by modifying CSS variables under the `:root` pseudo-class.
 
-The variable file is located at `source/css/_variables.styl`, where you can find all the CSS variables, but you only need to modify the variables under the following pseudo-classes:
+The variables file is located at `source/css/_variables.styl`. You can find all CSS variables there, but you really only need to modify the variables under these pseudo-classes:
 
 ```stylus
 :root
@@ -862,9 +866,9 @@ The variable file is located at `source/css/_variables.styl`, where you can find
     --red-6: hsla(0, 100%, 98%, 0.2)
 ```
 
-#### Customize theme font
+#### Custom Fonts
 
-You can define Google fonts through the following configuration:
+You can define Google Fonts through the following configuration:
 
 ```yaml
 # https://fonts.google.com/
@@ -878,7 +882,7 @@ font:
     # - JetBrains Mono
 ```
 
-v1.1.0 added the `local_font` configuration to define local fonts, which have a lower priority than Google fonts:
+v1.1.0 added `local_font` configuration for defining local fonts, which has lower priority than Google Fonts:
 
 ```yaml
 local_font:
@@ -894,22 +898,22 @@ local_font:
     - monospace
 ```
 
-#### Customize theme icon
+#### Customizing Icons
 
-v1.0.0 adds a lot of configuration to change the original icon, you can change the icon by modifying the following configuration:
+v1.0.0 underwent significant refactoring and exposed many configurations for changing the original icons
 
-##### Header / Sidebar Icon
+##### Header / Sidebar Icons
 
-The structure of the `menu` configuration in v1.0.0 has changed, allowing users to customize the icon. When the icon is empty, the Taiji icon is used by default. You can fill in a hexadecimal number to customize the icon, and support fontawesome and icon font.
+The `menu` configuration structure changed in v1.0.0, allowing users to customize icons. When icon is empty, it defaults to the Taichi icon. You can fill in a hexadecimal number to customize the icon, supporting both FontAwesome and icon font.
 
 ```yaml
 menu:
   - name: home
     url: /
-    icon: # if the icon is empty, the Taiji icon is used by default
+    icon: # Defaults to Taichi icon when empty
   - name: archives
     url: /archives
-    icon: f0c1 # You can fill in the fontawesome / iconfont icon code
+    icon: f0c1 # You can fill in a hexadecimal number to customize the icon, supports FontAwesome and icon font
   - name: about
     url: /about
     icon:
@@ -918,13 +922,13 @@ menu:
     icon:
 ```
 
-##### Footer / Back to Top / Sponsor Icon
+##### Footer / Back to Top / Sponsor Icons
 
-v1.1.0 add `icon` configuration to the `footer`, `top`, `sponsor` configuration for custom icons.
+v1.0.0 added `icon` configuration to `footer`, `top`, and `sponsor` configurations for customizing icons.
 
-- `url` is the path of the icon, which is relative to the path of `css/style.css`, so you need to go up one level to find the images folder.
-- `rotate` is whether to rotate the icon, the default is `true`.
-- `mask` is whether to use the image as a mask (i.e., only display the outline of the png image), the default is `true`.
+- `url` is the path to the icon, relative to `css/style.css`, so you need to go up one level to find the images folder.
+- `rotate` determines whether to rotate the icon, defaults to `true`.
+- `mask` determines whether to use the image as a mask (only showing PNG image outline), defaults to `true`.
 
 ```yaml
 footer:
@@ -948,9 +952,9 @@ sponsor:
 
 ##### Loading Icon
 
-v1.1.0 adds the `icon` configuration to the `preloader` configuration for custom icons. When the icon is empty, the default svg is used, which is inlined to ensure the loading speed of the first screen. You can fill in a link to customize the loading icon.
+v1.0.0 added `icon` configuration to `preloader` for customizing the loading icon. When icon is empty, it defaults to using inline SVG (ensuring first-screen loading speed). You can enter a link to customize the loading icon.
 
-Do not use too large icons to avoid affecting loading speed.
+It's not recommended to use oversized icons to avoid affecting loading speed.
 
 ```yaml
 preloader:
@@ -961,7 +965,7 @@ preloader:
 
 ##### Anchor Icon
 
-v1.1.0 adds the `icon` configuration to the `anchor_icon` configuration for custom icons. When the icon is empty, the default `#` icon is used. You can fill in a hexadecimal number to customize the icon, and support fontawesome and icon font.
+v1.0.0 added `anchor_icon` configuration for customizing anchor icons, defaults to using the `#` icon. You can fill in a hexadecimal number to customize the icon, supporting both FontAwesome and icon font.
 
 ```yaml
 anchor_icon: # if the icon is empty, the default # icon is used
@@ -969,7 +973,7 @@ anchor_icon: # if the icon is empty, the default # icon is used
 
 ##### Cursor Icon (v1.3.0+)
 
-v1.3.0 adds the `reimu_cursor.cursor` configuration for customizing the mouse cursor icon. You can fill in a path relative to `css/style.css` to customize the mouse cursor icon.
+v1.3.0 added `reimu_cursor.cursor` configuration for customizing cursor icons. You can fill in a path relative to `css/style.css` to customize cursor icons.
 
 ```yaml
 reimu_cursor:
@@ -986,7 +990,7 @@ reimu_cursor:
 
 ### Vendor
 
-v0.1.0 is a major refactoring of `vendor`, the `vendor` path is now composed of `:cdn|:package@:version/:file`, and `:cdn` can be configured in `vendor` itself. It currently comes with the following CDN sources:
+v0.1.0 underwent significant refactoring of the `vendor` system. Currently, the `vendor` path is structured as `:cdn|:package@:version/:file`, where `:cdn` can be configured in the `vendor` section. The following CDN sources are included by default:
 
 ```yaml
 cdn_jsdelivr_gh: https://cdn.jsdelivr.net/gh/ # github acceleration only
@@ -997,7 +1001,7 @@ unpkg: https://unpkg.com/ # npm acceleration only
 webcache: https://npm.webcache.cn/ # npm acceleration only
 ```
 
-Users can switch between CDN sources according to network conditions.
+Users can switch between CDN sources based on their network conditions.
 </details>
 
 ## Contributors
@@ -1006,4 +1010,4 @@ Users can switch between CDN sources according to network conditions.
 
 ## License
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FD-Sketon%2Fhexo-theme-reimu.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FD-Sketon%2Fhexo-theme-reimu?ref=badge_large)
+MIT
