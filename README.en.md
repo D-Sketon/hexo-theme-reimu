@@ -312,7 +312,8 @@ twikoo:
   region:
 ```
 
-If using [giscus](https://giscus.app/), please refer to the documentation to complete repository configuration, then set `giscus.enable` to `true` in the inner `_config.yml` and fill in the corresponding data
+If using [giscus](https://giscus.app/)  
+Please refer to the documentation to complete repository configuration, then set `giscus.enable` to `true` in the inner `_config.yml` and fill in the corresponding data
 
 ```yml
 giscus:

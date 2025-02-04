@@ -310,7 +310,8 @@ twikoo:
   region:
 ```
 
-若基于 [giscus](https://giscus.app/zh-CN)，请参考文档完成仓库的配置，并在内层 `_config.yml` 中将 `giscus.enable` 改为 `true`，并填入对应的数据
+若基于 [giscus](https://giscus.app/zh-CN)  
+请参考文档完成仓库的配置，并在内层 `_config.yml` 中将 `giscus.enable` 改为 `true`，并填入对应的数据
 
 ```yml
 giscus:
@@ -467,9 +468,9 @@ markdown_it_plus:
 
 </details>
 <details>
-<summary>Mermaid</summary>
+<summary>Mermaid 流程图</summary>
 
-### Mermaid
+### Mermaid 流程图
 
 请安装 [hexo-filter-mermaid-diagrams](https://github.com/webappdevelp/hexo-filter-mermaid-diagrams)
 
@@ -554,7 +555,7 @@ pace:
   enable: true
 ```
 
-#### firework
+#### Firework 鼠标特效
 
 默认开启
 
@@ -565,7 +566,7 @@ firework:
 
 具体配置请查看 [mouse-firework](https://github.com/D-Sketon/mouse-firework)
 
-#### pjax
+#### PJAX
 
 默认关闭
 
@@ -574,9 +575,9 @@ pjax:
   enable: false
 ```
 
-> pjax 在 v0.0.10 中被引入，用于那些需要添加音乐播放器等需要 SPA 的用户。经过一段时间的迭代后已基本上稳定，但引入后仍然可能会出现诸如**脚本无法执行**、**脚本重复执行**、**页面渲染混乱**等 BUG。请慎重考虑！
+> PJAX 在 v0.0.10 中被引入，用于那些需要添加音乐播放器等需要 SPA 的用户。经过一段时间的迭代后已基本上稳定，但引入后仍然可能会出现诸如**脚本无法执行**、**脚本重复执行**、**页面渲染混乱**等 BUG。请慎重考虑！
 
-> pjax 无法与 `relative_link: true` 配合使用！
+> PJAX 无法与 `relative_link: true` 配合使用！
 
 #### ServiceWorker
 
@@ -587,7 +588,7 @@ service_worker:
   enable: false
 ```
 
-#### live2d
+#### Live2D
 
 默认关闭
 
@@ -597,7 +598,7 @@ live2d:
   position: left # left | right
 ```
 
-#### live2d-widgets
+#### Live2D Widgets
 
 默认关闭
 
@@ -607,7 +608,7 @@ live2d_widgets:
   position: left # left | right
 ```
 
-#### reimu 鼠标指针
+#### Reimu 鼠标指针
 
 默认开启
 
@@ -620,7 +621,7 @@ reimu_cursor:
     text: ../images/cursor/reimu-cursor-text.png
 ```
 
-#### 头图响应式（v0.2.0+）
+#### 响应式头图（v0.2.0+）
 
 默认关闭，打开后并提供对应尺寸的图片和媒体查询可以在一定程度上提高移动端的 LCP
 ```yml
@@ -635,7 +636,7 @@ srcset:
     media: "(min-width: 800px)"
 ```
 
-#### quicklink（v0.2.3+）
+#### Quicklink（v0.2.3+）
 
 默认关闭，打开后可以在用户停留在页面时预加载链接，提高用户体验
 ```yml
@@ -669,7 +670,7 @@ copyright: true # 是否展示版权卡片？
 ---
 ```
 
-#### 过期提醒（v0.2.4+）
+#### 文章过期提醒（v0.2.4+）
 
 默认关闭
 ```yml
@@ -706,7 +707,7 @@ sponsor: true # 是否展示赞助二维码？
 #### 首页目录卡片（v1.0.0+）
 
 默认关闭，打开后可以在首页展示目录卡片，用于代替 widget 中的目录
-```yml
+```yaml
 home_categories:
   enable: false # 是否展示首页目录卡片？
   content:
@@ -720,7 +721,7 @@ home_categories:
 
 > 使用前建议先打开 Pjax，否则会出现播放器自动暂停的问题
 
-使用Aplayer + Meting（可选）默认关闭
+使用 Aplayer + Meting（可选）默认关闭
 
 ##### 纯Aplayer
 
@@ -770,7 +771,7 @@ player:
       auto:
 ```
 
-#### 分享（v1.3.0+）
+#### 分享链接/卡片（v1.3.0+）
 
 默认关闭，目前支持 `facebook`、`twitter`、`linkedin`、`reddit`、`weibo`、`qq`、`weixin`。
 
@@ -790,9 +791,9 @@ share:
 </details>
 
 <details>
-<summary>内置卡片Tag</summary>
+<summary>内置卡片标签插件</summary>
 
-### 内置卡片Tag
+### 内置卡片标签插件
 
 #### friendLink 友链卡片
 
