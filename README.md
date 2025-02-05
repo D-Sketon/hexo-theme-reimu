@@ -983,18 +983,34 @@ reimu_cursor:
 
 ### Vendor
 
-v0.1.0 对 `vendor` 进行了较大程度的重构，目前 `vendor` 路径的组成方式为：`:cdn|:package@:version/:file`，`:cdn`可在 `vendor` 中自行配置。目前自带以下 CDN 源：
+`vendor` 用于存放一些第三方资源，如 fontawesome、iconfont、katex、mathjax 等。
+
+hexo-theme-reimu 的 `vendor` 结构非常灵活，其支持以下几种形式：
+
+- `:cdn|:package@:version/:file`：使用 CDN 加速，如 `cdn_jsdelivr_gh|katex@0.13.11/dist/katex.min.css`，`:cdn`可在 `vendor` 中自行配置。目前自带以下 CDN 源：
+  ```yaml
+  cdn_jsdelivr_gh: https://cdn.jsdelivr.net/gh/ # 仅针对github加速
+  cdn_jsdelivr_npm: https://cdn.jsdelivr.net/npm/ # 仅针对npm加速
+  fastly_jsdelivr_gh: https://fastly.jsdelivr.net/gh/ # 仅针对github加速
+  fastly_jsdelivr_npm: https://fastly.jsdelivr.net/npm/ # 仅针对npm加速
+  unpkg: https://unpkg.com/ # 仅针对npm加速
+  webcache: https://npm.webcache.cn/ # 仅针对npm加速
+  ```
+  用户可根据网络状况自行切换 CDN 源。
+- `https://` 开头：直接使用绝对链接，如 `https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css` 
+- `/` 开头：本地资源，你可以把资源放在 `source` 文件夹下和 `_posts` 同级，然后使用诸如 `/katex.min.css` 的路径引用
+
+此外，`vendor` 还支持 SRI 校验，你可以在 `vendor` 中使用 `SHA-384` 用于校验资源的完整性，如：
 
 ```yaml
-cdn_jsdelivr_gh: https://cdn.jsdelivr.net/gh/ # 仅针对github加速
-cdn_jsdelivr_npm: https://cdn.jsdelivr.net/npm/ # 仅针对npm加速
-fastly_jsdelivr_gh: https://fastly.jsdelivr.net/gh/ # 仅针对github加速
-fastly_jsdelivr_npm: https://fastly.jsdelivr.net/npm/ # 仅针对npm加速
-unpkg: https://unpkg.com/ # 仅针对npm加速
-webcache: https://npm.webcache.cn/ # 仅针对npm加速
+js:
+  clipboard: # 使用 SRI 校验
+    src: webcache|clipboard@2.0.11/dist/clipboard.min.js
+    integrity: sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q
+  lazysizes: webcache|lazysizes@5.3.2/lazysizes.min.js # 不使用 SRI 校验
 ```
 
-用户可根据网络状况自行切换 CDN 源。
+以上两种形式均支持，建议对外部 CDN 资源使用 SRI 校验，以确保资源的完整性。
 </details>
 
 ## 贡献者

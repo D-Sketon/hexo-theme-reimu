@@ -991,18 +991,34 @@ reimu_cursor:
 
 ### Vendor
 
-v0.1.0 underwent significant refactoring of the `vendor` system. Currently, the `vendor` path is structured as `:cdn|:package@:version/:file`, where `:cdn` can be configured in the `vendor` section. The following CDN sources are included by default:
+`vendor` is used to store third-party resources such as fontawesome, iconfont, katex, mathjax, etc.
+
+The `vendor` structure in hexo-theme-reimu is very flexible and supports the following formats:
+
+- `:cdn|:package@:version/:file`: Uses CDN acceleration, for example `cdn_jsdelivr_gh|katex@0.13.11/dist/katex.min.css`. The `:cdn` can be configured in `vendor`. Currently includes the following CDN sources:
+  ```yaml
+  cdn_jsdelivr_gh: https://cdn.jsdelivr.net/gh/ # GitHub acceleration only
+  cdn_jsdelivr_npm: https://cdn.jsdelivr.net/npm/ # NPM acceleration only
+  fastly_jsdelivr_gh: https://fastly.jsdelivr.net/gh/ # GitHub acceleration only
+  fastly_jsdelivr_npm: https://fastly.jsdelivr.net/npm/ # NPM acceleration only
+  unpkg: https://unpkg.com/ # NPM acceleration only
+  webcache: https://npm.webcache.cn/ # NPM acceleration only
+  ```
+  Users can switch CDN sources based on their network conditions.
+- Starting with `https://`: Uses absolute links directly, such as `https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css`
+- Starting with `/`: Local resources. You can place resources in the `source` folder at the same level as `_posts`, then reference them using paths like `/katex.min.css`
+
+Additionally, `vendor` supports SRI (Subresource Integrity) verification. You can use `SHA-384` in `vendor` to verify resource integrity, for example:
 
 ```yaml
-cdn_jsdelivr_gh: https://cdn.jsdelivr.net/gh/ # github acceleration only
-cdn_jsdelivr_npm: https://cdn.jsdelivr.net/npm/ # npm acceleration only
-fastly_jsdelivr_gh: https://fastly.jsdelivr.net/gh/ # github acceleration only
-fastly_jsdelivr_npm: https://fastly.jsdelivr.net/npm/ # npm acceleration only
-unpkg: https://unpkg.com/ # npm acceleration only
-webcache: https://npm.webcache.cn/ # npm acceleration only
+js:
+  clipboard: # Using SRI verification
+    src: webcache|clipboard@2.0.11/dist/clipboard.min.js
+    integrity: sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q
+  lazysizes: webcache|lazysizes@5.3.2/lazysizes.min.js # Without SRI verification
 ```
 
-Users can switch between CDN sources based on their network conditions.
+Both formats are supported. It's recommended to use SRI verification for external CDN resources to ensure resource integrity.
 </details>
 
 ## Contributors
