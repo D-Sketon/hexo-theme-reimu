@@ -9,20 +9,22 @@
     var highlight = JSON.parse('<%= theme.valine.highlight %>');
     var visitor = JSON.parse('<%= theme.valine.visitor %>');
 
-    new Valine({
-      el: '.vcomment',
-      appId: "<%= theme.valine.appId %>",
-      appKey: "<%= theme.valine.appKey %>",
-      placeholder: "<%= theme.valine.placeholder %>",
-      pageSize: '<%= theme.valine.pageSize %>',
-      avatar: '<%= theme.valine.avatar %>',
-      lang: '<%= theme.valine.lang %>',
-      recordIP: recordIP,
-      highlight: highlight,
-      visitor: visitor,
-      requiredFields: guest_info,
-      path: window.location.pathname
-    });
+    if (window.Valine) {
+      new Valine({
+        el: '.vcomment',
+        appId: "<%= theme.valine.appId %>",
+        appKey: "<%= theme.valine.appKey %>",
+        placeholder: "<%= theme.valine.placeholder %>",
+        pageSize: '<%= theme.valine.pageSize %>',
+        avatar: '<%= theme.valine.avatar %>',
+        lang: '<%= theme.valine.lang %>',
+        recordIP: recordIP,
+        highlight: highlight,
+        visitor: visitor,
+        requiredFields: guest_info,
+        path: window.location.pathname
+      });
+    }
   </script>
 <% } %>
 
@@ -54,18 +56,20 @@
     <%- js({src: vendorCdn(theme.vendor.js.md5)[0], integrity: vendorCdnIntegrity(theme.vendor.js.md5)[0], crossorigin: "anonymous", 'data-pjax': true}) %>
   <% } %>
   <script data-pjax>
-    var gitalkId = <%= theme.gitalk.md5 ? 'md5(location.pathname)' : 'location.pathname' %>;
-    var gitalk = new Gitalk({
-      clientID: '<%= theme.gitalk.clientID %>',
-      clientSecret: '<%= theme.gitalk.clientSecret %>',
-      repo: '<%= theme.gitalk.repo %>',
-      owner: '<%= theme.gitalk.owner %>',
-      admin: <%- JSON.stringify(theme.gitalk.admin) %>,
-      id: gitalkId, // Ensure uniqueness and length less than 50
-      distractionFreeMode: false // Facebook-like distraction free mode
-    })
-    if (document.getElementById('comments')) {
-      gitalk.render('comments')
+    if (window.Gitalk) {
+      var gitalkId = <%= theme.gitalk.md5 ? 'window.md5 ? window.md5(location.pathname) : location.pathname' : 'location.pathname' %>;
+      var gitalk = new Gitalk({
+        clientID: '<%= theme.gitalk.clientID %>',
+        clientSecret: '<%= theme.gitalk.clientSecret %>',
+        repo: '<%= theme.gitalk.repo %>',
+        owner: '<%= theme.gitalk.owner %>',
+        admin: <%- JSON.stringify(theme.gitalk.admin) %>,
+        id: gitalkId, // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+      })
+      if (document.getElementById('comments')) {
+        gitalk.render('comments')
+      }
     }
   </script>
 <% } %>
@@ -73,11 +77,13 @@
 <% if (theme.twikoo.enable && theme.twikoo.envId) { %>
   <%- js({src: vendorCdn(theme.vendor.js.twikoo)[0], integrity: vendorCdnIntegrity(theme.vendor.js.twikoo)[0], crossorigin: "anonymous", 'data-pjax': true}) %>
   <script data-pjax>
-    twikoo.init({
-      envId: '<%= theme.twikoo.envId %>',
-      el: '.tcomment',
-      region: '<%= theme.twikoo.region %>',
-    })
+    if (window.twikoo) {
+      twikoo.init({
+        envId: '<%= theme.twikoo.envId %>',
+        el: '.tcomment',
+        region: '<%= theme.twikoo.region %>',
+      })
+    }
   </script>
 <% } %>
 
