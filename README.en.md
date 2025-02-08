@@ -37,7 +37,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 - ✨ Full blog functionality
 - 🔄 Compatible with Hexo6+
 - 📱 Responsive layout
-- 🎨 Dark mode support
+- 🌙 Dark mode support
 
 ### Code & Math
 - 🖥️ Code highlighting and copying
@@ -63,7 +63,6 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
   - Meting
 - 🖼️ Lazy loading for images
 - ⚡ Loading animations
-- 🌙 Dark mode
 - 🖱️ Mouse effects:
   - Animation effects
   - Reimu cursor style
