@@ -89,7 +89,7 @@
           
         }
 
-        (src ? loadScript() : loadScript(script.text))
+        ;(src ? loadScript() : loadScript(script.text))
           .then(() => loadScripts(scripts, index + 1))
           .catch(error => {
             console.error(`Failed to load script: ${src || 'inline script'}`, error);
