@@ -68,32 +68,33 @@
         const src = script.getAttribute('src');
 
         const loadScript = (scriptContent) => {
-          const scriptElement = document.createElement('script');
-          if (script.type) {
-            scriptElement.type = script.type;
-          }
-          scriptElement.text = scriptContent;
-          document.head.appendChild(scriptElement);
-          loadScripts(scripts, index + 1);
+          return new Promise((resolve, reject) => {
+            const scriptElement = document.createElement('script');
+            if (script.type) {
+              scriptElement.type = script.type;
+            }
+            if (script.src) {
+              scriptElement.src = script.src;
+              scriptElement.onload = resolve;
+              scriptElement.onerror = reject;
+            }
+            if (scriptContent) {
+              scriptElement.text = scriptContent;
+            }
+            document.head.appendChild(scriptElement);
+            if (!script.src) {
+              resolve();
+            }
+          })
+          
         }
 
-        if (src) {
-          fetch(src)
-            .then(response => {
-              if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-              }
-              return response.text();
-            })
-            .then(scriptContent => {
-              loadScript(scriptContent);
-            })
-            .catch(error => {
-              console.error('Failed to load script:', src, error);
-            });
-        } else {
-          loadScript(script.text);
-        }
+        (src ? loadScript() : loadScript(script.text))
+          .then(() => loadScripts(scripts, index + 1))
+          .catch(error => {
+            console.error(`Failed to load script: ${src || 'inline script'}`, error);
+            loadScripts(scripts, index + 1);
+          });
       }
     }
     window.Pjax && new window.Pjax({
