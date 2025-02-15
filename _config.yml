@@ -137,7 +137,7 @@ reimu_cursor:
     text: ../images/cursor/reimu-cursor-text.png
 
 # set to false to enable fontawesome
-icon_font: 4552607_bq08450reo
+icon_font: 4552607_4wq4s7ntco9
 
 # https://fonts.google.com/
 # Google Fonts, higher priority than local_font
@@ -164,7 +164,10 @@ local_font:
     - monospace
 
 dark_mode:
-  enable: false # set to true to make your website default to dark mode
+  # true means that the dark mode is enabled by default
+  # false means that the dark mode is disabled by default
+  # auto means that the dark mode is automatically switched according to the system settings
+  enable: false # true | false | auto
 
 ########################################
 # Markdown Display
