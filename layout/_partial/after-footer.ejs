@@ -338,6 +338,7 @@
   <% if (!theme.player.meting.enable) { %>
     <script>
       const ap = new APlayer({
+        theme: "var(--color-link)",
         container: document.getElementById('aplayer'),
         audio: <%- JSON.stringify(theme.player.aplayer.options.audio) %> || [],
         fixed: <%= JSON.stringify(theme.player.aplayer.options.fixed) %> || false,
@@ -348,6 +349,7 @@
         volume: <%= JSON.stringify(theme.player.aplayer.options.volume) %> || 0.7,
         mutex: <%= JSON.stringify(theme.player.aplayer.options.mutex) %> || true,
         listFolded: <%= JSON.stringify(theme.player.aplayer.options.listFolded) %> || false,
+        lrcType: <%= JSON.stringify(theme.player.aplayer.options.lrcType) %> || 0,
       });
     </script>
   <% } %>
