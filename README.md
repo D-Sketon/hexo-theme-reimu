@@ -522,7 +522,7 @@ rss: atom.xml
 Icon 默认使用本项目提供的 iconfont（v0.1.3+）
 
 ```yml
-icon_font: 4552607_bq08450reo
+icon_font: 4552607_4wq4s7ntco9
 ```
 
 如果想要继续使用 fontawesome 图标，请将 `icon_font` 设置为 `false`，此时会使用 `vendor` 中对应的 fontawesome
@@ -541,9 +541,21 @@ fontawesome:
 </details>
 
 <details>
-<summary>高级功能</summary>
+<summary>扩展功能</summary>
 
-### 高级功能
+### 扩展功能
+
+#### 暗黑模式
+
+默认为 `auto`，根据用户系统设置自动切换。可以设置为 `true` 或 `false` 改变默认状态
+
+```yaml
+dark_mode:
+  # true 代表暗黑模式默认开启
+  # false 代表暗黑模式默认关闭
+  # auto 代表根据用户系统设置自动切换
+  enable: auto # true | false | auto
+```
 
 #### Pace 进度条
 
