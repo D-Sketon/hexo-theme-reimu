@@ -6,7 +6,7 @@
         <ul>
           <% site.posts.sort('date', -1).limit(theme.recent_posts_limits).each((post) => { %>
             <li>
-              <a href="<%- url_for(post.path) %>"><%= post.title || '(no title)' %></a>
+              <a href="<%- url_for_lang(post.path) %>"><%= post.title || '(no title)' %></a>
             </li>
           <% }) %>
         </ul>

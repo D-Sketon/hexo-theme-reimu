@@ -26,9 +26,9 @@ friend: Friend
 archives: Archives
 
 sidebar:
-  post: Posts
-  category: Categories
-  tag: Tags
+  post: Post
+  category: Category
+  tag: Tag
 
 not_found:
   title: 4 0 4 (ﾟ⊿ﾟ)ﾂ
@@ -46,7 +46,7 @@ busuanzi:
   pv: Number of visits
   uv: Number of visitors
 
-sticky: Sticky
+sticky: Top
 
 service_worker:
   title: New version found

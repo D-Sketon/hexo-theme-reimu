@@ -4,7 +4,7 @@
       <% for (let i in theme.menu) { %>
         <span class="main-nav-link-wrap">
           <div class="main-nav-icon icon-taichi"></div>
-          <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= __(i) %></a>
+          <a class="main-nav-link" href="<%- url_for_lang(theme.menu[i]) %>"><%= __(i) %></a>
         </span>
       <% } %>
     <% } else { %>
@@ -13,7 +13,7 @@
           <div class="main-nav-icon icon <%= (item.icon === 'e62b' && theme.icon_font) || (item.icon === 'f6ad' && !theme.icon_font) || !item.icon ? 'rotate' : '' %>">
             <%- item.icon ? `&#x${item.icon};` : (theme.icon_font ? '&#xe62b;' : '&#xf6ad;') %>
           </div>
-          <a class="main-nav-link" href="<%- url_for(item.url) %>"><%= __(item.name) %></a>
+          <a class="main-nav-link" href="<%- url_for_lang(item.url) %>"><%= __(item.name) %></a>
         </span>
       <% } %>
     <% } %>
@@ -30,6 +30,59 @@
       <a id="nav-search-btn" class="nav-icon popup-trigger" title="<%= __('search') %>"></a>
     <% } %>
   </nav>
+  <% if (theme.i18n.enable) { %>
+    <% let i18nMap = {
+      'en': 'English',
+      'zh-CN': '简体中文',
+      'zh-TW': '正體中文',
+      'ja': '日本語'
+    } %>
+    <nav id="i18n-nav">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang"><%= i18nMap[post.lang] %></span>
+        </div>
+        <ul class="select-items" id="select-items">
+          <% for (let i of get_langs()) { %>
+            <li data-value="<%= i %>" <% if (post.lang === i) { %>class="selected"<% } %>><%= i18nMap[i] %></li>
+          <% } %>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+            <% for (let i of get_langs()) { %>
+              langMap['<%= i %>'] = '<%= switch_lang(i) %>';
+            <% } %>
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+          }
+        });
+      </script>
+    </nav>
+  <% } %>
 </div>
 <header id="header">
   <% if (post.cover && post.cover.startsWith("rgb")) { %>

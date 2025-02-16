@@ -123,6 +123,12 @@ archive_type: "monthly"
 show_count: false
 recent_posts_limits: 5
 
+i18n:
+  enable: false
+  type: [page, post]
+  generator: [archive, category, tag, index]
+  languages: [zh-CN, en]
+
 ########################################
 # CSS
 ########################################
@@ -137,7 +143,7 @@ reimu_cursor:
     text: ../images/cursor/reimu-cursor-text.png
 
 # set to false to enable fontawesome
-icon_font: 4552607_4wq4s7ntco9
+icon_font: 4552607_bctiavhu2rr
 
 # https://fonts.google.com/
 # Google Fonts, higher priority than local_font

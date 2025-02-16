@@ -5,7 +5,7 @@
         <% if (content.categories) { %>
         <div class="post-categories-wrap">
           <% let c = parseHomeCategories(content.categories); %>
-          <a class="post-link" href="<%= url_for(c.url, {relative: false}) %>" aria-label=""></a>
+          <a class="post-link" href="<%= url_for_lang(c.url, {relative: false}) %>" aria-label=""></a>
           <div class="post-categories-cover">
             <% if (content.cover) { %>
               <img data-src="<%- url_for(content.cover, {relative: false}) %>" data-sizes="auto" alt="<%= c.name %>" class="lazyload">
@@ -33,14 +33,14 @@
   <div class="tag-wrap">
     <% site.tags.each((tag, i) => { %>
       <div class="archives-tag-list-item" data-aos="<%= theme.animation.options.archive.tag %>">
-        <a class="archives-tag-list-link" href="<%- url_for(tag.path) %>"><%= tag.name %></a>
+        <a class="archives-tag-list-link" href="<%- url_for_lang(tag.path) %>"><%= tag.name %></a>
       </div>
     <% }) %>
   </div>
   <div class="category-wrap">
     <% site.categories.each((cagetory, i) => { %>
       <div class="archives-category-list-item" data-aos="<%= theme.animation.options.archive.category %>">
-        <a class="archives-category-list-link" href="<%- url_for(cagetory.path) %>"><%= cagetory.name %></a>
+        <a class="archives-category-list-link" href="<%- url_for_lang(cagetory.path) %>"><%= cagetory.name %></a>
       </div>
     <% }) %>
   </div>
@@ -54,7 +54,7 @@
       <% last = year; %>
       <section class="archives-wrap" data-aos="<%= theme.animation.options.archive.section %>">
         <div class="archive-year-wrap">
-          <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
+          <a href="<%- url_for_lang(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
         </div>
         <ul>
           <% } %>

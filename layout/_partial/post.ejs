@@ -3,7 +3,7 @@
     <% if (post.link) { %>
       <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url" target="_blank" aria-label="<%= post.title %>" rel="noopener external nofollow noreferrer"></a>
     <% } else { %>
-      <a class="post-link" href="<%- url_for(post.path) %>" aria-label="<%= post.title %>"></a>
+      <a class="post-link" href="<%- url_for_lang(post.path) %>" aria-label="<%= post.title %>"></a>
     <% } %>
     <% if (post.sticky) { %>
       <div class="post-sticky"><%= __('sticky')%></div>

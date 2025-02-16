@@ -12,7 +12,7 @@
             <img data-src="<%- url_for(theme.banner, {relative: false}) %>" data-sizes="auto" alt="<%= post.prev.title %>" class="lazyload">
           <% } %>
         <% } %>
-        <a href="<%- url_for(post.prev.path) %>"></a>
+        <a href="<%- url_for_lang(post.prev.path, {relative: false}) %>"></a>
         <div class="article-nav-caption"><%= __('newer') %></div>
         <h3 class="article-nav-title">
           <% if (post.prev.title) { %>
@@ -35,7 +35,7 @@
           <img data-src="<%- url_for(theme.banner, {relative: false}) %>" data-sizes="auto" alt="<%= post.next.title %>" class="lazyload">
         <% } %>
       <% } %>
-      <a href="<%- url_for(post.next.path) %>"></a>
+      <a href="<%- url_for_lang(post.next.path, {relative: false}) %>"></a>
       <div class="article-nav-caption"><%= __('older') %></div>
       <h3 class="article-nav-title">
         <% if (post.next.title) { %>

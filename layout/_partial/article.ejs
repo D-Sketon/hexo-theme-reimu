@@ -34,21 +34,21 @@
         <%- partial('post/share') %>
       <% } %>
       <% if (post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
-        <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- url_for(post.path) %>#comments" class="article-comment-link">
-          <span class="post-comments-count valine-comment-count" data-xid="<%- url_for(post.path, {relative: false}).endsWith("index.html") ? 
-                        url_for(post.path, {relative: false}).slice(0, -10) : url_for(post.path, {relative: false})%>" itemprop="commentCount"></span>
+        <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- url_for_lang(post.path) %>#comments" class="article-comment-link">
+          <span class="post-comments-count valine-comment-count" data-xid="<%- url_for_lang(post.path, {relative: false}).endsWith("index.html") ? 
+                        url_for_lang(post.path, {relative: false}).slice(0, -10) : url_for_lang(post.path, {relative: false})%>" itemprop="commentCount"></span>
           <%= __('comment') %>
         </a>
       <% } %>
       <% if (post.comments !== false && theme.waline.enable && theme.waline.serverURL) { %>
-        <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- url_for(post.path) %>#comments" class="article-comment-link">
-          <span class="post-comments-count waline-comment-count" data-path="<%- url_for(post.path, {relative: false}) %>" itemprop="commentCount"></span>
+        <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- url_for_lang(post.path) %>#comments" class="article-comment-link">
+          <span class="post-comments-count waline-comment-count" data-path="<%- url_for_lang(post.path, {relative: false}) %>" itemprop="commentCount"></span>
           <%= __('comment') %>
         </a>
       <% } %>
       <% if (post.comments !== false && theme.twikoo.enable && theme.twikoo.envId) { %>
-        <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- url_for(post.path) %>#comments" class="article-comment-link">
-          <span class="post-comments-count twikoo-comment-count" data-path="<%- url_for(post.path, {relative: false}) %>" itemprop="commentCount"></span>
+        <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- url_for_lang(post.path) %>#comments" class="article-comment-link">
+          <span class="post-comments-count twikoo-comment-count" data-path="<%- url_for_lang(post.path, {relative: false}) %>" itemprop="commentCount"></span>
           <%= __('comment') %>
         </a>
         <script>
@@ -56,7 +56,7 @@
             envId: '<%= theme.twikoo.envId %>',
             region: '<%= theme.twikoo.region %>',
             urls: [
-              '<%- url_for(post.path, {relative: false}) %>'
+              '<%- url_for_lang(post.path, {relative: false}) %>'
             ],
             includeReply: false
           }).then((res) => {
@@ -67,18 +67,18 @@
         </script>
       <% } %>
       <% if (post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey && theme.valine.visitor) { %>
-        <span data-aos="<%= theme.animation.options.article.reading %>" id="<%- url_for(post.path, {relative: false}).endsWith("index.html") ? 
-                  url_for(post.path, {relative: false}).slice(0, -10) : 
-                  url_for(post.path, {relative: false})%>" class="leancloud_visitors article-visitor-link" data-flag-title="<%= post.title %>">
+        <span data-aos="<%= theme.animation.options.article.reading %>" id="<%- url_for_lang(post.path, {relative: false}).endsWith("index.html") ? 
+                  url_for_lang(post.path, {relative: false}).slice(0, -10) : 
+                  url_for_lang(post.path, {relative: false})%>" class="leancloud_visitors article-visitor-link" data-flag-title="<%= post.title %>">
           <span class="leancloud-visitors-count">0</span>
           <em class="post-meta-item-text"><%= __('reading') %></em>
         </span>
       <% } %>
       <% if (post.comments !== false && theme.waline.enable && theme.waline.serverURL && theme.waline.pageview) { %>
         <span data-aos="<%= theme.animation.options.article.reading %>" class="article-visitor-link">
-          <span class="waline-pageview-count" data-path="<%- url_for(post.path, {relative: false}).endsWith("index.html") ? 
-          url_for(post.path, {relative: false}).slice(0, -10) : 
-          url_for(post.path, {relative: false})%>">0</span>
+          <span class="waline-pageview-count" data-path="<%- url_for_lang(post.path, {relative: false}).endsWith("index.html") ? 
+          url_for_lang(post.path, {relative: false}).slice(0, -10) : 
+          url_for_lang(post.path, {relative: false})%>">0</span>
           <em class="post-meta-item-text"><%= __('reading') %></em>
         </span>
       <% } %>
