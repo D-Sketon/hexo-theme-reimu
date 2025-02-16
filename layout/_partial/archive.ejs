@@ -26,7 +26,9 @@
     </div>
   <% } %>
   <% page.posts.each((post, i) => { %>
-    <%- partial('post', {post: post, even: i % 2 === 0}) %>
+    <% if (!post.lang) { %>
+      <%- partial('post', {post: post, even: i % 2 === 0}) %>
+    <% } %>
   <% }) %>
 <% } else { %>
 <div class="archives-outer-wrap" data-aos="<%= theme.animation.options.archive.whole %>">
@@ -46,6 +48,7 @@
   </div>
   <% var last; %>
   <% page.posts.each((post, i) => { %>
+    <% if (post.lang) { return; } %>
     <% var year = post.date.year(); %>
     <% if (last != year) { %>
       <% if (last != null) { %>

@@ -204,7 +204,7 @@ function listArchivesHelper(options = {}) {
   if (!format) {
     format = type === "monthly" ? "MMMM YYYY" : "YYYY";
   }
-  const posts = this.site.posts.sort("date", order);
+  const posts = this.site.posts.sort("date", order).filter((item) => !item.lang);
   if (!posts.length) return result;
   const data = [];
   let length = 0;

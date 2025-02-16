@@ -54,12 +54,12 @@ hexo.extend.helper.register("wordcount", (content) => {
 
 hexo.extend.helper.register("totalcount", (site) => {
   let count = 0;
-  site.posts.forEach((post) => (count += countFn(post.content)));
+  site.posts.each((post) => (count += countFn(post.content)));
   return count < 1000 ? count : Math.round(count / 100) / 10 + "k";
 });
 
 hexo.extend.helper.register("totalmin2read", (site) => {
   let readingTime = 0;
-  site.posts.forEach((post) => (readingTime += timeFn(post.content)));
+  site.posts.each((post) => (readingTime += timeFn(post.content)));
   return changeHourMinuteStr(readingTime.toString());
 });
