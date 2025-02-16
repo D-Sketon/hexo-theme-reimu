@@ -515,11 +515,36 @@ rss: atom.xml
 </details>
 
 <details>
+<summary>i18n</summary>
+
+### i18n
+
+本主题默认提供 `en`、`zh-CN`、`zh-TW` 和 `ja` 四种语言，可以在外层 `_config.yml` 中修改 `language` 来切换语言
+
+```yaml
+language: zh-CN
+```
+
+> 以下为实验性功能，可能会有 BUG
+
+v1.4.0+ 实验性地引入了 `hexo-generator-i18n` 并提供了多语言切换功能，可以在内层 `_config.yml` 中配置 `i18n` 来添加自定义语言，其配置方式可参考 [hexo-generator-i18n](https://github.com/Jamling/hexo-generator-i18n)：
+
+```yaml
+i18n:
+  enable: false # false | true
+  type: [page, post]
+  generator: [archive, category, tag, index]
+  languages: [zh-CN, en] # 语言列表，第一个为默认语言
+```
+
+</details>
+
+<details>
 <summary>Icon</summary>
 
 ### Icon
 
-Icon 默认使用本项目提供的 iconfont（v0.1.3+）
+Icon 默认使用本主题提供的 iconfont（v0.1.3+）
 
 ```yml
 icon_font: 4552607_bctiavhu2rr

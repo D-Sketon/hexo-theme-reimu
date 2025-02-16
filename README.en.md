@@ -518,11 +518,36 @@ rss: atom.xml
 </details>
 
 <details>
+<summary>i18n</summary>
+
+### i18n
+
+This theme provides four languages by default: `en`, `zh-CN`, `zh-TW`, and `ja`. You can switch the language by modifying the `language` in the outer `_config.yml`.
+
+```yaml
+language: zh-CN
+```
+
+> The following is an experimental feature and may contain bugs.
+
+v1.4.0+ experimentally introduced `hexo-generator-i18n` and added multi-language switching functionality. You can configure `i18n` in the inner `_config.yml` to add custom languages. The configuration can be referenced from [hexo-generator-i18n](https://github.com/Jamling/hexo-generator-i18n):
+
+```yaml
+i18n:
+  enable: false # false | true
+  type: [page, post]
+  generator: [archive, category, tag, index]
+  languages: [zh-CN, en] # List of languages, the first one is the default language
+```
+
+</details>
+
+<details>
 <summary>Icon</summary>
 
 ### Icon
 
-By default, this project uses its own provided iconfont (v0.1.3+)
+By default, this theme uses its own provided iconfont (v0.1.3+)
 
 ```yml
 icon_font: 4552607_bctiavhu2rr
