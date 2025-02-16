@@ -164,6 +164,9 @@ if hexo-config("player.aplayer.enable")
 if site-has-share
   @import "_partial/share"
 
+if hexo-config("markdown.container")
+  @import "_partial/container"
+
 // for Pull Quotes
 .left
   float: left

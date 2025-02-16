@@ -37,6 +37,7 @@
 - 🔄 兼容 Hexo6 及以上版本
 - 📱 响应式布局
 - 🌙 暗黑模式支持
+- 🅰️ i18n 支持
 
 ### 代码与数学
 - 🖥️ 代码高亮与复制
@@ -81,6 +82,7 @@
   - 内部链接
   - 外部链接
   - 友情链接
+- 🎨 自定义容器
 - ©️ 文章版权声明
 - 🌐 自定义 CDN 源配置
 - 🎨 分享卡片功能
@@ -547,7 +549,7 @@ i18n:
 Icon 默认使用本主题提供的 iconfont（v0.1.3+）
 
 ```yml
-icon_font: 4552607_bctiavhu2rr
+icon_font: 4552607_0khxww3tj3q9
 ```
 
 如果想要继续使用 fontawesome 图标，请将 `icon_font` 设置为 `false`，此时会使用 `vendor` 中对应的 fontawesome
@@ -860,6 +862,47 @@ share:
 
 </details>
 
+<details>
+<summary>自定义容器</summary>
+
+### 自定义容器
+
+本主题提供了类似 vitepress 的自定义容器功能，使用前需要安装 [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)，并在内层 `_config.yml` 中将 `markdown.container` 改为 `true`
+
+```yaml
+markdown:
+  container: true
+```
+
+使用方法如下：
+
+```markdown
+::: info
+This is an info box.
+:::
+
+::: tip
+This is a tip.
+:::
+
+::: warning
+This is a warning.
+:::
+
+::: danger
+This is a dangerous warning.
+:::
+
+::: danger STOP
+Danger zone, do not proceed
+:::
+
+::: details
+This is a details block.
+:::
+```
+
+</details>
 <details>
 <summary>自定义主题</summary>
 

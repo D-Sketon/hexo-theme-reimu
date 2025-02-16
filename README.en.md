@@ -38,6 +38,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 - 🔄 Compatible with Hexo6+
 - 📱 Responsive layout
 - 🌙 Dark mode support
+- 🅰️ i18n support
 
 ### Code & Math
 - 🖥️ Code highlighting and copying
@@ -82,6 +83,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
   - Internal links
   - External links
   - Friend links
+- 🎨 Custom Containers
 - ©️ Article copyright declaration
 - 🌐 Custom CDN source configuration
 - 🎨 Share card functionality
@@ -550,7 +552,7 @@ i18n:
 By default, this theme uses its own provided iconfont (v0.1.3+)
 
 ```yml
-icon_font: 4552607_bctiavhu2rr
+icon_font: 4552607_0khxww3tj3q9
 ```
 
 If you want to continue using fontawesome icons, set `icon_font` to `false`. This will use the corresponding fontawesome from the `vendor`
@@ -866,6 +868,48 @@ The first parameter is the article's `slug`; the second parameter (optional) is 
 ```
 
 The first parameter is the article title; the second parameter is the external link to the article; the third parameter (optional) is the cover image displayed on the card, if set to `auto` it will automatically use the default cover
+
+</details>
+
+<details>
+<summary>Custom Containers</summary>
+
+### Custom Containers
+
+This theme provides custom container functionality similar to Vitepress. Before using it, you need to install [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus) and set `markdown.container` to `true` in the inner `_config.yml`.
+
+```yaml
+markdown:
+  container: true
+```
+
+Usage is as follows:
+
+```markdown
+::: info
+This is an info box.
+:::
+
+::: tip
+This is a tip.
+:::
+
+::: warning
+This is a warning.
+:::
+
+::: danger
+This is a dangerous warning.
+:::
+
+::: danger STOP
+Danger zone, do not proceed
+:::
+
+::: details
+This is a details block.
+:::
+```
 
 </details>
 

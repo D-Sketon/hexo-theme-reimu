@@ -173,7 +173,42 @@ $article-meta-tag
         &:before
           content: "—"
           padding: 0 0.5em
+  
+  details
+    padding: 18px 12px
+    border-radius: post-radius
+    background-color: var(--red-5-5);
+    box-shadow: 0 0 5px 2px var(--color-meta-shadow)
+    transition: 0.3s
 
+    &:hover
+      box-shadow: 0 0 6px 6px var(--color-meta-shadow)
+
+  summary
+    font-size: 1.1em
+    font-weight: bold
+    cursor: pointer
+    padding: 8px
+    border: none
+    border-radius: 10px
+    transition: 0.3s
+
+  summary:hover
+    background-color: var(--red-5)
+
+  details[open] summary
+    background-color: var(--red-5)
+
+  details[open] summary:hover
+    background-color: var(--red-5)
+
+  details p
+    margin: 20px 0 0
+    padding: 10px
+    background-color: var(--color-footer-background)
+    border-radius: 10px
+    transition: 0.3s
+  
   .pullquote
     text-align: left
     width: 45%

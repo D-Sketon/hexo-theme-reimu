@@ -1,0 +1,112 @@
+// Colors
+:root
+  --color-info-bg: hsl(210, 90%, 96%)
+  --color-info-text: hsl(210, 100%, 40%)
+  --color-info-shadow: hsl(210, 100%, 98%)
+
+  --color-warning-bg: hsl(40, 100%, 94%)
+  --color-warning-text: hsl(34, 94%, 35%)
+  --color-warning-shadow: hsl(40, 100%, 98%)
+
+  --color-danger-bg: hsl(0, 100%, 97%)
+  --color-danger-text: hsl(356, 72%, 45%)
+  --color-danger-shadow: hsl(0, 100%, 98%)
+
+  --color-tip-bg: hsl(138, 76%, 96%)
+  --color-tip-text: hsl(152, 95%, 28%)
+  --color-tip-shadow: hsl(138, 100%, 98%)
+
+[data-theme="dark"]
+  &:root
+    --color-info-bg: hsl(210, 30%, 25%)
+    --color-info-text: hsl(210, 80%, 70%)
+    --color-info-shadow: hsl(210, 30%, 16%)
+
+    --color-warning-bg: hsl(40, 30%, 25%)
+    --color-warning-text: hsl(40, 80%, 70%)
+    --color-warning-shadow: hsl(40, 30%, 16%)
+
+    --color-danger-bg: hsl(0, 30%, 25%)
+    --color-danger-text: hsl(0, 80%, 70%)
+    --color-danger-shadow: hsl(0, 30%, 16%)
+
+    --color-tip-bg: hsl(138, 30%, 25%)
+    --color-tip-text: hsl(138, 80%, 70%)
+    --color-tip-shadow: hsl(138, 30%, 16%)
+
+.custom-block
+  margin: 1.8em 0
+  border-radius: post-radius
+  transition: .3s
+  padding: 1px 10px
+
+  &.info
+    background: var(--color-info-bg)
+    color: var(--color-info-text)
+    border-left: 6px var(--color-info-text) solid
+    box-shadow: 0 0 5px 2px var(--color-info-shadow)
+
+    .custom-block-title:before
+      font-weight: normal
+      if hexo-config("icon_font")
+        font-family: font-icon
+        content: "\e647"
+      else
+        font-family: var(--font-icon)
+        content: "\f05a"
+      margin-right: 0.5em
+
+  &.warning
+    background: var(--color-warning-bg)
+    color: var(--color-warning-text)
+    box-shadow: 0 0 5px 2px var(--color-warning-shadow)
+    border-left: 6px var(--color-warning-text) solid
+
+    .custom-block-title:before
+      font-weight: normal
+      if hexo-config("icon_font")
+        font-family: font-icon
+        content: "\e646"
+      else
+        font-family: var(--font-icon)
+        content: "\f06a"
+      margin-right: 0.5em
+
+  &.danger
+    background: var(--color-danger-bg)
+    color: var(--color-danger-text)
+    box-shadow: 0 0 5px 2px var(--color-danger-shadow)
+    border-left: 6px var(--color-danger-text) solid
+
+    .custom-block-title:before
+      font-weight: normal
+      if hexo-config("icon_font")
+        font-family: font-icon
+        content: "\e645"
+      else
+        font-family: var(--font-icon)
+        content: "\f057"
+      margin-right: 0.5em
+
+  &.tip
+    background: var(--color-tip-bg)
+    color: var(--color-tip-text)
+    box-shadow: 0 0 5px 2px var(--color-tip-shadow)
+    border-left: 6px var(--color-tip-text) solid
+  
+    .custom-block-title:before
+      font-weight: normal
+      if hexo-config("icon_font")
+        font-family: font-icon
+        content: "\e643"
+      else
+        font-family: var(--font-icon)
+        content: "\f058"
+      margin-right: 0.5em
+  p
+    margin: 0.8em 0
+
+.custom-block-title
+  margin: 0.8em 0 !important
+  font-size: 1.1em
+  font-weight: bold
