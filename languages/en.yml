@@ -46,7 +46,7 @@ busuanzi:
   pv: Number of visits
   uv: Number of visitors
 
-sticky: Sticky
+sticky: Top
 
 service_worker:
   title: New version found

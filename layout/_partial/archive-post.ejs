@@ -1,12 +1,12 @@
 <li class="archive-article">
   <div class="archive-article-date-wrap">
-    <a href="<%- url_for(post.path, {relative: false}) %>">
+    <span>
       <time class="dt-published" datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, 'MM-DD') %></time>
-    </a>
+    </span>
   </div>
   <% if (post.link) { %>
     <a class="archive-article-title" href="<%- url_for(post.link, {relative: false}) %>" target="_blank" itemprop="url" rel="noopener external nofollow noreferrer"><%= post.title %></a>
   <% } else if (post.title) { %>
-    <a class="archive-article-title" href="<%- url_for(post.path, {relative: false}) %>"><%= post.title %></a>
+    <a class="archive-article-title" href="<%- url_for_lang(post.path, {relative: false}) %>"><%= post.title %></a>
   <% } %>
 </li>

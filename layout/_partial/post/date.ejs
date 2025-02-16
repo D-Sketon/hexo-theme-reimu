@@ -1,6 +1,6 @@
 <div class="<%= class_name %>">
-  <a href="<%- url_for(post.path) %>" class="article-date-link" data-aos="<%= theme.animation.options.article.date %>">
+  <span class="article-date-link" data-aos="<%= theme.animation.options.article.date %>">
     <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, date_format) %></time>
     <time style="display: none;" id="post-update-time"><%= date(post.updated, date_format) %></time>
-  </a>
+  </span>
 </div>
