@@ -1,4 +1,4 @@
-hexo.extend.generator.register("pages", (locals) => {
+hexo.extend.generator.register("404", (locals) => {
   return [
     {
       path: "404.html",

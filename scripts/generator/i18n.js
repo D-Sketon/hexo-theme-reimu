@@ -1,5 +1,36 @@
 // modified from https://github.com/Jamling/hexo-generator-i18n
 
+const langPathCache = [];
+
+hexo.extend.generator.register("post", function (locals) {
+  const posts = locals.posts.sort("-date").toArray();
+  const { length } = posts;
+  return posts.map((post, i) => {
+    let { path, layout, lang } = post;
+    if (lang) {
+      langPathCache.push(path);
+      path = `${lang}/${path}`;
+    }
+    if (!layout || layout === "false") {
+      return {
+        path,
+        data: post.content,
+      };
+    }
+    if (i) post.prev = posts[i - 1];
+    if (i < length - 1) post.next = posts[i + 1];
+    const layouts = ["post", "page", "index"];
+    if (layout !== "post") layouts.unshift(layout);
+    post.__post = true;
+    return {
+      path,
+      layout: layouts,
+      data: post,
+    };
+  });
+});
+
+
 function getLanguages(hexo) {
   const i18n = hexo.theme.config.i18n;
   if (!i18n || !i18n.languages) {
@@ -87,7 +118,11 @@ hexo.extend.generator.register("post-i18n", function (locals) {
   const languages = getLanguages(hexo);
   const langPath = [];
   const i18n = [];
-  locals.posts.forEach((page) => {
+  const posts = locals.posts.sort("-date").toArray();
+  posts.forEach((page) => {
+    if (page.lang || langPathCache.includes(page.path)) {
+      return;
+    }
     const lang = page.path.split("/")[0];
     if (languages.includes(lang)) {
       langPath.push(page.path);

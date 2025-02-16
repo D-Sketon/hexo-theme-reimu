@@ -542,6 +542,16 @@ i18n:
   languages: [zh-CN, en] # List of languages, the first one is the default language
 ```
 
+For multilingual support in posts, you can add `lang` in the Front-matter to specify languages **other than the default language** (the default language does not need to be added).
+
+```yaml
+lang: en
+```
+
+The above will generate a page at `/en/:permalink`.
+
+For multilingual support in pages, you can directly create a folder for the corresponding language in the `source` directory and place an `index.md` file inside it, such as `source/en/about/index.md`. This will generate a page at `/en/about`.
+
 </details>
 
 <details>
@@ -788,6 +798,7 @@ player:
       volume:
       mutex:
       listFolded:
+      lrcType:
 ```
 
 ##### Aplayer + Meting
@@ -808,6 +819,7 @@ player:
       volume:
       mutex:
       listFolded:
+      lrcType:
   meting:
     enable: true
     meting_api: # custom api

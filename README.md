@@ -539,6 +539,16 @@ i18n:
   languages: [zh-CN, en] # 语言列表，第一个为默认语言
 ```
 
+对于 post 的多语言支持，可以在 Front-matter 中添加 `lang` 来指定**除默认语言外的**其他语言（默认语言不需要添加）
+
+```yaml
+lang: en
+```
+
+以上会生成 `/en/:permalink` 的页面
+
+对于 page 的多语言支持，可直接在 `source` 文件夹下新建对应语言的文件夹，并将 `index.md` 放入其中，如 `source/en/about/index.md`。这会生成 `/en/about` 的页面
+
 </details>
 
 <details>
@@ -779,6 +789,7 @@ player:
       volume:
       mutex:
       listFolded:
+      lrcType:
 ```
 
 ##### Aplayer + Meting
@@ -799,6 +810,7 @@ player:
       volume:
       mutex:
       listFolded:
+      lrcType:
   meting:
     enable: true
     meting_api: # custom api
