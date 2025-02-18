@@ -52,6 +52,11 @@ hexo.extend.helper.register("url_for_lang", function (path, opt, language) {
   const lang = language ? language : this.page.lang;
   let url = this.url_for(path, opt);
 
+  // i18n is not enabled.
+  if (!hexo.theme.config.i18n?.enable) {
+    return url;
+  }
+
   // ignore from url_for.
   if (
     url === "#" ||
