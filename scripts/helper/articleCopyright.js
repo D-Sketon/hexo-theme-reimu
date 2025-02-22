@@ -1,6 +1,21 @@
+const { full_url_for } = require("hexo-util");
+
 hexo.extend.helper.register("articleCopyright", (post) => {
+  const siteLang = hexo.config.language;
+  const lang = post.lang;
+  let permalink;
+  if (lang !== siteLang) {
+    const path = post.path;
+    if (path.startsWith(`${lang}/`)) {
+      permalink = full_url_for.call(hexo, path);
+    } else {
+      permalink = full_url_for.call(hexo, `${lang}/${path}`);
+    }
+  } else {
+    permalink = post.permalink;
+  }
   const authorDom = `<p><strong><span class="icon-user icon"></span>本文作者：</strong>${hexo.config.author} @ ${hexo.config.title}</p>`;
-  const linkDom = `<p><strong><span class="icon-link icon"></span>本文链接：</strong><a href="${post.permalink}">${post.permalink}</a></p>`;
+  const linkDom = `<p><strong><span class="icon-link icon"></span>本文链接：</strong><a href="${permalink}">${permalink}</a></p>`;
   const titleDom = `<p><strong><span class="icon-pencil icon"></span>本文标题：</strong>「${post.title}」</p>`;
   const dateDom = `<p><strong><span class="icon-calendar icon"></span>本文发布时间：</strong>${post.date?.format(
     "YYYY-MM-DD HH:mm:ss"
