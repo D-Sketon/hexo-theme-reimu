@@ -47,6 +47,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 
 ### Search & Comments
 - 🔍 Algolia search integration
+- 🔍 Local search integration
 - 💬 Multiple comment systems support:
   - Valine
   - Waline
