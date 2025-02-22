@@ -359,6 +359,8 @@ npm install @reimujs/hexo-algoliasearch --save
 
 Then refer to its [README](https://github.com/D-Sketon/hexo-algoliasearch#readme) to complete the `Algolia` account configuration, and add the following configuration to the outer `_config.yml`
 
+> Note: The search redirect link is a permanent link, so please ensure the `url` in the outer `_config.yml` is filled in correctly.
+
 ```yml
 algolia:
   appId: "your applicationID"
@@ -384,24 +386,15 @@ algolia_search:
   enable: true
 ```
 
-Note: The search redirect link is a permanent link, so please ensure the `url` in the outer `_config.yml` is filled in correctly.
+> After version 1.5.0, the theme has built-in `hexo-generator-search`, so there is no need to install `hexo-generator-search` separately.
 
-If choosing [hexo-generator-search](https://github.com/wzpan/hexo-generator-search), please install [hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
-
-And refer to its [README](https://github.com/wzpan/hexo-generator-search#readme) to add the following configuration to the outer `_config.yml`
-
-```yml
-search:
-  path: search.json # The filename must be search.json
-  field: post
-  content: true
-```
-
-In the inner `_config.yml`, set `generator_search.enable` to `true`
+This theme comes with `hexo-generator-search` built-in. If you choose to use local search, please set `generator_search.enable` to `true` in the inner `_config.yml`. For other configurations, refer to [hexo-generator-search](https://github.com/wzpan/hexo-generator-search).
 
 ```yaml
 generator_search:
   enable: true
+  field: post
+  content: true
 ```
 
 </details>

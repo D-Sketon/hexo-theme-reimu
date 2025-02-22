@@ -343,6 +343,8 @@ algolia_search:
 
 generator_search:
   enable: false
+  field: post
+  content: true
 
 ########################################
 # Animation

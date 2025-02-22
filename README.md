@@ -357,6 +357,8 @@ npm install @reimujs/hexo-algoliasearch --save
 
 并参考其 [README](https://github.com/D-Sketon/hexo-algoliasearch#readme) 完成对 `Algolia` 账号的配置，并在外层 `_config.yml` 中添加如下配置
 
+> 注意：搜索跳转链接为永久链接，所以请保证外层 `_config.yml` 中的 `url` 填写正确
+
 ```yml
 algolia:
   appId: "your applicationID"
@@ -382,24 +384,15 @@ algolia_search:
   enable: true
 ```
 
-注意：搜索跳转链接为永久链接，所以请保证外层 `_config.yml` 中的 `url` 填写正确
+> 1.5.0+ 后主题内置了 `hexo-generator-search`，所以无需再安装 `hexo-generator-search`
 
-若选择 [hexo-generator-search](https://github.com/wzpan/hexo-generator-search)，请安装[hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
-
-并参考其 [README](https://github.com/wzpan/hexo-generator-search#readme)在外层 `_config.yml` 中添加如下配置
-
-```yml
-search:
-  path: search.json # 文件名必须为search.json
-  field: post
-  content: true
-```
-
-在内层 `_config.yml` 中将 `generator_search.enable` 改为 `true`
+本主题内置了 hexo-generator-search，若选择本机搜索，请在内层 `_config.yml` 中将 `generator_search.enable` 改为 `true`，其余配置参考 [hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
 
 ```yaml
 generator_search:
   enable: true
+  field: post
+  content: true
 ```
 
 </details>
