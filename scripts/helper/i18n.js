@@ -3,6 +3,43 @@
 const { prettyUrls, Color } = require("hexo-util");
 const moize = require("moize");
 
+function getPostsByLangHelper(lang) {
+  const pageMap = { default: {}, en: {}, ja: {}, "zh-CN": {}, "zh-TW": {} };
+  this.site.posts.each((post) => {
+    if (post.lang) {
+      pageMap[post.lang][post.permalink] = post;
+    } else {
+      pageMap.default[post.permalink] = post;
+    }
+  });
+  const mergedPosts = {};
+  for (const key of Object.getOwnPropertyNames(pageMap.default)) {
+    if (pageMap[lang][key]) {
+      mergedPosts[key] = pageMap[lang][key];
+    } else {
+      mergedPosts[key] = pageMap.default[key];
+    }
+  }
+  return mergedPosts;
+}
+
+hexo.extend.helper.register("get_posts_by_lang", function (posts, lang) {
+  const postLangList = moize(getPostsByLangHelper.bind(this), {
+    maxSize: 5,
+  }).call(this, lang);
+  const returnPosts = [];
+  const usedPermalinks = new Set();
+  posts.each((post) => {
+    if (postLangList[post.permalink] && !usedPermalinks.has(post.permalink)) {
+      returnPosts.push(postLangList[post.permalink]);
+      usedPermalinks.add(post.permalink);
+    } else if (!usedPermalinks.has(post.permalink)) {
+      returnPosts.push(post);
+    }
+  });
+  return returnPosts;
+});
+
 hexo.extend.helper.register("get_langs", function () {
   const i18n = hexo.theme.config.i18n;
   if (!i18n || !i18n.languages) {
@@ -178,14 +215,14 @@ hexo.extend.helper.register("tagcloud_lang", function (tags, options) {
 // https://github.com/hexojs/hexo/blob/master/lib/plugins/helper/list_archives.ts
 function _toMomentLocale(lang) {
   if (lang === undefined) {
-      return undefined;
+    return undefined;
   }
-  if (!lang || lang === 'en' || lang === 'default') {
-      return 'en';
+  if (!lang || lang === "en" || lang === "default") {
+    return "en";
   }
-  return lang.toLowerCase().replace('_', '-');
+  return lang.toLowerCase().replace("_", "-");
 }
-const toMomentLocale = moize.shallow(_toMomentLocale)
+const toMomentLocale = moize.shallow(_toMomentLocale);
 function listArchivesHelper(options = {}) {
   const { config } = this;
   const archiveDir = config.archive_dir;
@@ -209,7 +246,9 @@ function listArchivesHelper(options = {}) {
   if (!format) {
     format = type === "monthly" ? "MMMM YYYY" : "YYYY";
   }
-  const posts = this.site.posts.sort("date", order).filter((item) => !item.lang);
+  const posts = this.site.posts
+    .sort("date", order)
+    .filter((item) => !item.lang);
   if (!posts.length) return result;
   const data = [];
   let length = 0;

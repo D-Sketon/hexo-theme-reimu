@@ -25,11 +25,17 @@
       <% } %>
     </div>
   <% } %>
-  <% page.posts.each((post, i) => { %>
-    <% if (!post.lang) { %>
+  <% if (page.lang) { %>
+    <% let i = 0; %>
+    <% for (const post of get_posts_by_lang(page.posts, page.lang)) { %>
       <%- partial('post', {post: post, even: i % 2 === 0}) %>
+      <% i++; %>
     <% } %>
-  <% }) %>
+  <% } else { %>
+    <% page.posts.forEach((post, i) => { %>
+      <%- partial('post', {post: post, even: i % 2 === 0}) %>
+    <% }) %>
+  <% } %>
 <% } else { %>
 <div class="archives-outer-wrap" data-aos="<%= theme.animation.options.archive.whole %>">
   <div class="tag-wrap">
@@ -46,26 +52,49 @@
       </div>
     <% }) %>
   </div>
-  <% var last; %>
-  <% page.posts.each((post, i) => { %>
-    <% if (post.lang) { return; } %>
-    <% var year = post.date.year(); %>
-    <% if (last != year) { %>
-      <% if (last != null) { %>
+  <% if (page.lang) { %>
+    <% const posts = get_posts_by_lang(page.posts, page.lang); %>
+    <% var last; %>
+    <% posts.forEach((post, i) => { %>
+      <% var year = post.date.year(); %>
+      <% if (last != year) { %>
+        <% if (last != null) { %>
+          </section>
+        <% } %>
+        <% last = year; %>
+        <section class="archives-wrap" data-aos="<%= theme.animation.options.archive.section %>">
+          <div class="archive-year-wrap">
+            <a href="<%- url_for_lang(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
+          </div>
+          <ul>
+            <% } %>
+            <%- partial('archive-post', {post: post}) %>
+            <% }) %>
+            <% if (page.posts.length) { %>
+          </ul>
         </section>
-      <% } %>
-      <% last = year; %>
-      <section class="archives-wrap" data-aos="<%= theme.animation.options.archive.section %>">
-        <div class="archive-year-wrap">
-          <a href="<%- url_for_lang(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
-        </div>
-        <ul>
-          <% } %>
-          <%- partial('archive-post', {post: post}) %>
-          <% }) %>
-          <% if (page.posts.length) { %>
-        </ul>
-      </section>
+    <% } %>
+  <% } else { %>
+    <% var last; %>
+    <% page.posts.each((post, i) => { %>
+      <% var year = post.date.year(); %>
+      <% if (last != year) { %>
+        <% if (last != null) { %>
+          </section>
+        <% } %>
+        <% last = year; %>
+        <section class="archives-wrap" data-aos="<%= theme.animation.options.archive.section %>">
+          <div class="archive-year-wrap">
+            <a href="<%- url_for_lang(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
+          </div>
+          <ul>
+            <% } %>
+            <%- partial('archive-post', {post: post}) %>
+            <% }) %>
+            <% if (page.posts.length) { %>
+          </ul>
+        </section>
+    <% } %>
   <% } %>
   </div>
 <% } %>

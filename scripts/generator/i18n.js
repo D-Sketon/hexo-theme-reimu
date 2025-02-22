@@ -30,15 +30,16 @@ hexo.extend.generator.register("post", function (locals) {
   });
 });
 
-
 function getLanguages(hexo) {
   const i18n = hexo.theme.config.i18n;
   if (!i18n || !i18n.languages) {
     return [];
   }
-  const languages = Array.isArray(i18n.languages) ? i18n.languages : [i18n.languages];
+  const languages = Array.isArray(i18n.languages)
+    ? i18n.languages
+    : [i18n.languages];
 
-  return languages.filter((lang) => lang !== 'default');
+  return languages.filter((lang) => lang !== "default");
 }
 
 function checkConfig(hexo, type) {
@@ -184,13 +185,13 @@ hexo.extend.generator.register("archive-i18n", function (locals) {
     ? i18nConfig.generator
     : [i18nConfig.generator];
 
-  generatorConfig = generatorConfig.filter(item => {
+  generatorConfig = generatorConfig.filter((item) => {
     const g = generators[item];
     if (!g && !item.endsWith("-i18n")) {
       return false;
     }
     return true;
-  })
+  });
 
   generatorConfig.forEach((g) => {
     generators[g]
@@ -217,4 +218,3 @@ hexo.extend.generator.register("archive-i18n", function (locals) {
 
   return result;
 });
-
