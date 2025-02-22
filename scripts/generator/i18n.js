@@ -1,11 +1,49 @@
 // modified from https://github.com/Jamling/hexo-generator-i18n
 
 const langPathCache = [];
+let localPostsCache = null;
 
 hexo.extend.generator.register("post", function (locals) {
-  const posts = locals.posts.sort("-date").toArray();
+  if (!localPostsCache) {
+    localPostsCache = locals.posts.sort("-date").toArray();
+  }
+  const posts = localPostsCache.filter((post) => !post.lang);
   const { length } = posts;
   return posts.map((post, i) => {
+    let { path, layout } = post;
+    if (!layout || layout === "false") {
+      return {
+        path,
+        data: post.content,
+      };
+    }
+    if (i) {
+      post.prev = posts[i - 1];
+    } else {
+      post.prev = undefined;
+    }
+    if (i < length - 1) {
+      post.next = posts[i + 1];
+    } else {
+      post.next = undefined;
+    }
+    const layouts = ["post", "page", "index"];
+    if (layout !== "post") layouts.unshift(layout);
+    post.__post = true;
+    return {
+      path,
+      layout: layouts,
+      data: post,
+    };
+  });
+});
+
+hexo.extend.generator.register("post-with-lang", function (locals) {
+  if (!localPostsCache) {
+    localPostsCache = locals.posts.sort("-date").toArray();
+  }
+  const posts = localPostsCache.filter((post) => post.lang);
+  return posts.map((post) => {
     let { path, layout, lang } = post;
     if (lang) {
       langPathCache.push(path);
@@ -17,8 +55,13 @@ hexo.extend.generator.register("post", function (locals) {
         data: post.content,
       };
     }
-    if (i) post.prev = posts[i - 1];
-    if (i < length - 1) post.next = posts[i + 1];
+    const mappedPost = locals.posts.toArray().find(
+      (p) => p.permalink === post.permalink && !p.lang
+    );
+    if (mappedPost) {
+      post.prev = mappedPost.prev;
+      post.next = mappedPost.next;
+    }
     const layouts = ["post", "page", "index"];
     if (layout !== "post") layouts.unshift(layout);
     post.__post = true;

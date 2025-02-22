@@ -23,6 +23,14 @@ function getPostsByLangHelper(lang) {
   return mergedPosts;
 }
 
+hexo.extend.helper.register("get_post_by_lang", function (permalink, lang) {
+  lang = lang || hexo.config.language;
+  const postLangList = moize(getPostsByLangHelper.bind(this), {
+    maxSize: 5,
+  }).call(this, lang);
+  return postLangList[permalink];
+})
+
 hexo.extend.helper.register("get_posts_by_lang", function (posts, lang) {
   const postLangList = moize(getPostsByLangHelper.bind(this), {
     maxSize: 5,
