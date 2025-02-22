@@ -349,13 +349,13 @@ gitalk:
 
 ### 站内搜索
 
-若选择 [Algolia](https://www.algolia.com/)，请安装 [hexo-algoliasearch](https://github.com/LouisBarranqueiro/hexo-algoliasearch)
+若选择 [Algolia](https://www.algolia.com/)，请安装 [@reimujs/hexo-algoliasearch](https://github.com/D-Sketon/hexo-algoliasearch)
 
 ```bash
-npm install hexo-algoliasearch --save
+npm install @reimujs/hexo-algoliasearch --save
 ```
 
-并参考其 [README](https://github.com/LouisBarranqueiro/hexo-algoliasearch#readme) 完成对 `Algolia` 账号的配置，并在外层 `_config.yml` 中添加如下配置
+并参考其 [README](https://github.com/D-Sketon/hexo-algoliasearch#readme) 完成对 `Algolia` 账号的配置，并在外层 `_config.yml` 中添加如下配置
 
 ```yml
 algolia:

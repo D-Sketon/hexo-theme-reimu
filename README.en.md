@@ -351,13 +351,13 @@ gitalk:
 
 ### Site search
 
-If choosing [Algolia](https://www.algolia.com/), please install [hexo-algoliasearch](https://github.com/LouisBarranqueiro/hexo-algoliasearch)
+If choosing [Algolia](https://www.algolia.com/), please install [@reimujs/hexo-algoliasearch](https://github.com/D-Sketon/hexo-algoliasearch)
 
 ```bash
-npm install hexo-algoliasearch --save
+npm install @reimujs/hexo-algoliasearch --save
 ```
 
-Then refer to its [README](https://github.com/LouisBarranqueiro/hexo-algoliasearch#readme) to complete the `Algolia` account configuration, and add the following configuration to the outer `_config.yml`
+Then refer to its [README](https://github.com/D-Sketon/hexo-algoliasearch#readme) to complete the `Algolia` account configuration, and add the following configuration to the outer `_config.yml`
 
 ```yml
 algolia:

@@ -315,7 +315,7 @@ giscus:
 # Search
 ########################################
 
-# need https://github.com/LouisBarranqueiro/hexo-algoliasearch
+# need https://github.com/D-Sketon/hexo-algoliasearch
 # please add the following config in your _config.yml
 # algolia:
 #   appId: 'your applicationID'
@@ -341,12 +341,6 @@ algolia_search:
     hits_empty: "未发现与 「${query}」相关内容"
     hits_stats: "找到${hits}条结果（用时 ${time} ms）"
 
-# need https://github.com/wzpan/hexo-generator-search
-# please add the following config in your _config.yml
-# search:
-#   path: search.json # The filename must be search.json
-#   field: post
-#   content: true
 generator_search:
   enable: false
 
