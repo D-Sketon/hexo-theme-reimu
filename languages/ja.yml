@@ -60,3 +60,12 @@ home_categories:
   count:
     one: "%s 記事"
     other: "%s 記事"
+
+article_copyright:
+  author: 著者：
+  permalink: パーマリンク：
+  title: タイトル：
+  date: 公開日：
+  updated: 更新日：
+  license: ライセンス：
+  license_content: 本ブログのすべての文書は、特に指定されていない限り、%s ライセンスに従っています。引用の際は出典を明記してください！

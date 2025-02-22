@@ -60,3 +60,12 @@ home_categories:
   count:
     one: "%d 篇文章"
     other: "%d 篇文章"
+
+article_copyright:
+  author: 本文作者：
+  permalink: 本文链接：
+  title: 本文标题：
+  date: 本文发布时间：
+  updated: 本文更新时间：
+  license: 本文版权：
+  license_content: 本博客所有文章除特别声明外，均采用 %s 许可协议。转载请注明出处！
