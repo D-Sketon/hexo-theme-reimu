@@ -2,6 +2,7 @@ const { url_for } = require("hexo-util");
 
 hexo.extend.helper.register("themeConfig", () => {
   const { config } = hexo.theme;
+  const siteConfig = hexo.config;
   const _global = ["window.REIMU_CONFIG = {};"];
 
   const addConfig = (key, value) => {
@@ -22,6 +23,10 @@ hexo.extend.helper.register("themeConfig", () => {
   addConfig("outdate", config.outdate?.enable ? config.outdate : null);
   addConfig("anchor_icon", config.anchor_icon);
   addConfig("code_block", config.code_block);
+  addConfig("base", siteConfig.url);
+  if (config.i18n?.enable) {
+    addConfig("i18n_languages", (config.i18n.languages || []).slice(1));
+  }
 
   return `<script>${_global.join("")}</script>`;
 });

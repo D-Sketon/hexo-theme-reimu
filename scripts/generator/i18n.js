@@ -4,10 +4,12 @@ const langPathCache = [];
 let localPostsCache = null;
 
 hexo.extend.generator.register("post", function (locals) {
-  if (!localPostsCache) {
+  if (!localPostsCache && hexo.theme.config.i18n?.enable) {
     localPostsCache = locals.posts.sort("-date").toArray();
   }
-  const posts = localPostsCache.filter((post) => !post.lang);
+  const posts = (
+    localPostsCache || locals.posts.sort("-date").toArray()
+  ).filter((post) => !post.lang);
   const { length } = posts;
   return posts.map((post, i) => {
     let { path, layout } = post;
@@ -39,10 +41,12 @@ hexo.extend.generator.register("post", function (locals) {
 });
 
 hexo.extend.generator.register("post-with-lang", function (locals) {
-  if (!localPostsCache) {
+  if (!localPostsCache && hexo.theme.config.i18n?.enable) {
     localPostsCache = locals.posts.sort("-date").toArray();
   }
-  const posts = localPostsCache.filter((post) => post.lang);
+  const posts = (
+    localPostsCache || locals.posts.sort("-date").toArray()
+  ).filter((post) => post.lang);
   return posts.map((post) => {
     let { path, layout, lang } = post;
     if (lang) {
@@ -55,9 +59,9 @@ hexo.extend.generator.register("post-with-lang", function (locals) {
         data: post.content,
       };
     }
-    const mappedPost = locals.posts.toArray().find(
-      (p) => p.permalink === post.permalink && !p.lang
-    );
+    const mappedPost = locals.posts
+      .toArray()
+      .find((p) => p.permalink === post.permalink && !p.lang);
     if (mappedPost) {
       post.prev = mappedPost.prev;
       post.next = mappedPost.next;
@@ -162,7 +166,10 @@ hexo.extend.generator.register("post-i18n", function (locals) {
   const languages = getLanguages(hexo);
   const langPath = [];
   const i18n = [];
-  const posts = locals.posts.sort("-date").toArray();
+  if (!localPostsCache && hexo.theme.config.i18n?.enable) {
+    localPostsCache = locals.posts.sort("-date").toArray();
+  }
+  const posts = localPostsCache || locals.posts.sort("-date").toArray();
   posts.forEach((page) => {
     if (page.lang || langPathCache.includes(page.path)) {
       return;
