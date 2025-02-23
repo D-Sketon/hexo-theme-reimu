@@ -546,6 +546,8 @@ The above will generate a page at `/en/:permalink`.
 
 For multilingual support in pages, you can directly create a folder for the corresponding language in the `source` directory and place an `index.md` file inside it, such as `source/en/about/index.md`. This will generate a page at `/en/about`.
 
+For more information, please refer to [How to add multi-language support to Hexo](https://d-sketon.github.io/en/20250223/hexo-theme-reimu-i18n/)
+
 </details>
 
 <details>

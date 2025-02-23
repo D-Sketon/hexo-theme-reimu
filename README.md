@@ -543,6 +543,8 @@ lang: en
 
 对于 page 的多语言支持，可直接在 `source` 文件夹下新建对应语言的文件夹，并将 `index.md` 放入其中，如 `source/en/about/index.md`。这会生成 `/en/about` 的页面
 
+详情请见 [如何为Hexo添加多语言支持](https://d-sketon.github.io/20250223/hexo-theme-reimu-i18n/)
+
 </details>
 
 <details>
