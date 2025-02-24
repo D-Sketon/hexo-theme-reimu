@@ -1,4 +1,4 @@
-categories: カテゴリ
+categories: カテゴリー
 search: 検索
 tags: タグ
 tagcloud: タグクラウド
@@ -16,7 +16,7 @@ older: 前の記事
 share: 共有
 powered_by: Powered by
 rss_feed: RSSフィード
-category: カテゴリ
+category: カテゴリー
 tag: タグ
 toc: 見出し
 
@@ -31,16 +31,16 @@ not_found:
 
 sidebar:
   post: 投稿
-  category: カテゴリ
+  category: カテゴリー
   tag: タグ
 
 post:
   count:
-    one: "%s word"
-    other: "%s words"
+    one: "%s 文字"
+    other: "%s 文字"
   time:
-    one: "%d min"
-    other: "%d mins"
+    one: "%d 分"
+    other: "%d 分"
 
 busuanzi:
   pv: 総閲覧数
@@ -58,14 +58,14 @@ sponsor: スポンサー
 
 home_categories:
   count:
-    one: "%s 記事"
-    other: "%s 記事"
+    one: "%s 件の記事"
+    other: "%s 件の記事"
 
 article_copyright:
-  author: 著者：
-  permalink: パーマリンク：
-  title: タイトル：
-  date: 公開日：
-  updated: 更新日：
-  license: ライセンス：
+  author: 著者:
+  permalink: パーマリンク:
+  title: タイトル:
+  date: 公開日:
+  updated: 更新日:
+  license: ライセンス:
   license_content: 本ブログのすべての文書は、特に指定されていない限り、%s ライセンスに従っています。引用の際は出典を明記してください！
