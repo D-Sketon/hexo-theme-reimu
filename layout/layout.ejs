@@ -42,7 +42,7 @@
             <% if (theme.player.aplayer.options.lrcType != null) { %>lrc-type="<%= theme.player.aplayer.options.lrcType %>"<% } %>
           ></meting-js>
         <% } %>
-        <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+        <%- partial('_partial/footer', null, {cache: false}) %>
         <% if (theme.top.enable) { %>
           <div class="sidebar-top">
             <div class="sidebar-top-taichi <%- theme.top.icon?.rotate ? 'rotate' : '' %>"></div>
