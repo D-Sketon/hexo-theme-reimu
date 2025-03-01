@@ -65,12 +65,12 @@ $article-meta-tag
 
   p, table
     line-height: line-height
-    margin: line-height 0
+    margin: (line-height/3*2) 0
 
   h1, h2, h3, h4, h5, h6
     font-weight: bold
     line-height: line-height-title
-    margin: line-height-title 0
+    margin: line-height-title 0 (line-height-title/3*2)
 
     if hexo-config("icon_font")
       &:before
@@ -113,8 +113,8 @@ $article-meta-tag
       text-decoration: underline
 
   ul, ol, dl
-    margin-top: line-height
-    margin-bottom: line-height
+    margin-top: (line-height/3*2)
+    margin-bottom: (line-height/3*2)
 
   li
     &:hover
@@ -156,7 +156,7 @@ $article-meta-tag
   blockquote
     background: var(--red-5-5)
     border-left: 6px var(--red-4) solid
-    margin: line-height 0
+    margin: (line-height/3*2) 0
     border-radius: post-radius
     transition: 0.3s
     padding: 1px 10px
