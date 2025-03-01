@@ -1,4 +1,7 @@
 <head>
+  <% if (theme.injector.head_begin) { %>
+    <%- render(theme.injector.head_begin, 'html'); %>
+  <% } %>
   <meta charset="utf-8">
   <%- partial('analytics/google-analytics') %>
   <%- partial('analytics/clarity') %>
@@ -79,5 +82,8 @@
   <% } %>
   <% if (theme.player.aplayer.enable) { %>
     <%- css(vendorCdn(theme.vendor.css.aplayer)) %>
+  <% } %>
+  <% if (theme.injector.head_end) { %>
+    <%- render(theme.injector.head_end, 'html'); %>
   <% } %>
 </head>

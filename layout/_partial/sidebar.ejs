@@ -1,4 +1,7 @@
 <aside id="sidebar">
+  <% if (theme.injector.sidebar_begin) { %>
+    <%- render(theme.injector.sidebar_begin, 'html'); %>
+  <% } %>
   <% if (theme.player.aplayer.enable && !theme.player.meting.enable && theme.player.aplayer.options.fixed !== true) { %>
     <div id="aplayer" theme="var(--color-link)" data-aos="<%= theme.animation.options.home.sidebar %>"></div>
   <% } %>
@@ -44,4 +47,7 @@
     <% }) %>
   <% } %>
   </div>
+  <% if (theme.injector.sidebar_end) { %>
+    <%- render(theme.injector.sidebar_end, 'html'); %>
+  <% } %>
 </aside>

@@ -10,6 +10,9 @@
 >
 <%- partial('_partial/head') %>
 <body>
+  <% if (theme.injector.body_begin) { %>
+    <%- render(theme.injector.body_begin, 'html'); %>
+  <% } %>
   <div id="container">
     <div id="wrap">
       <%- partial('_partial/header', {post: page}, {cache: false}) %>
@@ -33,5 +36,8 @@
     </div>
   <% } %>
   <%- partial('_partial/after-footer') %>
+  <% if (theme.injector.body_end) { %>
+    <%- render(theme.injector.body_end, 'html'); %>
+  <% } %>
 </body>
 </html>

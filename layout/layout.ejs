@@ -13,6 +13,9 @@
   >
   <%- partial('_partial/head', {post: page}) %>
   <body>
+    <% if (theme.injector.body_begin) { %>
+      <%- render(theme.injector.body_begin, 'html'); %>
+    <% } %>
     <%- partial('_partial/loader') %>
     <div id="container">
       <div id="wrap">
@@ -71,6 +74,9 @@
       </div>
     <% } %>
     <%- partial('_partial/after-footer', {post: page}) %>
+    <% if (theme.injector.body_end) { %>
+      <%- render(theme.injector.body_end, 'html'); %>
+    <% } %>
   </body>
   </html>
 <% } %>
