@@ -3,7 +3,7 @@
     <div class="widget-wrap" data-aos="<%= theme.animation.options.home.widget %>">
       <h3 class="widget-title"><%= __('tagcloud') %></h3>
       <div class="widget tagcloud">
-        <%- tagcloud_lang() %>
+        <%- tagcloud_lang({amount: theme.tagcloud_limits}) %>
       </div>
     </div>
   </div>

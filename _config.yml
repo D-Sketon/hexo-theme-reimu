@@ -129,7 +129,9 @@ widgets:
 # Widget behavior
 archive_type: "monthly"
 show_count: false
+tag_limits:
 recent_posts_limits: 5
+tagcloud_limits:
 
 i18n:
   enable: false

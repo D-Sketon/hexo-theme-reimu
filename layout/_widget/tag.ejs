@@ -3,7 +3,7 @@
     <div class="widget-wrap" data-aos="<%= theme.animation.options.home.widget %>">
       <h3 class="widget-title"><%= __('tags') %></h3>
       <div class="widget">
-        <%- listTags({show_count: theme.show_count}) %>
+        <%- listTags({show_count: theme.show_count, amount: theme.tag_limits}) %>
       </div>
     </div>
   </div>
