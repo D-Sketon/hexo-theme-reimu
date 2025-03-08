@@ -19,7 +19,7 @@
     <%- partial('_partial/loader') %>
     <div id="container">
       <div id="wrap">
-        <%- partial('_partial/header', {post: page}, {cache: false}) %>
+        <%- partial('_partial/header', {post: page}) %>
         <div id="content" <% if (page.sidebar === 'left' || page.sidebar === undefined && theme.sidebar === 'left') { %>class="sidebar-left" <% } %> <% if (page.sidebar === 'right' || page.sidebar === undefined && theme.sidebar === 'right') { %>class="sidebar-right" <% } %>>
           <%- partial('_partial/sidebar', null) %>
           <section id="main"><%- body %></section>
@@ -45,7 +45,7 @@
             <% if (theme.player.aplayer.options.lrcType != null) { %>lrc-type="<%= theme.player.aplayer.options.lrcType %>"<% } %>
           ></meting-js>
         <% } %>
-        <%- partial('_partial/footer', null, {cache: false}) %>
+        <%- partial('_partial/footer', null) %>
         <% if (theme.top.enable) { %>
           <div class="sidebar-top">
             <div class="sidebar-top-taichi <%- theme.top.icon?.rotate ? 'rotate' : '' %>"></div>
@@ -54,7 +54,7 @@
         <% } %>
         <div id="mask" class="hide"></div>
       </div>
-      <%- partial('_partial/mobile-nav', null, {cache: false}) %>
+      <%- partial('_partial/mobile-nav', null) %>
     </div>
     <% if (theme.algolia_search.enable || theme.generator_search.enable) { %>
       <div class="site-search">

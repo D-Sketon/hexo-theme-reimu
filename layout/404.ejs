@@ -15,7 +15,7 @@
   <% } %>
   <div id="container">
     <div id="wrap">
-      <%- partial('_partial/header', {post: page}, {cache: false}) %>
+      <%- partial('_partial/header', {post: page}) %>
     </div>
   </div>
   <% if (theme.algolia_search.enable || theme.generator_search.enable) { %>

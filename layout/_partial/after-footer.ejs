@@ -349,7 +349,7 @@
           window.addEventListener('lightbox:ready', pswp);
         }
       </script>
-      <%- partial('post/comment') %>
+      <%- partial('post/comment', null, { cache: true }) %>
     <% } %>
   </div>
 </div>
