@@ -52,14 +52,26 @@ hexo.extend.helper.register("wordcount", (content) => {
   return count < 1000 ? count : Math.round(count / 100) / 10 + "k";
 });
 
-hexo.extend.helper.register("totalcount", (site) => {
-  let count = 0;
-  site.posts.each((post) => (count += countFn(post.content)));
-  return count < 1000 ? count : Math.round(count / 100) / 10 + "k";
+let cachedTotalCount = undefined;
+let cachedTotalMin2Read = undefined;
+
+hexo.extend.helper.register("totalcount", function () {
+  if (cachedTotalCount === undefined) {
+    let count = 0;
+    hexo.locals.get("posts").each((post) => (count += countFn(post.content)));
+    cachedTotalCount =
+      count < 1000 ? count : Math.round(count / 100) / 10 + "k";
+  }
+  return cachedTotalCount;
 });
 
-hexo.extend.helper.register("totalmin2read", (site) => {
-  let readingTime = 0;
-  site.posts.each((post) => (readingTime += timeFn(post.content)));
-  return changeHourMinuteStr(readingTime.toString());
+hexo.extend.helper.register("totalmin2read", function () {
+  if (cachedTotalMin2Read === undefined) {
+    let readingTime = 0;
+    hexo.locals
+      .get("posts")
+      .each((post) => (readingTime += timeFn(post.content)));
+    cachedTotalMin2Read = changeHourMinuteStr(readingTime.toString());
+  }
+  return cachedTotalMin2Read;
 });

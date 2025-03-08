@@ -4,7 +4,7 @@
       <h3 class="widget-title"><%= __('recent_posts') %></h3>
       <div class="widget">
         <ul>
-          <% const posts = get_posts_by_lang(site.posts.sort('date', -1).filter((item) => !item.lang).limit(theme.recent_posts_limits), page.lang) %>
+          <% const posts = get_posts_by_lang(get_cached_sorted_posts(-1).limit(theme.recent_posts_limits), page.lang) %>
           <% posts.forEach((post) => { %>
             <li>
               <a href="<%- url_for_lang(post.path) %>"><%= post.title || '(no title)' %></a>
