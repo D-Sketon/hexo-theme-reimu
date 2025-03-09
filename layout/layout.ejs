@@ -45,7 +45,7 @@
             <% if (theme.player.aplayer.options.lrcType != null) { %>lrc-type="<%= theme.player.aplayer.options.lrcType %>"<% } %>
           ></meting-js>
         <% } %>
-        <%- partial('_partial/footer', null) %>
+        <%- partial_lang('_partial/footer', null, { cache: !config.relative_link, lang: page.lang }) %>
         <% if (theme.top.enable) { %>
           <div class="sidebar-top">
             <div class="sidebar-top-taichi <%- theme.top.icon?.rotate ? 'rotate' : '' %>"></div>

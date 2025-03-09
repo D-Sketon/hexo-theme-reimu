@@ -2,9 +2,9 @@
   <div class="sidebar-wrap">
     <% if (is_post()) { %>
       <div class="sidebar-toc-sidebar"><%- partial('sidebar/toc-sidebar') %></div>
-      <div class="sidebar-common-sidebar hidden"><%- partial('sidebar/common-sidebar') %></div>
+      <div class="sidebar-common-sidebar hidden"><%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %></div>
     <% } else { %>
-      <%- partial('sidebar/common-sidebar') %>
+      <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
     <% } %>
   </div>
   <% if (is_post()) { %>
