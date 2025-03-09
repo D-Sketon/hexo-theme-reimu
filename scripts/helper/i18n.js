@@ -1,7 +1,9 @@
 // modified from https://github.com/Jamling/hexo-generator-i18n
 
-const { prettyUrls, Color } = require("hexo-util");
+const { prettyUrls, Color, Cache } = require("hexo-util");
 const moize = require("moize");
+
+const getPostsByLangCache = new Cache();
 
 function getPostsByLangHelper(lang) {
   const pageMap = { default: {}, en: {}, ja: {}, "zh-CN": {}, "zh-TW": {} };
@@ -25,16 +27,16 @@ function getPostsByLangHelper(lang) {
 
 hexo.extend.helper.register("get_post_by_lang", function (permalink, lang) {
   lang = lang || hexo.config.language;
-  const postLangList = moize(getPostsByLangHelper.bind(this), {
-    maxSize: 5,
-  }).call(this, lang);
+  const postLangList = getPostsByLangCache.apply(lang, () => {
+    return getPostsByLangHelper.call(this, lang);
+  });
   return postLangList[permalink];
-})
+});
 
 hexo.extend.helper.register("get_posts_by_lang", function (posts, lang) {
-  const postLangList = moize(getPostsByLangHelper.bind(this), {
-    maxSize: 5,
-  }).call(this, lang);
+  const postLangList = getPostsByLangCache.apply(lang, () => {
+    return getPostsByLangHelper.call(this, lang);
+  });
   const returnPosts = [];
   const usedPermalinks = new Set();
   posts.each((post) => {
@@ -202,22 +204,7 @@ function tagcloudHelper(tags, options) {
   return result.join(separator);
 }
 hexo.extend.helper.register("tagcloud_lang", function (tags, options) {
-  const transformArgs = () => {
-    if (
-      !options &&
-      (!tags || !Object.prototype.hasOwnProperty.call(tags, "length"))
-    ) {
-      options = tags;
-      tags = this.site.tags;
-    }
-    tags = tags;
-    return [tags.toArray(), options];
-  };
-  return moize(tagcloudHelper.bind(this), {
-    maxSize: 5,
-    isDeepEqual: true,
-    transformArgs,
-  }).call(this, tags, options);
+  return tagcloudHelper.call(this, tags, options);
 });
 
 // https://github.com/hexojs/hexo/blob/master/lib/plugins/helper/list_archives.ts
@@ -246,38 +233,19 @@ function listArchivesHelper(options = {}) {
     : true;
   const className = options.class || "archive";
   const order = options.order || -1;
-  const compareFunc =
-    type === "monthly"
-      ? (yearA, monthA, yearB, monthB) => yearA === yearB && monthA === monthB
-      : (yearA, monthA, yearB, monthB) => yearA === yearB;
   let result = "";
   if (!format) {
     format = type === "monthly" ? "MMMM YYYY" : "YYYY";
   }
   const posts = this.get_cached_sorted_posts(order);
   if (!posts.length) return result;
-  const data = [];
-  let length = 0;
-  posts.forEach((post) => {
-    // Clone the date object to avoid pollution
-    let date = post.date.clone();
-    if (timezone) date = date.tz(timezone);
-    const year = date.year();
-    const month = date.month() + 1;
-    const lastData = data[length - 1];
-    if (!lastData || !compareFunc(lastData.year, lastData.month, year, month)) {
-      if (lang) date = date.locale(lang);
-      const name = date.format(format);
-      length = data.push({
-        name,
-        year,
-        month,
-        count: 1,
-      });
-    } else {
-      lastData.count++;
-    }
-  });
+  const data = this.get_cached_archives_dates(
+    posts,
+    type,
+    timezone,
+    lang,
+    format
+  );
   const link = (item) => {
     let url = `${archiveDir}/${item.year}/`;
     if (type === "monthly") {

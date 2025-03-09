@@ -1,5 +1,4 @@
 const util = require("hexo-util");
-const moize = require("moize");
 
 // https://github.com/hexojs/hexo/blob/master/lib/plugins/helper/list_tags.ts
 function listTagsHelper(tags, options) {
@@ -85,27 +84,9 @@ function listTagsHelper(tags, options) {
   }
   return result;
 }
-function listTagsHelperFactory(tags, options) {
-  const transformArgs = () => {
-    if (
-      !options &&
-      (!tags || !Object.prototype.hasOwnProperty.call(tags, "length"))
-    ) {
-      options = tags;
-      tags = this.site.tags;
-    }
-    tags = tags;
-    return [tags.toArray(), options];
-  };
-  return moize(listTagsHelper.bind(this), {
-    maxSize: 5,
-    isDeepEqual: true,
-    transformArgs,
-  }).call(this, tags, options);
-}
 
 hexo.extend.helper.register("listTags", function (...args) {
-  const result = listTagsHelperFactory.apply(this, args);
+  const result = listTagsHelper.apply(this, args);
   if (args[2]) {
     return result.replace(
       /<li class="([^"]+)">/g,
