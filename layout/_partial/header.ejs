@@ -87,25 +87,53 @@
 <header id="header">
   <% if (post.cover && post.cover.startsWith("rgb")) { %>
     <picture></picture>
-    <div style="position: absolute;top: 0;left: 0;width: 100%;height: 150%;z-index: -2;display: block;background: <%- post.cover %>;mask: linear-gradient(to top, transparent, #fff 50%);"></div>
+    <img style="position: absolute;top: 0;left: 0;width: 100%;height: 150%;z-index: -2;display: block;background: <%- post.cover %>;mask: linear-gradient(to top, transparent, #fff 50%);"></img>
   <% } else if (post.cover) { %>
     <picture></picture>
     <img fetchpriority="high" src="<%- url_for(post.cover, {relative: false}) %>" alt="<%= post.title %>">
   <% } else if (post.cover == false) { %>
-
+    <picture></picture>
+    <img style="visibility:hidden"></img>
   <% } else { %>
-    <picture>
-      <% if (theme.banner_srcset.enable) { %>
-        <% for (let i of theme.banner_srcset.srcset) { %>
-          <source media="<%= i.media %>" srcset="<%- url_for(i.src, {relative: false}) %>">
+    <% if (is_post() || is_page()) { %>
+      <% if (theme.cover && theme.cover.startsWith("rgb")) { %>
+        <picture></picture>
+        <img style="position: absolute;top: 0;left: 0;width: 100%;height: 150%;z-index: -2;display: block;background: <%- theme.cover %>;mask: linear-gradient(to top, transparent, #fff 50%);"></img>
+      <% } else if (theme.cover) { %>
+        <picture></picture>
+        <img fetchpriority="high" src="<%- url_for(theme.cover, {relative: false}) %>" alt="<%= post.title %>">
+      <% } else if (theme.cover === false) { %>
+        <picture></picture>
+        <img style="visibility:hidden"></img>
+      <% } else { %>
+        <picture>
+          <% if (theme.banner_srcset.enable) { %>
+            <% for (let i of theme.banner_srcset.srcset) { %>
+              <source media="<%= i.media %>" srcset="<%- url_for(i.src, {relative: false}) %>">
+            <% } %>
+            <img fetchpriority="high" src="<%- url_for(theme.banner, {relative: false}) %>" alt="<%= post.title %>">
+          <% } %>
+        </picture>
+        <% if (theme.banner_srcset.enable) { %>
+          <img src="" alt="<%= post.title %>" style="visibility: hidden;">
+        <% } else { %>
+          <img fetchpriority="high" src="<%- url_for(theme.banner, {relative: false}) %>" alt="<%= post.title %>">
         <% } %>
+      <% } %>
+    <% } else { %>
+      <picture>
+        <% if (theme.banner_srcset.enable) { %>
+          <% for (let i of theme.banner_srcset.srcset) { %>
+            <source media="<%= i.media %>" srcset="<%- url_for(i.src, {relative: false}) %>">
+          <% } %>
+          <img fetchpriority="high" src="<%- url_for(theme.banner, {relative: false}) %>" alt="<%= post.title %>">
+        <% } %>
+      </picture>
+      <% if (theme.banner_srcset.enable) { %>
+        <img src="" alt="<%= post.title %>" style="visibility: hidden;">
+      <% } else { %>
         <img fetchpriority="high" src="<%- url_for(theme.banner, {relative: false}) %>" alt="<%= post.title %>">
       <% } %>
-    </picture>
-    <% if (theme.banner_srcset.enable) { %>
-      <img src="" alt="<%= post.title %>" style="visibility: hidden;">
-    <% } else { %>
-      <img fetchpriority="high" src="<%- url_for(theme.banner, {relative: false}) %>" alt="<%= post.title %>">
     <% } %>
   <% } %>
   <div id="header-outer">
