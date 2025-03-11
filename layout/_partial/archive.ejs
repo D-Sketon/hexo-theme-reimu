@@ -38,20 +38,7 @@
   <% } %>
 <% } else { %>
 <div class="archives-outer-wrap" data-aos="<%= theme.animation.options.archive.whole %>">
-  <div class="tag-wrap">
-    <% site.tags.each((tag, i) => { %>
-      <div class="archives-tag-list-item" data-aos="<%= theme.animation.options.archive.tag %>">
-        <a class="archives-tag-list-link" href="<%- url_for_lang(tag.path) %>"><%= tag.name %></a>
-      </div>
-    <% }) %>
-  </div>
-  <div class="category-wrap">
-    <% site.categories.each((cagetory, i) => { %>
-      <div class="archives-category-list-item" data-aos="<%= theme.animation.options.archive.category %>">
-        <a class="archives-category-list-link" href="<%- url_for_lang(cagetory.path) %>"><%= cagetory.name %></a>
-      </div>
-    <% }) %>
-  </div>
+  <%- partial_lang('post/archives', null, { cache: !config.relative_link, lang: page.lang }) %>
   <% if (page.lang) { %>
     <% const posts = get_posts_by_lang(page.posts, page.lang); %>
     <% var last; %>

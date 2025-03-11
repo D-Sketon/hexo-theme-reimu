@@ -1,0 +1,14 @@
+<div class="tag-wrap">
+  <% site.tags.each((tag, i) => { %>
+    <div class="archives-tag-list-item" data-aos="<%= theme.animation.options.archive.tag %>">
+      <a class="archives-tag-list-link" href="<%- url_for_lang(tag.path) %>"><%= tag.name %></a>
+    </div>
+  <% }) %>
+</div>
+<div class="category-wrap">
+  <% site.categories.each((cagetory, i) => { %>
+    <div class="archives-category-list-item" data-aos="<%= theme.animation.options.archive.category %>">
+      <a class="archives-category-list-link" href="<%- url_for_lang(cagetory.path) %>"><%= cagetory.name %></a>
+    </div>
+  <% }) %>
+</div>
