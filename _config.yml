@@ -40,7 +40,7 @@ favicon: "/images/favicon.ico" # which means themes/reimu/source/images/favicon.
 
 avatar: "avatar.webp" # which means source/_data/avatar/avatar.webp
 
-# Control the display of the post/page cover
+# Control the display of the post cover
 # If not set, the banner image will be displayed by default
 # Its priority is lower than the cover in the Front-matter
 cover: # https://example.com / false / rgb(255,117,117)
