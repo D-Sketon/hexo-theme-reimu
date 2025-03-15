@@ -26,16 +26,26 @@
   <div class="sidebar-wrapper <% if (is_post()) { %>wrap-sticky<% } %>">
     <div class="sidebar-wrap" data-aos="<%= theme.animation.options.home.sidebar %>">
       <% if (is_post()) { %>
-        <div class="sidebar-toc-sidebar"><%- partial('sidebar/toc-sidebar') %></div>
-        <div class="sidebar-common-sidebar hidden"><%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %></div>
+        <% if (post.toc === false) { %>
+          <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
+        <% } else if (post.toc !== true && theme.toc === false) { %>
+          <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
+        <% } else { %>
+          <div class="sidebar-toc-sidebar"><%- partial('sidebar/toc-sidebar') %></div>
+          <div class="sidebar-common-sidebar hidden"><%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %></div>
+        <% } %>
       <% } else { %>
         <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
       <% } %>
       <% if (is_post()) { %>
-        <div class="sidebar-btn-wrapper" style="position:static">
-          <div class="sidebar-toc-btn current"></div>
-          <div class="sidebar-common-btn"></div>
-        </div>
+        <% if (post.toc === false) { %>
+        <% } else if (post.toc !== true && theme.toc === false) { %>
+        <% } else { %>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+        <% } %>
       <% } %>
     </div>
   </div>

@@ -45,6 +45,10 @@ avatar: "avatar.webp" # which means source/_data/avatar/avatar.webp
 # Its priority is lower than the cover in the Front-matter
 cover: # https://example.com / false / rgb(255,117,117)
 
+# Control the display of the post toc
+# Its priority is lower than the toc in the Front-matter
+toc: true
+
 # Open Graph
 # see https://hexo.io/docs/helpers#open-graph
 open_graph:

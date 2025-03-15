@@ -21,7 +21,7 @@
       <div id="wrap">
         <%- partial('_partial/header', {post: page}) %>
         <div id="content" <% if (page.sidebar === 'left' || page.sidebar === undefined && theme.sidebar === 'left') { %>class="sidebar-left" <% } %> <% if (page.sidebar === 'right' || page.sidebar === undefined && theme.sidebar === 'right') { %>class="sidebar-right" <% } %>>
-          <%- partial('_partial/sidebar', null) %>
+          <%- partial('_partial/sidebar', { post: page }) %>
           <section id="main"><%- body %></section>
         </div>
         <% if (theme.player.aplayer.enable && !theme.player.meting.enable && theme.player.aplayer.options.fixed === true) { %>
@@ -54,7 +54,7 @@
         <% } %>
         <div id="mask" class="hide"></div>
       </div>
-      <%- partial('_partial/mobile-nav', null) %>
+      <%- partial('_partial/mobile-nav', { post: page }) %>
     </div>
     <% if (theme.algolia_search.enable || theme.generator_search.enable) { %>
       <div class="site-search">
