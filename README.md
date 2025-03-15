@@ -817,6 +817,14 @@ player:
       auto:
 ```
 
+#### Pangu 自动分割
+默认关闭，自动替你在文章中所有的中文字和半形的英文、数字、符号之间插入空白。
+
+```yml
+pangu:
+  enable: false 
+```
+
 #### 分享链接/卡片（v1.3.0+）
 
 默认关闭，目前支持 `facebook`、`twitter`、`linkedin`、`reddit`、`weibo`、`qq`、`weixin`。

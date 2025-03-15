@@ -417,3 +417,16 @@
     </script>
   <% } %>
 <% } %>
+
+<% if (theme.pangu.enable) { %>
+  <%- js({src: vendorCdn(theme.vendor.js.pangu)[0], integrity: vendorCdnIntegrity(theme.vendor.js.pangu)[0], crossorigin: "anonymous", defer: true}) %>
+  <script data-pjax>
+    if (document.readyState === "loading") {
+      document.addEventListener('DOMContentLoaded', () => {
+        pangu?.spacingPage();
+      });
+    } else {
+      pangu?.spacingPage();
+    }
+  </script>
+<% } %>

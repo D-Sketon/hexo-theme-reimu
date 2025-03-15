@@ -572,6 +572,14 @@ player:
       auto:
 
 ########################################
+# pangu.js
+########################################
+
+pangu:
+  # more information: https://github.com/vinta/pangu.js 
+  enable: false  # enable pangu.js to add space between Chinese and English
+
+########################################
 # Vendor
 ########################################
 
@@ -666,6 +674,9 @@ vendor:
     dompurify:
       src: webcache|dompurify@3.2.4/dist/purify.min.js
       integrity: sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu
+    pangu:
+      src: webcache|pangu@4.0.7/dist/browser/pangu.min.js
+      integrity: sha384-HeUHqi0nVsPUm/E0ss7OfnIV/yD96JWB8ehZvUuoVax9DpNHL17jj9pdfXHzqDxm
   css:
     photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.css
     katex: webcache|katex@0.16.11/dist/katex.min.css
