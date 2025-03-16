@@ -232,7 +232,7 @@
           stripContent: "<%= content %>",
           date: "<%= post.date %>",
           updated: "<%= post.updated %>",
-          cover: "<%- post.cover ? url_for(post.cover, {relative: false}) : url_for(theme.banner, {relative: false}) %>",
+          cover: "<%- post.cover && !post.cover.startsWith('rgb') ? url_for(post.cover, {relative: false}) : url_for(theme.banner, {relative: false}) %>",
         };
       </script>
     <% } %>   

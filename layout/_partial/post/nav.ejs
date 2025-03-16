@@ -3,7 +3,7 @@
     <% if (post.prev) { %>
       <% const postByLang = get_post_by_lang(post.prev.permalink, post.lang); %>
       <div class="article-nav-link-wrap article-nav-link-left">
-        <% if (post.prev.cover) { %>
+        <% if (post.prev.cover && !post.prev.cover.startsWith('rgb')) { %>
           <img data-src="<%- url_for(post.prev.cover, {relative: false}) %>" data-sizes="auto" alt="<%= postByLang.title %>" class="lazyload">
         <% } else { %>
           <% let cover = randomCover(); %>
@@ -27,7 +27,7 @@
     <% if (post.next) { %>
     <% const postByLang = get_post_by_lang(post.next.permalink, post.lang); %>
     <div class="article-nav-link-wrap article-nav-link-right">
-      <% if (post.next.cover) { %>
+      <% if (post.next.cover && !post.next.cover.startsWith('rgb')) { %>
         <img data-src="<%- url_for(post.next.cover, {relative: false}) %>" data-sizes="auto" alt="<%= postByLang.title %>" class="lazyload">
       <% } else { %>
         <% let cover = randomCover(); %>
