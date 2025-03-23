@@ -84,6 +84,8 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
   - Internal links
   - External links
   - Friend links
+  - Heatmap
+- 🎨 Dynamic theme color adaptation
 - 🎨 Custom Containers
 - ©️ Article copyright declaration
 - 🌐 Custom CDN source configuration
@@ -877,6 +879,14 @@ The first parameter is the article's `slug`; the second parameter (optional) is 
 
 The first parameter is the article title; the second parameter is the external link to the article; the third parameter (optional) is the cover image displayed on the card, if set to `auto` it will automatically use the default cover
 
+#### Heat Map Card Article Heatmap (Experimental Feature in v1.7.0+)
+
+```yaml
+{% heatMapCard levelStandard %}
+```
+
+The first parameter is the level standard for the heatmap (graded based on the word count of the articles), with the default value being `"1000,5000,10000"`. 
+
 </details>
 
 <details>
@@ -926,7 +936,18 @@ This is a details block.
 
 The hexo-theme-reimu theme supports extensive customization. You can customize your theme by modifying `_config.yml`.
 
-#### Customize Theme Colors
+#### Dynamic Theme Color Adaptation (Experimental Feature in v1.7.0+)
+
+Disabled by default. When enabled, it dynamically generates theme colors based on the dominant color of the article's banner image, following Google's Material You design guidelines.
+
+```yml
+material_theme:
+  enable: false # true | false
+```
+
+> Note: When this feature is enabled, the `crossorigin="anonymous"` attribute will be added to the `img` element of the banner to fetch the dominant color of the image. Please ensure your image server supports cross-origin access or use a third-party image proxy.
+
+#### Manual Customizing Theme Colors
 
 The hexo-theme-reimu theme supports theme color customization through CSS variables. You can customize your theme colors by modifying CSS variables under the `:root` pseudo-class.
 
