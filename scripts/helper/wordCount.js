@@ -56,6 +56,10 @@ hexo.extend.helper.register(
   }
 );
 
+hexo.extend.helper.register("raw_wordcount", (content, id) => {
+  return countFn(content, id);
+});
+
 hexo.extend.helper.register("wordcount", (content, id) => {
   const count = countFn(content, id);
   return count < 1000 ? count : Math.round(count / 100) / 10 + "k";
