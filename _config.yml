@@ -413,7 +413,7 @@ firework:
       - shape: circle
         move: ["emit"]
         easing: easeOutExpo
-        colors: ["#ff5252", "#ff7c7c", "#ffafaf", "#ffd0d0"]
+        colors: ["var(--red-1)", "var(--red-2)", "var(--red-3)", "var(--red-4)"]
         number: 20
         duration: [1200, 1800]
         shapeOptions:
@@ -422,7 +422,7 @@ firework:
       - shape: circle
         move: ["diffuse"]
         easing: easeOutExpo
-        colors: ["#ff0000"]
+        colors: ["var(--red-0)"]
         number: 1
         duration: [1200, 1800]
         shapeOptions:
@@ -584,6 +584,19 @@ pangu:
   enable: false  # enable pangu.js to add space between Chinese and English
 
 ########################################
+# Material Theme
+########################################
+
+# experimental, may have a lot of bugs, open with caution!
+# A dynamic color generation tool based on Google's Material You design guidelines, capable of extracting primary colors from any image and generating complete light and dark color schemes.
+material_theme:
+  # more information: https://github.com/2061360308/material-theme
+  # notice: when you enable this feature, all the covers will be automatically added "crossorigin" attribute to support the dynamic color scheme
+  # so make sure your custom covers will not be blocked by the browser's CORS policy
+  enable: false # enable material_theme to generate dynamic color schemes based on the banner image
+
+
+########################################
 # Vendor
 ########################################
 
@@ -637,8 +650,8 @@ vendor:
       src: webcache|mermaid@9.4.3/dist/mermaid.min.js
       integrity: sha384-aG3Gai4tbCHF0iXo48HwLoOZyut7mBl50oMC9GD1m75xyHfJDv6w8hD/kZRD47aJ
     firework:
-      src: webcache|mouse-firework@0.1.0/dist/index.umd.js
-      integrity: sha384-KM6i7tu43nYd6e0beIljxHMC5tZc58XBDu7pPA58w50h18Jsx7gLdimfS09RXlKv
+      src: webcache|mouse-firework@0.1.1/dist/index.umd.js
+      integrity: sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d
     pjax:
       src: webcache|theme-shokax-pjax@0.0.3/dist/index.umd.js
       integrity: sha384-xneY1WY8hOfUzswrE4CrYq35N4BdVcxqxwHPr9zawE/jMSCxD+jAPU55x/jj3wlf
@@ -681,11 +694,14 @@ vendor:
     pangu:
       src: webcache|pangu@4.0.7/dist/browser/pangu.min.js
       integrity: sha384-HeUHqi0nVsPUm/E0ss7OfnIV/yD96JWB8ehZvUuoVax9DpNHL17jj9pdfXHzqDxm
+    material_theme:
+      src: webcache|material-theme@1.0.0/dist/material-theme.umd.js
+      integrity: sha384-vLev0II0HKFaxkcm+/7kX5IGwVFBASkGchU311wmU/veIj2bB0UcBkQbW6yw2asK
   css:
     photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.css
     katex: webcache|katex@0.16.11/dist/katex.min.css
     waline: webcache|@waline/client@2.15.8/dist/waline.css
-    gitalk: webcache|gitalk/dist/gitalk.css
+    gitalk: webcache|gitalk@1.8.0/dist/gitalk.css
     fontawesome:
       high_priority:
         - webcache|@fortawesome/fontawesome-free@6.5.1/css/regular.min.css

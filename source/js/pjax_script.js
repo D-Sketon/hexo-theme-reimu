@@ -403,3 +403,13 @@ _$(".share-icon.icon-weixin")
         });
     });
   });
+
+
+var imgElement = _$("#header > img");
+if (imgElement.src || imgElement.style.background) {
+  window.bannerElement = imgElement;
+} else {
+  window.bannerElement = _$("#header > picture img");
+}
+
+window.generateSchemeHandler?.();

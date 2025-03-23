@@ -102,7 +102,7 @@ $sidebar-state-content
   padding: 25px 0
   color: var(--red-0)
   opacity: .8
-  transition: opacity .5s
+  transition: opacity .5s, color: .5s
 
   &:hover
     opacity: 1
@@ -260,7 +260,7 @@ $menu-link
   color: var(--color-link)
   opacity: 0.8
   text-decoration: none
-  transition: opacity .2s
+  transition: opacity .2s, color .2s
   display: block
   padding: 10px 15px
   font-weight: 700
@@ -278,7 +278,7 @@ $menu-link
 
   justify-content: center
   border: 10px var(--color-red-3-shadow) double
-  transition: border .5s
+  transition: border .5s, background 0.5s, color 0.5s
 
   &:hover
     border: 10px var(--color-h2-after) double
@@ -296,7 +296,7 @@ $menu-link
   @extend $menu-link
   font-size: 24px
   font-weight: 400
-  transition: transform .3s
+  transition: transform .3s, background 0.5s, color 0.5s
   will-change: transform
 
   &:before

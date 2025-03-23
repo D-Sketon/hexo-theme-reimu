@@ -1,6 +1,10 @@
 <%- js({ src: vendorCdn(theme.vendor.js.lazysizes)[0], integrity: vendorCdnIntegrity(theme.vendor.js.lazysizes)[0], crossorigin: "anonymous"}) %>
 <%- js({ src: vendorCdn(theme.vendor.js.clipboard)[0], integrity: vendorCdnIntegrity(theme.vendor.js.clipboard)[0], crossorigin: "anonymous"}) %>
 
+<% if (theme.material_theme.enable) { %>
+  <%- js({src: vendorCdn(theme.vendor.js.material_theme)[0], integrity: vendorCdnIntegrity(theme.vendor.js.material_theme)[0], crossorigin: "anonymous"}) %>
+<% } %>
+
 <%- js('js/script.js') %>
 
 <% if (theme.animation.enable) { %>

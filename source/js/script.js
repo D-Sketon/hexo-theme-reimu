@@ -1,3 +1,21 @@
+window.throttle = (func, limit) => {
+  let lastFunc, lastRan;
+
+  return (...args) => {
+    const context = this;
+    if (!lastRan || Date.now() - lastRan >= limit) {
+      func.apply(context, args);
+      lastRan = Date.now();
+    } else {
+      clearTimeout(lastFunc);
+      lastFunc = setTimeout(() => {
+        func.apply(context, args);
+        lastRan = Date.now();
+      }, limit - (Date.now() - lastRan));
+    }
+  };
+};
+
 (function () {
   // A Simple EventListener
   [Element, Document, Window].forEach((target) => {
@@ -54,25 +72,29 @@
   window._$$ = (selector) => document.querySelectorAll(selector);
 
   // dark_mode
-  const themeButton = document.createElement('a');
-  themeButton.className = 'nav-icon dark-mode-btn';
-  _$('#sub-nav').append(themeButton);
+  const themeButton = document.createElement("a");
+  themeButton.className = "nav-icon dark-mode-btn";
+  _$("#sub-nav").append(themeButton);
 
   const osMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
   function setTheme(config) {
-    const isAuto = config === 'auto';
-    const isDark = config === 'true' || (isAuto && osMode);
-    
-    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : null);
-    localStorage.setItem('dark_mode', config);
-    
+    const isAuto = config === "auto";
+    const isDark = config === "true" || (isAuto && osMode);
+
+    document.documentElement.setAttribute("data-theme", isDark ? "dark" : null);
+    localStorage.setItem("dark_mode", config);
+
     themeButton.id = `nav-${
-      config === 'true' ? 'moon' : 
-      config === 'false' ? 'sun' : 
-      'circle-half-stroke'
+      config === "true"
+        ? "moon"
+        : config === "false"
+        ? "sun"
+        : "circle-half-stroke"
     }-btn`;
-    
-    document.body.dispatchEvent(new CustomEvent(`${isDark ? 'dark' : 'light'}-theme-set`));
+
+    document.body.dispatchEvent(
+      new CustomEvent(`${isDark ? "dark" : "light"}-theme-set`)
+    );
   }
   const savedMode =
     localStorage.getItem("dark_mode") ||
@@ -80,11 +102,15 @@
     "auto";
   setTheme(savedMode);
 
-  themeButton.addEventListener('click', () => {
-    const modes = ['auto', 'false', 'true'];
-    const nextMode = modes[(modes.indexOf(localStorage.getItem('dark_mode')) + 1) % 3];
-    setTheme(nextMode);
-  });
+  themeButton.addEventListener(
+    "click",
+    throttle(() => {
+      const modes = ["auto", "false", "true"];
+      const nextMode =
+        modes[(modes.indexOf(localStorage.getItem("dark_mode")) + 1) % 3];
+      setTheme(nextMode);
+    }, 1000)
+  );
 
   let oldScrollTop = 0;
   document.addEventListener("scroll", () => {
@@ -104,6 +130,97 @@
     Pace.on("done", () => {
       Pace.sources[0].elements = [];
     });
+  }
+
+  // generateScheme
+  if (window.materialTheme) {
+    const extractor = new materialTheme.ColorThemeExtractor({
+      needTransition: false,
+    });
+    async function generateScheme(imageFile) {
+      const scheme = await extractor.generateThemeSchemeFromImage(imageFile);
+      document.documentElement.style.setProperty(
+        "--md-sys-color-primary-light",
+        extractor.hexFromArgb(scheme.schemes.light.props.primary),
+      );
+      document.documentElement.style.setProperty(
+        "--md-sys-color-primary-dark",
+        extractor.hexFromArgb(scheme.schemes.dark.props.primary),
+      );
+
+      const existingStyle = _$("#reimu-generated-theme-style");
+      if (existingStyle) {
+        return;
+      }
+      const css = `
+    :root {
+      --red-0: var(--md-sys-color-primary-light);
+      --red-1: color-mix(in srgb, var(--md-sys-color-primary-light) 90%, white);
+      --red-2: color-mix(in srgb, var(--md-sys-color-primary-light) 75%, white);
+      --red-3: color-mix(in srgb, var(--md-sys-color-primary-light) 55%, white);
+      --red-4: color-mix(in srgb, var(--md-sys-color-primary-light) 40%, white);
+      --red-5: color-mix(in srgb, var(--md-sys-color-primary-light) 15%, white);
+      --red-5-5: color-mix(in srgb, var(--md-sys-color-primary-light) 10%, white);
+      --red-6: color-mix(in srgb, var(--md-sys-color-primary-light) 5%, white);
+    
+      --color-border: var(--red-3);
+      --color-link: var(--red-1);
+      --color-meta-shadow: var(--red-6);
+      --color-h2-after: var(--red-1);
+      --color-red-6-shadow: var(--red-2);
+      --color-red-3-shadow: var(--red-3);
+    }
+    
+    [data-theme="dark"]:root {
+      --red-0: var(--red-1);
+      --red-1: color-mix(in srgb, var(--md-sys-color-primary-dark) 90%, white);
+      --red-2: color-mix(in srgb, var(--md-sys-color-primary-dark) 80%, white);
+      --red-3: color-mix(in srgb, var(--md-sys-color-primary-dark) 75%, white);
+      --red-4: color-mix(in srgb, var(--md-sys-color-primary-dark) 30%, transparent);
+      --red-5: color-mix(in srgb, var(--md-sys-color-primary-dark) 20%, transparent);
+      --red-5-5: color-mix(in srgb, var(--md-sys-color-primary-dark) 10%, transparent);
+      --red-6: color-mix(in srgb, var(--md-sys-color-primary-dark) 5%, transparent);
+      
+      --color-border: var(--red-5);
+    }
+    `;
+
+      const style = document.createElement("style");
+      style.id = "reimu-generated-theme-style";
+      style.textContent = css;
+      document.body.appendChild(style);
+    }
+
+    window.generateSchemeHandler = () => {
+      if (window.bannerElement?.src) {
+        if (window.bannerElement.complete) {
+          generateScheme(bannerElement);
+        } else {
+          window.bannerElement.addEventListener(
+            "load",
+            () => {
+              generateScheme(bannerElement);
+            },
+            { once: true },
+          );
+        }
+      } else if (window.bannerElement?.style.background) {
+        const rgba = window.bannerElement.style.background.match(/\d+/g);
+        const scheme = extractor.generateThemeScheme({
+          r: parseInt(rgba[0]),
+          g: parseInt(rgba[1]),
+          b: parseInt(rgba[2]),
+        });
+        document.documentElement.style.setProperty(
+          "--md-sys-color-primary-light",
+          extractor.hexFromArgb(scheme.schemes.light.props.primary),
+        );
+        document.documentElement.style.setProperty(
+          "--md-sys-color-primary-dark",
+          extractor.hexFromArgb(scheme.schemes.dark.props.primary),
+        );
+      }
+    };
   }
 })();
 
