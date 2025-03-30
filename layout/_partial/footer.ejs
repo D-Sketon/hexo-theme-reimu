@@ -8,7 +8,13 @@
     <% } %>
     <div>
       <span class="icon-copyright"></span>
-      <%= theme.footer.since %>-<%= date(new Date(), 'YYYY') %>
+      <% const currentYear = new Date().getFullYear(); %>
+      <% const sinceYear = parseInt(theme.footer.since, 10); %>
+      <% if (sinceYear === currentYear) { %>
+        <%= sinceYear %>
+      <% } else { %>
+        <%= sinceYear %>-<%= currentYear %>
+      <% } %>
       <span class="footer-info-sep <%- theme.footer.icon?.rotate ? 'rotate' : '' %>"></span>
       <%= config.author || config.title %>
     </div>
