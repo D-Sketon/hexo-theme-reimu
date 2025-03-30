@@ -1,123 +1,307 @@
-<% if (theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
-  <%- js({src: vendorCdn(theme.vendor.js.valine)[0], integrity: vendorCdnIntegrity(theme.vendor.js.valine)[0], crossorigin: "anonymous", 'data-pjax': true}) %>
-  <script data-pjax>
-    var GUEST_INFO = ['nick', 'mail', 'link'];
-    var guest_info = '<%= theme.valine.guest_info %>'.split(',').filter((item) => {
-      return GUEST_INFO.indexOf(item) > -1
-    });
-    var recordIP = JSON.parse('<%= theme.valine.recordIP %>');
-    var highlight = JSON.parse('<%= theme.valine.highlight %>');
-    var visitor = JSON.parse('<%= theme.valine.visitor %>');
+<% const commentSystems = {}; %>
+<% commentSystems.valine = theme.valine.enable && theme.valine.appId && theme.valine.appKey ? true : false; %>
+<% commentSystems.waline = theme.waline.enable && theme.waline.serverURL ? true : false; %>
+<% commentSystems.twikoo = theme.twikoo.enable && theme.twikoo.envId ? true : false; %>
+<% commentSystems.gitalk = theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret ? true : false; %>
+<% commentSystems.giscus = theme.giscus.enable ? true : false; %>
+<% const activeSystems = Object.keys(commentSystems).filter(system => commentSystems[system]); %>
 
-    if (window.Valine) {
-      new Valine({
-        el: '.vcomment',
-        appId: "<%= theme.valine.appId %>",
-        appKey: "<%= theme.valine.appKey %>",
-        placeholder: "<%= theme.valine.placeholder %>",
-        pageSize: '<%= theme.valine.pageSize %>',
-        avatar: '<%= theme.valine.avatar %>',
-        lang: '<%= theme.valine.lang %>',
-        recordIP: recordIP,
-        highlight: highlight,
-        visitor: visitor,
-        requiredFields: guest_info,
-        path: window.location.pathname
-      });
-    }
-  </script>
-<% } %>
+<% if (activeSystems.length > 0) { %>
+<script data-pjax>
+  var loadScript = (src, integrity) => {
+    const script = document.createElement('script');
+    script.src = src;
+    if (integrity) script.integrity = integrity;
+    script.crossOrigin = 'anonymous';
+    return script;
+  };
 
-<% if (theme.waline.enable && theme.waline.serverURL) { %>
-  <script data-pjax type="module">
-    const { init } = await safeImport("<%= vendorCdn(theme.vendor.js.waline) %>", "<%= vendorCdnIntegrity(theme.vendor.js.waline) %>")
-    if(_$('.wcomment')) {
-      window.walineInstance = init({
-        el: '.wcomment',
-        serverURL: '<%= theme.waline.serverURL %>',
-        lang: '<%= theme.waline.lang %>',
-        locale: <%- JSON.stringify(theme.waline.locale) %>,
-        emoji: <%- JSON.stringify(theme.waline.emoji) %>,
-        meta: <%- JSON.stringify(theme.waline.meta) %>,
-        requiredMeta: <%-JSON.stringify(theme.waline.requiredMeta) %>,
-        wordLimit: JSON.parse('<%= theme.waline.wordLimit %>'),
-        comment: true,
-        pageSize: JSON.parse('<%= theme.waline.pageSize %>'),
-        dark: 'html[data-theme="dark"]',
-        pageview: JSON.parse('<%= theme.waline.pageview %>'),
-    });
-    }
-  </script>
-<% } %>
+  var commentConfigKeys = ['valine', 'waline', 'twikoo', 'gitalk', 'giscus'];
+  var commentConfig = {
+    valine: {
+      enable: <%= commentSystems.valine %>,
+      load: () => {
+        const container = document.querySelector('.valine-comment');
+        if (!container) return;
+        container.style.display = 'block';
 
-<% if (theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret) { %>
-  <%- js({src: vendorCdn(theme.vendor.js.gitalk)[0], integrity: vendorCdnIntegrity(theme.vendor.js.gitalk)[0], crossorigin: "anonymous", 'data-pjax': true}) %>
-  <% if (theme.gitalk.md5) { %>
-    <%- js({src: vendorCdn(theme.vendor.js.md5)[0], integrity: vendorCdnIntegrity(theme.vendor.js.md5)[0], crossorigin: "anonymous", 'data-pjax': true}) %>
-  <% } %>
-  <script data-pjax>
-    if (window.Gitalk) {
-      var gitalkId = <%= theme.gitalk.md5 ? 'window.md5 ? window.md5(location.pathname) : location.pathname' : 'location.pathname' %>;
-      var gitalk = new Gitalk({
-        clientID: '<%= theme.gitalk.clientID %>',
-        clientSecret: '<%= theme.gitalk.clientSecret %>',
-        repo: '<%= theme.gitalk.repo %>',
-        owner: '<%= theme.gitalk.owner %>',
-        admin: <%- JSON.stringify(theme.gitalk.admin) %>,
-        id: gitalkId, // Ensure uniqueness and length less than 50
-        distractionFreeMode: false // Facebook-like distraction free mode
-      })
-      if (document.getElementById('comments')) {
-        gitalk.render('comments')
+        const script = loadScript(
+          '<%= vendorCdn(theme.vendor.js.valine)[0] %>',
+          '<%= vendorCdnIntegrity(theme.vendor.js.valine)[0] %>'
+        );
+        script.onload = () => {
+          var GUEST_INFO = ['nick', 'mail', 'link'];
+          var guest_info = '<%= theme.valine.guest_info %>'.split(',').filter((item) => {
+            return GUEST_INFO.indexOf(item) > -1
+          });
+          var recordIP = JSON.parse('<%= theme.valine.recordIP %>');
+          var highlight = JSON.parse('<%= theme.valine.highlight %>');
+          var visitor = JSON.parse('<%= theme.valine.visitor %>');
+
+          if (window.Valine) {
+            new Valine({
+              el: '.valine-comment',
+              appId: "<%= theme.valine.appId %>",
+              appKey: "<%= theme.valine.appKey %>",
+              placeholder: "<%= theme.valine.placeholder %>",
+              pageSize: '<%= theme.valine.pageSize %>',
+              avatar: '<%= theme.valine.avatar %>',
+              lang: '<%= theme.valine.lang %>',
+              recordIP: recordIP,
+              highlight: highlight,
+              visitor: visitor,
+              requiredFields: guest_info,
+              path: window.location.pathname
+            });
+          }
+        };
+        document.head.appendChild(script);
+      }
+    },
+    waline: {
+      enable: <%= commentSystems.waline %>,
+      load: async () => {
+        const container = document.querySelector('.waline-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        let walineInit;
+        const walineCdn = '<%= vendorCdn(theme.vendor.js.waline) %>';
+        const walineIntegrity = '<%= vendorCdnIntegrity(theme.vendor.js.waline) %>';
+
+        const module = await safeImport(walineCdn, walineIntegrity);
+        walineInit = module.init;
+
+        window.walineInstance = walineInit({
+          el: '.waline-comment',
+          serverURL: '<%= theme.waline.serverURL %>',
+          lang: '<%= theme.waline.lang %>',
+          locale: <%- JSON.stringify(theme.waline.locale) %>,
+          emoji: <%- JSON.stringify(theme.waline.emoji) %>,
+          meta: <%- JSON.stringify(theme.waline.meta) %>,
+          requiredMeta: <%-JSON.stringify(theme.waline.requiredMeta) %>,
+          wordLimit: JSON.parse('<%= theme.waline.wordLimit %>'),
+          comment: true,
+          pageSize: JSON.parse('<%= theme.waline.pageSize %>'),
+          dark: 'html[data-theme="dark"]',
+          pageview: JSON.parse('<%= theme.waline.pageview %>'),
+        });
+      }
+    },
+    twikoo: {
+      enable: <%= commentSystems.twikoo %>,
+      load: () => {
+        const container = document.querySelector('.twikoo-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        const script = loadScript(
+          '<%= vendorCdn(theme.vendor.js.twikoo)[0] %>',
+          '<%= vendorCdnIntegrity(theme.vendor.js.twikoo)[0] %>'
+        );
+
+        script.onload = () => {
+          if (window.twikoo) {
+            twikoo.init({
+              envId: '<%= theme.twikoo.envId %>',
+              el: '.tcomment',
+              region: '<%= theme.twikoo.region %>',
+            })
+          }
+        } 
+        document.head.appendChild(script);
+      }
+    },
+    gitalk: {
+      enable: <%= commentSystems.gitalk %>,
+      load: () => {
+        const container = document.querySelector('.gitalk-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        const script = loadScript(
+          '<%= vendorCdn(theme.vendor.js.gitalk)[0] %>',
+          '<%= vendorCdnIntegrity(theme.vendor.js.gitalk)[0] %>'
+        );
+
+        script.onload = () => {
+          if (<%= theme.gitalk.md5 %>) {
+            const md5Script = loadScript(
+              '<%= vendorCdn(theme.vendor.js.md5)[0] %>',
+              '<%= vendorCdnIntegrity(theme.vendor.js.md5)[0] %>'
+            );
+            md5Script.onload = initGitalk;
+            document.head.appendChild(md5Script);
+          } else {
+            initGitalk();
+          }
+        }
+        document.head.appendChild(script);
+
+        function initGitalk() {
+          var gitalkId = <%= theme.gitalk.md5 ? 'window.md5 ? window.md5(location.pathname) : location.pathname' : 'location.pathname' %>;
+          var gitalk = new Gitalk({
+            clientID: '<%= theme.gitalk.clientID %>',
+            clientSecret: '<%= theme.gitalk.clientSecret %>',
+            repo: '<%= theme.gitalk.repo %>',
+            owner: '<%= theme.gitalk.owner %>',
+            admin: <%- JSON.stringify(theme.gitalk.admin) %>,
+            id: gitalkId, // Ensure uniqueness and length less than 50
+            distractionFreeMode: false // Facebook-like distraction free mode
+          })
+          gitalk.render('gitalk-comment');
+        }
+      }
+    },
+    giscus: {
+      enable: <%= commentSystems.giscus %>,
+      load: () => {
+        const container = document.querySelector('.giscus-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        // 删除可能已存在的 giscus 脚本和 iframe
+        const existingScript = container.querySelector('script[src*="giscus.app/client.js"]');
+        if (existingScript) existingScript.remove();
+        const existingFrame = document.querySelector('iframe.giscus-frame');
+        if (existingFrame) existingFrame.remove();
+
+        const giscusScript = document.createElement('script');
+        const domMode = document.documentElement.getAttribute("data-theme");
+        giscusScript.src = 'https://giscus.app/client.js';
+        giscusScript.setAttribute('data-repo', '<%= theme.giscus.repo %>');
+        giscusScript.setAttribute('data-repo-id', '<%= theme.giscus.repoId %>');
+        giscusScript.setAttribute('data-category', '<%= theme.giscus.category %>'); 
+        giscusScript.setAttribute('data-category-id', '<%= theme.giscus.categoryId %>');
+        giscusScript.setAttribute('data-mapping', '<%= theme.giscus.strict %>');
+        giscusScript.setAttribute('data-strict', '<%= theme.giscus.strict %>');
+        giscusScript.setAttribute('data-reactions-enabled', '<%= theme.giscus.reactionsEnabled %>');
+        giscusScript.setAttribute('data-emit-metadata', '<%= theme.giscus.emitMetadata %>');
+        giscusScript.setAttribute('data-input-position', '<%= theme.giscus.inputPosition %>');
+        giscusScript.setAttribute('data-theme', domMode === 'dark' ? 'dark' : 'light');
+        giscusScript.setAttribute('data-lang', '<%= theme.giscus.lang %>');
+        giscusScript.setAttribute('crossorigin', 'anonymous');
+        giscusScript.async = true;
+        container.appendChild(giscusScript);
+        document.body.addEventListener('light-theme-set', () => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'light' } } }, 'https://giscus.app');
+        });
+        document.body.addEventListener('dark-theme-set', () => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'dark' } } }, 'https://giscus.app');
+        });
       }
     }
-  </script>
-<% } %>
+  }
+  commentConfig.enable = commentConfigKeys.some(key => commentConfig[key].enable);
 
-<% if (theme.twikoo.enable && theme.twikoo.envId) { %>
-  <%- js({src: vendorCdn(theme.vendor.js.twikoo)[0], integrity: vendorCdnIntegrity(theme.vendor.js.twikoo)[0], crossorigin: "anonymous", 'data-pjax': true}) %>
-  <script data-pjax>
-    if (window.twikoo) {
-      twikoo.init({
-        envId: '<%= theme.twikoo.envId %>',
-        el: '.tcomment',
-        region: '<%= theme.twikoo.region %>',
-      })
+  var defaultComment = '';
+  if (commentConfig.enable) {
+    // 1. 首先检查localStorage中是否有保存的评论类型
+    var savedCommentType = localStorage.getItem('commentType');
+    
+    // 2. 如果localStorage中有值且对应的评论系统可用，就使用它
+    if (savedCommentType) {
+      if (commentConfig[savedCommentType]?.enable) {
+        defaultComment = savedCommentType;
+      }
     }
-  </script>
-<% } %>
+    
+    // 3. 如果localStorage无效，检查配置的默认评论系统
+    if (!defaultComment) {
+      var configDefault = '<%= theme.comment.default %>';
+      if (commentConfig[configDefault]?.enable) {
+        defaultComment = configDefault;
+      }
+    }
+    
+    // 4. 如果前两项都无效，按指定顺序找到第一个可用的评论系统
+    if (!defaultComment) {
+      defaultComment = commentConfigKeys.find(sys => commentConfig[sys].enable) || '';
+    }
+  }
+  function loadComments() {
+    if (!commentConfig.enable) return;
+    // 评论组件加载状态跟踪
+    const loadedComments = {
+      valine: false,
+      waline: false,
+      twikoo: false,
+      gitalk: false,
+      giscus: false
+    };
 
-<% if (theme.giscus.enable && page.comments !== false) { %>
-  <script data-pjax>
-    var giscusContainer = document.querySelector('.giscus');
-    if (giscusContainer) {
-      const giscusScript = document.createElement('script');
-      const domMode = document.documentElement.getAttribute("data-theme");
-      giscusScript.src = 'https://giscus.app/client.js';
-      giscusScript.setAttribute('data-repo', '<%= theme.giscus.repo %>');
-      giscusScript.setAttribute('data-repo-id', '<%= theme.giscus.repoId %>');
-      giscusScript.setAttribute('data-category', '<%= theme.giscus.category %>'); 
-      giscusScript.setAttribute('data-category-id', '<%= theme.giscus.categoryId %>');
-      giscusScript.setAttribute('data-mapping', '<%= theme.giscus.strict %>');
-      giscusScript.setAttribute('data-strict', '<%= theme.giscus.strict %>');
-      giscusScript.setAttribute('data-reactions-enabled', '<%= theme.giscus.reactionsEnabled %>');
-      giscusScript.setAttribute('data-emit-metadata', '<%= theme.giscus.emitMetadata %>');
-      giscusScript.setAttribute('data-input-position', '<%= theme.giscus.inputPosition %>');
-      giscusScript.setAttribute('data-theme', domMode === 'dark' ? 'dark' : 'light');
-      giscusScript.setAttribute('data-lang', '<%= theme.giscus.lang %>');
-      giscusScript.setAttribute('crossorigin', 'anonymous');
-      giscusScript.async = true;
-      giscusContainer.appendChild(giscusScript);
-      document.body.addEventListener('light-theme-set', () => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'light' } } }, 'https://giscus.app');
+    // 隐藏所有评论容器
+    const hideAllComments = () => {
+      const commentContainers = document.querySelectorAll('.comment');
+      commentContainers.forEach(container => {
+        container.style.display = 'none';
       });
-      document.body.addEventListener('dark-theme-set', () => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'dark' } } }, 'https://giscus.app');
-      });
+    };
+
+    // 按需加载评论系统
+    const loadCommentSystem = (type) => {
+      if (loadedComments[type]) {
+        // 如果已加载，只需显示对应容器
+        document.querySelector(`.${type}-comment`).style.display = 'block';
+        return;
+      }
+
+      // 根据类型加载对应的脚本
+      commentConfig[type]?.load();
+      loadedComments[type] = true;
+    };
+
+    // 评论组件选择器
+    const changeActiveCommentItems = (item) => {
+      const commentItems = document.querySelectorAll('.selector-item');
+      for (let i = 0; i < commentItems.length; i++) {
+        commentItems[i].classList.remove('active');
+      }
+      item.classList.add('active');
+
+      // 获取要加载的评论系统类型
+      const commentType = item.getAttribute('data-selector');
+
+      // 隐藏所有评论系统
+      hideAllComments();
+
+      // 加载选中的评论系统
+      loadCommentSystem(commentType);
+    };
+
+    const commentInit = () => {
+      // 评论组件选择器点击事件
+      const commentItems = document.querySelectorAll('.selector-item');
+      for (let item of commentItems) {
+        item.addEventListener('click', () => {
+          // 保存选择器状态
+          const commentType = item.getAttribute('data-selector');
+          window.localStorage.setItem('commentType', commentType);
+          // 切换选中状态
+          changeActiveCommentItems(item);
+        });
+      }
+
+      // 检查是否需要加载默认评论系统
+      if (defaultComment) {
+        const defaultSelectorItem = document.querySelector(`[data-selector="${defaultComment}"]`);
+        if (!defaultSelectorItem) return;
+        defaultSelectorItem.style.display = 'block';
+        defaultSelectorItem.classList.add('active');
+        loadCommentSystem(defaultComment);
+      }
     }
-  </script>
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', commentInit);
+    } else {
+      commentInit();
+    }
+  };
+  loadComments();
+</script>
 <% } %>

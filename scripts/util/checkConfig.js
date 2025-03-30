@@ -32,19 +32,6 @@ hexo.on("generateBefore", () => {
     );
   }
 
-  const commentCount = [
-    themeConfig.valine?.enable,
-    themeConfig.waline?.enable,
-    themeConfig.twikoo?.enable,
-    themeConfig.gitalk?.enable,
-    themeConfig.giscus?.enable,
-  ].filter((e) => e).length;
-  if (commentCount > 1) {
-    hexo.log.warn(
-      "[REIMU] valine, waline, twikoo, gitalk and giscus should not be enabled at the same time. Please disable one of them."
-    );
-  }
-
   if (
     themeConfig.math?.enable &&
     (themeConfig.math?.katex?.enable || themeConfig.math?.mathjax?.enable)

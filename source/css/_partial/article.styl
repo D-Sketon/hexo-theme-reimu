@@ -187,7 +187,10 @@ $article-meta-tag
   summary
     font-size: 1.1em
     font-weight: bold
-    cursor: pointer
+    if reimu_cursor
+      cursor: var(--cursor-pointer)
+    else
+      cursor: pointer
     padding: 8px
     border: none
     border-radius: 10px
@@ -324,6 +327,7 @@ $article-meta-tag
   float: right
   font-size: 14px
   background: var(--red-5)
+  margin-left: article-padding
   border-radius: post-radius
   padding: 8px 15px
 

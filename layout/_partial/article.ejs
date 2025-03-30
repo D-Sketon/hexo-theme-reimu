@@ -87,18 +87,34 @@
   </div>
   <%- partial('post/nav') %>
 </article>
-<% if (post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
-  <section id="comments" class="vcomment" data-aos="<%= theme.animation.options.article.whole %>"></section>
-<% } %>
-<% if (post.comments !== false && theme.waline.enable && theme.waline.serverURL) { %>
-  <div id="comments" class="wcomment" data-aos="<%= theme.animation.options.article.whole %>"></div>
-<% } %>
-<% if (post.comments !== false && theme.twikoo.enable && theme.twikoo.envId) { %>
-  <div id="comments" class="tcomment" data-aos="<%= theme.animation.options.article.whole %>"></div>
-<% } %>
-<% if (post.comments !== false && theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret) { %>
-  <div id="comments" class="gtcomment" data-aos="<%= theme.animation.options.article.whole %>"></div>
-<% } %>
-<% if (post.comments !== false && theme.giscus.enable) { %>
-  <div id="comments" class="gscomment giscus" data-aos="<%= theme.animation.options.article.whole %>"></div>
+<% const commentSystems = {}; %>
+<% commentSystems.valine = theme.valine.enable && theme.valine.appId && theme.valine.appKey ? true : false; %>
+<% commentSystems.waline = theme.waline.enable && theme.waline.serverURL ? true : false; %>
+<% commentSystems.twikoo = theme.twikoo.enable && theme.twikoo.envId ? true : false; %>
+<% commentSystems.gitalk = theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret ? true : false; %>
+<% commentSystems.giscus = theme.giscus.enable ? true : false; %>
+<% const activeSystems = Object.keys(commentSystems).filter(system => commentSystems[system]); %>
+
+<% if (post.comments !== false && activeSystems.length) { %>
+  <section id="comments" data-aos="<%= theme.animation.options.article.whole %>">
+    <div class="comment-header">
+      <h2 class="comment-title"><%= theme.comment.title %></h2>
+      <div class="comment-selector">
+        <div class="comment-selector-wrap">
+            <% for(const active of activeSystems) { %>
+            <div class="selector-item" data-selector="<%= active %>">
+              <span><%= active %></span>
+            </div>
+            <% } %>
+        </div>
+      </div>
+    </div>
+    <div class="comment-content">
+      <% for(const active of activeSystems) { %>
+        <div class="comment <%= active %>-comment" data-aos="<%= theme.animation.options.article.whole %>"
+          id="<%= active %>-comment">
+        </div>
+      <% } %>
+    </div>
+  </section>
 <% } %>

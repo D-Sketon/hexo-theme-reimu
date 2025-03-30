@@ -1,16 +1,75 @@
 #comments
   background: var(--color-wrap)
-  padding: article-padding
+  padding: article-padding article-padding + 15px
   border-radius: post-radius
   margin: 10px 0
 
   a
     color: var(--color-link)
 
-.gscomment
+  .comment-header
+    display: flex
+    flex-direction: column
+    width: 100%
+
+    .comment-title
+      margin: 0 0 10px 0
+      width: 100%
+      text-align: center
+      color: var(--color-default)
+
+    .comment-selector
+      width: 100%
+      display: flex
+      justify-content: flex-end
+      margin-bottom: 15px
+
+    .comment-selector-wrap
+      display: flex
+      overflow: hidden
+      border-radius: 0.4em
+
+      .selector-item
+        font-size: 0.8rem
+        color: #555
+        background-color: #c9ccd0
+        transition: 0.3s
+        padding: 0.31rem 0.32rem
+        if reimu_cursor
+          cursor: var(--cursor-pointer) !important
+        else
+          cursor: pointer !important
+        font-weight: bold
+
+        span
+          if reimu_cursor
+            cursor: var(--cursor-pointer) !important
+          else
+            cursor: pointer !important
+
+        [data-theme="dark"] &
+          color: #ccc
+          background-color: #555
+
+          &:hover
+            background-color: var(--red-4)
+          
+
+          &.active
+            color: white;
+            background-color: var(--red-1)
+
+        &:hover
+          background-color: var(--red-4)
+
+        &.active
+          color: white
+          background-color: var(--red-1)
+
+.giscus-comment
   width: auto
 
-.gtcomment
+.gitalk-comment
   color: var(--color-default)
 
 .wl-emoji-popup
@@ -21,3 +80,6 @@
 
 .wl-header input
   font-size: revert !important
+
+.wl-panel
+  margin: .5em 0 !important
