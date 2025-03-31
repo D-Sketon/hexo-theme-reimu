@@ -51,10 +51,10 @@ jobs:
         run: |
           cd reimu-playground
           npm install
-          ls
   
       - name: benchmark
         run: |
+          cd reimu-playground
           npx bench-hexo@beta memory -c 20
       
 
