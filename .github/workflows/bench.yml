@@ -54,7 +54,6 @@ jobs:
   
       - name: benchmark
         run: |
-          npx bench-hexo@beta benchmark
           npx bench-hexo@beta memory -c 20
       
 
