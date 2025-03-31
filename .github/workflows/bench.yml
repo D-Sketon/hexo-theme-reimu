@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  bench:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,6 +33,10 @@ jobs:
       - name: Copy files to target directory
         run: |
           cp -r reimu/* reimu-playground/themes/reimu
+          mkdir -p reimu-playground/source/_posts/hexo-many-posts1
+          mkdir -p reimu-playground/source/_posts/hexo-many-posts2
+          mkdir -p reimu-playground/source/_posts/hexo-many-posts3
+          mkdir -p reimu-playground/source/_posts/hexo-many-posts4
           cp -r hexo-many-posts/* reimu-playground/source/_posts/hexo-many-posts1
           cp -r hexo-many-posts/* reimu-playground/source/_posts/hexo-many-posts2
           cp -r hexo-many-posts/* reimu-playground/source/_posts/hexo-many-posts3
