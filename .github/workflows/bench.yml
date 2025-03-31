@@ -55,8 +55,8 @@ jobs:
       - name: benchmark
         run: |
           cd reimu-playground
-          npx bench-hexo@beta benchmark
-          npx bench-hexo@beta memory -c 20
+          npx bench-hexo benchmark
+          npx bench-hexo memory -c 20
       
 
 
