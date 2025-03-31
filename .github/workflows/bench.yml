@@ -51,6 +51,7 @@ jobs:
         run: |
           cd reimu-playground
           npm install
+          ls
   
       - name: benchmark
         run: |
