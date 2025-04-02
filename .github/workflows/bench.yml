@@ -58,6 +58,7 @@ jobs:
           cd reimu-playground
           npx bench-hexo benchmark
           npx bench-hexo memory -c 20 -s 200
+          npx bench-hexo memory -c 20 -s 200 --no-clean
   bench-hexo-7:
     runs-on: ubuntu-latest
 
@@ -106,6 +107,7 @@ jobs:
           cd reimu-playground
           npx bench-hexo benchmark
           npx bench-hexo memory -c 20 -s 200
+          npx bench-hexo memory -c 20 -s 200 --no-clean
   bench-hexo-next:
     runs-on: ubuntu-latest
 
@@ -155,4 +157,5 @@ jobs:
           cd reimu-playground
           npx bench-hexo benchmark
           npx bench-hexo memory -c 20 -s 200
+          npx bench-hexo memory -c 20 -s 200 --no-clean
 
