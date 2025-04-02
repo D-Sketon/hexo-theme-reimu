@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  bench@6:
+  bench-6:
     runs-on: ubuntu-latest
 
     steps:
@@ -58,7 +58,7 @@ jobs:
           cd reimu-playground
           npx bench-hexo benchmark
           npx bench-hexo memory -c 20
-  bench@7:
+  bench-7:
     runs-on: ubuntu-latest
 
     steps:
@@ -106,7 +106,7 @@ jobs:
           cd reimu-playground
           npx bench-hexo benchmark
           npx bench-hexo memory -c 20
-  bench@next:
+  bench-next:
     runs-on: ubuntu-latest
 
     steps:
