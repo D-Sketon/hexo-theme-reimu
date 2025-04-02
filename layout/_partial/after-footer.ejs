@@ -353,7 +353,9 @@
           window.addEventListener('lightbox:ready', pswp);
         }
       </script>
-      <%- partial('post/comment', null, { cache: true }) %>
+      <% if (page.comments !== false) { %>
+        <%- partial('post/comment', null, { cache: true }) %>
+      <% } %>
     <% } %>
   </div>
 </div>
