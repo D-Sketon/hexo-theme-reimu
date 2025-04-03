@@ -266,6 +266,16 @@ code_block:
 > 站内评论可以使用 Front matter 中的 `comments` 独立控制每篇文章是否显示评论。  
 > 当 `comments` 为 `false` 时不显示评论，`true` 或不填时根据 `_config.yml` 的配置决定是否显示。
 
+> 1.7.0+ 后支持多评论系统同时使用
+
+全局评论系统配置：
+
+```yaml
+comment:
+  title: 说些什么吧！ # 评论框标题
+  default: waline # 多评论下，默认使用的评论系统
+```
+
 若基于 [Valine](https://valine.js.org/)  
 请参考其官方文档完成 `LeanCloud` 的配置，并在内层 `_config.yml` 中将 `valine.enable` 改为 `true`，并填入自己的 `appId` 和 `appKey`
 

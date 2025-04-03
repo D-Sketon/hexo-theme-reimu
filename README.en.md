@@ -268,6 +268,16 @@ code_block:
 > Site comments can be individually controlled for each article using `comments` in the Front matter.  
 > When `comments` is `false`, comments won't be displayed. When it's `true` or not specified, the display will be determined by the `_config.yml` configuration.
 
+> Support for multiple comment systems simultaneously after version 1.7.0+
+
+Global comment system configuration:
+
+```yaml
+comment:
+  title: Say something! # Title of the comment box  
+  default: waline # Default comment system used when multiple are enabled
+```
+
 If using [Valine](https://valine.js.org/)  
 Please refer to their official documentation to complete the `LeanCloud` configuration, then set `valine.enable` to `true` in the inner `_config.yml` and fill in your `appId` and `appKey`
 
