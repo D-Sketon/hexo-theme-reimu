@@ -50,7 +50,7 @@ jobs:
       - name: benchmark
         run: |
           cd reimu-playground
-          npx bench-hexo benchmark
+          npx bench-hexo benchmark -c 5
           npx bench-hexo memory -c 5
           npx bench-hexo memory -c 5 --no-clean
   bench-hexo-next-c-10-post-500:
@@ -94,7 +94,7 @@ jobs:
       - name: benchmark
         run: |
           cd reimu-playground
-          npx bench-hexo benchmark
+          npx bench-hexo benchmark -c 10
           npx bench-hexo memory -c 10
           npx bench-hexo memory -c 10 --no-clean
   bench-hexo-next-c-20-post-500:
@@ -138,7 +138,7 @@ jobs:
       - name: benchmark
         run: |
           cd reimu-playground
-          npx bench-hexo benchmark
+          npx bench-hexo benchmark -c 20
           npx bench-hexo memory -c 20
           npx bench-hexo memory -c 20 --no-clean
   bench-hexo-next-c-Infinity-post-500:
