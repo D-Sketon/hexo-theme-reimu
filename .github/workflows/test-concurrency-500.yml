@@ -1,0 +1,187 @@
+name: Benchmark
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  bench-hexo-next-c-5-post-500:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          path: reimu
+
+      - name: Checkout external repository
+        uses: actions/checkout@v4
+        with:
+          repository: D-Sketon/reimu-playground
+          path: reimu-playground
+
+      - name: Checkout external Many Posts
+        uses: actions/checkout@v4
+        with:
+          repository: hexojs/hexo-many-posts
+          path: hexo-many-posts
+
+      - name: Copy files to target directory
+        run: |
+          cp -r reimu/* reimu-playground/themes/reimu
+          mkdir -p reimu-playground/source/_posts/hexo-many-posts1
+          cp -r hexo-many-posts/* reimu-playground/source/_posts/hexo-many-posts1
+
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: |
+          cd reimu-playground
+          npm install
+          npm i hexo@https://github.com/D-Sketon/hexo.git#chore/bench
+  
+      - name: benchmark
+        run: |
+          cd reimu-playground
+          npx bench-hexo benchmark
+          npx bench-hexo memory -c 5
+          npx bench-hexo memory -c 5 --no-clean
+  bench-hexo-next-c-10-post-500:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          path: reimu
+
+      - name: Checkout external repository
+        uses: actions/checkout@v4
+        with:
+          repository: D-Sketon/reimu-playground
+          path: reimu-playground
+
+      - name: Checkout external Many Posts
+        uses: actions/checkout@v4
+        with:
+          repository: hexojs/hexo-many-posts
+          path: hexo-many-posts
+
+      - name: Copy files to target directory
+        run: |
+          cp -r reimu/* reimu-playground/themes/reimu
+          mkdir -p reimu-playground/source/_posts/hexo-many-posts1
+          cp -r hexo-many-posts/* reimu-playground/source/_posts/hexo-many-posts1
+
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: |
+          cd reimu-playground
+          npm install
+          npm i hexo@https://github.com/D-Sketon/hexo.git#chore/bench
+  
+      - name: benchmark
+        run: |
+          cd reimu-playground
+          npx bench-hexo benchmark
+          npx bench-hexo memory -c 10
+          npx bench-hexo memory -c 10 --no-clean
+  bench-hexo-next-c-20-post-500:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          path: reimu
+
+      - name: Checkout external repository
+        uses: actions/checkout@v4
+        with:
+          repository: D-Sketon/reimu-playground
+          path: reimu-playground
+
+      - name: Checkout external Many Posts
+        uses: actions/checkout@v4
+        with:
+          repository: hexojs/hexo-many-posts
+          path: hexo-many-posts
+
+      - name: Copy files to target directory
+        run: |
+          cp -r reimu/* reimu-playground/themes/reimu
+          mkdir -p reimu-playground/source/_posts/hexo-many-posts1
+          cp -r hexo-many-posts/* reimu-playground/source/_posts/hexo-many-posts1
+
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: |
+          cd reimu-playground
+          npm install
+          npm i hexo@https://github.com/D-Sketon/hexo.git#chore/bench
+  
+      - name: benchmark
+        run: |
+          cd reimu-playground
+          npx bench-hexo benchmark
+          npx bench-hexo memory -c 20
+          npx bench-hexo memory -c 20 --no-clean
+  bench-hexo-next-c-Infinity-post-500:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          path: reimu
+
+      - name: Checkout external repository
+        uses: actions/checkout@v4
+        with:
+          repository: D-Sketon/reimu-playground
+          path: reimu-playground
+
+      - name: Checkout external Many Posts
+        uses: actions/checkout@v4
+        with:
+          repository: hexojs/hexo-many-posts
+          path: hexo-many-posts
+
+      - name: Copy files to target directory
+        run: |
+          cp -r reimu/* reimu-playground/themes/reimu
+          mkdir -p reimu-playground/source/_posts/hexo-many-posts1
+          cp -r hexo-many-posts/* reimu-playground/source/_posts/hexo-many-posts1
+
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: |
+          cd reimu-playground
+          npm install
+          npm i hexo@https://github.com/D-Sketon/hexo.git#chore/bench
+  
+      - name: benchmark
+        run: |
+          cd reimu-playground
+          npx bench-hexo benchmark
+          npx bench-hexo memory
+          npx bench-hexo memory --no-clean
