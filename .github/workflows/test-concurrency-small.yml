@@ -30,6 +30,10 @@ jobs:
           repository: hexojs/hexo-many-posts
           path: hexo-many-posts
 
+      - name: Copy files to target directory
+        run: |
+          cp -r reimu/* reimu-playground/themes/reimu
+
       - name: Install Node
         uses: actions/setup-node@v2
         with:
@@ -67,6 +71,10 @@ jobs:
         with:
           repository: hexojs/hexo-many-posts
           path: hexo-many-posts
+
+      - name: Copy files to target directory
+        run: |
+          cp -r reimu/* reimu-playground/themes/reimu
 
       - name: Install Node
         uses: actions/setup-node@v2
@@ -106,6 +114,10 @@ jobs:
           repository: hexojs/hexo-many-posts
           path: hexo-many-posts
 
+      - name: Copy files to target directory
+        run: |
+          cp -r reimu/* reimu-playground/themes/reimu
+
       - name: Install Node
         uses: actions/setup-node@v2
         with:
@@ -144,6 +156,10 @@ jobs:
           repository: hexojs/hexo-many-posts
           path: hexo-many-posts
 
+      - name: Copy files to target directory
+        run: |
+          cp -r reimu/* reimu-playground/themes/reimu
+          
       - name: Install Node
         uses: actions/setup-node@v2
         with:
