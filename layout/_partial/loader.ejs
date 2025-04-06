@@ -3,7 +3,7 @@
     <div class="loading-left-bg loading-bg"></div>
     <div class="loading-right-bg loading-bg"></div>
     <div class="spinner-box">
-      <div class="loading-taichi">
+      <div class="loading-taichi <%- theme.preloader.rotate ? 'rotate' : '' %>">
         <% if (theme.preloader.icon) { %>
           <img src="<%- url_for(theme.preloader.icon, {relative: false})%>" alt="loading" />
         <% } else { %>

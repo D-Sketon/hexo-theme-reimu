@@ -1,10 +1,10 @@
 const shareMap = {
-  weibo: (url, title) => `http://service.weibo.com/share/share.php?url=${url}&appkey=&title=${title}&pic=&ralateUid=`,
+  weibo: (url, title) => `https://service.weibo.com/share/share.php?url=${url}&appkey=&title=${title}&pic=&ralateUid=`,
   facebook: (url) => `https://www.facebook.com/sharer/sharer.php?u=${url}`,
   twitter: (url, title, desc, source) => `https://twitter.com/intent/tweet?url=${url}&text=${title}&via=${source}`,
   linkedin: (url, title, desc) => `https://www.linkedin.com/shareArticle?url=${url}&title=${title}&summary=${desc}&mini=true&ro=true`,
   reddit: (url, title) => `https://www.reddit.com/submit?url=${url}&title=${title}`,
-  qq: (url, title, desc, source) => `http://connect.qq.com/widget/shareqq/index.html?url=${url}&title=${title}&desc=${desc}&source=${source}`,
+  qq: (url, title, desc, source) => `https://connect.qq.com/widget/shareqq/index.html?url=${"www.baidu.com"}&title=${title}&desc=${desc}&source=${source}`,
   weixin: () => `javascript:;`,
 }
 

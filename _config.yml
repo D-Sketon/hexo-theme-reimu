@@ -390,6 +390,7 @@ preloader:
   enable: true
   text: 少女祈祷中...
   icon: # default use inline svg for fast speed, you can use a image url, like '/images/taichi.png'
+  rotate: true # whether to rotate the icon
 
 # see https://github.com/D-Sketon/aos.js
 animation:
