@@ -25,7 +25,7 @@
           <section id="main"><%- body %></section>
         </div>
         <% if (theme.player.aplayer.enable && !theme.player.meting.enable && theme.player.aplayer.options.fixed === true) { %>
-          <div id="aplayer" theme="var(--color-link)" data-aos="<%= theme.animation.options.home.sidebar %>"></div>
+          <div id="aplayer" theme="var(--color-link)"></div>
         <% } %>
         <% if (theme.player.meting.enable && theme.player.aplayer.options.fixed === true) { %>
           <meting-js

@@ -397,11 +397,26 @@
   <%- js({src: vendorCdn(theme.vendor.js.aplayer)[0], integrity: vendorCdnIntegrity(theme.vendor.js.aplayer)[0], crossorigin: "anonymous"}) %>
   <% if (!theme.player.meting.enable) { %>
     <script>
+      var isMobile = window.matchMedia('(max-width: 959px)').matches;
+      if (isMobile) {
+      const aplayer = _$('#aplayer');
+        if (aplayer) {
+          const aside = aplayer.parentNode;
+          if (aside?.tagName === 'ASIDE') {
+            aplayer.removeAttribute('data-aos');
+            aside.removeChild(aplayer);
+            const wrap = _$('#wrap');
+            if (wrap) {
+              wrap.appendChild(aplayer);
+            }
+          }
+        }
+      }
       const ap = new APlayer({
         theme: "var(--color-link)",
         container: document.getElementById('aplayer'),
         audio: <%- JSON.stringify(theme.player.aplayer.options.audio) %> || [],
-        fixed: <%= JSON.stringify(theme.player.aplayer.options.fixed) %> || false,
+        fixed: isMobile ? true : (<%= JSON.stringify(theme.player.aplayer.options.fixed) %> || false),
         autoplay: <%= JSON.stringify(theme.player.aplayer.options.autoplay) %> || false,
         loop: '<%= theme.player.aplayer.options.loop %>' || 'all',
         order: '<%= theme.player.aplayer.options.order %>' || 'list',
@@ -416,12 +431,29 @@
 <% } %>
 
 <% if (theme.player.meting.enable) { %>
-  <%- js({src: vendorCdn(theme.vendor.js.meting)[0], integrity: vendorCdnIntegrity(theme.vendor.js.meting)[0], crossorigin: "anonymous"}) %>
   <% if (theme.player.meting.meting_api) { %>
     <script>
       var meting_api = "<%= theme.player.meting.meting_api %>";
     </script>
   <% } %>
+  <script>
+    var isMobile = window.matchMedia('(max-width: 959px)').matches;
+    if (isMobile) {
+      const meting = _$('meting-js');
+      if (meting) {
+        meting.setAttribute('fixed', 'true');
+        const aside = meting.parentNode;
+        if (aside?.tagName === 'ASIDE') {
+          aside.removeChild(meting);
+          const wrap = _$('#wrap');
+          if (wrap) {
+            wrap.appendChild(meting);
+          }
+        }
+      }
+    }
+  </script>
+  <%- js({src: vendorCdn(theme.vendor.js.meting)[0], integrity: vendorCdnIntegrity(theme.vendor.js.meting)[0], crossorigin: "anonymous"}) %>
 <% } %>
 
 <% if (theme.pangu.enable) { %>
