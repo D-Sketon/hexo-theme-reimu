@@ -24,27 +24,6 @@
           <%- partial('_partial/sidebar', { post: page }) %>
           <section id="main"><%- body %></section>
         </div>
-        <% if (theme.player.aplayer.enable && !theme.player.meting.enable && theme.player.aplayer.options.fixed === true) { %>
-          <div id="aplayer" theme="var(--color-link)"></div>
-        <% } %>
-        <% if (theme.player.meting.enable && theme.player.aplayer.options.fixed === true) { %>
-          <meting-js
-            theme="var(--color-link)"
-            <% if (theme.player.meting.options.id != null) { %>id="<%= theme.player.meting.options.id %>"<% } %>
-            <% if (theme.player.meting.options.server != null) { %>server="<%= theme.player.meting.options.server %>"<% } %>
-            <% if (theme.player.meting.options.type != null) { %>type="<%= theme.player.meting.options.type %>"<% } %>
-            <% if (theme.player.meting.options.auto != null) { %>auto="<%= theme.player.meting.options.auto %>"<% } %>
-            <% if (theme.player.aplayer.options.fixed != null) { %>fixed="<%= theme.player.aplayer.options.fixed %>"<% } %>
-            <% if (theme.player.aplayer.options.autoplay != null) { %>autoplay="<%= theme.player.aplayer.options.autoplay %>"<% } %>
-            <% if (theme.player.aplayer.options.loop != null) { %>loop="<%= theme.player.aplayer.options.loop %>"<% } %>
-            <% if (theme.player.aplayer.options.order != null) { %>order="<%= theme.player.aplayer.options.order %>"<% } %>
-            <% if (theme.player.aplayer.options.preload != null) { %>preload="<%= theme.player.aplayer.options.preload %>"<% } %>
-            <% if (theme.player.aplayer.options.volume != null) { %>volume="<%= theme.player.aplayer.options.volume %>"<% } %>
-            <% if (theme.player.aplayer.options.mutex != null) { %>mutex="<%= theme.player.aplayer.options.mutex %>"<% } %>
-            <% if (theme.player.aplayer.options.listFolded != null) { %>list-folded="<%= theme.player.aplayer.options.listFolded %>"<% } %>
-            <% if (theme.player.aplayer.options.lrcType != null) { %>lrc-type="<%= theme.player.aplayer.options.lrcType %>"<% } %>
-          ></meting-js>
-        <% } %>
         <%- partial_lang('_partial/footer', null, { cache: !config.relative_link, lang: page.lang }) %>
         <% if (theme.top.enable) { %>
           <div class="sidebar-top">
@@ -72,6 +51,27 @@
           <img class="reimu-bg" src="<%- url_for('/images/reimu.png', {relative: false}) %>"/>
         </div>
       </div>
+    <% } %>
+    <% if (theme.player.aplayer.enable && !theme.player.meting.enable && theme.player.aplayer.options.fixed === true) { %>
+      <div id="aplayer" theme="var(--color-link)"></div>
+    <% } %>
+    <% if (theme.player.meting.enable && theme.player.aplayer.options.fixed === true) { %>
+      <meting-js
+        theme="var(--color-link)"
+        <% if (theme.player.meting.options.id != null) { %>id="<%= theme.player.meting.options.id %>"<% } %>
+        <% if (theme.player.meting.options.server != null) { %>server="<%= theme.player.meting.options.server %>"<% } %>
+        <% if (theme.player.meting.options.type != null) { %>type="<%= theme.player.meting.options.type %>"<% } %>
+        <% if (theme.player.meting.options.auto != null) { %>auto="<%= theme.player.meting.options.auto %>"<% } %>
+        <% if (theme.player.aplayer.options.fixed != null) { %>fixed="<%= theme.player.aplayer.options.fixed %>"<% } %>
+        <% if (theme.player.aplayer.options.autoplay != null) { %>autoplay="<%= theme.player.aplayer.options.autoplay %>"<% } %>
+        <% if (theme.player.aplayer.options.loop != null) { %>loop="<%= theme.player.aplayer.options.loop %>"<% } %>
+        <% if (theme.player.aplayer.options.order != null) { %>order="<%= theme.player.aplayer.options.order %>"<% } %>
+        <% if (theme.player.aplayer.options.preload != null) { %>preload="<%= theme.player.aplayer.options.preload %>"<% } %>
+        <% if (theme.player.aplayer.options.volume != null) { %>volume="<%= theme.player.aplayer.options.volume %>"<% } %>
+        <% if (theme.player.aplayer.options.mutex != null) { %>mutex="<%= theme.player.aplayer.options.mutex %>"<% } %>
+        <% if (theme.player.aplayer.options.listFolded != null) { %>list-folded="<%= theme.player.aplayer.options.listFolded %>"<% } %>
+        <% if (theme.player.aplayer.options.lrcType != null) { %>lrc-type="<%= theme.player.aplayer.options.lrcType %>"<% } %>
+      ></meting-js>
     <% } %>
     <%- partial('_partial/after-footer', {post: page}) %>
     <% if (theme.injector.body_end) { %>

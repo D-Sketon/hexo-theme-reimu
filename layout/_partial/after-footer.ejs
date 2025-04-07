@@ -405,10 +405,7 @@
           if (aside?.tagName === 'ASIDE') {
             aplayer.removeAttribute('data-aos');
             aside.removeChild(aplayer);
-            const wrap = _$('#wrap');
-            if (wrap) {
-              wrap.appendChild(aplayer);
-            }
+            document.body.appendChild(aplayer);
           }
         }
       }
@@ -445,10 +442,7 @@
         const aside = meting.parentNode;
         if (aside?.tagName === 'ASIDE') {
           aside.removeChild(meting);
-          const wrap = _$('#wrap');
-          if (wrap) {
-            wrap.appendChild(meting);
-          }
+          document.body.appendChild(meting);
         }
       }
     }
