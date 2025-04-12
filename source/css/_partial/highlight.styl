@@ -256,10 +256,7 @@ pre
   margin: 5px
   z-index: 1
   filter: invert(50%)
-  if reimu_cursor
-    cursor: var(--cursor-pointer)
-  else
-    cursor: pointer
+  cursor: var(--cursor-pointer) !important
   color: #fff
   transition: .3s
 
@@ -272,19 +269,13 @@ pre
   font-weight: bold
   z-index: 1
   filter: invert(50%)
-  if reimu_cursor
-    cursor: var(--cursor-pointer)
-  else
-    cursor: pointer
+  cursor: var(--cursor-pointer) !important
 
 .code-expand
   margin: 5px
   filter: invert(50%)
   z-index: 1
-  if reimu_cursor
-    cursor: var(--cursor-pointer)
-  else
-    cursor: pointer
+  cursor: var(--cursor-pointer) !important
   transition: .3s
   transform: rotate(0deg)
   color: #fff

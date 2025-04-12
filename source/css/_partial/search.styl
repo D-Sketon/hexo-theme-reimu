@@ -38,10 +38,7 @@
 .popup-btn-close
   color: var(--red-1)
   font: 20px bold
-  if reimu_cursor
-    cursor: var(--cursor-pointer)
-  else
-    cursor: pointer
+  cursor: var(--cursor-pointer) !important
   padding-left: 15px
   transition: 0.3s
 
@@ -80,8 +77,7 @@
 
 .reimu-powered
   float: right
-  if reimu_cursor
-    cursor: var(--cursor-default) !important
+  cursor: var(--cursor-default) !important
 
   img
     display: inline-block

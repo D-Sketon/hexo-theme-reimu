@@ -29,8 +29,7 @@ input, button
 html, body, #container
   height: 100%
   scroll-behavior: smooth
-  if reimu_cursor
-    cursor: var(--cursor-default)
+  cursor: var(--cursor-default)
 
 body
   width: 100%
@@ -45,21 +44,20 @@ body
     background: var(--red-1)
     color: #fff
 
-if reimu_cursor
-  a
-    cursor: var(--cursor-pointer) !important
+a
+  cursor: var(--cursor-pointer) !important
 
-  .site-search
-    input
-      cursor: var(--cursor-text) !important
-  
-  #main
-    span, p, code, kbd, input, textarea
-      cursor: var(--cursor-text) !important
+.site-search
+  input
+    cursor: var(--cursor-text) !important
 
-    nav
-      span
-        cursor: var(--cursor-default) !important
+#main
+  span, p, code, kbd, input, textarea
+    cursor: var(--cursor-text) !important
+
+  nav
+    span
+      cursor: var(--cursor-default) !important
 
 #container
   position: relative

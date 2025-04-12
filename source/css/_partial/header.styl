@@ -163,10 +163,7 @@ $nav-link-wrap
 
 .main-nav-icon
   @extend $nav-link
-  if reimu_cursor
-    cursor: var(--cursor-pointer)
-  else
-    cursor: pointer
+  cursor: var(--cursor-pointer) !important
   padding: 15px 5px
   display: flex
   align-items: center
@@ -208,7 +205,7 @@ $nav-link-wrap
 .select-selected {
   padding: 14px;
   color: var(--red-2);
-  cursor: pointer;
+  cursor: var(--cursor-pointer) !important;
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -233,7 +230,7 @@ $nav-link-wrap
 .select-items li {
   list-style: none;
   padding: 10px;
-  cursor: pointer;
+  cursor: var(--cursor-pointer) !important;
   color: var(--red-2);
   transition: 1s;
 }

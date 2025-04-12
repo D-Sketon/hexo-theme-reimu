@@ -121,7 +121,7 @@ $article-meta-tag
       content: "\f0c1"
 
     font-size: 0.5em
-    margin-left: 0.5em
+    margin: 0 0.5em
     vertical-align: bottom
     font-style: normal
 
@@ -134,7 +134,7 @@ $article-meta-tag
       content: "\f0c1"
 
     font-size: 0.5em
-    margin-left: 0.5em
+    margin: 0 0.5em
     vertical-align: bottom
     font-style: normal
 
@@ -213,10 +213,7 @@ $article-meta-tag
   summary
     font-size: 1.1em
     font-weight: bold
-    if reimu_cursor
-      cursor: var(--cursor-pointer)
-    else
-      cursor: pointer
+    cursor: var(--cursor-pointer) !important
     padding: 8px
     border: none
     border-radius: 10px
