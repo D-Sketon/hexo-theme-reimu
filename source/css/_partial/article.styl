@@ -112,6 +112,32 @@ $article-meta-tag
     &:hover
       text-decoration: underline
 
+  a:not(:has(code),h1 a,h2 a,h3 a,h4 a,h5 a,h6 a,.post-link-card a,.friend-item-wrap a,a.article-gallery-item)::after
+    if hexo-config("icon_font")
+        font-family: font-icon
+        content: "\e639"
+    else
+      font-family: var(--font-icon)
+      content: "\f0c1"
+
+    font-size: 0.5em
+    margin-left: 0.5em
+    vertical-align: bottom
+    font-style: normal
+
+  a:not(h1 a,h2 a,h3 a,h4 a,h5 a,h6 a) code::after 
+    if hexo-config("icon_font")
+        font-family: font-icon
+        content: "\e639"
+    else
+      font-family: var(--font-icon)
+      content: "\f0c1"
+
+    font-size: 0.5em
+    margin-left: 0.5em
+    vertical-align: bottom
+    font-style: normal
+
   ul, ol, dl
     margin-top: (line-height/3*2)
     margin-bottom: (line-height/3*2)

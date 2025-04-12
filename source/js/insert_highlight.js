@@ -91,7 +91,7 @@
         tips.copyright?.enable &&
         selectedText.length >= tips.copyright?.count
       ) {
-        selectedText = selectedText + "\n\n" + tips.copyright?.content ?? "";
+        selectedText = selectedText + "\n\n" + (tips.copyright?.content ?? "");
       }
       return selectedText;
     },
