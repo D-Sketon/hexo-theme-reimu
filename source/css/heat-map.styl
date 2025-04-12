@@ -23,8 +23,7 @@
 
 .calendar-container {
   display: grid;
-  grid-template-columns: auto repeat(53, 10px);
-  grid-template-rows: auto repeat(7, 10px) auto;
+  grid: auto repeat(7, 10px) auto / auto repeat(53, 10px);
   gap: 3px;
 
 
@@ -61,13 +60,11 @@
 
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: subgrid;
-  grid-template-rows: subgrid;
+  grid-template: subgrid / subgrid;
 }
 
 
 .tile {
-  display: block;
   width: 10px;
   height: 10px;
   border-radius: 2px;
@@ -118,7 +115,6 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  justify-items: center;
   gap: 4px;
   flex-shrink: 0;
 }
@@ -157,7 +153,6 @@
   .year-select {
     width: 100%;
     height: auto;
-    display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: center;
