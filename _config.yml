@@ -167,9 +167,21 @@ reimu_cursor:
 # set to false to enable fontawesome
 icon_font: 4552607_0khxww3tj3q9
 
+# Font loading strategy
+# Custom Font -> Google Fonts -> Local FallBack Font
+
+# Custom Font
+custom_font:
+  enable: false
+  article:
+    # - css: https://fontsapi.zeoseven.com/292/main/result.css
+      # name: LXGW WenKai
+  code:
+
 # https://fonts.google.com/
 # Google Fonts, higher priority than local_font
 font:
+  enable: true
   article:
     - Mulish
     - Noto Serif SC

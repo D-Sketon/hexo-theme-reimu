@@ -28,7 +28,12 @@
     <%= config.title %>
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <%- vendorFont(site) %>
+  <% if (theme.custom_font?.enable) { %>
+    <%- vendorFont() %>
+  <% } %>
+  <% if (theme.font?.enable) { %>
+    <%- vendorGoogleFont() %>
+  <% } %>
   <% if (!theme.icon_font) { %>
     <%- css(vendorCdn(theme.vendor.css.fontawesome.high_priority)) %>
     <%- asyncCss(vendorCdn(theme.vendor.css.fontawesome.low_priority)) %>

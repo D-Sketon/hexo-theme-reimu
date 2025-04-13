@@ -13,6 +13,13 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
   const localCodeFamilies = (hexo.theme.config.local_font?.code ?? [])
     .map((i) => `'${i}'`)
     .join(",");
+  // custom font families
+  const customArticleFamilies = (hexo.theme.config.custom_font?.article ?? [])
+    .map((i) => `'${i.name}'`)
+    .join(",");
+  const customCodeFamilies = (hexo.theme.config.custom_font?.code ?? [])
+    .map((i) => `'${i.name}'`)
+    .join(",");
 
   // sponsor and article_copyright
   let postHasSponsor = false;
@@ -101,6 +108,8 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
         ? localCodeFamilies
         : "Menlo, Monaco, Consolas, monospace"
     )
+    .define("custom-article-families", customArticleFamilies.length ? customArticleFamilies + "," : "")
+    .define("custom-code-families", customCodeFamilies.length ? customCodeFamilies + "," : "")
     .define("post-has-sponsor", postHasSponsor)
     .define("post-has-copyright", postHasCopyright)
     .define("post-has-sidebar", postHasSidebar)
