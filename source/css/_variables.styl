@@ -1,13 +1,13 @@
 // Colors
 :root
-  --red-0: #ff0000
-  --red-1: #ff5252
-  --red-2: #ff7c7c
-  --red-3: #ffafaf
-  --red-4: #ffd0d0
-  --red-5: #ffecec
-  --red-5-5: #fff3f3
-  --red-6: #fff7f7
+  --red-0: unquote(light-red-0)
+  --red-1: unquote(light-red-1)
+  --red-2: unquote(light-red-2)
+  --red-3: unquote(light-red-3)
+  --red-4: unquote(light-red-4)
+  --red-5: unquote(light-red-5)
+  --red-5-5: unquote(light-red-5-5)
+  --red-6: unquote(light-red-6)
 
   --grey-9: #888
   --grey-7: var(--color-default)
@@ -28,23 +28,23 @@
   --color-meta-shadow: var(--red-6)
   --color-hover-shadow: rgba(120, 120, 120, 0.15)
   --color-h2-after: var(--red-1)
-  --color-red-6-shadow: rgba(255, 78, 78, 0.6)
-  --color-red-3-shadow: rgba(255, 78, 78, 0.3)
+  --color-red-6-shadow: unquote(light-color-red-6-shadow)
+  --color-red-3-shadow: unquote(light-color-red-3-shadow)
 
-  --highlight-nav: #e6e6e6
-  --highlight-scrollbar: #d6d6d6
-  --highlight-background: #f7f7f7
-  --highlight-current-line: #dadada
-  --highlight-selection: #e9e9e9
-  --highlight-foreground: #4d4d4d
-  --highlight-comment: #7d7d7d
-  --highlight-red: #c8362b
-  --highlight-orange: #b66014
-  --highlight-yellow: #cb911d
-  --highlight-green: #2ea52e
-  --highlight-aqua: #479d9d
-  --highlight-blue: #1973b8
-  --highlight-purple: #7135ac
+  --highlight-nav: unquote(light-highlight-nav)
+  --highlight-scrollbar: unquote(light-highlight-scrollbar)
+  --highlight-background: unquote(light-highlight-background)
+  --highlight-current-line: unquote(light-highlight-current-line)
+  --highlight-selection: unquote(light-highlight-selection)
+  --highlight-foreground: unquote(light-highlight-foreground)
+  --highlight-comment: unquote(light-highlight-comment)
+  --highlight-red: unquote(light-highlight-red)
+  --highlight-orange: unquote(light-highlight-orange)
+  --highlight-yellow: unquote(light-highlight-yellow)
+  --highlight-green: unquote(light-highlight-green)
+  --highlight-aqua: unquote(light-highlight-aqua)
+  --highlight-blue: unquote(light-highlight-blue)
+  --highlight-purple: unquote(light-highlight-purple)
 
   if cursor-enabled
     --cursor-default: url(cursor-default), auto
@@ -61,10 +61,10 @@
 [data-theme="dark"]
   &:root
     --red-0: var(--red-1)
-    --red-4: rgba(255,208,208,0.5)
-    --red-5: rgba(255,228,228,0.15)
-    --red-5-5: rgba(255,236,236,0.05)
-    --red-6: rgba(255,243,243,0.2)
+    --red-4: unquote(dark-red-4)
+    --red-5: unquote(dark-red-5)
+    --red-5-5: unquote(dark-red-5-5)
+    --red-6: unquote(dark-red-6)
 
     --color-archive-year: #999
     --color-default: #999
@@ -80,20 +80,20 @@
     --color-meta-shadow: rgba(0, 0, 0, 0.2)
     --color-hover-shadow: rgba(0, 0, 0, 0.2)
 
-    --highlight-nav: #2e353f
-    --highlight-scrollbar: #454d59
-    --highlight-background: #22272e
-    --highlight-current-line: #393939
-    --highlight-selection: #515151
-    --highlight-foreground: #cccccc
-    --highlight-comment: #999999
-    --highlight-red: #f47067
-    --highlight-orange: #f69d50
-    --highlight-yellow: #ffcc66
-    --highlight-green: #99cc99
-    --highlight-aqua: #66cccc
-    --highlight-blue: #54b6ff
-    --highlight-purple: #dcbdfb
+    --highlight-nav: unquote(dark-highlight-nav)
+    --highlight-scrollbar: unquote(dark-highlight-scrollbar)
+    --highlight-background: unquote(dark-highlight-background)
+    --highlight-current-line: unquote(dark-highlight-current-line)
+    --highlight-selection: unquote(dark-highlight-selection)
+    --highlight-foreground: unquote(dark-highlight-foreground)
+    --highlight-comment: unquote(dark-highlight-comment)
+    --highlight-red: unquote(dark-highlight-red)
+    --highlight-orange: unquote(dark-highlight-orange)
+    --highlight-yellow: unquote(dark-highlight-yellow)
+    --highlight-green: unquote(dark-highlight-green)
+    --highlight-aqua: unquote(dark-highlight-aqua)
+    --highlight-blue: unquote(dark-highlight-blue)
+    --highlight-purple: unquote(dark-highlight-purple)
     img
       filter: brightness(70%)
 

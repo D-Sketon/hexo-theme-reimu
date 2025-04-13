@@ -598,7 +598,7 @@ pangu:
   enable: false  # enable pangu.js to add space between Chinese and English
 
 ########################################
-# Material Theme
+# Theme
 ########################################
 
 # experimental, may have a lot of bugs, open with caution!
@@ -609,6 +609,53 @@ material_theme:
   # so make sure your custom covers will not be blocked by the browser's CORS policy
   enable: false # enable material_theme to generate dynamic color schemes based on the banner image
 
+internal_theme:
+  light:
+    --red-0: '#ff0000'
+    --red-1: '#ff5252'
+    --red-2: '#ff7c7c'
+    --red-3: '#ffafaf'
+    --red-4: '#ffd0d0'
+    --red-5: '#ffecec'
+    --red-5-5: '#fff3f3'
+    --red-6: '#fff7f7'
+    --color-red-6-shadow: 'rgba(255, 78, 78, 0.6)'
+    --color-red-3-shadow: 'rgba(255, 78, 78, 0.3)'
+
+    --highlight-nav: '#e6e6e6'
+    --highlight-scrollbar: '#d6d6d6'
+    --highlight-background: '#f7f7f7'
+    --highlight-current-line: '#dadada'
+    --highlight-selection: '#e9e9e9'
+    --highlight-foreground: '#4d4d4d'
+    --highlight-comment: '#7d7d7d'
+    --highlight-red: '#c8362b'
+    --highlight-orange: '#b66014'
+    --highlight-yellow: '#cb911d'
+    --highlight-green: '#2ea52e'
+    --highlight-aqua: '#479d9d'
+    --highlight-blue: '#1973b8'
+    --highlight-purple: '#7135ac'
+  dark:
+    --red-4: 'rgba(255, 208, 208, 0.5)'
+    --red-5: 'rgba(255,228,228,0.15)'
+    --red-5-5: 'rgba(255,236,236,0.05)'
+    --red-6: 'rgba(255, 243, 243, 0.2)'
+
+    --highlight-nav: '#2e353f'
+    --highlight-scrollbar: '#454d59'
+    --highlight-background: '#22272e'
+    --highlight-current-line: '#393939'
+    --highlight-selection: '#515151'
+    --highlight-foreground: '#cccccc'
+    --highlight-comment: '#999999'
+    --highlight-red: '#f47067'
+    --highlight-orange: '#f69d50'
+    --highlight-yellow: '#ffcc66'
+    --highlight-green: '#99cc99'
+    --highlight-aqua: '#66cccc'
+    --highlight-blue: '#54b6ff'
+    --highlight-purple: '#dcbdfb'
 
 ########################################
 # Vendor
