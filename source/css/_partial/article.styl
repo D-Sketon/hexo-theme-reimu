@@ -57,6 +57,7 @@ $article-meta-tag
 .article-entry
   @extend $base-style
   clearfix()
+  overflow: hidden
   color: var(--color-default)
   padding: 0 article-padding + 15px
 
@@ -441,6 +442,9 @@ if hexo-config("math.enable") and hexo-config("math.katex.enable")
   .katex-display
     overflow-x: auto
     overflow-y: hidden
+    
+    &::-webkit-scrollbar
+      display: none
 
   .katex
     width: calc(100% - 2px)
@@ -458,3 +462,15 @@ if hexo-config("math.enable") and hexo-config("math.katex.enable")
     position: relative !important
     float: right
     margin-left: 0.25rem
+
+if hexo-config("math.enable") and hexo-config("math.mathjax.enable")
+  mjx-container
+    display: inline-grid
+    overflow-x: auto
+    overflow-y: hidden
+    max-width: 100%
+    min-width: auto !important
+    &::-webkit-scrollbar
+      display: none
+    
+  
