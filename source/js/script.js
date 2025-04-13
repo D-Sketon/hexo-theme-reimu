@@ -137,17 +137,7 @@ window.throttle = (func, limit) => {
     const extractor = new materialTheme.ColorThemeExtractor({
       needTransition: false,
     });
-    async function generateScheme(imageFile) {
-      const scheme = await extractor.generateThemeSchemeFromImage(imageFile);
-      document.documentElement.style.setProperty(
-        "--md-sys-color-primary-light",
-        extractor.hexFromArgb(scheme.schemes.light.props.primary),
-      );
-      document.documentElement.style.setProperty(
-        "--md-sys-color-primary-dark",
-        extractor.hexFromArgb(scheme.schemes.dark.props.primary),
-      );
-
+    function appendStylesheet() {
       const existingStyle = _$("#reimu-generated-theme-style");
       if (existingStyle) {
         return;
@@ -190,6 +180,23 @@ window.throttle = (func, limit) => {
       style.textContent = css;
       document.body.appendChild(style);
     }
+    async function generateScheme(imageFile) {
+      const scheme = await extractor.generateThemeSchemeFromImage(imageFile);
+      document.documentElement.style.setProperty(
+        "--md-sys-color-primary-light",
+        extractor.hexFromArgb(scheme.schemes.light.props.primary),
+      );
+      document.documentElement.style.setProperty(
+        "--md-sys-color-primary-dark",
+        extractor.hexFromArgb(scheme.schemes.dark.props.primary),
+      );
+
+      const existingStyle = _$("#reimu-generated-theme-style");
+      if (existingStyle) {
+        return;
+      }
+      appendStylesheet();
+    }
 
     window.generateSchemeHandler = () => {
       if (window.bannerElement?.src) {
@@ -219,6 +226,7 @@ window.throttle = (func, limit) => {
           "--md-sys-color-primary-dark",
           extractor.hexFromArgb(scheme.schemes.dark.props.primary),
         );
+        appendStylesheet();
       }
     };
   }
