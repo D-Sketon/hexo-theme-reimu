@@ -71,4 +71,19 @@ hexo.on("generateBefore", () => {
       "[REIMU] meting is enabled but aplayer is not enabled. Please enable aplayer first."
     );
   }
+
+  if (themeConfig.i18n?.enable && Array.isArray(themeConfig.i18n?.languages)) {
+    if (themeConfig.i18n?.languages.length === 0) {
+      hexo.log.warn(
+        "[REIMU] i18n is enabled but no languages are set. Please set at least one language."
+      );
+    } else {
+      const defaultLang = themeConfig.i18n?.languages[0];
+      if (defaultLang !== config.language) {
+        hexo.log.warn(
+          `[REIMU] i18n is enabled but the first language (${defaultLang}) is not the same as the default site language(${config.language}).`
+        );
+      }
+    }
+  }
 });
