@@ -88,6 +88,7 @@
 - 🎨 自定义容器
 - ©️ 文章版权声明
 - 🌐 自定义 CDN 源配置
+- 📜 自定义字体
 - 🎨 分享卡片功能
 
 ## 安装
@@ -959,29 +960,58 @@ material_theme:
 
 hexo-theme-reimu 主题支持通过 CSS 变量定制主题颜色，你可以通过修改 `:root` 伪类下的 CSS 变量来定制你的主题颜色。
 
-变量文件位于 `source/css/_variables.styl`，你可以在这个文件中找到所有的 CSS 变量，但其实只需要修改以下伪类下的变量即可：
+~~变量文件位于 `assets/css/_variables.scss`，你可以在这个文件中找到所有的 CSS 变量，但其实只需要修改以下伪类下的变量即可~~
 
-```stylus
-:root
-  --red-0: hsl(0, 100%, 50%)
-  --red-1: hsl(0, 100%, 66%)
-  --red-2: hsl(0, 100%, 74%)
-  --red-3: hsl(0, 100%, 84%)
-  --red-4: hsl(0, 100%, 91%)
-  --red-5: hsl(0, 100%, 95%)
-  --red-5-5: hsl(0, 100%, 96%)
-  --red-6: hsl(0, 100%, 98%)
+v1.8.0 对外暴露了 `internal_theme` 配置用于定制主题颜色 token
 
-  --color-red-6-shadow: hsla(0, 100%, 65%, 0.6)
-  --color-red-3-shadow: hsla(0, 100%, 65%, 0.3)
+```yaml
+internal_theme:
+  light:
+    --red-0: '#ff0000'
+    --red-1: '#ff5252'
+    --red-2: '#ff7c7c'
+    --red-3: '#ffafaf'
+    --red-4: '#ffd0d0'
+    --red-5: '#ffecec'
+    --red-5-5: '#fff3f3'
+    --red-6: '#fff7f7'
+    --color-red-6-shadow: 'rgba(255, 78, 78, 0.6)'
+    --color-red-3-shadow: 'rgba(255, 78, 78, 0.3)'
 
+    --highlight-nav: '#e6e6e6'
+    --highlight-scrollbar: '#d6d6d6'
+    --highlight-background: '#f7f7f7'
+    --highlight-current-line: '#dadada'
+    --highlight-selection: '#e9e9e9'
+    --highlight-foreground: '#4d4d4d'
+    --highlight-comment: '#7d7d7d'
+    --highlight-red: '#c8362b'
+    --highlight-orange: '#b66014'
+    --highlight-yellow: '#cb911d'
+    --highlight-green: '#2ea52e'
+    --highlight-aqua: '#479d9d'
+    --highlight-blue: '#1973b8'
+    --highlight-purple: '#7135ac'
+  dark:
+    --red-4: 'rgba(255, 208, 208, 0.5)'
+    --red-5: 'rgba(255,228,228,0.15)'
+    --red-5-5: 'rgba(255,236,236,0.05)'
+    --red-6: 'rgba(255, 243, 243, 0.2)'
 
-[data-theme="dark"]
-  root
-    --red-4: hsla(0, 100%, 91%, 0.5)
-    --red-5: hsla(0, 100%, 95%, 0.2)
-    --red-5-5: hsla(0, 100%, 96%, 0.1)
-    --red-6: hsla(0, 100%, 98%, 0.2)
+    --highlight-nav: '#2e353f'
+    --highlight-scrollbar: '#454d59'
+    --highlight-background: '#22272e'
+    --highlight-current-line: '#393939'
+    --highlight-selection: '#515151'
+    --highlight-foreground: '#cccccc'
+    --highlight-comment: '#999999'
+    --highlight-red: '#f47067'
+    --highlight-orange: '#f69d50'
+    --highlight-yellow: '#ffcc66'
+    --highlight-green: '#99cc99'
+    --highlight-aqua: '#66cccc'
+    --highlight-blue: '#54b6ff'
+    --highlight-purple: '#dcbdfb'
 ```
 
 #### 自定义字体
@@ -991,6 +1021,7 @@ hexo-theme-reimu 主题支持通过 CSS 变量定制主题颜色，你可以通�
 ```yaml
 # https://fonts.google.com/
 font:
+  enable: true # 是否启用谷歌字体
   article:
     - Mulish
     - Noto Serif SC
@@ -1014,6 +1045,17 @@ local_font:
     - Monaco
     - Consolas
     - monospace
+```
+
+v1.8.0 添加了 `custom_font` 配置用于定义自定义字体，其优先级最高：
+
+```yaml
+custom_font:
+  enable: true
+  article:
+    - css: https://fontsapi.zeoseven.com/292/main/result.css # 字体 css 文件
+      name: LXGW WenKai # 字体名称
+  code:
 ```
 
 #### 定制图标
