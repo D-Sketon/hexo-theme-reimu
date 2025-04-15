@@ -48,6 +48,10 @@ cover: # https://example.com / false / rgb(255,117,117)
 # Control the display of the post toc
 # Its priority is lower than the toc in the Front-matter
 toc: true
+toc_options:
+  list_number: true
+  min_depth: 1
+  max_depth: 3
 
 # Open Graph
 # see https://hexo.io/docs/helpers#open-graph
