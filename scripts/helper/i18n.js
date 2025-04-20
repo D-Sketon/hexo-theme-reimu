@@ -64,14 +64,6 @@ hexo.extend.helper.register("get_langs", function () {
 
 hexo.extend.helper.register("switch_lang", function (lang) {
   const languages = this.get_langs();
-  const prettyUrlsOptions = Object.assign(
-    {
-      trailing_index: true,
-      trailing_html: true,
-    },
-    hexo.config.pretty_urls
-  );
-
   let path = this.page.path;
   const root = this.config.root || "";
   if (path.startsWith(this.page.lang)) {
@@ -87,7 +79,10 @@ hexo.extend.helper.register("switch_lang", function (lang) {
   } else {
     result = root + lang + path;
   }
-  return prettyUrls(result, prettyUrlsOptions);
+  return prettyUrls(result, {
+    trailing_index: false,
+    trailing_html: false,
+  });
 });
 
 hexo.extend.helper.register("url_for_lang", function (path, opt, language) {
