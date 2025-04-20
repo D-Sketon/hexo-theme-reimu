@@ -12,7 +12,12 @@
     background: var(--color-mobile-nav-background)
     z-index: 1001
     transition: 0.3s
+    overflow: auto
 
+    &::-webkit-scrollbar
+      width: 5px
+      height: 5px
+    
     .mobile-nav-on &
       left: 0
 
