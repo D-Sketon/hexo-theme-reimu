@@ -52,26 +52,219 @@
           color: white
           background-color: var(--red-1)
 
-.giscus-comment
-  width: auto
+if has-waline
+  .wl-emoji-popup
+    max-width: calc(100vw - 90px) !important
 
-.gitalk-comment
-  color: var(--color-default)
+  .wl-count
+    color: var(--color-default)
 
-.wl-emoji-popup
-  max-width: calc(100vw - 90px) !important
+  .wl-header input
+    font-size: revert !important
 
-.wl-count
-  color: var(--color-default)
+  .wl-panel
+    margin: .5em 0 !important
 
-.wl-header input
-  font-size: revert !important
+  .wl-action, .wl-sort li
+    cursor: var(--cursor-pointer) !important
 
-.wl-panel
-  margin: .5em 0 !important
+  .wl-header label
+    cursor: var(--cursor-default) !important
 
-.wl-action, .wl-sort li
-  cursor: var(--cursor-pointer) !important
+if has-valine
+  .vcontent
+    padding-left: 10px
+    padding-right: 10px
+  
+  [data-theme="dark"] .v[data-class="v"] .vcards .vcard .vcontent.expand::after,
+  .dark .v[data-class="v"] .vcards .vcard .vcontent.expand::after,
+  .theme__dark .v[data-class="v"] .vcards .vcard .vcontent.expand::after,
+  .night .v[data-class="v"] .vcards .vcard .vcontent.expand::after
+    background: var(--color-wrap) !important
 
-.wl-header label
-  cursor: var(--cursor-default) !important
+  [data-theme="dark"] .v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+  .dark .v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+  .theme__dark .v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+  .night .v[data-class="v"] .vcards .vcard .vcontent.expand::before
+    --valine-linear-gradient-color: unquote("color-mix(in srgb, var(--color-wrap) 10%, transparent)")
+    background: linear-gradient(180deg, var(--valine-linear-gradient-color), var(--color-wrap)) !important
+
+  .v[data-class="v"] .vcards .vcard .vh .vmeta .vat
+    color: var(--red-1) !important
+
+if has-giscus
+  .giscus-comment
+    width: auto
+
+if has-gitalk
+  .gitalk-comment
+    color: var(--color-default)
+
+  .gt-header-comment .gt-header-preview.markdown-body,
+  .gt-comment-content .gt-comment-body.markdown-body
+    h2,
+    h1
+      border-bottom: none
+
+    table
+      display: table
+
+    table tr
+      background-color: transparent !important
+      border: none
+
+    table th
+      border: none
+      border-bottom: 3px solid var(--color-border)
+
+    table td
+      border: none
+      border-bottom: 1px solid var(--color-border)
+
+  .gt-header-textarea
+    background-color: var(--red-6) !important
+    color: var(--color-default)
+
+  .gt-container .gt-header-comment
+    width: 100%
+
+  .gt-container .gt-header-preview,
+  .gt-container .gt-comment-content
+    background-color: var(--color-wrap) !important
+  
+  .gt-container .gt-comment-content
+    &:hover
+      box-shadow: none !important
+    
+  .gt-container .gt-popup
+    background-color: var(--color-wrap) !important
+
+.wl-content,
+.vcontent,
+.gt-header-preview.markdown-body,
+.gt-comment-content .gt-comment-body.markdown-body
+  color: var(--color-default) !important
+  @extend $base-style
+
+  p, table
+    line-height: line-height
+    margin: (line-height/3*2) 0
+
+  h1, h2, h3, h4, h5, h6
+    font-weight: bold
+    line-height: line-height-title
+    margin: line-height-title 0 (line-height-title/3*2)
+
+  h2
+    margin-bottom: 40px
+
+  a
+    color: var(--color-link)
+    text-decoration: none
+    word-break: break-word
+
+    &:hover
+      text-decoration: underline
+
+  ul, ol, dl
+    margin-top: (line-height/3*2)
+    margin-bottom: (line-height/3*2)
+
+  li
+    &:hover
+      &::marker
+        transition: color 0.2s
+        color: var(--red-1)
+
+  img, video
+    max-width: 100%
+    height: auto
+    display: block
+    margin: auto
+
+  table
+    width: 100%
+    border-collapse: collapse
+    border-spacing: 0
+
+  th
+    font-weight: bold
+    border-bottom: 3px solid var(--color-border)
+    padding-bottom: 0.5em
+
+  td
+    border-bottom: 1px solid var(--color-border)
+    padding: 10px 0
+
+  blockquote
+    background: var(--red-5-5)
+    border-left: 6px var(--red-4) solid  !important
+    margin: (line-height/3*2) 0  !important
+    border-radius: post-radius
+    transition: 0.3s
+    padding: 1px 10px  !important
+    box-shadow: 0 0 5px 2px var(--color-meta-shadow)
+
+    &:hover
+      box-shadow: 0 0 6px 4px var(--color-meta-shadow)
+
+    footer
+      font-size: font-size
+      margin: line-height 0
+
+      cite
+        &:before
+          content: "—"
+          padding: 0 0.5em
+  
+  details
+    padding: 18px 12px
+    border-radius: post-radius
+    background-color: var(--red-5-5);
+    box-shadow: 0 0 5px 2px var(--color-meta-shadow)
+    transition: 0.3s
+
+    &:hover
+      box-shadow: 0 0 6px 4px var(--color-meta-shadow)
+
+  summary
+    font-size: 1.1em
+    font-weight: bold
+    cursor: var(--cursor-pointer) !important
+    padding: 8px
+    border: none
+    border-radius: 10px
+    transition: 0.3s
+
+  summary:hover
+    background-color: var(--red-5)
+
+  details[open] summary
+    background-color: var(--red-5)
+
+  details[open] summary:hover
+    background-color: var(--red-5)
+
+  details p
+    margin: 20px 0 0
+    padding: 10px
+    background-color: var(--color-footer-background)
+    border-radius: 10px
+    transition: 0.3s
+
+  hr
+    border-style: none !important
+    background-color: transparent !important
+
+  pre,
+  code
+    font-family: $font-code !important
+    font-size: 95% !important
+    transition: 0.3s
+    word-break: break-word
+
+  code:not(pre code)
+    background: var(--color-code-background) !important
+    padding: 1px 5px !important
+    border-radius: 5px !important
+    color: var(--color-link) !important

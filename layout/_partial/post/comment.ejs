@@ -37,6 +37,7 @@
           var recordIP = JSON.parse('<%= theme.valine.recordIP %>');
           var highlight = JSON.parse('<%= theme.valine.highlight %>');
           var visitor = JSON.parse('<%= theme.valine.visitor %>');
+          var serverURLs = <% if(theme.valine.serverURLs) { %>'<%= theme.valine.serverURLs %>'<% } else { %>undefined<% } %>;
 
           if (window.Valine) {
             new Valine({
@@ -51,7 +52,8 @@
               highlight: highlight,
               visitor: visitor,
               requiredFields: guest_info,
-              path: window.location.pathname
+              path: window.location.pathname,
+              serverURLs
             });
           }
         };

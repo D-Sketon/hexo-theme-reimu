@@ -39,12 +39,13 @@ body
   text-size-adjust: 100%
   font-family: font-basic
   transition: background 1s
+  color: var(--color-default)
 
   ::selection
     background: var(--red-1)
     color: #fff
 
-a
+a, button
   cursor: var(--cursor-pointer) !important
 
 .site-search
@@ -52,7 +53,7 @@ a
     cursor: var(--cursor-text) !important
 
 #main
-  span, p, code, kbd, input, textarea
+  span:not(button span), p:not(button p), code, kbd, input, textarea
     cursor: var(--cursor-text) !important
 
   nav

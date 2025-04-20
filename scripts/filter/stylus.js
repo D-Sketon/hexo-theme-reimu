@@ -1,23 +1,24 @@
 hexo.extend.filter.register("stylus:renderer", (style) => {
+  const themeConfig = hexo.theme.config;
   // google font families
-  const articleFamilies = (hexo.theme.config.font?.article ?? [])
+  const articleFamilies = (themeConfig.font?.article ?? [])
     .map((i) => `'${i}'`)
     .join(",");
-  const codeFamilies = (hexo.theme.config.font?.code ?? [])
+  const codeFamilies = (themeConfig.font?.code ?? [])
     .map((i) => `'${i}'`)
     .join(",");
   // local font families
-  const localArticleFamilies = (hexo.theme.config.local_font?.article ?? [])
+  const localArticleFamilies = (themeConfig.local_font?.article ?? [])
     .map((i) => `'${i}'`)
     .join(",");
-  const localCodeFamilies = (hexo.theme.config.local_font?.code ?? [])
+  const localCodeFamilies = (themeConfig.local_font?.code ?? [])
     .map((i) => `'${i}'`)
     .join(",");
   // custom font families
-  const customArticleFamilies = (hexo.theme.config.custom_font?.article ?? [])
+  const customArticleFamilies = (themeConfig.custom_font?.article ?? [])
     .map((i) => `'${i.name}'`)
     .join(",");
-  const customCodeFamilies = (hexo.theme.config.custom_font?.code ?? [])
+  const customCodeFamilies = (themeConfig.custom_font?.code ?? [])
     .map((i) => `'${i.name}'`)
     .join(",");
 
@@ -42,10 +43,9 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
       }
     });
   }
-  postHasSponsor = postHasSponsor || hexo.theme.config.sponsor.enable;
-  postHasCopyright =
-    postHasCopyright || hexo.theme.config.article_copyright.enable;
-  
+  postHasSponsor = postHasSponsor || themeConfig.sponsor.enable;
+  postHasCopyright = postHasCopyright || themeConfig.article_copyright.enable;
+
   // sidebar
   let postHasSidebar = false;
   hexo.locals.get("posts").forEach((post) => {
@@ -55,23 +55,21 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
   });
 
   // widgets
-  const widgetConfig = hexo.theme.config.widgets;
+  const widgetConfig = themeConfig.widgets;
   const siteHasWidget = Array.isArray(widgetConfig) && widgetConfig.length > 0;
 
   // social keys
-  const socialKeys = Object.keys(hexo.theme.config.social || {});
-  const shareKeys = hexo.theme.config.share || [];
+  const socialKeys = Object.keys(themeConfig.social || {});
+  const shareKeys = themeConfig.share || [];
 
   // custom icons
-  const footerIcon =
-    hexo.theme.config.footer.icon.url || "../images/taichi.png";
-  const sponsorIcon =
-    hexo.theme.config.sponsor.icon.url || "../images/taichi.png";
-  const topIcon = hexo.theme.config.top.icon.url || "../images/taichi.png";
+  const footerIcon = themeConfig.footer.icon.url || "../images/taichi.png";
+  const sponsorIcon = themeConfig.sponsor.icon.url || "../images/taichi.png";
+  const topIcon = themeConfig.top.icon.url || "../images/taichi.png";
 
   // reimu_cursor
   // just for compatible
-  const cursor = hexo.theme.config.reimu_cursor;
+  const cursor = themeConfig.reimu_cursor;
   let cursorEnabled = true;
   let cursorDefault = "../images/cursor/reimu-cursor-default.png";
   let cursorPointer = "../images/cursor/reimu-cursor-pointer.png";
@@ -87,9 +85,20 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
     cursorText = cursor.cursor.text || cursorText;
   }
   // Internal theme token
-  const internalTheme = hexo.theme.config.internal_theme || {};
+  const internalTheme = themeConfig.internal_theme || {};
   const { light = {}, dark = {} } = internalTheme;
 
+  // comments
+  const hasValine =
+    themeConfig.valine?.enable &&
+    themeConfig.valine?.appId &&
+    themeConfig.valine?.appKey;
+  const hasWaline = themeConfig.waline?.enable && themeConfig.waline?.serverURL;
+  const hasGitalk =
+    themeConfig.gitalk?.enable &&
+    themeConfig.gitalk?.clientID &&
+    themeConfig.gitalk?.clientSecret;
+  const hasGiscus = themeConfig.giscus?.enable;
   style
     .define(
       "article-families",
@@ -108,8 +117,14 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
         ? localCodeFamilies
         : "Menlo, Monaco, Consolas, monospace"
     )
-    .define("custom-article-families", customArticleFamilies.length ? customArticleFamilies + "," : "")
-    .define("custom-code-families", customCodeFamilies.length ? customCodeFamilies + "," : "")
+    .define(
+      "custom-article-families",
+      customArticleFamilies.length ? customArticleFamilies + "," : ""
+    )
+    .define(
+      "custom-code-families",
+      customCodeFamilies.length ? customCodeFamilies + "," : ""
+    )
     .define("post-has-sponsor", postHasSponsor)
     .define("post-has-copyright", postHasCopyright)
     .define("post-has-sidebar", postHasSidebar)
@@ -133,15 +148,39 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
     .define("light-red-5", light["--red-5"] || "#ffecec")
     .define("light-red-5-5", light["--red-5-5"] || "#fff3f3")
     .define("light-red-6", light["--red-6"] || "#fff7f7")
-    .define("light-color-red-6-shadow", light["--color-red-6-shadow"] || "rgba(255, 78, 78, 0.6)")
-    .define("light-color-red-3-shadow", light["--color-red-3-shadow"] || "rgba(255, 78, 78, 0.3)")
+    .define(
+      "light-color-red-6-shadow",
+      light["--color-red-6-shadow"] || "rgba(255, 78, 78, 0.6)"
+    )
+    .define(
+      "light-color-red-3-shadow",
+      light["--color-red-3-shadow"] || "rgba(255, 78, 78, 0.3)"
+    )
     .define("light-highlight-nav", light["--highlight-nav"] || "#e6e6e6")
-    .define("light-highlight-scrollbar", light["--highlight-scrollbar"] || "#d6d6d6")
-    .define("light-highlight-background", light["--highlight-background"] || "#f7f7f7")
-    .define("light-highlight-current-line", light["--highlight-current-line"] || "#dadada")
-    .define("light-highlight-selection", light["--highlight-selection"] || "#e9e9e9")
-    .define("light-highlight-foreground", light["--highlight-foreground"] || "#4d4d4d")
-    .define("light-highlight-comment", light["--highlight-comment"] || "#7d7d7d")
+    .define(
+      "light-highlight-scrollbar",
+      light["--highlight-scrollbar"] || "#d6d6d6"
+    )
+    .define(
+      "light-highlight-background",
+      light["--highlight-background"] || "#f7f7f7"
+    )
+    .define(
+      "light-highlight-current-line",
+      light["--highlight-current-line"] || "#dadada"
+    )
+    .define(
+      "light-highlight-selection",
+      light["--highlight-selection"] || "#e9e9e9"
+    )
+    .define(
+      "light-highlight-foreground",
+      light["--highlight-foreground"] || "#4d4d4d"
+    )
+    .define(
+      "light-highlight-comment",
+      light["--highlight-comment"] || "#7d7d7d"
+    )
     .define("light-highlight-red", light["--highlight-red"] || "#c8362b")
     .define("light-highlight-orange", light["--highlight-orange"] || "#b66014")
     .define("light-highlight-yellow", light["--highlight-yellow"] || "#cb911d")
@@ -154,11 +193,26 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
     .define("dark-red-5-5", dark["--red-5-5"] || "rgba(255,236,236,0.05)")
     .define("dark-red-6", dark["--red-6"] || "rgba(255, 243, 243, 0.2)")
     .define("dark-highlight-nav", dark["--highlight-nav"] || "#2e353f")
-    .define("dark-highlight-scrollbar", dark["--highlight-scrollbar"] || "#454d59")
-    .define("dark-highlight-background", dark["--highlight-background"] || "#22272e")
-    .define("dark-highlight-current-line", dark["--highlight-current-line"] || "#393939")
-    .define("dark-highlight-selection", dark["--highlight-selection"] || "#515151")
-    .define("dark-highlight-foreground", dark["--highlight-foreground"] || "#cccccc")
+    .define(
+      "dark-highlight-scrollbar",
+      dark["--highlight-scrollbar"] || "#454d59"
+    )
+    .define(
+      "dark-highlight-background",
+      dark["--highlight-background"] || "#22272e"
+    )
+    .define(
+      "dark-highlight-current-line",
+      dark["--highlight-current-line"] || "#393939"
+    )
+    .define(
+      "dark-highlight-selection",
+      dark["--highlight-selection"] || "#515151"
+    )
+    .define(
+      "dark-highlight-foreground",
+      dark["--highlight-foreground"] || "#cccccc"
+    )
     .define("dark-highlight-comment", dark["--highlight-comment"] || "#999999")
     .define("dark-highlight-red", dark["--highlight-red"] || "#f47067")
     .define("dark-highlight-orange", dark["--highlight-orange"] || "#f69d50")
@@ -166,5 +220,10 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
     .define("dark-highlight-green", dark["--highlight-green"] || "#99cc99")
     .define("dark-highlight-aqua", dark["--highlight-aqua"] || "#66cccc")
     .define("dark-highlight-blue", dark["--highlight-blue"] || "#54b6ff")
-    .define("dark-highlight-purple", dark["--highlight-purple"] || "#dcbdfb");
+    .define("dark-highlight-purple", dark["--highlight-purple"] || "#dcbdfb")
+
+    .define("has-valine", hasValine)
+    .define("has-waline", hasWaline)
+    .define("has-gitalk", hasGitalk)
+    .define("has-giscus", hasGiscus);
 });

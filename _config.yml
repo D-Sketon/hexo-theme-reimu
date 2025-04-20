@@ -305,6 +305,7 @@ valine:
   recordIP: true # whether to record the IP address of the commenters
   highlight: true # whether to highlight the code blocks
   visitor: false # whether to display the number of visitors
+  serverURLs: # leancloud server url
 
 # https://waline.js.org/
 # version 2.15.8
