@@ -75,3 +75,8 @@ comments:
 
 outdate:
   message: This article was last updated on {time}. Please note that the content may no longer be applicable.
+
+algolia:
+  input_placeholder: "Search....."
+  hits_empty: "No results found for 「${query}」"
+  hits_stats: "Found ${hits} results (in ${time} ms)"

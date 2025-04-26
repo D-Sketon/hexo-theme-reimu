@@ -75,3 +75,8 @@ comments:
 
 outdate:
   message: 本文最後更新於 {time}，請注意文中內容可能已不適用。
+
+algolia:
+  input_placeholder: "搜尋....."
+  hits_empty: "未發現與 「${query}」相關內容"
+  hits_stats: "找到${hits}條結果（用時 ${time} ms）"

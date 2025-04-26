@@ -75,3 +75,8 @@ comments:
 
 outdate:
   message: この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。
+
+algolia:
+  input_placeholder: "検索....."
+  hits_empty: "「${query}」に関連するコンテンツは見つかりませんでした"
+  hits_stats: "${hits} 件の結果が見つかりました（${time} ミリ秒）"
