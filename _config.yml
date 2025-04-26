@@ -283,7 +283,11 @@ clarity: false
 # -> valine -> waline -> twikoo -> gitalk -> giscus
 comment:
   # comment system title
-  # title: 说些什么吧！# deprecated, use i18n instead
+  title:
+    en: Leave a comment
+    zh-CN: 说些什么吧！
+    zh-tW: 說些什麼吧！
+    ja: コメントを残す
   default: waline # default comment system, when you enable multiple comment systems
 
 # valine comment system. https://valine.js.org
@@ -397,7 +401,11 @@ generator_search:
 # Loader animation
 preloader:
   enable: true
-  text: 少女祈祷中...
+  text: 
+    zh-CN: 少女祈祷中...
+    zh-tW: 少女祈禱中...
+    en: Loading...
+    ja: 少女祈祷中...
   icon: # default use inline svg for fast speed, you can use a image url, like '/images/taichi.png'
   rotate: true # whether to rotate the icon
 
@@ -459,8 +467,16 @@ firework:
 
 # Clipboard configuration
 clipboard:
-  success: 复制成功(*^▽^*)
-  fail: 复制失败 (ﾟ⊿ﾟ)ﾂ
+  success: 
+    en: Copy successfully (*^▽^*)
+    zh-CN: 复制成功 (*^▽^*)
+    zh-tW: 複製成功 (*^▽^*)
+    ja: コピー成功 (*^▽^*)
+  fail: 
+    en: Copy failed (ﾟ⊿ﾟ)ﾂ
+    zh-CN: 复制失败 (ﾟ⊿ﾟ)ﾂ
+    zh-tW: 複製失敗 (ﾟ⊿ﾟ)ﾂ
+    ja: コピー失敗 (ﾟ⊿ﾟ)ﾂ
   copyright: # whether to add a copyright for the clipped content
     enable: false
     count: 50 # The number of characters when the copyright is displayed
@@ -484,7 +500,11 @@ outdate:
 # Sponsor
 sponsor:
   enable: false
-  tip: 请作者喝杯咖啡吧！
+  tip: 
+    zh-CN: 请作者喝杯咖啡吧
+    zh-tW: 請作者喝杯咖啡吧
+    en: Buy me a coffee
+    ja: コーヒーを買ってください
   icon:
     url: "../images/taichi.png" # this path is relative to the css/style.css, so it needs to go up one level to reach the images folder
     rotate: true

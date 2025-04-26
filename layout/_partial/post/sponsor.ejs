@@ -4,7 +4,11 @@
     <div class="sponsor-title"><%= __('sponsor') %></div>
     <div class="sponsor-icon <%- theme.sponsor.icon?.rotate ? 'rotate' : '' %>"></div>
   </div>
-  <div class="sponsor-tip"><%- theme.sponsor.tip %></div>
+  <% var sponsorTip = theme.sponsor.tip; %>
+  <% if (typeof sponsorTip !== 'string') { %>
+    <% sponsorTip = sponsorTip[post.lang]; %>
+  <% } %>
+  <div class="sponsor-tip"><%- sponsorTip %></div>
   <% if (theme.sponsor.qr?.length) { %>
     <div class="sponsor-qr">
       <% for (let i of theme.sponsor.qr) { %>

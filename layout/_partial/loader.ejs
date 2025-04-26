@@ -14,7 +14,11 @@
           </svg>
         <% } %>
       </div>
-      <div class="loading-word"><%= theme.preloader.text %></div>
+      <% var preloaderText = theme.preloader.text; %>
+      <% if (typeof preloaderText !== 'string') { %>
+        <% preloaderText = preloaderText[post.lang]; %>
+      <% } %>
+      <div class="loading-word"><%= preloaderText %></div>
     </div>
   </div>
   </div>

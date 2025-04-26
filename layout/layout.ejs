@@ -16,7 +16,7 @@
     <% if (theme.injector.body_begin) { %>
       <%- render(theme.injector.body_begin, 'html'); %>
     <% } %>
-    <%- partial('_partial/loader') %>
+    <%- partial('_partial/loader', {post: page}) %>
     <div id="container">
       <div id="wrap">
         <%- partial('_partial/header', {post: page}) %>
