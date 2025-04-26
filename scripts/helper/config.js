@@ -1,6 +1,6 @@
 const { url_for } = require("hexo-util");
 
-hexo.extend.helper.register("themeConfig", () => {
+hexo.extend.helper.register("themeConfig", function () {
   const { config } = hexo.theme;
   const siteConfig = hexo.config;
   const _global = ["window.REIMU_CONFIG = {};"];
@@ -15,8 +15,14 @@ hexo.extend.helper.register("themeConfig", () => {
     }
   };
 
+  const licenseType = this._p(
+    "article_copyright.license_content",
+    (config.article_copyright?.content?.license_type || "").toUpperCase()
+  );
+
   addConfig("icon_font", config.icon_font);
   addConfig("clipboard_tips", config.clipboard);
+  addConfig("clipboard_tips.copyright.content", licenseType);
   if (config.service_worker?.enable) {
     addConfig("swPath", url_for.call(hexo, "/sw.js"));
   }

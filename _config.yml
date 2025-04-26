@@ -468,7 +468,7 @@ clipboard:
   copyright: # whether to add a copyright for the clipped content
     enable: false
     count: 50 # The number of characters when the copyright is displayed
-    content: 本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！
+    license_type: by-nc-sa # https://creativecommons.org/licenses
 
 # show categories card on home page
 home_categories:
@@ -483,7 +483,7 @@ home_categories:
 outdate:
   enable: false
   daysAgo: 180 # The number of days after which the article is considered outdated
-  message: 本文最后更新于 {time}，请注意文中内容可能已经发生变化。
+  # message: # deprecated, use i18n instead
 
 # Sponsor
 sponsor:
@@ -515,6 +515,7 @@ article_copyright:
     date: false
     updated: false
     license: true
+    license_type: by-nc-sa # https://creativecommons.org/licenses
 
 # Back To Top
 top:
