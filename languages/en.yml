@@ -69,3 +69,9 @@ article_copyright:
   updated: "Updated: "
   license: "License: "
   license_content: "All articles on this blog are licensed under the %s license agreement unless otherwise stated. Please indicate the source when reprinting!"
+
+comments:
+  title: "Say something!"
+
+outdate:
+  message: This article was last updated on {time}. Please note that the content may no longer be applicable.

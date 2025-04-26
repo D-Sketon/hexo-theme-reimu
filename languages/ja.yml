@@ -69,3 +69,9 @@ article_copyright:
   updated: "更新日: "
   license: "ライセンス: "
   license_content: 本ブログのすべての文書は、特に指定されていない限り、%s ライセンスに従っています。引用の際は出典を明記してください！
+
+comments:
+  title: "何か言ってみて！"
+
+outdate:
+  message: この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。

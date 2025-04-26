@@ -98,11 +98,7 @@
 <% if (post.comments !== false && activeSystems.length) { %>
   <section id="comments" data-aos="<%= theme.animation.options.article.whole %>">
     <div class="comment-header">
-      <% var commentTitle = theme.comment.title; %>
-      <% if (typeof commentTitle !== 'string') { %>
-        <% commentTitle = commentTitle[post.lang]; %>
-      <% } %>
-      <h2 class="comment-title"><%= commentTitle %></h2>
+      <h2 class="comment-title"><%= __("comments.title") %></h2>
       <div class="comment-selector">
         <div class="comment-selector-wrap">
             <% for(const active of activeSystems) { %>

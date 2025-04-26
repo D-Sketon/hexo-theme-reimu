@@ -2,7 +2,7 @@
   <%- partial('404', {post: page}) %>
 <% } else { %>
   <!DOCTYPE html>
-  <html <% if (config.language) { %>lang="<%- config.language %>" <% } %> 
+  <html <% if (page.lang) { %>lang="<%- page.lang %>" <% } else if (config.language) { %>lang="<%- config.language %>" <% } %> 
     <% if (theme.dark_mode.enable === true) { %>
       data-theme-mode="true"
     <% } else if (theme.dark_mode.enable === 'auto') { %>

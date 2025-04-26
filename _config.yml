@@ -283,11 +283,7 @@ clarity: false
 # -> valine -> waline -> twikoo -> gitalk -> giscus
 comment:
   # comment system title
-  title: 说些什么吧！
-  # or with i18n
-  # title: 
-  #   en: Say something!
-  #   zh-CN: 说些什么吧！
+  # title: 说些什么吧！# deprecated, use i18n instead
   default: waline # default comment system, when you enable multiple comment systems
 
 # valine comment system. https://valine.js.org
@@ -299,7 +295,7 @@ valine:
   appKey: # leancloud application app key
   pageSize: 10 # comment list page size
   avatar: mp # gravatar style https://valine.js.org/#/avatar
-  lang: zh-cn # i18n: zh-cn/en
+  # lang: zh-cn # deprecated, use html.lang instead
   placeholder: Just go go # valine comment input placeholder(like: Please leave your footprints )
   guest_info: nick,mail,link #valine comment header info
   recordIP: true # whether to record the IP address of the commenters
@@ -312,7 +308,7 @@ valine:
 waline:
   enable: false
   serverURL:
-  lang: zh-CN
+  # lang: zh-CN # deprecated, use html.lang instead
   locale: {} # https://waline.js.org/guide/features/i18n.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80
   emoji:
     - https://unpkg.com/@waline/emojis@1.2.0/weibo
@@ -360,8 +356,8 @@ giscus:
   reactionsEnabled: 1
   emitMetadata: 0
   inputPosition: bottom
-  # commentTheme: light # this option is invalid, because the theme is set by the theme itself
-  lang: zh-CN
+  # commentTheme: light # deprecated, because the theme is set by the theme itself
+  # lang: zh-CN # deprecated, use html.lang instead
 
 ########################################
 # Search
