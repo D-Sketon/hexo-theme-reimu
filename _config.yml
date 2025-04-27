@@ -51,7 +51,7 @@ toc: true
 toc_options:
   list_number: true
   min_depth: 1
-  max_depth: 3
+  max_depth: 6
 
 # Open Graph
 # see https://hexo.io/docs/helpers#open-graph
