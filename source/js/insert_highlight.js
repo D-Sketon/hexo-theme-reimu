@@ -35,6 +35,10 @@
           element.querySelectorAll("td.code .line").length > expandThreshold)
       ) {
         element.classList.add("code-closed");
+        // force rerender element to refresh AOS
+        element.style.display = "none";
+        void element.offsetWidth;
+        element.style.display = "";
       }
     }
   });
@@ -152,5 +156,10 @@
       },
       { once: true }
     );
+  }
+
+  // Since we add code-closed class to the figure element, we need to refresh AOS
+  if (window.AOS) {
+    AOS.refresh();
   }
 })();
