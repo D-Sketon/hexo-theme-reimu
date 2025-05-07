@@ -35,8 +35,8 @@
     <%- vendorGoogleFont() %>
   <% } %>
   <% if (!theme.icon_font) { %>
-    <%- css(vendorCdn(theme.vendor.css.fontawesome.high_priority)) %>
-    <%- asyncCss(vendorCdn(theme.vendor.css.fontawesome.low_priority)) %>
+    <%- css(theme.vendor.css.fontawesome.high_priority.map(i => ({href: vendorCdn(i)[0], integrity: vendorCdnIntegrity(i)[0], crossorigin: "anonymous"}))) %>
+    <%- asyncCss(theme.vendor.css.fontawesome.low_priority.map(i => ({href: vendorCdn(i)[0], integrity: vendorCdnIntegrity(i)[0], crossorigin: "anonymous"}))) %>
   <% } else { %>
     <link rel="preload" href="//at.alicdn.com/t/c/font_<%- theme.icon_font %>.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <% } %>
@@ -55,38 +55,38 @@
     <%- favicon_tag(theme.favicon) %>
   <% } %>
   <%- css('css/style') %>
-  <%- asyncCss(vendorCdn(theme.vendor.css.photoswipe)) %>
+  <%- asyncCss({href: vendorCdn(theme.vendor.css.photoswipe)[0], integrity: vendorCdnIntegrity(theme.vendor.css.photoswipe)[0], crossorigin: "anonymous"}) %>
   <% if (theme.math.enable) { %>
     <% if (theme.math.katex.enable) { %>
       <% if (is_post() || is_page()) { %>
-        <%- css(vendorCdn(theme.vendor.css.katex)) %>
+        <%- css({href: vendorCdn(theme.vendor.css.katex)[0], integrity: vendorCdnIntegrity(theme.vendor.css.katex)[0], crossorigin: "anonymous"}) %>
       <% } else { %>
-        <%- asyncCss(vendorCdn(theme.vendor.css.katex)) %>
+        <%- asyncCss({href: vendorCdn(theme.vendor.css.katex)[0], integrity: vendorCdnIntegrity(theme.vendor.css.katex)[0], crossorigin: "anonymous"}) %>
       <% } %>
     <% } %>
   <% } %>
   <% if (theme.waline.enable && theme.waline.serverURL) { %>
     <% if (is_post() || is_page()) { %>
-      <%- css(vendorCdn(theme.vendor.css.waline)) %>
+      <%- css({href: vendorCdn(theme.vendor.css.waline)[0], integrity: vendorCdnIntegrity(theme.vendor.css.waline)[0], crossorigin: "anonymous"}) %>
     <% } else { %>
-      <%- asyncCss(vendorCdn(theme.vendor.css.waline)) %>
+      <%- asyncCss({href: vendorCdn(theme.vendor.css.waline)[0], integrity: vendorCdnIntegrity(theme.vendor.css.waline)[0], crossorigin: "anonymous"}) %>
     <% } %>
   <% } %>
   <% if (theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret) { %>
     <% if (is_post() || is_page()) { %>
-      <%- css(vendorCdn(theme.vendor.css.gitalk)) %>
+      <%- css({href: vendorCdn(theme.vendor.css.gitalk)[0], integrity: vendorCdnIntegrity(theme.vendor.css.gitalk)[0], crossorigin: "anonymous"}) %>
     <% } else { %>
-      <%- asyncCss(vendorCdn(theme.vendor.css.gitalk)) %>
+      <%- asyncCss({href: vendorCdn(theme.vendor.css.gitalk)[0], integrity: vendorCdnIntegrity(theme.vendor.css.gitalk)[0], crossorigin: "anonymous"}) %>
     <% } %>
   <% } %>
   <% if (theme.pace.enable) { %>
     <%- js({src: vendorCdn(theme.vendor.js.pace)[0], integrity: vendorCdnIntegrity(theme.vendor.js.pace)[0], crossorigin: "anonymous"}) %>
   <% } %>
   <% if (theme.animation.enable) { %>
-    <%- css(vendorCdn(theme.vendor.css.aos)) %>
+    <%- css({href: vendorCdn(theme.vendor.css.aos)[0], integrity: vendorCdnIntegrity(theme.vendor.css.aos)[0], crossorigin: "anonymous"}) %>
   <% } %>
   <% if (theme.player.aplayer.enable) { %>
-    <%- css(vendorCdn(theme.vendor.css.aplayer)) %>
+    <%- css({href: vendorCdn(theme.vendor.css.aplayer)[0], integrity: vendorCdnIntegrity(theme.vendor.css.aplayer)[0], crossorigin: "anonymous"}) %>
   <% } %>
   <% if (theme.injector.head_end) { %>
     <%- render(theme.injector.head_end, 'html'); %>
