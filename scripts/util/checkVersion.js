@@ -30,7 +30,7 @@ hexo.on("generateAfter", () => {
         res.on("end", () => {
           try {
             const latest = JSON.parse(result)
-              .tag_name.replace("v", "")
+              .tag_name.replace("v", "").replace("V", "")
               .split(".");
             const current = version.split(".");
             let isOutdated = false;
