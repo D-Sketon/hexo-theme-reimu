@@ -79,6 +79,12 @@
             }
             if (script.src) {
               scriptElement.src = script.src;
+              if (script.integrity) {
+                scriptElement.integrity = script.integrity;
+              }
+              if (script.crossOrigin) {
+                scriptElement.crossOrigin = script.crossOrigin;
+              }
               scriptElement.onload = resolve;
               scriptElement.onerror = reject;
             }
