@@ -585,12 +585,17 @@ If you want to continue using fontawesome icons, set `icon_font` to `false`. Thi
 ```yml
 fontawesome:
   high_priority:
-    - webcache|@fortawesome/fontawesome-free@6.5.1/css/regular.min.css
-    - webcache|@fortawesome/fontawesome-free@6.5.1/css/solid.min.css
+    - src: webcache|@fortawesome/fontawesome-free@6.5.1/css/regular.min.css
+      integrity: sha384-k5640LgghgAohDLPwSqVWa96yQwWouT6wsAL+J1g0CFJVITNKYkIh1XpPLYKQe7Y
+    - src: webcache|@fortawesome/fontawesome-free@6.5.1/css/solid.min.css
+      integrity: sha384-8yO/A/BtltnG0hDxdwmmkza8UAleyDoAD1FhXiH6rsOQQsCho1P6WZP9TpBBH3YP
   low_priority:
-    - webcache|@fortawesome/fontawesome-free@6.5.1/css/brands.min.css
-    - webcache|@fortawesome/fontawesome-free@6.5.1/css/v5-font-face.min.css
-    - webcache|@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css
+    - src: webcache|@fortawesome/fontawesome-free@6.5.1/css/brands.min.css
+      integrity: sha384-/BRyRRN0wxxRgh/DAXU621go9pdoMHl6LFPiX5Pp8PZYZlKBQCDXj9X9DHx6LOud
+    - src: webcache|@fortawesome/fontawesome-free@6.5.1/css/v5-font-face.min.css
+      integrity: sha384-/mBKnLlGtog8q2qQrgugURRDV+iHWHAPvM5KulYXT1C2ErKOKkBI0vbff8ZPq7rL
+    - src: webcache|@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css
+      integrity: sha384-d2Yn1/9Iw78r3oqwk5B+EcpRcmepXR5LyhmRF2a+WoSe9mpRGvVk0ZviFwDGDOTO
 ```
 
 </details>
@@ -1080,6 +1085,8 @@ v1.0.0 underwent significant refactoring and exposed many configurations for cha
 ##### Header / Sidebar Icons
 
 The `menu` configuration structure changed in v1.0.0, allowing users to customize icons. When icon is empty, it defaults to the Taichi icon. You can fill in a hexadecimal number to customize the icon, supporting both FontAwesome and icon font.
+
+v1.8.4 icon supports image path, such as `/avatar/avatar.webp`.
 
 ```yaml
 menu:
