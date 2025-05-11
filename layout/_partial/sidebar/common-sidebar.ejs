@@ -38,7 +38,15 @@
       <div class="sidebar-menu-link-wrap">
         <a class="sidebar-menu-link-dummy" href="<%- url_for_lang(item.url, { relative: false }) %>" aria-label="<%= __(item.name) %>"></a>
         <div class="sidebar-menu-icon icon <%= (item.icon === 'e62b' && theme.icon_font) || (item.icon === 'f6ad' && !theme.icon_font) || !item.icon ? 'rotate' : '' %>">
-          <%- item.icon ? `&#x${item.icon};` : (theme.icon_font ? '&#xe62b;' : '&#xf6ad;') %>
+          <% if (item.icon) { %>
+            <% if (item.icon.includes('/') && item.icon.includes('.')) { %>
+              <img src="<%- url_for(item.icon, {relative: false}) %>" alt="<%= item.name %> icon" style="width: 1em;">
+            <% } else { %>
+              <%- `&#x${item.icon};` %>
+            <% } %>
+          <% } else { %>
+            <%- theme.icon_font ? '&#xe62b;' : '&#xf6ad;' %>
+          <% } %>
         </div>
         <div class="sidebar-menu-link"><%= __(item.name) %></div>
       </div>

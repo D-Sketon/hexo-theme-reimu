@@ -11,7 +11,15 @@
       <% for (let item of theme.menu) { %>
         <span class="main-nav-link-wrap">
           <div class="main-nav-icon icon <%= (item.icon === 'e62b' && theme.icon_font) || (item.icon === 'f6ad' && !theme.icon_font) || !item.icon ? 'rotate' : '' %>">
-            <%- item.icon ? `&#x${item.icon};` : (theme.icon_font ? '&#xe62b;' : '&#xf6ad;') %>
+             <% if (item.icon) { %>
+              <% if (item.icon.includes('/') && item.icon.includes('.')) { %>
+                <img src="<%- url_for(item.icon, {relative: false}) %>" alt="<%= item.name %> icon" style="height: 1em;">
+              <% } else { %>
+                <%- `&#x${item.icon};` %>
+              <% } %>
+             <% } else { %>
+              <%- theme.icon_font ? '&#xe62b;' : '&#xf6ad;' %>
+             <% } %>
           </div>
           <a class="main-nav-link" href="<%- url_for_lang(item.url) %>"><%= __(item.name) %></a>
         </span>
