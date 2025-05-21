@@ -89,8 +89,8 @@ copyright: # Inject code snippet right in the footer copyright
 # https://creativecommons.org/choose/
 # https://choosealicense.com/
 # copyright: |-
-#   <div style="flex-direction:column;align-items: center;"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
-#   All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></div>
+#    <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" /></a>
+#    <a rel="license" href="https://one.one.one.one/dns/"><img alt="本站使用Cloudflare提供CDN加速" style="border-width:0" src="https://img.shields.io/badge/CDN-Cloudflare-orange?style=flat&logo=Cloudflare" /></a>
 
 footer:
   since: 2020 # 2020-current year
