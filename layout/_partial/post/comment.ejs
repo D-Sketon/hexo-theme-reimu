@@ -106,10 +106,23 @@
           if (window.twikoo) {
             twikoo.init({
               envId: '<%= theme.twikoo.envId %>',
-              el: '.tcomment',
+              el: '.twikoo-comment',
               region: '<%= theme.twikoo.region %>',
               lang: document.documentElement.lang || 'en',
-            })
+            });
+
+            twikoo.getCommentsCount({
+              envId: '<%= theme.twikoo.envId %>',
+              region: '<%= theme.twikoo.region %>',
+              urls: [
+                '<%- url_for_lang(post.path, {relative: false}) %>'
+              ],
+              includeReply: false
+            }).then((res) => {
+              _$('.twikoo-comment-count').innerText = res[0].count;
+            }).catch((err) => {
+              console.error(err);
+            });
           }
         } 
         document.head.appendChild(script);
