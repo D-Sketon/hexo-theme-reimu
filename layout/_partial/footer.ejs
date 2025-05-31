@@ -3,9 +3,11 @@
     <div class="footer-line"></div>
   </div>
   <div id="footer-info">
-    <% if (theme.copyright) { %>
-      <%- render(theme.copyright, 'html'); %>
-    <% } %>
+      <% if (theme.copyright) { %>
+        <span id="footer-copyright">
+          <%- render(theme.copyright, 'html'); %>
+        </span>
+      <% } %>
     <div>
       <span class="icon-copyright"></span>
       <% const currentYear = new Date().getFullYear(); %>
