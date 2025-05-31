@@ -724,8 +724,8 @@ vendor:
       src: webcache|@waline/client@2.15.8/dist/waline.mjs
       integrity: sha384-9sbqJjrfGjbkI6/PI4nU/MvBfEmkkPC4YK9I4zBeMIf1CVCZdCMH/KinBEAZII/5
     twikoo:
-      src: webcache|twikoo@1.6.16/dist/twikoo.all.min.js
-      integrity: sha384-lDHsr5aZmkMS0eKnsUu6e9RWP+dRmn7sgjRAKGOAoXfMyzbUK6Qi86zZK7R+KvRV
+      src: webcache|twikoo@1.6.44/dist/twikoo.all.min.js
+      integrity: sha384-kwWLC0HjeZZnVPqCJ1AncI8tsk+kQqF9TbAmCclcc9Z0hGkfgHRzeQZxmdmZhE0K
     gitalk:
       src: webcache|gitalk@1.8.0/dist/gitalk.min.js
       integrity: sha384-kspnZUWBoSWwoJHa0hBCXYbHGbhvU/lcEH5O8eVbSDhbPwsiVUTp/aGX/z/5EuMA
@@ -742,8 +742,8 @@ vendor:
       src: webcache|pace-js@1.2.4/pace.min.js
       integrity: sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8
     mermaid:
-      src: webcache|mermaid@9.4.3/dist/mermaid.min.js
-      integrity: sha384-aG3Gai4tbCHF0iXo48HwLoOZyut7mBl50oMC9GD1m75xyHfJDv6w8hD/kZRD47aJ
+      src: webcache|mermaid@11.6.0/dist/mermaid.min.js
+      integrity: sha384-zkWMJO4sgpPUzyuOgDx8HB/K55glbAwajEpk1Go2NWRuPkPA/wIhoEJTuSkmOYrV
     firework:
       src: webcache|mouse-firework@0.1.1/dist/index.umd.js
       integrity: sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d
@@ -763,11 +763,11 @@ vendor:
       src: webcache|quicklink@2.3.0/dist/quicklink.umd.js
       integrity: sha384-aD7FsuQkS1ohgFKY41fJfeA+Wd/QRNnrOd9Bs58K3FzKdJJv8yPnYU8Tnp5z1agS
     katex:
-      src: webcache|katex@0.16.11/dist/katex.min.js
-      integrity: sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg
+      src: webcache|katex@0.16.22/dist/katex.min.js
+      integrity: sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6
     katex_auto_render:
-      src: webcache|katex@0.16.11/dist/contrib/auto-render.min.js
-      integrity: sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk
+      src: webcache|katex@0.16.22/dist/contrib/auto-render.min.js
+      integrity: sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh
     mathjax:
       src: webcache|mathjax@3.2.2/es5/tex-mml-chtml.js
       integrity: sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei
@@ -797,8 +797,8 @@ vendor:
       src: webcache|photoswipe@5.4.4/dist/photoswipe.css
       integrity: sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE
     katex:
-      src: webcache|katex@0.16.11/dist/katex.min.css
-      integrity: sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+
+      src: webcache|katex@0.16.22/dist/katex.min.css
+      integrity: sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP
     waline:
       src: webcache|@waline/client@2.15.8/dist/waline.css
       integrity: sha384-vltfZtesCdl6NYVcFVcjEaIi5RpNvZe9t7fXvq8twVtcoy+Ub9QgnxUYJmwOhYCK
