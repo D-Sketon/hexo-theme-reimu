@@ -159,7 +159,7 @@ i18n:
 # CSS
 ########################################
 
-anchor_icon: # default use '#' icon, you can use a hexadecimal representation of fontawesome or icon_font, like 'f0c1'
+anchor_icon: # default use '#' icon, you can use a hexadecimal representation of fontawesome or icon_font, like 'f0c1', or you can use false to hide anchor icon
 
 reimu_cursor:
   enable: true

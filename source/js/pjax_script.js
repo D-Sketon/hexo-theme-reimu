@@ -34,12 +34,12 @@ _$$(
     // iconfont
     element.innerHTML = window.REIMU_CONFIG.anchor_icon
       ? `&#x${window.REIMU_CONFIG.anchor_icon};`
-      : "&#xe635;";
+      : window.REIMU_CONFIG.anchor_icon === false ? "" : "&#xe635;";
   } else {
     // fontawesome
     element.innerHTML = window.REIMU_CONFIG.anchor_icon
       ? `&#x${window.REIMU_CONFIG.anchor_icon};`
-      : "&#xf292;";
+      : window.REIMU_CONFIG.anchor_icon === false ? "" : "&#xf292;";
   }
 });
 

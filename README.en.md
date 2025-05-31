@@ -1153,6 +1153,8 @@ v1.0.0 added `anchor_icon` configuration for customizing anchor icons, defaults 
 anchor_icon: # if the icon is empty, the default # icon is used
 ```
 
+v1.8.5 `anchor_icon` supports passing `false` to hide anchor icon.
+
 ##### Cursor Icon (v1.3.0+)
 
 v1.3.0 added `reimu_cursor.cursor` configuration for customizing cursor icons. You can fill in a path relative to `css/style.css` to customize cursor icons.

@@ -27,7 +27,13 @@ hexo.extend.helper.register("themeConfig", function () {
     addConfig("swPath", url_for.call(hexo, "/sw.js"));
   }
   addConfig("outdate", config.outdate?.enable ? config.outdate : null);
-  addConfig("anchor_icon", config.anchor_icon);
+  if (config.anchor_icon || config.anchor_icon === false) {
+    _global.push(
+      `window.REIMU_CONFIG.anchor_icon = ${
+        typeof config.anchor_icon === "string" ? `'${config.anchor_icon}'` : JSON.stringify(config.anchor_icon)
+      };`
+    );
+  }
   addConfig("code_block", config.code_block);
   addConfig("base", siteConfig.url);
   if (config.i18n?.enable) {

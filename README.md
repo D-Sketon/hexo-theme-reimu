@@ -1157,6 +1157,8 @@ v1.0.0 增加了 `anchor_icon` 配置用于自定义锚点图标，默认使用 
 anchor_icon: # 不填默认使用 # 图标
 ```
 
+v1.8.5 `anchor_icon` 支持传递 `false` 以隐藏锚点图标。
+
 ##### 鼠标图标（v1.3.0+）
 
 v1.3.0 增加了 `reimu_cursor.cursor` 配置用于自定义鼠标图标，你可以填写一个相对于 `css/style.css` 的路径来自定义鼠标图标。
