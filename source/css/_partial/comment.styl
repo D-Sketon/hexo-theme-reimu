@@ -139,10 +139,7 @@ if has-gitalk
   .gt-container .gt-popup
     background-color: var(--color-wrap) !important
 
-.wl-content,
-.vcontent,
-.gt-header-preview.markdown-body,
-.gt-comment-content .gt-comment-body.markdown-body
+$base-comment-style
   color: var(--color-default) !important
   @extend $base-style
 
@@ -268,3 +265,16 @@ if has-gitalk
     padding: 1px 5px !important
     border-radius: 5px !important
     color: var(--color-link) !important
+
+if has-waline
+  .wl-content
+    @extend $base-comment-style
+
+if has-valine
+  .vcontent
+    @extend $base-comment-style
+
+if has-gitalk
+  .gt-header-preview.markdown-body,
+  .gt-comment-content .gt-comment-body.markdown-body
+    @extend $base-comment-style
