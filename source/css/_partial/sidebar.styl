@@ -13,7 +13,7 @@
       height: inherit
 
 [data-theme="dark"] .sidebar-wrap
-  box-shadow: 0 0 10px 3px var(--color-hover-shadow)
+  box-shadow: var(--shadow-card)
 
 [data-theme="dark"] #mobile-nav .sidebar-wrap
   box-shadow: 0 0 0 0
@@ -24,7 +24,7 @@
   .aos-animate
     transition-property: initial !important
     &:hover
-      box-shadow: 0 0 10px 3px var(--color-hover-shadow)
+      box-shadow: var(--shadow-card-hover)
 
   &:hover
     transform: scale(1.015)
@@ -328,7 +328,7 @@ $menu-link
 .link-active
   background: var(--red-0)
   border: 10px var(--color-wrap) double
-  box-shadow: 0 0 10px 3px var(--color-red-6-shadow)
+  box-shadow: var(--shadow-red-6-shadow)
   opacity: 0.8
 
   &:hover
@@ -381,7 +381,7 @@ $menu-link
       display: inline-block
       vertical-align: middle
       margin-right: 11px
-      box-shadow: 0 2px 12px var(--color-red-6-shadow)
+      box-shadow: var(--shadow-red-6-shadow)
       opacity: 0.5
       transition: .3s
 
@@ -441,7 +441,7 @@ $siderbar-btn-icon
   background: var(--red-3)
   color: #fff
   font-weight: bold
-  box-shadow: 0 0 10px var(--color-red-6-shadow)
+  box-shadow: var(--shadow-red-6-shadow)
   border-radius: post-radius
   margin: 20px
   transition: .3s
