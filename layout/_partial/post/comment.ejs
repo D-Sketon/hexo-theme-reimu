@@ -185,6 +185,14 @@
 
         const giscusScript = document.createElement('script');
         const domMode = document.documentElement.getAttribute("data-theme");
+
+        const docLang = document.documentElement.lang || 'en';
+        const langBase = docLang.split('-')[0];
+        const supportedLangs = ['ar', 'be', 'bg', 'ca', 'cs', 'da', 'de', 'en', 
+        'eo', 'es', 'eu', 'fa', 'fr', 'gr', 'hbs', 'he', 'hu', 'id', 'it', 'ja', 
+        'kh', 'ko', 'nl', 'pl', 'pt', 'ro', 'ru', 'th', 'tr', 'uk', 'uz', 'vi', 'zh-CN', 'zh-HK', 'zh-TW'];
+        const giscusLang = supportedLangs.includes(docLang) ? docLang : supportedLangs.includes(langBase) ? langBase : 'en';
+
         giscusScript.src = 'https://giscus.app/client.js';
         giscusScript.setAttribute('data-repo', '<%= theme.giscus.repo %>');
         giscusScript.setAttribute('data-repo-id', '<%= theme.giscus.repoId %>');
@@ -196,7 +204,7 @@
         giscusScript.setAttribute('data-emit-metadata', '<%= theme.giscus.emitMetadata %>');
         giscusScript.setAttribute('data-input-position', '<%= theme.giscus.inputPosition %>');
         giscusScript.setAttribute('data-theme', domMode === 'dark' ? 'dark' : 'light');
-        giscusScript.setAttribute('data-lang', document.documentElement.lang || 'en');
+        giscusScript.setAttribute('data-lang', giscusLang);
         giscusScript.setAttribute('crossorigin', 'anonymous');
         giscusScript.async = true;
         container.appendChild(giscusScript);
