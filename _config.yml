@@ -736,8 +736,8 @@ vendor:
       src: webcache|algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js
       integrity: sha384-xvLS0jfKuoREs7pqkRI/OI8GcqohO5S+jQz7ZBtQXnsXmD+9jDOOY4cL6dCPzlrk
     instantsearch:
-      src: webcache|instantsearch.js@4.56.1/dist/instantsearch.production.min.js
-      integrity: sha384-hHJCflT4KBLQyHfKO9vpstIcFKn/Y+KHTORelMMEn7mOp2AVPp+7fr03dLgZiV3J
+      src: webcache|@reimujs/instantsearch.js@4.57.0-beta.1/dist/instantsearch.production.min.js
+      integrity: sha384-aagKMe8nkqaP2DYQc8kkYOL5l+M5Q2WH/Uhr4teOh0Ybp0RZj0kUSDm45qPikMjK
     pace:
       src: webcache|pace-js@1.2.4/pace.min.js
       integrity: sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8
