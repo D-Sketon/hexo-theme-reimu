@@ -1,0 +1,51 @@
+.roll .roll-button {
+  text-align: center;
+  font-size: 30px;
+  user-select: none;
+  width: 40px;
+  margin: 10px auto;
+  transition: transform 0.2s ease;
+  cursor: var(--cursor-pointer);
+}
+
+.roll .roll-button:hover {
+  transform: scale(1.1);
+}
+
+.roll-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  position: relative;
+}
+
+.roll-tags span {
+  position: absolute;
+  color: var(--red-1);
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: var(--red-5);
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.roll-tags span.blur {
+  filter: blur(2px);
+  opacity: 0.7;
+}
+
+.roll-tags span.removing {
+  animation: tag-removing 0.1s ease-in-out;
+}
+
+@keyframes tag-removing {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
