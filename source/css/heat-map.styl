@@ -73,7 +73,7 @@
 }
 .tile[data-level="0"] {
   background: var(--heat-level-0);
-  outline: none;
+  // outline: none;
 }
 .tile[data-level="1"] {
   background: var(--heat-level-1);
@@ -88,6 +88,79 @@
   background: var(--heat-level-4);
 }
 
+i.tile:hover {
+  outline: 1px solid var(--red-2);
+}
+
+line-height = 1.8em;
+
+#heatmap-tooltip {
+  position: fixed;
+  z-index: 1000;
+  padding: 5px;
+  background-color: var(--color-background);
+  border-radius: 0.375rem;
+  border: solid 1px var(--color-border);
+  box-shadow: var(--shadow-meta);
+  font-size: 12px;
+  color: var(--color-default);
+  max-width: 250px;
+  display: none; /* Initially hidden */
+
+  
+  ul {
+    margin: 0 20px;
+    line-height: line-height;
+    list-style: disc;
+    margin-top: (line-height / 2);
+    margin-bottom: (line-height / 2);
+  }
+
+  li {
+    &:hover {
+      &::marker {
+        transition: color 0.2s;
+        color: var(--red-1);
+      }
+    }
+  }
+
+  a {
+    color: var(--color-link);
+    text-decoration: none;
+    word-break: break-word;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .tooltip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .tooltip-header-content {
+      font-weight: bold;
+      font-size: 16px;
+      color: var(--color-default);
+    }
+
+    .tooltip-close {
+      padding: 0 5px;
+      color: var(--color-link);
+      font-weight: bold;
+      font-size: 12px;
+      cursor: var(--cursor-pointer);
+    }
+  }
+
+  .tooltip-content {
+    max-height: 300px;
+    overflow-y: auto;
+    line-height: 1.2;
+  }
+}
 
 .total {
   grid-column: 2/30;
