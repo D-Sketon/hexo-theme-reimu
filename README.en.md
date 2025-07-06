@@ -33,15 +33,15 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 
 ## Features
 
-### Basic Functions
+### Basic Features
 - ✨ Full blog functionality
-- 🔄 Compatible with Hexo6+
+- 🔄 Compatible with Hexo 6+
 - 📱 Responsive layout
 - 🌙 Dark mode support
 - 🅰️ i18n support
 
 ### Code & Math
-- 🖥️ Code highlighting and copying
+- 🖥️ Code highlighting & copying
 - ➗ KaTeX / MathJax3 math formula support
 - 📊 Mermaid flowchart support
 
@@ -80,11 +80,12 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 - 🎨 Icon support:
   - Iconfont
   - FontAwesome
-- 🔗 Custom tag plugins for:
+- 🔗 Built-in tag plugins:
   - Internal links
   - External links
   - Friend links
   - Heatmap
+  - Tag Roulette
 - 🎨 Dynamic theme color adaptation
 - 🎨 Custom Containers
 - ©️ Article copyright declaration
@@ -111,9 +112,6 @@ git clone https://github.com/D-Sketon/hexo-theme-reimu.git
 And modify the theme in `_config.yml`
 
 ```yaml
-# Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
 theme: reimu
 ```
 
@@ -924,14 +922,10 @@ The first parameter is the level standard for the heatmap (graded based on the w
 {% heatMapCard tags icon %}
 ```
 
-**tagRoulette** is an interactive element that provides a random tag display feature. When the button is clicked, a tag is randomly selected and displayed from a predefined pool of tags.  
+tagRoulette is an interactive element that provides a random tag display feature. When the button is clicked, a tag is randomly selected and displayed from a predefined pool of tags.  
 
-**tags**: Optional parameter specifying the tag pool. Multiple tags should be separated by English commas (,). If not provided, a few example tags will be used by default.  
-  Example: `tags="memory decline, loss of expression, increased laziness, numbness, so sleepy"`  
-
-**icon**: Optional parameter to customize the trigger button's icon.  
-  **Default**: 🕹️ (game controller emoji)  
-  Can be replaced with any emoji or text, such as 🎲, 🎯, 🔄, etc.
+- tags: Optional parameter specifying the tag pool. Multiple tags should be separated by English commas (,). If not provided, a few example tags will be used by default. Example: `tags="memory decline, loss of expression, increased laziness, numbness, so sleepy"`  
+- icon: Optional parameter to customize the trigger button's icon. Default: 🕹️ (game controller emoji). Can be replaced with any emoji or text, such as 🎲, 🎯, 🔄, etc.
 
 </details>
 

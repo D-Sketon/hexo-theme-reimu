@@ -84,6 +84,7 @@
   - 外部链接
   - 友情链接
   - 热力图
+  - 标签轮盘
 - 🎨 动态适配主题色
 - 🎨 自定义容器
 - ©️ 文章版权声明
@@ -110,9 +111,6 @@ git clone https://github.com/D-Sketon/hexo-theme-reimu.git
 并修改 `_config.yml` 中的 theme
 
 ```yaml
-# Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
 theme: reimu
 ```
 
@@ -929,11 +927,8 @@ share:
 
 tagRoulette 是一个互动元素，提供随机标签展示功能，点击按钮后会从预定义的标签池中随机抽取并展示一个标签。
 
-**tags**：可选参数，指定标签池，多个标签用英文逗号(,)分隔；未提供时默认使用几个示例标签
-  例如：tags="记忆衰退,表达欲丧失,更加怠惰,无感,好想睡觉"  
-**icon**：可选参数，自定义触发按钮的图标  
-**默认使用**： 🕹️（游戏手柄emoji）  
-可替换为任何emoji或文字，如 🎲、🎯、🔄 等
+- tags：可选参数，指定标签池，多个标签用英文逗号(,)分隔；未提供时默认使用几个示例标签，例如：tags="记忆衰退,表达欲丧失,更加怠惰,无感,好想睡觉"  
+- icon：可选参数，自定义触发按钮的图标，默认使用： 🕹️（游戏手柄emoji），可替换为任何emoji或文字，如 🎲、🎯、🔄 等
 
 </details>
 
