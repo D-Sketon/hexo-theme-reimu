@@ -371,36 +371,18 @@ _$(".share-icon.icon-weixin")
         return;
       }
       _$("#share-weixin-qr").src = dataUrl;
-      htmlToImage
-        .toPng(_$(".share-weixin-dom"), {
-          skipFonts: true,
-          preferredFontFormat: "woff2",
-          backgroundColor: "white",
-        })
-        .then((dataUrl) => {
-          const img = new Image();
-          img.src = dataUrl;
+      snapdom.toPng(_$(".share-weixin-dom")).then((img) => {
+        _$(".share-weixin-canvas").appendChild(img);
+      }).catch(() => {
+        // we assume that the error is caused by the browser's security policy
+        // so we will remove the banner and try again
+        _$("#share-weixin-banner").remove();
+        snapdom.toPng(_$(".share-weixin-dom")).then((img) => {
           _$(".share-weixin-canvas").appendChild(img);
-        })
-        .catch(() => {
-          // we assume that the error is caused by the browser's security policy
-          // so we will remove the banner and try again
-          _$("#share-weixin-banner").remove();
-          htmlToImage
-            .toPng(_$(".share-weixin-dom"), {
-              skipFonts: true,
-              preferredFontFormat: "woff2",
-              backgroundColor: "white",
-            })
-            .then((dataUrl) => {
-              const img = new Image();
-              img.src = dataUrl;
-              _$(".share-weixin-canvas").appendChild(img);
-            })
-            .catch(() => {
-              console.error("Failed to generate weixin share image.");
-            });
+        }).catch(() => {
+          console.error("Failed to generate weixin share image.");
         });
+      });
     });
   });
 

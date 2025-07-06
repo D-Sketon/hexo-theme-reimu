@@ -780,9 +780,6 @@ vendor:
     qrcode:
       src: webcache|qrcode@1.4.4/build/qrcode.min.js
       integrity: sha384-0RsG1yo/crf/1Qc14sho26SXXOTngNCjgJw7fuvXBt9W/OChF/Ijx+aUuBDqQwEk
-    html2image:
-      src: webcache|html-to-image@1.11.11/dist/html-to-image.js
-      integrity: sha384-UbfRVKN3/elS1r7JcK2FhmPP+KlJ4CvYwbyYD7tH+uTkbT9bNJr9eJeQ0FoFbAgz
     dompurify:
       src: webcache|dompurify@3.2.4/dist/purify.min.js
       integrity: sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu
@@ -792,6 +789,9 @@ vendor:
     material_theme:
       src: webcache|material-theme@1.0.0/dist/material-theme.umd.js
       integrity: sha384-vLev0II0HKFaxkcm+/7kX5IGwVFBASkGchU311wmU/veIj2bB0UcBkQbW6yw2asK
+    snapdom:
+      src: webcache|@zumer/snapdom@1.8.0/dist/snapdom.min.js
+      integrity: sha384-PNQVZ1GDtIMjcwf2WaA9MPCgSzhYh3+GdMHMD955WDtXMmpkUISdIYIAwwrPcZz9
   css:
     photoswipe:
       src: webcache|photoswipe@5.4.4/dist/photoswipe.css
@@ -819,8 +819,8 @@ vendor:
         - src: webcache|@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css
           integrity: sha384-d2Yn1/9Iw78r3oqwk5B+EcpRcmepXR5LyhmRF2a+WoSe9mpRGvVk0ZviFwDGDOTO
     aos:
-      src: webcache|@reimujs/aos@0.1.0/dist/aos.css
-      integrity: sha384-4NN3fZ5AokFyHuoihl7A9qWaCt+HsAtOaUsXwJGRb4/SMBtFr2vcNSHR5E8dg0Wk
+      src: webcache|@reimujs/aos@0.1.2/dist/aos.css
+      integrity: sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa
     aplayer:
       src: webcache|aplayer@1.10.1/dist/APlayer.min.css
       integrity: sha384-tLMkTWh2pfXNWGFlUS0w1TFtRG5xZ9lPWFOooj+vDDLIL+xBGQU/voDBY5XE2lVh

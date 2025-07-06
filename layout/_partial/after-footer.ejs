@@ -326,7 +326,7 @@
       <% if (is_post() || is_page()) { %>
         <%- js({ src: "js/insert_highlight.js", "data-pjax": true }) %>
         <% if (Array.isArray(theme.share) && theme.share.includes("weixin")) { %>
-          <%- js({src: vendorCdn(theme.vendor.js.html2image)[0], integrity: vendorCdnIntegrity(theme.vendor.js.html2image)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
+          <%- js({src: vendorCdn(theme.vendor.js.snapdom)[0], integrity: vendorCdnIntegrity(theme.vendor.js.snapdom)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
           <%- js({src: vendorCdn(theme.vendor.js.qrcode)[0], integrity: vendorCdnIntegrity(theme.vendor.js.qrcode)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
         <% } %>
       <% } %>
