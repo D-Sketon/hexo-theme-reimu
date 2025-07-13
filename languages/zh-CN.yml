@@ -70,12 +70,6 @@ article_copyright:
   license: 本文版权：
   license_content: 本博客所有文章除特别声明外，均采用 %s 许可协议。转载请注明出处！
 
-comments:
-  title: 说些什么吧！
-
-outdate:
-  message: 本文最后更新于 {time}，请注意文中内容可能已不适用。
-
 algolia:
   input_placeholder: "搜索....."
   hits_empty: "未发现与 「${query}」相关内容"

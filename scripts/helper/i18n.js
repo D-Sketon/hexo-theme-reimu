@@ -6,7 +6,7 @@ const moize = require("moize");
 const getPostsByLangCache = new Cache();
 
 function getPostsByLangHelper(lang) {
-  const pageMap = { default: {}, en: {}, ja: {}, "zh-CN": {}, "zh-TW": {} };
+  const pageMap = { default: {}, en: {}, ja: {}, "zh-CN": {}, "zh-TW": {}, "pt-BR": {} };
   this.site.posts.each((post) => {
     if (post.lang) {
       pageMap[post.lang][post.permalink] = post;

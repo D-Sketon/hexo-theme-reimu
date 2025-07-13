@@ -11,8 +11,8 @@ archive_a: アーカイブ
 archive_b: "アーカイブ: %s"
 page: ページ %d
 recent_posts: 最近の投稿
-newer: 次の記事
-older: 前の記事
+newer: 前の記事
+older: 次の記事
 share: 共有
 powered_by: Powered by
 rss_feed: RSS フィード
@@ -69,12 +69,6 @@ article_copyright:
   updated: "更新日: "
   license: "ライセンス: "
   license_content: 本ブログのすべての文書は、特に指定されていない限り、%s ライセンスに従っています。引用の際は出典を明記してください！
-
-comments:
-  title: "何か言ってみて！"
-
-outdate:
-  message: この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。
 
 algolia:
   input_placeholder: "検索....."

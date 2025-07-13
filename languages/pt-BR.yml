@@ -1,0 +1,76 @@
+categories: Categorias
+search: Buscar
+tags: Tags
+tagcloud: Nuvem de Tags
+tweets: Tweets
+prev: Anterior
+next: Próximo
+comment: Comentários
+reading: Leituras
+archive_a: Arquivos
+archive_b: "Arquivos: %s"
+page: "Página %d"
+recent_posts: Posts Recentes
+newer: Anterior
+older: Próximo
+share: Compartilhar
+powered_by: Desenvolvido com
+rss_feed: Feed RSS
+category: Categoria
+tag: Tag
+toc: Sumário
+
+home: INÍCIO
+about: SOBRE MIM
+friend: AMIGOS
+archives: ARQUIVOS
+
+sidebar:
+  post: Posts
+  category: Categorias
+  tag: Tags
+
+not_found:
+  title: 4 0 4 (;-;)
+  subtitle: PÁGINA NÃO ENCONTRADA
+
+post:
+  count:
+    one: "%s palavra"
+    other: "%s palavras"
+  time:
+    one: "%d min"
+    other: "%d mins"
+
+busuanzi:
+  pv: Número de visualizações
+  uv: Número de visitantes
+
+sticky: Fixado
+
+service_worker:
+  title: Nova versão encontrada
+  content: O site parece ter novo conteúdo, deseja atualizar?
+  confirm: Atualizar
+  cancel: Cancelar
+
+sponsor: Apoiar
+
+home_categories:
+  count: 
+    one: "%d post"
+    other: "%d posts"
+
+article_copyright:
+  author: "Autor: "
+  permalink: "Link permanente: "
+  title: "Título: "
+  date: "Publicado em: "
+  updated: "Atualizado em: "
+  license: "Licença: "
+  license_content: "Todos os artigos deste blog estão licenciados sob %s salvo indicação em contrário. Por favor, indique a fonte ao reproduzir!"
+
+algolia:
+  input_placeholder: "Buscar....."
+  hits_empty: "Nenhum resultado encontrado para 「${query}」"
+  hits_stats: "Encontrados ${hits} resultados (em ${time} ms)"

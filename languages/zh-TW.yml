@@ -11,8 +11,8 @@ archive_a: 彙整
 archive_b: 彙整：%s
 page: 第 %d 頁
 recent_posts: 最新文章
-newer: Newer
-older: Older
+newer: 前一篇
+older: 後一篇
 share: 分享
 powered_by: 基於
 rss_feed: RSS 訂閱
@@ -69,12 +69,6 @@ article_copyright:
   updated: 本文更新時間：
   license: 本文版權：
   license_content: 本部落格所有文章除特別聲明外，均採用 %s 授權協議。轉載請註明出處！
-
-comments:
-  title: 說些什麼吧！
-
-outdate:
-  message: 本文最後更新於 {time}，請注意文中內容可能已不適用。
 
 algolia:
   input_placeholder: "搜尋....."

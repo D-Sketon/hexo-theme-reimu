@@ -535,7 +535,7 @@ rss: atom.xml
 
 ### i18n
 
-This theme provides four languages by default: `en`, `zh-CN`, `zh-TW`, and `ja`. You can switch the language by modifying the `language` in the outer `_config.yml`.
+This theme provides five languages by default: `en`, `zh-CN`, `zh-TW`, `ja` and `pt-BR`. You can switch the language by modifying the `language` in the outer `_config.yml`.
 
 ```yaml
 language: zh-CN

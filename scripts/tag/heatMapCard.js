@@ -20,6 +20,11 @@ const i18n = {
     no_articles: "没有文章",
     words: "字",
     total_articles: "共 $1 篇文章, $2 字"
+  },
+  'pt-BR': {
+    no_articles: "Sem artigos",
+    words: "palavra(s)",
+    total_articles: "$1 artigo(s), $2 palavra(s)"
   }
 }
 
