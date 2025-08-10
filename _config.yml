@@ -531,6 +531,10 @@ icp:
   beian: # 网安备案号
   recordcode: # 网安备案链接中的recordcode参数
 
+# 萌国 ICP 备案
+moe_icp:
+  icpnumber: # 萌国ICP备案号
+
 # show the copyright below each article
 article_copyright:
   enable: false
