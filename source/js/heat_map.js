@@ -252,7 +252,8 @@ function completeContributionData(userData) {
 
   // 获取起始日期和当前日期
   const startDate = new Date(userData[0].date);
-  const currentDate = new Date();
+  const currentYear = new Date().getFullYear();
+  const currentDate = new Date(currentYear, 11, 31);
 
   // 初始化结果数组
   const allData = {};
