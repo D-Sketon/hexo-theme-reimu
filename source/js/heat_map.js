@@ -189,18 +189,41 @@ function createCalendar(element, contributionData) {
 
     const monthFragment = document.createDocumentFragment();
     const tilesFragment = document.createDocumentFragment();
+	
+	// 获取当前年份用于比较
+    const currentYear = new Date().getFullYear();
+    const isCurrentYear = year === currentYear;
+	
+	// 初始化月份计数器（仅当前年份需要）
+    const monthSundayCount = isCurrentYear ? {} : null;
 
     const [tiles, totalStatistical] = data.reduce(
       ([tiles, stats], c, i) => {
         const date = new Date(c.date);
         const month = date.getMonth();
+		
+		// 判断是否是周日
+		const isSunday = date.getDay() === 0;
+		
+		// 当前年份：记录每月周日次数
+        if (isCurrentYear && isSunday) {
+            monthSundayCount[month] = (monthSundayCount[month] || 0) + 1;
+        }
+
+		let shouldShowMonth = false;
+	  
+	    if (!isCurrentYear) {    // 非当前年份：月份首次出现时显示
+			shouldShowMonth = month !== latestMonth;
+		} else {     // 当前年份：每月第二次周日时显示
+			shouldShowMonth = isSunday && month !== latestMonth && monthSundayCount[month] === 2;
+		}
 
         // 统计逻辑
         stats.count += c.count;
         stats.post += c.post;
 
         // 处理月份标签
-        if (date.getDay() === 0 && month !== latestMonth) {
+        if (shouldShowMonth) {
           const gridColumn = 2 + Math.floor((i + startRow) / 7);
           latestMonth = month;
           const monthLabel = document.createElement("span");
@@ -252,8 +275,7 @@ function completeContributionData(userData) {
 
   // 获取起始日期和当前日期
   const startDate = new Date(userData[0].date);
-  const currentYear = new Date().getFullYear();
-  const currentDate = new Date(currentYear, 11, 31);
+  const currentDate = new Date();
 
   // 初始化结果数组
   const allData = {};
