@@ -847,7 +847,7 @@ home_categories:
 
 Uses Aplayer + Meting (optional), disabled by default
 
-#### Music Player Position (v1.9.1+)
+##### Music Player Position (v1.9.1+)
 
 Default is after sidebar
 

@@ -840,7 +840,7 @@ home_categories:
 
 使用 Aplayer + Meting（可选）默认关闭
 
-#### 音乐播放器位置（v1.9.1+）
+##### 音乐播放器位置（v1.9.1+）
 
 默认在 sidebar 之后
 
