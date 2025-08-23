@@ -792,7 +792,7 @@ vendor:
       src: webcache|meting@2.0.1/dist/Meting.min.js
       integrity: sha384-ASVlpKF80A22OXTK3tfEjZm1EL6uFMKIC4p8+0maanw1S/IyB+Y4JG+ZDU7GpKE8
     qrcode:
-      src: webcache|qrcode@1.5.1/build/qrcode.min.js
+      src: webcache|qrcode@1.5.1/build/qrcode.js
       integrity: sha384-VT1EeewTCEXgndcPMQ0PzV+uVFYjxFIjmAA7s5gcMX9t4Dt5TD+OVQIn7NJWIXn7
     dompurify:
       src: webcache|dompurify@3.2.6/dist/purify.min.js
