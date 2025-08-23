@@ -752,8 +752,8 @@ vendor:
       src: webcache|pace-js@1.2.4/pace.min.js
       integrity: sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8
     mermaid:
-      src: webcache|mermaid@11.6.0/dist/mermaid.min.js
-      integrity: sha384-zkWMJO4sgpPUzyuOgDx8HB/K55glbAwajEpk1Go2NWRuPkPA/wIhoEJTuSkmOYrV
+      src: webcache|mermaid@11.10.1/dist/mermaid.min.js
+      integrity: sha384-7nxfNsXzOEcSwk+tzfq6tbjmfg0P2Gqmi7JTnRjv9Ll3gFWNro6lI7hPtZPM5ZLD
     firework:
       src: webcache|mouse-firework@0.1.1/dist/index.umd.js
       integrity: sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d
@@ -788,11 +788,11 @@ vendor:
       src: webcache|meting@2.0.1/dist/Meting.min.js
       integrity: sha384-ASVlpKF80A22OXTK3tfEjZm1EL6uFMKIC4p8+0maanw1S/IyB+Y4JG+ZDU7GpKE8
     qrcode:
-      src: webcache|qrcode@1.4.4/build/qrcode.min.js
-      integrity: sha384-0RsG1yo/crf/1Qc14sho26SXXOTngNCjgJw7fuvXBt9W/OChF/Ijx+aUuBDqQwEk
+      src: webcache|qrcode@1.5.1/build/qrcode.min.js
+      integrity: sha384-VT1EeewTCEXgndcPMQ0PzV+uVFYjxFIjmAA7s5gcMX9t4Dt5TD+OVQIn7NJWIXn7
     dompurify:
-      src: webcache|dompurify@3.2.4/dist/purify.min.js
-      integrity: sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu
+      src: webcache|dompurify@3.2.6/dist/purify.min.js
+      integrity: sha384-JEyTNhjM6R1ElGoJns4U2Ln4ofPcqzSsynQkmEc/KGy6336qAZl70tDLufbkla+3
     pangu:
       src: webcache|pangu@4.0.7/dist/browser/pangu.min.js
       integrity: sha384-HeUHqi0nVsPUm/E0ss7OfnIV/yD96JWB8ehZvUuoVax9DpNHL17jj9pdfXHzqDxm
@@ -800,8 +800,8 @@ vendor:
       src: webcache|material-theme@1.0.0/dist/material-theme.umd.js
       integrity: sha384-vLev0II0HKFaxkcm+/7kX5IGwVFBASkGchU311wmU/veIj2bB0UcBkQbW6yw2asK
     snapdom:
-      src: webcache|@zumer/snapdom@1.8.0/dist/snapdom.min.js
-      integrity: sha384-PNQVZ1GDtIMjcwf2WaA9MPCgSzhYh3+GdMHMD955WDtXMmpkUISdIYIAwwrPcZz9
+      src: webcache|@zumer/snapdom@1.9.9/dist/snapdom.min.js
+      integrity: sha384-taz9Bq0wPqLsuiB4ix4blTozt/y84cjbMX5ZWkfPPjpVBme8M/jWopanNBcdH/qp
   css:
     photoswipe:
       src: webcache|photoswipe@5.4.4/dist/photoswipe.css
