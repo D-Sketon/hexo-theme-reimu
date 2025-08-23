@@ -149,6 +149,9 @@ tagcloud_limits:
 # Archive behavior
 only_show_capsule_in_index: false # If you have hugo amounts of tags and categories, you can set this to true to only show the capsule in the index page for better performance
 
+show_update_time: false # If you want to show the update time, please set this to true
+
+# Internationalization
 i18n:
   enable: false
   type: [page, post]
@@ -169,7 +172,7 @@ reimu_cursor:
     text: ../images/cursor/reimu-cursor-text.png
 
 # set to false to enable fontawesome
-icon_font: 4552607_cp3b72wuupu
+icon_font: 4552607_cs6s86l0wm9
 
 # Font loading strategy
 # Custom Font -> Google Fonts -> Local FallBack Font

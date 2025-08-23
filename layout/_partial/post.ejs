@@ -23,6 +23,9 @@
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span><%- date(post.date, "YYYY-MM-DD") %></span>
+        <% if (theme.show_update_time) { %>
+          <span><span class="icon-calendar-plus"></span><%- date(post.updated, "YYYY-MM-DD") %></span>
+        <% } %>
         <span><span class="icon-pencil"></span><%= _p('post.count', wordcount(post.content, post._id)) %></span>
         <span><span class="icon-clock"></span><%= _p('post.time', min2read(post.content, {}, post._id)) %></span>
       </div>

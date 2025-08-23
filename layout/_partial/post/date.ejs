@@ -1,6 +1,11 @@
 <div class="<%= class_name %>">
-  <span class="article-date-link" data-aos="<%= theme.animation.options.article.date %>">
+  <span class="article-date-link icon-calendar" data-aos="<%= theme.animation.options.article.date %>">
     <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, date_format) %></time>
     <time style="display: none;" id="post-update-time"><%= date(post.updated, date_format) %></time>
   </span>
+  <% if (theme.show_update_time) { %>
+    <span class="article-date-link icon-calendar-plus" data-aos="<%= theme.animation.options.article.date %>">
+      <time datetime="<%= date_xml(post.updated) %>" itemprop="datePublished"><%= date(post.updated, date_format) %></time>
+    </span>
+  <% } %>
 </div>

@@ -61,16 +61,29 @@ $post-wrap
   span
     font-size: 14px
     color: var(--grey-7)
-    margin: 0 8px
+    margin: 0 12px
     white-space: nowrap
     text-overflow: ellipsis
     overflow: hidden
 
-  span:before
-    margin: 0 10px
-
     @media mg-normal
-      margin: 0
+      margin: 0 8px
+
+  if hexo-config('show_update_time')
+    > span
+      @media mg-extra-large
+        margin: 0 8px
+      @media mg-large
+        margin: 0 6px
+      @media mq-mobile
+        margin: 0 2px
+      span
+        @media mg-extra-large
+          margin: 0 6px
+        @media mg-large
+          margin: 0 4px
+        @media mq-mobile
+          margin: 0 3px
 
 .post-article
   display: -webkit-box
