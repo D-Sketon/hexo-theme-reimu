@@ -171,11 +171,16 @@
         "#content",
         ".sidebar-widget",
         ".sidebar-wrapper",
+        ".sidebar-wrapper-container",
         '#mobile-nav',
         '#lazy-script',
         '#i18n-nav'
       ],
       switches: {
+        ".sidebar-wrapper-container": function(oldEl, newEl) {
+          oldEl.className = newEl.className;
+          this.onSwitch();
+        },
         "#content": function(oldEl, newEl) {
           // for sidebar change
           oldEl.className = newEl.className;

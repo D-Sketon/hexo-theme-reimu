@@ -18,8 +18,19 @@
 [data-theme="dark"] #mobile-nav .sidebar-wrap
   box-shadow: 0 0 0 0
 
+.sidebar-wrapper-container
+  display: flex
+  flex-direction: column
+  &.sticky
+    max-height: calc(100vh - 40px)
+    position: sticky
+    top: 5px
+
 .sidebar-wrapper
   transition: .3s
+  flex: 1
+  min-height: 0
+  display: flex
 
   .aos-animate
     transition-property: initial !important
@@ -29,21 +40,18 @@
   &:hover
     transform: scale(1.015)
 
-  &.wrap-sticky
-    position: sticky
-    top: 5px
-
 .sidebar-wrap
   width: 100%
   border-radius: post-radius
   background: var(--color-wrap)
   display: flex
-  flex-shrink: 0
   flex-direction: column
   justify-content: center
   align-items: center
   transition: .3s
   interpolate-size: allow-keywords
+  flex: 1
+  min-height: 0
 
   .hidden
     display: none
@@ -342,14 +350,10 @@ $menu-link
     opacity: 1
     color: #fff
 
-.sidebar-toc
-  width: 100%
-  padding: 10px 20px
-  box-sizing: border-box
-
 .sidebar-toc-wrapper
   color: var(--color-link)
-  max-height: calc(100vh - 150px)
+  flex: 1
+  min-height: 0
   overflow: auto
 
   &::-webkit-scrollbar
@@ -473,7 +477,8 @@ $siderbar-btn-icon
   width: 100%
   align-items: center
   overflow-y: auto
-  max-height: calc(100vh - 120px)
+  flex: 1
+  min-height: 0
 
   &::-webkit-scrollbar
     width: 5px
@@ -481,3 +486,9 @@ $siderbar-btn-icon
 
 .sidebar-toc-sidebar
   width: 100%
+  flex: 1
+  min-height: 0
+  padding: 10px 20px
+  box-sizing: border-box
+  display: flex
+  flex-direction: column
