@@ -5,7 +5,7 @@
   </span>
   <% if (theme.show_update_time) { %>
     <span class="article-date-link icon-calendar-plus" data-aos="<%= theme.animation.options.article.date %>">
-      <time datetime="<%= date_xml(post.updated) %>" itemprop="datePublished"><%= date(post.updated, date_format) %></time>
+      <time datetime="<%= date_xml(post.updated) %>" itemprop="dateModified"><%= date(post.updated, date_format) %></time>
     </span>
   <% } %>
 </div>

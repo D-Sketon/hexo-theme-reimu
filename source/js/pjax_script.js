@@ -258,7 +258,7 @@ function tocInit() {
 
     let parent = target.parentNode;
 
-    while (!parent.matches(".sidebar-toc")) {
+    while (!parent.matches(".sidebar-toc-sidebar")) {
       if (parent.matches("li")) {
         parent.classList.add("active");
         const t = document.getElementById(
