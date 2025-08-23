@@ -71,7 +71,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 - 👾 Live2D / Live2D-widgets integration
 
 ### Navigation & Structure
-- 📑 Table of Contents (TOC)
+- 📑 Table of Contents
 - 🔄 PJAX support
 - 🔧 ServiceWorker implementation
 - 📰 RSS feed
@@ -79,7 +79,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 ### Design & Customization
 - 🎨 Icon support:
   - Iconfont
-  - FontAwesome
+  - FontAwesome7
 - 🔗 Built-in tag plugins:
   - Internal links
   - External links
@@ -211,6 +211,46 @@ sticky: true
 ```
 
 </details>
+
+<details>
+<summary>Footer</summary>
+
+### Footer
+
+#### Basic Information
+
+The footer section allows you to configure basic display information and statistics.
+
+```yaml
+footer:
+  since: 2020 # The starting year displayed in the copyright information (e.g., 2020-current year)
+  powered: true # Whether to display copyright information
+  count: true # Whether to display word count and reading time statistics
+  busuanzi: true # Whether to enable Busuanzi visitor counting statistics
+```
+
+#### ICP Filing
+
+For websites hosted in mainland China, you can display ICP filing information as required by regulations.
+
+```yaml
+icp:
+  icpnumber: # ICP filing number
+  beian: # Public Security Bureau filing number
+  recordcode: # Record code parameter from the Public Security Bureau filing link
+```
+
+#### Moe ICP Filing (v1.9.1+)
+
+[Moe ICP Filing](https://icp.gov.moe/)
+
+```yaml
+moe_icp:
+  icpnumber: # Moe ICP filing number
+```
+
+</details>
+
 <details>
 <summary>Code Blocks</summary>
 
@@ -807,6 +847,15 @@ home_categories:
 
 Uses Aplayer + Meting (optional), disabled by default
 
+#### Music Player Position (v1.9.1+)
+
+Default is after sidebar
+
+```yml
+player:
+  position: before_sidebar # before_sidebar / after_sidebar / after_widget
+```
+
 ##### Pure Aplayer
 
 Set `player.aplayer.enable` to `true` and configure `player.aplayer.options` according to [Aplayer Docs](https://aplayer.js.org/#/home?id=options)
@@ -872,7 +921,21 @@ share:
   # - weixin
 ```
 
-For `weixin`, it generates a share card with QR code that can be saved locally and shared to WeChat Moments (Note: when the article cover has cross-origin issues, html-to-image cannot correctly generate cards with images!)
+For `weixin`, it generates a share card with QR code that can be saved locally and shared to WeChat Moments (Note: when the article cover has cross-origin issues, snapdom cannot correctly generate cards with images!)
+
+#### Injector (v1.5.1+)
+
+Used to inject custom code, similar to [Hexo#Injector](https://hexo.io/api/injector), supports `head`, `body` and `sidebar` injection
+
+```yaml
+injector:
+  head_begin: # Inject code snippet right after <head>
+  head_end: # Inject code snippet right before </head>
+  body_begin: # Inject code snippet right after <body>
+  body_end: # Inject code snippet right before </body>
+  sidebar_begin: # Inject code snippet right after <aside>
+  sidebar_end: # Inject code snippet right before </aside>
+```
 
 </details>
 
@@ -908,7 +971,7 @@ The first parameter is the article's `slug`; the second parameter (optional) is 
 
 The first parameter is the article title; the second parameter is the external link to the article; the third parameter (optional) is the cover image displayed on the card, if set to `auto` it will automatically use the default cover
 
-#### Heat Map Card Article Heatmap (Experimental Feature in v1.7.0+)
+#### Heat Map Card Article Heatmap (v1.7.0+)
 
 ```yaml
 {% heatMapCard levelStandard %}
@@ -916,7 +979,7 @@ The first parameter is the article title; the second parameter is the external l
 
 The first parameter is the level standard for the heatmap (graded based on the word count of the articles), with the default value being `"1000,5000,10000"`. 
 
-#### tagRoulette
+#### tagRoulette (v1.9.0+)
 
 ```yaml
 {% heatMapCard tags icon %}
