@@ -190,6 +190,8 @@ function createCalendar(element, contributionData) {
     const monthFragment = document.createDocumentFragment();
     const tilesFragment = document.createDocumentFragment();
 
+    let lastGridColumn = -1;
+
     const [tiles, totalStatistical] = data.reduce(
       ([tiles, stats], c, i) => {
         const date = new Date(c.date);
@@ -201,7 +203,11 @@ function createCalendar(element, contributionData) {
 
         // 处理月份标签
         if (date.getDay() === 0 && month !== latestMonth) {
-          const gridColumn = 2 + Math.floor((i + startRow) / 7);
+          let gridColumn = 2 + Math.floor((i + startRow) / 7);
+          if (gridColumn - lastGridColumn <= 1) {
+            gridColumn += (2 - gridColumn + lastGridColumn); // 防止重叠
+          }
+          lastGridColumn = gridColumn;
           latestMonth = month;
           const monthLabel = document.createElement("span");
           monthLabel.className = "month";
