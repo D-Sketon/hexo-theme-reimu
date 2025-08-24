@@ -16,6 +16,10 @@
   --color-tip-text: hsl(152, 95%, 28%)
   --color-tip-shadow: hsl(138, 100%, 98%)
 
+  --color-important-bg: hsl(270, 80%, 96%)
+  --color-important-text: hsl(270, 80%, 45%)
+  --color-important-shadow: hsl(270, 80%, 98%)
+
 [data-theme="dark"]
   &:root
     --color-info-bg: hsl(210, 30%, 25%)
@@ -33,6 +37,10 @@
     --color-tip-bg: hsl(138, 30%, 25%)
     --color-tip-text: hsl(138, 80%, 70%)
     --color-tip-shadow: hsl(138, 30%, 16%)
+
+    --color-important-bg: hsl(270, 30%, 25%)
+    --color-important-text: hsl(270, 80%, 70%)
+    --color-important-shadow: hsl(270, 30%, 16%)
 
 .custom-block
   margin: 1.8em 0
@@ -103,6 +111,23 @@
       else
         font-family: var(--font-icon)
         content: "\f058"
+        font-weight: 900
+      margin-right: 0.5em
+
+  &.important
+    background: var(--color-important-bg)
+    color: var(--color-important-text)
+    box-shadow: 0 0 5px 2px var(--color-important-shadow)
+    border-left: 6px var(--color-important-text) solid
+
+    .custom-block-title:before
+      font-weight: normal
+      if hexo-config("icon_font")
+        font-family: font-icon
+        content: "\e649"
+      else
+        font-family: var(--font-icon)
+        content: "\f192"
         font-weight: 900
       margin-right: 0.5em
   p

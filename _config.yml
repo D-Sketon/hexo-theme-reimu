@@ -172,7 +172,7 @@ reimu_cursor:
     text: ../images/cursor/reimu-cursor-text.png
 
 # set to false to enable fontawesome
-icon_font: 4552607_cs6s86l0wm9
+icon_font: 4552607_4k4bc36ef96
 
 # Font loading strategy
 # Custom Font -> Google Fonts -> Local FallBack Font
