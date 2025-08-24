@@ -1015,6 +1015,10 @@ This is an info box.
 This is a tip.
 :::
 
+::: important
+This is an important box.
+:::
+
 ::: warning
 This is a warning.
 :::
