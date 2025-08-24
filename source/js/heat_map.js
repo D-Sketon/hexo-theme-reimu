@@ -316,8 +316,13 @@ function getLevelFromWordCount(totalCount) {
   return 4;
 }
 
+var currentDate = new Date();
+
 function transformArticlesData(articlesData) {
   const dailyStats = articlesData.reduce((map, { date, wordcount }) => {
+    if (new Date(date) > currentDate) {
+      return map; // 忽略未来的日期
+    }
     const entry = map.get(date) ?? { count: 0, post: 0 };
     return map.set(date, {
       count: entry.count + wordcount,
