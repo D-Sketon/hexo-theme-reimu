@@ -165,9 +165,9 @@
               title = config.title;
             } %>
         <% if (title) { %>
-          <a href="<%- url_for() %>" id="logo">
+          <span id="logo">
             <h1 data-aos="<%= theme.animation.options.header.title %>"><%= title %></h1>
-          </a>
+          </span>
         <% } %>
       <% } %>
       <% if (post.type == 404) { %>
@@ -189,13 +189,17 @@
             } else if (is_tag()) {
               subtitle = post.tag;
             } else if (post.title) {
-              subtitle = null;
+              if (theme.show_summary && post.excerpt) {
+                subtitle = stripHtml(post.excerpt);
+              } else {
+                subtitle = null;
+              }
             } else if (theme.subtitle || config.subtitle) {
               subtitle = theme.subtitle || config.subtitle;
             } %>
         <h2 id="subtitle-wrap" data-aos="<%= theme.animation.options.header.subTitle %>">
           <% if (subtitle) { %>
-            <a href="<%- url_for() %>" id="subtitle"><%= subtitle %></a>
+            <span id="subtitle"><%= subtitle %></span>
           <% } %>
         </h2>
       <% } %>
