@@ -51,7 +51,6 @@
     top: -80px
 
 #header-title
-  font-family: font-basic
   font-weight: 700
   text-align: center
   position: absolute
@@ -115,21 +114,6 @@ $nav-link
   transition: 0.2s
   padding: 20px 15px
 
-$nav-link-wrap
-  @extend $nav-link
-  padding: 0 15px
-  display: flex
-  transition: .3s
-
-  &:hover
-    opacity: 1
-
-  @media mg-large
-    padding: 0 10px
-
-  @media mg-normal
-    padding: 0 4px
-
 .nav-icon
   @extend $nav-link
   text-align: center
@@ -146,7 +130,17 @@ $nav-link-wrap
     color: var(--red-2)
 
 .main-nav-link-wrap
-  @extend $nav-link-wrap
+  @extend $nav-link
+  padding: 0 15px
+  display: flex
+  transition: .3s
+
+  &:hover
+    opacity: 1
+
+  @media mg-large
+    padding: 0 10px
+
   @media mg-normal
     display: none
 

@@ -26,7 +26,6 @@
   grid: auto repeat(7, 10px) auto / auto repeat(53, 10px);
   gap: 3px;
 
-
   width: fit-content;
   font-size: 12px;
   padding: 14px;
@@ -45,6 +44,7 @@
   line-height: 10px;
   margin-right: 3px;
 }
+
 .week + .week {
   grid-row: 5;
 }
@@ -52,17 +52,14 @@
   grid-row: 7;
 }
 
-
 .tiles {
   grid-column: 2/56;
   grid-row: 2/9;
-
 
   display: grid;
   grid-auto-flow: column;
   grid-template: subgrid / subgrid;
 }
-
 
 .tile {
   width: 10px;
@@ -73,7 +70,6 @@
 }
 .tile[data-level="0"] {
   background: var(--heat-level-0);
-  // outline: none;
 }
 .tile[data-level="1"] {
   background: var(--heat-level-1);
@@ -107,7 +103,6 @@ line-height = 1.8em;
   max-width: 250px;
   display: none; /* Initially hidden */
 
-  
   ul {
     margin: 0 20px;
     line-height: line-height;
@@ -168,19 +163,16 @@ line-height = 1.8em;
   margin-top: 4px;
 }
 
-
 .legend {
   grid-column: 30/53;
   grid-row: 9;
   margin-top: 4px;
-
 
   display: flex;
   gap: 5px;
   justify-content: right;
   align-items: center;
 }
-
 
 .year-select {
   height: 140px;
@@ -192,35 +184,29 @@ line-height = 1.8em;
   flex-shrink: 0;
 }
 
-
 .year-option {
   padding: 5px 20px;
   border-radius: 0.375rem;
   cursor: var(--cursor-pointer) !important;
 }
 
-
 .year-option:hover {
   background-color: var(--heat-level-1);
 }
-
 
 .year-option.active {
   background-color: var(--heat-level-2);
   color: white;
 }
 
-
 .inner-box {
   overflow: auto;
-
 
   ::-webkit-scrollbar {
     width: 5px;
     height: 5px;
   }
 }
-
 
 @media screen and (max-width: 768px) {
   .year-select {
@@ -231,11 +217,9 @@ line-height = 1.8em;
     align-items: center;
   }
 
-
   .outer-box {
     flex-direction: column;
   }
-
 
   .inner-box {
     width: 100%;

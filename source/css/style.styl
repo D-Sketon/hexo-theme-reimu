@@ -15,7 +15,6 @@ else
 global-reset()
 
 h1, h2, h3, h4, h5, h6
-  font-family: font-basic
   font-weight: 700
 
 input, button
@@ -166,11 +165,10 @@ if site-has-share
 if hexo-config("markdown.container")
   @import "_partial/container"
 
-// for Pull Quotes
-.left
+.pullquote.left
   float: left
 
-.right
+.pullquote.right
   float: right
 
 [data-theme="dark"]

@@ -94,16 +94,6 @@
     color: var(--grey-7)
     margin: 0 20px
 
-$sidebar-state-content
-  display: flex
-  flex-direction: column
-  flex-shrink: 0
-  align-items: center
-  padding: 0 20px
-
-  div
-    margin: 5px 0
-
 .sidebar-state
   display: flex
   justify-content: center
@@ -115,15 +105,20 @@ $sidebar-state-content
   &:hover
     opacity: 1
 
+  > div
+    display: flex
+    flex-direction: column
+    flex-shrink: 0
+    align-items: center
+    padding: 0 20px
+
+    div
+      margin: 5px 0
+
 .sidebar-state-article
-  @extend $sidebar-state-content
   border-right: 1px solid var(--red-1)
 
-.sidebar-state-category
-  @extend $sidebar-state-content
-
 .sidebar-state-tag
-  @extend $sidebar-state-content
   border-left: 1px solid var(--red-1)
 
 .sidebar-state-number
@@ -436,27 +431,6 @@ $menu-link
   text-overflow: ellipsis
   white-space: nowrap
 
-$siderbar-btn-icon
-  display: flex
-  justify-content: center
-  align-items: center
-  width: 40px
-  height: 40px
-  background: var(--red-3)
-  color: #fff
-  font-weight: bold
-  box-shadow: var(--shadow-red-6-shadow)
-  border-radius: post-radius
-  margin: 20px
-  transition: .3s
-  will-change: transform
-
-  &:hover
-    transform: scale(1.05)
-
-  [data-theme="dark"] &
-    filter: brightness(.8)
-
 .sidebar-btn-wrapper
   display: flex
   justify-content: center
@@ -465,11 +439,29 @@ $siderbar-btn-icon
   left: 0
   right: 0
 
+  .sidebar-toc-btn, .sidebar-common-btn
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 40px
+    height: 40px
+    background: var(--red-3)
+    color: #fff
+    font-weight: bold
+    box-shadow: var(--shadow-red-6-shadow)
+    border-radius: post-radius
+    margin: 20px
+    transition: .3s
+    will-change: transform
+
+    &:hover
+      transform: scale(1.05)
+
+    [data-theme="dark"] &
+      filter: brightness(.8)
+
   .current
     background: var(--red-1)
-
-  .sidebar-toc-btn, .sidebar-common-btn
-    @extend $siderbar-btn-icon
 
 .sidebar-common-sidebar
   display: flex

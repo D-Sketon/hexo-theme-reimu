@@ -1,5 +1,5 @@
 <div class="post-wrapper">
-  <div class=<% if (even === true) { %>"post-wrap-left"<% } else { %>"post-wrap-right"<% } %> data-aos="<%= theme.animation.options.home.post %>">
+  <div class=<% if (even === true) { %>"post-wrap left"<% } else { %>"post-wrap right"<% } %> data-aos="<%= theme.animation.options.home.post %>">
     <% if (post.link) { %>
       <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url" target="_blank" aria-label="<%= post.title %>" rel="noopener external nofollow noreferrer"></a>
     <% } else { %>
@@ -8,7 +8,7 @@
     <% if (post.sticky) { %>
       <div class="post-sticky"><%= __('sticky')%></div>
     <% } %>
-    <div class=<% if (even === true) { %>"post-cover-left"<% } else { %>"post-cover-right"<% } %>>
+    <div class=<% if (even === true) { %>"post-cover left"<% } else { %>"post-cover right"<% } %>>
       <% if (post.cover && !post.cover.startsWith("rgb")) { %>
         <img data-src="<%- url_for(post.cover, {relative: false}) %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
       <% } else { %>

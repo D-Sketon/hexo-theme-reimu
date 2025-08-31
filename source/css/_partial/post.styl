@@ -5,7 +5,7 @@
   width: 100%
   height: 100%
 
-$post-wrap
+.post-wrap
   width: 100%
   height: 230px
   margin-bottom: 40px
@@ -15,7 +15,14 @@ $post-wrap
   display: flex
   transition: .3s
 
-[data-theme="dark"] .post-wrap-left, [data-theme="dark"] .post-wrap-right
+  @media mg-normal
+    flex-direction: column !important
+    height: 400px
+
+  &.right
+    flex-direction: row-reverse
+
+[data-theme="dark"] .post-wrap.left, [data-theme="dark"] .post-wrap.right
   box-shadow: var(--shadow-card)
 
 .post-wrapper
@@ -35,16 +42,6 @@ $post-wrap
       transform: scale(1.01)
       img
         transform: scale(1.05)
-
-.post-wrap-right
-  flex-direction: row-reverse
-
-.post-wrap-left, .post-wrap-right
-  @extend $post-wrap
-
-  @media mg-normal
-    flex-direction: column
-    height: 400px
 
 .post-info
   height: 100%
@@ -98,7 +95,7 @@ $post-wrap
   a
     color: var(--color-link)
 
-$post-cover
+.post-cover
   width: 40%
   position: relative
   overflow: hidden
@@ -126,27 +123,23 @@ $post-cover
     opacity: 1
     animation: blur .8s forwards
 
-.post-cover-left
-  @media mq-normal
-    border-radius: post-radius 0 0 post-radius
-    -webkit-clip-path: polygon(0 0, 92% 0%, 100% 100%, 0% 100%)
-    clip-path: polygon(0 0, 92% 0%, 100% 100%, 0% 100%)
+  &.left
+    @media mq-normal
+      border-radius: post-radius 0 0 post-radius
+      -webkit-clip-path: polygon(0 0, 92% 0%, 100% 100%, 0% 100%)
+      clip-path: polygon(0 0, 92% 0%, 100% 100%, 0% 100%)
 
-  @media mg-normal
-    border-radius: post-radius post-radius 0 0
+    @media mg-normal
+      border-radius: post-radius post-radius 0 0
 
-  @extend $post-cover
+  &.right
+    @media mq-normal
+      border-radius: 0 post-radius post-radius 0
+      -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 8% 100%)
+      clip-path: polygon(0 0, 100% 0%, 100% 100%, 8% 100%)
 
-.post-cover-right
-  @media mq-normal
-    border-radius: 0 post-radius post-radius 0
-    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 8% 100%)
-    clip-path: polygon(0 0, 100% 0%, 100% 100%, 8% 100%)
-
-  @media mg-normal
-    border-radius: post-radius post-radius 0 0
-
-  @extend $post-cover
+    @media mg-normal
+      border-radius: post-radius post-radius 0 0
 
 .post-title
   padding: 20px 0
