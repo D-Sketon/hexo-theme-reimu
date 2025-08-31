@@ -189,7 +189,7 @@
             } else if (is_tag()) {
               subtitle = post.tag;
             } else if (post.title) {
-              if (theme.show_summary && post.excerpt) {
+              if (theme.summary.enable && theme.summary.style === 'subtitle' && post.excerpt) {
                 subtitle = stripHtml(post.excerpt);
               } else {
                 subtitle = null;

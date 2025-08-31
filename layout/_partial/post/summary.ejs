@@ -1,0 +1,7 @@
+<% if (theme.summary.enable && theme.summary.style === 'blockquote' && post.excerpt) { %>
+  <div class="article-entry">
+    <blockquote class="article-summary" data-aos="<%= theme.animation.options.article.tag %>">
+      <p><%= stripHtml(post.excerpt) %></p>
+    </blockquote>
+  </div>
+<% } %>

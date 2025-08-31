@@ -150,7 +150,11 @@ tagcloud_limits:
 only_show_capsule_in_index: false # If you have hugo amounts of tags and categories, you can set this to true to only show the capsule in the index page for better performance
 
 show_update_time: false # If you want to show the update time, please set this to true
-show_summary: false # If you want to show summary in front of the article, please set this to true
+
+# Summary content
+summary:
+  enable: false
+  style: 'subtitle' # 'subtitle' or 'blockquote'
 
 # Internationalization
 i18n:
