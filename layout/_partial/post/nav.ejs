@@ -2,7 +2,7 @@
   <nav id="article-nav" data-aos="<%= theme.animation.options.article.nav %>">
     <% if (post.prev) { %>
       <% const postByLang = get_post_by_lang(post.prev.permalink, post.lang); %>
-      <div class="article-nav-link-wrap article-nav-link-left">
+      <div class="article-nav-link-wrap left">
         <% if (post.prev.cover && !post.prev.cover.startsWith('rgb')) { %>
           <img data-src="<%- url_for(post.prev.cover, {relative: false}) %>" data-sizes="auto" alt="<%= postByLang.title %>" class="lazyload">
         <% } else { %>
@@ -26,7 +26,7 @@
     <% } %>
     <% if (post.next) { %>
     <% const postByLang = get_post_by_lang(post.next.permalink, post.lang); %>
-    <div class="article-nav-link-wrap article-nav-link-right">
+    <div class="article-nav-link-wrap right">
       <% if (post.next.cover && !post.next.cover.startsWith('rgb')) { %>
         <img data-src="<%- url_for(post.next.cover, {relative: false}) %>" data-sizes="auto" alt="<%= postByLang.title %>" class="lazyload">
       <% } else { %>
