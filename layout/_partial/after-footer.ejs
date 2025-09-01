@@ -412,10 +412,10 @@
       if (isMobile) {
       const aplayer = _$('#aplayer');
         if (aplayer) {
-          const aside = aplayer.parentNode;
+          const aside = aplayer.parentNode?.parentNode;
           if (aside?.tagName === 'ASIDE') {
             aplayer.removeAttribute('data-aos');
-            aside.removeChild(aplayer);
+            aplayer.parentNode.removeChild(aplayer);
             document.body.appendChild(aplayer);
           }
         }
@@ -450,9 +450,9 @@
       const meting = _$('meting-js');
       if (meting) {
         meting.setAttribute('fixed', 'true');
-        const aside = meting.parentNode;
+        const aside = meting.parentNode?.parentNode;
         if (aside?.tagName === 'ASIDE') {
-          aside.removeChild(meting);
+          meting.parentNode.removeChild(meting);
           document.body.appendChild(meting);
         }
       }
