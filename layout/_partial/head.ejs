@@ -86,7 +86,7 @@
     <%- css({href: vendorCdn(theme.vendor.css.aos)[0], integrity: vendorCdnIntegrity(theme.vendor.css.aos)[0], crossorigin: "anonymous"}) %>
   <% } %>
   <% if (theme.player.aplayer.enable) { %>
-    <%- css({href: vendorCdn(theme.vendor.css.aplayer)[0], integrity: vendorCdnIntegrity(theme.vendor.css.aplayer)[0], crossorigin: "anonymous"}) %>
+    <%- asyncCss({href: vendorCdn(theme.vendor.css.aplayer)[0], integrity: vendorCdnIntegrity(theme.vendor.css.aplayer)[0], crossorigin: "anonymous"}) %>
   <% } %>
   <% if (theme.injector.head_end) { %>
     <%- render(theme.injector.head_end, 'html'); %>
