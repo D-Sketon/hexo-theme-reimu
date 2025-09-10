@@ -79,18 +79,12 @@
   // 代码复制
   const clipboard = new ClipboardJS(".code-copy", {
     text: (trigger) => {
-      const selection = window.getSelection();
-      const range = document.createRange();
+     const codeElement =
+       trigger.parentNode.parentNode.parentNode.querySelector(
+         "td.code"
+       );
+     let selectedText = codeElement ? codeElement.innerText : "";
 
-      range.selectNodeContents(
-        trigger.parentNode.parentNode.nextElementSibling.querySelector(
-          "td.code"
-        )
-      );
-      selection.removeAllRanges();
-      selection.addRange(range);
-
-      let selectedText = selection.toString();
       if (
         tips.copyright?.enable &&
         selectedText.length >= tips.copyright?.count
