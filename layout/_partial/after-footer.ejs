@@ -254,6 +254,9 @@
     <% if (theme.mermaid.enable && page.mermaid) { %>
       <%- js({src: vendorCdn(theme.vendor.js.mermaid)[0], integrity: vendorCdnIntegrity(theme.vendor.js.mermaid)[0], crossorigin: "anonymous", 'data-pjax': true}) %>
       <%- js({src: vendorCdn(theme.vendor.js.dompurify)[0], integrity: vendorCdnIntegrity(theme.vendor.js.dompurify)[0], crossorigin: "anonymous"}) %>
+      <% if (theme.mermaid.zoom) { %>
+        <%- js({src: vendorCdn(theme.vendor.js.svg_pan_zoom)[0], integrity: vendorCdnIntegrity(theme.vendor.js.svg_pan_zoom)[0], crossorigin: "anonymous"}) %>
+      <% } %>
       <script data-pjax>
         if (window.mermaid) {
           // https://github.com/mermaid-js/mermaid/issues/1945
@@ -297,9 +300,24 @@
               }
             })
           } 
-          const loadMermaid = (theme) => {
+          const loadMermaid = async (theme) => {
             window.mermaid.initialize({theme})
-            window.mermaid.init({theme}, _$$(elementCode))
+            await window.mermaid.run({querySelector: elementCode})
+            if (window.svgPanZoom) {
+               const svgElements = _$$('.mermaid > svg')
+              if (svgElements.length > 0) {
+                svgElements.forEach(el => {
+                  const bbox = el.getBBox();
+                  el.setAttribute('height', bbox.height);
+                  window.svgPanZoom(el, {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true
+                  });
+                });
+              }
+            }
           }
           document.body.addEventListener('dark-theme-set', () => {
             saveOriginalData()

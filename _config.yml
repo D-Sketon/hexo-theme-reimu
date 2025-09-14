@@ -261,10 +261,11 @@ math:
         loader: { load: ["input/asciimath", "[tex]/noerrors"] },
       }
 
-# mermaid url https://github.com/knsv/mermaid
+# mermaid url https://github.com/mermaid-js/mermaid
 # need https://github.com/webappdevelp/hexo-filter-mermaid-diagrams
 mermaid:
   enable: false
+  zoom: false # whether to enable zoom for mermaid diagrams
 
 code_block:
   # whether to expand the code block by default
@@ -763,6 +764,9 @@ vendor:
     mermaid:
       src: webcache|mermaid@11.10.1/dist/mermaid.min.js
       integrity: sha384-7nxfNsXzOEcSwk+tzfq6tbjmfg0P2Gqmi7JTnRjv9Ll3gFWNro6lI7hPtZPM5ZLD
+    svg_pan_zoom:
+      src: webcache|svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js
+      integrity: sha384-GGX4llYprEPGp9w5caepn95YWAEflHnsA5ewt+Y+cBEb95og5cXKllnWKSELlzbx
     firework:
       src: webcache|mouse-firework@0.1.1/dist/index.umd.js
       integrity: sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d
