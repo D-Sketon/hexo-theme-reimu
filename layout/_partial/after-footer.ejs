@@ -308,7 +308,7 @@
               if (svgElements.length > 0) {
                 svgElements.forEach(el => {
                   const bbox = el.getBBox();
-                  el.setAttribute('height', bbox.height);
+                  el.setAttribute('height', Math.max(bbox.height, 80));
                   window.svgPanZoom(el, {
                     zoomEnabled: true,
                     controlIconsEnabled: true,
