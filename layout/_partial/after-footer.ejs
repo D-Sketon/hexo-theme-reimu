@@ -301,22 +301,41 @@
             })
           } 
           const loadMermaid = async (theme) => {
-            window.mermaid.initialize({theme})
-            await window.mermaid.run({querySelector: elementCode})
+            window.mermaid.initialize({theme, startOnLoad: false})
+            await window.mermaid.run({querySelector: elementCode, suppressErrors: true})
             if (window.svgPanZoom) {
-               const svgElements = _$$('.mermaid > svg')
+              const svgElements = _$$('.mermaid > svg')
+              window.__panZoomList?.forEach(panZoom => {try {panZoom.destroy()} catch {}});
+              window.__panZoomList = [];
               if (svgElements.length > 0) {
                 svgElements.forEach(el => {
                   const bbox = el.getBBox();
                   el.setAttribute('height', Math.max(bbox.height, 80));
-                  window.svgPanZoom(el, {
+                  const panZoom = window.svgPanZoom(el, {
                     zoomEnabled: true,
                     controlIconsEnabled: true,
                     fit: true,
                     center: true
                   });
+                  window.__panZoomList.push(panZoom);
                 });
               }
+              if (window.__resizeMermaidSvg) {
+                window.removeEventListener('resize', window.__resizeMermaidSvg);
+              }
+              window.__resizeMermaidSvg = () => {
+                try {
+                  window.__panZoomList.forEach(panZoom => {
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                  });
+                } catch {
+                  window.removeEventListener('resize', window.__resizeMermaidSvg);
+                  window.__panZoomList = [];
+                }
+              }
+              window.addEventListener('resize', window.__resizeMermaidSvg);
             }
           }
           document.body.addEventListener('dark-theme-set', () => {
