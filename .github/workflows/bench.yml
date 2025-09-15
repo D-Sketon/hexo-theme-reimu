@@ -45,7 +45,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: "22"
+          node-version: "24"
 
       - name: Install dependencies
         run: |
@@ -95,7 +95,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: "22"
+          node-version: "24"
 
       - name: Install dependencies
         run: |
@@ -108,7 +108,7 @@ jobs:
           npx bench-hexo benchmark
           npx bench-hexo memory -c 20 -s 200
           npx bench-hexo memory -c 20 -s 200 --no-clean
-  bench-hexo-next:
+  bench-hexo-8:
     runs-on: ubuntu-latest
 
     steps:
@@ -144,13 +144,13 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: "22"
+          node-version: "24"
 
       - name: Install dependencies
         run: |
           cd reimu-playground
           npm install
-          npm i hexo@https://github.com/D-Sketon/hexo.git#chore/bench
+          npm i hexo@8
   
       - name: benchmark
         run: |
