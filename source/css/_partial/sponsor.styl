@@ -3,8 +3,7 @@
   justify-content: center
   flex-direction: column
   align-items: center
-  margin: 5px 0
-  margin-top: 10px
+  margin: 8px 0 4px
 
 .sponsor-title
   font-size: 18px
@@ -17,6 +16,7 @@
   padding: 10px 0
   font-weight: 700
   user-select: none
+  word-break: break-word
 
 .sponsor-icon
   width: 30px
@@ -46,7 +46,7 @@ else
     background: var(--sponsor-icon) no-repeat center / 80%
 
 .sponsor-button
-  margin: 8px 50px
+  margin: 8px 48px
   display: flex
   position: relative
   width: fit-content
@@ -56,13 +56,13 @@ else
   cursor: var(--cursor-pointer) !important
 
   &:hover
-    border: 10px var(--color-h2-after) double
+    border-color: var(--color-h2-after)
 
   &:hover + .sponsor-tip
     opacity: .8
 
   &.active
-    border: 10px var(--color-h2-after) double
+    border-color: var(--color-h2-after)
 
 .sponsor-tip
   transition: opacity .2s
@@ -76,12 +76,12 @@ else
     opacity: .8
 
 .sponsor-qr
-  gap: 5px
+  gap: 4px
   width: 100%
   flex-wrap: wrap
   justify-content: center
   display: none
-  margin-top: 5px
+  margin-top: 8px
 
   &.active
     display: flex

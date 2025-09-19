@@ -12,9 +12,7 @@ const template = ({ name, url, desc, image }) => {
   return `<div class="friend-item-wrap">
     <a href="${url}" rel="noopener external nofollow noreferrer" target="_blank"></a>
     <div class="friend-icon-wrap">
-      <div class="friend-icon">
-          <img data-src="${image}" data-sizes="auto" alt="${name}" class="lazyload">
-      </div>
+      <img class="no-lightbox" src="${image}" alt="${name}">
     </div>
     <div class="friend-info-wrap">
       <div class="friend-name">

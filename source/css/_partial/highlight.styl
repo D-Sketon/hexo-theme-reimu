@@ -1,14 +1,15 @@
 // https://github.com/chriskempson/tomorrow-theme
 $code-block
   background: var(--highlight-background)
-  padding: 0 article-padding 15px
-  border-radius: 10px
+  padding: 0 article-padding 16px
+  border-radius: post-radius
   color: var(--highlight-foreground)
   line-height: font-size * line-height
 
 $line-numbers
   color: #666
-  font-size: 0.85em
+  font-size: 14px
+  line-height: font-size * line-height
 
 .article-entry
   //remove mermaid
@@ -17,7 +18,7 @@ $line-numbers
 
   figure
     display: block
-    margin: (line-height / 3 * 2) 0
+    margin: 16px 0
     transition: 0.3s
     box-shadow: var(--shadow-card)
     
@@ -25,8 +26,8 @@ $line-numbers
       box-shadow: var(--shadow-card-hover)
 
     ::-webkit-scrollbar
-      width: 10px
-      height: 10px
+      width: 8px
+      height: 8px
       background-color: transparent
 
     ::-webkit-scrollbar-track
@@ -40,14 +41,14 @@ $line-numbers
 
   pre, code, kbd
     font-family: font-code
-    font-size: 95%
+    font-size: 93.75%
     transition: 0.3s
     word-break: break-word
 
   code, kbd
     background: var(--color-code-background)
-    padding: 1px 5px
-    border-radius: 5px
+    padding: 1px 4px
+    border-radius: 6px
     color: var(--color-link)
 
   pre
@@ -87,10 +88,10 @@ $line-numbers
 
     figcaption
       clearfix()
-      font-size: 0.85em
+      font-size: 14px
       color: var(--highlight-comment)
-      line-height: 1em
-      margin-bottom: 1em
+      line-height: 1
+      margin-bottom: 12px
 
       a
         float: right
@@ -102,7 +103,7 @@ $line-numbers
     .gutter pre
       @extend $line-numbers
       text-align: right
-      padding-right: 20px
+      padding-right: 16px
 
     .line
       height: font-size * line-height
@@ -120,7 +121,7 @@ $line-numbers
     border: 1px solid var(--color-border)
     border-width: 1px 0
     background: var(--highlight-background)
-    padding: 15px article-padding 15px 0
+    padding: 16px article-padding 16px 0
 
     .gist-file
       border: none
@@ -220,6 +221,9 @@ pre
   width: 100%
   overflow: auto
   transition: 0.3s
+
+  pre
+    padding-left: 4px !important
 
 .code-figcaption
   width: 100%
