@@ -118,20 +118,48 @@ const algoliaHandler = () => {
         window.innerWidth - document.documentElement.offsetWidth;
       _$("#container").style.marginRight = scrollWidth + "px";
       _$("#header-nav").style.marginRight = scrollWidth + "px";
-      _$(".popup").classList.add("show");
+      const popup = _$(".popup");
+      popup.classList.add("show");
       _$("#mask").classList.remove("hide");
       document.body.style.overflow = "hidden";
-      _$("#reimu-search-input input").focus();
+      setTimeout(() => {
+        (_$("#reimu-search-input input"))?.focus();
+      }, 100);
+      const keydownHandler = (e) => {
+        const focusables = popup.querySelectorAll(
+          "input, [href]"
+        );
+        const firstFocusable = focusables[0];
+        const lastFocusable = focusables[focusables.length - 1];
+        if (e.key === "Escape") {
+          closePopup();
+        } else if (e.key === "Tab" && focusables.length) {
+          if (e.shiftKey && document.activeElement === firstFocusable) {
+            e.preventDefault();
+            lastFocusable?.focus();
+          } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+            e.preventDefault();
+            firstFocusable?.focus();
+          }
+        }
+      };
+      document.addEventListener("keydown", keydownHandler);
+      function closePopup() {
+        popup.classList.remove("show");
+        _$("#mask").classList.add("hide");
+        _$("#container").style.marginRight = "";
+        _$("#header-nav").style.marginRight = "";
+        document.body.style.overflow = "";
+        document.removeEventListener("keydown", keydownHandler);
+        _$("#nav-search-btn")?.focus();
+      }
+      popup.__closePopup = closePopup;
     });
 
   _$(".popup-btn-close")
     .off("click")
     .on("click", () => {
-      _$(".popup").classList.remove("show");
-      _$("#mask").classList.add("hide");
-      _$("#container").style.marginRight = "";
-      _$("#header-nav").style.marginRight = "";
-      document.body.style.overflow = "";
+      _$(".popup").__closePopup?.();
     });
 };
 

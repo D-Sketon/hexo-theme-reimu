@@ -31,10 +31,7 @@
     <% if (theme.rss) { %>
       <a id="nav-rss-link" class="nav-icon" href="<%- url_for(theme.rss) %>" title="<%= __('rss_feed') %>" aria-label="<%= __('rss_feed') %>" target="_blank"></a>
     <% } %>
-    <% if (theme.algolia_search.enable) { %>
-      <a id="nav-search-btn" class="nav-icon popup-trigger" title="<%= __('search') %>" aria-label="<%= __('search') %>"></a>
-    <% } %>
-    <% if (theme.generator_search.enable) { %>
+    <% if (theme.algolia_search.enable || theme.generator_search.enable) { %>
       <a id="nav-search-btn" class="nav-icon popup-trigger" title="<%= __('search') %>" aria-label="<%= __('search') %>"></a>
     <% } %>
   </nav>
