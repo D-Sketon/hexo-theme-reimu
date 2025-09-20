@@ -57,6 +57,10 @@
   top: 50%
   margin: logo-size * -0.5 2.5% 0
   width: 95%
+  opacity: 0
+  filter: blur(8px)
+  will-change: transform, opacity, filter
+  animation: fade-in-blur 800ms ease-out 200ms forwards
 
 $logo-text
   text-decoration: none
