@@ -1,5 +1,5 @@
 .hr-line
-  margin: 10px article-padding + 15px
+  margin: 12px article-padding + 16px
   opacity: 0.3
   height: 4px
   background-image: linear-gradient(to right, var(--red-0) 50%, transparent 0%)
@@ -20,7 +20,7 @@
 .article-meta
   display: flex
   flex-direction: column
-  padding: article-padding article-padding + 15px 0
+  padding: article-padding article-padding + 16px 0
 
 .article-summary
   margin: 0 0 article-padding 0 !important
@@ -31,9 +31,9 @@ $article-meta-tag
   font-size: 14px
   color: var(--red-1)
   background: var(--red-5)
-  border-radius: post-radius
-  padding: 10px 18px
-  margin: 0 12px 1em 0
+  border-radius: tag-radius
+  padding: 10px 20px
+  margin: 0 12px 16px 0
   box-shadow: var(--shadow-meta)
   transition: 0.3s
 
@@ -44,7 +44,7 @@ $article-meta-tag
   @extend $article-meta-tag
 
   &:before
-    margin-right: 10px
+    margin-right: 8px
 
 .article-category
   display: flex
@@ -55,26 +55,26 @@ $article-meta-tag
 
   &:before
     font-weight: 700
-    margin-right: 10px
+    margin-right: 8px
 
 .article-entry
   @extend $base-style
   clearfix()
   overflow: hidden
   color: var(--color-default)
-  padding: 0 article-padding + 15px
+  padding: 0 article-padding + 16px
 
   @media mg-normal
     padding: 0 article-padding
 
-  p, table
+  p, table 
     line-height: line-height
-    margin: (line-height/3*2) 0
+    margin: 16px 0
 
   h1, h2, h3, h4, h5, h6
     font-weight: bold
     line-height: line-height-title
-    margin: line-height-title 0 (line-height-title/3*2)
+    margin: line-height-title 0 0.75em
 
     if hexo-config("icon_font")
       &:before
@@ -84,7 +84,7 @@ $article-meta-tag
       a
         font-family: font-icon
         opacity: 0.5
-        margin-right: 5px
+        margin-right: 4px
         transition: 0.3s
 
         &:hover 
@@ -98,7 +98,7 @@ $article-meta-tag
       a
         font-family: var(--font-icon)
         opacity: 0.5
-        margin-right: 5px
+        margin-right: 4px
         transition: 0.3s
 
         &:hover
@@ -126,7 +126,7 @@ $article-meta-tag
 
     font-size: 0.5em
     margin: 0 0.5em
-    vertical-align: bottom
+    vertical-align: middle
     font-style: normal
 
   a:not(h1 a,h2 a,h3 a,h4 a,h5 a,h6 a) code::after 
@@ -139,14 +139,11 @@ $article-meta-tag
 
     font-size: 0.5em
     margin: 0 0.5em
-    vertical-align: bottom
+    vertical-align: middle
     font-style: normal
 
-  ul, ol, dl
-    margin-top: (line-height/3*2)
-    margin-bottom: (line-height/3*2)
-
   li
+    margin: 4px 0
     &:hover
       &::marker
         transition: color 0.2s
@@ -177,19 +174,20 @@ $article-meta-tag
   th
     font-weight: bold
     border-bottom: 3px solid var(--color-border)
-    padding-bottom: 0.5em
+    padding-bottom: 8px
 
   td
     border-bottom: 1px solid var(--color-border)
-    padding: 10px 0
+    padding: 8px 0
 
   blockquote
     background: var(--red-5-5)
     border-left: 6px var(--red-4) solid
-    margin: (line-height/3*2) 0
+    margin: 28px 0
     border-radius: post-radius
     transition: 0.3s
-    padding: 1px 10px
+    display: flow-root
+    padding: 0 12px
     box-shadow: var(--shadow-meta)
 
     &:hover
@@ -197,15 +195,15 @@ $article-meta-tag
 
     footer
       font-size: font-size
-      margin: line-height 0
+      margin: 24px 0
 
       cite
         &:before
           content: "—"
-          padding: 0 0.5em
+          padding: 0 8px
   
   details
-    padding: 18px 12px
+    padding: 16px 12px
     border-radius: post-radius
     background-color: var(--red-5-5)
     box-shadow: var(--shadow-meta)
@@ -220,7 +218,7 @@ $article-meta-tag
     cursor: var(--cursor-pointer) !important
     padding: 8px
     border: none
-    border-radius: 10px
+    border-radius: tag-radius
     transition: 0.3s
 
   summary:hover
@@ -234,31 +232,24 @@ $article-meta-tag
 
   details p
     margin: 20px 0 0
-    padding: 10px
+    padding: 12px
     background-color: var(--color-footer-background)
-    border-radius: 10px
+    border-radius: tag-radius
     transition: 0.3s
   
   .pullquote
     text-align: left
-    width: 45%
+    width: 50%
+    box-sizing: border-box
     margin: 0
 
     &.left
-      margin-left: 0.5em
-      margin-right: 1em
+      margin-left: 8px
+      margin-right: 16px
 
     &.right
-      margin-right: 0.5em
-      margin-left: 1em
-
-  .caption
-    color: var(--grey-9)
-    display: block
-    font-size: 0.9em
-    margin-top: 0.5em
-    position: relative
-    text-align: center
+      margin-right: 8px
+      margin-left: 16px
 
   // http://webdesignerwall.com/tutorials/css-elastic-videos
 
@@ -278,14 +269,17 @@ $article-meta-tag
 
 .article-more-link a
   display: inline-block
-  line-height: 1em
-  padding: 10px 18px
-  border-radius: post-radius
+  line-height: 1
+  padding: 10px 20px
+  border-radius: tag-radius
   background: var(--red-5)
   color: var(--red-1)
   text-decoration: none
   box-shadow: var(--shadow-meta)
   transition: 0.3s
+
+  &:after
+    margin-right: 0 !important
 
   &:hover
     background: var(--color-link)
@@ -295,7 +289,7 @@ $article-meta-tag
 .article-footer
   clearfix()
   font-size: 14px
-  margin: 0 article-padding + 15px article-padding
+  margin: 0 article-padding + 16px article-padding
 
   @media mg-normal
     margin: 0 article-padding article-padding
@@ -307,7 +301,7 @@ $article-meta-tag
   &:before
     content: ""
     display: block
-    margin-top: 10px
+    margin-top: 12px
     opacity: 0.3
     height: 4px
     background-image: linear-gradient(to right, var(--red-0) 50%, transparent 0%)
@@ -330,36 +324,36 @@ $article-meta-tag
   text-decoration: none
   text-transform: uppercase
   background: var(--red-5)
-  border-radius: post-radius
-  padding: 8px 15px
+  border-radius: tag-radius
+  padding: 8px 16px
   margin-top: article-padding
-  margin-right: 10px
+  margin-right: 12px
   box-shadow: var(--shadow-meta)
 
 .article-tag-list-link
   &:before
-    margin-right: 10px
+    margin-right: 8px
 
 .article-comment-link
   float: right
   background: var(--red-5)
-  margin-left: 20px
-  border-radius: post-radius
-  padding: 8px 15px
+  margin-left: 12px
+  border-radius: tag-radius
+  padding: 8px 16px
 
   &:before
-    margin-right: 10px
+    margin-right: 8px
 
 .article-visitor-link
   float: right
   font-size: 14px
   background: var(--red-5)
-  margin-left: article-padding
-  border-radius: post-radius
-  padding: 8px 15px
+  margin-left: 12px
+  border-radius: tag-radius
+  padding: 8px 16px
 
 #article-nav
-  margin-top: 10px
+  margin-top: 12px
   display: flex
   flex-direction: column
   border-radius: post-radius
@@ -374,7 +368,7 @@ $article-meta-tag
   display: flex
   flex-direction: column
   justify-content: center
-  padding-left: 20px
+  padding: 0 20px
   opacity: 0.9
   transition: opacity 0.3s
   height: 150px
@@ -404,18 +398,23 @@ $article-meta-tag
 
   &.right
     align-items: flex-end
-    padding-right: 20px
 
 .article-nav-caption
   text-transform: uppercase
   letter-spacing: 2px
   font-weight: bold
+  text-shadow: 0 0 .5rem rgba(0,0,0,.7);
 
 .article-nav-title
-  font-size: 1.2em
-  line-height: line-height
-  margin-top: 0.8em
-  text-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, .5);
+  font-size: 20px
+  line-height: 1.2
+  margin-top: 16px
+  text-shadow: 0 0 .5rem rgba(0,0,0,.7);
+  -webkit-line-clamp: 3
+  line-clamp: 3
+  display: -webkit-box
+  -webkit-box-orient: vertical
+  overflow: hidden
 
 .article-gallery
   background: #000
@@ -453,7 +452,7 @@ if hexo-config("math.enable") and hexo-config("math.katex.enable")
     width: calc(100% - 2px)
 
   .katex-html
-    padding: 3px
+    padding: 4px
     .base
       margin: 0 auto
 

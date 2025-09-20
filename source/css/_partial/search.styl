@@ -29,15 +29,20 @@
     border-radius: 0
     max-height: 100%
 
+  @media mq-normal
+    min-height: 350px
+
 .reimu-popup
   overflow: hidden
   padding: 0
+  display: flex
+  flex-direction: column
 
 .popup-btn-close
   color: var(--red-1)
   font: 20px bold
   cursor: var(--cursor-pointer) !important
-  padding-left: 15px
+  padding-left: 8px
   transition: 0.3s
 
   &:hover
@@ -46,16 +51,16 @@
 .reimu-search
   display: flex
   align-items: center
-  padding: 8px 15px
-  max-height: 50px
-  border-bottom: 1px solid #ccc
+  padding: 8px 16px
+  border-bottom: 1px solid var(--grey-9)
+  flex-shrink: 0
 
 .reimu-search-input-icon
   display: inline-block
   width: 20px
   font-size: 18px
   vertical-align: middle
-  margin-right: 5px
+  margin-right: 8px
 
 .reimu-search-input
   flex: 1
@@ -85,24 +90,17 @@
 .reimu-results
   position: relative
   overflow: auto
-  padding: 15px 30px
+  padding: 16px 32px
   box-sizing: border-box
-  max-height: calc(100% - 50px)
-
-  @media mq-normal
-    min-height: 300px
 
   hr
-    margin: 10px 0
-
-  em
-    font-weight: bold
-    margin: 0
-    padding: 0 2px
-    color: var(--red-1)
+    margin: 16px 0 8px 0
+    border: none
+    height: 1px
+    background: var(--grey-9)
 
 #reimu-hits
-  margin: 10px 0 0 10px
+  margin-top: 12px
 
   mark
     background: var(--red-1)
@@ -112,7 +110,7 @@
   display: block
   text-decoration: none
   color: var(--red-2)
-  padding: 12px 0 12px 25px
+  padding: 12px 0 12px 24px
   white-space: nowrap
   text-overflow: ellipsis
   overflow: hidden
@@ -124,7 +122,7 @@
     background: var(--color-h2-after)
     display: inline-block
     vertical-align: middle
-    margin: -2px 11px 0 -25px
+    margin: -2px 12px 0 -24px
     box-shadow: var(--shadow-red-6-shadow)
     opacity: 0.5
     transition: 0.2s
@@ -135,14 +133,13 @@
     opacity: 1
 
 .reimu-pagination
-  margin: 10px auto
-  border-radius: post-radius
+  margin: 8px auto
   text-align: center
   color: var(--grey-9)
   overflow: hidden
 
   a
-    padding: 10px 15px
+    padding: 10px 16px
     color: var(--grey-9)
     text-decoration: none
     transition: 0.2s
@@ -157,8 +154,8 @@
 
   .page-number
     display: inline-block
-    border-radius: post-radius
-    margin: 5px
+    border-radius: tag-radius
+    margin: 6px
 
   .current
     .page-number

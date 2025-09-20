@@ -1,13 +1,16 @@
 .archives-outer-wrap
   background: var(--color-wrap)
   border-radius: post-radius
-  padding: 15px 0
+  padding: 16px 0
 
 .archives-wrap
-  padding: 20px block-margin
+  padding: 20px article-padding + 16px
+
+  &:hover .archive-year-wrap:after
+    width: 3em
 
 .archive-year-wrap
-  margin-bottom: 2em
+  margin-bottom: 32px
   position: relative
 
   &:before
@@ -26,22 +29,18 @@
     height: 7px
     bottom: -18px
     left: 0
-    border-radius: 10px
+    border-radius: tag-radius
     box-shadow: var(--shadow-red-6-shadow)
     transition: .3s
-
-  &:hover:after
-    width: 3em
 
 .archive-year
   text-decoration: none
   color: var(--color-archive-year)
-  margin-bottom: 15px
   font-weight: bold
-  font-size: 25px
+  font-size: 24px
 
 .archive-article
-  padding: 15px 0 15px 25px
+  padding: 16px 0 16px 24px
   display: flex
   align-items: center
 
@@ -52,7 +51,7 @@
     width: 6px
     height: 15px
     background: var(--color-h2-after)
-    margin: -2px 11px 0 -25px
+    margin: 1px 12px 0 -24px
     box-shadow: var(--shadow-red-6-shadow)
     opacity: .5
     transition: .2s
@@ -76,7 +75,7 @@
 
 .dt-published
   color: var(--grey-9)
-  margin-left: 5px
+  margin-left: 6px
 
 .archive-article-title
   display: inline-block
@@ -85,10 +84,10 @@
   color: var(--red-0)
   transition: .3s
   opacity: .7
-  margin-left: 15px
+  margin-left: 16px
 
 #page-nav
-  margin: block-margin auto
+  margin: article-padding + 16px auto
   background: var(--color-wrap)
   border-radius: post-radius
   text-align: center
@@ -100,7 +99,7 @@
     box-shadow: var(--shadow-card)
 
   a, span
-    padding: 10px 15px
+    padding: 10px 16px
 
   a
     color: var(--grey-9)
@@ -114,16 +113,16 @@
 
   .prev
     float: left
-    padding: 15px
+    padding: 16px
 
   .next
     float: right
-    padding: 15px
+    padding: 16px
 
   .page-number
     display: inline-block
-    border-radius: post-radius
-    margin: 5px
+    border-radius: tag-radius
+    margin: 6px
     @media mq-mobile
       display: none
 
@@ -137,7 +136,7 @@
 
   .space
     display: inline-block
-    margin: 5px
+    margin: 6px
     color: var(--color-border)
     @media mq-mobile
       display: none
@@ -145,7 +144,7 @@
 .tag-wrap, .category-wrap
   display: flex
   flex-wrap: wrap
-  padding: 10px block-margin
+  padding: 10px article-padding + 16px
 
   a
     text-decoration: none
@@ -154,9 +153,9 @@
   display: flex
   text-transform: uppercase
   background: var(--red-5)
-  border-radius: post-radius
-  padding: 8px 15px
-  margin: 5px
+  border-radius: tag-radius
+  padding: 8px 16px
+  margin: 6px
   box-shadow: var(--shadow-meta)
 
 .archives-tag-list-link, .archives-category-list-link
@@ -164,7 +163,7 @@
   font-size: 12px
 
   &:before
-    margin-right: 10px
+    margin-right: 8px
 
 .archives-category-list-item
   background: var(--red-5-5)

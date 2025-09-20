@@ -43,10 +43,19 @@
     --color-important-shadow: hsl(270, 30%, 16%)
 
 .custom-block
-  margin: 1.8em 0
+  margin: 28px 0
   border-radius: post-radius
   transition: .3s
-  padding: 1px 10px
+  display: flow-root
+  padding: 0 12px
+
+  .custom-block-title:before
+    font-weight: normal
+    margin-right: 8px
+    if hexo-config("icon_font")
+      font-family: font-icon
+    else
+      font-family: var(--font-icon)
 
   &.info
     background: var(--color-info-bg)
@@ -55,14 +64,10 @@
     box-shadow: 0 0 5px 2px var(--color-info-shadow)
 
     .custom-block-title:before
-      font-weight: normal
       if hexo-config("icon_font")
-        font-family: font-icon
         content: "\e647"
       else
-        font-family: var(--font-icon)
         content: "\f05a"
-      margin-right: 0.5em
 
   &.warning
     background: var(--color-warning-bg)
@@ -71,14 +76,10 @@
     border-left: 6px var(--color-warning-text) solid
 
     .custom-block-title:before
-      font-weight: normal
       if hexo-config("icon_font")
-        font-family: font-icon
         content: "\e646"
       else
-        font-family: var(--font-icon)
         content: "\f06a"
-      margin-right: 0.5em
 
   &.danger
     background: var(--color-danger-bg)
@@ -87,15 +88,11 @@
     border-left: 6px var(--color-danger-text) solid
 
     .custom-block-title:before
-      font-weight: normal
       if hexo-config("icon_font")
-        font-family: font-icon
         content: "\e645"
       else
-        font-family: var(--font-icon)
         content: "\f057"
         font-weight: 900
-      margin-right: 0.5em
 
   &.tip
     background: var(--color-tip-bg)
@@ -104,15 +101,11 @@
     border-left: 6px var(--color-tip-text) solid
   
     .custom-block-title:before
-      font-weight: normal
       if hexo-config("icon_font")
-        font-family: font-icon
         content: "\e643"
       else
-        font-family: var(--font-icon)
         content: "\f058"
         font-weight: 900
-      margin-right: 0.5em
 
   &.important
     background: var(--color-important-bg)
@@ -121,19 +114,15 @@
     border-left: 6px var(--color-important-text) solid
 
     .custom-block-title:before
-      font-weight: normal
       if hexo-config("icon_font")
-        font-family: font-icon
         content: "\e649"
       else
-        font-family: var(--font-icon)
         content: "\f192"
         font-weight: 900
-      margin-right: 0.5em
   p
-    margin: 0.8em 0
+    margin: 12px 0
 
 .custom-block-title
-  margin: 0.8em 0 !important
-  font-size: 1.1em
+  margin: 12px 0 !important
+  font-size: 18px
   font-weight: bold

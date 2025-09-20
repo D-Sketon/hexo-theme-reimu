@@ -7,8 +7,8 @@
 
 .post-wrap
   width: 100%
-  height: 230px
-  margin-bottom: 40px
+  height: 232px
+  margin-bottom: 32px
   position: relative
   border-radius: post-radius
   background: var(--color-wrap)
@@ -18,6 +18,7 @@
   @media mg-normal
     flex-direction: column !important
     height: 400px
+    margin-bottom: 20px
 
   &.right
     flex-direction: row-reverse
@@ -53,7 +54,7 @@
 .post-meta
   display: flex
   justify-content: flex-end
-  margin: 5px 0
+  margin: 4px 0
 
   span
     font-size: 14px
@@ -88,7 +89,7 @@
   -webkit-line-clamp: 3
   line-clamp: 3
   overflow: hidden
-  line-height: 30px
+  line-height: 32px
   font-size: 15px
   color: var(--grey-7)
 
@@ -170,17 +171,19 @@
   border-bottom-right-radius: post-radius
 
   &:before
-    margin-right: 5px
+    margin-right: 6px
 
 if hexo-config('home_categories.enable')
   .post-categories-wrapper
     display: flex
-    gap: 40px
-    margin-bottom: 40px
+    gap: 32px
+    margin-bottom: 32px
     flex-wrap: wrap
 
     @media mg-normal
       flex-direction: column
+      gap: 20px
+      margin-bottom: 20px
 
     &.aos-animate
       transition-property: initial !important
@@ -240,12 +243,18 @@ if hexo-config('home_categories.enable')
     h2, h3
       z-index: 1
       color: #fff
-      text-shadow: 0 .2rem .3rem rgba(0, 0, 0, .5)
-      margin: 0 5px
+      text-shadow: 0 0 .5rem rgba(0,0,0,.7)
+      margin: 0 8px
     
     h2
-      font-size: 35px
+      font-size: 36px
+      -webkit-line-clamp: 2
+      line-clamp: 2
+      display: -webkit-box
+      -webkit-box-orient: vertical
+      overflow: hidden
+      word-break: break-word
 
     h3
       font-size: 20px
-      margin-top: 30px
+      margin-top: 28px

@@ -57,6 +57,10 @@
   top: 50%
   margin: logo-size * -0.5 2.5% 0
   width: 95%
+  opacity: 0
+  filter: blur(8px)
+  will-change: transform, opacity, filter
+  animation: fade-in-blur 800ms ease-out 200ms forwards
 
 $logo-text
   text-decoration: none
@@ -72,7 +76,7 @@ $logo-text
   text-shadow: 0 0 0.5rem rgba(0, 0, 0, .7);
 
   @media mg-large
-    font-size: 35px
+    font-size: 36px
 
   @media mq-tablet
     font-size: 30px
@@ -92,7 +96,7 @@ $logo-text
   line-height: 1.5
 
   @media mg-large
-    font-size: 15px
+    font-size: 16px
 
   @media mq-tablet
     font-size: 14px
@@ -215,9 +219,9 @@ $nav-link
   top: 100%;
   left: 0;
   right: 0;
-  border-radius: 5px;
+  border-radius: tag-radius;
   background-color: var(--color-wrap);
-  margin-top: 5px;
+  margin-top: 4px;
   display: none;
   z-index: 1;
   font-size: 14px;

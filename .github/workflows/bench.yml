@@ -4,9 +4,19 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - '.github/workflows/bench.yml'
+      - 'layout/**'
+      - 'scripts/**'
+      - '_config.yml'
   push:
     branches:
       - main
+    paths:
+      - '.github/workflows/bench.yml'
+      - 'layout/**'
+      - 'scripts/**'
+      - '_config.yml'
 
 jobs:
   bench-hexo-6:
