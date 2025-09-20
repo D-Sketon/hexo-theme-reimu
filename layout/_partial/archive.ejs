@@ -92,7 +92,7 @@
   </div>
 <% } %>
 <% if (page.total > 1) { %>
-  <nav id="page-nav" data-aos="<%= theme.animation.options.archive.nav %>">
+  <nav id="page-nav" aria-label="Pagination navigation" data-aos="<%= theme.animation.options.archive.nav %>">
     <% let prev_text = "&laquo; " + __('prev');let next_text = __('next') + " &raquo;" %>
     <%- paginator({
           prev_text: prev_text,

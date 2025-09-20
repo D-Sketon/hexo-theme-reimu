@@ -1,5 +1,5 @@
 <% if (post.prev || post.next) { %>
-  <nav id="article-nav" data-aos="<%= theme.animation.options.article.nav %>">
+  <nav id="article-nav" aria-label="Article navigation" data-aos="<%= theme.animation.options.article.nav %>">
     <% if (post.prev) { %>
       <% const postByLang = get_post_by_lang(post.prev.permalink, post.lang); %>
       <div class="article-nav-link-wrap left">
@@ -13,7 +13,7 @@
             <img data-src="<%- url_for(theme.banner, {relative: false}) %>" data-sizes="auto" alt="<%= postByLang.title %>" class="lazyload">
           <% } %>
         <% } %>
-        <a href="<%- url_for_lang(post.prev.path, {relative: false}) %>"></a>
+        <a href="<%- url_for_lang(post.prev.path, {relative: false}) %>" aria-label="Newer: <%= postByLang.title || 'no title' %>"></a>
         <div class="article-nav-caption"><%= __('newer') %></div>
         <h3 class="article-nav-title">
           <% if (postByLang.title) { %>
@@ -37,7 +37,7 @@
           <img data-src="<%- url_for(theme.banner, {relative: false}) %>" data-sizes="auto" alt="<%= postByLang.title %>" class="lazyload">
         <% } %>
       <% } %>
-      <a href="<%- url_for_lang(post.next.path, {relative: false}) %>"></a>
+      <a href="<%- url_for_lang(post.next.path, {relative: false}) %>" aria-label="Older: <%= postByLang.title || 'no title' %>"></a>
       <div class="article-nav-caption"><%= __('older') %></div>
       <h3 class="article-nav-title">
         <% if (postByLang.title) { %>

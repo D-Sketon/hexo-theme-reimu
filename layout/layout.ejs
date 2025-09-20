@@ -20,9 +20,9 @@
     <div id="container">
       <div id="wrap">
         <%- partial('_partial/header', {post: page}) %>
-        <div id="content" <% if (page.sidebar === 'left' || page.sidebar === undefined && theme.sidebar === 'left') { %>class="sidebar-left" <% } %> <% if (page.sidebar === 'right' || page.sidebar === undefined && theme.sidebar === 'right') { %>class="sidebar-right" <% } %>>
+        <div id="content" aria-label="Page content" <% if (page.sidebar === 'left' || page.sidebar === undefined && theme.sidebar === 'left') { %>class="sidebar-left" <% } %> <% if (page.sidebar === 'right' || page.sidebar === undefined && theme.sidebar === 'right') { %>class="sidebar-right" <% } %>>
           <%- partial('_partial/sidebar', { post: page }) %>
-          <section id="main"><%- body %></section>
+          <section id="main" aria-label="Main content"><%- body %></section>
         </div>
         <%- partial_lang('_partial/footer', null, { cache: !config.relative_link, lang: page.lang }) %>
         <% if (theme.top.enable) { %>
