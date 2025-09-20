@@ -89,7 +89,7 @@
     hits.slice(start, end).forEach((hit) => {
       searchResult.insertAdjacentHTML(
         "beforeend",
-        `<a href="${hit.url}" class="reimu-hit-item-link">${hit.title}</a>`
+        `<a href="${hit.url}" class="reimu-hit-item-link" title="${hit.title || ""}">${hit.title}</a>`
       );
     });
   }

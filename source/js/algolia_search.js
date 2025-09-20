@@ -50,7 +50,9 @@ const algoliaHandler = () => {
           return (
             '<a href="' +
             data.permalink +
-            '" class="reimu-hit-item-link">' +
+            '" class="reimu-hit-item-link" title="' +
+            (data.title || '') +
+            '">' +
             data._highlightResult.title.value +
             "</a>"
           );

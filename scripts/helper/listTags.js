@@ -52,7 +52,7 @@ function listTagsHelper(tags, options) {
       result += `<li class="${liClass}">`;
       result += `<a class="${aClass}" href="${this.url_for_lang(
         tag.path
-      )}${suffix}" rel="tag">`;
+      )}${suffix}" rel="tag" title="${(0, util.escapeHTML)(tag.name)}">`;
       result += transform
         ? transform(tag.name)
         : (0, util.escapeHTML)(tag.name);
@@ -68,7 +68,7 @@ function listTagsHelper(tags, options) {
       if (i) result += separator;
       result += `<a class="${aClass}" href="${this.url_for_lang(
         tag.path
-      )}${suffix}" rel="tag">`;
+      )}${suffix}" rel="tag" title="${(0, util.escapeHTML)(tag.name)}">`;
       if (labelSpan) {
         result += `<span class="${labelClass}">${
           transform ? transform(tag.name) : tag.name

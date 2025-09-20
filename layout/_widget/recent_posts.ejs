@@ -7,7 +7,7 @@
           <% const posts = get_posts_by_lang(get_cached_sorted_posts(-1).limit(theme.recent_posts_limits), page.lang) %>
           <% posts.forEach((post) => { %>
             <li>
-              <a href="<%- url_for_lang(post.path) %>"><%= post.title || '(no title)' %></a>
+              <a href="<%- url_for_lang(post.path) %>" title="<%= post.title || '(no title)' %>"><%= post.title || '(no title)' %></a>
             </li>
           <% }) %>
         </ul>
