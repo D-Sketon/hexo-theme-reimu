@@ -16,8 +16,9 @@
     return script;
   };
 
-  var commentConfigKeys = ['valine', 'waline', 'twikoo', 'gitalk', 'giscus'];
+  var commentConfigKeys = <%- JSON.stringify(activeSystems) %>;
   var commentConfig = {
+    <% if (commentSystems.valine) { %>
     valine: {
       enable: <%= commentSystems.valine %>,
       load: () => {
@@ -60,6 +61,8 @@
         document.head.appendChild(script);
       }
     },
+    <% } %>
+    <% if (commentSystems.waline) { %>
     waline: {
       enable: <%= commentSystems.waline %>,
       load: async () => {
@@ -90,6 +93,8 @@
         });
       }
     },
+    <% } %>
+    <% if (commentSystems.twikoo) { %>
     twikoo: {
       enable: <%= commentSystems.twikoo %>,
       load: () => {
@@ -128,6 +133,8 @@
         document.head.appendChild(script);
       }
     },
+    <% } %>
+    <% if (commentSystems.gitalk) { %>
     gitalk: {
       enable: <%= commentSystems.gitalk %>,
       load: () => {
@@ -170,6 +177,8 @@
         }
       }
     },
+    <% } %>
+    <% if (commentSystems.giscus) { %>
     giscus: {
       enable: <%= commentSystems.giscus %>,
       load: () => {
@@ -220,6 +229,7 @@
         });
       }
     }
+    <% } %>
   }
   commentConfig.enable = commentConfigKeys.some(key => commentConfig[key].enable);
 
@@ -250,7 +260,6 @@
   }
   function loadComments() {
     if (!commentConfig.enable) return;
-    // 评论组件加载状态跟踪
     const loadedComments = {
       valine: false,
       waline: false,
