@@ -1,6 +1,5 @@
 // modified from https://github.com/Jamling/hexo-generator-i18n
 
-const langPathCache = [];
 let localPostsCache = null;
 
 hexo.extend.generator.register("post", function (locals) {
@@ -50,7 +49,6 @@ hexo.extend.generator.register("post-with-lang", function (locals) {
   return posts.map((post) => {
     let { path, layout, lang } = post;
     if (lang) {
-      langPathCache.push(path);
       path = `${lang}/${path}`;
     }
     if (!layout || layout === "false") {
@@ -171,7 +169,7 @@ hexo.extend.generator.register("post-i18n", function (locals) {
   }
   const posts = localPostsCache || locals.posts.sort("-date").toArray();
   posts.forEach((page) => {
-    if (page.lang || langPathCache.includes(page.path)) {
+    if (page.lang) {
       return;
     }
     const lang = page.path.split("/")[0];
