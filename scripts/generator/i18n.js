@@ -255,7 +255,10 @@ hexo.extend.generator.register("archive-i18n", function (locals) {
       .map((item) => {
         for (let i = 1; i < languages.length; i++) {
           const language = languages[i];
-          const copy = Object.assign({}, item);
+          const copy = {
+            ...item,
+            data: { ...item.data },
+          };
           copy.path = `${language}/${item.path}`;
           copy.data.base = `${language}/${item.data.base}`;
           copy.data.prev_link = `${language}/${item.data.prev_link}`;
