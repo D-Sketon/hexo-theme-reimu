@@ -1,4 +1,3 @@
-const util = require("hexo-util");
-const stripHTML = util.stripHTML;
+const { stripHTML } = require("hexo-util");
 
 hexo.extend.helper.register("stripHtml", (content) => stripHTML(content));

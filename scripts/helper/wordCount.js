@@ -14,47 +14,32 @@ const counter = (content) => {
   return [cn, en];
 };
 
-const countFn = (content, id) => {
-  let len;
-  if (!id) {
-    len = counter(content);
-  } else {
-    len = cachedWordCount.apply(id, () => counter(content));
-  }
-  return len[0] + len[1];
-};
-const changeHourMinuteStr = (str) => {
-  if (str !== "0" && str !== "" && str !== null) {
-    return (
-      (Math.floor(str / 60).toString().length < 2
-        ? "0" + Math.floor(str / 60).toString()
-        : Math.floor(str / 60).toString()) +
-      ":" +
-      ((str % 60).toString().length < 2
-        ? "0" + (str % 60).toString()
-        : (str % 60).toString())
-    );
-  } else {
-    return "";
-  }
-};
-const timeFn = (content, { cn = 300, en = 160 } = {}, id) => {
-  let len;
-  if (!id) {
-    len = counter(content);
-  } else {
-    len = cachedWordCount.apply(id, () => counter(content));
-  }
-  let readingTime = len[0] / cn + len[1] / en;
-  return readingTime < 1 ? 1 : parseInt(readingTime, 10);
+const getCountsWithCache = (content, id) => {
+  if (!id) return counter(content);
+  return cachedWordCount.apply(id, () => counter(content));
 };
 
-hexo.extend.helper.register(
-  "min2read",
-  (content, { cn = 300, en = 160 } = {}, id) => {
-    return timeFn(content, { cn, en }, id);
-  }
-);
+const countFn = (content, id) => {
+  const [cn, en] = getCountsWithCache(content, id);
+  return cn + en;
+};
+
+const timeFn = (content, { cn = 300, en = 160 } = {}, id) => {
+  const [cnCount, enCount] = getCountsWithCache(content, id);
+  const reading = cnCount / cn + enCount / en;
+  return Math.max(1, Math.ceil(reading));
+};
+
+const formatMinutesHHMM = (min) => {
+  if (!min) return "";
+  const h = Math.floor(min / 60);
+  const m = min % 60;
+  return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
+};
+
+hexo.extend.helper.register("min2read", (content, opts = {}, id) => {
+  return timeFn(content, opts, id);
+});
 
 hexo.extend.helper.register("raw_wordcount", (content, id) => {
   return countFn(content, id);
@@ -65,8 +50,8 @@ hexo.extend.helper.register("wordcount", (content, id) => {
   return count < 1000 ? count : Math.round(count / 100) / 10 + "k";
 });
 
-let cachedTotalCount = undefined;
-let cachedTotalMin2Read = undefined;
+let cachedTotalCount;
+let cachedTotalMin2Read;
 
 hexo.extend.helper.register("totalcount", function () {
   if (cachedTotalCount === undefined) {
@@ -86,7 +71,7 @@ hexo.extend.helper.register("totalmin2read", function () {
     hexo.locals
       .get("posts")
       .each((post) => (readingTime += timeFn(post.content, {}, post._id)));
-    cachedTotalMin2Read = changeHourMinuteStr(readingTime.toString());
+    cachedTotalMin2Read = formatMinutesHHMM(readingTime);
   }
   return cachedTotalMin2Read;
 });

@@ -1,4 +1,4 @@
-const util = require("hexo-util");
+const { escapeHTML } = require("hexo-util");
 
 // https://github.com/hexojs/hexo/blob/master/lib/plugins/helper/list_tags.ts
 function listTagsHelper(tags, options) {
@@ -9,7 +9,6 @@ function listTagsHelper(tags, options) {
     options = tags;
     tags = this.site.tags;
   }
-  tags = tags;
   if (!tags || !tags.length) return "";
   options = options || {};
   const { style = "list", transform, separator = ", ", suffix = "" } = options;
@@ -52,10 +51,8 @@ function listTagsHelper(tags, options) {
       result += `<li class="${liClass}">`;
       result += `<a class="${aClass}" href="${this.url_for_lang(
         tag.path
-      )}${suffix}" rel="tag" title="${(0, util.escapeHTML)(tag.name)}">`;
-      result += transform
-        ? transform(tag.name)
-        : (0, util.escapeHTML)(tag.name);
+      )}${suffix}" rel="tag" title="${escapeHTML(tag.name)}">`;
+      result += transform ? transform(tag.name) : escapeHTML(tag.name);
       result += "</a>";
       if (showCount) {
         result += `<span class="${countClass}">${tag.length}</span>`;
@@ -68,7 +65,7 @@ function listTagsHelper(tags, options) {
       if (i) result += separator;
       result += `<a class="${aClass}" href="${this.url_for_lang(
         tag.path
-      )}${suffix}" rel="tag" title="${(0, util.escapeHTML)(tag.name)}">`;
+      )}${suffix}" rel="tag" title="${escapeHTML(tag.name)}">`;
       if (labelSpan) {
         result += `<span class="${labelClass}">${
           transform ? transform(tag.name) : tag.name

@@ -8,8 +8,7 @@ const shareMap = {
   weixin: () => `javascript:;`,
 }
 
-const util = require("hexo-util");
-const stripHTML = util.stripHTML;
+const { stripHTML } = require("hexo-util");
 
 hexo.extend.helper.register("shareLink", (post, key) => {
   const url = encodeURIComponent(post.permalink);

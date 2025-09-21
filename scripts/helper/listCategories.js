@@ -7,7 +7,6 @@ function listCategoriesHelper(categories, options) {
     options = categories;
     categories = this.site.categories;
   }
-  categories = categories;
   if (!categories || !categories.length) return "";
   options = options || {};
   const { style = "list", transform, separator = ", ", suffix = "" } = options;
