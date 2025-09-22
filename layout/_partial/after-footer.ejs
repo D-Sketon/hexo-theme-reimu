@@ -121,65 +121,48 @@
         if (window.mermaid) {
           // https://github.com/mermaid-js/mermaid/issues/1945
           const elementCode = '.mermaid'
-          const saveOriginalData = () => {
+          const processElements = (callback) => {
+            const els = _$$(elementCode);
+            if (!els.length) return Promise.resolve();
+            
             return new Promise((resolve, reject) => {
               try {
-                let els = _$$(elementCode),
-                    count = els.length;
-                els.forEach(element => {
-                  if (element.getAttribute('data-original-code') == null){
-                    element.setAttribute('data-original-code', element.innerHTML)
-                  }
-                  count--
-                  if(count == 0){
-                    resolve()
-                  }
-                });
+                els.forEach(callback);
+                resolve();
               } catch (error) {
-              reject(error) 
+                reject(error);
               }
-            })
-          }
-          const resetProcessed = () => {
-            return new Promise((resolve, reject) => {
-              try {
-                let els = _$$(elementCode),
-                    count = els.length;
-                els.forEach(element => {
-                  if(element.getAttribute('data-original-code') != null){
-                    element.removeAttribute('data-processed')
-                    element.innerHTML = DOMPurify.sanitize(element.getAttribute('data-original-code'))
-                  }
-                  count--
-                  if(count == 0){
-                    resolve()
-                  }
-                });
-              } catch (error) {
-              reject(error) 
-              }
-            })
-          } 
+            });
+          };
+          const saveOriginalData = () => processElements(el => {
+            if (!el.getAttribute('data-original-code')) {
+              el.setAttribute('data-original-code', el.innerHTML);
+            }
+          });
+
+          const resetProcessed = () => processElements(el => {
+            const originalCode = el.getAttribute('data-original-code');
+            if (originalCode) {
+              el.removeAttribute('data-processed');
+              el.innerHTML = DOMPurify.sanitize(originalCode);
+            }
+          });
           const loadMermaid = async (theme) => {
             window.mermaid.initialize({theme, startOnLoad: false})
             await window.mermaid.run({querySelector: elementCode, suppressErrors: true})
             if (window.svgPanZoom) {
-              const svgElements = _$$('.mermaid > svg')
               window.__panZoomList?.forEach(panZoom => {try {panZoom.destroy()} catch {}});
               window.__panZoomList = [];
-              if (svgElements.length > 0) {
-                svgElements.forEach(el => {
-                  const bbox = el.getBBox();
-                  el.setAttribute('height', Math.max(bbox.height, 80));
-                  const panZoom = window.svgPanZoom(el, {
-                    zoomEnabled: true,
-                    controlIconsEnabled: true,
-                    fit: true,
-                    center: true
-                  });
-                  window.__panZoomList.push(panZoom);
-                });
-              }
+              _$$('.mermaid > svg').forEach(el => {
+                const bbox = el.getBBox();
+                el.setAttribute('height', Math.max(bbox.height, 80));
+                window.__panZoomList.push(window.svgPanZoom(el, {
+                  zoomEnabled: true,
+                  controlIconsEnabled: true,
+                  fit: true,
+                  center: true
+                }));
+              });
               if (window.__resizeMermaidSvg) {
                 window.removeEventListener('resize', window.__resizeMermaidSvg);
               }
@@ -198,29 +181,21 @@
               window.addEventListener('resize', window.__resizeMermaidSvg);
             }
           }
-          document.body.addEventListener('dark-theme-set', () => {
-            saveOriginalData()
-            .then(resetProcessed())
-            .then(loadMermaid('dark'))
-            .catch(console.error)
-          })
-          document.body.addEventListener('light-theme-set', () => {
-            saveOriginalData()
-            .then(resetProcessed())
-            .then(loadMermaid('default'))
-            .catch(console.error)
-          })
-          if(localStorage.getItem('dark_mode') == 'true') {
-            saveOriginalData()
-            .then(resetProcessed())
-            .then(loadMermaid('dark'))
-            .catch(console.error)
-          } else {
-            saveOriginalData()
-            .then(resetProcessed())
-            .then(loadMermaid('default'))
-            .catch(console.error)
-          }
+          const initMermaid = async (theme) => {
+            try {
+              await saveOriginalData();
+              await resetProcessed();
+              await loadMermaid(theme);
+            } catch (error) {
+              console.error(error);
+            }
+          };
+          
+          document.body.addEventListener('dark-theme-set', () => initMermaid('dark'));
+          document.body.addEventListener('light-theme-set', () => initMermaid('default'));
+
+          const isDark = localStorage.getItem('dark_mode') === 'true';
+          initMermaid(isDark ? 'dark' : 'default');
         }
       </script>
     <% } %>
@@ -236,22 +211,18 @@
     <% if (is_post() || is_page()) { %>
       <script type="module" data-pjax>
         const PhotoSwipeLightbox = (await safeImport("<%- vendorCdn(theme.vendor.js.photoswipe_lightbox) %>", "<%- vendorCdnIntegrity(theme.vendor.js.photoswipe_lightbox) %>")).default;
-        
+        const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,
+              pswpModule: () => safeImport("<%- vendorCdn(theme.vendor.js.photoswipe) %>", "<%- vendorCdnIntegrity(theme.vendor.js.photoswipe) %>")
+            }).init();
+          }
+        }
         const pswp = () => {
-          if (_$$('.article-entry a.article-gallery-item').length > 0) {
-            new PhotoSwipeLightbox({
-              gallery: '.article-entry',
-              children: 'a.article-gallery-item',
-              pswpModule: () => safeImport("<%- vendorCdn(theme.vendor.js.photoswipe) %>", "<%- vendorCdnIntegrity(theme.vendor.js.photoswipe) %>")
-            }).init();
-          }
-          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
-            new PhotoSwipeLightbox({
-              gallery: '.article-gallery',
-              children: 'a.article-gallery-item',
-              pswpModule: () => safeImport("<%- vendorCdn(theme.vendor.js.photoswipe) %>", "<%- vendorCdnIntegrity(theme.vendor.js.photoswipe) %>")
-            }).init();
-          }
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
           window.lightboxStatus = 'done';
           window.removeEventListener('lightbox:ready', pswp);
         }
@@ -305,8 +276,7 @@
   <%- js({src: vendorCdn(theme.vendor.js.aplayer)[0], integrity: vendorCdnIntegrity(theme.vendor.js.aplayer)[0], crossorigin: "anonymous"}) %>
   <% if (!theme.player.meting.enable) { %>
     <script>
-      var isMobile = window.matchMedia('(max-width: 959px)').matches;
-      if (isMobile) {
+      if (window.matchMedia('(max-width: 959px)').matches) {
       const aplayer = _$('#aplayer');
         if (aplayer) {
           const aside = aplayer.parentNode?.parentNode;
@@ -342,8 +312,7 @@
     </script>
   <% } %>
   <script>
-    var isMobile = window.matchMedia('(max-width: 959px)').matches;
-    if (isMobile) {
+    if (window.matchMedia('(max-width: 959px)').matches) {
       const meting = _$('meting-js');
       if (meting) {
         meting.setAttribute('fixed', 'true');
