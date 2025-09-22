@@ -17,7 +17,7 @@ hexo.extend.tag.register("externalLinkCard", (args) => {
     : "";
   return `<div class="post-link-card-wrap">
     <div class="post-link-card">
-      <a href="${link}" title="${title}" rel="noopener external nofollow noreferrer" target="_blank"></a>
+      <a href="${link}" title="${title}" rel="noopener nofollow noreferrer" target="_blank"></a>
       ${coverDom}
       <div class="post-link-card-item-wrap">
         <div class="post-link-card-title">${title}</div>

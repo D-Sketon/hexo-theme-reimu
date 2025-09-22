@@ -1,7 +1,7 @@
 <div class="post-wrapper">
   <div class=<% if (even === true) { %>"post-wrap left"<% } else { %>"post-wrap right"<% } %> data-aos="<%= theme.animation.options.home.post %>">
     <% if (post.link) { %>
-      <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url" target="_blank" aria-label="<%= post.title %>" title="<%= post.title %>" rel="noopener external nofollow noreferrer"></a>
+      <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url" target="_blank" aria-label="<%= post.title %>" title="<%= post.title %>" rel="noopener nofollow noreferrer"></a>
     <% } else { %>
       <a class="post-link" href="<%- url_for_lang(post.path) %>" aria-label="<%= post.title %>" title="<%= post.title %>"></a>
     <% } %>

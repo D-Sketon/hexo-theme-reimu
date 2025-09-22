@@ -5,7 +5,7 @@
     </span>
   </div>
   <% if (post.link) { %>
-    <a class="archive-article-title" href="<%- url_for(post.link, {relative: false}) %>" target="_blank" itemprop="url" rel="noopener external nofollow noreferrer"><%= post.title %></a>
+    <a class="archive-article-title" href="<%- url_for(post.link, {relative: false}) %>" target="_blank" itemprop="url" rel="noopener nofollow noreferrer"><%= post.title %></a>
   <% } else if (post.title) { %>
     <a class="archive-article-title" href="<%- url_for_lang(post.path, {relative: false}) %>"><%= post.title %></a>
   <% } %>

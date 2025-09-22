@@ -1,7 +1,7 @@
 const { full_url_for } = require("hexo-util");
 
 const CC = (type) =>
-  `<a href="https://creativecommons.org/licenses/${type}/4.0/deed.zh" rel="noopener external nofollow noreferrer" target="_blank"><span class="icon-creative-commons"></span>${type.toUpperCase()}</a>`;
+  `<a href="https://creativecommons.org/licenses/${type}/4.0/deed.zh" rel="noopener nofollow noreferrer" target="_blank"><span class="icon-creative-commons"></span>${type.toUpperCase()}</a>`;
 
 hexo.extend.helper.register("articleCopyright", function (post) {
   const siteLang = hexo.config.language;
