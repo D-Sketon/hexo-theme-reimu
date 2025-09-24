@@ -202,6 +202,11 @@ window.addEventListener("pjax:complete", () => {
     document.body.dispatchEvent(new CustomEvent("dark-theme-set"));
   } else if (mode == "false") {
     document.body.dispatchEvent(new CustomEvent("light-theme-set"));
+  } else if (mode === "auto") {
+    const osMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.body.dispatchEvent(
+      new CustomEvent(`${osMode ? "dark" : "light"}-theme-set`)
+    );
   }
   // destroy waline
   if (window.walineInstance) {

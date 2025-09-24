@@ -194,8 +194,13 @@
           document.body.addEventListener('dark-theme-set', () => initMermaid('dark'));
           document.body.addEventListener('light-theme-set', () => initMermaid('default'));
 
-          const isDark = localStorage.getItem('dark_mode') === 'true';
-          initMermaid(isDark ? 'dark' : 'default');
+          const mode = localStorage.getItem('dark_mode');
+          if (mode === 'auto') {
+            const osMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            initMermaid(osMode ? 'dark' : 'default');
+          } else {
+            initMermaid(mode === 'true' ? 'dark' : 'default');
+          }
         }
       </script>
     <% } %>
