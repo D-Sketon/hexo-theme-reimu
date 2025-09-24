@@ -11,6 +11,9 @@
   &:hover
     opacity: 0.5
 
+  @media mg-normal
+    margin: 12px 16px
+
 .article-inner
   background: var(--color-wrap)
   border-radius: post-radius
@@ -21,6 +24,9 @@
   display: flex
   flex-direction: column
   padding: article-padding article-padding + 16px 0
+
+  @media mg-normal
+    padding: article-padding 16px 0
 
 .article-summary
   margin: 0 0 article-padding 0 !important
@@ -65,7 +71,7 @@ $article-meta-tag
   padding: 0 article-padding + 16px
 
   @media mg-normal
-    padding: 0 article-padding
+    padding: 0 16px
 
   p, table 
     line-height: line-height
@@ -292,7 +298,7 @@ $article-meta-tag
   margin: 0 article-padding + 16px article-padding
 
   @media mg-normal
-    margin: 0 article-padding article-padding
+    margin: 0 16px article-padding
 
   &:hover
     &:before
