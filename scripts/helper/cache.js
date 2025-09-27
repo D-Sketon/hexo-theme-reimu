@@ -72,3 +72,14 @@ hexo.extend.helper.register("get_cached_toc", function (content, slug) {
     return this.toc(content, { list_number, min_depth, max_depth });
   }
 });
+
+
+const tagCache = new Map();
+hexo.extend.helper.register("tagCached", (key, fn) => {
+  if (tagCache.has(key)) {
+    return tagCache.get(key);
+  }
+  const value = fn();
+  tagCache.set(key, value);
+  return value;
+})

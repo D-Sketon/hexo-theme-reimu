@@ -6,7 +6,7 @@
   <%- partial('analytics/google-analytics', null, { cache: true }) %>
   <%- partial('analytics/clarity', null, { cache: true }) %>
   <%- partial('analytics/baidu-analytics', null, { cache: true }) %>
-  <%- themeConfig() %>
+  <%- tagCached('themeConfig', themeConfig) %>
   <%
     let title = page.title;
     if (is_archive()) {
@@ -29,10 +29,10 @@
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <% if (theme.custom_font?.enable) { %>
-    <%- vendorFont() %>
+    <%- tagCached('vendorFont', vendorFont) %>
   <% } %>
   <% if (theme.font?.enable) { %>
-    <%- vendorGoogleFont() %>
+    <%- tagCached('vendorGoogleFont', vendorGoogleFont) %>
   <% } %>
   <% if (!theme.icon_font) { %>
     <%- css(theme.vendor.css.fontawesome.high_priority.map(i => ({href: vendorCdn(i)[0], integrity: vendorCdnIntegrity(i)[0], crossorigin: "anonymous"}))) %>
