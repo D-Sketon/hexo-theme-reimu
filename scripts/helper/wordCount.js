@@ -3,14 +3,17 @@ const { stripHTML, Cache } = require("hexo-util");
 
 const cachedWordCount = new Cache();
 
-const CN_REGEXP = /[\u4E00-\u9FA5]/g;
+const CN_REGEXP =
+  /[\u4E00-\u9FFF\u3400-\u4DBF\uF900-\uFAFF\u3040-\u309F\u30A0-\u30FF\u31F0-\u31FF\uAC00-\uD7AF\u3130-\u318F]/g;
 const EN_REGEXP =
-  /[a-zA-Z0-9_\u0392-\u03c9\u0400-\u04FF]+|[\u4E00-\u9FFF\u3400-\u4dbf\uf900-\ufaff\u3040-\u309f\uac00-\ud7af\u0400-\u04FF]+|[\u00E4\u00C4\u00E5\u00C5\u00F6\u00D6]+|\w+/g;
+  /[\w\u00C0-\u024F\u1E00-\u1EFF]+|[\u0392-\u03c9\u0400-\u04FF]+/g;
 
-const counter = (content) => {
-  content = stripHTML(content);
+const counter = (content = "") => {
+  const text = stripHTML(content || "");
+  if (!text) return [0, 0];
   const cn = (content.match(CN_REGEXP) || []).length;
-  const en = (content.replace(CN_REGEXP, "").match(EN_REGEXP) || []).length;
+  const en = (content.match(EN_REGEXP) || []).length;
+
   return [cn, en];
 };
 
