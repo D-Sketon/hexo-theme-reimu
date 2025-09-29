@@ -5,10 +5,10 @@
   <%- js({src: vendorCdn(theme.vendor.js.material_theme)[0], integrity: vendorCdnIntegrity(theme.vendor.js.material_theme)[0], crossorigin: "anonymous"}) %>
 <% } %>
 
-<%- js('js/script.js') %>
+<%- js(url_for('js/script.js')) %>
 
 <% if (theme.animation.enable) { %>
-  <%- js('js/aos.js') %>
+  <%- js(url_for('js/aos.js')) %>
   <script>
     var aosInit = () => {
       AOS.init({
@@ -26,10 +26,10 @@
   </script>
 <% } %>
 
-<%- js({src: 'js/pjax_script.js', 'data-pjax': true}) %>
+<%- js({src: url_for('js/pjax_script.js'), 'data-pjax': true}) %>
 
 <% if (theme.generator_search.enable) { %>
-  <%- js({src: 'js/generator_search.js', defer: true}) %>
+  <%- js({src: url_for('js/generator_search.js'), defer: true}) %>
 <% } %>
 
 <% if (theme.algolia_search.enable) { %>
@@ -65,7 +65,7 @@
 
 <% if (theme.pjax.enable) { %>
   <%- js({src: vendorCdn(theme.vendor.js.pjax)[0], integrity: vendorCdnIntegrity(theme.vendor.js.pjax)[0], crossorigin: "anonymous"}) %>
-  <%- js('js/pjax.js') %>
+  <%- js(url_for('js/pjax.js')) %>
 <% } %>
 
 <% if (theme.live2d.enable) { %>
@@ -206,7 +206,7 @@
     <% } %>
     <% if (config.highlight.enable || config.syntax_highlighter === "highlight.js") { %>
       <% if (is_post() || is_page()) { %>
-        <%- js({ src: "js/insert_highlight.js", "data-pjax": true }) %>
+        <%- js({ src: url_for("js/insert_highlight.js"), "data-pjax": true }) %>
         <% if (Array.isArray(theme.share) && theme.share.includes("weixin")) { %>
           <%- js({src: vendorCdn(theme.vendor.js.snapdom)[0], integrity: vendorCdnIntegrity(theme.vendor.js.snapdom)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
           <%- js({src: vendorCdn(theme.vendor.js.qrcode)[0], integrity: vendorCdnIntegrity(theme.vendor.js.qrcode)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
@@ -252,7 +252,7 @@
 <% } %>
 
 <% if (theme.service_worker.enable) { %>
-  <%- js('js/service_worker.js') %>
+  <%- js(url_for('js/service_worker.js')) %>
 <% } else { %>
 <script>
   if ('serviceWorker' in navigator) {

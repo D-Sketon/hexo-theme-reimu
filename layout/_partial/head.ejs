@@ -41,7 +41,7 @@
     <link rel="preload" href="//at.alicdn.com/t/c/font_<%- theme.icon_font %>.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <% } %>
   <% if (theme.preloader.enable) { %>
-    <%- css('css/loader') %>
+    <%- css(url_for('css/loader')) %>
   <% } %>
   <% if (theme.open_graph) { %>
     <%- open_graph({image: page.photos || theme.open_graph.options?.default_og_image || [], twitter_card: theme.open_graph.options?.twitter_card, twitter_id: theme.open_graph.options?.twitter_id, twitter_site: theme.open_graph.options?.twitter_site, twitter_image: theme.open_graph.options?.twitter_image, google_plus: theme.open_graph.options?.google_plus, fb_admins: theme.open_graph.options?.fb_admins, fb_app_id: theme.open_graph.options?.fb_app_id}) %>
@@ -54,7 +54,7 @@
   <% if (theme.favicon) { %>
     <%- favicon_tag(theme.favicon) %>
   <% } %>
-  <%- css('css/style') %>
+  <%- css(url_for('css/style')) %>
   <%- asyncCss({href: vendorCdn(theme.vendor.css.photoswipe)[0], integrity: vendorCdnIntegrity(theme.vendor.css.photoswipe)[0], crossorigin: "anonymous"}) %>
   <% if (theme.math.enable) { %>
     <% if (theme.math.katex.enable) { %>

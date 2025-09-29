@@ -1,5 +1,9 @@
 const { htmlTag } = require("hexo-util");
-hexo.extend.helper.register("asyncCss", (content) => {
+const moize = require("moize");
+
+let relative_link = true;
+function asyncCssHelper(content) {
+  relative_link = this.config.relative_link;
   if (!Array.isArray(content)) {
     content = [content];
   }
@@ -23,4 +27,14 @@ hexo.extend.helper.register("asyncCss", (content) => {
       }
     })
     .join("\n");
+}
+
+const asyncCssMoize = moize(asyncCssHelper, {
+  maxSize: 30,
+  isDeepEqual: true,
+  updateCacheForKey() {
+    return relative_link;
+  },
 });
+
+hexo.extend.helper.register("asyncCss", asyncCssMoize);
