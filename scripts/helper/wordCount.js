@@ -9,8 +9,12 @@ const EN_REGEXP =
   /[\w\u00C0-\u024F\u1E00-\u1EFF]+|[\u0392-\u03c9\u0400-\u04FF]+/g;
 
 const counter = (content = "") => {
-  const text = stripHTML(content || "");
-  if (!text) return [0, 0];
+  content = content
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, "")
+    .replace(/<svg\b[^>]*>[\s\S]*?<\/svg>/gi, "");
+  content = stripHTML(content);
+  if (!content) return [0, 0];
   const cn = (content.match(CN_REGEXP) || []).length;
   const en = (content.match(EN_REGEXP) || []).length;
 
