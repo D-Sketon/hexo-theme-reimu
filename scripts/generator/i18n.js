@@ -174,28 +174,49 @@ hexo.extend.generator.register("post-i18n", function (locals) {
       if (i18nMap[permalink]) {
         i18nMap[permalink].langs.push(lang);
       } else {
-        i18nMap[permalink] = {
-          langs: [lang],
-          page,
-        };
+        const mappedPost = locals.posts
+          .toArray()
+          .find((p) => p.permalink === permalink && !p.lang);
+        if (mappedPost) {
+          i18nMap[permalink] = {
+            langs: [lang],
+            page: mappedPost,
+          };
+        } else {
+          i18nMap[permalink] = {
+            langs: [lang],
+            page,
+          };
+        }
       }
     } else {
       const lang = path.split("/")[0];
       if (!languages.includes(lang)) {
-        // 原始文章，最先被遍历
-        i18nMap[permalink] = {
-          page,
-          langs: [],
-        };
+        if (!i18nMap[permalink]) {
+          i18nMap[permalink] = {
+            page,
+            langs: [],
+          };
+        }
         return;
       }
       if (i18nMap[permalink]) {
         i18nMap[permalink].langs.push(lang);
       } else {
-        i18nMap[permalink] = {
-          langs: [lang],
-          page,
-        };
+        const mappedPost = locals.posts
+          .toArray()
+          .find((p) => p.permalink === permalink && !p.lang);
+        if (mappedPost) {
+          i18nMap[permalink] = {
+            langs: [lang],
+            page: mappedPost,
+          };
+        } else {
+          i18nMap[permalink] = {
+            langs: [lang],
+            page,
+          };
+        }
       }
     }
   });
