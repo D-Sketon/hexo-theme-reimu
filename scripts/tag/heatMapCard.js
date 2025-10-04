@@ -46,7 +46,7 @@ hexo.extend.tag.register("heatMapCard", function (args) {
       title: post.title,
       date: post.date,
       updated: post.updated,
-      wordcount: wordCountFn(post._content),
+      wordcount: wordCountFn(post._content, post._id),
       url: url_for.call(hexo, post.path)
     });
   });
