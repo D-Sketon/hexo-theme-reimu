@@ -221,10 +221,6 @@ dark_mode:
   # auto means that the dark mode is automatically switched according to the system settings
   enable: auto # true | false | auto
 
-# need https://github.com/D-Sketon/hexo-renderer-markdown-it-plus
-markdown:
-  container: false # whether to enable the container style
-
 ########################################
 # Markdown Display
 ########################################

@@ -24,8 +24,8 @@ hexo.extend.helper.register("outdate", function () {
       }
       const blockquote = _$('#outdate-blockquote');
       if (blockquote) {
-        blockquote.querySelector('p').innerText = message;
-        blockquote.style.display = 'block';
+        blockquote.querySelectorAll('p')[1].innerText = message;
+        blockquote.style.display = 'flow-root';
       }
     }
   }

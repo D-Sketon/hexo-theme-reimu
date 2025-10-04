@@ -135,6 +135,7 @@ a, button
 @import "_partial/highlight"
 @import "_partial/friend"
 @import "_partial/card"
+@import "_partial/container"
 
 if hexo-config("live2d.enable")
   @import "_partial/live2d"
@@ -165,9 +166,6 @@ if hexo-config("player.aplayer.enable")
 
 if site-has-share
   @import "_partial/share"
-
-if hexo-config("markdown.container")
-  @import "_partial/container"
 
 .pullquote.left
   float: left

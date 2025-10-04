@@ -9,7 +9,10 @@
     <%- partial('post/gallery') %>
     <div class="e-content article-entry" itemprop="articleBody">
       <% if (theme.outdate.enable) { %>
-        <blockquote id="outdate-blockquote" style="display: none;"><p></p></blockquote>
+        <div class="warning custom-block" id="outdate-blockquote" style="display: none;">
+          <p class="custom-block-title">WARNING</p>
+          <p></p>
+        </div>
       <% } %>
       <% if (post.excerpt && post.link) { %>
         <p><%- post.excerpt %></p>
