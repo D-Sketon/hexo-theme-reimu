@@ -1,6 +1,5 @@
 // modified from https://github.com/Jamling/hexo-generator-i18n
 
-const langPathCache = [];
 let localPostsCache = null;
 
 hexo.extend.generator.register("post", function (locals) {
@@ -50,7 +49,6 @@ hexo.extend.generator.register("post-with-lang", function (locals) {
   return posts.map((post) => {
     let { path, layout, lang } = post;
     if (lang) {
-      langPathCache.push(path);
       path = `${lang}/${path}`;
     }
     if (!layout || layout === "false") {
@@ -164,35 +162,55 @@ hexo.extend.generator.register("post-i18n", function (locals) {
     return [];
   }
   const languages = getLanguages(hexo);
-  const langPath = [];
-  const i18n = [];
+
+  const i18nMap = {};
   if (!localPostsCache && hexo.theme.config.i18n?.enable) {
     localPostsCache = locals.posts.sort("-date").toArray();
   }
   const posts = localPostsCache || locals.posts.sort("-date").toArray();
   posts.forEach((page) => {
-    if (page.lang || langPathCache.includes(page.path)) {
-      return;
-    }
-    const lang = page.path.split("/")[0];
-    if (languages.includes(lang)) {
-      langPath.push(page.path);
-      page.lang = lang;
+    let { path, lang, permalink } = page;
+    if (lang) {
+      if (i18nMap[permalink]) {
+        i18nMap[permalink].langs.push(lang);
+      } else {
+        i18nMap[permalink] = {
+          langs: [lang],
+          page,
+        };
+      }
     } else {
-      i18n.push(page);
+      const lang = path.split("/")[0];
+      if (!languages.includes(lang)) {
+        // 原始文章，最先被遍历
+        i18nMap[permalink] = {
+          page,
+          langs: [],
+        };
+        return;
+      }
+      if (i18nMap[permalink]) {
+        i18nMap[permalink].langs.push(lang);
+      } else {
+        i18nMap[permalink] = {
+          langs: [lang],
+          page,
+        };
+      }
     }
   });
 
   const result = [];
-  i18n.forEach((page) => {
+  Object.keys(i18nMap).forEach((k) => {
+    const { page, langs } = i18nMap[k];
     const layouts = ["page", "post", "index"];
     const layout = page.layout;
     for (let i = 1; i < languages.length; i++) {
       const language = languages[i];
-      const path = `${language}/${page.path}`;
-      if (langPath.includes(path)) {
+      if (langs.includes(language)) {
         continue;
       }
+      const path = `${language}/${page.path}`;
       if (!layout || layout === "false" || layout === "off") {
         result.push({
           path,
