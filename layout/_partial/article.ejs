@@ -8,7 +8,12 @@
     <div class="hr-line"></div>
     <%- partial('post/gallery') %>
     <div class="e-content article-entry" itemprop="articleBody">
-      <% if (theme.outdate.enable) { %>
+      <% if (post.outdated) { %>
+        <div class="warning custom-block">
+          <p class="custom-block-title">WARNING</p>
+          <p><%- (theme.outdate.message[post.lang ?? config.language] ?? 'This article was last updated on {time}. Please note that the content may no longer be applicable.').replace("{time}", date(post.updated, null)) %></p>
+        </div>
+      <% } else if (theme.outdate.enable) { %>
         <div class="warning custom-block" id="outdate-blockquote" style="display: none;">
           <p class="custom-block-title">WARNING</p>
           <p></p>
