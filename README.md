@@ -998,12 +998,7 @@ tagRoulette 是一个互动元素，提供随机标签展示功能，点击按�
 
 ### 自定义容器
 
-本主题提供了类似 vitepress 的自定义容器功能，使用前需要安装 [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)，并在内层 `_config.yml` 中将 `markdown.container` 改为 `true`
-
-```yaml
-markdown:
-  container: true
-```
+本主题提供了类似 vitepress 的自定义容器功能，使用前需要安装 [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)
 
 使用方法如下：
 

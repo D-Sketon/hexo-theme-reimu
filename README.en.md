@@ -998,12 +998,7 @@ tagRoulette is an interactive element that provides a random tag display feature
 
 ### Custom Containers
 
-This theme provides custom container functionality similar to Vitepress. Before using it, you need to install [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus) and set `markdown.container` to `true` in the inner `_config.yml`.
-
-```yaml
-markdown:
-  container: true
-```
+This theme provides custom container functionality similar to Vitepress. Before using it, you need to install [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus).
 
 Usage is as follows:
 
