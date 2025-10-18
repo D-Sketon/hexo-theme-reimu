@@ -99,7 +99,7 @@
       <% let excerpt = stripHtml(post.excerpt).replace(/\s/g, " ") %>
       <script data-pjax>
         window.REIMU_POST = {
-          author: "<%= config.author %>",
+          author: "<%= post.author || config.author %>",
           title: "<%= post.title %>",
           url: "<%= post.permalink %>",
           excerpt: "<%= excerpt %>",

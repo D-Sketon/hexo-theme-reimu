@@ -28,7 +28,7 @@ hexo.extend.helper.register("articleCopyright", function (post) {
   } = hexo.theme.config.article_copyright.content;
   const authorDom = `<p><strong><span class="icon-user icon"></span>${this.__(
     "article_copyright.author"
-  )}</strong>${hexo.config.author} @ ${hexo.config.title}</p>`;
+  )}</strong>${post.author || hexo.config.author}</p>`;
   const linkDom = `<p><strong><span class="icon-link icon"></span>${this.__(
     "article_copyright.permalink"
   )}</strong><a href="${permalink}">${permalink}</a></p>`;
