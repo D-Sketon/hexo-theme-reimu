@@ -345,7 +345,7 @@ if (shareWeixinHandler) {
 }
 shareWeixinHandler = (e) => {
   if (e.target.closest(".share-icon.icon-weixin")) return;
-  _$("#share-weixin").classList.remove("active");
+  _$("#share-weixin")?.classList.remove("active");
 }
 document.on("click", shareWeixinHandler);
 

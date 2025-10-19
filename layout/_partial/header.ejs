@@ -2,14 +2,14 @@
   <nav id="main-nav" aria-label="Primary navigation">
     <% if (!Array.isArray(theme.menu)) { %>
       <% for (let i in theme.menu) { %>
-        <span class="main-nav-link-wrap">
+        <a class="main-nav-link-wrap" href="<%- url_for_lang(theme.menu[i]) %>">
           <div class="main-nav-icon icon-taichi"></div>
-          <a class="main-nav-link" href="<%- url_for_lang(theme.menu[i]) %>"><%= __(i) %></a>
+          <span class="main-nav-link"><%= __(i) %></span>
         </span>
       <% } %>
     <% } else { %>
       <% for (let item of theme.menu) { %>
-        <span class="main-nav-link-wrap">
+        <a class="main-nav-link-wrap" href="<%- url_for_lang(item.url) %>">
           <div class="main-nav-icon icon <%= (item.icon === 'e62b' && theme.icon_font) || (item.icon === 'f6ad' && !theme.icon_font) || !item.icon ? 'rotate' : '' %>">
              <% if (item.icon) { %>
               <% if (item.icon.includes('/') && item.icon.includes('.')) { %>
@@ -21,7 +21,7 @@
               <%- theme.icon_font ? '&#xe62b;' : '&#xf6ad;' %>
              <% } %>
           </div>
-          <a class="main-nav-link" href="<%- url_for_lang(item.url) %>"><%= __(item.name) %></a>
+          <span class="main-nav-link"><%= __(item.name) %></span>
         </span>
       <% } %>
     <% } %>
