@@ -92,9 +92,9 @@
       </script>
     </nav>
   <% } %>
-  <% if (theme.github_badge.enable) { %>
-  <a href="<%= theme.github_badge.link %>" class="github-mark" title="GitHub">
-    <div class="icon icon-github github-mark-icon"></div>
+  <% if (theme.triangle_badge.enable) { %>
+  <a href="<%= theme.triangle_badge.link %>" class="triangle-badge" title="<%= theme.triangle_badge.icon %>" target="_blank" rel="noopener nofollow noreferrer">
+    <div class="icon icon-<%= theme.triangle_badge.icon %> triangle-badge-icon"></div>
   </a>
   <% } %>
 </div>

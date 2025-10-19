@@ -163,8 +163,9 @@ i18n:
   generator: [archive, category, tag, index]
   languages: [zh-CN, en]
 
-github_badge:
+triangle_badge:
   enable: false
+  icon: github # same as the icon in the social config
   link: https://github.com/D-Sketon/hexo-theme-reimu
 
 ########################################
