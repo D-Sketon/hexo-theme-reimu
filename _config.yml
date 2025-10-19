@@ -611,7 +611,7 @@ live2d:
 
 # Experimental
 live2d_widgets:
-  enable: true
+  enable: false
   position: left # left or right
 
 # Experimental
