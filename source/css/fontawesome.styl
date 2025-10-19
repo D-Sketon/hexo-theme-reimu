@@ -170,7 +170,7 @@
       font-family: var(--font-icon)
       content: "\f105"
 
-if ('github' in social-keys)
+if ('github' in social-keys) || hexo-config("github_badge.enable")
   .icon-github
     &:before
       content: "\f09b"

@@ -163,6 +163,10 @@ i18n:
   generator: [archive, category, tag, index]
   languages: [zh-CN, en]
 
+github_badge:
+  enable: false
+  link: https://github.com/D-Sketon/hexo-theme-reimu
+
 ########################################
 # CSS
 ########################################

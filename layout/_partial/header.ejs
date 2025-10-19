@@ -92,6 +92,11 @@
       </script>
     </nav>
   <% } %>
+  <% if (theme.github_badge.enable) { %>
+  <a href="<%= theme.github_badge.link %>" class="github-mark" title="GitHub">
+    <div class="icon icon-github github-mark-icon"></div>
+  </a>
+  <% } %>
 </div>
 <header id="header" aria-label="Site header">
   <% if (post.cover && post.cover.startsWith("rgb")) { %>

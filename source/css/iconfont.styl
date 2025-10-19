@@ -163,7 +163,7 @@ _a = '//at.alicdn.com/t/c/font_' + id + '.woff2'
       font-family: font-icon
       content: "\e630"
 
-if ('github' in social-keys)
+if ('github' in social-keys) || hexo-config("github_badge.enable")
   .icon-github
     &:before
       content: "\e619"

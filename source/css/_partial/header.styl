@@ -250,3 +250,32 @@ $nav-link
   background: var(--red-1);
   color: #fff;
 }
+
+if hexo-config("github_badge.enable") {
+  .github-mark {
+    position: absolute;
+    top: -6px;
+    right: -26px;
+    transform: rotate(45deg);
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 40px solid var(--red-2);
+    display: inline-block;
+    transition: 0.3s;
+
+    @media mg-large {
+      display: none;
+    }
+  }
+
+  .github-mark-icon {
+    position: absolute;
+    top: 12px;
+    left: -13px;
+    color: var(--color-header-background) !important;
+    font-size: 28px;
+    transition: 0.3s;
+  }
+}
