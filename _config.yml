@@ -611,7 +611,7 @@ live2d:
 
 # Experimental
 live2d_widgets:
-  enable: false
+  enable: true
   position: left # left or right
 
 # Experimental
@@ -831,17 +831,17 @@ vendor:
       integrity: sha384-X7z7PUv2B67D8sPJyzDyGZSco1ADwmdI7ed4eCGtTKkClfyDFpPL9WgAn9XVr/Io
     fontawesome:
       high_priority:
-        - src: webcache|@fortawesome/fontawesome-free@7.0.0/css/regular.min.css
-          integrity: sha384-PmxfVzUpFiyj5ZqzN3upnv7G4x9YAlMQar/qCBLEYSaWr/DUQ9f/8ITCT0aN7byC
-        - src: webcache|@fortawesome/fontawesome-free@7.0.0/css/solid.min.css
-          integrity: sha384-HMy1VqP4zke4zzaS+hmFgbW3QXDYD+qtueW3unq30MTgdOnarIgANSya8s5qKRh5
+        - src: webcache|@fortawesome/fontawesome-free@7.1.0/css/regular.min.css
+          integrity: sha384-4qYppzjH8EiA+cGdaubu2vL7Rk8WGiqCSj7oRuP1uwtFWkfKNHD20lPfcrbQc8dU
+        - src: webcache|@fortawesome/fontawesome-free@7.1.0/css/solid.min.css
+          integrity: sha384-wbMWab3UDSPm2kvIgVOn/d9KPTecgPU1+Nb3zoQrm/oVu0EkPL6IaKinjbwW0rum
       low_priority:
-        - src: webcache|@fortawesome/fontawesome-free@7.0.0/css/brands.min.css
-          integrity: sha384-IzIkDWjFFaoFz413tu2x9R4cMiJ3EGuxOf/7Q8X0LFhqz9fU5zT2go7BgenYdKgN
-        - src: webcache|@fortawesome/fontawesome-free@7.0.0/css/v5-font-face.min.css
-          integrity: sha384-691KBFHHuy2pnDTyR36VZ90jy7dXWBfC5D1nzy5rkDlqQQ/vRs/nmmK++LBfAp/C
-        - src: webcache|@fortawesome/fontawesome-free@7.0.0/css/v4-font-face.min.css
-          integrity: sha384-7c0mz5ReY2wCEDKNNEdrKdbtS/6+5dEgNsz/dU3e9m7xldAdTFwNTAuX+s4sJHJl
+        - src: webcache|@fortawesome/fontawesome-free@7.1.0/css/brands.min.css
+          integrity: sha384-KTGeC2hIMzpeQakhsmzB9bZfhCD5xZZCgI1iZH6f/O457SxzlkzTQg/WXFNoi3ih
+        - src: webcache|@fortawesome/fontawesome-free@7.1.0/css/v5-font-face.min.css
+          integrity: sha384-nJ1ThfldViXoLpJ6jlKcP2beas8BMbYq26SG9Hi8cH89bZi4RZ644v7helMCqJxd
+        - src: webcache|@fortawesome/fontawesome-free@7.1.0/css/v4-font-face.min.css
+          integrity: sha384-UlkrhOIvZxJFd4MElSUp7ow6/RUeYKi/orfCZIRRiOENFuQPIAA3T3HjYfmBRhNq
     aos:
       src: webcache|@reimujs/aos@0.1.2/dist/aos.css
       integrity: sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa
