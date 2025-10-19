@@ -763,8 +763,8 @@ vendor:
       src: webcache|pace-js@1.2.4/pace.min.js
       integrity: sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8
     mermaid:
-      src: webcache|mermaid@11.10.1/dist/mermaid.min.js
-      integrity: sha384-7nxfNsXzOEcSwk+tzfq6tbjmfg0P2Gqmi7JTnRjv9Ll3gFWNro6lI7hPtZPM5ZLD
+      src: webcache|mermaid@11.12.0/dist/mermaid.min.js
+      integrity: sha384-o+g/BxPwhi0C3RK7oQBxQuNimeafQ3GE/ST4iT2BxVI4Wzt60SH4pq9iXVYujjaS
     svg_pan_zoom:
       src: webcache|svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js
       integrity: sha384-GGX4llYprEPGp9w5caepn95YWAEflHnsA5ewt+Y+cBEb95og5cXKllnWKSELlzbx
@@ -784,13 +784,13 @@ vendor:
       src: webcache|blueimp-md5@2.19.0/js/md5.min.js
       integrity: sha384-JmVtRz6RWiXnA14QbIOJzPuU3MidULOpBP66deeLLyyoF4Tr/gZlbkHkL6vTthxH
     quicklink:
-      src: webcache|quicklink@2.3.0/dist/quicklink.umd.js
-      integrity: sha384-aD7FsuQkS1ohgFKY41fJfeA+Wd/QRNnrOd9Bs58K3FzKdJJv8yPnYU8Tnp5z1agS
+      src: webcache|quicklink@3.0.1/dist/quicklink.umd.js
+      integrity: sha384-caMDqvgav/HWdEYQU1QRRHMLleigpL1YHAG0m371DhzfL8rRzUyOb+bEHtwlmYjD
     katex:
-      src: webcache|katex@0.16.22/dist/katex.min.js
-      integrity: sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6
+      src: webcache|katex@0.16.24/dist/katex.min.js
+      integrity: sha384-MWNUH0WmtsYGhn2cbH6ELRCbf9LG3QDqCC+gqPB3IBNO35xjZK3Ejb6oONRpDbPg
     katex_auto_render:
-      src: webcache|katex@0.16.22/dist/contrib/auto-render.min.js
+      src: webcache|katex@0.16.24/dist/contrib/auto-render.min.js
       integrity: sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh
     mathjax:
       src: webcache|mathjax@3.2.2/es5/tex-mml-chtml.js
@@ -814,15 +814,15 @@ vendor:
       src: webcache|material-theme@1.0.0/dist/material-theme.umd.js
       integrity: sha384-vLev0II0HKFaxkcm+/7kX5IGwVFBASkGchU311wmU/veIj2bB0UcBkQbW6yw2asK
     snapdom:
-      src: webcache|@zumer/snapdom@1.9.9/dist/snapdom.min.js
-      integrity: sha384-taz9Bq0wPqLsuiB4ix4blTozt/y84cjbMX5ZWkfPPjpVBme8M/jWopanNBcdH/qp
+      src: webcache|@zumer/snapdom@1.9.14/dist/snapdom.min.js
+      integrity: sha384-OEQ+fJp/Mvi2uzBREXybtxryJvLytWapuHu4EE6LPwTKUwATYcc55tPPcZTzVcmx
   css:
     photoswipe:
       src: webcache|photoswipe@5.4.4/dist/photoswipe.css
       integrity: sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE
     katex:
-      src: webcache|katex@0.16.22/dist/katex.min.css
-      integrity: sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP
+      src: webcache|katex@0.16.24/dist/katex.min.css
+      integrity: sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz+YI
     waline:
       src: webcache|@waline/client@2.15.8/dist/waline.css
       integrity: sha384-vltfZtesCdl6NYVcFVcjEaIi5RpNvZe9t7fXvq8twVtcoy+Ub9QgnxUYJmwOhYCK
