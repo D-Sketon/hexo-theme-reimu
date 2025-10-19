@@ -339,6 +339,16 @@ _$(".sponsor-button")
     _$(".sponsor-qr")?.classList.toggle("active");
   });
 
+var shareWeixinHandler;
+if (shareWeixinHandler) {
+  document.off("click", shareWeixinHandler);
+}
+shareWeixinHandler = (e) => {
+  if (e.target.closest(".share-icon.icon-weixin")) return;
+  _$("#share-weixin").classList.remove("active");
+}
+document.on("click", shareWeixinHandler);
+
 _$(".share-icon.icon-weixin")
   ?.off("click")
   .on("click", function (e) {
