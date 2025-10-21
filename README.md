@@ -1278,6 +1278,37 @@ js:
 以上两种形式均支持，建议对外部 CDN 资源使用 SRI 校验，以确保资源的完整性。
 </details>
 
+<details>
+<summary>Front-matter 字段</summary>
+
+### Front-matter 字段
+
+| meta        | 描述                                            | 类型                                                   | 取值逻辑           | 版本      |
+| ----------- | ----------------------------------------------- | ------------------------------------------------------ | ------------------ | --------- |
+| title       | 标题                                            | `string`                                               | 文章的文件名       | Hexo 内置 |
+| date        | 创建日期                                        | `date`                                                 | 文件的创建日期     | Hexo 内置 |
+| updated     | 更新日期                                        | `date`                                                 | 文件的更新日期     | Hexo 内置 |
+| tags        | 标签                                            | `string[] \| string[][]`                               | -                  | Hexo 内置 |
+| categories  | 分类                                            | `string[] \| string[][]`                               | -                  | Hexo 内置 |
+| permalink   | 覆盖文章的永久链接                              | `string`                                               | -                  | Hexo 内置 |
+| excerpt     | 文章摘要                                        | `string`                                               | -                  | Hexo 内置 |
+| description | 文章描述                                        | `string`                                               | -                  | 0.0.1     |
+| link        | 用于文章直接指向外部链接                        | `string`                                               | -                  | 0.0.1     |
+| sticky      | 是否置顶文章                                    | `boolean`                                              | `false`            | 0.0.1     |
+| photos      | 文章照片墙                                      | `string[]`                                             | -                  | 0.0.1     |
+| mermaid     | 是否开启 mermaid，需配合 `mermaid` 配置一起使用 | `boolean`                                              | `false`                  | 0.2.0     |
+| copyright   | 是否开启文章版权声明                            | `boolean`                                              | 不传默认走全局配置 | 0.3.1     |
+| sponsor     | 是否开启文章赞助                                | `boolean`                                              | 不传默认走全局配置 | 0.3.2     |
+| comments    | 是否开启文章评论                                | `boolean`                                              | 不传默认走全局配置 | 0.3.2     |
+| cover       | 文章封面                                        | `https://example.com \| false \| rgb(255,117,117)` | 不传默认走全局配置 | 0.0.7     |
+| sidebar     | 文章侧边栏位置                                  | `false \| 'left' \| 'right'`                           | 不传默认走全局配置 | 1.3.0     |
+| lang        | 文章语言，需配合 `i18n` 配置一起使用            | `string`                                               | -                  | 1.4.0     |
+| toc         | 是否开启文章目录                                | `boolean`                                              | 不传默认走全局配置 | 1.6.0     |
+| outdated    | 文章是否过期                                    | `boolean`                                              | 不传默认走全局配置 | 1.10.1    |
+| author      | 文章作者，用于文章版权和分享卡片                | `string`                                               | 不传默认走全局配置 | 1.10.2    |
+
+</details>
+
 ## 贡献者
 
 [![](https://contributors-img.web.app/image?repo=D-Sketon/hexo-theme-reimu)](https://github.com/D-Sketon/hexo-theme-reimu/graphs/contributors)

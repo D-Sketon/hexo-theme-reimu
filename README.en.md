@@ -1276,6 +1276,37 @@ js:
 Both formats are supported. It's recommended to use SRI verification for external CDN resources to ensure resource integrity.
 </details>
 
+<details>
+<summary>Front-matter Fields</summary>
+
+### Front-matter Fields
+
+| meta        | Description                                                                 | Type                                                   | Value Logic        | Version   |
+| ----------- | --------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------ | --------- |
+| title       | Title                                                                       | `string`                                               | Article file name  | Hexo Built-in |
+| date        | Creation Date                                                               | `date`                                                 | File creation date | Hexo Built-in |
+| updated     | Update Date                                                                 | `date`                                                 | File update date   | Hexo Built-in |
+| tags        | Tags                                                                        | `string[] \| string[][]`                               | -                  | Hexo Built-in |
+| categories  | Categories                                                                  | `string[] \| string[][]`                               | -                  | Hexo Built-in |
+| permalink   | Override the article's permanent link                                       | `string`                                               | -                  | Hexo Built-in |
+| excerpt     | Article Excerpt                                                             | `string`                                               | -                  | Hexo Built-in |
+| description | Article Description                                                         | `string`                                               | -                  | 0.0.1     |
+| link        | Directs the article to an external link                                     | `string`                                               | -                  | 0.0.1     |
+| sticky      | Whether to pin the article                                                  | `boolean`                                              | `false`            | 0.0.1     |
+| photos      | Article photo gallery                                                       | `string[]`                                             | -                  | 0.0.1     |
+| mermaid     | Whether to enable mermaid (requires configuration with `mermaid` config)  | `boolean`                                              | `false`                  | 0.2.0     |
+| copyright   | Whether to enable article copyright notice                                  | `boolean`                                              | Defaults to global config if not provided | 0.3.1     |
+| sponsor     | Whether to enable article sponsorship                                       | `boolean`                                              | Defaults to global config if not provided | 0.3.2     |
+| comments    | Whether to enable article comments                                          | `boolean`                                              | Defaults to global config if not provided | 0.3.2     |
+| cover       | Article cover                                                               | `https://example.com \| false \| rgb(255,117,117)` | Defaults to global config if not provided | 0.0.7     |
+| sidebar     | Article sidebar position                                                    | `false \| 'left' \| 'right'`                           | Defaults to global config if not provided | 1.3.0     |
+| lang        | Article language (requires configuration with `i18n` config)              | `string`                                               | -                  | 1.4.0     |
+| toc         | Whether to enable article table of contents                                 | `boolean`                                              | Defaults to global config if not provided | 1.6.0     |
+| outdated    | Whether the article is outdated                                             | `boolean`                                              | Defaults to global config if not provided | 1.10.1    |
+| author      | Article author (used for article copyright and sharing cards)               | `string`                                               | Defaults to global config if not provided | 1.10.2    |
+
+</details>
+
 ## Contributors
 
 [![](https://contributors-img.web.app/image?repo=D-Sketon/hexo-theme-reimu)](https://github.com/D-Sketon/hexo-theme-reimu/graphs/contributors)
