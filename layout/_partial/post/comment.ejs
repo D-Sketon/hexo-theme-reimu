@@ -24,6 +24,7 @@
       load: () => {
         const container = document.querySelector('.valine-comment');
         if (!container) return;
+        if (container.style.display === 'block') return; // already loaded
         container.style.display = 'block';
 
         const script = loadScript(
