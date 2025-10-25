@@ -4,6 +4,7 @@
   background: var(--color-wrap) !important;
   transition: all 0.3s;
   font-family: font-basic !important;
+  box-shadow: none !important;
 
   button, .aplayer-icon {
     &:hover {
@@ -11,6 +12,10 @@
         fill: var(--color-link) !important;
       }
     }
+  }
+
+  &:hover {
+    box-shadow: var(--shadow-card-hover) !important;
   }
 
   .aplayer-after-sidebar &, &.aplayer-after-sidebar, .aplayer-after-widget &, &.aplayer-after-widget {
