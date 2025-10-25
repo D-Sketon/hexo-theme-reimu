@@ -1,281 +1,345 @@
-#comments
-  background: var(--color-wrap)
-  padding: article-padding article-padding + 16px
-  border-radius: post-radius
-  margin: 12px 0
+#comments {
+  background: var(--color-wrap);
+  padding: article-padding article-padding + 16px;
+  border-radius: post-radius;
+  margin: 12px 0;
 
-  @media mg-normal
-    padding: article-padding 16px
+  @media mg-normal {
+    padding: article-padding 16px;
+  }
 
-  a
-    color: var(--color-link)
+  a {
+    color: var(--color-link);
+  }
 
-  .comment-header
-    display: flex
-    flex-direction: column
-    width: 100%
+  .comment-header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 
-    .comment-title
-      margin: 0 0 12px
-      width: 100%
-      text-align: center
-      color: var(--color-default)
+    .comment-title {
+      margin: 0 0 12px;
+      width: 100%;
+      text-align: center;
+      color: var(--color-default);
+    }
 
-    .comment-selector
-      width: 100%
-      display: flex
-      justify-content: flex-end
-      margin-bottom: 16px
+    .comment-selector {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
 
-    .comment-selector-wrap
-      display: flex
-      overflow: hidden
-      border-radius: tag-radius
+    .comment-selector-wrap {
+      display: flex;
+      overflow: hidden;
+      border-radius: tag-radius;
 
-      .selector-item
-        font-size: 14px
-        color: #555
-        background-color: #c9ccd0
-        transition: 0.3s
-        padding: 4px
-        cursor: var(--cursor-pointer) !important
-        font-weight: bold
+      .selector-item {
+        font-size: 14px;
+        color: #555;
+        background-color: #c9ccd0;
+        transition: 0.3s;
+        padding: 4px;
+        cursor: var(--cursor-pointer) !important;
+        font-weight: bold;
 
-        span
-          cursor: var(--cursor-pointer) !important
+        span {
+          cursor: var(--cursor-pointer) !important;
+        }
 
-        [data-theme="dark"] &
-          color: #ccc
-          background-color: #555
+        [data-theme='dark'] & {
+          color: #ccc;
+          background-color: #555;
+        }
 
-        &:hover
-          background-color: var(--red-4)
+        &:hover {
+          background-color: var(--red-4);
+        }
 
-        &.active
-          color: white
-          background-color: var(--red-1)
+        &.active {
+          color: white;
+          background-color: var(--red-1);
+        }
+      }
+    }
+  }
+}
 
-if has-waline
-  .wl-emoji-popup
-    max-width: calc(100vw - 90px) !important
+if (has-waline) {
+  .wl-emoji-popup {
+    max-width: calc(100vw - 90px) !important;
+  }
 
-  .wl-count
-    color: var(--color-default)
+  .wl-count {
+    color: var(--color-default);
+  }
 
-  .wl-header input
-    font-size: revert !important
+  .wl-header input {
+    font-size: revert !important;
+  }
 
-  .wl-panel
-    margin: .5em 0 !important
+  .wl-panel {
+    margin: 0.5em 0 !important;
+  }
 
-  .wl-action, .wl-sort li
-    cursor: var(--cursor-pointer) !important
+  .wl-action, .wl-sort li {
+    cursor: var(--cursor-pointer) !important;
+  }
 
-  .wl-header label
-    cursor: var(--cursor-default) !important
+  .wl-header label {
+    cursor: var(--cursor-default) !important;
+  }
+}
 
-if has-valine
-  .vcontent
-    padding-left: 10px
-    padding-right: 10px
-  
-  [data-theme="dark"] .v[data-class="v"] .vcards .vcard .vcontent.expand::after,
-  .dark .v[data-class="v"] .vcards .vcard .vcontent.expand::after,
-  .theme__dark .v[data-class="v"] .vcards .vcard .vcontent.expand::after,
-  .night .v[data-class="v"] .vcards .vcard .vcontent.expand::after
-    background: var(--color-wrap) !important
+if (has-valine) {
+  .vcontent {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
-  [data-theme="dark"] .v[data-class="v"] .vcards .vcard .vcontent.expand::before,
-  .dark .v[data-class="v"] .vcards .vcard .vcontent.expand::before,
-  .theme__dark .v[data-class="v"] .vcards .vcard .vcontent.expand::before,
-  .night .v[data-class="v"] .vcards .vcard .vcontent.expand::before
-    --valine-linear-gradient-color: unquote("color-mix(in srgb, var(--color-wrap) 10%, transparent)")
-    background: linear-gradient(180deg, var(--valine-linear-gradient-color), var(--color-wrap)) !important
+  [data-theme='dark'] .v[data-class='v'] .vcards .vcard .vcontent.expand::after, .dark .v[data-class='v'] .vcards .vcard .vcontent.expand::after, .theme__dark .v[data-class='v'] .vcards .vcard .vcontent.expand::after, .night .v[data-class='v'] .vcards .vcard .vcontent.expand::after {
+    background: var(--color-wrap) !important;
+  }
 
-  .v[data-class="v"] .vcards .vcard .vh .vmeta .vat
-    color: var(--red-1) !important
+  [data-theme='dark'] .v[data-class='v'] .vcards .vcard .vcontent.expand::before, .dark .v[data-class='v'] .vcards .vcard .vcontent.expand::before, .theme__dark .v[data-class='v'] .vcards .vcard .vcontent.expand::before, .night .v[data-class='v'] .vcards .vcard .vcontent.expand::before {
+    --valine-linear-gradient-color: unquote('color-mix(in srgb, var(--color-wrap) 10%, transparent)');
+    background: linear-gradient(180deg, var(--valine-linear-gradient-color), var(--color-wrap)) !important;
+  }
 
-if has-giscus
-  .giscus-comment
-    width: auto
+  .v[data-class='v'] .vcards .vcard .vh .vmeta .vat {
+    color: var(--red-1) !important;
+  }
+}
 
-if has-gitalk
-  .gitalk-comment
-    color: var(--color-default)
+if (has-giscus) {
+  .giscus-comment {
+    width: auto;
+  }
+}
 
-  .gt-header-comment .gt-header-preview.markdown-body,
-  .gt-comment-content .gt-comment-body.markdown-body
-    h2,
-    h1
-      border-bottom: none
+if (has-gitalk) {
+  .gitalk-comment {
+    color: var(--color-default);
+  }
 
-    table
-      display: table
+  .gt-header-comment .gt-header-preview.markdown-body, .gt-comment-content .gt-comment-body.markdown-body {
+    h2, h1 {
+      border-bottom: none;
+    }
 
-    table tr
-      background-color: transparent !important
-      border: none
+    table {
+      display: table;
+    }
 
-    table th
-      border: none
-      border-bottom: 3px solid var(--color-border)
+    table tr {
+      background-color: transparent !important;
+      border: none;
+    }
 
-    table td
-      border: none
-      border-bottom: 1px solid var(--color-border)
+    table th {
+      border: none;
+      border-bottom: 3px solid var(--color-border);
+    }
 
-  .gt-header-textarea
-    background-color: var(--red-6) !important
-    color: var(--color-default)
+    table td {
+      border: none;
+      border-bottom: 1px solid var(--color-border);
+    }
+  }
 
-  .gt-container .gt-header-comment
-    width: 100%
+  .gt-header-textarea {
+    background-color: var(--red-6) !important;
+    color: var(--color-default);
+  }
 
-  .gt-container .gt-header-preview,
-  .gt-container .gt-comment-content
-    background-color: var(--color-wrap) !important
-  
-  .gt-container .gt-comment-content
-    &:hover
-      box-shadow: none !important
-    
-  .gt-container .gt-popup
-    background-color: var(--color-wrap) !important
+  .gt-container .gt-header-comment {
+    width: 100%;
+  }
 
-$base-comment-style
-  color: var(--color-default) !important
-  @extend $base-style
+  .gt-container .gt-header-preview, .gt-container .gt-comment-content {
+    background-color: var(--color-wrap) !important;
+  }
 
-  p, table
-    line-height: line-height
-    margin: 16px 0
+  .gt-container .gt-comment-content {
+    &:hover {
+      box-shadow: none !important;
+    }
+  }
 
-  h1, h2, h3, h4, h5, h6
-    font-weight: bold
-    line-height: line-height-title
-    margin: line-height-title 0 0.75em
+  .gt-container .gt-popup {
+    background-color: var(--color-wrap) !important;
+  }
+}
 
-  h2
-    margin-bottom: 40px
+$base-comment-style {
+  color: var(--color-default) !important;
+  @extend $base-style;
 
-  a
-    color: var(--color-link)
-    text-decoration: none
-    word-break: break-word
+  p, table {
+    line-height: line-height;
+    margin: 16px 0;
+  }
 
-    &:hover
-      text-decoration: underline
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    line-height: line-height-title;
+    margin: line-height-title 0 0.75em;
+  }
 
-  li
-    margin: 8px 0
-    &:hover
-      &::marker
-        transition: color 0.2s
-        color: var(--red-1)
+  h2 {
+    margin-bottom: 40px;
+  }
 
-  img, video
-    max-width: 100%
-    height: auto
-    display: block
-    margin: auto
+  a {
+    color: var(--color-link);
+    text-decoration: none;
+    word-break: break-word;
 
-  table
-    width: 100%
-    border-collapse: collapse
-    border-spacing: 0
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
-  th
-    font-weight: bold
-    border-bottom: 3px solid var(--color-border)
-    padding-bottom: 8px
+  li {
+    margin: 8px 0;
 
-  td
-    border-bottom: 1px solid var(--color-border)
-    padding: 8px 0
+    &:hover {
+      &::marker {
+        transition: color 0.2s;
+        color: var(--red-1);
+      }
+    }
+  }
 
-  blockquote
-    background: var(--red-5-5)
-    border-left: 6px var(--red-4) solid  !important
-    margin: 28px 0  !important
-    border-radius: post-radius
-    transition: 0.3s
-    display: flow-root
-    padding: 0 12px  !important
-    box-shadow: var(--shadow-meta)
+  img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+  }
 
-    &:hover
-      box-shadow: var(--shadow-meta-hover)
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
 
-    footer
-      font-size: font-size
-      margin: 24px 0
+  th {
+    font-weight: bold;
+    border-bottom: 3px solid var(--color-border);
+    padding-bottom: 8px;
+  }
 
-      cite
-        &:before
-          content: "—"
-          padding: 0 8px
-  
-  details
-    padding: 16px 12px
-    border-radius: post-radius
-    background-color: var(--red-5-5)
-    box-shadow: var(--shadow-meta)
-    transition: 0.3s
+  td {
+    border-bottom: 1px solid var(--color-border);
+    padding: 8px 0;
+  }
 
-    &:hover
-      box-shadow: var(--shadow-meta-hover)
+  blockquote {
+    background: var(--red-5-5);
+    border-left: 6px var(--red-4) solid !important;
+    margin: 28px 0 !important;
+    border-radius: post-radius;
+    transition: 0.3s;
+    display: flow-root;
+    padding: 0 12px !important;
+    box-shadow: var(--shadow-meta);
 
-  summary
-    font-size: 1.1em
-    font-weight: bold
-    cursor: var(--cursor-pointer) !important
-    padding: 8px
-    border: none
-    border-radius: tag-radius
-    transition: 0.3s
+    &:hover {
+      box-shadow: var(--shadow-meta-hover);
+    }
 
-  summary:hover
-    background-color: var(--red-5)
+    footer {
+      font-size: font-size;
+      margin: 24px 0;
 
-  details[open] summary
-    background-color: var(--red-5)
+      cite {
+        &:before {
+          content: '—';
+          padding: 0 8px;
+        }
+      }
+    }
+  }
 
-  details[open] summary:hover
-    background-color: var(--red-5)
+  details {
+    padding: 16px 12px;
+    border-radius: post-radius;
+    background-color: var(--red-5-5);
+    box-shadow: var(--shadow-meta);
+    transition: 0.3s;
 
-  details p
-    margin: 20px 0 0
-    padding: 12px
-    background-color: var(--color-footer-background)
-    border-radius: tag-radius
-    transition: 0.3s
+    &:hover {
+      box-shadow: var(--shadow-meta-hover);
+    }
+  }
 
-  hr
-    border-style: none !important
-    background-color: transparent !important
+  summary {
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: var(--cursor-pointer) !important;
+    padding: 8px;
+    border: none;
+    border-radius: tag-radius;
+    transition: 0.3s;
+  }
 
-  pre,
-  code
-    font-family: $font-code !important
-    font-size: 93.75% !important
-    transition: 0.3s
-    word-break: break-word
+  summary:hover {
+    background-color: var(--red-5);
+  }
 
-  code:not(pre code)
-    background: var(--color-code-background) !important
-    padding: 1px 4px !important
-    border-radius: 6px !important
-    color: var(--color-link) !important
+  details[open] summary {
+    background-color: var(--red-5);
+  }
 
-if has-waline
-  .wl-content
-    @extend $base-comment-style
+  details[open] summary:hover {
+    background-color: var(--red-5);
+  }
 
-if has-valine
-  .vcontent
-    @extend $base-comment-style
+  details p {
+    margin: 20px 0 0;
+    padding: 12px;
+    background-color: var(--color-footer-background);
+    border-radius: tag-radius;
+    transition: 0.3s;
+  }
 
-if has-gitalk
-  .gt-header-preview.markdown-body,
-  .gt-comment-content .gt-comment-body.markdown-body
-    @extend $base-comment-style
+  hr {
+    border-style: none !important;
+    background-color: transparent !important;
+  }
+
+  pre, code {
+    font-family: $font-code !important;
+    font-size: 93.75% !important;
+    transition: 0.3s;
+    word-break: break-word;
+  }
+
+  code:not(pre code) {
+    background: var(--color-code-background) !important;
+    padding: 1px 4px !important;
+    border-radius: 6px !important;
+    color: var(--color-link) !important;
+  }
+}
+
+if (has-waline) {
+  .wl-content {
+    @extend $base-comment-style;
+  }
+}
+
+if (has-valine) {
+  .vcontent {
+    @extend $base-comment-style;
+  }
+}
+
+if (has-gitalk) {
+  .gt-header-preview.markdown-body, .gt-comment-content .gt-comment-body.markdown-body {
+    @extend $base-comment-style;
+  }
+}

@@ -1,345 +1,510 @@
-font-icon = "iconfont"
-id = hexo-config("icon_font")
-_a = '//at.alicdn.com/t/c/font_' + id + '.woff2'
-@font-face
+font-icon = 'iconfont';
+id = hexo-config('icon_font');
+_a = '//at.alicdn.com/t/c/font_' + id + '.woff2';
+
+@font-face {
   font-family: font-icon;
   src: url(_a) format('woff2');
   font-display: swap;
-
-.archives-tag-list-link
-  &:before
-    font-family: font-icon
-    content: "\e622"
-
-.archives-category-list-link
-  &:before
-    font-family: font-icon
-    content: "\e604"
-
-.article-date-link
-  &:before
-    font-family: font-icon
-    content: "\e606"
-
-.article-category-link
-  &:before
-    font-family: font-icon
-    content: "\e604"
-
-.article-tag-list-link
-  &:before
-    font-family: font-icon
-    content: "\e622"
-
-.article-comment-link
-  &:before
-    font-family: font-icon
-    content: "\e608"
-
-.icon-copyright
-  &:before
-    font-family: font-icon
-    content: "\e60a"
-
-.icon-brush
-  &:before
-    font-family: font-icon
-    content: "\e618"
-
-.icon-coffee
-  &:before
-    font-family: font-icon
-    content: "\e607"
-
-.icon-eye
-  &:before
-    font-family: font-icon
-    content: "\e60f"
-
-.icon-user
-  &:before
-    font-family: font-icon
-    content: "\e628"
-
-#main-nav-toggle
-  &:before
-    font-family: font-icon
-    content: "\e62f"
-
-#nav-rss-link
-  &:before
-    font-family: font-icon
-    content: "\e61f"
-
-#nav-search-btn
-  &:before
-    font-family: font-icon
-    content: "\e631"
-
-#nav-sun-btn
-  &:before
-    font-family: font-icon
-    content: "\e621"
-
-#nav-moon-btn
-  &:before
-    font-family: font-icon
-    content: "\e617"
-
-#nav-circle-half-stroke-btn
-  &:before
-    font-family: font-icon
-    content: "\e641"
-
-#nav-language-btn
-  &:before
-    font-family: font-icon
-    content: "\e642"
-
-.icon-copy
-  &:before
-    font-family: font-icon
-    content: "\e60c"
-
-.icon-chevron-down
-  &:before
-    font-family: font-icon
-    content: "\e609"
-
-.icon-check
-  &:before
-    font-family: font-icon
-    content: "\e636"
-
-.icon-times
-  &:before
-    font-family: font-icon
-    content: "\e637"
-
-.icon-calendar
-  &:before
-    font-family: font-icon
-    content: "\e605"
-
-.icon-calendar-plus
-  &:before
-    font-family: font-icon
-    content: "\e648"
-
-.icon-pencil
-  &:before
-    font-family: font-icon
-    content: "\e61b"
-
-.icon-clock
-  &:before
-    font-family: font-icon
-    content: "\e613"
-
-.post-sticky
-  &:before
-    font-family: font-icon
-    content:"\e627"
-
-.popup-btn-close
-  &:before
-    font-family: font-icon
-    content: "\e626"
-
-.reimu-search-input-icon
-  &:before
-    font-family: font-icon
-    content: "\e631"
-
-.ais-pagination--item__previous
-  a
-    &:before
-      font-family: font-icon
-      content: "\e601"
-
-.ais-pagination--item__next
-  a
-    &:before
-      font-family: font-icon
-      content: "\e630"
-
-if ('github' in social-keys) || (hexo-config("triangle_badge.icon") == "github")
-  .icon-github
-    &:before
-      content: "\e619"
-
-if ('google' in social-keys) || (hexo-config("triangle_badge.icon") == "google")
-  .icon-google
-    &:before
-      content: "\e611"
-
-if ('facebook' in social-keys) || ('facebook' in share-keys) || (hexo-config("triangle_badge.icon") == "facebook")
-  .icon-facebook
-    &:before
-      content: "\e60e"
-
-if ('twitter' in social-keys) || ('twitter' in share-keys) || (hexo-config("triangle_badge.icon") == "twitter")
-  .icon-twitter
-    &:before
-      content: "\e62a"
-
-if ('instagram' in social-keys) || (hexo-config("triangle_badge.icon") == "instagram")
-  .icon-instagram
-    &:before
-      content: "\e615"
-
-if ('linkedin' in social-keys) || ('linkedin' in share-keys) || (hexo-config("triangle_badge.icon") == "linkedin")
-  .icon-linkedin
-    &:before
-      content: "\e614"
-
-if ('pinterest' in social-keys) || (hexo-config("triangle_badge.icon") == "pinterest")
-  .icon-pinterest
-    &:before
-      content: "\e61a"
-
-if ('youtube' in social-keys) || (hexo-config("triangle_badge.icon") == "youtube")
-  .icon-youtube
-    &:before
-      content: "\e62d"
-
-if ('vimeo' in social-keys) || (hexo-config("triangle_badge.icon") == "vimeo")
-  .icon-vimeo
-    &:before
-      content: "\e629"
-
-if ('flickr' in social-keys) || (hexo-config("triangle_badge.icon") == "flickr")
-  .icon-flickr
-    &:before
-      content: "\e612"
-
-if ('dribbble' in social-keys) || (hexo-config("triangle_badge.icon") == "dribbble")
-  .icon-dribbble
-    &:before
-      content: "\e610"
-
-if ('behance' in social-keys) || (hexo-config("triangle_badge.icon") == "behance")
-  .icon-behance
-    &:before
-      content: "\e602"
-
-if ('bilibili' in social-keys) || (hexo-config("triangle_badge.icon") == "bilibili")
-  .icon-bilibili
-    &:before
-      content: "\e603"
-
-if ('weibo' in social-keys) || ('weibo' in share-keys) || (hexo-config("triangle_badge.icon") == "weibo")
-  .icon-weibo
-    &:before
-      content: "\e62c"
-
-if ('zhihu' in social-keys) || (hexo-config("triangle_badge.icon") == "zhihu")
-  .icon-zhihu
-    &:before
-      content: "\e62e"
-
-if ('reddit' in social-keys) || ('reddit' in share-keys) || (hexo-config("triangle_badge.icon") == "reddit")
-  .icon-reddit
-    &:before
-      content: "\e61c"
-
-if ('tumblr' in social-keys) || (hexo-config("triangle_badge.icon") == "tumblr")
-  .icon-tumblr
-    &:before
-      content: "\e625"
-
-if ('medium' in social-keys) || (hexo-config("triangle_badge.icon") == "medium")
-  .icon-medium
-    &:before
-      content: "\e616"
-
-if ('deviantart' in social-keys) || (hexo-config("triangle_badge.icon") == "deviantart")
-  .icon-deviantart
-    &:before
-      content: "\e60b"
-
-if ('stackoverflow' in social-keys) || (hexo-config("triangle_badge.icon") == "stackoverflow")
-  .icon-stackoverflow
-    &:before
-      content: "\e620"
-
-if ('keybase' in social-keys) || (hexo-config("triangle_badge.icon") == "keybase")
-  .icon-keybase
-    &:before
-      content: "\e61e"
-
-if ('telegram' in social-keys) || (hexo-config("triangle_badge.icon") == "telegram")
-  .icon-telegram
-    &:before
-      content: "\e623"
-
-if ('discord' in social-keys) || (hexo-config("triangle_badge.icon") == "discord")
-  .icon-discord
-    &:before
-      content: "\e60d"
-
-if ('steam' in social-keys) || (hexo-config("triangle_badge.icon") == "steam")
-  .icon-steam
-    &:before
-      content: "\e624"
-
-if ('email' in social-keys) || (hexo-config("triangle_badge.icon") == "email")
-  .icon-email
-    &:before
-      content: "\e63c"
-
-.sidebar-toc-btn
-  &:before
-    font-family: font-icon
-    content: "\e633"
-
-.sidebar-common-btn
-  &:before
-    font-family: font-icon
-    content: "\e632"
-
-.sidebar-top
-  .arrow-up
-    &:before
-      font-family: font-icon
-      content: "\e634"
-
-.icon-link
-  &:before
-    font-family: font-icon
-    content: "\e639"
-
-.icon-globe
-  &:before
-    font-family: font-icon
-    content: "\e638"
-
-.icon-creative-commons
-  &:before
-    font-family: font-icon
-    content: "\e63a"
-
-.icon-taichi
-  &:before
-    font-family: font-icon
-    content: "\e62b"
-
-if ('weixin' in share-keys)
-  .icon-weixin
-    &:before
-      font-family: font-icon
-      content: "\e640"
-
-if ('qq' in share-keys)
-  .icon-qq
-    &:before
-      font-family: font-icon
-      content: "\e63e"
-
-.icon-image
-  &:before
-    font-family: font-icon
-    content: "\e63f"
-
-.icon
-  font-family: font-icon
+}
+
+.archives-tag-list-link {
+  &:before {
+    font-family: font-icon;
+    content: '\e622';
+  }
+}
+
+.archives-category-list-link {
+  &:before {
+    font-family: font-icon;
+    content: '\e604';
+  }
+}
+
+.article-date-link {
+  &:before {
+    font-family: font-icon;
+    content: '\e606';
+  }
+}
+
+.article-category-link {
+  &:before {
+    font-family: font-icon;
+    content: '\e604';
+  }
+}
+
+.article-tag-list-link {
+  &:before {
+    font-family: font-icon;
+    content: '\e622';
+  }
+}
+
+.article-comment-link {
+  &:before {
+    font-family: font-icon;
+    content: '\e608';
+  }
+}
+
+.icon-copyright {
+  &:before {
+    font-family: font-icon;
+    content: '\e60a';
+  }
+}
+
+.icon-brush {
+  &:before {
+    font-family: font-icon;
+    content: '\e618';
+  }
+}
+
+.icon-coffee {
+  &:before {
+    font-family: font-icon;
+    content: '\e607';
+  }
+}
+
+.icon-eye {
+  &:before {
+    font-family: font-icon;
+    content: '\e60f';
+  }
+}
+
+.icon-user {
+  &:before {
+    font-family: font-icon;
+    content: '\e628';
+  }
+}
+
+#main-nav-toggle {
+  &:before {
+    font-family: font-icon;
+    content: '\e62f';
+  }
+}
+
+#nav-rss-link {
+  &:before {
+    font-family: font-icon;
+    content: '\e61f';
+  }
+}
+
+#nav-search-btn {
+  &:before {
+    font-family: font-icon;
+    content: '\e631';
+  }
+}
+
+#nav-sun-btn {
+  &:before {
+    font-family: font-icon;
+    content: '\e621';
+  }
+}
+
+#nav-moon-btn {
+  &:before {
+    font-family: font-icon;
+    content: '\e617';
+  }
+}
+
+#nav-circle-half-stroke-btn {
+  &:before {
+    font-family: font-icon;
+    content: '\e641';
+  }
+}
+
+#nav-language-btn {
+  &:before {
+    font-family: font-icon;
+    content: '\e642';
+  }
+}
+
+.icon-copy {
+  &:before {
+    font-family: font-icon;
+    content: '\e60c';
+  }
+}
+
+.icon-chevron-down {
+  &:before {
+    font-family: font-icon;
+    content: '\e609';
+  }
+}
+
+.icon-check {
+  &:before {
+    font-family: font-icon;
+    content: '\e636';
+  }
+}
+
+.icon-times {
+  &:before {
+    font-family: font-icon;
+    content: '\e637';
+  }
+}
+
+.icon-calendar {
+  &:before {
+    font-family: font-icon;
+    content: '\e605';
+  }
+}
+
+.icon-calendar-plus {
+  &:before {
+    font-family: font-icon;
+    content: '\e648';
+  }
+}
+
+.icon-pencil {
+  &:before {
+    font-family: font-icon;
+    content: '\e61b';
+  }
+}
+
+.icon-clock {
+  &:before {
+    font-family: font-icon;
+    content: '\e613';
+  }
+}
+
+.post-sticky {
+  &:before {
+    font-family: font-icon;
+    content: '\e627';
+  }
+}
+
+.popup-btn-close {
+  &:before {
+    font-family: font-icon;
+    content: '\e626';
+  }
+}
+
+.reimu-search-input-icon {
+  &:before {
+    font-family: font-icon;
+    content: '\e631';
+  }
+}
+
+.ais-pagination--item__previous {
+  a {
+    &:before {
+      font-family: font-icon;
+      content: '\e601';
+    }
+  }
+}
+
+.ais-pagination--item__next {
+  a {
+    &:before {
+      font-family: font-icon;
+      content: '\e630';
+    }
+  }
+}
+
+if (('github' in social-keys) || (hexo-config('triangle_badge.icon') == 'github')) {
+  .icon-github {
+    &:before {
+      content: '\e619';
+    }
+  }
+}
+
+if (('google' in social-keys) || (hexo-config('triangle_badge.icon') == 'google')) {
+  .icon-google {
+    &:before {
+      content: '\e611';
+    }
+  }
+}
+
+if (('facebook' in social-keys) || ('facebook' in share-keys) || (hexo-config('triangle_badge.icon') == 'facebook')) {
+  .icon-facebook {
+    &:before {
+      content: '\e60e';
+    }
+  }
+}
+
+if (('twitter' in social-keys) || ('twitter' in share-keys) || (hexo-config('triangle_badge.icon') == 'twitter')) {
+  .icon-twitter {
+    &:before {
+      content: '\e62a';
+    }
+  }
+}
+
+if (('instagram' in social-keys) || (hexo-config('triangle_badge.icon') == 'instagram')) {
+  .icon-instagram {
+    &:before {
+      content: '\e615';
+    }
+  }
+}
+
+if (('linkedin' in social-keys) || ('linkedin' in share-keys) || (hexo-config('triangle_badge.icon') == 'linkedin')) {
+  .icon-linkedin {
+    &:before {
+      content: '\e614';
+    }
+  }
+}
+
+if (('pinterest' in social-keys) || (hexo-config('triangle_badge.icon') == 'pinterest')) {
+  .icon-pinterest {
+    &:before {
+      content: '\e61a';
+    }
+  }
+}
+
+if (('youtube' in social-keys) || (hexo-config('triangle_badge.icon') == 'youtube')) {
+  .icon-youtube {
+    &:before {
+      content: '\e62d';
+    }
+  }
+}
+
+if (('vimeo' in social-keys) || (hexo-config('triangle_badge.icon') == 'vimeo')) {
+  .icon-vimeo {
+    &:before {
+      content: '\e629';
+    }
+  }
+}
+
+if (('flickr' in social-keys) || (hexo-config('triangle_badge.icon') == 'flickr')) {
+  .icon-flickr {
+    &:before {
+      content: '\e612';
+    }
+  }
+}
+
+if (('dribbble' in social-keys) || (hexo-config('triangle_badge.icon') == 'dribbble')) {
+  .icon-dribbble {
+    &:before {
+      content: '\e610';
+    }
+  }
+}
+
+if (('behance' in social-keys) || (hexo-config('triangle_badge.icon') == 'behance')) {
+  .icon-behance {
+    &:before {
+      content: '\e602';
+    }
+  }
+}
+
+if (('bilibili' in social-keys) || (hexo-config('triangle_badge.icon') == 'bilibili')) {
+  .icon-bilibili {
+    &:before {
+      content: '\e603';
+    }
+  }
+}
+
+if (('weibo' in social-keys) || ('weibo' in share-keys) || (hexo-config('triangle_badge.icon') == 'weibo')) {
+  .icon-weibo {
+    &:before {
+      content: '\e62c';
+    }
+  }
+}
+
+if (('zhihu' in social-keys) || (hexo-config('triangle_badge.icon') == 'zhihu')) {
+  .icon-zhihu {
+    &:before {
+      content: '\e62e';
+    }
+  }
+}
+
+if (('reddit' in social-keys) || ('reddit' in share-keys) || (hexo-config('triangle_badge.icon') == 'reddit')) {
+  .icon-reddit {
+    &:before {
+      content: '\e61c';
+    }
+  }
+}
+
+if (('tumblr' in social-keys) || (hexo-config('triangle_badge.icon') == 'tumblr')) {
+  .icon-tumblr {
+    &:before {
+      content: '\e625';
+    }
+  }
+}
+
+if (('medium' in social-keys) || (hexo-config('triangle_badge.icon') == 'medium')) {
+  .icon-medium {
+    &:before {
+      content: '\e616';
+    }
+  }
+}
+
+if (('deviantart' in social-keys) || (hexo-config('triangle_badge.icon') == 'deviantart')) {
+  .icon-deviantart {
+    &:before {
+      content: '\e60b';
+    }
+  }
+}
+
+if (('stackoverflow' in social-keys) || (hexo-config('triangle_badge.icon') == 'stackoverflow')) {
+  .icon-stackoverflow {
+    &:before {
+      content: '\e620';
+    }
+  }
+}
+
+if (('keybase' in social-keys) || (hexo-config('triangle_badge.icon') == 'keybase')) {
+  .icon-keybase {
+    &:before {
+      content: '\e61e';
+    }
+  }
+}
+
+if (('telegram' in social-keys) || (hexo-config('triangle_badge.icon') == 'telegram')) {
+  .icon-telegram {
+    &:before {
+      content: '\e623';
+    }
+  }
+}
+
+if (('discord' in social-keys) || (hexo-config('triangle_badge.icon') == 'discord')) {
+  .icon-discord {
+    &:before {
+      content: '\e60d';
+    }
+  }
+}
+
+if (('steam' in social-keys) || (hexo-config('triangle_badge.icon') == 'steam')) {
+  .icon-steam {
+    &:before {
+      content: '\e624';
+    }
+  }
+}
+
+if (('email' in social-keys) || (hexo-config('triangle_badge.icon') == 'email')) {
+  .icon-email {
+    &:before {
+      content: '\e63c';
+    }
+  }
+}
+
+.sidebar-toc-btn {
+  &:before {
+    font-family: font-icon;
+    content: '\e633';
+  }
+}
+
+.sidebar-common-btn {
+  &:before {
+    font-family: font-icon;
+    content: '\e632';
+  }
+}
+
+.sidebar-top {
+  .arrow-up {
+    &:before {
+      font-family: font-icon;
+      content: '\e634';
+    }
+  }
+}
+
+.icon-link {
+  &:before {
+    font-family: font-icon;
+    content: '\e639';
+  }
+}
+
+.icon-globe {
+  &:before {
+    font-family: font-icon;
+    content: '\e638';
+  }
+}
+
+.icon-creative-commons {
+  &:before {
+    font-family: font-icon;
+    content: '\e63a';
+  }
+}
+
+.icon-taichi {
+  &:before {
+    font-family: font-icon;
+    content: '\e62b';
+  }
+}
+
+if ('weixin' in share-keys) {
+  .icon-weixin {
+    &:before {
+      font-family: font-icon;
+      content: '\e640';
+    }
+  }
+}
+
+if ('qq' in share-keys) {
+  .icon-qq {
+    &:before {
+      font-family: font-icon;
+      content: '\e63e';
+    }
+  }
+}
+
+.icon-image {
+  &:before {
+    font-family: font-icon;
+    content: '\e63f';
+  }
+}
+
+.icon {
+  font-family: font-icon;
+}

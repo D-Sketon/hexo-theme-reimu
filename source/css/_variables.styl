@@ -1,150 +1,142 @@
 // Colors
-:root
-  --red-0: unquote(light-red-0)
-  --red-1: unquote(light-red-1)
-  --red-2: unquote(light-red-2)
-  --red-3: unquote(light-red-3)
-  --red-4: unquote(light-red-4)
-  --red-5: unquote(light-red-5)
-  --red-5-5: unquote(light-red-5-5)
-  --red-6: unquote(light-red-6)
+:root {
+  --red-0: unquote(light-red-0);
+  --red-1: unquote(light-red-1);
+  --red-2: unquote(light-red-2);
+  --red-3: unquote(light-red-3);
+  --red-4: unquote(light-red-4);
+  --red-5: unquote(light-red-5);
+  --red-5-5: unquote(light-red-5-5);
+  --red-6: unquote(light-red-6);
+  --grey-9: #888;
+  --grey-7: var(--color-default);
+  --color-archive-year: black;
+  --color-default: #555;
+  --color-border: var(--red-3);
+  --color-link: var(--red-1);
+  --color-background: #eee;
+  --color-code-background: #f8f8f8;
+  --color-header-background: rgba(255, 255, 255, 0.9);
+  --color-footer-background: #fff;
+  --color-mobile-nav-background: #fff;
+  --color-wrap: #fff;
+  --color-sticky: #fff;
+  --color-h2-border: #eee;
+  --color-meta-shadow: var(--red-6);
+  --color-hover-shadow: rgba(120, 120, 120, 0.15);
+  --color-h2-after: var(--red-1);
+  --color-red-6-shadow: unquote(light-color-red-6-shadow);
+  --color-red-3-shadow: unquote(light-color-red-3-shadow);
+  --highlight-nav: unquote(light-highlight-nav);
+  --highlight-scrollbar: unquote(light-highlight-scrollbar);
+  --highlight-background: unquote(light-highlight-background);
+  --highlight-current-line: unquote(light-highlight-current-line);
+  --highlight-selection: unquote(light-highlight-selection);
+  --highlight-foreground: unquote(light-highlight-foreground);
+  --highlight-comment: unquote(light-highlight-comment);
+  --highlight-red: unquote(light-highlight-red);
+  --highlight-orange: unquote(light-highlight-orange);
+  --highlight-yellow: unquote(light-highlight-yellow);
+  --highlight-green: unquote(light-highlight-green);
+  --highlight-aqua: unquote(light-highlight-aqua);
+  --highlight-blue: unquote(light-highlight-blue);
+  --highlight-purple: unquote(light-highlight-purple);
 
-  --grey-9: #888
-  --grey-7: var(--color-default)
+  if (cursor-enabled) {
+    --cursor-default: url(cursor-default), auto;
+    --cursor-pointer: url(cursor-pointer), pointer;
+    --cursor-text: url(cursor-text), text;
+  } else {
+    --cursor-default: default;
+    --cursor-pointer: pointer;
+    --cursor-text: text;
+  }
 
-  --color-archive-year: black
-  --color-default: #555
-  --color-border: var(--red-3)
-  --color-link: var(--red-1)
-  --color-background: #eee
-  --color-code-background: #f8f8f8
-  --color-header-background: rgba(255, 255, 255, 0.9)
-  --color-footer-background: #fff
-  --color-mobile-nav-background: #fff
-  --color-wrap: #fff
-  --color-sticky: #fff
+  --footer-icon: url(footer-icon);
+  --sponsor-icon: url(sponsor-icon);
+  --top-icon: url(top-icon);
+  --shadow-meta: 0 0 5px 2px var(--color-meta-shadow);
+  --shadow-meta-hover: 0 0 6px 4px var(--color-meta-shadow);
+  --shadow-card: 0 0 10px 2px var(--color-hover-shadow);
+  --shadow-card-hover: 0 0 10px 4px var(--color-hover-shadow);
+  --shadow-red-6-shadow: 0 0 8px var(--color-red-6-shadow);
+}
 
-  --color-h2-border: #eee
-  --color-meta-shadow: var(--red-6)
-  --color-hover-shadow: rgba(120, 120, 120, 0.15)
-  --color-h2-after: var(--red-1)
-  --color-red-6-shadow: unquote(light-color-red-6-shadow)
-  --color-red-3-shadow: unquote(light-color-red-3-shadow)
+[data-theme='dark'] {
+  &:root {
+    --red-0: var(--red-1);
+    --red-4: unquote(dark-red-4);
+    --red-5: unquote(dark-red-5);
+    --red-5-5: unquote(dark-red-5-5);
+    --red-6: unquote(dark-red-6);
+    --color-archive-year: #999;
+    --color-default: #999;
+    --color-border: var(--red-5);
+    --color-background: #21252b;
+    --color-code-background: rgba(232, 232, 232, 0.1);
+    --color-header-background: #222222;
+    --color-footer-background: #21252b;
+    --color-mobile-nav-background: #21252b;
+    --color-wrap: #272b30;
+    --color-h2-border: #47474a;
+    --color-meta-shadow: rgba(0, 0, 0, 0.2);
+    --color-hover-shadow: rgba(0, 0, 0, 0.2);
+    --highlight-nav: unquote(dark-highlight-nav);
+    --highlight-scrollbar: unquote(dark-highlight-scrollbar);
+    --highlight-background: unquote(dark-highlight-background);
+    --highlight-current-line: unquote(dark-highlight-current-line);
+    --highlight-selection: unquote(dark-highlight-selection);
+    --highlight-foreground: unquote(dark-highlight-foreground);
+    --highlight-comment: unquote(dark-highlight-comment);
+    --highlight-red: unquote(dark-highlight-red);
+    --highlight-orange: unquote(dark-highlight-orange);
+    --highlight-yellow: unquote(dark-highlight-yellow);
+    --highlight-green: unquote(dark-highlight-green);
+    --highlight-aqua: unquote(dark-highlight-aqua);
+    --highlight-blue: unquote(dark-highlight-blue);
+    --highlight-purple: unquote(dark-highlight-purple);
 
-  --highlight-nav: unquote(light-highlight-nav)
-  --highlight-scrollbar: unquote(light-highlight-scrollbar)
-  --highlight-background: unquote(light-highlight-background)
-  --highlight-current-line: unquote(light-highlight-current-line)
-  --highlight-selection: unquote(light-highlight-selection)
-  --highlight-foreground: unquote(light-highlight-foreground)
-  --highlight-comment: unquote(light-highlight-comment)
-  --highlight-red: unquote(light-highlight-red)
-  --highlight-orange: unquote(light-highlight-orange)
-  --highlight-yellow: unquote(light-highlight-yellow)
-  --highlight-green: unquote(light-highlight-green)
-  --highlight-aqua: unquote(light-highlight-aqua)
-  --highlight-blue: unquote(light-highlight-blue)
-  --highlight-purple: unquote(light-highlight-purple)
-
-  if cursor-enabled
-    --cursor-default: url(cursor-default), auto
-    --cursor-pointer: url(cursor-pointer), pointer
-    --cursor-text: url(cursor-text), text
-  else
-    --cursor-default: default
-    --cursor-pointer: pointer
-    --cursor-text: text
-
-  --footer-icon: url(footer-icon)
-  --sponsor-icon: url(sponsor-icon)
-  --top-icon: url(top-icon)
-  
-  --shadow-meta: 0 0 5px 2px var(--color-meta-shadow)
-  --shadow-meta-hover: 0 0 6px 4px var(--color-meta-shadow)
-
-  --shadow-card: 0 0 10px 2px var(--color-hover-shadow)
-  --shadow-card-hover: 0 0 10px 4px var(--color-hover-shadow)
-
-  --shadow-red-6-shadow: 0 0 8px var(--color-red-6-shadow)
-
-[data-theme="dark"]
-  &:root
-    --red-0: var(--red-1)
-    --red-4: unquote(dark-red-4)
-    --red-5: unquote(dark-red-5)
-    --red-5-5: unquote(dark-red-5-5)
-    --red-6: unquote(dark-red-6)
-
-    --color-archive-year: #999
-    --color-default: #999
-    --color-border: var(--red-5)
-    --color-background: #21252b
-    --color-code-background: rgba(232,232,232,0.1)
-    --color-header-background: #222222
-    --color-footer-background: #21252b
-    --color-mobile-nav-background: #21252b
-    --color-wrap: #272b30
-
-    --color-h2-border: #47474a
-    --color-meta-shadow: rgba(0, 0, 0, 0.2)
-    --color-hover-shadow: rgba(0, 0, 0, 0.2)
-
-    --highlight-nav: unquote(dark-highlight-nav)
-    --highlight-scrollbar: unquote(dark-highlight-scrollbar)
-    --highlight-background: unquote(dark-highlight-background)
-    --highlight-current-line: unquote(dark-highlight-current-line)
-    --highlight-selection: unquote(dark-highlight-selection)
-    --highlight-foreground: unquote(dark-highlight-foreground)
-    --highlight-comment: unquote(dark-highlight-comment)
-    --highlight-red: unquote(dark-highlight-red)
-    --highlight-orange: unquote(dark-highlight-orange)
-    --highlight-yellow: unquote(dark-highlight-yellow)
-    --highlight-green: unquote(dark-highlight-green)
-    --highlight-aqua: unquote(dark-highlight-aqua)
-    --highlight-blue: unquote(dark-highlight-blue)
-    --highlight-purple: unquote(dark-highlight-purple)
-    img
-      filter: brightness(70%)
+    img {
+      filter: brightness(70%);
+    }
 
     // 排除lightbox
-    .pswp__img
-      opacity: 1
-      filter: none
-      animation: none
+    .pswp__img {
+      opacity: 1;
+      filter: none;
+      animation: none;
+    }
 
-    img.lazyloaded
-      opacity: 1
-      animation: blur-darken 0.8s ease-in-out forwards
+    img.lazyloaded {
+      opacity: 1;
+      animation: blur-darken 0.8s ease-in-out forwards;
+    }
+  }
+}
 
 // Fonts
-font-basic = unquote(custom-article-families) unquote(article-families) unquote(local-article-families)
-font-code = unquote(custom-code-families) unquote(code-families) unquote(local-code-families)
-
-font-size = 14px
-line-height = 1.67
-line-height-title = 1.2em
-
+font-basic = unquote(custom-article-families) unquote(article-families) unquote(local-article-families);
+font-code = unquote(custom-code-families) unquote(code-families) unquote(local-code-families);
+font-size = 14px;
+line-height = 1.67;
+line-height-title = 1.2em;
 // Header
-logo-size = 40px
-subtitle-size = 18px
-banner-height = 35vh
-
-sidebar = postHasSidebar || hexo-config("sidebar")
-
+logo-size = 40px;
+subtitle-size = 18px;
+banner-height = 35vh;
+sidebar = postHasSidebar || hexo-config('sidebar');
 // Layout
-article-padding = 20px
-mobile-nav-width = 280px
-
+article-padding = 20px;
+mobile-nav-width = 280px;
 // Media queries
-mq-mobile = "screen and (max-width: 479px)"
-no-mobile = "screen and (min-width: 480px)"
-mq-tablet = "screen and (min-width: 480px) and (max-width: 767px)"
-mq-normal = "screen and (min-width: 768px)"
-mg-normal = "screen and (max-width: 767px)"
-mq-large = "screen and (min-width: 960px)"
-mg-large = "screen and (max-width: 959px)"
-mq-extra-large = "screen and (min-width: 1242px)"
-mg-extra-large = "screen and (max-width: 1241px)"
-
-post-radius = 12px
-tag-radius = 8px
+mq-mobile = 'screen and (max-width: 479px)';
+no-mobile = 'screen and (min-width: 480px)';
+mq-tablet = 'screen and (min-width: 480px) and (max-width: 767px)';
+mq-normal = 'screen and (min-width: 768px)';
+mg-normal = 'screen and (max-width: 767px)';
+mq-large = 'screen and (min-width: 960px)';
+mg-large = 'screen and (max-width: 959px)';
+mq-extra-large = 'screen and (min-width: 1242px)';
+mg-extra-large = 'screen and (max-width: 1241px)';
+post-radius = 12px;
+tag-radius = 8px;

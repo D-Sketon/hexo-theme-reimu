@@ -1,45 +1,53 @@
-.notification-wrapper
-  position: fixed
-  z-index: 1000
-  top: 20px
-  right: 20px
-  background: var(--color-header-background)
-  box-shadow: var(--shadow-card)
-  border-radius: post-radius
-  padding: 12px 20px
-  margin-left: 20px
-  opacity: 0
-  visibility: hidden
-  transition: .5s
-  color: var(--grey-7)
+.notification-wrapper {
+  position: fixed;
+  z-index: 1000;
+  top: 20px;
+  right: 20px;
+  background: var(--color-header-background);
+  box-shadow: var(--shadow-card);
+  border-radius: post-radius;
+  padding: 12px 20px;
+  margin-left: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  color: var(--grey-7);
 
-  &.show
-    opacity: 1
-    visibility: visible
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
 
-  h1
-    padding: 12px 0
-  
-  p
-    padding: 8px 0
+  h1 {
+    padding: 12px 0;
+  }
 
-  .notification-btn
-    display: flex
-    justify-content: flex-end
-    gap: 16px
-    padding: 8px 0
+  p {
+    padding: 8px 0;
+  }
 
-  button
-    background: var(--red-2)
-    border-radius: tag-radius
-    color: #fff
-    padding: 4px 12px
-    font-family: font-basic
-    border: none
-    transition: .3s
+  .notification-btn {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    padding: 8px 0;
+  }
 
-    &:hover
-      background: var(--red-1)
+  button {
+    background: var(--red-2);
+    border-radius: tag-radius;
+    color: #fff;
+    padding: 4px 12px;
+    font-family: font-basic;
+    border: none;
+    transition: 0.3s;
 
-    &:active
-      background: var(--red-0)
+    &:hover {
+      background: var(--red-1);
+    }
+
+    &:active {
+      background: var(--red-0);
+    }
+  }
+}

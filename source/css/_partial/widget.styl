@@ -1,79 +1,98 @@
-.tagcloud a
-  display: inline-block
-  margin: 5px 5px 0 0
+.tagcloud a {
+  display: inline-block;
+  margin: 5px 5px 0 0;
+}
 
-[data-theme="dark"] .widget-wrap
-  box-shadow: var(--shadow-card)
+[data-theme='dark'] .widget-wrap {
+  box-shadow: var(--shadow-card);
+}
 
-.widget-wrap
-  margin: 40px 0 0 0
-  background: var(--color-wrap)
-  border-radius: post-radius
-  transition: .3s
+.widget-wrap {
+  margin: 40px 0 0 0;
+  background: var(--color-wrap);
+  border-radius: post-radius;
+  transition: 0.3s;
+}
 
-.widget-wrapper
-  transition: .3s
+.widget-wrapper {
+  transition: 0.3s;
 
-  .aos-animate
-    transition-property: initial !important
-    &:hover
-      box-shadow: var(--shadow-card-hover)
+  .aos-animate {
+    transition-property: initial !important;
 
-  &:hover
-    transform: scale(1.015)
+    &:hover {
+      box-shadow: var(--shadow-card-hover);
+    }
+  }
 
-.widget-title
-  text-transform: uppercase
-  letter-spacing: 2px
-  color: var(--grey-9)
-  padding: 20px 20px 8px
+  &:hover {
+    transform: scale(1.015);
+  }
+}
 
-.widget
-  color: var(--grey-7)
-  padding: 4px 20px 20px
+.widget-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--grey-9);
+  padding: 20px 20px 8px;
+}
 
-  li
-    color: var(--color-link)
-    overflow: hidden
-    text-overflow: ellipsis
-    white-space: nowrap
+.widget {
+  color: var(--grey-7);
+  padding: 4px 20px 20px;
 
-  a, span
-    color: var(--color-link)
-    text-decoration: none
-    opacity: .9
-    transition: .3s
+  li {
+    color: var(--color-link);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-    &:hover
-      opacity: 1
-      color: var(--red-0)
+  a, span {
+    color: var(--color-link);
+    text-decoration: none;
+    opacity: 0.9;
+    transition: 0.3s;
 
-  span
-    margin-left: 5px
+    &:hover {
+      opacity: 1;
+      color: var(--red-0);
+    }
+  }
 
-  ul, ol, dl
-    ul, ol, dl
-      margin-left: 16px
-      list-style: none
+  span {
+    margin-left: 5px;
+  }
 
-  li
-    margin-top: 4px
-    line-height: normal
+  ul, ol, dl {
+    ul, ol, dl {
+      margin-left: 16px;
+      list-style: none;
+    }
+  }
 
-    &:before
-      content: ""
-      display: inline-block
-      width: 5px
-      height: 10px
-      background: var(--color-h2-after)
-      vertical-align: middle
-      margin-right: 12px
-      box-shadow: var(--shadow-red-6-shadow)
-      opacity: .5
-      transition: .3s
+  li {
+    margin-top: 4px;
+    line-height: normal;
 
-    &:hover:before
-      width: 5px
-      height: 5px
-      border-radius: 50%
-      opacity: 1
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 10px;
+      background: var(--color-h2-after);
+      vertical-align: middle;
+      margin-right: 12px;
+      box-shadow: var(--shadow-red-6-shadow);
+      opacity: 0.5;
+      transition: 0.3s;
+    }
+
+    &:hover:before {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      opacity: 1;
+    }
+  }
+}

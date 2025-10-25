@@ -1,119 +1,141 @@
-.share-wrapper
-  display: flex
-  justify-content: center
-  align-items: center
-  margin-top: 8px
-  flex-wrap: wrap
+.share-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
 
-.share-icon
-  margin: 8px
-  color: var(--color-link) !important
-  position: relative
-  transition: all .2s
-  &:before
-    display: block
-    opacity: 0.8
-    font-size: 24px
-    transition: all .2s
-    will-change: transform
-  &:hover:before
-    opacity: 1
-    transform: scale(1.2)
+.share-icon {
+  margin: 8px;
+  color: var(--color-link) !important;
+  position: relative;
+  transition: all 0.2s;
 
-#share-weixin
-  display: none
-  position: absolute
-  top: -440px
-  left: -138px
-  background: #fff
-  user-select: none
-  width: 300px
-  height: 420px
-  overflow: hidden
-  border-radius: tag-radius
-  z-index: 50
-  box-shadow: var(--shadow-card)
+  &:before {
+    display: block;
+    opacity: 0.8;
+    font-size: 24px;
+    transition: all 0.2s;
+    will-change: transform;
+  }
 
-  img
+  &:hover:before {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+#share-weixin {
+  display: none;
+  position: absolute;
+  top: -440px;
+  left: -138px;
+  background: #fff;
+  user-select: none;
+  width: 300px;
+  height: 420px;
+  overflow: hidden;
+  border-radius: tag-radius;
+  z-index: 50;
+  box-shadow: var(--shadow-card);
+
+  img {
     filter: none !important;
+  }
 
-  &.active
-    display: block
+  &.active {
+    display: block;
+  }
+}
 
-.share-weixin-dom
-  display: flex
-  flex-direction: column
-  justify-content: space-between
-  background: #fff
-  height: 100%
+.share-weixin-dom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  height: 100%;
+}
 
-.share-weixin-canvas
-  position: absolute
-  left: 0
-  right: 0
-  top: 0
-  bottom: 0
-  z-index: 1
-  img
-    width: 100%
-    height: 100%
-    border-radius: tag-radius
+.share-weixin-canvas {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
 
-#share-weixin-banner
-  width: 100%
-  height: 120px
-  object-fit: cover
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: tag-radius;
+  }
+}
 
-#share-weixin-title
-  padding: 10px 16px
-  font-size: 16px
-  font-weight: bold
-  color: var(--color-link)
-  overflow: hidden
-  text-overflow: ellipsis
-  white-space: nowrap
+#share-weixin-banner {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
 
-#share-weixin-desc
-  margin: 0 16px 10px
-  font-size: 14px
-  color: var(--color-default)
-  display: -webkit-box
-  -webkit-box-orient: vertical
-  -webkit-line-clamp: 5
-  line-clamp: 5
-  overflow: hidden
-  word-break: break-word
-  line-height: 2
-  position: relative
+#share-weixin-title {
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--color-link);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-  &:after
-    content: ""
-    position: absolute
-    background: linear-gradient(rgba(255, 255, 255, 0), #fff)
-    height: 30px
-    width: 100%
-    left: 0
-    bottom: 5px
+#share-weixin-desc {
+  margin: 0 16px 10px;
+  font-size: 14px;
+  color: var(--color-default);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  overflow: hidden;
+  word-break: break-word;
+  line-height: 2;
+  position: relative;
 
-#share-weixin-qr
-  width: 80px
-  height: 80px
+  &:after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(rgba(255, 255, 255, 0), #fff);
+    height: 30px;
+    width: 100%;
+    left: 0;
+    bottom: 5px;
+  }
+}
 
-#share-weixin-author
-  color: var(--color-default)
-  font-size: 14px
-  margin: 12px 0
+#share-weixin-qr {
+  width: 80px;
+  height: 80px;
+}
 
-#share-weixin-theme
-  color: var(--color-default)
-  font-size: 12px
+#share-weixin-author {
+  color: var(--color-default);
+  font-size: 14px;
+  margin: 12px 0;
+}
 
-.share-weixin-qrcode
-  display: flex
-  justify-content: space-between
-  margin: 0 16px 16px
+#share-weixin-theme {
+  color: var(--color-default);
+  font-size: 12px;
+}
 
-.share-weixin-info
-  display: flex
-  flex-direction: column
-  align-self: flex-end
+.share-weixin-qrcode {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 16px 16px;
+}
+
+.share-weixin-info {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+}

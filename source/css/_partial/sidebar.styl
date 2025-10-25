@@ -1,486 +1,618 @@
-#sidebar
-  display: none
-
-.sidebar-left,
-.sidebar-right
-  #sidebar
-    display: block
-    @media mg-large
-      display: none
-    @media mq-large
-      width: 23%
-      min-width: 268px
-      margin: 0 16px
-      height: inherit
-
-[data-theme="dark"] .sidebar-wrap
-  box-shadow: var(--shadow-card)
-
-[data-theme="dark"] #mobile-nav .sidebar-wrap
-  box-shadow: 0 0 0 0
-
-.sidebar-wrapper-container
-  display: flex
-  flex-direction: column
-  &.sticky
-    max-height: calc(100vh - 40px)
-    position: sticky
-    top: 20px
-
-.sidebar-wrapper
-  transition: .3s
-  flex: 1
-  min-height: 0
-  display: flex
-
-  .aos-animate
-    transition-property: initial !important
-    &:hover
-      box-shadow: var(--shadow-card-hover)
-
-  &:hover
-    transform: scale(1.015)
-
-.sidebar-wrap
-  width: 100%
-  border-radius: post-radius
-  background: var(--color-wrap)
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
-  transition: .3s
-  interpolate-size: allow-keywords
-  flex: 1
-  min-height: 0
-
-  .hidden
-    display: none
-
-.sidebar-author
-  display: flex
-  flex-shrink: 0
-  flex-direction: column
-  align-items: center
-
-  img
-    display: block
-    min-width: 100px
-    min-height: 100px
-    width: 100px
-    height: 100px
-    border-radius: 50%
-    transition: opacity .3s
-    opacity: 0
-    object-fit: cover
-    margin: 20px
-    box-shadow: 0 0 15px 5px var(--color-red-6-shadow)
-    will-change: transform
-    transition: .3s
-
-    &:hover
-      transform: scale(1.05)
-
-  img.lazyloaded
-    opacity: 1
-    animation: blur .8s forwards
-
-  .sidebar-author-name
-    font-weight: bold
-    font-size: 20px
-    color: var(--red-2)
-    margin: 12px
-
-  .sidebar-description
-    color: var(--grey-7)
-    margin: 0 20px
-
-.sidebar-state
-  display: flex
-  justify-content: center
-  padding: 24px 0
-  color: var(--red-0)
-  opacity: .8
-  transition: opacity .5s, color .5s
-
-  &:hover
-    opacity: 1
-
-  > div
-    display: flex
-    flex-direction: column
-    flex-shrink: 0
-    align-items: center
-    padding: 0 20px
-
-    div
-      margin: 4px 0
-
-.sidebar-state-article
-  border-right: 1px solid var(--red-1)
-
-.sidebar-state-tag
-  border-left: 1px solid var(--red-1)
-
-.sidebar-state-number
-  font-weight bold
-  font-size: 20px
-
-.sidebar-social
-  display: flex
-  flex-shrink: 0
-  justify-content: center
-  width: 70%
-  flex-wrap: wrap
-
-  div a
-    position: absolute
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-
-.sidebar-social-icon
-  position: relative
-  display: flex
-  justify-content: center
-  align-items: center
-  width: 36px
-  height: 25px
-  if hexo-config("icon_font")
-    font: 20px font-icon
-  else
-    font: 20px var(--font-icon)
-  transition: transform .2s
-  will-change: transform
-
-  &:hover
-    transform: scale(1.2)
-
-if ('email' in social-keys)
-  .icon-email
-    color: var(--red-2)
-
-if ('github' in social-keys)
-  .icon-github
-    color: #191717
-
-  [data-theme="dark"] .icon-github
-    color: #bc88ff
-
-if ('google' in social-keys)
-  .icon-google
-    color: #4285F4
-
-if ('facebook' in social-keys)
-  .icon-facebook
-    color: #3b5998
-
-if ('twitter' in social-keys)
-  .icon-twitter
-    color: #191717
-
-if ('instagram' in social-keys)
-  .icon-instagram
-    color: #e1306c
-
-if ('linkedin' in social-keys)
-  .icon-linkedin
-    color: #0e76a8
-
-if ('pinterest' in social-keys)
-  .icon-pinterest
-    color: #bd081c
-
-if ('youtube' in social-keys)
-  .icon-youtube
-    color: #ff0000
-
-if ('vimeo' in social-keys)
-  .icon-vimeo
-    color: #1ab7ea
-
-if ('flickr' in social-keys)
-  .icon-flickr
-    color: #ff0084
-
-if ('dribbble' in social-keys)
-  .icon-dribbble
-    color: #ea4c89
-
-if ('behance' in social-keys)
-  .icon-behance
-    color: #1769ff
-
-if ('bilibili' in social-keys)
-  .icon-bilibili
-    color: #00a1d6
-
-if ('weibo' in social-keys)
-  .icon-weibo
-    color: #e6162d
-
-if ('zhihu' in social-keys)
-  .icon-zhihu
-    color: #0084ff
-
-if ('reddit' in social-keys)
-  .icon-reddit
-    color: #ff4500
-
-if ('tumblr' in social-keys)
-  .icon-tumblr
-    color: #35465c
-
-if ('medium' in social-keys)
-  .icon-medium
-    color: #00ab6c
-
-if ('deviantart' in social-keys)
-  .icon-deviantart
-    color: #05cc47
-
-if ('stackoverflow' in social-keys)
-  .icon-stackoverflow
-    color: #f48024
-
-if ('keybase' in social-keys)
-  .icon-keybase
-    color: #33a0ff
-
-if ('telegram' in social-keys)
-  .icon-telegram
-    color: #0088cc
-
-if ('discord' in social-keys)
-  .icon-discord
-    color: #7289da
-
-if ('steam' in social-keys)
-  .icon-steam
-    color: #171a21
-
-$menu-link
-  color: var(--color-link)
-  opacity: 0.8
-  text-decoration: none
-  transition: opacity .2s, color .2s
-  display: block
-  padding: 10px 15px
-  font-weight: 700
-
-.sidebar-menu
-  margin: 20px 0
-  width: 100%
-
-.sidebar-menu-link-wrap
-  display: flex
-  position: relative
-  width: 70%
-  max-width: 200px
-  margin: 8px auto
-
-  justify-content: center
-  border: 10px var(--color-red-3-shadow) double
-  transition: border .5s, background 0.5s, color 0.5s
-
-  &:hover
-    border: 10px var(--color-h2-after) double
-
-  &:hover .sidebar-menu-icon:before
-    transform: rotate(90deg) scale(1.1)
-
-  &:hover .sidebar-menu-icon
-    transform: scale(1.1)
-
-  &:hover .sidebar-menu-icon.rotate
-    transform: rotate(90deg) scale(1.1)
-
-.sidebar-menu-icon
-  @extend $menu-link
-  font-size: 24px
-  font-weight: 400
-  transition: transform .3s, background 0.5s, color 0.5s
-  will-change: transform
-
-  &:before
-    font-size: 24px
-    font-weight: 400
-    transform: rotate(90deg)
-    transition: transform .3s
-    will-change: transform
-  
-  &.rotate
-    transform: rotate(90deg)
-
-  pointer-events: none
-  padding: 5px
-  display: flex
-  align-items: center
-
-.sidebar-menu-link-dummy
-  position: absolute
-  width: 100%
-  height: 100%
-  top: 0
-  left: 0
-
-.sidebar-menu-link
-  @extend $menu-link
-  pointer-events: none
-
-.link-active
-  background: var(--red-0)
-  border: 10px var(--color-wrap) double
-  box-shadow: var(--shadow-red-6-shadow)
-  opacity: 0.8
-
-  &:hover
-    opacity: 1
-
-  .sidebar-menu-link
-    color: #fff
-    opacity: 1
-
-  .sidebar-menu-icon
-    opacity: 1
-    color: #fff
-
-.sidebar-toc-wrapper
-  color: var(--color-link)
-  flex: 1
-  min-height: 0
-  overflow: auto
-
-  &::-webkit-scrollbar
-    width: 8px
-    height: 8px
-
-  a, span
-    color: var(--color-link)
-    text-decoration: none
-    opacity: 0.8
-    transition: .3s
-
-    &:hover
-      color: var(--red-0)
-
-  & ol
-    margin-left: 16px
-    list-style: none
-
-  > ol
-    margin-left: 0
-
-  & li
-    margin: 8px 0
-    padding: 1px 0
-
-    &:before
-      content: ""
-      width: 5px
-      height: 10px
-      background: var(--color-h2-after)
-      display: inline-block
-      vertical-align: middle
-      margin-right: 12px
-      box-shadow: var(--shadow-red-6-shadow)
-      opacity: 0.5
-      transition: .3s
-
-    &:hover
-      &:before
-        width: 5px
-        height: 5px
-        border-radius: 50%
-        opacity: 1
-
-  .toc-level-1
-    list-style: none
-
-    &:before
-      display: none
-    >a
-      width: 100%
-      display: inline-block
-      text-align: center
-
-  .toc-child 
-    transform: scaleY(0)
-    height: 0
-    overflow: hidden
-    transition: .3s
-    transform-origin: top
-
-    >.toc-item:last-child
-      margin-bottom: 0
-
-  .active>.toc-child, .current>.toc-child
-    height: auto
-    transform: scaleY(1)
-
-  .active>a, .current>a, .active>a>span, .current>a>span
-    color: var(--red-0)
-    opacity: 1
-
-.toc-title
-  letter-spacing: 2px
-  color: var(--grey-9)
-  line-height: 1em
-  font-weight: bold
-  padding: 10px 0 12px
-
-.toc-item 
-  overflow: hidden
-  text-overflow: ellipsis
-  white-space: nowrap
-
-.sidebar-btn-wrapper
-  display: flex
-  justify-content: center
-
-  .sidebar-toc-btn, .sidebar-common-btn
-    display: flex
-    justify-content: center
-    align-items: center
-    width: 40px
-    height: 40px
-    background: var(--red-3)
-    color: #fff
-    font-weight: bold
-    box-shadow: var(--shadow-red-6-shadow)
-    border-radius: tag-radius
-    margin: 20px
-    transition: .3s
-    will-change: transform
-
-    &:hover
-      transform: scale(1.05)
-
-    [data-theme="dark"] &
-      filter: brightness(.8)
-
-  .current
-    background: var(--red-1)
-
-.sidebar-common-sidebar
-  display: flex
-  flex-direction: column
-  width: 100%
-  align-items: center
-  overflow-y: auto
-  flex: 1
-  min-height: 0
-
-  &::-webkit-scrollbar
-    width: 8px
-    height: 8px
-
-.sidebar-toc-sidebar
-  width: 100%
-  flex: 1
-  min-height: 0
-  padding: 10px 20px 0
-  box-sizing: border-box
-  display: flex
-  flex-direction: column
+#sidebar {
+  display: none;
+}
+
+.sidebar-left, .sidebar-right {
+  #sidebar {
+    display: block;
+
+    @media mg-large {
+      display: none;
+    }
+
+    @media mq-large {
+      width: 23%;
+      min-width: 268px;
+      margin: 0 16px;
+      height: inherit;
+    }
+  }
+}
+
+[data-theme='dark'] .sidebar-wrap {
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme='dark'] #mobile-nav .sidebar-wrap {
+  box-shadow: 0 0 0 0;
+}
+
+.sidebar-wrapper-container {
+  display: flex;
+  flex-direction: column;
+
+  &.sticky {
+    max-height: calc(100vh - 40px);
+    position: sticky;
+    top: 20px;
+  }
+}
+
+.sidebar-wrapper {
+  transition: 0.3s;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+
+  .aos-animate {
+    transition-property: initial !important;
+
+    &:hover {
+      box-shadow: var(--shadow-card-hover);
+    }
+  }
+
+  &:hover {
+    transform: scale(1.015);
+  }
+}
+
+.sidebar-wrap {
+  width: 100%;
+  border-radius: post-radius;
+  background: var(--color-wrap);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  interpolate-size: allow-keywords;
+  flex: 1;
+  min-height: 0;
+
+  .hidden {
+    display: none;
+  }
+}
+
+.sidebar-author {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    display: block;
+    min-width: 100px;
+    min-height: 100px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transition: opacity 0.3s;
+    opacity: 0;
+    object-fit: cover;
+    margin: 20px;
+    box-shadow: 0 0 15px 5px var(--color-red-6-shadow);
+    will-change: transform;
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  img.lazyloaded {
+    opacity: 1;
+    animation: blur 0.8s forwards;
+  }
+
+  .sidebar-author-name {
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--red-2);
+    margin: 12px;
+  }
+
+  .sidebar-description {
+    color: var(--grey-7);
+    margin: 0 20px;
+  }
+}
+
+.sidebar-state {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  color: var(--red-0);
+  opacity: 0.8;
+  transition: opacity 0.5s, color 0.5s;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: center;
+    padding: 0 20px;
+
+    div {
+      margin: 4px 0;
+    }
+  }
+}
+
+.sidebar-state-article {
+  border-right: 1px solid var(--red-1);
+}
+
+.sidebar-state-tag {
+  border-left: 1px solid var(--red-1);
+}
+
+.sidebar-state-number {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.sidebar-social {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  width: 70%;
+  flex-wrap: wrap;
+
+  div a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.sidebar-social-icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 25px;
+
+  if (hexo-config('icon_font')) {
+    font: 20px font-icon;
+  } else {
+    font: 20px var(--font-icon);
+  }
+
+  transition: transform 0.2s;
+  will-change: transform;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+if ('email' in social-keys) {
+  .icon-email {
+    color: var(--red-2);
+  }
+}
+
+if ('github' in social-keys) {
+  .icon-github {
+    color: #191717;
+  }
+
+  [data-theme='dark'] .icon-github {
+    color: #bc88ff;
+  }
+}
+
+if ('google' in social-keys) {
+  .icon-google {
+    color: #4285F4;
+  }
+}
+
+if ('facebook' in social-keys) {
+  .icon-facebook {
+    color: #3b5998;
+  }
+}
+
+if ('twitter' in social-keys) {
+  .icon-twitter {
+    color: #191717;
+  }
+}
+
+if ('instagram' in social-keys) {
+  .icon-instagram {
+    color: #e1306c;
+  }
+}
+
+if ('linkedin' in social-keys) {
+  .icon-linkedin {
+    color: #0e76a8;
+  }
+}
+
+if ('pinterest' in social-keys) {
+  .icon-pinterest {
+    color: #bd081c;
+  }
+}
+
+if ('youtube' in social-keys) {
+  .icon-youtube {
+    color: #ff0000;
+  }
+}
+
+if ('vimeo' in social-keys) {
+  .icon-vimeo {
+    color: #1ab7ea;
+  }
+}
+
+if ('flickr' in social-keys) {
+  .icon-flickr {
+    color: #ff0084;
+  }
+}
+
+if ('dribbble' in social-keys) {
+  .icon-dribbble {
+    color: #ea4c89;
+  }
+}
+
+if ('behance' in social-keys) {
+  .icon-behance {
+    color: #1769ff;
+  }
+}
+
+if ('bilibili' in social-keys) {
+  .icon-bilibili {
+    color: #00a1d6;
+  }
+}
+
+if ('weibo' in social-keys) {
+  .icon-weibo {
+    color: #e6162d;
+  }
+}
+
+if ('zhihu' in social-keys) {
+  .icon-zhihu {
+    color: #0084ff;
+  }
+}
+
+if ('reddit' in social-keys) {
+  .icon-reddit {
+    color: #ff4500;
+  }
+}
+
+if ('tumblr' in social-keys) {
+  .icon-tumblr {
+    color: #35465c;
+  }
+}
+
+if ('medium' in social-keys) {
+  .icon-medium {
+    color: #00ab6c;
+  }
+}
+
+if ('deviantart' in social-keys) {
+  .icon-deviantart {
+    color: #05cc47;
+  }
+}
+
+if ('stackoverflow' in social-keys) {
+  .icon-stackoverflow {
+    color: #f48024;
+  }
+}
+
+if ('keybase' in social-keys) {
+  .icon-keybase {
+    color: #33a0ff;
+  }
+}
+
+if ('telegram' in social-keys) {
+  .icon-telegram {
+    color: #0088cc;
+  }
+}
+
+if ('discord' in social-keys) {
+  .icon-discord {
+    color: #7289da;
+  }
+}
+
+if ('steam' in social-keys) {
+  .icon-steam {
+    color: #171a21;
+  }
+}
+
+$menu-link {
+  color: var(--color-link);
+  opacity: 0.8;
+  text-decoration: none;
+  transition: opacity 0.2s, color 0.2s;
+  display: block;
+  padding: 10px 15px;
+  font-weight: 700;
+}
+
+.sidebar-menu {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.sidebar-menu-link-wrap {
+  display: flex;
+  position: relative;
+  width: 70%;
+  max-width: 200px;
+  margin: 8px auto;
+  justify-content: center;
+  border: 10px var(--color-red-3-shadow) double;
+  transition: border 0.5s, background 0.5s, color 0.5s;
+
+  &:hover {
+    border: 10px var(--color-h2-after) double;
+  }
+
+  &:hover .sidebar-menu-icon:before {
+    transform: rotate(90deg) scale(1.1);
+  }
+
+  &:hover .sidebar-menu-icon {
+    transform: scale(1.1);
+  }
+
+  &:hover .sidebar-menu-icon.rotate {
+    transform: rotate(90deg) scale(1.1);
+  }
+}
+
+.sidebar-menu-icon {
+  @extend $menu-link;
+  font-size: 24px;
+  font-weight: 400;
+  transition: transform 0.3s, background 0.5s, color 0.5s;
+  will-change: transform;
+
+  &:before {
+    font-size: 24px;
+    font-weight: 400;
+    transform: rotate(90deg);
+    transition: transform 0.3s;
+    will-change: transform;
+  }
+
+  &.rotate {
+    transform: rotate(90deg);
+  }
+
+  pointer-events: none;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-menu-link-dummy {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.sidebar-menu-link {
+  @extend $menu-link;
+  pointer-events: none;
+}
+
+.link-active {
+  background: var(--red-0);
+  border: 10px var(--color-wrap) double;
+  box-shadow: var(--shadow-red-6-shadow);
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .sidebar-menu-link {
+    color: #fff;
+    opacity: 1;
+  }
+
+  .sidebar-menu-icon {
+    opacity: 1;
+    color: #fff;
+  }
+}
+
+.sidebar-toc-wrapper {
+  color: var(--color-link);
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  a, span {
+    color: var(--color-link);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: 0.3s;
+
+    &:hover {
+      color: var(--red-0);
+    }
+  }
+
+  & ol {
+    margin-left: 16px;
+    list-style: none;
+  }
+
+  > ol {
+    margin-left: 0;
+  }
+
+  & li {
+    margin: 8px 0;
+    padding: 1px 0;
+
+    &:before {
+      content: '';
+      width: 5px;
+      height: 10px;
+      background: var(--color-h2-after);
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 12px;
+      box-shadow: var(--shadow-red-6-shadow);
+      opacity: 0.5;
+      transition: 0.3s;
+    }
+
+    &:hover {
+      &:before {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        opacity: 1;
+      }
+    }
+  }
+
+  .toc-level-1 {
+    list-style: none;
+
+    &:before {
+      display: none;
+    }
+
+    >a {
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+    }
+  }
+
+  .toc-child {
+    transform: scaleY(0);
+    height: 0;
+    overflow: hidden;
+    transition: 0.3s;
+    transform-origin: top;
+
+    >.toc-item:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .active>.toc-child, .current>.toc-child {
+    height: auto;
+    transform: scaleY(1);
+  }
+
+  .active>a, .current>a, .active>a>span, .current>a>span {
+    color: var(--red-0);
+    opacity: 1;
+  }
+}
+
+.toc-title {
+  letter-spacing: 2px;
+  color: var(--grey-9);
+  line-height: 1em;
+  font-weight: bold;
+  padding: 10px 0 12px;
+}
+
+.toc-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar-btn-wrapper {
+  display: flex;
+  justify-content: center;
+
+  .sidebar-toc-btn, .sidebar-common-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: var(--red-3);
+    color: #fff;
+    font-weight: bold;
+    box-shadow: var(--shadow-red-6-shadow);
+    border-radius: tag-radius;
+    margin: 20px;
+    transition: 0.3s;
+    will-change: transform;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    [data-theme='dark'] & {
+      filter: brightness(0.8);
+    }
+  }
+
+  .current {
+    background: var(--red-1);
+  }
+}
+
+.sidebar-common-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.sidebar-toc-sidebar {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  padding: 10px 20px 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,101 +1,126 @@
-$base-style
-  h1
-    font-size: 2.25em
+$base-style {
+  h1 {
+    font-size: 2.25em;
+  }
 
-  h2
-    font-size: 1.75em
-    position: relative
+  h2 {
+    font-size: 1.75em;
+    position: relative;
 
-    &:before
-      content: ""
-      position: absolute
-      width: 100%
-      border-bottom: 1px solid var(--color-h2-border)
-      bottom: -15px
-      box-sizing: unset
-      transition: 1s
+    &:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      border-bottom: 1px solid var(--color-h2-border);
+      bottom: -15px;
+      box-sizing: unset;
+      transition: 1s;
+    }
 
-    &:after
-      content: ""
-      position: absolute
-      background: var(--color-h2-after)
-      width: 1em
-      height: 7px
-      bottom: -18px
-      left: 0
-      border-radius: tag-radius
-      box-shadow: var(--shadow-red-6-shadow)
-      transition: .3s
+    &:after {
+      content: '';
+      position: absolute;
+      background: var(--color-h2-after);
+      width: 1em;
+      height: 7px;
+      bottom: -18px;
+      left: 0;
+      border-radius: tag-radius;
+      box-shadow: var(--shadow-red-6-shadow);
+      transition: 0.3s;
+    }
 
-    &:hover:after
-      width: 3em
+    &:hover:after {
+      width: 3em;
+    }
+  }
 
-  h3
-    font-size: 1.5em
+  h3 {
+    font-size: 1.5em;
+  }
 
-  h4
-    font-size: 1.25em
+  h4 {
+    font-size: 1.25em;
+  }
 
-  h5
-    font-size: 1em
+  h5 {
+    font-size: 1em;
+  }
 
-  h6
-    font-size: 1em
-    color: var(--grey-9)
+  h6 {
+    font-size: 1em;
+    color: var(--grey-9);
+  }
 
-  hr
-    margin: 12px 0
-    opacity: .3
-    height: 4px
-    background-image: linear-gradient(to right, var(--red-0) 50%, transparent 0%)
-    background-size: 50px 4px
-    background-repeat: repeat-x
-    border: none
-    filter: drop-shadow(0px 0px 2px var(--red-1))
-    transition: opacity .3s, color 0.3s
+  hr {
+    margin: 12px 0;
+    opacity: 0.3;
+    height: 4px;
+    background-image: linear-gradient(to right, var(--red-0) 50%, transparent 0%);
+    background-size: 50px 4px;
+    background-repeat: repeat-x;
+    border: none;
+    filter: drop-shadow(0px 0px 2px var(--red-1));
+    transition: opacity 0.3s, color 0.3s;
 
-    &:hover
-      opacity: .5
+    &:hover {
+      opacity: 0.5;
+    }
+  }
 
-  strong
-    font-weight: bold
+  strong {
+    font-weight: bold;
+  }
 
-  em, cite
-    font-style: italic
+  em, cite {
+    font-style: italic;
+  }
 
-  sup, sub
-    font-size: .75em
-    line-height: 0
-    position: relative
-    vertical-align: baseline
+  sup, sub {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
 
-  sup
-    top: -0.5em
+  sup {
+    top: -0.5em;
+  }
 
-  sub
-    bottom: -0.2em
+  sub {
+    bottom: -0.2em;
+  }
 
-  small
-    font-size: .85em
+  small {
+    font-size: 0.85em;
+  }
 
-  acronym, abbr
-    text-decoration: none
-    border-bottom: 1px dotted
+  acronym, abbr {
+    text-decoration: none;
+    border-bottom: 1px dotted;
+  }
 
-  ul, ol, dl
-    margin: 0 20px
-    line-height: line-height
+  ul, ol, dl {
+    margin: 0 20px;
+    line-height: line-height;
+  }
 
-  ul, ol
-    ul, ol
-      margin-top: 0
-      margin-bottom: 0
+  ul, ol {
+    ul, ol {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
 
-  ul
-    list-style: disc
+  ul {
+    list-style: disc;
+  }
 
-  ol
-    list-style: decimal
+  ol {
+    list-style: decimal;
+  }
 
-  dt
-    font-weight: bold
+  dt {
+    font-weight: bold;
+  }
+}

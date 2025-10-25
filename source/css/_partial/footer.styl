@@ -1,107 +1,135 @@
-#footer
-  background-color: linear-gradient(to top, var(--color-footer-background) 50%, transparent)
-  padding: 40px 0 20px
-  color: var(--grey-9)
-  transition: 1s
+#footer {
+  background-color: linear-gradient(to top, var(--color-footer-background) 50%, transparent);
+  padding: 40px 0 20px;
+  color: var(--grey-9);
+  transition: 1s;
 
-  &:hover
-    .footer-line
-      opacity: 0.5
+  &:hover {
+    .footer-line {
+      opacity: 0.5;
+    }
+  }
 
-  a
-    color: var(--color-link)
-    text-decoration: none
+  a {
+    color: var(--color-link);
+    text-decoration: none;
 
-    &:hover
-      text-decoration: underline
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
-  .footer-beian
-    a
-      color: var(--grey-9)
+  .footer-beian {
+    a {
+      color: var(--grey-9);
+    }
+  }
+}
 
-.footer-line
-  margin: 20px 0 40px
-  opacity: 0.3
-  width: 200%
-  height: 10px
-  background: linear-gradient(to left, var(--red-1) 50%, transparent 0%) repeat-x 0 0 / 100px 10px
-  transition: opacity 0.3s
-  animation: transform-all 3s linear infinite
-  filter: drop-shadow(0px 0px 2px var(--red-1))
+.footer-line {
+  margin: 20px 0 40px;
+  opacity: 0.3;
+  width: 200%;
+  height: 10px;
+  background: linear-gradient(to left, var(--red-1) 50%, transparent 0%) repeat-x 0 0 / 100px 10px;
+  transition: opacity 0.3s;
+  animation: transform-all 3s linear infinite;
+  filter: drop-shadow(0px 0px 2px var(--red-1));
+}
 
-#footer-info
-  line-height: line-height
-  font-size: 0.85em
+#footer-info {
+  line-height: line-height;
+  font-size: 0.85em;
 
-  div
-    margin: 8px 0
-    display: flex
-    justify-content: center
+  div {
+    margin: 8px 0;
+    display: flex;
+    justify-content: center;
+  }
+}
 
-.icon-brush, .icon-coffee, .icon-eye, .icon-user
-  margin: 0 4px
+.icon-brush, .icon-coffee, .icon-eye, .icon-user {
+  margin: 0 4px;
+}
 
-.footer-info-sep
-  width: 24px
-  opacity: 0.8
+.footer-info-sep {
+  width: 24px;
+  opacity: 0.8;
 
-  &.rotate
-    animation: rotate-all 3s linear infinite
+  &.rotate {
+    animation: rotate-all 3s linear infinite;
+  }
+}
 
-if hexo-config("footer.icon.mask")
-  @supports (-webkit-mask: var(--footer-icon) no-repeat center / 80%)
-    .footer-info-sep
-      background-color: var(--red-1)
-      -webkit-mask: var(--footer-icon) no-repeat center / 80%
+if (hexo-config('footer.icon.mask')) {
+  @supports (-webkit-mask: var(--footer-icon) no-repeat center / 80%) {
+    .footer-info-sep {
+      background-color: var(--red-1);
+      -webkit-mask: var(--footer-icon) no-repeat center / 80%;
+    }
+  }
 
-  @supports (mask: var(--footer-icon) no-repeat center / 80%)
-    .footer-info-sep
-      background-color: var(--red-1)
-      mask: var(--footer-icon) no-repeat center / 80%
+  @supports (mask: var(--footer-icon) no-repeat center / 80%) {
+    .footer-info-sep {
+      background-color: var(--red-1);
+      mask: var(--footer-icon) no-repeat center / 80%;
+    }
+  }
 
-  @supports not ((mask: var(--footer-icon) no-repeat center / 80%) and (-webkit-mask: var(--footer-icon) no-repeat center / 80%))
-    .footer-info-sep
-      background: var(--footer-icon) no-repeat center / 80%
+  @supports not ( (mask: var(--footer-icon) no-repeat center / 80%) and (-webkit-mask: var(--footer-icon) no-repeat center / 80%) ) {
+    .footer-info-sep {
+      background: var(--footer-icon) no-repeat center / 80%;
+    }
+  }
+} else {
+  .footer-info-sep {
+    background: var(--footer-icon) no-repeat center / 80%;
+  }
+}
 
-else
-  .footer-info-sep
-      background: var(--footer-icon) no-repeat center / 80%
+if (post-has-copyright) {
+  .article-copyright {
+    background: var(--red-5-5);
+    border-left: 6px var(--red-4) solid;
+    margin: 24px 0;
+    border-radius: post-radius;
+    transition: 0.3s;
+    padding: 6px 10px;
+    box-shadow: var(--shadow-meta);
+    position: relative;
+    overflow: hidden;
+    word-break: break-all;
 
-if post-has-copyright
-  .article-copyright
-    background: var(--red-5-5)
-    border-left: 6px var(--red-4) solid
-    margin: 24px 0
-    border-radius: post-radius
-    transition: .3s
-    padding: 6px 10px
-    box-shadow: var(--shadow-meta)
-    position: relative
-    overflow: hidden
-    word-break: break-all
+    .icon {
+      margin: 0 4px;
+    }
 
-    .icon
-      margin: 0 4px
-
-    p
+    p {
       font-size: 14px;
       line-height: 2;
-      color: var(--color-default)
+      color: var(--color-default);
 
-      strong
-        font-weight: 700
+      strong {
+        font-weight: 700;
+      }
+    }
 
-    a
-      color: var(--color-default)
-      text-decoration: none
+    a {
+      color: var(--color-default);
+      text-decoration: none;
 
-      &:hover
-        text-decoration: underline
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 
-  .article-copyright-bg
-    font-size: 120px
-    color: var(--red-3)
-    opacity: .2
-    position: absolute
-    right: -15px
-    bottom: -40px
+  .article-copyright-bg {
+    font-size: 120px;
+    color: var(--red-3);
+    opacity: 0.2;
+    position: absolute;
+    right: -15px;
+    bottom: -40px;
+  }
+}
