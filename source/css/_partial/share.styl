@@ -27,7 +27,6 @@
 }
 
 #share-weixin {
-  display: none;
   position: absolute;
   top: -440px;
   left: -138px;
@@ -39,13 +38,19 @@
   border-radius: tag-radius;
   z-index: 50;
   box-shadow: var(--shadow-card);
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 
   img {
     filter: none !important;
   }
 
   &.active {
-    display: block;
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
   }
 }
 

@@ -93,15 +93,22 @@ if (hexo-config('sponsor.icon.mask')) {
 }
 
 .sponsor-qr {
+  interpolate-size: allow-keywords;
   gap: 4px;
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
-  display: none;
   margin-top: 8px;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(-10px);
 
   &.active {
-    display: flex;
+    height: auto;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
