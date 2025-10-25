@@ -30,7 +30,8 @@ hexo.on("generateAfter", () => {
         res.on("end", () => {
           try {
             const latest = JSON.parse(result)
-              .tag_name.replace("v", "").replace("V", "")
+              .tag_name.replace("v", "")
+              .replace("V", "")
               .split(".");
             const current = version.split(".");
             let isOutdated = false;
@@ -54,12 +55,16 @@ hexo.on("generateAfter", () => {
               );
             }
           } catch (err) {
-            hexo.log.warn("Failed to detect version info. You can get the latest version info at https://github.com/D-Sketon/hexo-theme-reimu/releases");
+            hexo.log.warn(
+              "Failed to detect version info. You can get the latest version info at https://github.com/D-Sketon/hexo-theme-reimu/releases"
+            );
           }
         });
       }
     )
     .on("error", (err) => {
-      hexo.log.error("Failed to detect version info. You can get the latest version info at https://github.com/D-Sketon/hexo-theme-reimu/releases");
+      hexo.log.error(
+        "Failed to detect version info. You can get the latest version info at https://github.com/D-Sketon/hexo-theme-reimu/releases"
+      );
     });
 });

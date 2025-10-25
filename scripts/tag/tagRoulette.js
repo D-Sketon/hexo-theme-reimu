@@ -6,7 +6,8 @@
  * {% tagRoulette "tags" "icon" %}
  */
 hexo.extend.tag.register("tagRoulette", (args) => {
-  const inputTags = args[0] || "点击按钮抽取标签,标签轮盘,带有模糊效果,好想睡觉";
+  const inputTags =
+    args[0] || "点击按钮抽取标签,标签轮盘,带有模糊效果,好想睡觉";
   const icon = args[1] || "🕹️";
   const css = hexo.extend.helper.get("css").bind(hexo);
   return `
@@ -46,5 +47,5 @@ var rollTagRoulette = () => {
 rollTagRoulette(); // 页面加载时自动触发一次滚动
 </script>
 ${css("css/tag-roulette")}
-  `
+  `;
 });

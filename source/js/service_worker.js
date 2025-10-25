@@ -12,7 +12,7 @@ if ("serviceWorker" in navigator && window.REIMU_CONFIG.swPath) {
 
   _$("#notification-close-btn").onclick = () => {
     _$(".notification-wrapper").classList.remove("show");
-  }
+  };
 
   function emitUpdate() {
     _$(".notification-wrapper").classList.add("show");

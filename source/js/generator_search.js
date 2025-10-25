@@ -89,7 +89,9 @@
     hits.slice(start, end).forEach((hit) => {
       searchResult.insertAdjacentHTML(
         "beforeend",
-        `<a href="${hit.url}" class="reimu-hit-item-link" title="${hit.title || ""}">${hit.title}</a>`
+        `<a href="${hit.url}" class="reimu-hit-item-link" title="${
+          hit.title || ""
+        }">${hit.title}</a>`
       );
     });
   }
@@ -107,12 +109,10 @@
       _$("#mask").classList.remove("hide");
       document.body.style.overflow = "hidden";
       setTimeout(() => {
-        (_$("#reimu-search-input input"))?.focus();
+        _$("#reimu-search-input input")?.focus();
       }, 100);
       const keydownHandler = (e) => {
-        const focusables = popup.querySelectorAll(
-          "input, [href]"
-        );
+        const focusables = popup.querySelectorAll("input, [href]");
         const firstFocusable = focusables[0];
         const lastFocusable = focusables[focusables.length - 1];
         if (e.key === "Escape") {

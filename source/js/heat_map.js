@@ -33,28 +33,29 @@ function getTooltip(contributionDay, contributionDate) {
   return `${postText} ${wordText} on ${formattedDate}`;
 }
 
-
 // 全局tooltip元素
 var heatmapTooltip = document.getElementById("heatmap-tooltip");
 
 function hideTooltip() {
-  heatmapTooltip.style.display = 'none';
+  heatmapTooltip.style.display = "none";
 }
 
 function tileClickHandler(event) {
   const tile = event.target;
   if (!tile.classList.contains("tile")) return;
-  
+
   const date = new Date(Number(tile.dataset.date));
   const dateStr = date.toISOString();
-  
+
   // 获取当天的文章列表
-  const articles = window.REIMU_HEATMAP_CONFIG.articleStats.filter(article => article.date === dateStr);
-  
+  const articles = window.REIMU_HEATMAP_CONFIG.articleStats.filter(
+    (article) => article.date === dateStr
+  );
+
   const level = tile.dataset.level;
   const formattedDate = date.toLocaleDateString();
   let totalWords = 0;
-  
+
   let html = `
     <div class="tooltip-header">
       <div class="tooltip-header-content">${formattedDate} (Level ${level})</div>
@@ -65,22 +66,24 @@ function tileClickHandler(event) {
   `;
 
   const heapMapI18n = window.REIMU_HEATMAP_CONFIG.i18n;
-  let lang = document.documentElement.lang || 'en';
+  let lang = document.documentElement.lang || "en";
   if (!Object.keys(heapMapI18n).includes(lang)) {
-    lang = 'en';
+    lang = "en";
   }
 
   if (articles.length === 0) {
     html += `<li>${heapMapI18n[lang].no_articles}</li>`;
   } else {
-    articles.forEach(article => {
+    articles.forEach((article) => {
       totalWords += article.wordcount;
       html += `<li><a href="${article.url}">${article.title}</a> (${article.wordcount} ${heapMapI18n[lang].words})</li>`;
     });
   }
 
-  const footerTemplate = heapMapI18n[lang].total_articles.replace("$1", articles.length).replace("$2", totalWords);
-  
+  const footerTemplate = heapMapI18n[lang].total_articles
+    .replace("$1", articles.length)
+    .replace("$2", totalWords);
+
   html += `
       </ul>
       <div class="tooltip-footer">
@@ -88,46 +91,46 @@ function tileClickHandler(event) {
       </div>
     </div>
   `;
-  
+
   // 设置内容并显示tooltip
   heatmapTooltip.innerHTML = html;
-  
+
   // 计算位置 - 默认显示在tile右侧
   const rect = tile.getBoundingClientRect();
-  heatmapTooltip.style.display = 'block';
-  heatmapTooltip.style.visibility = 'hidden';
-  heatmapTooltip.style.left = '0px';
+  heatmapTooltip.style.display = "block";
+  heatmapTooltip.style.visibility = "hidden";
+  heatmapTooltip.style.left = "0px";
 
   // 获取实际的tooltip宽度
   const tooltipRect = heatmapTooltip.getBoundingClientRect();
   const tooltipWidth = tooltipRect.width;
-  
+
   // 检查右侧空间是否足够，否则显示在左侧
   let left = rect.right + 10;
   if (left + tooltipWidth > window.innerWidth) {
     left = rect.left - tooltipWidth - 10;
   }
-  
+
   heatmapTooltip.style.left = `${left}px`;
   heatmapTooltip.style.top = `${rect.top}px`;
-  heatmapTooltip.style.display = 'block';
-  heatmapTooltip.style.visibility = 'visible';
-  
+  heatmapTooltip.style.display = "block";
+  heatmapTooltip.style.visibility = "visible";
+
   // 添加关闭按钮事件监听
 
-  const closeBtn = heatmapTooltip.querySelector('.tooltip-close');
+  const closeBtn = heatmapTooltip.querySelector(".tooltip-close");
   if (closeBtn) {
-    closeBtn.addEventListener('click', hideTooltip);
+    closeBtn.addEventListener("click", hideTooltip);
   }
-  
+
   // 点击其他地方关闭tooltip
-  document.addEventListener('click', function closeTooltipOnClickOutside(e) {
-    if (e.target.classList.contains('tile')) {
+  document.addEventListener("click", function closeTooltipOnClickOutside(e) {
+    if (e.target.classList.contains("tile")) {
       return;
     }
     if (!heatmapTooltip.contains(e.target) && e.target !== tile) {
       hideTooltip();
-      document.removeEventListener('click', closeTooltipOnClickOutside);
+      document.removeEventListener("click", closeTooltipOnClickOutside);
     }
   });
 }
@@ -205,7 +208,7 @@ function createCalendar(element, contributionData) {
         if (date.getDay() === 0 && month !== latestMonth) {
           let gridColumn = 2 + Math.floor((i + startRow) / 7);
           if (gridColumn - lastGridColumn <= 1) {
-            gridColumn += (2 - gridColumn + lastGridColumn); // 防止重叠
+            gridColumn += 2 - gridColumn + lastGridColumn; // 防止重叠
           }
           lastGridColumn = gridColumn;
           latestMonth = month;
@@ -222,7 +225,7 @@ function createCalendar(element, contributionData) {
         tile.title = getTooltip(c, date);
         tile.dataset.level = c.level;
         tile.dataset.date = c.date; // 添加日期数据
-        tile.addEventListener('click', tileClickHandler);
+        tile.addEventListener("click", tileClickHandler);
         tiles.push(tile);
         return [tiles, stats];
       },

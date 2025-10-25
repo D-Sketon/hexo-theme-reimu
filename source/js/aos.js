@@ -225,7 +225,9 @@ var __aosBodyResizeObserver;
 
     if (window.ResizeObserver && _$("#main")) {
       __aosBodyResizeObserver?.disconnect?.();
-      __aosBodyResizeObserver = new ResizeObserver(debounce(() => refresh(), options.debounceDelay));
+      __aosBodyResizeObserver = new ResizeObserver(
+        debounce(() => refresh(), options.debounceDelay)
+      );
       __aosBodyResizeObserver.observe(_$("#main"));
     }
 

@@ -19,22 +19,25 @@ hexo.extend.helper.register("themeConfig", function () {
     "article_copyright.license_content",
     (config.article_copyright?.content?.license_type || "").toUpperCase()
   );
-  const realLangs = (config.i18n?.enable
-    ? (config.i18n.languages || [siteConfig.language])
-    : [siteConfig.language]
-  )
+  const realLangs = config.i18n?.enable
+    ? config.i18n.languages || [siteConfig.language]
+    : [siteConfig.language];
 
   addConfig("icon_font", config.icon_font);
   addConfig("clipboard_tips", {
     ...config.clipboard,
     success: realLangs.reduce((acc, lang) => {
       const success = config.clipboard.success;
-      acc[lang] = typeof success === "string" ? success : success[lang] || "Copy successfully (*^▽^*)";
+      acc[lang] =
+        typeof success === "string"
+          ? success
+          : success[lang] || "Copy successfully (*^▽^*)";
       return acc;
     }, {}),
     fail: realLangs.reduce((acc, lang) => {
       const fail = config.clipboard.fail;
-      acc[lang] = typeof fail === "string" ? fail : fail[lang] || "Copy failed (ﾟ⊿ﾟ)ﾂ";
+      acc[lang] =
+        typeof fail === "string" ? fail : fail[lang] || "Copy failed (ﾟ⊿ﾟ)ﾂ";
       return acc;
     }, {}),
   });
@@ -46,7 +49,9 @@ hexo.extend.helper.register("themeConfig", function () {
   if (config.anchor_icon || config.anchor_icon === false) {
     _global.push(
       `window.REIMU_CONFIG.anchor_icon = ${
-        typeof config.anchor_icon === "string" ? `'${config.anchor_icon}'` : JSON.stringify(config.anchor_icon)
+        typeof config.anchor_icon === "string"
+          ? `'${config.anchor_icon}'`
+          : JSON.stringify(config.anchor_icon)
       };`
     );
   }

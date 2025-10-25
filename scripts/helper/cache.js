@@ -58,10 +58,17 @@ hexo.extend.helper.register(
 );
 
 hexo.extend.helper.register("get_cached_toc", function (content, slug) {
-  const { list_number = true, min_depth = 1, max_depth = 6 } = hexo.theme.config.toc_options || {};
+  const {
+    list_number = true,
+    min_depth = 1,
+    max_depth = 6,
+  } = hexo.theme.config.toc_options || {};
   if (slug) {
     if (!cachedToc.has(slug)) {
-      cachedToc.set(slug, this.toc(content, { list_number, min_depth, max_depth }));
+      cachedToc.set(
+        slug,
+        this.toc(content, { list_number, min_depth, max_depth })
+      );
       return cachedToc.get(slug);
     } else {
       const toc = cachedToc.get(slug);
@@ -73,7 +80,6 @@ hexo.extend.helper.register("get_cached_toc", function (content, slug) {
   }
 });
 
-
 const tagCache = new Map();
 hexo.extend.helper.register("tagCached", (key, fn) => {
   if (tagCache.has(key)) {
@@ -82,4 +88,4 @@ hexo.extend.helper.register("tagCached", (key, fn) => {
   const value = fn();
   tagCache.set(key, value);
   return value;
-})
+});

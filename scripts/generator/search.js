@@ -78,7 +78,7 @@ hexo.extend.generator.register("json", function (locals) {
   }
 
   return {
-    path: 'search.json',
+    path: "search.json",
     data: JSON.stringify(res),
   };
 });

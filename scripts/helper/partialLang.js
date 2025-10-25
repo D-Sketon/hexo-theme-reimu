@@ -22,13 +22,17 @@ const partialLang = (ctx) =>
     viewLocals.layout = false;
     if (cache) {
       const cacheId = typeof cache === "string" ? cache : view.path;
-      return this.fragment_lang_cache(cacheId, () => view.renderSync(viewLocals), options.lang);
+      return this.fragment_lang_cache(
+        cacheId,
+        () => view.renderSync(viewLocals),
+        options.lang
+      );
     }
     return view.renderSync(viewLocals);
   };
 
 const fragmentLangCache = (ctx) => {
-  const cacheLList = {}
+  const cacheLList = {};
 
   // reset cache for watch mode
   ctx.on("generateBefore", () => {
@@ -55,7 +59,6 @@ const fragmentLangCache = (ctx) => {
     return result;
   };
 };
-
 
 hexo.extend.helper.register("fragment_lang_cache", fragmentLangCache(hexo));
 hexo.extend.helper.register("partial_lang", partialLang(hexo));

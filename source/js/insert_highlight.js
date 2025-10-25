@@ -79,11 +79,9 @@
   // 代码复制
   const clipboard = new ClipboardJS(".code-copy", {
     text: (trigger) => {
-     const codeElement =
-       trigger.parentNode.parentNode.parentNode.querySelector(
-         "td.code"
-       );
-     let selectedText = codeElement ? codeElement.innerText : "";
+      const codeElement =
+        trigger.parentNode.parentNode.parentNode.querySelector("td.code");
+      let selectedText = codeElement ? codeElement.innerText : "";
 
       if (
         tips.copyright?.enable &&
@@ -103,7 +101,9 @@
       successText = successConfig;
     } else if (typeof successConfig === "object") {
       const lang = document.documentElement.lang;
-      const key = Object.keys(successConfig).find(key => key.toLowerCase() === lang.toLowerCase());
+      const key = Object.keys(successConfig).find(
+        (key) => key.toLowerCase() === lang.toLowerCase()
+      );
       if (key && successConfig[key]) {
         successText = successConfig[key];
       }
@@ -127,7 +127,9 @@
       failText = failConfig;
     } else if (typeof failConfig === "object") {
       const lang = document.documentElement.lang;
-      const key = Object.keys(failConfig).find(key => key.toLowerCase() === lang.toLowerCase());
+      const key = Object.keys(failConfig).find(
+        (key) => key.toLowerCase() === lang.toLowerCase()
+      );
       if (key && failConfig[key]) {
         failText = failConfig[key];
       }

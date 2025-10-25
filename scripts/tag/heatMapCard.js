@@ -4,29 +4,29 @@ const i18n = {
   en: {
     no_articles: "No articles",
     words: "word(s)",
-    total_articles: "$1 article(s), $2 word(s)"
+    total_articles: "$1 article(s), $2 word(s)",
   },
   ja: {
     no_articles: "記事がありません",
     words: "文字",
-    total_articles: "$1 記事, $2 文字"
+    total_articles: "$1 記事, $2 文字",
   },
   "zh-CN": {
     no_articles: "没有文章",
     words: "字",
-    total_articles: "共 $1 篇文章, $2 字"
+    total_articles: "共 $1 篇文章, $2 字",
   },
   "zh-TW": {
     no_articles: "没有文章",
     words: "字",
-    total_articles: "共 $1 篇文章, $2 字"
+    total_articles: "共 $1 篇文章, $2 字",
   },
-  'pt-BR': {
+  "pt-BR": {
     no_articles: "Sem artigos",
     words: "palavra(s)",
-    total_articles: "$1 artigo(s), $2 palavra(s)"
-  }
-}
+    total_articles: "$1 artigo(s), $2 palavra(s)",
+  },
+};
 
 /**
  * {% heatMapCard "levelStandard" %}
@@ -47,7 +47,7 @@ hexo.extend.tag.register("heatMapCard", function (args) {
       date: post.date,
       updated: post.updated,
       wordcount: wordCountFn(post._content, post._id),
-      url: url_for.call(hexo, post.path)
+      url: url_for.call(hexo, post.path),
     });
   });
 
