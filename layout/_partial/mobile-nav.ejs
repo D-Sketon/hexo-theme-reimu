@@ -1,26 +1,26 @@
 <nav id="mobile-nav" aria-label="Mobile navigation">
   <div class="sidebar-wrap">
-    <% if (is_post()) { %>
-      <% if (post.toc === false) { %>
+    <%_ if (is_post()) { _%>
+      <%_ if (post.toc === false) { _%>
         <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
-      <% } else if (post.toc !== true && theme.toc === false) { %>
+      <%_ } else if (post.toc !== true && theme.toc === false) { _%>
         <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
-      <% } else { %>
+      <%_ } else { _%>
         <div class="sidebar-toc-sidebar"><%- partial('sidebar/toc-sidebar') %></div>
         <div class="sidebar-common-sidebar hidden"><%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %></div>
-      <% } %>
-    <% } else { %>
+      <%_ } _%>
+    <%_ } else { _%>
       <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
-    <% } %>
+    <%_ } _%>
   </div>
-  <% if (is_post()) { %>
-    <% if (post.toc === false) { %>
-    <% } else if (post.toc !== true && theme.toc === false) { %>
-    <% } else { %>
+  <%_ if (is_post()) { _%>
+    <%_ if (post.toc === false) { _%>
+    <%_ } else if (post.toc !== true && theme.toc === false) { _%>
+    <%_ } else { _%>
       <div class="sidebar-btn-wrapper">
         <div class="sidebar-toc-btn current"></div>
         <div class="sidebar-common-btn"></div>
       </div>
-    <% } %>
-  <% } %>
+    <%_ } _%>
+  <%_ } _%>
 </nav>

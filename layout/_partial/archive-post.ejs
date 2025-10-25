@@ -4,9 +4,9 @@
       <time class="dt-published" datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, 'MM-DD') %></time>
     </span>
   </div>
-  <% if (post.link) { %>
+  <%_ if (post.link) { _%>
     <a class="archive-article-title" href="<%- url_for(post.link, {relative: false}) %>" target="_blank" itemprop="url" rel="noopener nofollow noreferrer"><%= post.title %></a>
-  <% } else if (post.title) { %>
+  <%_ } else if (post.title) { _%>
     <a class="archive-article-title" href="<%- url_for_lang(post.path, {relative: false}) %>"><%= post.title %></a>
-  <% } %>
+  <%_ } _%>
 </li>

@@ -1,17 +1,17 @@
-<% if (site.posts.length) { %>
+<%_ if (site.posts.length) { _%>
   <div class="widget-wrapper">
     <div class="widget-wrap" data-aos="<%= theme.animation.options.home.widget %>">
       <h3 class="widget-title"><%= __('recent_posts') %></h3>
       <div class="widget">
         <ul>
-          <% const posts = get_posts_by_lang(get_cached_sorted_posts(-1).limit(theme.recent_posts_limits), page.lang) %>
-          <% posts.forEach((post) => { %>
+          <%_ const posts = get_posts_by_lang(get_cached_sorted_posts(-1).limit(theme.recent_posts_limits), page.lang) _%>
+          <%_ posts.forEach((post) => { _%>
             <li>
               <a href="<%- url_for_lang(post.path) %>" title="<%= post.title || '(no title)' %>"><%= post.title || '(no title)' %></a>
             </li>
-          <% }) %>
+          <%_ }) _%>
         </ul>
       </div>
     </div>
   </div>
-<% } %>
+<%_ } _%>

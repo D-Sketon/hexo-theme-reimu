@@ -8,112 +8,112 @@
     <div class="hr-line"></div>
     <%- partial('post/gallery') %>
     <div class="e-content article-entry" itemprop="articleBody">
-      <% if (post.outdated) { %>
+      <%_ if (post.outdated) { _%>
         <div class="warning custom-block">
           <p class="custom-block-title">WARNING</p>
           <p><%- (theme.outdate.message[post.lang ?? config.language] ?? 'This article was last updated on {time}. Please note that the content may no longer be applicable.').replace("{time}", date(post.updated, null)) %></p>
         </div>
-      <% } else if (theme.outdate.enable) { %>
+      <%_ } else if (theme.outdate.enable) { _%>
         <div class="warning custom-block" id="outdate-blockquote" style="display: none;">
           <p class="custom-block-title">WARNING</p>
           <p></p>
         </div>
-      <% } %>
-      <% if (post.excerpt && post.link) { %>
+      <%_ } _%>
+      <%_ if (post.excerpt && post.link) { _%>
         <p><%- post.excerpt %></p>
         <p class="article-more-link">
           <a href="<%- url_for(post.link, {relative: false}) %>" target="_blank" itemprop="url" rel="noopener nofollow noreferrer"><%= theme.excerpt_link || "Read More" %></a>
         </p>
-      <% } else { %>
+      <%_ } else { _%>
         <%- post.content %>
-      <% } %>
+      <%_ } _%>
     </div>
     <footer class="article-footer">
-      <% if (post.copyright === true) { %>
+      <%_ if (post.copyright === true) { _%>
         <%- articleCopyright(post) %>
-      <% } else if (post.copyright !== false && theme.article_copyright.enable) { %>
+      <%_ } else if (post.copyright !== false && theme.article_copyright.enable) { _%>
         <%- articleCopyright(post) %>
-      <% } %>
-      <% if (post.sponsor === true) { %>
+      <%_ } _%>
+      <%_ if (post.sponsor === true) { _%>
         <%- partial('post/sponsor') %>
-      <% } else if (post.sponsor !== false && theme.sponsor.enable) { %>
+      <%_ } else if (post.sponsor !== false && theme.sponsor.enable) { _%>
         <%- partial('post/sponsor') %>
-      <% } %>
-      <% if (Array.isArray(theme.share) && theme.share.length) { %>
+      <%_ } _%>
+      <%_ if (Array.isArray(theme.share) && theme.share.length) { _%>
         <%- partial('post/share') %>
-      <% } %>
-      <% if (post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
+      <%_ } _%>
+      <%_ if (post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey) { _%>
         <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- url_for_lang(post.path) %>#comments" class="article-comment-link">
           <span class="post-comments-count valine-comment-count" data-xid="<%- url_for_lang(post.path, {relative: false}).endsWith("index.html") ? 
                         url_for_lang(post.path, {relative: false}).slice(0, -10) : url_for_lang(post.path, {relative: false})%>" itemprop="commentCount"></span>
           <%= __('comment') %>
         </a>
-      <% } %>
-      <% if (post.comments !== false && theme.waline.enable && theme.waline.serverURL) { %>
+      <%_ } _%>
+      <%_ if (post.comments !== false && theme.waline.enable && theme.waline.serverURL) { _%>
         <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- url_for_lang(post.path) %>#comments" class="article-comment-link">
           <span class="post-comments-count waline-comment-count" data-path="<%- url_for_lang(post.path, {relative: false}) %>" itemprop="commentCount"></span>
           <%= __('comment') %>
         </a>
-      <% } %>
-      <% if (post.comments !== false && theme.twikoo.enable && theme.twikoo.envId) { %>
+      <%_ } _%>
+      <%_ if (post.comments !== false && theme.twikoo.enable && theme.twikoo.envId) { _%>
         <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- url_for_lang(post.path) %>#comments" class="article-comment-link">
           <span class="post-comments-count twikoo-comment-count" data-path="<%- url_for_lang(post.path, {relative: false}) %>" itemprop="commentCount"></span>
           <%= __('comment') %>
         </a>
-      <% } %>
-      <% if (post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey && theme.valine.visitor) { %>
+      <%_ } _%>
+      <%_ if (post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey && theme.valine.visitor) { _%>
         <span data-aos="<%= theme.animation.options.article.reading %>" id="<%- url_for_lang(post.path, {relative: false}).endsWith("index.html") ? 
                   url_for_lang(post.path, {relative: false}).slice(0, -10) : 
                   url_for_lang(post.path, {relative: false})%>" class="leancloud_visitors article-visitor-link" data-flag-title="<%= post.title %>">
           <span class="leancloud-visitors-count">0</span>
           <em class="post-meta-item-text"><%= __('reading') %></em>
         </span>
-      <% } %>
-      <% if (post.comments !== false && theme.waline.enable && theme.waline.serverURL && theme.waline.pageview) { %>
+      <%_ } _%>
+      <%_ if (post.comments !== false && theme.waline.enable && theme.waline.serverURL && theme.waline.pageview) { _%>
         <span data-aos="<%= theme.animation.options.article.reading %>" class="article-visitor-link">
           <span class="waline-pageview-count" data-path="<%- url_for_lang(post.path, {relative: false}).endsWith("index.html") ? 
           url_for_lang(post.path, {relative: false}).slice(0, -10) : 
           url_for_lang(post.path, {relative: false})%>">0</span>
           <em class="post-meta-item-text"><%= __('reading') %></em>
         </span>
-      <% } %>
+      <%_ } _%>
       <%- partial('post/tag') %>
     </footer>
   </div>
   <%- partial('post/nav') %>
 </article>
-<% const commentSystems = {}; %>
-<% commentSystems.valine = theme.valine.enable && theme.valine.appId && theme.valine.appKey ? true : false; %>
-<% commentSystems.waline = theme.waline.enable && theme.waline.serverURL ? true : false; %>
-<% commentSystems.twikoo = theme.twikoo.enable && theme.twikoo.envId ? true : false; %>
-<% commentSystems.gitalk = theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret ? true : false; %>
-<% commentSystems.giscus = theme.giscus.enable ? true : false; %>
-<% const activeSystems = Object.keys(commentSystems).filter(system => commentSystems[system]); %>
+<%_ const commentSystems = {}; _%>
+<%_ commentSystems.valine = theme.valine.enable && theme.valine.appId && theme.valine.appKey ? true : false; _%>
+<%_ commentSystems.waline = theme.waline.enable && theme.waline.serverURL ? true : false; _%>
+<%_ commentSystems.twikoo = theme.twikoo.enable && theme.twikoo.envId ? true : false; _%>
+<%_ commentSystems.gitalk = theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret ? true : false; _%>
+<%_ commentSystems.giscus = theme.giscus.enable ? true : false; _%>
+<%_ const activeSystems = Object.keys(commentSystems).filter(system => commentSystems[system]); _%>
 
-<% if (post.comments !== false && activeSystems.length) { %>
+<%_ if (post.comments !== false && activeSystems.length) { _%>
   <section id="comments" data-aos="<%= theme.animation.options.article.whole %>">
     <div class="comment-header">
-      <% var commentTitle = theme.comment.title; %>
-      <% if (typeof commentTitle !== 'string') { %>
+      <%_ var commentTitle = theme.comment.title; _%>
+      <%_ if (typeof commentTitle !== 'string') { _%>
         <% commentTitle = commentTitle[post.lang]; %>
-      <% } %>
+      <%_ } _%>
       <h2 class="comment-title"><%= commentTitle %></h2>
       <div class="comment-selector">
         <div class="comment-selector-wrap">
-            <% for(const active of activeSystems) { %>
+            <%_ for(const active of activeSystems) { _%>
             <div class="selector-item" data-selector="<%= active %>">
               <span><%= active %></span>
             </div>
-            <% } %>
+            <%_ } _%>
         </div>
       </div>
     </div>
     <div class="comment-content">
-      <% for(const active of activeSystems) { %>
+      <%_ for(const active of activeSystems) { _%>
         <div class="comment <%= active %>-comment" data-aos="<%= theme.animation.options.article.whole %>"
           id="<%= active %>-comment">
         </div>
-      <% } %>
+      <%_ } _%>
     </div>
   </section>
-<% } %>
+<%_ } _%>

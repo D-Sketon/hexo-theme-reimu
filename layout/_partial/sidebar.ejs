@@ -1,13 +1,13 @@
 <aside id="sidebar" aria-label="Sidebar">
-  <% if (theme.injector.sidebar_begin) { %>
+  <%_ if (theme.injector.sidebar_begin) { _%>
     <%- render(theme.injector.sidebar_begin, 'html'); %>
-  <% } %>
+  <%_ } _%>
   <div class="sidebar-wrapper-container <% if (is_post()) { %>sticky<% } %>">
-  <% if (theme.player.position === 'before_sidebar' || !theme.player.position) { %>
-    <% if (theme.player.aplayer.enable && !theme.player.meting.enable && theme.player.aplayer.options.fixed !== true) { %>
+  <%_ if (theme.player.position === 'before_sidebar' || !theme.player.position) { _%>
+    <%_ if (theme.player.aplayer.enable && !theme.player.meting.enable && theme.player.aplayer.options.fixed !== true) { _%>
       <div id="aplayer" theme="var(--color-link)" data-aos="<%= theme.animation.options.home.sidebar %>"></div>
-    <% } %>
-    <% if (theme.player.meting.enable && theme.player.aplayer.options.fixed !== true) { %>
+    <%_ } _%>
+    <%_ if (theme.player.meting.enable && theme.player.aplayer.options.fixed !== true) { _%>
       <meting-js
         theme="var(--color-link)"
         <% if (theme.player.meting.options.id != null) { %>id="<%= theme.player.meting.options.id %>"<% } %>
@@ -24,40 +24,39 @@
         <% if (theme.player.aplayer.options.listFolded != null) { %>list-folded="<%= theme.player.aplayer.options.listFolded %>"<% } %>
         <% if (theme.player.aplayer.options.lrcType != null) { %>lrc-type="<%= theme.player.aplayer.options.lrcType %>"<% } %>
       ></meting-js>
-    <% } %>
-  <% } %>
- 
+    <%_ } _%>
+  <%_ } _%>
   <div class="sidebar-wrapper">
     <div class="sidebar-wrap" data-aos="<%= theme.animation.options.home.sidebar %>">
-      <% if (is_post()) { %>
-        <% if (post.toc === false) { %>
+      <%_ if (is_post()) { _%>
+        <%_ if (post.toc === false) { _%>
           <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
-        <% } else if (post.toc !== true && theme.toc === false) { %>
+        <%_ } else if (post.toc !== true && theme.toc === false) { _%>
           <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
-        <% } else { %>
+        <%_ } else { _%>
           <div class="sidebar-toc-sidebar"><%- partial('sidebar/toc-sidebar') %></div>
           <div class="sidebar-common-sidebar hidden"><%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %></div>
-        <% } %>
-      <% } else { %>
+        <%_ } _%>
+      <%_ } else { _%>
         <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
-      <% } %>
-      <% if (is_post()) { %>
-        <% if (post.toc === false) { %>
-        <% } else if (post.toc !== true && theme.toc === false) { %>
-        <% } else { %>
+      <%_ } _%>
+      <%_ if (is_post()) { _%>
+        <%_ if (post.toc === false) { _%>
+        <%_ } else if (post.toc !== true && theme.toc === false) { _%>
+        <%_ } else { _%>
           <div class="sidebar-btn-wrapper" style="position:static">
             <div class="sidebar-toc-btn current"></div>
             <div class="sidebar-common-btn"></div>
           </div>
-        <% } %>
-      <% } %>
+        <%_ } _%>
+      <%_ } _%>
     </div>
   </div>
-  <% if (theme.player.position === 'after_sidebar') { %>
-    <% if (theme.player.aplayer.enable && !theme.player.meting.enable && theme.player.aplayer.options.fixed !== true) { %>
+  <%_ if (theme.player.position === 'after_sidebar') { _%>
+    <%_ if (theme.player.aplayer.enable && !theme.player.meting.enable && theme.player.aplayer.options.fixed !== true) { _%>
       <div id="aplayer" class="aplayer-after-sidebar" theme="var(--color-link)" data-aos="<%= theme.animation.options.home.sidebar %>"></div>
-    <% } %>
-    <% if (theme.player.meting.enable && theme.player.aplayer.options.fixed !== true) { %>
+    <%_ } _%>
+    <%_ if (theme.player.meting.enable && theme.player.aplayer.options.fixed !== true) { _%>
       <meting-js
         theme="var(--color-link)"
         <% if (theme.player.meting.options.id != null) { %>id="<%= theme.player.meting.options.id %>"<% } %>
@@ -75,20 +74,20 @@
         <% if (theme.player.aplayer.options.lrcType != null) { %>lrc-type="<%= theme.player.aplayer.options.lrcType %>"<% } %>
         class="aplayer-after-sidebar"
       ></meting-js>
-    <% } %>
-  <% } %>
+    <%_ } _%>
+  <%_ } _%>
   <div class="sidebar-widget">
-  <% if (!is_post() && theme.widgets) { %>
-    <% theme.widgets.forEach((widget) => { %>
+  <%_ if (!is_post() && theme.widgets) { _%>
+    <%_ theme.widgets.forEach((widget) => { _%>
       <%- partial_lang('_widget/' + widget, null, { cache: !config.relative_link, lang: page.lang }) %>
-    <% }) %>
-  <% } %>
+    <%_ }) _%>
+  <%_ } _%>
   </div>
-  <% if (theme.player.position === 'after_widget') { %>
-    <% if (theme.player.aplayer.enable && !theme.player.meting.enable && theme.player.aplayer.options.fixed !== true) { %>
+  <%_ if (theme.player.position === 'after_widget') { _%>
+    <%_ if (theme.player.aplayer.enable && !theme.player.meting.enable && theme.player.aplayer.options.fixed !== true) { _%>
       <div id="aplayer" class="aplayer-after-widget" theme="var(--color-link)" data-aos="<%= theme.animation.options.home.sidebar %>"></div>
-    <% } %>
-    <% if (theme.player.meting.enable && theme.player.aplayer.options.fixed !== true) { %>
+    <%_ } _%>
+    <%_ if (theme.player.meting.enable && theme.player.aplayer.options.fixed !== true) { _%>
       <meting-js
         theme="var(--color-link)"
         <% if (theme.player.meting.options.id != null) { %>id="<%= theme.player.meting.options.id %>"<% } %>
@@ -106,10 +105,10 @@
         <% if (theme.player.aplayer.options.lrcType != null) { %>lrc-type="<%= theme.player.aplayer.options.lrcType %>"<% } %>
         class="aplayer-after-widget"
       ></meting-js>
-    <% } %>
-  <% } %>
+    <%_ } _%>
+  <%_ } _%>
   </div>
-  <% if (theme.injector.sidebar_end) { %>
+  <%_ if (theme.injector.sidebar_end) { _%>
     <%- render(theme.injector.sidebar_end, 'html'); %>
-  <% } %>
+  <%_ } _%>
 </aside>

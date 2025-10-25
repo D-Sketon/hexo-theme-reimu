@@ -1,12 +1,12 @@
-<% const commentSystems = {}; %>
-<% commentSystems.valine = theme.valine.enable && theme.valine.appId && theme.valine.appKey ? true : false; %>
-<% commentSystems.waline = theme.waline.enable && theme.waline.serverURL ? true : false; %>
-<% commentSystems.twikoo = theme.twikoo.enable && theme.twikoo.envId ? true : false; %>
-<% commentSystems.gitalk = theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret ? true : false; %>
-<% commentSystems.giscus = theme.giscus.enable ? true : false; %>
-<% const activeSystems = Object.keys(commentSystems).filter(system => commentSystems[system]); %>
+<%_ const commentSystems = {}; _%>
+<%_ commentSystems.valine = theme.valine.enable && theme.valine.appId && theme.valine.appKey ? true : false; _%>
+<%_ commentSystems.waline = theme.waline.enable && theme.waline.serverURL ? true : false; _%>
+<%_ commentSystems.twikoo = theme.twikoo.enable && theme.twikoo.envId ? true : false; _%>
+<%_ commentSystems.gitalk = theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret ? true : false; _%>
+<%_ commentSystems.giscus = theme.giscus.enable ? true : false; _%>
+<%_ const activeSystems = Object.keys(commentSystems).filter(system => commentSystems[system]); _%>
 
-<% if (activeSystems.length > 0) { %>
+<%_ if (activeSystems.length > 0) { _%>
 <script data-pjax>
   var loadScript = (src, integrity) => {
     const script = document.createElement('script');
@@ -18,7 +18,7 @@
 
   var commentConfigKeys = <%- JSON.stringify(activeSystems) %>;
   var commentConfig = {
-    <% if (commentSystems.valine) { %>
+    <%_ if (commentSystems.valine) { _%>
     valine: {
       enable: <%= commentSystems.valine %>,
       load: () => {
@@ -62,8 +62,8 @@
         document.head.appendChild(script);
       }
     },
-    <% } %>
-    <% if (commentSystems.waline) { %>
+    <%_ } _%>
+    <%_ if (commentSystems.waline) { _%>
     waline: {
       enable: <%= commentSystems.waline %>,
       load: async () => {
@@ -94,8 +94,8 @@
         });
       }
     },
-    <% } %>
-    <% if (commentSystems.twikoo) { %>
+    <%_ } _%>
+    <%_ if (commentSystems.twikoo) { _%>
     twikoo: {
       enable: <%= commentSystems.twikoo %>,
       load: () => {
@@ -134,8 +134,8 @@
         document.head.appendChild(script);
       }
     },
-    <% } %>
-    <% if (commentSystems.gitalk) { %>
+    <%_ } _%>
+    <%_ if (commentSystems.gitalk) { _%>
     gitalk: {
       enable: <%= commentSystems.gitalk %>,
       load: () => {
@@ -178,8 +178,8 @@
         }
       }
     },
-    <% } %>
-    <% if (commentSystems.giscus) { %>
+    <%_ } _%>
+    <%_ if (commentSystems.giscus) { _%>
     giscus: {
       enable: <%= commentSystems.giscus %>,
       load: () => {
@@ -230,7 +230,7 @@
         });
       }
     }
-    <% } %>
+    <%_ } _%>
   }
   commentConfig.enable = commentConfigKeys.some(key => commentConfig[key].enable);
 
@@ -339,4 +339,4 @@
   };
   loadComments();
 </script>
-<% } %>
+<%_ } _%>

@@ -1,23 +1,23 @@
-<% if (theme.preloader.enable) { %>
+<%_ if (theme.preloader.enable) { _%>
   <div id='loader'>
     <div class="loading-left-bg loading-bg"></div>
     <div class="loading-right-bg loading-bg"></div>
     <div class="spinner-box">
       <div class="loading-taichi <%- theme.preloader.rotate ? 'rotate' : '' %>">
-        <% if (theme.preloader.icon) { %>
+        <%_ if (theme.preloader.icon) { _%>
           <img src="<%- url_for(theme.preloader.icon, {relative: false})%>" alt="loading" />
-        <% } else { %>
+        <%_ } else { _%>
           <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
             <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
             <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
            M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
           </svg>
-        <% } %>
+        <%_ } _%>
       </div>
-      <% var preloaderText = theme.preloader.text; %>
-      <% if (typeof preloaderText !== 'string') { %>
-        <% preloaderText = preloaderText[post.lang]; %>
-      <% } %>
+      <%_ var preloaderText = theme.preloader.text; _%>
+      <%_ if (typeof preloaderText !== 'string') { _%>
+        <%_ preloaderText = preloaderText[post.lang]; _%>
+      <%_ } _%>
       <div class="loading-word"><%= preloaderText %></div>
     </div>
   </div>
@@ -50,11 +50,11 @@
     window.addEventListener('DOMContentLoaded', endLoading);
     loaderEl.addEventListener('click', endLoading);
   </script>
-<% } %>
+<%_ } _%>
 <div id="copy-tooltip"></div>
 <div id="heatmap-tooltip"></div>
 
-<% if (theme.service_worker.enable) { %>
+<%_ if (theme.service_worker.enable) { _%>
   <div class="notification-wrapper">
     <h1><%= __("service_worker.title") %></h1>
     <p><%= __("service_worker.content") %></p>
@@ -63,4 +63,4 @@
       <button id="notification-close-btn"><%= __("service_worker.cancel") %></button>
     </div>
   </div>
-<% } %>
+<%_ } _%>

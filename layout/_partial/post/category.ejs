@@ -1,4 +1,4 @@
-<% if (post.categories && post.categories.length) { %>
+<%_ if (post.categories && post.categories.length) { _%>
   <div class="article-category">
     <%- listCategories(post.categories, {
       show_count: false,
@@ -7,4 +7,4 @@
       separator: ''
     }, theme.animation.options.article.category) %>
   </div>
-<% } %>
+<%_ } _%>

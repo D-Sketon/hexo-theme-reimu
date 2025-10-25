@@ -3,9 +3,9 @@
     <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, date_format) %></time>
     <time style="display: none;" id="post-update-time"><%= date(post.updated, date_format) %></time>
   </span>
-  <% if (theme.show_update_time) { %>
+  <%_ if (theme.show_update_time) { _%>
     <span class="article-date-link icon-calendar-plus" data-aos="<%= theme.animation.options.article.date %>">
       <time datetime="<%= date_xml(post.updated) %>" itemprop="dateModified"><%= date(post.updated, date_format) %></time>
     </span>
-  <% } %>
+  <%_ } _%>
 </div>

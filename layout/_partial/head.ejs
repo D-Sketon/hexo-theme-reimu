@@ -1,13 +1,13 @@
 <head>
-  <% if (theme.injector.head_begin) { %>
+  <%_ if (theme.injector.head_begin) { _%>
     <%- render(theme.injector.head_begin, 'html'); %>
-  <% } %>
+  <%_ } _%>
   <meta charset="utf-8">
   <%- partial('analytics/google-analytics', null, { cache: true }) %>
   <%- partial('analytics/clarity', null, { cache: true }) %>
   <%- partial('analytics/baidu-analytics', null, { cache: true }) %>
   <%- tagCached('themeConfig', themeConfig) %>
-  <%
+  <%_
     let title = page.title;
     if (is_archive()) {
       title = __('archive_a');
@@ -21,74 +21,72 @@
     } else if (is_tag()) {
       title = __('tag') + ': ' + page.tag;
     }
-  %>
+  _%>
   <title>
-    <% if (title) { %><%= title %> |
-    <% } %>
-    <%= config.title %>
+    <% if (title) { %><%= title %> | <% } %><%= config.title %>
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <% if (theme.custom_font?.enable) { %>
+  <%_ if (theme.custom_font?.enable) { _%>
     <%- tagCached('vendorFont', vendorFont) %>
-  <% } %>
-  <% if (theme.font?.enable) { %>
+  <%_ } _%>
+  <%_ if (theme.font?.enable) { _%>
     <%- tagCached('vendorGoogleFont', vendorGoogleFont) %>
-  <% } %>
-  <% if (!theme.icon_font) { %>
+  <%_ } _%>
+  <%_ if (!theme.icon_font) { _%>
     <%- css(theme.vendor.css.fontawesome.high_priority.map(i => ({href: vendorCdn(i)[0], integrity: vendorCdnIntegrity(i)[0], crossorigin: "anonymous"}))) %>
     <%- asyncCss(theme.vendor.css.fontawesome.low_priority.map(i => ({href: vendorCdn(i)[0], integrity: vendorCdnIntegrity(i)[0], crossorigin: "anonymous"}))) %>
-  <% } else { %>
+  <%_ } else { _%>
     <link rel="preload" href="//at.alicdn.com/t/c/font_<%- theme.icon_font %>.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <% } %>
-  <% if (theme.preloader.enable) { %>
+  <%_ } _%>
+  <%_ if (theme.preloader.enable) { _%>
     <%- css(url_for('css/loader')) %>
-  <% } %>
-  <% if (theme.open_graph) { %>
+  <%_ } _%>
+  <%_ if (theme.open_graph) { _%>
     <%- open_graph({image: page.photos || theme.open_graph.options?.default_og_image || [], twitter_card: theme.open_graph.options?.twitter_card, twitter_id: theme.open_graph.options?.twitter_id, twitter_site: theme.open_graph.options?.twitter_site, twitter_image: theme.open_graph.options?.twitter_image, google_plus: theme.open_graph.options?.google_plus, fb_admins: theme.open_graph.options?.fb_admins, fb_app_id: theme.open_graph.options?.fb_app_id}) %>
-  <% } %>
-  <% if (config.feed) { %>
+  <%_ } _%>
+  <%_ if (config.feed) { _%>
     <%- feed_tag() %>
-  <% } else if (theme.rss) { %>
+  <%_ } else if (theme.rss) { _%>
     <%- feed_tag(theme.rss) %>
-  <% } %>
-  <% if (theme.favicon) { %>
+  <%_ } _%>
+  <%_ if (theme.favicon) { _%>
     <%- favicon_tag(theme.favicon) %>
-  <% } %>
+  <%_ } _%>
   <%- css(url_for('css/style')) %>
   <%- asyncCss({href: vendorCdn(theme.vendor.css.photoswipe)[0], integrity: vendorCdnIntegrity(theme.vendor.css.photoswipe)[0], crossorigin: "anonymous"}) %>
-  <% if (theme.math.enable) { %>
-    <% if (theme.math.katex.enable) { %>
-      <% if (is_post() || is_page()) { %>
+  <%_ if (theme.math.enable) { _%>
+    <%_ if (theme.math.katex.enable) { _%>
+      <%_ if (is_post() || is_page()) { _%>
         <%- css({href: vendorCdn(theme.vendor.css.katex)[0], integrity: vendorCdnIntegrity(theme.vendor.css.katex)[0], crossorigin: "anonymous"}) %>
-      <% } else { %>
+      <%_ } else { _%>
         <%- asyncCss({href: vendorCdn(theme.vendor.css.katex)[0], integrity: vendorCdnIntegrity(theme.vendor.css.katex)[0], crossorigin: "anonymous"}) %>
-      <% } %>
-    <% } %>
-  <% } %>
-  <% if (theme.waline.enable && theme.waline.serverURL) { %>
-    <% if (is_post() || is_page()) { %>
+      <%_ } _%>
+    <%_ } _%>
+  <%_ } _%>
+  <%_ if (theme.waline.enable && theme.waline.serverURL) { _%>
+    <%_ if (is_post() || is_page()) { _%>
       <%- css({href: vendorCdn(theme.vendor.css.waline)[0], integrity: vendorCdnIntegrity(theme.vendor.css.waline)[0], crossorigin: "anonymous"}) %>
-    <% } else { %>
+    <%_ } else { _%>
       <%- asyncCss({href: vendorCdn(theme.vendor.css.waline)[0], integrity: vendorCdnIntegrity(theme.vendor.css.waline)[0], crossorigin: "anonymous"}) %>
-    <% } %>
-  <% } %>
-  <% if (theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret) { %>
-    <% if (is_post() || is_page()) { %>
+    <%_ } _%>
+  <%_ } _%>
+  <%_ if (theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret) { _%>
+    <%_ if (is_post() || is_page()) { _%>
       <%- css({href: vendorCdn(theme.vendor.css.gitalk)[0], integrity: vendorCdnIntegrity(theme.vendor.css.gitalk)[0], crossorigin: "anonymous"}) %>
-    <% } else { %>
+    <%_ } else { _%>
       <%- asyncCss({href: vendorCdn(theme.vendor.css.gitalk)[0], integrity: vendorCdnIntegrity(theme.vendor.css.gitalk)[0], crossorigin: "anonymous"}) %>
-    <% } %>
-  <% } %>
-  <% if (theme.pace.enable) { %>
+    <%_ } _%>
+  <%_ } _%>
+  <%_ if (theme.pace.enable) { _%>
     <%- js({src: vendorCdn(theme.vendor.js.pace)[0], integrity: vendorCdnIntegrity(theme.vendor.js.pace)[0], crossorigin: "anonymous"}) %>
-  <% } %>
-  <% if (theme.animation.enable) { %>
+  <%_ } _%>
+  <%_ if (theme.animation.enable) { _%>
     <%- css({href: vendorCdn(theme.vendor.css.aos)[0], integrity: vendorCdnIntegrity(theme.vendor.css.aos)[0], crossorigin: "anonymous"}) %>
-  <% } %>
-  <% if (theme.player.aplayer.enable) { %>
+  <%_ } _%>
+  <%_ if (theme.player.aplayer.enable) { _%>
     <%- asyncCss({href: vendorCdn(theme.vendor.css.aplayer)[0], integrity: vendorCdnIntegrity(theme.vendor.css.aplayer)[0], crossorigin: "anonymous"}) %>
-  <% } %>
-  <% if (theme.injector.head_end) { %>
+  <%_ } _%>
+  <%_ if (theme.injector.head_end) { _%>
     <%- render(theme.injector.head_end, 'html'); %>
-  <% } %>
+  <%_ } _%>
 </head>

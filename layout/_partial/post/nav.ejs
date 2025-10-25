@@ -1,52 +1,52 @@
-<% if (post.prev || post.next) { %>
+<%_ if (post.prev || post.next) { _%>
   <nav id="article-nav" aria-label="Article navigation" data-aos="<%= theme.animation.options.article.nav %>">
-    <% if (post.prev) { %>
-      <% const postByLang = get_post_by_lang(post.prev.permalink, post.lang); %>
+    <%_ if (post.prev) { _%>
+      <%_ const postByLang = get_post_by_lang(post.prev.permalink, post.lang); _%>
       <div class="article-nav-link-wrap left">
-        <% if (post.prev.cover && !post.prev.cover.startsWith('rgb')) { %>
+        <%_ if (post.prev.cover && !post.prev.cover.startsWith('rgb')) { _%>
           <img data-src="<%- url_for(post.prev.cover, {relative: false}) %>" data-sizes="auto" alt="<%= postByLang.title %>" class="lazyload">
-        <% } else { %>
-          <% let cover = randomCover(); %>
-          <% if (cover) { %>
+        <%_ } else { _%>
+          <%_ let cover = randomCover(); _%>
+          <%_ if (cover) { _%>
             <img data-src="<%= cover %>" data-sizes="auto" alt="<%= postByLang.title %>" class="lazyload">
-          <% } else { %>
+          <%_ } else { _%>
             <img data-src="<%- url_for(theme.banner, {relative: false}) %>" data-sizes="auto" alt="<%= postByLang.title %>" class="lazyload">
-          <% } %>
-        <% } %>
+          <%_ } _%>
+        <%_ } _%>
         <a href="<%- url_for_lang(post.prev.path, {relative: false}) %>" aria-label="<%= __('newer') %>: <%= postByLang.title || 'no title' %>" title="<%= __('newer') %>: <%= postByLang.title || 'no title' %>"></a>
         <div class="article-nav-caption"><%= __('newer') %></div>
         <h3 class="article-nav-title">
-          <% if (postByLang.title) { %>
+          <%_ if (postByLang.title) { _%>
             <%= postByLang.title %>
-          <% } else { %>
+          <%_ } else { _%>
             (no title)
-          <% } %>
+          <%_ } _%>
         </h3>
       </div>
-    <% } %>
-    <% if (post.next) { %>
-    <% const postByLang = get_post_by_lang(post.next.permalink, post.lang); %>
+    <%_ } _%>
+    <%_ if (post.next) { _%>
+    <%_ const postByLang = get_post_by_lang(post.next.permalink, post.lang); _%>
     <div class="article-nav-link-wrap right">
-      <% if (post.next.cover && !post.next.cover.startsWith('rgb')) { %>
+      <%_ if (post.next.cover && !post.next.cover.startsWith('rgb')) { _%>
         <img data-src="<%- url_for(post.next.cover, {relative: false}) %>" data-sizes="auto" alt="<%= postByLang.title %>" class="lazyload">
-      <% } else { %>
-        <% let cover = randomCover(); %>
-        <% if (cover) { %>
+      <%_ } else { _%>
+        <%_ let cover = randomCover(); _%>
+        <%_ if (cover) { _%>
           <img data-src="<%= cover %>" data-sizes="auto" alt="<%= postByLang.title %>" class="lazyload">
-        <% } else { %>
+        <%_ } else { _%>
           <img data-src="<%- url_for(theme.banner, {relative: false}) %>" data-sizes="auto" alt="<%= postByLang.title %>" class="lazyload">
-        <% } %>
-      <% } %>
+        <%_ } _%>
+      <%_ } _%>
       <a href="<%- url_for_lang(post.next.path, {relative: false}) %>" aria-label="<%= __('older') %>: <%= postByLang.title || 'no title' %>"  title="<%= __('older') %>: <%= postByLang.title || 'no title' %>"></a>
       <div class="article-nav-caption"><%= __('older') %></div>
       <h3 class="article-nav-title">
-        <% if (postByLang.title) { %>
+        <%_ if (postByLang.title) { _%>
           <%= postByLang.title %>
-        <% } else { %>
+        <%_ } else { _%>
           (no title)
-        <% } %>
+        <%_ } _%>
       </h3>
     </div>
-    <% } %>
+    <%_ } _%>
   </nav>
-<% } %>
+<%_ } _%>

@@ -1,11 +1,11 @@
-<% if (post.photos && post.photos.length) { %>
+<%_ if (post.photos && post.photos.length) { _%>
   <div class="article-gallery">
     <div class="article-gallery-photos">
-      <% post.photos.forEach((photo, i) => { %>
+      <%_ post.photos.forEach((photo, i) => { _%>
         <a class="article-gallery-img article-gallery-item" href="<%- url_for(photo) %>" target="_blank">
           <img src="<%- url_for(photo) %>" itemprop="image" alt="gallery" onload="this.parentNode.dataset.pswpWidth = this.naturalWidth;this.parentNode.dataset.pswpHeight = this.naturalHeight;">
         </a>
-      <% }) %>
+      <%_ }) _%>
     </div>
   </div>
-<% } %>
+<%_ } _%>

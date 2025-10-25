@@ -1,41 +1,41 @@
 <div class="post-wrapper">
   <div class=<% if (even === true) { %>"post-wrap left"<% } else { %>"post-wrap right"<% } %> data-aos="<%= theme.animation.options.home.post %>">
-    <% if (post.link) { %>
+    <%_ if (post.link) { _%>
       <a class="post-link" href="<%- url_for(post.link, {relative: false}) %>" itemprop="url" target="_blank" aria-label="<%= post.title %>" title="<%= post.title %>" rel="noopener nofollow noreferrer"></a>
-    <% } else { %>
+    <%_ } else { _%>
       <a class="post-link" href="<%- url_for_lang(post.path) %>" aria-label="<%= post.title %>" title="<%= post.title %>"></a>
-    <% } %>
-    <% if (post.sticky) { %>
+    <%_ } _%>
+    <%_ if (post.sticky) { _%>
       <div class="post-sticky"><%= __('sticky')%></div>
-    <% } %>
+    <%_ } _%>
     <div class=<% if (even === true) { %>"post-cover left"<% } else { %>"post-cover right"<% } %>>
-      <% if (post.cover && !post.cover.startsWith("rgb")) { %>
+      <%_ if (post.cover && !post.cover.startsWith("rgb")) { _%>
         <img data-src="<%- url_for(post.cover, {relative: false}) %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
-      <% } else { %>
-        <% let cover = randomCover(); %>
-        <% if (cover) { %>
+      <%_ } else { _%>
+        <%_ let cover = randomCover(); _%>
+        <%_ if (cover) { _%>
           <img data-src="<%= cover %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
-        <% } else { %>
+        <%_ } else { _%>
           <img data-src="<%- url_for(theme.banner, {relative: false}) %>" data-sizes="auto" alt="<%= post.title %>" class="lazyload">
-        <% } %>
-      <% } %>
+        <%_ } _%>
+      <%_ } _%>
     </div>
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span><%- date(post.date, "YYYY-MM-DD") %></span>
-        <% if (theme.show_update_time) { %>
+        <%_ if (theme.show_update_time) { _%>
           <span><span class="icon-calendar-plus"></span><%- date(post.updated, "YYYY-MM-DD") %></span>
-        <% } %>
+        <%_ } _%>
         <span><span class="icon-pencil"></span><%= _p('post.count', wordcount(post.content, post._id)) %></span>
         <span><span class="icon-clock"></span><%= _p('post.time', min2read(post.content, {}, post._id)) %></span>
       </div>
       <h2 class="post-title"><%= post.title %></h2>
       <article class="post-article">
-        <% if (post.excerpt) { %>
+        <%_ if (post.excerpt) { _%>
           <%= stripHtml(post.excerpt) %>
-        <% } else { %>
+        <%_ } else { _%>
           <%= stripHtml(post.content).slice(0, 300) %>
-        <% } %>
+        <%_ } _%>
       </article>
     </div>
   </div>

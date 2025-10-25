@@ -1,13 +1,13 @@
 <%- js({ src: vendorCdn(theme.vendor.js.lazysizes)[0], integrity: vendorCdnIntegrity(theme.vendor.js.lazysizes)[0], crossorigin: "anonymous"}) %>
 <%- js({ src: vendorCdn(theme.vendor.js.clipboard)[0], integrity: vendorCdnIntegrity(theme.vendor.js.clipboard)[0], crossorigin: "anonymous"}) %>
 
-<% if (theme.material_theme.enable) { %>
+<%_ if (theme.material_theme.enable) { _%>
   <%- js({src: vendorCdn(theme.vendor.js.material_theme)[0], integrity: vendorCdnIntegrity(theme.vendor.js.material_theme)[0], crossorigin: "anonymous"}) %>
-<% } %>
+<%_ } _%>
 
 <%- js(url_for('js/script.js')) %>
 
-<% if (theme.animation.enable) { %>
+<%_ if (theme.animation.enable) { _%>
   <%- js(url_for('js/aos.js')) %>
   <script>
     var aosInit = () => {
@@ -24,15 +24,15 @@
       aosInit();
     }
   </script>
-<% } %>
+<%_ } _%>
 
 <%- js({src: url_for('js/pjax_script.js'), 'data-pjax': true}) %>
 
-<% if (theme.generator_search.enable) { %>
+<%_ if (theme.generator_search.enable) { _%>
   <%- js({src: url_for('js/generator_search.js'), defer: true}) %>
-<% } %>
+<%_ } _%>
 
-<% if (theme.algolia_search.enable) { %>
+<%_ if (theme.algolia_search.enable) { _%>
   <script>
     var ALGOLIA_CONFIG = {
       logo: "<%- url_for('/images/algolia_logo.svg', { relative: false }) %>",
@@ -54,34 +54,34 @@
   <%- js({src: vendorCdn(theme.vendor.js.algolia)[0], integrity: vendorCdnIntegrity(theme.vendor.js.algolia)[0], crossorigin: "anonymous", defer: true}) %>
   <%- js({src: vendorCdn(theme.vendor.js.instantsearch)[0], integrity: vendorCdnIntegrity(theme.vendor.js.instantsearch)[0], crossorigin: "anonymous", defer: true}) %>
   <%- js({src: 'js/algolia_search.js', defer: true}) %>
-<% } %>
+<%_ } _%>
 
-<% if (theme.firework.enable) { %>
+<%_ if (theme.firework.enable) { _%>
   <%- js({src: vendorCdn(theme.vendor.js.firework)[0], integrity: vendorCdnIntegrity(theme.vendor.js.firework)[0], crossorigin: "anonymous"}) %>
   <script>
     window.firework && window.firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'))
   </script>
-<% } %>
+<%_ } _%>
 
-<% if (theme.pjax.enable) { %>
+<%_ if (theme.pjax.enable) { _%>
   <%- js({src: vendorCdn(theme.vendor.js.pjax)[0], integrity: vendorCdnIntegrity(theme.vendor.js.pjax)[0], crossorigin: "anonymous"}) %>
   <%- js(url_for('js/pjax.js')) %>
-<% } %>
+<%_ } _%>
 
-<% if (theme.live2d.enable) { %>
+<%_ if (theme.live2d.enable) { _%>
   <script>
     function initLive2d() {
       live2d.init("<%- vendorCdn(theme.vendor.js.live2d.base)[0] %>", {themeTipsPath: ""});
     }
   </script>
   <%- js({src: vendorCdn(theme.vendor.js.live2d.js)[0], onload: "initLive2d && initLive2d()", async: true})%>
-<% } %>
+<%_ } _%>
 
-<% if (theme.live2d_widgets.enable) { %>
+<%_ if (theme.live2d_widgets.enable) { _%>
   <%- js({src: vendorCdn(theme.vendor.js.live2d_widgets)[0], integrity: vendorCdnIntegrity(theme.vendor.js.live2d_widgets)[0], crossorigin: "anonymous"}) %>
-<% } %>
+<%_ } _%>
 
-<% if (theme.quicklink.enable) { %>
+<%_ if (theme.quicklink.enable) { _%>
   <%- js({src: vendorCdn(theme.vendor.js.quicklink)[0], integrity: vendorCdnIntegrity(theme.vendor.js.quicklink)[0], crossorigin: "anonymous"}) %>
   <script data-pjax>
     window.quicklink?.listen({
@@ -90,11 +90,11 @@
       ignores: <%- JSON.stringify(theme.quicklink.ignores) %>
     });
   </script>
-<% } %>
+<%_ } _%>
 
 <div id="lazy-script">
   <div>
-    <% if (post?.permalink) { %>
+    <%_ if (post?.permalink) { _%>
       <% let content = stripHtml(post.content).slice(0, 250).replace(/\s/g, " ") %>
       <% let excerpt = stripHtml(post.excerpt).replace(/\s/g, " ") %>
       <script data-pjax>
@@ -110,13 +110,13 @@
           cover: "<%- post.cover && !post.cover.startsWith('rgb') ? url_for(post.cover, {relative: false}) : url_for(theme.banner, {relative: false}) %>",
         };
       </script>
-    <% } %>   
-    <% if (theme.mermaid.enable && page.mermaid) { %>
+    <%_ } _%>   
+    <%_ if (theme.mermaid.enable && page.mermaid) { _%>
       <%- js({src: vendorCdn(theme.vendor.js.mermaid)[0], integrity: vendorCdnIntegrity(theme.vendor.js.mermaid)[0], crossorigin: "anonymous", 'data-pjax': true}) %>
       <%- js({src: vendorCdn(theme.vendor.js.dompurify)[0], integrity: vendorCdnIntegrity(theme.vendor.js.dompurify)[0], crossorigin: "anonymous"}) %>
-      <% if (theme.mermaid.zoom) { %>
+      <%_ if (theme.mermaid.zoom) { _%>
         <%- js({src: vendorCdn(theme.vendor.js.svg_pan_zoom)[0], integrity: vendorCdnIntegrity(theme.vendor.js.svg_pan_zoom)[0], crossorigin: "anonymous"}) %>
-      <% } %>
+      <%_ } _%>
       <script data-pjax>
         if (window.mermaid) {
           // https://github.com/mermaid-js/mermaid/issues/1945
@@ -203,17 +203,17 @@
           }
         }
       </script>
-    <% } %>
-    <% if (config.highlight.enable || config.syntax_highlighter === "highlight.js") { %>
-      <% if (is_post() || is_page()) { %>
+    <%_ } _%>
+    <%_ if (config.highlight.enable || config.syntax_highlighter === "highlight.js") { _%>
+      <%_ if (is_post() || is_page()) { _%>
         <%- js({ src: url_for("js/insert_highlight.js"), "data-pjax": true }) %>
-        <% if (Array.isArray(theme.share) && theme.share.includes("weixin")) { %>
+        <%_ if (Array.isArray(theme.share) && theme.share.includes("weixin")) { _%>
           <%- js({src: vendorCdn(theme.vendor.js.snapdom)[0], integrity: vendorCdnIntegrity(theme.vendor.js.snapdom)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
           <%- js({src: vendorCdn(theme.vendor.js.qrcode)[0], integrity: vendorCdnIntegrity(theme.vendor.js.qrcode)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
-        <% } %>
-      <% } %>
-    <% } %>
-    <% if (is_post() || is_page()) { %>
+        <%_ } _%>
+      <%_ } _%>
+    <%_ } _%>
+    <%_ if (is_post() || is_page()) { _%>
       <script type="module" data-pjax>
         const PhotoSwipeLightbox = (await safeImport("<%- vendorCdn(theme.vendor.js.photoswipe_lightbox) %>", "<%- vendorCdnIntegrity(theme.vendor.js.photoswipe_lightbox) %>")).default;
         const initPswp = (gallery, children) => {
@@ -237,23 +237,23 @@
           window.addEventListener('lightbox:ready', pswp);
         }
       </script>
-      <% if (page.comments !== false) { %>
+      <%_ if (page.comments !== false) { _%>
         <%- partial('post/comment', null, { cache: true }) %>
-      <% } %>
-    <% } %>
+      <%_ } _%>
+    <%_ } _%>
   </div>
 </div>
 
 <%- copyright() %>
 <%- outdate() %>
 
-<% if (theme.footer.busuanzi) { %>
+<%_ if (theme.footer.busuanzi) { _%>
   <%- js({src: vendorCdn(theme.vendor.js.busuanzi)[0], integrity: vendorCdnIntegrity(theme.vendor.js.busuanzi)[0], crossorigin: "anonymous", async: true}) %>
-<% } %>
+<%_ } _%>
 
-<% if (theme.service_worker.enable) { %>
+<%_ if (theme.service_worker.enable) { _%>
   <%- js(url_for('js/service_worker.js')) %>
-<% } else { %>
+<%_ } else { _%>
 <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistrations().then((registrations) => {
@@ -263,10 +263,10 @@
     });
   }
 </script>
-<% } %>
+<%_ } _%>
 
-<% if (theme.math.enable) { %>
-  <% if (theme.math.katex.enable && theme.math.katex.autoRender) { %>
+<%_ if (theme.math.enable) { _%>
+  <%_ if (theme.math.katex.enable && theme.math.katex.autoRender) { _%>
     <%- js({src: vendorCdn(theme.vendor.js.katex)[0], integrity: vendorCdnIntegrity(theme.vendor.js.katex)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
     <%- js({src: vendorCdn(theme.vendor.js.katex_auto_render)[0], integrity: vendorCdnIntegrity(theme.vendor.js.katex_auto_render)[0], crossorigin: "anonymous", defer: true, onload: "renderMathInElement(_$('article'), {delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});", 'data-pjax': true}) %>
   <% } else if (theme.math.mathjax.enable) { %>
@@ -274,12 +274,12 @@
     <script data-pjax>
       window.MathJax = <%- JSON.stringify(theme.math.mathjax.options) %>;
     </script>
-  <% } %>
-<% } %>
+  <%_ } _%>
+<%_ } _%>
 
-<% if (theme.player.aplayer.enable) { %>
+<%_ if (theme.player.aplayer.enable) { _%>
   <%- js({src: vendorCdn(theme.vendor.js.aplayer)[0], integrity: vendorCdnIntegrity(theme.vendor.js.aplayer)[0], crossorigin: "anonymous"}) %>
-  <% if (!theme.player.meting.enable) { %>
+  <%_ if (!theme.player.meting.enable) { _%>
     <script>
       if (window.matchMedia('(max-width: 959px)').matches) {
       const aplayer = _$('#aplayer');
@@ -307,15 +307,15 @@
         lrcType: <%= JSON.stringify(theme.player.aplayer.options.lrcType) %> || 0,
       });
     </script>
-  <% } %>
-<% } %>
+  <%_ } _%>
+<%_ } _%>
 
-<% if (theme.player.meting.enable) { %>
-  <% if (theme.player.meting.meting_api) { %>
+<%_ if (theme.player.meting.enable) { _%>
+  <%_ if (theme.player.meting.meting_api) { _%>
     <script>
       var meting_api = "<%- theme.player.meting.meting_api %>";
     </script>
-  <% } %>
+  <%_ } _%>
   <script>
     if (window.matchMedia('(max-width: 959px)').matches) {
       const meting = _$('meting-js');
@@ -330,9 +330,9 @@
     }
   </script>
   <%- js({src: vendorCdn(theme.vendor.js.meting)[0], integrity: vendorCdnIntegrity(theme.vendor.js.meting)[0], crossorigin: "anonymous"}) %>
-<% } %>
+<%_ } _%>
 
-<% if (theme.pangu.enable) { %>
+<%_ if (theme.pangu.enable) { _%>
   <%- js({src: vendorCdn(theme.vendor.js.pangu)[0], integrity: vendorCdnIntegrity(theme.vendor.js.pangu)[0], crossorigin: "anonymous", defer: true}) %>
   <script data-pjax>
     if (document.readyState === "loading") {
@@ -343,4 +343,4 @@
       pangu?.spacingPage();
     }
   </script>
-<% } %>
+<%_ } _%>

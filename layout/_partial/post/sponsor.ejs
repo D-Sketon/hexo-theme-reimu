@@ -4,19 +4,19 @@
     <div class="sponsor-title"><%= __('sponsor') %></div>
     <div class="sponsor-icon <%- theme.sponsor.icon?.rotate ? 'rotate' : '' %>"></div>
   </div>
-  <% var sponsorTip = theme.sponsor.tip; %>
-  <% if (typeof sponsorTip !== 'string') { %>
-    <% sponsorTip = sponsorTip[post.lang]; %>
-  <% } %>
+  <%_ var sponsorTip = theme.sponsor.tip; _%>
+  <%_ if (typeof sponsorTip !== 'string') { _%>
+    <%_ sponsorTip = sponsorTip[post.lang]; _%>
+  <%_ } _%>
   <div class="sponsor-tip"><%- sponsorTip %></div>
-  <% if (theme.sponsor.qr?.length) { %>
+  <%_ if (theme.sponsor.qr?.length) { _%>
     <div class="sponsor-qr">
-      <% for (let i of theme.sponsor.qr) { %>
+      <%_ for (let i of theme.sponsor.qr) { _%>
         <div class="sponsor-qr-image-wrapper">
           <img src="<%- url_for(i.src, {relative: false}) %>" alt=<%- i.name %> width="200" />
           <p class="sponsor-qr-name"><%- i.name %></p>
         </div>
-      <% } %>
+      <%_ } _%>
     </div>
-  <% } %>
+  <%_ } _%>
 </div>

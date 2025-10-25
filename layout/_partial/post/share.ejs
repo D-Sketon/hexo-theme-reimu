@@ -1,8 +1,8 @@
 <div class="share-wrapper">
-  <% for(let share of theme.share) { %>
+  <%_ for(let share of theme.share) { _%>
     <a href="<%= shareLink(post, share) %>" <% if (share !== "weixin") { %>target="_blank" rel="noopener noreferrer"<% } %> title="<%= post.title %>">
       <div class="share-icon icon icon-<%- share %>">
-        <% if (share === 'weixin') { %>
+        <%_ if (share === 'weixin') { _%>
           <div id="share-weixin">
             <div class="share-weixin-dom">
               <div class="share-weixin-content">
@@ -20,8 +20,8 @@
             </div>
             <div class="share-weixin-canvas"></div>
           </div>
-        <% } %>
+        <%_ } _%>
       </div>
     </a>
-  <% } %>
+  <%_ } _%>
 </div>

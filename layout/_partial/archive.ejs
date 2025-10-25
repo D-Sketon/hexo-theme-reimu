@@ -1,103 +1,103 @@
-<% if (home === true) { %>
-  <% if (theme.home_categories?.enable) { %>
+<%_ if (home === true) { _%>
+  <%_ if (theme.home_categories?.enable) { _%>
     <div class="post-categories-wrapper" data-aos="<%= theme.animation.options.home.post %>">
-      <% for (let content of theme.home_categories.content) { %>
-        <% if (content.categories) { %>
+      <%_ for (let content of theme.home_categories.content) { _%>
+        <%_ if (content.categories) { _%>
         <div class="post-categories-wrap">
-          <% let c = parseHomeCategories(content.categories); %>
+          <%_ let c = parseHomeCategories(content.categories); _%>
           <a class="post-link" href="<%= url_for_lang(c.url, {relative: false}) %>" aria-label="<%= c.name %>" title="<%= c.name %>"></a>
           <div class="post-categories-cover">
-            <% if (content.cover) { %>
+            <%_ if (content.cover) { _%>
               <img data-src="<%- url_for(content.cover, {relative: false}) %>" data-sizes="auto" alt="<%= c.name %>" class="lazyload">
-            <% } else { %>
-              <% let cover = randomCover(); %>
-              <% if (cover) { %>
+            <%_ } else { _%>
+              <%_ let cover = randomCover(); _%>
+              <%_ if (cover) { _%>
                 <img data-src="<%= cover %>" data-sizes="auto" alt="<%= c.name %>" class="lazyload">
-              <% } else { %>
+              <%_ } else { _%>
                 <img data-src="<%- url_for(theme.banner, {relative: false}) %>" data-sizes="auto" alt="<%= c.name %>" class="lazyload">
-              <% } %>
-            <% } %>
+              <%_ } _%>
+            <%_ } _%>
             <h2><%= c.name %></h2>
             <h3><%= _p('home_categories.count', c.count) %></h3>
           </div>
         </div>
-        <% } %>
-      <% } %>
+        <%_ } _%>
+      <%_ } _%>
     </div>
-  <% } %>
-  <% if (page.lang) { %>
-    <% let i = 0; %>
-    <% for (const post of get_posts_by_lang(page.posts, page.lang)) { %>
+  <%_ } _%>
+  <%_ if (page.lang) { _%>
+    <%_ let i = 0; _%>
+    <%_ for (const post of get_posts_by_lang(page.posts, page.lang)) { _%>
       <%- partial('post', {post: post, even: i % 2 === 0}) %>
-      <% i++; %>
-    <% } %>
-  <% } else { %>
-    <% page.posts.forEach((post, i) => { %>
+      <%_ i++; _%>
+    <%_ } _%>
+  <%_ } else { _%>
+    <%_ page.posts.forEach((post, i) => { _%>
       <%- partial('post', {post: post, even: i % 2 === 0}) %>
-    <% }) %>
-  <% } %>
-<% } else { %>
+    <%_ }) _%>
+  <%_ } _%>
+<%_ } else { _%>
 <div class="archives-outer-wrap" data-aos="<%= theme.animation.options.archive.whole %>">
-  <% if (theme.only_show_capsule_in_index) { %>
-    <% if (page.current === 1) { %>
+  <%_ if (theme.only_show_capsule_in_index) { _%>
+    <%_ if (page.current === 1) { _%>
       <%- partial_lang('post/archives', null, { cache: !config.relative_link, lang: page.lang }) %>
-    <% } %>
-  <% } else { %>
+    <%_ } _%>
+  <%_ } else { _%>
     <%- partial_lang('post/archives', null, { cache: !config.relative_link, lang: page.lang }) %>
-  <% } %>
-  <% if (page.lang) { %>
-    <% const posts = get_posts_by_lang(page.posts, page.lang); %>
-    <% var last; %>
-    <% posts.forEach((post, i) => { %>
-      <% var year = post.date.year(); %>
-      <% if (last != year) { %>
-        <% if (last != null) { %>
+  <%_ } _%>
+  <%_ if (page.lang) { _%>
+    <%_ const posts = get_posts_by_lang(page.posts, page.lang); _%>
+    <%_ var last; _%>
+    <%_ posts.forEach((post, i) => { _%>
+      <%_ var year = post.date.year(); _%>
+      <%_ if (last != year) { _%>
+        <%_ if (last != null) { _%>
           </section>
-        <% } %>
-        <% last = year; %>
+        <%_ } _%>
+        <%_ last = year; _%>
         <section class="archives-wrap" data-aos="<%= theme.animation.options.archive.section %>">
           <div class="archive-year-wrap">
             <a href="<%- url_for_lang(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
           </div>
           <ul>
-            <% } %>
+            <%_ } _%>
             <%- partial('archive-post', {post: post}) %>
-            <% }) %>
-            <% if (page.posts.length) { %>
+            <%_ }) _%>
+            <%_ if (page.posts.length) { _%>
           </ul>
         </section>
-    <% } %>
-  <% } else { %>
-    <% var last; %>
-    <% page.posts.each((post, i) => { %>
-      <% var year = post.date.year(); %>
-      <% if (last != year) { %>
-        <% if (last != null) { %>
+    <%_ } _%>
+  <%_ } else { _%>
+    <%_ var last; _%>
+    <%_ page.posts.each((post, i) => { _%>
+      <%_ var year = post.date.year(); _%>
+      <%_ if (last != year) { _%>
+        <%_ if (last != null) { _%>
           </section>
-        <% } %>
-        <% last = year; %>
+        <%_ } _%>
+        <%_ last = year; _%>
         <section class="archives-wrap" data-aos="<%= theme.animation.options.archive.section %>">
           <div class="archive-year-wrap">
             <a href="<%- url_for_lang(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
           </div>
           <ul>
-            <% } %>
+            <%_ } _%>
             <%- partial('archive-post', {post: post}) %>
-            <% }) %>
-            <% if (page.posts.length) { %>
+            <%_ }) _%>
+            <%_ if (page.posts.length) { _%>
           </ul>
         </section>
-    <% } %>
-  <% } %>
+    <%_ } _%>
+  <%_ } _%>
   </div>
-<% } %>
-<% if (page.total > 1) { %>
+<%_ } _%>
+<%_ if (page.total > 1) { _%>
   <nav id="page-nav" aria-label="Pagination navigation" data-aos="<%= theme.animation.options.archive.nav %>">
-    <% let prev_text = "&laquo; " + __('prev');let next_text = __('next') + " &raquo;" %>
+    <%_ let prev_text = "&laquo; " + __('prev');let next_text = __('next') + " &raquo;" _%>
     <%- paginator({
           prev_text: prev_text,
           next_text: next_text,
           escape: false
       }) %>
   </nav>
-<% } %>
+<%_ } _%>
