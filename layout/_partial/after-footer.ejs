@@ -59,7 +59,7 @@
 <%_ if (theme.firework.enable) { _%>
   <%- js({src: vendorCdn(theme.vendor.js.firework)[0], integrity: vendorCdnIntegrity(theme.vendor.js.firework)[0], crossorigin: "anonymous"}) %>
   <script>
-    if (!<%= theme.firework.disableOnMobile %> || !window.matchMedia('(max-width: 768px)').matches) {
+    if (!<%= theme.firework.disable_on_mobile %> || !window.matchMedia('(max-width: 768px)').matches) {
       window.firework && window.firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'));
     }
   </script>
@@ -283,7 +283,7 @@
   <%- js({src: vendorCdn(theme.vendor.js.aplayer)[0], integrity: vendorCdnIntegrity(theme.vendor.js.aplayer)[0], crossorigin: "anonymous"}) %>
   <%_ if (!theme.player.meting.enable) { _%>
     <script>
-      if (!<%= theme.player.disableOnMobile %> || !window.matchMedia('(max-width: 768px)').matches) {
+      if (!<%= theme.player.disable_on_mobile %> || !window.matchMedia('(max-width: 768px)').matches) {
         if (window.matchMedia('(max-width: 959px)').matches) {
           const aplayer = _$('#aplayer');
           if (aplayer) {
@@ -321,7 +321,7 @@
     </script>
   <%_ } _%>
   <script>
-    if (!<%= theme.player.disableOnMobile %> || !window.matchMedia('(max-width: 768px)').matches) {
+    if (!<%= theme.player.disable_on_mobile %> || !window.matchMedia('(max-width: 768px)').matches) {
       if (window.matchMedia('(max-width: 959px)').matches) {
         const meting = _$('meting-js');
         if (meting) {
