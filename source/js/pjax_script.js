@@ -349,7 +349,18 @@ if (shareWeixinHandler) {
 }
 shareWeixinHandler = (e) => {
   if (e.target.closest(".share-icon.icon-weixin")) return;
-  _$("#share-weixin")?.classList.remove("active");
+  const sw = _$("#share-weixin");
+  if (sw && sw.classList.contains("active")) {
+    sw.classList.remove("active");
+    sw.addEventListener(
+      "transitionend",
+      function handler() {
+        sw.style.display = "none";
+        sw.removeEventListener("transitionend", handler);
+      },
+      { once: true },
+    );
+  }
 };
 document.on("click", shareWeixinHandler);
 
@@ -367,7 +378,23 @@ _$(".share-icon.icon-weixin")
       shareWeixin.style.left = "-138px";
     }
     if (e.target === this) {
-      shareWeixin.classList.toggle("active");
+      const el = shareWeixin;
+      if (!el) return;
+      if (!el.classList.contains("active")) {
+        el.style.display = "block";
+        requestAnimationFrame(() => {
+          el.classList.add("active");
+        });
+      } else {
+        el.classList.remove("active");
+        const onEnd = (ev) => {
+          if (ev.propertyName === "opacity") {
+            el.style.display = "none";
+            el.removeEventListener("transitionend", onEnd);
+          }
+        };
+        el.addEventListener("transitionend", onEnd);
+      }
     }
     // if contains img return
     if (_$(".share-weixin-canvas").children.length) {
