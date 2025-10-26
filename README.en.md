@@ -24,11 +24,11 @@
 A Hakurei Reimu style Hexo theme.  
 A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian) and [Shoka](https://github.com/amehime/hexo-theme-shoka) themes.
 
-|framework|repository|version|stars|
-|-|-|-|-|
-|[Hexo](https://hexo.io/)|[hexo-theme-reimu](https://github.com/D-Sketon/hexo-theme-reimu)|<img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fhexo-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version">|<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/hexo-theme-reimu">|
-|[Hugo](https://gohugo.io)|[hugo-theme-reimu](https://github.com/D-Sketon/hugo-theme-reimu)|<img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fhugo-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version">|<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/hugo-theme-reimu">|
-|[Astro](https://astro.build)|[astro-theme-reimu](https://github.com/D-Sketon/astro-theme-reimu)|<img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fastro-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version">|<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/astro-theme-reimu">|
+| framework                    | repository                                                         | version                                                                                                                                                                                     | stars                                                                                              |
+| ---------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| [Hexo](https://hexo.io/)     | [hexo-theme-reimu](https://github.com/D-Sketon/hexo-theme-reimu)   | <img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fhexo-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version">  | <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/hexo-theme-reimu">  |
+| [Hugo](https://gohugo.io)    | [hugo-theme-reimu](https://github.com/D-Sketon/hugo-theme-reimu)   | <img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fhugo-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version">  | <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/hugo-theme-reimu">  |
+| [Astro](https://astro.build) | [astro-theme-reimu](https://github.com/D-Sketon/astro-theme-reimu) | <img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fastro-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version"> | <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/astro-theme-reimu"> |
 
 **ISSUE and PR Welcome!**
 
@@ -1281,35 +1281,49 @@ Both formats are supported. It's recommended to use SRI verification for externa
 
 ### Front-matter Fields
 
-| meta        | Description                                                                 | Type                                                   | Value Logic        | Version   |
-| ----------- | --------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------ | --------- |
-| title       | Title                                                                       | `string`                                               | Article file name  | Hexo Built-in |
-| date        | Creation Date                                                               | `date`                                                 | File creation date | Hexo Built-in |
-| updated     | Update Date                                                                 | `date`                                                 | File update date   | Hexo Built-in |
-| tags        | Tags                                                                        | `string[] \| string[][]`                               | -                  | Hexo Built-in |
-| categories  | Categories                                                                  | `string[] \| string[][]`                               | -                  | Hexo Built-in |
-| permalink   | Override the article's permanent link                                       | `string`                                               | -                  | Hexo Built-in |
-| excerpt     | Article Excerpt                                                             | `string`                                               | -                  | Hexo Built-in |
-| description | Article Description                                                         | `string`                                               | -                  | 0.0.1     |
-| link        | Directs the article to an external link                                     | `string`                                               | -                  | 0.0.1     |
-| sticky      | Whether to pin the article                                                  | `boolean`                                              | `false`            | 0.0.1     |
-| photos      | Article photo gallery                                                       | `string[]`                                             | -                  | 0.0.1     |
-| mermaid     | Whether to enable mermaid (requires configuration with `mermaid` config)  | `boolean`                                              | `false`                  | 0.2.0     |
-| copyright   | Whether to enable article copyright notice                                  | `boolean`                                              | Defaults to global config if not provided | 0.3.1     |
-| sponsor     | Whether to enable article sponsorship                                       | `boolean`                                              | Defaults to global config if not provided | 0.3.2     |
-| comments    | Whether to enable article comments                                          | `boolean`                                              | Defaults to global config if not provided | 0.3.2     |
-| cover       | Article cover                                                               | `https://example.com \| false \| rgb(255,117,117)` | Defaults to global config if not provided | 0.0.7     |
-| sidebar     | Article sidebar position                                                    | `false \| 'left' \| 'right'`                           | Defaults to global config if not provided | 1.3.0     |
-| lang        | Article language (requires configuration with `i18n` config)              | `string`                                               | -                  | 1.4.0     |
-| toc         | Whether to enable article table of contents                                 | `boolean`                                              | Defaults to global config if not provided | 1.6.0     |
-| outdated    | Whether the article is outdated                                             | `boolean`                                              | Defaults to global config if not provided | 1.10.1    |
-| author      | Article author (used for article copyright and sharing cards)               | `string`                                               | Defaults to global config if not provided | 1.10.2    |
+| meta        | Description                                                              | Type                                               | Value Logic                               | Version       |
+| ----------- | ------------------------------------------------------------------------ | -------------------------------------------------- | ----------------------------------------- | ------------- |
+| title       | Title                                                                    | `string`                                           | Article file name                         | Hexo Built-in |
+| date        | Creation Date                                                            | `date`                                             | File creation date                        | Hexo Built-in |
+| updated     | Update Date                                                              | `date`                                             | File update date                          | Hexo Built-in |
+| tags        | Tags                                                                     | `string[] \| string[][]`                           | -                                         | Hexo Built-in |
+| categories  | Categories                                                               | `string[] \| string[][]`                           | -                                         | Hexo Built-in |
+| permalink   | Override the article's permanent link                                    | `string`                                           | -                                         | Hexo Built-in |
+| excerpt     | Article Excerpt                                                          | `string`                                           | -                                         | Hexo Built-in |
+| description | Article Description                                                      | `string`                                           | -                                         | 0.0.1         |
+| link        | Directs the article to an external link                                  | `string`                                           | -                                         | 0.0.1         |
+| sticky      | Whether to pin the article                                               | `boolean`                                          | `false`                                   | 0.0.1         |
+| photos      | Article photo gallery                                                    | `string[]`                                         | -                                         | 0.0.1         |
+| mermaid     | Whether to enable mermaid (requires configuration with `mermaid` config) | `boolean`                                          | `false`                                   | 0.2.0         |
+| copyright   | Whether to enable article copyright notice                               | `boolean`                                          | Defaults to global config if not provided | 0.3.1         |
+| sponsor     | Whether to enable article sponsorship                                    | `boolean`                                          | Defaults to global config if not provided | 0.3.2         |
+| comments    | Whether to enable article comments                                       | `boolean`                                          | Defaults to global config if not provided | 0.3.2         |
+| cover       | Article cover                                                            | `https://example.com \| false \| rgb(255,117,117)` | Defaults to global config if not provided | 0.0.7         |
+| sidebar     | Article sidebar position                                                 | `false \| 'left' \| 'right'`                       | Defaults to global config if not provided | 1.3.0         |
+| lang        | Article language (requires configuration with `i18n` config)             | `string`                                           | -                                         | 1.4.0         |
+| toc         | Whether to enable article table of contents                              | `boolean`                                          | Defaults to global config if not provided | 1.6.0         |
+| outdated    | Whether the article is outdated                                          | `boolean`                                          | Defaults to global config if not provided | 1.10.1        |
+| author      | Article author (used for article copyright and sharing cards)            | `string`                                           | Defaults to global config if not provided | 1.10.2        |
 
 </details>
 
 ## Contributors
 
 [![](https://contributors-img.web.app/image?repo=D-Sketon/hexo-theme-reimu)](https://github.com/D-Sketon/hexo-theme-reimu/graphs/contributors)
+
+## Related Projects
+
+| package name                            | version                                                                              | npm                                                                                     | jsdelivr                                                                                         |
+| --------------------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| hexo-theme-reimu                        | ![NPM Version](https://img.shields.io/npm/v/hexo-theme-reimu)                        | ![NPM Downloads](https://img.shields.io/npm/dm/hexo-theme-reimu)                        | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/hexo-theme-reimu)                        |
+| theme-shokax-pjax                       | ![NPM Version](https://img.shields.io/npm/v/theme-shokax-pjax)                       | ![NPM Downloads](https://img.shields.io/npm/dm/theme-shokax-pjax)                       | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/theme-shokax-pjax)                       |
+| theme-shokax-anime                      | ![NPM Version](https://img.shields.io/npm/v/theme-shokax-anime)                      | ![NPM Downloads](https://img.shields.io/npm/dm/theme-shokax-anime)                      | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/theme-shokax-anime)                      |
+| mouse-firework                          | ![NPM Version](https://img.shields.io/npm/v/mouse-firework)                          | ![NPM Downloads](https://img.shields.io/npm/dm/mouse-firework)                          | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/mouse-firework)                          |
+| @reimujs/aos                            | ![NPM Version](https://img.shields.io/npm/v/@reimujs/aos)                            | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/aos)                            | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/aos)                            |
+| @reimujs/hexo-algoliasearch             | ![NPM Version](https://img.shields.io/npm/v/@reimujs/hexo-algoliasearch)             | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/hexo-algoliasearch)             | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/hexo-algoliasearch)             |
+| @reimujs/hexo-renderer-markdown-it-plus | ![NPM Version](https://img.shields.io/npm/v/@reimujs/hexo-renderer-markdown-it-plus) | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/hexo-renderer-markdown-it-plus) | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/hexo-renderer-markdown-it-plus) |
+| @reimujs/instantsearch.js               | ![NPM Version](https://img.shields.io/npm/v/@reimujs/instantsearch.js)               | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/instantsearch.js)               | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/instantsearch.js)               |
+| plugin-live2d                           | -                                                                                    | -                                                                                       | ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/D-Sketon/plugin-live2d)          |
 
 ## License
 
