@@ -450,6 +450,7 @@ animation:
 # see https://github.com/D-Sketon/mouse-firework
 firework:
   enable: true
+  disableOnMobile: false
   options:
     excludeElements: ["a", "button"]
     particles:
@@ -617,6 +618,7 @@ live2d_widgets:
 # Experimental
 # Please turn on pjax to use this feature
 player:
+  disableOnMobile: false
   position: before_sidebar # before_sidebar / after_sidebar / after_widget
   # if you enable meting, you must enable aplayer first
   aplayer:

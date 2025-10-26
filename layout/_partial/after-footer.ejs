@@ -59,6 +59,9 @@
 <%_ if (theme.firework.enable) { _%>
   <%- js({src: vendorCdn(theme.vendor.js.firework)[0], integrity: vendorCdnIntegrity(theme.vendor.js.firework)[0], crossorigin: "anonymous"}) %>
   <script>
+    if (<%= theme.firework.disableOnMobile %> && window.matchMedia('(max-width: 768px)').matches) {
+      return;
+    }
     window.firework && window.firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'))
   </script>
 <%_ } _%>
@@ -281,8 +284,11 @@
   <%- js({src: vendorCdn(theme.vendor.js.aplayer)[0], integrity: vendorCdnIntegrity(theme.vendor.js.aplayer)[0], crossorigin: "anonymous"}) %>
   <%_ if (!theme.player.meting.enable) { _%>
     <script>
+      if (<%= theme.player.disableOnMobile %> && window.matchMedia('(max-width: 768px)').matches) {
+        return;
+      }
       if (window.matchMedia('(max-width: 959px)').matches) {
-      const aplayer = _$('#aplayer');
+        const aplayer = _$('#aplayer');
         if (aplayer) {
           const aside = aplayer.parentNode?.parentNode;
           if (aside?.tagName === 'ASIDE') {
@@ -317,6 +323,9 @@
     </script>
   <%_ } _%>
   <script>
+    if (<%= theme.player.disableOnMobile %> && window.matchMedia('(max-width: 768px)').matches) {
+      return;
+    }
     if (window.matchMedia('(max-width: 959px)').matches) {
       const meting = _$('meting-js');
       if (meting) {
