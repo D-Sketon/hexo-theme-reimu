@@ -59,10 +59,9 @@
 <%_ if (theme.firework.enable) { _%>
   <%- js({src: vendorCdn(theme.vendor.js.firework)[0], integrity: vendorCdnIntegrity(theme.vendor.js.firework)[0], crossorigin: "anonymous"}) %>
   <script>
-    if (<%= theme.firework.disableOnMobile %> && window.matchMedia('(max-width: 768px)').matches) {
-      return;
+    if (!<%= theme.firework.disableOnMobile %> || !window.matchMedia('(max-width: 768px)').matches) {
+      window.firework && window.firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'));
     }
-    window.firework && window.firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'))
   </script>
 <%_ } _%>
 
@@ -284,34 +283,33 @@
   <%- js({src: vendorCdn(theme.vendor.js.aplayer)[0], integrity: vendorCdnIntegrity(theme.vendor.js.aplayer)[0], crossorigin: "anonymous"}) %>
   <%_ if (!theme.player.meting.enable) { _%>
     <script>
-      if (<%= theme.player.disableOnMobile %> && window.matchMedia('(max-width: 768px)').matches) {
-        return;
-      }
-      if (window.matchMedia('(max-width: 959px)').matches) {
-        const aplayer = _$('#aplayer');
-        if (aplayer) {
-          const aside = aplayer.parentNode?.parentNode;
-          if (aside?.tagName === 'ASIDE') {
-            aplayer.removeAttribute('data-aos');
-            aplayer.parentNode.removeChild(aplayer);
-            document.body.appendChild(aplayer);
+      if (!<%= theme.player.disableOnMobile %> || !window.matchMedia('(max-width: 768px)').matches) {
+        if (window.matchMedia('(max-width: 959px)').matches) {
+          const aplayer = _$('#aplayer');
+          if (aplayer) {
+            const aside = aplayer.parentNode?.parentNode;
+            if (aside?.tagName === 'ASIDE') {
+              aplayer.removeAttribute('data-aos');
+              aplayer.parentNode.removeChild(aplayer);
+              document.body.appendChild(aplayer);
+            }
           }
         }
+        const ap = new APlayer({
+          theme: "var(--color-link)",
+          container: document.getElementById('aplayer'),
+          audio: <%- JSON.stringify(theme.player.aplayer.options.audio) %> || [],
+          fixed: isMobile ? true : (<%= JSON.stringify(theme.player.aplayer.options.fixed) %> || false),
+          autoplay: <%= JSON.stringify(theme.player.aplayer.options.autoplay) %> || false,
+          loop: '<%= theme.player.aplayer.options.loop %>' || 'all',
+          order: '<%= theme.player.aplayer.options.order %>' || 'list',
+          preload: '<%= theme.player.aplayer.options.preload %>' || 'auto',
+          volume: <%= JSON.stringify(theme.player.aplayer.options.volume) %> || 0.7,
+          mutex: <%= JSON.stringify(theme.player.aplayer.options.mutex) %> || true,
+          listFolded: <%= JSON.stringify(theme.player.aplayer.options.listFolded) %> || false,
+          lrcType: <%= JSON.stringify(theme.player.aplayer.options.lrcType) %> || 0,
+        });
       }
-      const ap = new APlayer({
-        theme: "var(--color-link)",
-        container: document.getElementById('aplayer'),
-        audio: <%- JSON.stringify(theme.player.aplayer.options.audio) %> || [],
-        fixed: isMobile ? true : (<%= JSON.stringify(theme.player.aplayer.options.fixed) %> || false),
-        autoplay: <%= JSON.stringify(theme.player.aplayer.options.autoplay) %> || false,
-        loop: '<%= theme.player.aplayer.options.loop %>' || 'all',
-        order: '<%= theme.player.aplayer.options.order %>' || 'list',
-        preload: '<%= theme.player.aplayer.options.preload %>' || 'auto',
-        volume: <%= JSON.stringify(theme.player.aplayer.options.volume) %> || 0.7,
-        mutex: <%= JSON.stringify(theme.player.aplayer.options.mutex) %> || true,
-        listFolded: <%= JSON.stringify(theme.player.aplayer.options.listFolded) %> || false,
-        lrcType: <%= JSON.stringify(theme.player.aplayer.options.lrcType) %> || 0,
-      });
     </script>
   <%_ } _%>
 <%_ } _%>
@@ -323,22 +321,25 @@
     </script>
   <%_ } _%>
   <script>
-    if (<%= theme.player.disableOnMobile %> && window.matchMedia('(max-width: 768px)').matches) {
-      return;
-    }
-    if (window.matchMedia('(max-width: 959px)').matches) {
-      const meting = _$('meting-js');
-      if (meting) {
-        meting.setAttribute('fixed', 'true');
-        const aside = meting.parentNode?.parentNode;
-        if (aside?.tagName === 'ASIDE') {
-          meting.parentNode.removeChild(meting);
-          document.body.appendChild(meting);
+    if (!<%= theme.player.disableOnMobile %> || !window.matchMedia('(max-width: 768px)').matches) {
+      if (window.matchMedia('(max-width: 959px)').matches) {
+        const meting = _$('meting-js');
+        if (meting) {
+          meting.setAttribute('fixed', 'true');
+          const aside = meting.parentNode?.parentNode;
+          if (aside?.tagName === 'ASIDE') {
+            meting.parentNode.removeChild(meting);
+            document.body.appendChild(meting);
+          }
         }
       }
+      const script = document.createElement('script');
+      script.src = "<%- vendorCdn(theme.vendor.js.meting)[0] %>";
+      script.integrity = "<%- vendorCdnIntegrity(theme.vendor.js.meting)[0] %>";
+      script.crossOrigin = "anonymous";
+      document.body.appendChild(script);
     }
   </script>
-  <%- js({src: vendorCdn(theme.vendor.js.meting)[0], integrity: vendorCdnIntegrity(theme.vendor.js.meting)[0], crossorigin: "anonymous"}) %>
 <%_ } _%>
 
 <%_ if (theme.pangu.enable) { _%>
