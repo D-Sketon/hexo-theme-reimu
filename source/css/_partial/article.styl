@@ -99,12 +99,7 @@ $article-meta-tag {
     margin: line-height-title 0 0.75em;
 
     if (hexo-config('icon_font')) {
-      &:before {
-        font-family: font-icon;
-        font-weight: normal;
-      }
-
-      a {
+      a:first-of-type {
         font-family: font-icon;
         opacity: 0.5;
         margin-right: 4px;
@@ -116,12 +111,7 @@ $article-meta-tag {
         }
       }
     } else {
-      &:before {
-        font-family: var(--font-icon);
-        font-weight: normal;
-      }
-
-      a {
+      a:first-of-type {
         font-family: var(--font-icon);
         opacity: 0.5;
         margin-right: 4px;
