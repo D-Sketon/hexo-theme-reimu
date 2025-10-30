@@ -216,7 +216,100 @@ sticky: true
 ---
 ```
 
+#### 文章总结
+
+默认关闭，可选择在副标题或者文章开头显示文章摘要
+
+```yaml
+summary:
+  enable: false
+  style: 'subtitle' # 'subtitle' | 'blockquote'
+```
+
 </details>
+
+<details>
+<summary>侧边栏</summary>
+
+### 侧边栏
+
+#### 侧边栏位置
+
+默认在右边，可在内层 `_config.yml` 中修改
+
+```yaml
+sidebar: right # left | right
+```
+
+此外，也可以通过文章的 front-matter 控制，其优先级高于全局配置
+
+```yaml
+---
+sidebar: left # left | right
+---
+```
+
+#### TOC
+
+默认开启，可在内层 `_config.yml` 中修改
+
+```yaml
+toc: true # true | false
+```
+
+此外，也可以通过文章的 front-matter 控制，其优先级高于全局配置
+
+```yaml
+---
+toc: true # true | false
+---
+```
+
+你还可以通过如下配置对目录进行行为配置
+
+```yaml
+toc_options:
+  list_number: true # 是否显示编号
+  min_depth: 1 # 最小深度
+  max_depth: 6 # 最大深度
+```
+
+#### 社交链接
+
+可在内层 `_config.yml` 中配置侧边栏中的社交链接
+
+```yaml
+social:
+  # github: https://github.com/yourname
+  # bilibili: https://space.bilibili.com/yourname
+  # ...
+```
+
+#### 侧边栏小部件
+
+可在内层 `_config.yml` 中配置侧边栏小部件
+
+```yaml
+widgets:
+  # - category # 分类
+  # - tag # 标签
+  # - tagcloud # 标签云
+  # - archive # 归档
+  # - recent_posts # 最近文章
+```
+
+此外，可使用如下配置对小部件进行行为配置
+
+```yaml
+archive_type: "monthly" # monthly | yearly
+show_count: false # 是否显示数量
+tag_limits:  # 标签数量限制
+recent_posts_limits: 5 # 最近文章数量限制
+tagcloud_limits:  # 标签云数量限制
+```
+
+</details>
+
 <details>
 <summary>页脚</summary>
 
@@ -952,6 +1045,17 @@ pangu:
   enable: false
 ```
 
+#### 三角徽标（v1.10.2+）
+
+默认关闭，打开后会在右上角展示三角徽标，支持自定义链接和图标
+
+```yml
+triangle_badge:
+  enable: false
+  icon: github # 与 social 配置里的 icon 相同
+  link: https://github.com/D-Sketon/hexo-theme-reimu
+```
+
 </details>
 
 <details>
@@ -1336,15 +1440,15 @@ js:
 
 | 包名                                | 版本                                                                                 | npm                                                                                     | jsdelivr                                                                                         |
 | --------------------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| hexo-theme-reimu                        | ![NPM Version](https://img.shields.io/npm/v/hexo-theme-reimu)                        | ![NPM Downloads](https://img.shields.io/npm/dm/hexo-theme-reimu)                        | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/hexo-theme-reimu)                        |
-| theme-shokax-pjax                       | ![NPM Version](https://img.shields.io/npm/v/theme-shokax-pjax)                       | ![NPM Downloads](https://img.shields.io/npm/dm/theme-shokax-pjax)                       | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/theme-shokax-pjax)                       |
-| theme-shokax-anime                      | ![NPM Version](https://img.shields.io/npm/v/theme-shokax-anime)                      | ![NPM Downloads](https://img.shields.io/npm/dm/theme-shokax-anime)                      | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/theme-shokax-anime)                      |
-| mouse-firework                          | ![NPM Version](https://img.shields.io/npm/v/mouse-firework)                          | ![NPM Downloads](https://img.shields.io/npm/dm/mouse-firework)                          | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/mouse-firework)                          |
-| @reimujs/aos                            | ![NPM Version](https://img.shields.io/npm/v/@reimujs/aos)                            | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/aos)                            | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/aos)                            |
-| @reimujs/hexo-algoliasearch             | ![NPM Version](https://img.shields.io/npm/v/@reimujs/hexo-algoliasearch)             | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/hexo-algoliasearch)             | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/hexo-algoliasearch)             |
-| @reimujs/hexo-renderer-markdown-it-plus | ![NPM Version](https://img.shields.io/npm/v/@reimujs/hexo-renderer-markdown-it-plus) | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/hexo-renderer-markdown-it-plus) | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/hexo-renderer-markdown-it-plus) |
-| @reimujs/instantsearch.js               | ![NPM Version](https://img.shields.io/npm/v/@reimujs/instantsearch.js)               | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/instantsearch.js)               | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/instantsearch.js)               |
-| plugin-live2d                           | -                                                                                    | -                                                                                       | ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/D-Sketon/plugin-live2d)          |
+| [hexo-theme-reimu](https://github.com/D-Sketon/hexo-theme-reimu)                        | ![NPM Version](https://img.shields.io/npm/v/hexo-theme-reimu)                        | ![NPM Downloads](https://img.shields.io/npm/dm/hexo-theme-reimu)                        | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/hexo-theme-reimu)                        |
+| [theme-shokax-pjax](https://github.com/theme-shoka-x/theme-shokax-pjax)                       | ![NPM Version](https://img.shields.io/npm/v/theme-shokax-pjax)                       | ![NPM Downloads](https://img.shields.io/npm/dm/theme-shokax-pjax)                       | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/theme-shokax-pjax)                       |
+| [theme-shokax-anime](https://github.com/theme-shoka-x/theme-shokax-anime)                      | ![NPM Version](https://img.shields.io/npm/v/theme-shokax-anime)                      | ![NPM Downloads](https://img.shields.io/npm/dm/theme-shokax-anime)                      | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/theme-shokax-anime)                      |
+| [mouse-firework](https://github.com/D-Sketon/mouse-firework)                          | ![NPM Version](https://img.shields.io/npm/v/mouse-firework)                          | ![NPM Downloads](https://img.shields.io/npm/dm/mouse-firework)                          | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/mouse-firework)                          |
+| [@reimujs/aos](https://github.com/D-Sketon/aos.js)                            | ![NPM Version](https://img.shields.io/npm/v/@reimujs/aos)                            | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/aos)                            | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/aos)                            |
+| [@reimujs/hexo-algoliasearch](https://github.com/D-Sketon/hexo-algoliasearch)             | ![NPM Version](https://img.shields.io/npm/v/@reimujs/hexo-algoliasearch)             | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/hexo-algoliasearch)             | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/hexo-algoliasearch)             |
+| [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus) | ![NPM Version](https://img.shields.io/npm/v/@reimujs/hexo-renderer-markdown-it-plus) | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/hexo-renderer-markdown-it-plus) | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/hexo-renderer-markdown-it-plus) |
+| [@reimujs/instantsearch.js](https://github.com/D-Sketon/instantsearch)               | ![NPM Version](https://img.shields.io/npm/v/@reimujs/instantsearch.js)               | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/instantsearch.js)               | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/instantsearch.js)               |
+| [plugin-live2d](https://github.com/D-Sketon/plugin-live2d)                           | -                                                                                    | -                                                                                       | ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/D-Sketon/plugin-live2d)          |
 
 ## 许可
 

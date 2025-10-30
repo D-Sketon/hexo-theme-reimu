@@ -211,6 +211,99 @@ sticky: true
 ---
 ```
 
+#### Article Summary
+
+Disabled by default. You can choose to display the article summary in the subtitle or at the beginning of the article.
+
+```yaml
+summary:
+  enable: false
+  style: 'subtitle' # 'subtitle' or 'blockquote'
+```
+
+</details>
+
+<details>
+
+<summary>Sidebar</summary>
+
+### Sidebar
+
+#### Sidebar Position
+
+Default on the right. You can modify it in the inner `_config.yml`.
+
+```yaml
+sidebar: right # left | right
+```
+
+Additionally, you can control it through the article's front-matter, which takes precedence over the global configuration.
+
+```yaml
+---
+sidebar: left # left | right
+---
+```
+
+#### TOC
+
+Default enabled. You can modify it in the inner `_config.yml`.
+
+```yaml
+toc: true # true | false
+```
+
+Additionally, you can control it through the article's front-matter, which takes precedence over the global configuration.
+
+```yaml
+---
+toc: true # true | false
+---
+```
+
+You can also configure the behavior of the TOC through the following configuration:
+
+```yaml
+toc_options:
+  list_number: true # Whether to display the list number
+  min_depth: 1 # Minimum depth
+  max_depth: 6 # Maximum depth
+```
+
+#### Social Links
+
+You can configure the social links in the sidebar in the inner `_config.yml`.
+
+```yaml
+social:
+  # github: https://github.com/yourname
+  # bilibili: https://space.bilibili.com/yourname
+  # ...
+```
+
+#### Widgets
+
+You can configure the widgets in the sidebar in the inner `_config.yml`.
+
+```yaml
+widgets:
+  # - category
+  # - tag
+  # - tagcloud
+  # - archive
+  # - recent_posts
+```
+
+You can also configure the behavior of the widgets through the following configuration:
+
+```yaml
+archive_type: "monthly" # monthly | yearly
+show_count: false
+tag_limits:
+recent_posts_limits: 5
+tagcloud_limits:
+```
+
 </details>
 
 <details>
@@ -938,6 +1031,17 @@ injector:
   sidebar_end: # Inject code snippet right before </aside>
 ```
 
+#### Triangle Badge (v1.10.2+)
+
+Disabled by default. When enabled, it will display a triangle badge in the upper right corner, supporting custom links and icons.
+
+```yaml
+triangle_badge:
+  enable: false
+  icon: github # Same as the icon in the social config
+  link: https://github.com/D-Sketon/hexo-theme-reimu
+```
+
 </details>
 
 <details>
@@ -1315,15 +1419,15 @@ Both formats are supported. It's recommended to use SRI verification for externa
 
 | package name                            | version                                                                              | npm                                                                                     | jsdelivr                                                                                         |
 | --------------------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| hexo-theme-reimu                        | ![NPM Version](https://img.shields.io/npm/v/hexo-theme-reimu)                        | ![NPM Downloads](https://img.shields.io/npm/dm/hexo-theme-reimu)                        | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/hexo-theme-reimu)                        |
-| theme-shokax-pjax                       | ![NPM Version](https://img.shields.io/npm/v/theme-shokax-pjax)                       | ![NPM Downloads](https://img.shields.io/npm/dm/theme-shokax-pjax)                       | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/theme-shokax-pjax)                       |
-| theme-shokax-anime                      | ![NPM Version](https://img.shields.io/npm/v/theme-shokax-anime)                      | ![NPM Downloads](https://img.shields.io/npm/dm/theme-shokax-anime)                      | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/theme-shokax-anime)                      |
-| mouse-firework                          | ![NPM Version](https://img.shields.io/npm/v/mouse-firework)                          | ![NPM Downloads](https://img.shields.io/npm/dm/mouse-firework)                          | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/mouse-firework)                          |
-| @reimujs/aos                            | ![NPM Version](https://img.shields.io/npm/v/@reimujs/aos)                            | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/aos)                            | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/aos)                            |
-| @reimujs/hexo-algoliasearch             | ![NPM Version](https://img.shields.io/npm/v/@reimujs/hexo-algoliasearch)             | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/hexo-algoliasearch)             | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/hexo-algoliasearch)             |
-| @reimujs/hexo-renderer-markdown-it-plus | ![NPM Version](https://img.shields.io/npm/v/@reimujs/hexo-renderer-markdown-it-plus) | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/hexo-renderer-markdown-it-plus) | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/hexo-renderer-markdown-it-plus) |
-| @reimujs/instantsearch.js               | ![NPM Version](https://img.shields.io/npm/v/@reimujs/instantsearch.js)               | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/instantsearch.js)               | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/instantsearch.js)               |
-| plugin-live2d                           | -                                                                                    | -                                                                                       | ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/D-Sketon/plugin-live2d)          |
+| [hexo-theme-reimu](https://github.com/D-Sketon/hexo-theme-reimu)                        | ![NPM Version](https://img.shields.io/npm/v/hexo-theme-reimu)                        | ![NPM Downloads](https://img.shields.io/npm/dm/hexo-theme-reimu)                        | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/hexo-theme-reimu)                        |
+| [theme-shokax-pjax](https://github.com/theme-shoka-x/theme-shokax-pjax)                       | ![NPM Version](https://img.shields.io/npm/v/theme-shokax-pjax)                       | ![NPM Downloads](https://img.shields.io/npm/dm/theme-shokax-pjax)                       | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/theme-shokax-pjax)                       |
+| [theme-shokax-anime](https://github.com/theme-shoka-x/theme-shokax-anime)                      | ![NPM Version](https://img.shields.io/npm/v/theme-shokax-anime)                      | ![NPM Downloads](https://img.shields.io/npm/dm/theme-shokax-anime)                      | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/theme-shokax-anime)                      |
+| [mouse-firework](https://github.com/D-Sketon/mouse-firework)                          | ![NPM Version](https://img.shields.io/npm/v/mouse-firework)                          | ![NPM Downloads](https://img.shields.io/npm/dm/mouse-firework)                          | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/mouse-firework)                          |
+| [@reimujs/aos](https://github.com/D-Sketon/aos.js)                            | ![NPM Version](https://img.shields.io/npm/v/@reimujs/aos)                            | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/aos)                            | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/aos)                            |
+| [@reimujs/hexo-algoliasearch](https://github.com/D-Sketon/hexo-algoliasearch)             | ![NPM Version](https://img.shields.io/npm/v/@reimujs/hexo-algoliasearch)             | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/hexo-algoliasearch)             | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/hexo-algoliasearch)             |
+| [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus) | ![NPM Version](https://img.shields.io/npm/v/@reimujs/hexo-renderer-markdown-it-plus) | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/hexo-renderer-markdown-it-plus) | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/hexo-renderer-markdown-it-plus) |
+| [@reimujs/instantsearch.js](https://github.com/D-Sketon/instantsearch)               | ![NPM Version](https://img.shields.io/npm/v/@reimujs/instantsearch.js)               | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/instantsearch.js)               | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/instantsearch.js)               |
+| [plugin-live2d](https://github.com/D-Sketon/plugin-live2d)                           | -                                                                                    | -                                                                                       | ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/D-Sketon/plugin-live2d)          |
 
 ## License
 
