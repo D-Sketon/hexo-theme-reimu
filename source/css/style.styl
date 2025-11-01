@@ -113,7 +113,7 @@ a, button {
   display: flex;
   padding-top: 8px;
   align-items: stretch;
-  max-width: 1350px;
+  max-width: hexo-config('layout.max_width') ? unquote(hexo-config('layout.max_width')) : 1350px;
   margin: 0 auto;
   overflow: visible;
 }
