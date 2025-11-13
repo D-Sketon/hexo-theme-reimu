@@ -293,7 +293,7 @@ clarity: false
 # global control of the comment system
 # you can use multiple comment systems at the same time
 # load order: localStorage(user manually selects) -> default
-# -> valine -> waline -> twikoo -> gitalk -> giscus
+# -> valine -> waline -> twikoo -> gitalk -> giscus -> disqus
 comment:
   # comment system title
   title:
@@ -376,6 +376,12 @@ giscus:
   inputPosition: bottom
   # commentTheme: light # deprecated, because the theme is set by the theme itself
   # lang: zh-CN # deprecated, use html.lang instead
+
+# https://disqus.com
+disqus:
+  enable: false
+  shortname: # your disqus shortname
+  count: true
 
 ########################################
 # Search

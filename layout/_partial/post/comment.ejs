@@ -4,6 +4,7 @@
 <%_ commentSystems.twikoo = theme.twikoo.enable && theme.twikoo.envId ? true : false; _%>
 <%_ commentSystems.gitalk = theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret ? true : false; _%>
 <%_ commentSystems.giscus = theme.giscus.enable ? true : false; _%>
+<%_ commentSystems.disqus = theme.disqus.enable && theme.disqus.shortname ? true : false; _%>
 <%_ const activeSystems = Object.keys(commentSystems).filter(system => commentSystems[system]); _%>
 
 <%_ if (activeSystems.length > 0) { _%>
@@ -228,6 +229,50 @@
           if (!iframe) return;
           iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'dark' } } }, 'https://giscus.app');
         });
+      }
+    },
+    <%_ } _%>
+    <%_ if (commentSystems.disqus) { _%>
+    disqus: {
+      enable: <%= commentSystems.disqus %>,
+      load: () => {
+        if (window.DISQUS) {
+          DISQUS.reset({
+            reload: true
+          })
+        } else {
+          const script = document.createElement('script');
+          script.src = 'https://<%= theme.disqus.shortname %>.disqus.com/embed.js';
+          script.setAttribute('data-timestamp', +new Date());
+          (document.head || document.body).appendChild(script);
+          document.body.addEventListener('light-theme-set', () => {
+            setTimeout(() => {
+              window?.DISQUS.reset({
+                reload: true
+              })
+            }, 500);
+          });
+          document.body.addEventListener('dark-theme-set', () => {
+            setTimeout(() => {
+              window?.DISQUS.reset({
+                reload: true
+              })
+            }, 500);
+          });
+        }
+        if (<%= theme.disqus.count %>) {
+          if (_$("#disqus-count")) {
+            _$("#disqus-count").href = location.href + '#disqus_thread';
+          }
+          if (window.DISQUSWIDGETS) {
+            DISQUSWIDGETS.getCount({ reset: true });
+          } else {
+            const countScript = document.createElement('script');
+            countScript.src = 'https://<%= theme.disqus.shortname %>.disqus.com/count.js';
+            countScript.id = 'dsq-count-scr';
+            (document.head || document.body).appendChild(countScript);
+          }
+        }
       }
     }
     <%_ } _%>

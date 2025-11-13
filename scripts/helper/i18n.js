@@ -92,6 +92,10 @@ hexo.extend.helper.register("switch_lang", function (lang) {
   });
 });
 
+hexo.extend.helper.register("full_url_for_lang", function (path, language) {
+  return this.full_url_for(this.url_for_lang(path, undefined, language));
+});
+
 hexo.extend.helper.register("url_for_lang", function (path, opt, language) {
   if (typeof opt === "string") {
     language = opt;

@@ -61,6 +61,10 @@
           <%= __('comment') %>
         </a>
       <%_ } _%>
+      <%_ if (post.comments !== false && theme.disqus.enable && theme.disqus.shortname && theme.disqus.count) { _%>
+        <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- full_url_for_lang(post.path) %>#disqus_thread" class="article-comment-link" id="disqus-count">
+        </a>
+      <%_ } _%>
       <%_ if (post.comments !== false && theme.valine.enable && theme.valine.appId && theme.valine.appKey && theme.valine.visitor) { _%>
         <span data-aos="<%= theme.animation.options.article.reading %>" id="<%- url_for_lang(post.path, {relative: false}).endsWith("index.html") ? 
                   url_for_lang(post.path, {relative: false}).slice(0, -10) : 
@@ -88,6 +92,7 @@
 <%_ commentSystems.twikoo = theme.twikoo.enable && theme.twikoo.envId ? true : false; _%>
 <%_ commentSystems.gitalk = theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret ? true : false; _%>
 <%_ commentSystems.giscus = theme.giscus.enable ? true : false; _%>
+<%_ commentSystems.disqus = theme.disqus.enable && theme.disqus.shortname ? true : false; _%>
 <%_ const activeSystems = Object.keys(commentSystems).filter(system => commentSystems[system]); _%>
 
 <%_ if (post.comments !== false && activeSystems.length) { _%>
@@ -110,9 +115,15 @@
     </div>
     <div class="comment-content">
       <%_ for(const active of activeSystems) { _%>
-        <div class="comment <%= active %>-comment" data-aos="<%= theme.animation.options.article.whole %>"
-          id="<%= active %>-comment">
-        </div>
+        <%_ if (active !== 'disqus') { _%>
+          <div class="comment <%= active %>-comment" data-aos="<%= theme.animation.options.article.whole %>"
+            id="<%= active %>-comment">
+          </div>
+        <%_ } else { _%>
+          <div class="comment disqus-comment" data-aos="<%= theme.animation.options.article.whole %>">
+            <div id="disqus_thread"></div>
+          </div>
+        <%_ } _%>
       <%_ } _%>
     </div>
   </section>
