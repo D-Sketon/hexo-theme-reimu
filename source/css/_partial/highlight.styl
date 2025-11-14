@@ -136,11 +136,13 @@ $line-numbers {
     }
 
     .line .deletion {
-      background: #ff5e5e80;
+      color: var(--highlight-deletion);
+      background: var(--highlight-deletion-bg);
     }
 
     .line .addition {
-      background: #5eff667a;
+      color: var(--highlight-addition);
+      background: var(--highlight-addition-bg);
     }
   }
 
@@ -200,32 +202,44 @@ $line-numbers {
 }
 
 pre {
-  .comment, .title {
+  .comment, .punctuation {
     color: var(--highlight-comment);
   }
 
-  .variable, .attribute, .tag, .regexp, .ruby .constant, .xml .tag .title, .xml .pi, .xml .doctype, .html .doctype, .css .id, .css .class, .css .pseudo {
-    color: var(--highlight-red);
-  }
-
-  .number, .preprocessor, .built_in, .literal, .params, .constant {
-    color: var(--highlight-orange);
-  }
-
-  .class, .ruby .class .title, .css .rules .attribute, .string, .value, .inheritance, .header, .ruby .symbol, .xml .cdata {
-    color: var(--highlight-green);
-  }
-
-  .css .hexcolor {
+  .attr, .attribute, .meta, .selector-attr, .selector-class, .selector-id, .symbol, .section {
     color: var(--highlight-aqua);
   }
 
-  .function, .python .decorator, .python .title, .ruby .function .title, .ruby .title .keyword, .perl .sub, .javascript .title, .coffeescript .title {
+  .variable, .literal, .number, .doctag, .bullet, .emphasis, .strong {
+    color: var(--highlight-orange);
+  }
+
+  .params {
+    color: var(--highlight-foreground);
+  }
+
+  .function {
+    color: var(--highlight-purple);
+  }
+
+  .class, .tag, .title, .built_in, .quote, .name, .selector-tag, .selector-pseudo {
+    color: var(--highlight-green);
+  }
+
+  .keyword, .type, .builtin-name, .meta-keyword, .template-tag, .template-variable {
+    color: var(--highlight-red);
+  }
+
+  .string, .undefined, .regexp, .link {
     color: var(--highlight-blue);
   }
 
-  .keyword, .javascript .function {
-    color: var(--highlight-purple);
+  .section, .strong {
+    font-weight: bold;
+  }
+
+  .emphasis {
+    font-style: italic;
   }
 }
 
@@ -242,7 +256,7 @@ pre {
   height: 40px;
   align-items: center;
   flex-shrink: 0;
-  background: linear-gradient(to right, transparent 0%, var(--highlight-nav) 50%, transparent 100%);
+  background: linear-gradient(to right, transparent 0%, var(--highlight-nav) 20%, var(--highlight-nav) 80%, transparent 100%);
   margin-bottom: 10px;
 }
 

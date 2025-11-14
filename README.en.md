@@ -1163,51 +1163,57 @@ v1.8.0 added `internal_theme` configuration to customize theme colors. You can c
 ```yaml
 internal_theme:
   light:
-    --red-0: '#ff0000'
-    --red-1: '#ff5252'
-    --red-2: '#ff7c7c'
-    --red-3: '#ffafaf'
-    --red-4: '#ffd0d0'
-    --red-5: '#ffecec'
-    --red-5-5: '#fff3f3'
-    --red-6: '#fff7f7'
-    --color-red-6-shadow: 'rgba(255, 78, 78, 0.6)'
-    --color-red-3-shadow: 'rgba(255, 78, 78, 0.3)'
+    --red-0: "#ff0000"
+    --red-1: "#ff5252"
+    --red-2: "#ff7c7c"
+    --red-3: "#ffafaf"
+    --red-4: "#ffd0d0"
+    --red-5: "#ffecec"
+    --red-5-5: "#fff3f3"
+    --red-6: "#fff7f7"
+    --color-red-6-shadow: "rgba(255, 78, 78, 0.6)"
+    --color-red-3-shadow: "rgba(255, 78, 78, 0.3)"
 
-    --highlight-nav: '#e6e6e6'
-    --highlight-scrollbar: '#d6d6d6'
-    --highlight-background: '#f7f7f7'
-    --highlight-current-line: '#dadada'
-    --highlight-selection: '#e9e9e9'
-    --highlight-foreground: '#4d4d4d'
-    --highlight-comment: '#7d7d7d'
-    --highlight-red: '#c8362b'
-    --highlight-orange: '#b66014'
-    --highlight-yellow: '#cb911d'
-    --highlight-green: '#2ea52e'
-    --highlight-aqua: '#479d9d'
-    --highlight-blue: '#1973b8'
-    --highlight-purple: '#7135ac'
+    --highlight-nav: "#f5f5f5"
+    --highlight-scrollbar: "#d6d6d6"
+    --highlight-background: "#fdfdfd"
+    --highlight-selection: "#e9e9e988"
+    --highlight-foreground: "#24292e"
+    --highlight-comment: "#7d7d7d"
+    --highlight-red: "#d73a49"
+    --highlight-orange: "#e36209"
+    --highlight-yellow: "#cb911d"
+    --highlight-green: "#22863a"
+    --highlight-aqua: "#005cc5"
+    --highlight-blue: "#032f62"
+    --highlight-purple: "#6f42c1"
+    --highlight-deletion: "#b31d28"
+    --highlight-deletion-bg: "#ffeef0"
+    --highlight-addition: "#22863a"
+    --highlight-addition-bg: "#f0fff4"
   dark:
-    --red-4: 'rgba(255, 208, 208, 0.5)'
-    --red-5: 'rgba(255,228,228,0.15)'
-    --red-5-5: 'rgba(255,236,236,0.05)'
-    --red-6: 'rgba(255, 243, 243, 0.2)'
+    --red-4: "rgba(255, 208, 208, 0.5)"
+    --red-5: "rgba(255,228,228,0.15)"
+    --red-5-5: "rgba(255,236,236,0.05)"
+    --red-6: "rgba(255, 243, 243, 0.2)"
 
-    --highlight-nav: '#2e353f'
-    --highlight-scrollbar: '#454d59'
-    --highlight-background: '#22272e'
-    --highlight-current-line: '#393939'
-    --highlight-selection: '#515151'
-    --highlight-foreground: '#cccccc'
-    --highlight-comment: '#999999'
-    --highlight-red: '#f47067'
-    --highlight-orange: '#f69d50'
-    --highlight-yellow: '#ffcc66'
-    --highlight-green: '#99cc99'
-    --highlight-aqua: '#66cccc'
-    --highlight-blue: '#54b6ff'
-    --highlight-purple: '#dcbdfb'
+    --highlight-nav: "#222830"
+    --highlight-scrollbar: "#454d59"
+    --highlight-background: "#1e2027"
+    --highlight-selection: "#51515155"
+    --highlight-foreground: "#c9d1d9"
+    --highlight-comment: "#8b949e"
+    --highlight-red: "#ff7b72"
+    --highlight-orange: "#ffa657"
+    --highlight-yellow: "#ffcc66"
+    --highlight-green: "#7ee787"
+    --highlight-aqua: "#a5d6ff"
+    --highlight-blue: "#79c0ff"
+    --highlight-purple: "#d2a8ff"
+    --highlight-deletion: "#ffa198"
+    --highlight-deletion-bg: "#490202"
+    --highlight-addition: "#7ee787"
+    --highlight-addition-bg: "#04260f"
 ```
 
 #### Custom Fonts
