@@ -209,6 +209,7 @@
     <%_ if (config.highlight.enable || config.syntax_highlighter === "highlight.js") { _%>
       <%_ if (is_post() || is_page()) { _%>
         <%- js({ src: url_for("js/insert_highlight.js"), "data-pjax": true }) %>
+        <%- js({ src: url_for('js/tabs.js'), 'data-pjax': true }) %>
         <%_ if (Array.isArray(theme.share) && theme.share.includes("weixin")) { _%>
           <%- js({src: vendorCdn(theme.vendor.js.snapdom)[0], integrity: vendorCdnIntegrity(theme.vendor.js.snapdom)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
           <%- js({src: vendorCdn(theme.vendor.js.qrcode)[0], integrity: vendorCdnIntegrity(theme.vendor.js.qrcode)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>

@@ -87,6 +87,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
   - Friend links
   - Heatmap
   - Tag Roulette
+  - Tabs
 - 🎨 Dynamic theme color adaptation
 - 🎨 Custom Containers
 - ©️ Article copyright declaration
@@ -1045,9 +1046,9 @@ triangle_badge:
 </details>
 
 <details>
-<summary>Built-in Card Tags</summary>
+<summary>Built-in Tag Plugins</summary>
 
-### Built-in Card Tags
+### Built-in Tag Plugins
 
 #### friendLink - Friend Link Card
 
@@ -1094,6 +1095,26 @@ tagRoulette is an interactive element that provides a random tag display feature
 
 - tags: Optional parameter specifying the tag pool. Multiple tags should be separated by English commas (,). If not provided, a few example tags will be used by default. Example: `tags="memory decline, loss of expression, increased laziness, numbness, so sleepy"`  
 - icon: Optional parameter to customize the trigger button's icon. Default: 🕹️ (game controller emoji). Can be replaced with any emoji or text, such as 🎲, 🎯, 🔄, etc.
+
+#### tabs (v1.11.0+)
+
+```yaml
+{% tabs [activeTab] ["center"] %}
+<!-- tabName -->
+Tab content
+<!-- tabName -->
+Tab content
+{% endtabs %}
+```
+
+Adapted from the next, volantis, and stellar themes, this feature supports creating tabbed switching effects within articles.
+
+- activeTab: Optional parameter, specifies the default active tab index (counting starts from 1). Default is 1.
+- "center": Optional parameter, specifies that tab titles should be center-aligned. Default is left-aligned.
+- tabName: The title of each tab, must be wrapped in `<!-- tabName -->`. Supports displaying icons using `@` + icon hexadecimal code. Examples:
+  - Title only: `<!-- Title -->`
+  - Icon only: `<!-- @e60c -->`
+  - Icon + Title: `<!-- Title@e60c -->`
 
 </details>
 
