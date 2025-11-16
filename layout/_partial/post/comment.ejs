@@ -150,16 +150,16 @@
         );
 
         script.onload = () => {
-          if (<%= theme.gitalk.md5 %>) {
+          <%_ if (theme.gitalk.md5) { _%>
             const md5Script = loadScript(
               '<%= vendorCdn(theme.vendor.js.md5)[0] %>',
               '<%= vendorCdnIntegrity(theme.vendor.js.md5)[0] %>'
             );
             md5Script.onload = initGitalk;
             document.head.appendChild(md5Script);
-          } else {
+          <%_ } else { _%>
             initGitalk();
-          }
+          <%_ } _%>
         }
         document.head.appendChild(script);
 
@@ -236,33 +236,109 @@
     disqus: {
       enable: <%= commentSystems.disqus %>,
       load: () => {
+        <%_ if (theme.material_theme.enable) { _%>
+        // since disqus cannot parse color(srgb), we need to rewrite div#disqus_thread style
+        function fixDisqusColorParse() {
+          const disqusDiv = _$("#disqus_thread"); 
+          if (!disqusDiv) return;
+          const a = document.createElement('a');
+          a.style.display = 'none';
+          disqusDiv.appendChild(a);
+          const computedStyle = getComputedStyle(a);
+          const color = computedStyle.color;
+          // remove the temporary element
+          disqusDiv.removeChild(a);
+          if (!color.startsWith('color(srgb')) return;
+          // convert to rgb
+          function linearToSrgb(c) {
+            if (c <= 0.0031308) {
+              return 12.92 * c; 
+            } else {
+              return 1.055 * Math.pow(c, 1/2.4) - 0.055;
+            }
+          }
+
+          function srgbToRgb(srgb) {
+            return srgb.map(c => Math.round(linearToSrgb(c) * 255));
+          }
+          const rgbValues = color.match(/color\(srgb ([0-9.]+) ([0-9.]+) ([0-9.]+)\)/);
+          let styleEl = null;
+          if (rgbValues && rgbValues.length === 4) {
+            const srgb = [
+              parseFloat(rgbValues[1]),
+              parseFloat(rgbValues[2]),
+              parseFloat(rgbValues[3])
+            ];
+            const rgb = srgbToRgb(srgb);
+            // create style element to override disqus styles
+            styleEl = document.createElement('style');
+            styleEl.innerHTML = `
+              #disqus_thread a { color: rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]}) !important; }
+            `;
+            document.head.appendChild(styleEl);
+          }
+          return () => {
+            // remove the style element
+            if (styleEl) {
+              document.head.removeChild(styleEl);
+            }
+          }
+        }
+        <%_ } _%>
         if (window.DISQUS) {
+          <%_ if (theme.material_theme.enable) { _%>
+          const cleanup = fixDisqusColorParse();
+          <%_ } _%>
           DISQUS.reset({
             reload: true
-          })
+          });
+          <%_ if (theme.material_theme.enable) { _%>
+          cleanup?.();
+          <%_ } _%>
         } else {
+          <%_ if (theme.material_theme.enable) { _%>
+          const cleanup = fixDisqusColorParse();
+          <%_ } _%>
           const script = document.createElement('script');
           script.src = 'https://<%= theme.disqus.shortname %>.disqus.com/embed.js';
           script.setAttribute('data-timestamp', +new Date());
+          <%_ if (theme.material_theme.enable) { _%>
+          script.onload = () => {
+            cleanup?.();
+          };
+          <%_ } _%>
           (document.head || document.body).appendChild(script);
           document.body.addEventListener('light-theme-set', () => {
             setTimeout(() => {
-              window?.DISQUS.reset({
+              <%_ if (theme.material_theme.enable) { _%>
+              const cleanup = fixDisqusColorParse();
+              <%_ } _%>
+              window?.DISQUS?.reset({
                 reload: true
-              })
+              });
+              <%_ if (theme.material_theme.enable) { _%>
+              cleanup?.();
+              <%_ } _%>
             }, 500);
           });
           document.body.addEventListener('dark-theme-set', () => {
             setTimeout(() => {
-              window?.DISQUS.reset({
+              <%_ if (theme.material_theme.enable) { _%>
+              const cleanup = fixDisqusColorParse();
+              <%_ } _%>
+              window?.DISQUS?.reset({
                 reload: true
-              })
+              });
+              <%_ if (theme.material_theme.enable) { _%>
+              cleanup?.();
+              <%_ } _%>
             }, 500);
           });
         }
-        if (<%= theme.disqus.count %>) {
+        <%_ if (theme.disqus.count) { _%>
           if (_$("#disqus-count")) {
-            _$("#disqus-count").href = location.href + '#disqus_thread';
+            const url = new URL(location.href);
+            _$("#disqus-count").href = url.origin + url.pathname + '#disqus_thread';
           }
           if (window.DISQUSWIDGETS) {
             DISQUSWIDGETS.getCount({ reset: true });
@@ -272,7 +348,7 @@
             countScript.id = 'dsq-count-scr';
             (document.head || document.body).appendChild(countScript);
           }
-        }
+        <%_ } _%>
       }
     }
     <%_ } _%>
