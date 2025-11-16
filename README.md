@@ -93,6 +93,7 @@
   - 热力图
   - 标签轮盘
   - 标签页
+  - 照片墙
 - 🎨 动态适配主题色
 - 🎨 自定义容器
 - ©️ 文章版权声明
@@ -1066,7 +1067,7 @@ triangle_badge:
 
 #### friendLink 友链卡片
 
-```yaml
+```markdown
 {% friendsLink path %}
 ```
 
@@ -1074,7 +1075,7 @@ triangle_badge:
 
 #### postLinkCard 内链卡片
 
-```yaml
+```markdown
 {% postLinkCard slug [cover]|"auto" [escape] %}
 ```
 
@@ -1085,7 +1086,7 @@ triangle_badge:
 
 #### externalLinkCard 外链卡片
 
-```yaml
+```markdown
 {% externalLinkCard title link [cover]|"auto" %}
 ```
 
@@ -1093,7 +1094,7 @@ triangle_badge:
 
 #### heatMapCard 文章热力图 (v1.7.0+)
 
-```yaml
+```markdown
 {% heatMapCard levelStandard %}
 ```
 
@@ -1101,7 +1102,7 @@ triangle_badge:
 
 #### tagRoulette 标签轮盘 (v1.9.0+)
 
-```yaml
+```markdown
 {% heatMapCard tags icon %}
 ```
 
@@ -1112,7 +1113,7 @@ tagRoulette 是一个互动元素，提供随机标签展示功能，点击按�
 
 #### tabs 标签页 (v1.11.0+)
 
-```yaml
+```markdown
 {% tabs [activeTab] ["center"] %}
 <!-- tabName -->
 Tab content
@@ -1129,6 +1130,18 @@ Tab content
   - 标题 `<!-- 标题 -->`
   - 图标 `<!-- @e60c -->`
   - 图标+标题 `<!-- 标题@e60c -->` 
+
+#### gallery 照片墙 (v1.11.0+)
+
+```markdown
+{% gallery %}
+![alt text](image_url1)
+![alt text](image_url2)
+...
+{% endgallery %}
+```
+
+将多张图片以照片墙的形式展示出来，支持自动排列和响应式布局。
 
 </details>
 

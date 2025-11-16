@@ -1,7 +1,7 @@
 // 标签轮盘: 点击游戏手柄emoji（🕹️）触发滚动效果,从预定义的标签数组中随机选择标签显示
 // 卡片抄自：5ime作者的博客 https://5ime.cn/hello-2024.html#%E5%85%B3%E4%BA%8E%E6%88%91
 // 致谢！！！
-
+const css = hexo.extend.helper.get("css").bind(hexo);
 /**
  * {% tagRoulette "tags" "icon" %}
  */
@@ -9,7 +9,6 @@ hexo.extend.tag.register("tagRoulette", (args) => {
   const inputTags =
     args[0] || "点击按钮抽取标签,标签轮盘,带有模糊效果,好想睡觉";
   const icon = args[1] || "🕹️";
-  const css = hexo.extend.helper.get("css").bind(hexo);
   return `
 <div class="roll">
     <div class="roll-button" onclick="rollTagRoulette()">${icon}</div>

@@ -1,0 +1,27 @@
+.gallery-wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.photo-item {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s;
+  background-color: var(--color-wrap);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-item:hover img {
+  transform: scale(1.1);
+}
+
+.photo-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

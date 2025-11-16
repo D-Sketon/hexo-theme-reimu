@@ -28,6 +28,9 @@ const i18n = {
   },
 };
 
+const css = hexo.extend.helper.get("css").bind(hexo);
+const js = hexo.extend.helper.get("js").bind(hexo);
+
 /**
  * {% heatMapCard "levelStandard" %}
  */
@@ -38,8 +41,6 @@ hexo.extend.tag.register("heatMapCard", function (args) {
   }
   const articlesData = [];
   const wordCountFn = hexo.extend.helper.get("raw_wordcount");
-  const css = hexo.extend.helper.get("css").bind(hexo);
-  const js = hexo.extend.helper.get("js").bind(hexo);
   hexo.locals.invalidate();
   hexo.locals.get("posts").each((post) => {
     articlesData.push({

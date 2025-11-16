@@ -1,3 +1,4 @@
+const css = hexo.extend.helper.get("css").bind(hexo);
 let tabIndex = 0;
 /**
  * https://github.com/volantis-x/hexo-theme-volantis/blob/7.x/scripts/tags/tabs.js
@@ -84,7 +85,7 @@ function postTabs(args, content) {
   tabNav = `<ul class="nav-tabs${align}">${tabNav}<div class="tab-indicator"></div></ul>`;
   tabContent = `<div class="tab-content">${tabContent}</div>`;
 
-  return `<div class="tabs" id="tab-${tabName.toLowerCase()}">${tabNav}${tabContent}</div>`;
+  return `<div class="tabs" id="tab-${tabName.toLowerCase()}">${tabNav}${tabContent}</div>${css("css/tabs")}`;
 }
 
 hexo.extend.tag.register("tabs", postTabs, { ends: true });

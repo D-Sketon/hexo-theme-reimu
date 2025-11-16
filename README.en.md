@@ -88,6 +88,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
   - Heatmap
   - Tag Roulette
   - Tabs
+  - Gallery
 - 🎨 Dynamic theme color adaptation
 - 🎨 Custom Containers
 - ©️ Article copyright declaration
@@ -1115,6 +1116,18 @@ Adapted from the next, volantis, and stellar themes, this feature supports creat
   - Title only: `<!-- Title -->`
   - Icon only: `<!-- @e60c -->`
   - Icon + Title: `<!-- Title@e60c -->`
+
+#### Gallery Photo Wall (v1.11.0+)
+
+```markdown
+{% gallery %}
+![alt text](image_url1)
+![alt text](image_url2)
+...
+{% endgallery %}
+```
+
+Display multiple images in a photo wall format, supporting automatic arrangement and responsive layout.
 
 </details>
 
