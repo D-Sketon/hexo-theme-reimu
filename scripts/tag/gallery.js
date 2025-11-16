@@ -23,6 +23,7 @@ hexo.extend.tag.register(
     let lastWidth = 0;
     
     function init() {
+      createInitialDOM();
       loadImages();
       const wall = _$(wallId);
       if (wall && window.ResizeObserver) {
@@ -39,26 +40,59 @@ hexo.extend.tag.register(
       }
     }
     
+    function createInitialDOM() {
+      const wall = _$(wallId);
+      if (!wall || !imageUrls.length) return;
+      
+      wall.style.opacity = '0';
+      wall.style.pointerEvents = 'none';
+      
+      imageUrls.forEach((url) => {
+        images.push({
+          width: 800,
+          height: 600,
+          aspectRatio: 4/3,
+          url: url,
+          loaded: false
+        });
+      });
+      
+      renderPhotoWall();
+    }
+    
     function loadImages() {
-      const loadPromises = imageUrls.map((url) => {
+      const loadPromises = imageUrls.map((url, index) => {
         return new Promise((resolve, reject) => {
           const img = new Image();
           img.onload = () => {
-            images.push({
-              width: img.naturalWidth,
-              height: img.naturalHeight,
-              aspectRatio: img.naturalWidth / img.naturalHeight,
-              url: url,
-            });
+            if (images[index]) {
+              images[index].width = img.naturalWidth;
+              images[index].height = img.naturalHeight;
+              images[index].aspectRatio = img.naturalWidth / img.naturalHeight;
+              images[index].loaded = true;
+            }
             resolve();
           };
-          img.onerror = reject;
+          img.onerror = () => {
+            if (images[index]) {
+              images[index].loaded = true;
+            }
+            resolve();
+          };
           img.src = url;
         });
       });
       
       Promise.all(loadPromises)
-        .then(() => renderPhotoWall())
+        .then(() => {
+          const wall = _$(wallId);
+          if (wall) {
+            wall.style.opacity = '1';
+            wall.style.pointerEvents = 'auto';
+            wall.style.transition = 'opacity 0.3s ease';
+          }
+          renderPhotoWall();
+        })
         .catch((error) => console.error("图片加载失败:", error));
     }
     

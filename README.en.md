@@ -1053,7 +1053,7 @@ triangle_badge:
 
 #### friendLink - Friend Link Card
 
-```yaml
+```markdown
 {% friendsLink path %}
 ```
 
@@ -1061,7 +1061,7 @@ The first parameter `path` indicates the path to the friend links yaml file
 
 #### postLinkCard - Internal Link Card
 
-```yaml
+```markdown
 {% postLinkCard slug [cover]|"auto" [escape] %}
 ```
 
@@ -1072,7 +1072,7 @@ The first parameter is the article's `slug`; the second parameter (optional) is 
 
 #### externalLinkCard - External Link Card
 
-```yaml
+```markdown
 {% externalLinkCard title link [cover]|"auto" %}
 ```
 
@@ -1080,7 +1080,7 @@ The first parameter is the article title; the second parameter is the external l
 
 #### Heat Map Card Article Heatmap (v1.7.0+)
 
-```yaml
+```markdown
 {% heatMapCard levelStandard %}
 ```
 
@@ -1088,7 +1088,7 @@ The first parameter is the level standard for the heatmap (graded based on the w
 
 #### tagRoulette (v1.9.0+)
 
-```yaml
+```markdown
 {% heatMapCard tags icon %}
 ```
 
@@ -1099,7 +1099,7 @@ tagRoulette is an interactive element that provides a random tag display feature
 
 #### tabs (v1.11.0+)
 
-```yaml
+```markdown
 {% tabs [activeTab] ["center"] %}
 <!-- tabName -->
 Tab content
