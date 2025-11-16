@@ -55,6 +55,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
   - Twikoo
   - Gitalk
   - Giscus
+  - Disqus
 
 ### Statistics & Analytics
 - 📊 Article reading statistics (Valine / Waline)
@@ -497,6 +498,16 @@ gitalk:
   owner: "repo owner"
   admin: "repo owner and collaborators"
   md5: false # Whether to use md5 to encrypt the path
+```
+
+If using [Disqus](https://disqus.com/)  
+Please set `disqus.enable` to `true` in the inner `_config.yml`, and fill in your `shortname`
+
+```yml
+disqus:
+  enable: true
+  shortname: "your shortname"
+  count: true # Whether to enable comment count statistics
 ```
 
 </details>
