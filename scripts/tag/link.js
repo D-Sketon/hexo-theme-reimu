@@ -11,15 +11,9 @@ const looksLikeCover = (value = "") => {
   );
 };
 
-const looksLikeLink = (value = "") => {
+const looksLikeExternalLink = (value = "") => {
   if (!value) return false;
-  return (
-    /^(https?:)?\/\//i.test(value) ||
-    /^(mailto|tel):/i.test(value) ||
-    value.startsWith("/") ||
-    value.startsWith("./") ||
-    value.startsWith("../")
-  );
+  return /^(https?:)?\/\//i.test(value) || /^(mailto|tel):/i.test(value);
 };
 
 /**
@@ -34,7 +28,7 @@ hexo.extend.tag.register("link", (args) => {
   let slug = "";
   let hash = "";
 
-  if (!looksLikeLink(targetRaw)) {
+  if (!looksLikeExternalLink(targetRaw)) {
     slug = targetRaw;
     if (slug.includes("#")) {
       const parts = slug.split("#");
@@ -116,7 +110,9 @@ hexo.extend.tag.register("link", (args) => {
 
   return `<div class="post-link-card-wrap">
 		<div class="post-link-card">
-			<a href="${link}" title="${attrTitle}" ${post ? "" : 'rel="noopener nofollow noreferrer" target="_blank"'}></a>
+			<a href="${link}" title="${attrTitle}" ${
+    post ? "" : 'rel="noopener nofollow noreferrer" target="_blank"'
+  }></a>
 			${coverDom}
 			<div class="post-link-card-item-wrap">
 				<div class="post-link-card-title">${finalTitle}</div>
