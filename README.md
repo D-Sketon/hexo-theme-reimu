@@ -1084,22 +1084,26 @@ triangle_badge:
 
 第一个参数 `path` 表示友链 yaml 的路径
 
-#### postLinkCard 内链卡片
+#### postLinkCard 内链卡片 (不推荐，建议使用 link)
 
 ```markdown
 {% postLinkCard slug [cover]|"auto" [escape] %}
 ```
+
+不推荐使用该标签，建议使用 `link` 标签代替。
 
 其中第一个参数为文章的 `slug`；第二个参数（可选）为卡片展示的封面，如果设置为 `auto` 则自动使用博客的 `banner`；第三个参数（可选）表示文章标题是否被转义
 
 > slug 的生成算法：https://github.com/hexojs/hexo-util/blob/master/lib/slugize.ts
 > 简单来说就是去除文章标题的不可见字符，把文章的标题中的特殊字符 `\s~!@#$%^&*()\-_+=[]{}|\;:"'<>,.?/` 全换成分隔符 `-`，合并连续分隔符并去除首尾分隔符
 
-#### externalLinkCard 外链卡片
+#### externalLinkCard 外链卡片 (不推荐，建议使用 link)
 
 ```markdown
 {% externalLinkCard title link [cover]|"auto" %}
 ```
+
+不推荐使用该标签，建议使用 `link` 标签代替。
 
 其中第一个参数为文章的标题；第二个参数为文章的外部链接，第三个参数（可选）为卡片展示的封面，如果设置为 `auto` 则自动使用缺省封面
 
@@ -1121,6 +1125,16 @@ tagRoulette 是一个互动元素，提供随机标签展示功能，点击按�
 
 - tags：可选参数，指定标签池，多个标签用英文逗号(,)分隔；未提供时默认使用几个示例标签，例如：tags="记忆衰退,表达欲丧失,更加怠惰,无感,好想睡觉"
 - icon：可选参数，自定义触发按钮的图标，默认使用： 🕹️（游戏手柄 emoji），可替换为任何 emoji 或文字，如 🎲、🎯、🔄 等
+
+#### link 链接卡片 (v1.11.0+)
+
+```markdown
+{% link slug|title [title] [cover]|"auto" [escape] %}
+```
+
+externalLinkCard 和 postLinkCard 的升级版，推荐使用该标签。
+
+其中第一个参数为文章的 `slug` 或外链的 `title`；第二个参数（可选）为卡片展示的标题；第三个参数（可选）为卡片展示的封面，如果设置为 `auto` 则自动使用博客的 `banner` 或缺省封面；第四个参数（可选）表示文章标题是否被转义
 
 #### tabs 标签页 (v1.11.0+)
 

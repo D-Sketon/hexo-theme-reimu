@@ -1070,22 +1070,26 @@ triangle_badge:
 
 The first parameter `path` indicates the path to the friend links yaml file
 
-#### postLinkCard - Internal Link Card
+#### postLinkCard - Internal Link Card (Not recommended, use `link` instead)
 
 ```markdown
 {% postLinkCard slug [cover]|"auto" [escape] %}
 ```
+
+Not recommended to use this tag. It is advised to use the `link` tag instead.
 
 The first parameter is the article's `slug`; the second parameter (optional) is the cover image displayed on the card, if set to `auto` it will automatically use the blog's `banner`; the third parameter (optional) indicates whether the article title should be escaped
 
 > Slug generation algorithm: https://github.com/hexojs/hexo-util/blob/master/lib/slugize.ts
 > In simple terms, it removes invisible characters from the article title and replaces special characters `\s~!@#$%^&*()\-_+=[]{}|\;:"'<>,.?/` with the separator `-`, merges consecutive separators and removes leading/trailing separators
 
-#### externalLinkCard - External Link Card
+#### externalLinkCard - External Link Card (Not recommended, use `link` instead)
 
 ```markdown
 {% externalLinkCard title link [cover]|"auto" %}
 ```
+
+Not recommended to use this tag. It is advised to use the `link` tag instead.
 
 The first parameter is the article title; the second parameter is the external link to the article; the third parameter (optional) is the cover image displayed on the card, if set to `auto` it will automatically use the default cover
 
@@ -1107,6 +1111,19 @@ tagRoulette is an interactive element that provides a random tag display feature
 
 - tags: Optional parameter specifying the tag pool. Multiple tags should be separated by English commas (,). If not provided, a few example tags will be used by default. Example: `tags="memory decline, loss of expression, increased laziness, numbness, so sleepy"`  
 - icon: Optional parameter to customize the trigger button's icon. Default: 🕹️ (game controller emoji). Can be replaced with any emoji or text, such as 🎲, 🎯, 🔄, etc.
+
+#### link (v1.11.0+)
+
+```markdown
+{% link slug|title [title] [cover]|"auto" [escape] %}
+```
+
+Upgraded version of `externalLinkCard` and `postLinkCard`. It is recommended to use this tag.
+
+The first parameter is the `slug` of the article or the `title` of the external link;  
+The second parameter (optional) is the title displayed on the card;  
+The third parameter (optional) is the cover image displayed on the card. If set to `auto`, the blog's `banner` or default cover will be used automatically;  
+The fourth parameter (optional) indicates whether the article title is escaped.
 
 #### tabs (v1.11.0+)
 
