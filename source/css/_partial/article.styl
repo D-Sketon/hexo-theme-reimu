@@ -209,6 +209,21 @@ $article-meta-tag {
     border-spacing: 0;
   }
 
+  div.table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+
+    table {
+      width: max-content;
+      min-width: 100%;
+    }
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
   th {
     font-weight: bold;
     border-bottom: 3px solid var(--color-border);

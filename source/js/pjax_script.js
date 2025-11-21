@@ -78,6 +78,16 @@ _$$(".article-entry img").forEach((element) => {
 window.lightboxStatus = "ready";
 window.dispatchEvent(new Event("lightbox:ready"));
 
+// table wrap
+_$$(".article-entry table").forEach((element) => {
+  if (element.closest("figure.highlight")) return;
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("table-wrapper");
+  element.parentNode?.insertBefore(wrapper, element);
+  element.parentNode?.removeChild(element);
+  wrapper.appendChild(element);
+});
+
 // Mobile nav
 var isMobileNavAnim = false;
 

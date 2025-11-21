@@ -72,8 +72,8 @@ hexo.extend.tag.register("link", (args) => {
   let coverDom = "";
 
   if (post) {
-    attrTitle = escapeHTML(post.title || post.slug);
     const displayTitle = title ? title : post.title || post.slug;
+    attrTitle = escapeHTML(displayTitle);
     finalTitle = escape === "false" ? displayTitle : escapeHTML(displayTitle);
     link = url_for.call(
       hexo,
