@@ -97,6 +97,7 @@ $article-meta-tag {
     font-weight: bold;
     line-height: line-height-title;
     margin: line-height-title 0 0.75em;
+    word-wrap: break-word;
 
     if (hexo-config('icon_font')) {
       a:first-of-type {
@@ -336,6 +337,10 @@ $article-meta-tag {
       height: 100%;
       margin-top: 0;
     }
+  }
+
+  p, ul, dl {
+    word-wrap: break-word;
   }
 }
 
