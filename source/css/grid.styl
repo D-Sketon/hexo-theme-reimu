@@ -10,9 +10,10 @@
       width: 100%;
     }
 
-    &:has(> .post-link-card-wrap:only-child) {
-      .post-link-card-wrap {
-        margin: 0;
+    &:has(> *:only-child) {
+      > *:only-child {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
       }
     }
   }
