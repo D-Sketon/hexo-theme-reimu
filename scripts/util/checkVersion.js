@@ -63,7 +63,7 @@ hexo.on("generateAfter", () => {
       }
     )
     .on("error", (err) => {
-      hexo.log.error(
+      hexo.log.warn(
         "Failed to detect version info. You can get the latest version info at https://github.com/D-Sketon/hexo-theme-reimu/releases"
       );
     });
