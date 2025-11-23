@@ -1157,6 +1157,25 @@ Adapted from the next, volantis, and stellar themes, this feature supports creat
 
 Display multiple images in a photo wall format, supporting automatic arrangement and responsive layout.
 
+#### grid Grid Layout (v1.11.1+)
+
+```markdown
+{% grid [width] [col] %}
+<!-- cell -->
+Content 1
+<!-- cell -->
+Content 2
+<!-- cell -->
+Content 3
+{% endgrid %}
+```
+
+Display content in a grid layout with responsive design.
+
+- width: Optional parameter, sets the minimum column width, e.g., `300` means a minimum column width of 300px. Default is `240`
+- col: Optional parameter, sets a fixed number of columns, e.g., `col:3` means a fixed 3-column layout. Default is auto column count
+- Use `<!-- cell -->` to separate each grid cell, and each cell's content will be rendered independently
+
 </details>
 
 <details>
