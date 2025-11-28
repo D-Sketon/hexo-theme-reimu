@@ -5,11 +5,11 @@ let tabIndex = 0;
  * 
  * https://github.com/xaoxuu/hexo-theme-stellar/blob/main/scripts/tags/lib/tabs.js
  * 
- * {% tabs 2 center %}
- * <!-- tab 栏目1 -->
- * 内容
- * <!-- tab 栏目2@icon -->
- * 内容
+ * {% tabs [activeTab] ["center"] %}
+ * <!-- tab title -->
+ * content
+ * <!-- tab title@icon -->
+ * content
  * {% endtabs %}
  */
 function postTabs(args, content) {

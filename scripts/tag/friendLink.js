@@ -47,6 +47,9 @@ const insertHtml = (load) => {
   return content;
 };
 
+/**
+ * {% friendsLink filePath %}
+ */
 hexo.extend.tag.register("friendsLink", (args) => {
   return loadFile(args[0]);
 });

@@ -1,14 +1,11 @@
 const css = hexo.extend.helper.get("css").bind(hexo);
 /**
- * {% grid %}
+ * {% grid [width] [col] %}
  * <!-- cell -->
- * 内容1...
+ * content
  * <!-- cell -->
- * 内容2...
+ * content
  * {% endgrid %}
- *
- * {% grid 300 %} - 设置每列宽度为 300px
- * {% grid col:3 %} - 设置固定 3 列
  */
 hexo.extend.tag.register(
   "grid",

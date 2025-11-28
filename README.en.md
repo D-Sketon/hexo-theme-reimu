@@ -1176,6 +1176,31 @@ Display content in a grid layout with responsive design.
 - col: Optional parameter, sets a fixed number of columns, e.g., `col:3` means a fixed 3-column layout. Default is auto column count
 - Use `<!-- cell -->` to separate each grid cell, and each cell's content will be rendered independently
 
+#### alertBlockquote Warning Quote Block (v1.11.1+)
+
+```markdown
+{% alertBlockquote [type] [title] %}
+Quote content
+{% endalertBlockquote %}
+```
+
+Fallback version of the custom container, suitable for renderers that do not support custom containers.
+
+- type: Optional parameter, specifies the warning type, optional values are `info`, `tip`, `important`, `warning`, `danger`, default is `info`
+- title: Optional parameter, specifies the warning title, if not provided, the default title will be used
+
+#### details Collapsible Details Block (v1.11.1+)
+
+```markdown
+{% details [summary] %}
+Details content
+{% enddetails %}
+```
+
+Fallback version of the custom container, suitable for renderers that do not support custom containers.
+
+- summary: Optional parameter, specifies the details title, if not provided, the default title will be used
+
 </details>
 
 <details>
@@ -1212,7 +1237,7 @@ This is a dangerous warning.
 Danger zone, do not proceed
 :::
 
-::: details
+::: details INFO
 This is a details block.
 :::
 ```
@@ -1221,6 +1246,8 @@ This is a details block.
 
 <details>
 <summary>Customize theme</summary>
+
+### Customize theme
 
 The hexo-theme-reimu theme supports extensive customization. You can customize your theme by modifying `_config.yml`.
 

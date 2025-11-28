@@ -32,7 +32,7 @@ const css = hexo.extend.helper.get("css").bind(hexo);
 const js = hexo.extend.helper.get("js").bind(hexo);
 
 /**
- * {% heatMapCard "levelStandard" %}
+ * {% heatMapCard [levelStandard] %}
  */
 hexo.extend.tag.register("heatMapCard", function (args) {
   let levelStandard = args.shift();

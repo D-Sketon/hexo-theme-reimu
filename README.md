@@ -1187,6 +1187,30 @@ Tab content
 - col：可选参数，设置固定列数，如 `col:3` 表示固定 3 列布局，默认值为自适应列数
 - 使用 `<!-- cell -->` 分隔每个网格单元，每个单元的内容会被独立渲染
 
+#### alertBlockquote 警告引用块 (v1.11.1+)
+
+```markdown
+{% alertBlockquote [type] [title] %}
+引用内容
+{% endalertBlockquote %}
+```
+
+下文自定义容器的 fallback 版本，适用于不支持自定义容器的渲染器。
+
+- type：可选参数，指定警告类型，可选值有 `info`、`tip`、`important`、`warning`、`danger`，默认值为 `info`
+- title：可选参数，指定警告标题，若不提供则使用默认标题
+
+#### details 折叠详情块 (v1.11.1+)
+
+```markdown
+{% details [summary] %}
+折叠内容
+{% enddetails %}
+
+下文自定义容器的 fallback 版本，适用于不支持自定义容器的渲染器。
+
+- summary：可选参数，指定折叠块的标题，若不提供则使用默认标题
+
 </details>
 
 <details>
@@ -1223,7 +1247,7 @@ This is a dangerous warning.
 Danger zone, do not proceed
 :::
 
-::: details
+::: details INFO
 This is a details block.
 :::
 ```
@@ -1231,6 +1255,8 @@ This is a details block.
 </details>
 <details>
 <summary>自定义主题</summary>
+
+### 自定义主题
 
 hexo-theme-reimu 主题支持高度的自定义，你可以通过修改 `_config.yml` 来定制你的主题。
 

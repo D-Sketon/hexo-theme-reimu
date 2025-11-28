@@ -3,7 +3,7 @@
 // 致谢！！！
 const css = hexo.extend.helper.get("css").bind(hexo);
 /**
- * {% tagRoulette "tags" "icon" %}
+ * {% tagRoulette [tags] [icon] %}
  */
 hexo.extend.tag.register("tagRoulette", (args) => {
   const inputTags =

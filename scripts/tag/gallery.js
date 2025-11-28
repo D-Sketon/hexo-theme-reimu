@@ -1,3 +1,9 @@
+/**
+ * {% gallery %}
+ * ![alt](url)
+ * ![alt](url)
+ * {% endgallery %}
+ */
 hexo.extend.tag.register(
   "gallery",
   function (args, content) {
