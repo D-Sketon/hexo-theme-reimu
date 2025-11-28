@@ -12,6 +12,6 @@ hexo.extend.tag.register('details', function(args, content) {
 
   return `<details class="details custom-block">
     <summary>${summary}</summary>
-    ${renderedContent}
+    <div class="detail-content">${renderedContent}</div>
   </details>`;
 }, { ends: true });
