@@ -1206,6 +1206,7 @@ Tab content
 {% details [summary] %}
 折叠内容
 {% enddetails %}
+```
 
 下文自定义容器的 fallback 版本，适用于不支持自定义容器的渲染器。
 
