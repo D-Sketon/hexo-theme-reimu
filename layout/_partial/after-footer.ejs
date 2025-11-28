@@ -5,10 +5,10 @@
   <%- js({src: vendorCdn(theme.vendor.js.material_theme)[0], integrity: vendorCdnIntegrity(theme.vendor.js.material_theme)[0], crossorigin: "anonymous"}) %>
 <%_ } _%>
 
-<%- js(url_for('js/script.js')) %>
+<%- js('js/script.js') %>
 
 <%_ if (theme.animation.enable) { _%>
-  <%- js(url_for('js/aos.js')) %>
+  <%- js('js/aos.js') %>
   <script>
     var aosInit = () => {
       AOS.init({
@@ -26,10 +26,10 @@
   </script>
 <%_ } _%>
 
-<%- js({src: url_for('js/pjax_script.js'), 'data-pjax': true}) %>
+<%- js({src: 'js/pjax_script.js', 'data-pjax': true}) %>
 
 <%_ if (theme.generator_search.enable) { _%>
-  <%- js({src: url_for('js/generator_search.js'), defer: true}) %>
+  <%- js({src: 'js/generator_search.js', defer: true}) %>
 <%_ } _%>
 
 <%_ if (theme.algolia_search.enable) { _%>
@@ -67,7 +67,7 @@
 
 <%_ if (theme.pjax.enable) { _%>
   <%- js({src: vendorCdn(theme.vendor.js.pjax)[0], integrity: vendorCdnIntegrity(theme.vendor.js.pjax)[0], crossorigin: "anonymous"}) %>
-  <%- js(url_for('js/pjax.js')) %>
+  <%- js('js/pjax.js') %>
 <%_ } _%>
 
 <%_ if (theme.live2d.enable) { _%>
@@ -208,8 +208,8 @@
     <%_ } _%>
     <%_ if (config.highlight.enable || config.syntax_highlighter === "highlight.js") { _%>
       <%_ if (is_post() || is_page()) { _%>
-        <%- js({ src: url_for("js/insert_highlight.js"), "data-pjax": true }) %>
-        <%- js({ src: url_for('js/tabs.js'), 'data-pjax': true }) %>
+        <%- js({ src: "js/insert_highlight.js", "data-pjax": true }) %>
+        <%- js({ src: 'js/tabs.js', 'data-pjax': true }) %>
         <%_ if (Array.isArray(theme.share) && theme.share.includes("weixin")) { _%>
           <%- js({src: vendorCdn(theme.vendor.js.snapdom)[0], integrity: vendorCdnIntegrity(theme.vendor.js.snapdom)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
           <%- js({src: vendorCdn(theme.vendor.js.qrcode)[0], integrity: vendorCdnIntegrity(theme.vendor.js.qrcode)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
@@ -255,7 +255,7 @@
 <%_ } _%>
 
 <%_ if (theme.service_worker.enable) { _%>
-  <%- js(url_for('js/service_worker.js')) %>
+  <%- js('js/service_worker.js') %>
 <%_ } else { _%>
 <script>
   if ('serviceWorker' in navigator) {
