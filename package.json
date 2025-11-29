@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-reimu",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "description": "A Hakurei Reimu style Hexo theme",
   "repository": {
     "type": "git",
@@ -18,5 +18,16 @@
   "bugs": {
     "url": "https://github.com/D-Sketon/hexo-theme-reimu/issues"
   },
-  "homepage": "https://github.com/D-Sketon/hexo-theme-reimu#readme"
+  "homepage": "https://github.com/D-Sketon/hexo-theme-reimu#readme",
+  "files": [
+    "_config.yml",
+    "LICENSE",
+    "README.en.md",
+    "README.md",
+    "_example",
+    "languages",
+    "layout",
+    "scripts",
+    "source"
+  ]
 }
