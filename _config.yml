@@ -786,8 +786,8 @@ vendor:
       src: webcache|svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js
       integrity: sha384-GGX4llYprEPGp9w5caepn95YWAEflHnsA5ewt+Y+cBEb95og5cXKllnWKSELlzbx
     firework:
-      src: webcache|mouse-firework@0.1.1/dist/index.umd.js
-      integrity: sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d
+      src: webcache|mouse-firework@0.2.0/dist/index.umd.js
+      integrity: sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T
     pjax:
       src: webcache|theme-shokax-pjax@0.0.3/dist/index.umd.js
       integrity: sha384-xneY1WY8hOfUzswrE4CrYq35N4BdVcxqxwHPr9zawE/jMSCxD+jAPU55x/jj3wlf
