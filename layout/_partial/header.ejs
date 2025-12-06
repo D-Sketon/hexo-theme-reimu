@@ -123,7 +123,13 @@
         <picture>
           <%_ if (theme.banner_srcset.enable) { _%>
             <%_ for (let i of theme.banner_srcset.srcset) { _%>
-              <source media="<%= i.media %>" srcset="<%- url_for(i.src, {relative: false}) %>">
+              <%_ if (Array.isArray(i.src)) { _%>
+                <%_ for (let srcItem of i.src) { _%>
+                  <source media="<%= i.media %>" srcset="<%- url_for(srcItem, {relative: false}) %>">
+                <%_ } _%>
+              <%_ } else { _%>
+                <source media="<%= i.media %>" srcset="<%- url_for(i.src, {relative: false}) %>">
+              <%_ } _%>
             <%_ } _%>
             <img <% if (theme.material_theme.enable) { %>crossorigin="anonymous"<% } %> fetchpriority="high" src="<%- url_for(theme.banner, {relative: false}) %>" alt="<%= post.title %>">
           <%_ } _%>
@@ -138,7 +144,13 @@
       <picture>
         <%_ if (theme.banner_srcset.enable) { _%>
           <%_ for (let i of theme.banner_srcset.srcset) { _%>
-            <source media="<%= i.media %>" srcset="<%- url_for(i.src, {relative: false}) %>">
+            <%_ if (Array.isArray(i.src)) { _%>
+              <%_ for (let srcItem of i.src) { _%>
+                <source media="<%= i.media %>" srcset="<%- url_for(srcItem, {relative: false}) %>">
+              <%_ } _%>
+            <%_ } else { _%>
+              <source media="<%= i.media %>" srcset="<%- url_for(i.src, {relative: false}) %>">
+            <%_ } _%>
           <%_ } _%>
           <img <% if (theme.material_theme.enable) { %>crossorigin="anonymous"<% } %> fetchpriority="high" src="<%- url_for(theme.banner, {relative: false}) %>" alt="<%= post.title %>">
         <%_ } _%>
