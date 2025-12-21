@@ -60,11 +60,10 @@ hexo.extend.tag.register("postLinkCard", (args) => {
       ${coverDom}
       <div class="post-link-card-item-wrap">
         <div class="post-link-card-title">${title}</div>
-        <div class="post-link-card-excerpt">${
-          post.excerpt
-            ? stripHTML(post.excerpt)
-            : stripHTML(post._content).slice(0, 100)
-        }</div>
+        <div class="post-link-card-excerpt">${(post.excerpt
+          ? stripHTML(post.excerpt)
+          : stripHTML(post._content).slice(0, 100)
+        ).replace(/\s/g, " ")}</div>
       </div>
     </div>
   </div>`;

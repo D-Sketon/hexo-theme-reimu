@@ -94,6 +94,7 @@ hexo.extend.tag.register("link", (args) => {
     description = post.excerpt
       ? stripHTML(post.excerpt)
       : stripHTML(post._content).slice(0, 100);
+    description = description.replace(/\s/g, " ");
   } else {
     link = targetRaw;
     description = `<span class="icon-link"></span>${link}`;

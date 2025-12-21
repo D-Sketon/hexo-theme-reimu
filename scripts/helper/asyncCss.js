@@ -15,7 +15,7 @@ function asyncCssHelper(content) {
         if (!path.endsWith(".css")) {
           path += ".css";
         }
-        return `<link rel="preload" href="${item}" as="style" onload="this.onload=null;this.rel='stylesheet'">`;
+        return `<link rel="preload" href="${path}" as="style" onload="this.onload=null;this.rel='stylesheet'">`;
       } else {
         if (!item.href.endsWith(".css")) item.href += ".css";
         return htmlTag("link", {
