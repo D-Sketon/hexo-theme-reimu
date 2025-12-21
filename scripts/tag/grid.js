@@ -1,4 +1,4 @@
-const css = hexo.extend.helper.get("css").bind(hexo);
+let asyncCss;
 /**
  * {% grid [width] [col] %}
  * <!-- cell -->
@@ -10,6 +10,9 @@ const css = hexo.extend.helper.get("css").bind(hexo);
 hexo.extend.tag.register(
   "grid",
   function (args, content) {
+    if (!asyncCss) {
+      asyncCss = hexo.extend.helper.get("asyncCss").bind(hexo);
+    }
     let columnWidth = 240;
     let fixedColumns = null;
 
@@ -60,7 +63,7 @@ hexo.extend.tag.register(
     }
 
     const gridHtml = `<div class="reimu-grid ${gridClass}" style="${gridStyle}">${html}</div>
-${css("css/grid")}
+${asyncCss("css/grid")}
 `;
 
     return gridHtml;

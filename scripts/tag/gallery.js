@@ -1,3 +1,4 @@
+let asyncCss;
 /**
  * {% gallery %}
  * ![alt](url)
@@ -7,7 +8,9 @@
 hexo.extend.tag.register(
   "gallery",
   function (args, content) {
-    const css = hexo.extend.helper.get("css").bind(hexo);
+    if (!asyncCss) {
+      asyncCss = hexo.extend.helper.get("asyncCss").bind(hexo);
+    }
     const html = hexo.render.renderSync({ text: content, engine: "markdown" });
 
     const imgRegex = /<img[^>]+src=["']([^"']+)["'][^>]*>/g;
@@ -180,7 +183,7 @@ hexo.extend.tag.register(
     }
   })();
 </script>
-${css("css/gallery")}
+${asyncCss("css/gallery")}
   `;
     return galleryHtml;
   },

@@ -28,13 +28,16 @@ const i18n = {
   },
 };
 
-const css = hexo.extend.helper.get("css").bind(hexo);
+let asyncCss;
 const js = hexo.extend.helper.get("js").bind(hexo);
 
 /**
  * {% heatMapCard [levelStandard] %}
  */
 hexo.extend.tag.register("heatMapCard", function (args) {
+  if (!asyncCss) {
+    asyncCss = hexo.extend.helper.get("asyncCss").bind(hexo);
+  }
   let levelStandard = args.shift();
   if (!levelStandard) {
     levelStandard = "1000,5000,10000";
@@ -54,5 +57,5 @@ hexo.extend.tag.register("heatMapCard", function (args) {
 
   return `<script>var REIMU_HEATMAP_CONFIG = {articleStats: ${JSON.stringify(
     articlesData
-  )}, i18n: ${JSON.stringify(i18n)}, levelStandard: "${levelStandard}"};</script>${css("css/heat-map")}<div id="heatmap"></div>${js("js/heat_map")}`;
+  )}, i18n: ${JSON.stringify(i18n)}, levelStandard: "${levelStandard}"};</script>${asyncCss("css/heat-map")}<div id="heatmap"></div>${js("js/heat_map")}`;
 });

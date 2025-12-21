@@ -66,11 +66,7 @@
   <%- asyncCss({href: vendorCdn(theme.vendor.css.photoswipe)[0], integrity: vendorCdnIntegrity(theme.vendor.css.photoswipe)[0], crossorigin: "anonymous"}) %>
   <%_ if (theme.math.enable) { _%>
     <%_ if (theme.math.katex.enable) { _%>
-      <%_ if (is_post() || is_page()) { _%>
-        <%- css({href: vendorCdn(theme.vendor.css.katex)[0], integrity: vendorCdnIntegrity(theme.vendor.css.katex)[0], crossorigin: "anonymous"}) %>
-      <%_ } else { _%>
-        <%- asyncCss({href: vendorCdn(theme.vendor.css.katex)[0], integrity: vendorCdnIntegrity(theme.vendor.css.katex)[0], crossorigin: "anonymous"}) %>
-      <%_ } _%>
+      <%- asyncCss({href: vendorCdn(theme.vendor.css.katex)[0], integrity: vendorCdnIntegrity(theme.vendor.css.katex)[0], crossorigin: "anonymous"}) %>
     <%_ } _%>
   <%_ } _%>
   <%_ if (theme.waline.enable && theme.waline.serverURL) { _%>
