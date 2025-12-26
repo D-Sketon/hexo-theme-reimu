@@ -57,12 +57,14 @@
 <%_ } _%>
 
 <%_ if (theme.firework.enable) { _%>
-  <%- js({src: vendorCdn(theme.vendor.js.firework)[0], integrity: vendorCdnIntegrity(theme.vendor.js.firework)[0], crossorigin: "anonymous"}) %>
   <script>
-    if (!<%= theme.firework.disable_on_mobile %> || !window.matchMedia('(max-width: 768px)').matches) {
-      window.firework && window.firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'));
+    var setupFirework = () => {
+      if (!<%= theme.firework.disable_on_mobile %> || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('<%- JSON.stringify(theme.firework.options) %>'));
+      }
     }
   </script>
+  <%- js({src: vendorCdn(theme.vendor.js.firework)[0], integrity: vendorCdnIntegrity(theme.vendor.js.firework)[0], crossorigin: "anonymous", onload: "setupFirework()", defer: true}) %>
 <%_ } _%>
 
 <%_ if (theme.pjax.enable) { _%>
@@ -72,11 +74,11 @@
 
 <%_ if (theme.live2d.enable) { _%>
   <script>
-    function initLive2d() {
+    var setupLive2d = () => {
       live2d.init("<%- vendorCdn(theme.vendor.js.live2d.base)[0] %>", {themeTipsPath: ""});
     }
   </script>
-  <%- js({src: vendorCdn(theme.vendor.js.live2d.js)[0], onload: "initLive2d && initLive2d()", async: true})%>
+  <%- js({src: vendorCdn(theme.vendor.js.live2d.js)[0], onload: "setupLive2d()", async: true})%>
 <%_ } _%>
 
 <%_ if (theme.live2d_widgets.enable) { _%>
@@ -206,17 +208,15 @@
         }
       </script>
     <%_ } _%>
-    <%_ if (config.highlight.enable || config.syntax_highlighter === "highlight.js") { _%>
-      <%_ if (is_post() || is_page()) { _%>
-        <%- js({ src: "js/insert_highlight.js", "data-pjax": true }) %>
-        <%- js({ src: 'js/tabs.js', 'data-pjax': true }) %>
-        <%_ if (Array.isArray(theme.share) && theme.share.includes("weixin")) { _%>
-          <%- js({src: vendorCdn(theme.vendor.js.snapdom)[0], integrity: vendorCdnIntegrity(theme.vendor.js.snapdom)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
-          <%- js({src: vendorCdn(theme.vendor.js.qrcode)[0], integrity: vendorCdnIntegrity(theme.vendor.js.qrcode)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
-        <%_ } _%>
-      <%_ } _%>
-    <%_ } _%>
     <%_ if (is_post() || is_page()) { _%>
+      <%_ if (config.highlight.enable || config.syntax_highlighter === "highlight.js") { _%>
+        <%- js({ src: "js/insert_highlight.js", "data-pjax": true }) %>
+      <%_ } _%>
+      <%- js({ src: 'js/tabs.js', 'data-pjax': true, defer: true }) %>
+      <%_ if (Array.isArray(theme.share) && theme.share.includes("weixin")) { _%>
+        <%- js({src: vendorCdn(theme.vendor.js.snapdom)[0], integrity: vendorCdnIntegrity(theme.vendor.js.snapdom)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
+        <%- js({src: vendorCdn(theme.vendor.js.qrcode)[0], integrity: vendorCdnIntegrity(theme.vendor.js.qrcode)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
+      <%_ } _%>
       <script type="module" data-pjax>
         const PhotoSwipeLightbox = (await safeImport("<%- vendorCdn(theme.vendor.js.photoswipe_lightbox) %>", "<%- vendorCdnIntegrity(theme.vendor.js.photoswipe_lightbox) %>")).default;
         const initPswp = (gallery, children) => {
@@ -281,9 +281,9 @@
 <%_ } _%>
 
 <%_ if (theme.player.aplayer.enable) { _%>
-  <%- js({src: vendorCdn(theme.vendor.js.aplayer)[0], integrity: vendorCdnIntegrity(theme.vendor.js.aplayer)[0], crossorigin: "anonymous"}) %>
   <%_ if (!theme.player.meting.enable) { _%>
     <script>
+    var setupAPlayer = () => {
       if (!<%= theme.player.disable_on_mobile %> || !window.matchMedia('(max-width: 768px)').matches) {
         if (window.matchMedia('(max-width: 959px)').matches) {
           const aplayer = _$('#aplayer');
@@ -296,7 +296,7 @@
             }
           }
         }
-        const ap = new APlayer({
+        new APlayer({
           theme: "var(--color-link)",
           container: document.getElementById('aplayer'),
           audio: <%- JSON.stringify(theme.player.aplayer.options.audio) %> || [],
@@ -311,36 +311,34 @@
           lrcType: <%= JSON.stringify(theme.player.aplayer.options.lrcType) %> || 0,
         });
       }
+    }
     </script>
-  <%_ } _%>
-<%_ } _%>
-
-<%_ if (theme.player.meting.enable) { _%>
-  <%_ if (theme.player.meting.meting_api) { _%>
+  <%_ } else { _%>
     <script>
-      var meting_api = "<%- theme.player.meting.meting_api %>";
-    </script>
-  <%_ } _%>
-  <script>
-    if (!<%= theme.player.disable_on_mobile %> || !window.matchMedia('(max-width: 768px)').matches) {
-      if (window.matchMedia('(max-width: 959px)').matches) {
-        const meting = _$('meting-js');
-        if (meting) {
-          meting.setAttribute('fixed', 'true');
-          const aside = meting.parentNode?.parentNode;
-          if (aside?.tagName === 'ASIDE') {
-            meting.parentNode.removeChild(meting);
-            document.body.appendChild(meting);
+      var setupAPlayer = () => {
+        if (!<%= theme.player.disable_on_mobile %> || !window.matchMedia('(max-width: 768px)').matches) {
+          if (window.matchMedia('(max-width: 959px)').matches) {
+            const meting = _$('meting-js');
+            if (meting) {
+              meting.setAttribute('fixed', 'true');
+              const aside = meting.parentNode?.parentNode;
+              if (aside?.tagName === 'ASIDE') {
+                meting.parentNode.removeChild(meting);
+                document.body.appendChild(meting);
+              }
+            }
           }
         }
-      }
-      const script = document.createElement('script');
-      script.src = "<%- vendorCdn(theme.vendor.js.meting)[0] %>";
-      script.integrity = "<%- vendorCdnIntegrity(theme.vendor.js.meting)[0] %>";
-      script.crossOrigin = "anonymous";
-      document.body.appendChild(script);
-    }
-  </script>
+      };
+      <%_ if (theme.player.meting.meting_api) { _%>
+        var meting_api = "<%- theme.player.meting.meting_api %>";
+      <%_ } _%>
+    </script>
+  <%_ } _%>
+  <%- js({src: vendorCdn(theme.vendor.js.aplayer)[0], integrity: vendorCdnIntegrity(theme.vendor.js.aplayer)[0], crossorigin: "anonymous", defer: true, onload: "setupAPlayer()"}) %>
+  <%_ if (theme.player.meting.enable) { _%>
+    <%- js({src: vendorCdn(theme.vendor.js.meting)[0], integrity: vendorCdnIntegrity(theme.vendor.js.meting)[0], crossorigin: "anonymous", defer: true}) %>
+  <%_ } _%>
 <%_ } _%>
 
 <%_ if (theme.pangu.enable) { _%>
