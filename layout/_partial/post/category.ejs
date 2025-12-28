@@ -1,10 +1,8 @@
 <%_ if (post.categories && post.categories.length) { _%>
-  <div class="article-category">
-    <%- listCategories(post.categories, {
-      show_count: false,
-      class: 'article-category',
-      style: 'none',
-      separator: ''
-    }, theme.animation.options.article.category) %>
-  </div>
+  <%- listCategories(post.categories, {
+    show_count: false,
+    class: 'article-category',
+    style: 'none',
+    separator: ''
+  }, theme.animation.options.article.category) %>
 <%_ } _%>

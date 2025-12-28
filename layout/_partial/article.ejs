@@ -2,7 +2,6 @@
   <div class="article-inner" data-aos="<%= theme.animation.options.article.whole %>">
     <div class="article-meta">
       <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
-      <%- partial('post/category') %>
     </div>
     <%- partial('post/summary') %>
     <div class="hr-line"></div>
@@ -81,6 +80,7 @@
           <em class="post-meta-item-text"><%= __('reading') %></em>
         </span>
       <%_ } _%>
+      <%- partial('post/category') %>
       <%- partial('post/tag') %>
     </footer>
   </div>

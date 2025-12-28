@@ -63,20 +63,6 @@ $article-meta-tag {
   }
 }
 
-.article-category {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.article-category-link {
-  @extend $article-meta-tag;
-
-  &:before {
-    font-weight: 700;
-    margin-right: 8px;
-  }
-}
-
 .article-entry {
   @extend $base-style;
   clearfix();
@@ -399,11 +385,12 @@ $article-meta-tag {
   }
 }
 
-.article-tag-list-link, .article-comment-link, .article-visitor-link {
+.article-category-link, .article-tag-list-link, .article-comment-link, .article-visitor-link {
   color: var(--red-1);
   margin-top: article-padding;
 }
 
+.article-category-link,
 .article-tag-list-item {
   float: left;
   text-decoration: none;
@@ -416,6 +403,7 @@ $article-meta-tag {
   box-shadow: var(--shadow-meta);
 }
 
+.article-category-link,
 .article-tag-list-link {
   &:before {
     margin-right: 8px;

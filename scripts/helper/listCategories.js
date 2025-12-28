@@ -99,8 +99,8 @@ hexo.extend.helper.register("listCategories", function (...args) {
   const result = listCategoriesHelper.apply(this, args);
   if (args[2]) {
     return result.replace(
-      /<a class="([^"]+)" href="([^"]+)">/g,
-      `<a class="$1" href="$2" data-aos="${args[2]}">`
+      /<a class="([^"]+)" href="([^"]+)" title="([^"]+)">/g,
+      `<a class="$1" href="$2" title="$3" data-aos="${args[2]}">`
     );
   }
   return result;
