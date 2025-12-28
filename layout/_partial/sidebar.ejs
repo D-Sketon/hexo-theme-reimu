@@ -26,23 +26,31 @@
       ></meting-js>
     <%_ } _%>
   <%_ } _%>
+  <%_ /* Backward compatibility */ _%>
+  <%_ let showCommonSidebar = true; _%>
+  <%_ if (typeof theme.sidebar === 'object' && theme.sidebar !== null && theme.sidebar.article && theme.sidebar.article.show_common !== undefined) { _%>
+    <%_ showCommonSidebar = theme.sidebar.article.show_common; _%>
+  <%_ } _%>
   <div class="sidebar-wrapper">
     <div class="sidebar-wrap" data-aos="<%= theme.animation.options.home.sidebar %>">
       <%_ if (is_post()) { _%>
         <%_ if (post.toc === false) { _%>
-          <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
+          <%- partial_lang('sidebar/common-sidebar', { mobile: false }, { cache: !config.relative_link && theme.sidebar?.menu !== false, lang: page.lang }) %>
         <%_ } else if (post.toc !== true && theme.toc === false) { _%>
-          <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
+          <%- partial_lang('sidebar/common-sidebar', { mobile: false }, { cache: !config.relative_link && theme.sidebar?.menu !== false, lang: page.lang }) %>
+        <%_ } else if (!showCommonSidebar) { _%>
+          <div class="sidebar-toc-sidebar" style="margin-bottom: 10px;"><%- partial('sidebar/toc-sidebar') %></div>
         <%_ } else { _%>
           <div class="sidebar-toc-sidebar"><%- partial('sidebar/toc-sidebar') %></div>
-          <div class="sidebar-common-sidebar hidden"><%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %></div>
+          <div class="sidebar-common-sidebar hidden"><%- partial_lang('sidebar/common-sidebar', { mobile: false }, { cache: !config.relative_link && theme.sidebar?.menu !== false, lang: page.lang }) %></div>
         <%_ } _%>
       <%_ } else { _%>
-        <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
+        <%- partial_lang('sidebar/common-sidebar', { mobile: false }, { cache: !config.relative_link && theme.sidebar?.menu !== false, lang: page.lang }) %>
       <%_ } _%>
       <%_ if (is_post()) { _%>
         <%_ if (post.toc === false) { _%>
         <%_ } else if (post.toc !== true && theme.toc === false) { _%>
+        <%_ } else if (!showCommonSidebar) { _%>
         <%_ } else { _%>
           <div class="sidebar-btn-wrapper" style="position:static">
             <div class="sidebar-toc-btn current"></div>

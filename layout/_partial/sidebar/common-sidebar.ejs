@@ -1,3 +1,8 @@
+<%_ /* Backward compatibility */ _%>
+<%_ let showMenu = true; _%>
+<%_ if (typeof theme.sidebar === 'object' && theme.sidebar !== null && theme.sidebar.menu !== undefined) { _%>
+  <%_ showMenu = theme.sidebar.menu; _%>
+<%_ } _%>
 <div class="sidebar-author">
   <img data-src="<%- url_for('/avatar/' + theme.avatar, {relative: false}) %>" data-sizes="auto" alt="<%= config.author %>" class="lazyload">
   <div class="sidebar-author-name"><%= config.author %></div>
@@ -17,13 +22,14 @@
     <div class="sidebar-state-number"><%= site.tags.length %></div>
   </div>
 </div>
-<div class="sidebar-social">
+<div class="sidebar-social" <% if (!(showMenu || mobile)) { %>style="margin-bottom: 20px;"<% } %>>
   <%_ for (let i in theme.social) { _%>
     <div class="<%= `icon-${i}` %> sidebar-social-icon">
       <a href=<%= theme.social[i] %> itemprop="url" target="_blank" aria-label="<%= i %>" rel="noopener nofollow noreferrer"></a>
     </div>
   <%_ } _%>
 </div>
+<%_ if (showMenu || mobile) { _%>
 <div class="sidebar-menu">
   <%_ if (!Array.isArray(theme.menu)) { _%>
     <%_ for (let i in theme.menu) { _%>
@@ -55,3 +61,4 @@
     <%_ } _%>
   <%_ } _%>
 </div>
+<%_ } _%>

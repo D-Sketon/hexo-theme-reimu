@@ -103,7 +103,12 @@ footer:
     mask: true # whether to use the images as a mask
 
 # Sidebar
-sidebar: right
+# sidebar: right # deprecated, use sidebar.position instead
+sidebar:
+  position: right
+  menu: true  # whether to show the sidebar menu button, ignored on mobile devices
+  article:
+    show_common: true # whether to show common sidebar, ignored on mobile devices
 
 social:
   # email: mailto:xxx@gmail.com

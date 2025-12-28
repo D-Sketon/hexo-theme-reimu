@@ -2,15 +2,15 @@
   <div class="sidebar-wrap">
     <%_ if (is_post()) { _%>
       <%_ if (post.toc === false) { _%>
-        <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
+        <%- partial_lang('sidebar/common-sidebar', { mobile: true }, { cache: !config.relative_link && theme.sidebar?.menu !== false, lang: page.lang }) %>
       <%_ } else if (post.toc !== true && theme.toc === false) { _%>
-        <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
+        <%- partial_lang('sidebar/common-sidebar', { mobile: true }, { cache: !config.relative_link && theme.sidebar?.menu !== false, lang: page.lang }) %>
       <%_ } else { _%>
         <div class="sidebar-toc-sidebar"><%- partial('sidebar/toc-sidebar') %></div>
-        <div class="sidebar-common-sidebar hidden"><%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %></div>
+        <div class="sidebar-common-sidebar hidden"><%- partial_lang('sidebar/common-sidebar', { mobile: true }, { cache: !config.relative_link && theme.sidebar?.menu !== false, lang: page.lang }) %></div>
       <%_ } _%>
     <%_ } else { _%>
-      <%- partial_lang('sidebar/common-sidebar', null, { cache: !config.relative_link, lang: page.lang }) %>
+      <%- partial_lang('sidebar/common-sidebar', { mobile: true }, { cache: !config.relative_link && theme.sidebar?.menu !== false, lang: page.lang }) %>
     <%_ } _%>
   </div>
   <%_ if (is_post()) { _%>

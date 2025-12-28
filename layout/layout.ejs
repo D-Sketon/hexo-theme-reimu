@@ -20,7 +20,16 @@
     <div id="container">
       <div id="wrap">
         <%- partial('_partial/header', {post: page}) %>
-        <div id="content" aria-label="Page content" <% if (page.sidebar === 'left' || page.sidebar === undefined && theme.sidebar === 'left') { %>class="sidebar-left" <% } %> <% if (page.sidebar === 'right' || page.sidebar === undefined && theme.sidebar === 'right') { %>class="sidebar-right" <% } %>>
+        <%_ /* Backward compatibility */ _%>
+        <%_ let globalSidebar = theme.sidebar; _%>
+        <%_ if (typeof globalSidebar === 'object' && globalSidebar !== null) { _%>
+          <%_ globalSidebar = globalSidebar.position; _%>
+        <%_ } _%>
+        <%_ let pageSidebar = page.sidebar; _%>
+        <%_ if (typeof pageSidebar === 'object' && pageSidebar !== null) { _%>
+          <%_ pageSidebar = pageSidebar.position; _%>
+        <%_ } _%>
+        <div id="content" aria-label="Page content" <% if ((globalSidebar === 'left' && pageSidebar === undefined) || pageSidebar === 'left') { %>class="sidebar-left" <% } %> <% if ((globalSidebar === 'right' && pageSidebar === undefined) || pageSidebar === 'right') { %>class="sidebar-right" <% } %>>
           <%- partial('_partial/sidebar', { post: page }) %>
           <section id="main" aria-label="Main content"><%- body %></section>
         </div>
