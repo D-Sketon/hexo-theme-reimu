@@ -193,7 +193,9 @@
 
 .archives-tag-list-item, .archives-category-list-item {
   display: flex;
-  text-transform: uppercase;
+  if (hexo-config('uppercase_capsule')) {
+    text-transform: uppercase;
+  }
   background: var(--red-5);
   border-radius: tag-radius;
   padding: 8px 16px;

@@ -38,9 +38,11 @@
   margin: 0 0 article-padding 0 !important;
 }
 
-$article-meta-tag {
-  text-decoration: none;
-  text-transform: uppercase;
+.article-date {
+  display: flex;
+}
+
+.article-date-link {
   font-size: 14px;
   color: var(--red-1);
   background: var(--red-5);
@@ -49,14 +51,6 @@ $article-meta-tag {
   margin: 0 12px 16px 0;
   box-shadow: var(--shadow-meta);
   transition: 0.3s;
-}
-
-.article-date {
-  display: flex;
-}
-
-.article-date-link {
-  @extend $article-meta-tag;
 
   &:before {
     margin-right: 8px;
@@ -394,7 +388,9 @@ $article-meta-tag {
 .article-tag-list-item {
   float: left;
   text-decoration: none;
-  text-transform: uppercase;
+  if (hexo-config('uppercase_capsule')) {
+    text-transform: uppercase;
+  }
   background: var(--red-5);
   border-radius: tag-radius;
   padding: 8px 16px;

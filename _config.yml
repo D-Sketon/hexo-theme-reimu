@@ -148,6 +148,7 @@ tagcloud_limits:
 
 # Archive behavior
 only_show_capsule_in_index: false # If you have hugo amounts of tags and categories, you can set this to true to only show the capsule in the index page for better performance
+uppercase_capsule: true # If you want to keep taxonomic capsule unchanged, please set this to false
 
 show_update_time: false # If you want to show the update time, please set this to true
 
