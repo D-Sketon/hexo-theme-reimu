@@ -15,7 +15,11 @@
       <%_ } else { _%>
         <%= sinceYear %>-<%= currentYear %>
       <%_ } _%>
-      <span class="footer-info-sep <%- theme.footer.icon?.rotate ? 'rotate' : '' %>"></span>
+      <%_ if (theme.footer.icon?.url === false) { _%>
+        &nbsp;
+      <%_ } else { _%>
+        <span class="footer-info-sep <%- theme.footer.icon?.rotate ? 'rotate' : '' %>"></span>
+      <%_ } _%>
       <%= config.author || config.title %>
     </div>
     <%_ if (theme.footer.powered) { _%>

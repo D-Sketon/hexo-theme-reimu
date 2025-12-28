@@ -10,17 +10,19 @@
     <%_ } else { _%>
       <%_ for (let item of theme.menu) { _%>
         <a class="main-nav-link-wrap" href="<%- url_for_lang(item.url) %>">
-          <div class="main-nav-icon icon <%= (item.icon === 'e62b' && theme.icon_font) || (item.icon === 'f6ad' && !theme.icon_font) || !item.icon ? 'rotate' : '' %>">
-             <%_ if (item.icon) { _%>
-              <%_ if (item.icon.includes('/') && item.icon.includes('.')) { _%>
-                <img src="<%- url_for(item.icon, {relative: false}) %>" alt="<%= item.name %> icon" style="height: 1em;">
+          <%_ if (item.icon !== false) { _%>
+            <div class="main-nav-icon icon <%= (item.icon === 'e62b' && theme.icon_font) || (item.icon === 'f6ad' && !theme.icon_font) || !item.icon ? 'rotate' : '' %>">
+              <%_ if (item.icon) { _%>
+                <%_ if (item.icon.includes('/') && item.icon.includes('.')) { _%>
+                  <img src="<%- url_for(item.icon, {relative: false}) %>" alt="<%= item.name %> icon" style="height: 1em;">
+                <%_ } else { _%>
+                  <%- `&#x${item.icon};` %>
+                <%_ } _%>
               <%_ } else { _%>
-                <%- `&#x${item.icon};` %>
+                <%- theme.icon_font ? '&#xe62b;' : '&#xf6ad;' %>
               <%_ } _%>
-             <%_ } else { _%>
-              <%- theme.icon_font ? '&#xe62b;' : '&#xf6ad;' %>
-             <%_ } _%>
-          </div>
+            </div>
+          <%_ } _%>
           <span class="main-nav-link"><%= __(item.name) %></span>
         </span>
       <%_ } _%>

@@ -1,8 +1,16 @@
 <div class="sponsor-wrapper">
   <div class="sponsor-button">
-    <div class="sponsor-icon <%- theme.sponsor.icon?.rotate ? 'rotate' : '' %>"></div>
+    <%_ if (theme.sponsor.icon?.url === false) { _%>
+      <div style="width: 30px;"></div>
+    <%_ } else { _%>
+      <div class="sponsor-icon <%- theme.sponsor.icon?.rotate ? 'rotate' : '' %>"></div>
+    <%_ } _%>
     <div class="sponsor-title"><%= __('sponsor') %></div>
-    <div class="sponsor-icon <%- theme.sponsor.icon?.rotate ? 'rotate' : '' %>"></div>
+    <%_ if (theme.sponsor.icon?.url === false) { _%>
+      <div style="width: 30px;"></div>
+    <%_ } else { _%>
+      <div class="sponsor-icon <%- theme.sponsor.icon?.rotate ? 'rotate' : '' %>"></div>
+    <%_ } _%>
   </div>
   <%_ var sponsorTip = theme.sponsor.tip; _%>
   <%_ if (typeof sponsorTip !== 'string') { _%>
