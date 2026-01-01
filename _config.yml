@@ -169,6 +169,10 @@ i18n:
   generator: [archive, category, tag, index]
   languages: [zh-CN, en]
 
+########################################
+# CSS
+########################################
+
 triangle_badge:
   enable: false
   icon: github # same as the icon in the social config
@@ -176,10 +180,6 @@ triangle_badge:
 
 layout:
   max_width: 1350px # the max width of the main content area
-
-########################################
-# CSS
-########################################
 
 anchor_icon: # default use '#' icon, you can use a hexadecimal representation of fontawesome or icon_font, like 'f0c1', or you can use false to hide anchor icon
 
@@ -283,6 +283,25 @@ code_block:
   # false means collapse all code blocks by default
   # number means collapse the code block by default when the number of lines exceeds the specified value
   expand: true
+
+# Clipboard configuration
+clipboard:
+  success:
+    en: Copy successfully (*^▽^*)
+    zh-CN: 复制成功 (*^▽^*)
+    zh-TW: 複製成功 (*^▽^*)
+    ja: コピー成功 (*^▽^*)
+    pt-BR: Copiado com sucesso (*^▽^*)
+  fail:
+    en: Copy failed (ﾟ⊿ﾟ)ﾂ
+    zh-CN: 复制失败 (ﾟ⊿ﾟ)ﾂ
+    zh-TW: 複製失敗 (ﾟ⊿ﾟ)ﾂ
+    ja: コピー失敗 (ﾟ⊿ﾟ)ﾂ
+    pt-BR: Falha ao copiar (ﾟ⊿ﾟ)ﾂ
+  copyright: # whether to add a copyright for the clipped content
+    enable: false
+    count: 50 # The number of characters when the copyright is displayed
+    license_type: by-nc-sa # https://creativecommons.org/licenses
 
 ########################################
 # Analytics
@@ -493,25 +512,6 @@ firework:
 # Extended features
 ########################################
 
-# Clipboard configuration
-clipboard:
-  success:
-    en: Copy successfully (*^▽^*)
-    zh-CN: 复制成功 (*^▽^*)
-    zh-TW: 複製成功 (*^▽^*)
-    ja: コピー成功 (*^▽^*)
-    pt-BR: Copiado com sucesso (*^▽^*)
-  fail:
-    en: Copy failed (ﾟ⊿ﾟ)ﾂ
-    zh-CN: 复制失败 (ﾟ⊿ﾟ)ﾂ
-    zh-TW: 複製失敗 (ﾟ⊿ﾟ)ﾂ
-    ja: コピー失敗 (ﾟ⊿ﾟ)ﾂ
-    pt-BR: Falha ao copiar (ﾟ⊿ﾟ)ﾂ
-  copyright: # whether to add a copyright for the clipped content
-    enable: false
-    count: 50 # The number of characters when the copyright is displayed
-    license_type: by-nc-sa # https://creativecommons.org/licenses
-
 # show categories card on home page
 home_categories:
   enable: false
@@ -595,11 +595,9 @@ share:
 # Experimental features
 ########################################
 
-# Experimental, may have a lot of bugs, open with caution!
 pjax:
   enable: false
 
-# Experimental
 # https://github.com/GoogleChromeLabs/quicklink
 quicklink:
   enable: false
@@ -630,7 +628,6 @@ live2d_widgets:
   enable: false
   position: left # left or right
 
-# Experimental
 # Please turn on pjax to use this feature
 player:
   disable_on_mobile: false
