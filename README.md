@@ -1539,7 +1539,7 @@ reimu_cursor:
     text: ../images/cursor/reimu-cursor-text.png
 ```
 
-##### 自定义滚动动画
+#### 自定义滚动动画
 
 基于 [AOS.js](https://github.com/D-Sketon/aos.js) 实现的滚动动画效果，默认为 `true`，可以通过以下配置开启或关闭，并为不同页面设置不同的动画效果。
 
@@ -1560,7 +1560,7 @@ animation:
 - **Slide**: slide-up, slide-down, slide-left, slide-right
 - **Zoom**: zoom-in, zoom-in-up, zoom-in-down, zoom-in-left, zoom-in-right, zoom-out, zoom-out-up, zoom-out-down, zoom-out-left, zoom-out-right
 
-##### 自定义样式
+#### 自定义样式
 
 可以通过修改 `layout.max_width` 来定制主要内容区域的最大宽度，默认为 `1350px`。
 

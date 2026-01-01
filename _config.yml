@@ -74,15 +74,6 @@ excerpt_link: Read More
 # need https://github.com/hexojs/hexo-generator-feed
 rss: atom.xml
 
-# a very simple alternative for https://hexo.io/api/injector
-injector:
-  head_begin: # Inject code snippet right after <head>
-  head_end: # Inject code snippet right before </head>
-  body_begin: # Inject code snippet right after <body>
-  body_end: # Inject code snippet right before </body>
-  sidebar_begin: # Inject code snippet right after <aside>
-  sidebar_end: # Inject code snippet right before </aside>
-
 # Footer copyright
 copyright: # Inject code snippet right in the footer copyright
 # Need help choosing? Please see...
@@ -594,6 +585,15 @@ share:
 ########################################
 # Experimental features
 ########################################
+
+# a very simple alternative for https://hexo.io/api/injector
+injector:
+  head_begin: # Inject code snippet right after <head>
+  head_end: # Inject code snippet right before </head>
+  body_begin: # Inject code snippet right after <body>
+  body_end: # Inject code snippet right before </body>
+  sidebar_begin: # Inject code snippet right after <aside>
+  sidebar_end: # Inject code snippet right before </aside>
 
 pjax:
   enable: false

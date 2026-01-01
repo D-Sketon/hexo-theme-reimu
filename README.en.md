@@ -816,7 +816,7 @@ dark_mode:
   enable: auto # true | false | auto
 ```
 
-### Analytics
+#### Analytics
 
 Disabled by default, supports Baidu Analytics, Google Analytics and Microsoft Clarity
 
@@ -1529,7 +1529,7 @@ reimu_cursor:
     text: ../images/cursor/reimu-cursor-text.png
 ```
 
-##### Custom Scroll Animation
+#### Custom Scroll Animation
 
 Based on [AOS.js](https://github.com/D-Sketon/aos.js) scroll animation effects, default is `true`, you can enable or disable through the following configuration, and set different animation effects for different pages.
 
@@ -1550,7 +1550,7 @@ animation:
 - **Slide**: slide-up, slide-down, slide-left, slide-right
 - **Zoom**: zoom-in, zoom-in-up, zoom-in-down, zoom-in-left, zoom-in-right, zoom-out, zoom-out-up, zoom-out-down, zoom-out-left, zoom-out-right
 
-##### Custom Styles
+#### Custom Styles
 
 You can customize the maximum width of the main content area by modifying `layout.max_width`, default is `1350px`.
 
