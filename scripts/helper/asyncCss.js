@@ -15,11 +15,15 @@ function asyncCssHelper(content) {
         if (!path.endsWith(".css")) {
           path += ".css";
         }
-        return `<link rel="preload" href="${url_for.call(this, path)}" as="style" onload="this.onload=null;this.rel='stylesheet'">`;
+        return `<link rel="preload" href="${url_for.call(
+          this,
+          path
+        )}" as="style" onload="this.onload=null;this.rel='stylesheet'">`;
       } else {
         if (!item.href.endsWith(".css")) item.href += ".css";
         item.href = url_for.call(this, item.href);
-        return `<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"` +
+        return (
+          `<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"` +
           Object.entries(item)
             .map(([key, value]) => {
               if (value === true) {
@@ -31,7 +35,8 @@ function asyncCssHelper(content) {
               }
             })
             .join("") +
-          `>`;
+          `>`
+        );
       }
     })
     .join("\n");

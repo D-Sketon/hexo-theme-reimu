@@ -24,6 +24,6 @@ hexo.extend.helper.register("randomCover", () => {
 
   const cover = shuffledCovers[currentIndex];
   currentIndex++;
-  
+
   return cover;
 });

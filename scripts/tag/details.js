@@ -1,17 +1,24 @@
 /**
  * {% details [summary] %} content {% enddetails %}
  */
-hexo.extend.tag.register('details', function(args, content) {
-  let summary = args[0];
+hexo.extend.tag.register(
+  "details",
+  function (args, content) {
+    let summary = args[0];
 
-  if (!summary) {
-    summary = 'Details';
-  }
+    if (!summary) {
+      summary = "Details";
+    }
 
-  const renderedContent = hexo.render.renderSync({ text: content, engine: 'markdown' });
+    const renderedContent = hexo.render.renderSync({
+      text: content,
+      engine: "markdown",
+    });
 
-  return `<details class="details custom-block">
+    return `<details class="details custom-block">
     <summary>${summary}</summary>
     <div class="detail-content">${renderedContent}</div>
   </details>`;
-}, { ends: true });
+  },
+  { ends: true }
+);

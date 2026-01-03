@@ -95,12 +95,12 @@ _$$(".article-entry details.custom-block").forEach((element) => {
   if (!summary) return;
   const detailContent = document.createElement("div");
   detailContent.classList.add("detail-content");
-  
+
   const range = document.createRange();
   range.setStartAfter(summary);
   range.setEndAfter(element.lastChild);
   detailContent.appendChild(range.extractContents());
-  
+
   element.appendChild(detailContent);
 });
 
@@ -384,7 +384,7 @@ shareWeixinHandler = (e) => {
         sw.style.display = "none";
         sw.removeEventListener("transitionend", handler);
       },
-      { once: true },
+      { once: true }
     );
   }
 };

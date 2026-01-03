@@ -107,7 +107,7 @@
 }
 
 #page-nav {
-  margin: (article-padding + 16px)auto;
+  margin: (article-padding + 16px) auto;
   background: var(--color-wrap);
   border-radius: post-radius;
   text-align: center;
@@ -193,9 +193,11 @@
 
 .archives-tag-list-item, .archives-category-list-item {
   display: flex;
+
   if (hexo-config('uppercase_capsule')) {
     text-transform: uppercase;
   }
+
   background: var(--red-5);
   border-radius: tag-radius;
   padding: 8px 16px;
