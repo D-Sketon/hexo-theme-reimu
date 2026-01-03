@@ -15,22 +15,13 @@ hexo.extend.helper.register("vendorGoogleFont", () => {
     .join("|");
 
   return (
-    htmlTag("link", {
-      rel: "preconnect",
-      href: "https://fonts.gstatic.com",
-      crossorigin: true,
-    }) +
-    htmlTag("link", {
-      rel: "preload",
-      as: "style",
-      href: `${fontHost}/css?family=${fontFamilies.concat(fontDisplay)}`,
-    }) +
-    htmlTag("link", {
-      rel: "stylesheet",
-      href: `${fontHost}/css?family=${fontFamilies.concat(fontDisplay)}`,
-      media: "print",
-      onload: "this.media='all'",
-    })
+    `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>` +
+    `<link rel="preload" as="style" href="${fontHost}/css?family=${fontFamilies.concat(
+      fontDisplay
+    )}">` +
+    `<link rel="stylesheet" href="${fontHost}/css?family=${fontFamilies.concat(
+      fontDisplay
+    )}" media="print" onload="this.media='all'">`
   );
 });
 hexo.extend.helper.register("vendorFont", () => {
@@ -39,13 +30,7 @@ hexo.extend.helper.register("vendorFont", () => {
     const css = customBasic.css;
     if (css) {
       fontStyle.push(
-        htmlTag("link", {
-          rel: "preload",
-          as: "style",
-          href: css,
-          onload: "this.rel='stylesheet'",
-          crossorigin: true,
-        })
+        `<link rel="preload" as="style" href="${css}" onload="this.rel='stylesheet'" crossorigin>`
       );
     }
   }
@@ -54,13 +39,7 @@ hexo.extend.helper.register("vendorFont", () => {
     const css = customCode.css;
     if (css) {
       fontStyle.push(
-        htmlTag("link", {
-          rel: "preload",
-          as: "style",
-          href: css,
-          onload: "this.rel='stylesheet'",
-          crossorigin: true,
-        })
+        `<link rel="preload" as="style" href="${css}" onload="this.rel='stylesheet'" crossorigin>`
       );
     }
   }

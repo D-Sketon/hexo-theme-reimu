@@ -19,12 +19,19 @@ function asyncCssHelper(content) {
       } else {
         if (!item.href.endsWith(".css")) item.href += ".css";
         item.href = url_for.call(this, item.href);
-        return htmlTag("link", {
-          rel: "preload",
-          as: "style",
-          onload: "this.onload=null;this.rel='stylesheet'",
-          ...item,
-        });
+        return `<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"` +
+          Object.entries(item)
+            .map(([key, value]) => {
+              if (value === true) {
+                return ` ${key}`;
+              } else if (value === false) {
+                return "";
+              } else {
+                return ` ${key}="${value}"`;
+              }
+            })
+            .join("") +
+          `>`;
       }
     })
     .join("\n");

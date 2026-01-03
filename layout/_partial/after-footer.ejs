@@ -218,27 +218,29 @@
         <%- js({src: vendorCdn(theme.vendor.js.qrcode)[0], integrity: vendorCdnIntegrity(theme.vendor.js.qrcode)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
       <%_ } _%>
       <script type="module" data-pjax>
-        const PhotoSwipeLightbox = (await safeImport("<%- vendorCdn(theme.vendor.js.photoswipe_lightbox) %>", "<%- vendorCdnIntegrity(theme.vendor.js.photoswipe_lightbox) %>")).default;
-        const initPswp = (gallery, children) => {
-          if (_$$(`${gallery} ${children}`).length > 0) {
-            new PhotoSwipeLightbox({
-              gallery,
-              children,
-              pswpModule: () => safeImport("<%- vendorCdn(theme.vendor.js.photoswipe) %>", "<%- vendorCdnIntegrity(theme.vendor.js.photoswipe) %>")
-            }).init();
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("<%- vendorCdn(theme.vendor.js.photoswipe_lightbox) %>", "<%- vendorCdnIntegrity(theme.vendor.js.photoswipe_lightbox) %>")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("<%- vendorCdn(theme.vendor.js.photoswipe) %>", "<%- vendorCdnIntegrity(theme.vendor.js.photoswipe) %>")
+              }).init();
+            }
           }
-        }
-        const pswp = () => {
-          initPswp('.article-entry', 'a.article-gallery-item');
-          initPswp('.article-gallery', 'a.article-gallery-item');
-          window.lightboxStatus = 'done';
-          window.removeEventListener('lightbox:ready', pswp);
-        }
-        if(window.lightboxStatus === 'ready') {
-          pswp()
-        } else {
-          window.addEventListener('lightbox:ready', pswp);
-        }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+            window.lightboxStatus = 'done';
+            window.removeEventListener('lightbox:ready', pswp);
+          }
+          if(window.lightboxStatus === 'ready') {
+            pswp()
+          } else {
+            window.addEventListener('lightbox:ready', pswp);
+          }
+        })();
       </script>
       <%_ if (page.comments !== false) { _%>
         <%- partial('post/comment', null, { cache: true }) %>
