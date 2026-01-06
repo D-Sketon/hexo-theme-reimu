@@ -99,6 +99,7 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
     themeConfig.gitalk?.clientID &&
     themeConfig.gitalk?.clientSecret;
   const hasGiscus = themeConfig.giscus?.enable;
+  const hasUtterances = themeConfig.utterances?.enable && themeConfig.utterances?.repo;
   style
     .define(
       "article-families",
@@ -237,5 +238,6 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
     .define("has-valine", hasValine)
     .define("has-waline", hasWaline)
     .define("has-gitalk", hasGitalk)
-    .define("has-giscus", hasGiscus);
+    .define("has-giscus", hasGiscus)
+    .define("has-utterances", hasUtterances);
 });

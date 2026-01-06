@@ -60,11 +60,6 @@
           <%= __('comment') %>
         </a>
       <%_ } _%>
-      <%_ if (post.comments !== false && theme.utterances.enable && theme.utterances.repo) { _%>
-      <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- url_for_lang(post.path) %>#comments" class="article-comment-link">
-         <%= __('comment') %>
-      </a>
-      <%_ } _%>
       <%_ if (post.comments !== false && theme.disqus.enable && theme.disqus.shortname && theme.disqus.count) { _%>
         <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- full_url_for_lang(post.path) %>#disqus_thread" class="article-comment-link" id="disqus-count">
         </a>
