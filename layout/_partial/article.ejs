@@ -60,6 +60,11 @@
           <%= __('comment') %>
         </a>
       <%_ } _%>
+      <%_ if (post.comments !== false && theme.utterances.enable && theme.utterances.repo) { _%>
+      <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- url_for_lang(post.path) %>#comments" class="article-comment-link">
+         <%= __('comment') %>
+      </a>
+      <%_ } _%>
       <%_ if (post.comments !== false && theme.disqus.enable && theme.disqus.shortname && theme.disqus.count) { _%>
         <a data-aos="<%= theme.animation.options.article.comment %>" href="<%- full_url_for_lang(post.path) %>#disqus_thread" class="article-comment-link" id="disqus-count">
         </a>
@@ -88,6 +93,7 @@
 </article>
 <%_ const commentSystems = {}; _%>
 <%_ commentSystems.valine = theme.valine.enable && theme.valine.appId && theme.valine.appKey ? true : false; _%>
+<%_ commentSystems.utterances = theme.utterances && theme.utterances.enable && theme.utterances.repo ? true : false; _%>
 <%_ commentSystems.waline = theme.waline.enable && theme.waline.serverURL ? true : false; _%>
 <%_ commentSystems.twikoo = theme.twikoo.enable && theme.twikoo.envId ? true : false; _%>
 <%_ commentSystems.gitalk = theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret ? true : false; _%>
