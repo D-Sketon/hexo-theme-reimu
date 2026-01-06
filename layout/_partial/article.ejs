@@ -12,7 +12,7 @@
           <p class="custom-block-title">WARNING</p>
           <p><%- (theme.outdate.message[post.lang ?? config.language] ?? 'This article was last updated on {time}. Please note that the content may no longer be applicable.').replace("{time}", date(post.updated, null)) %></p>
         </div>
-      <%_ } else if (theme.outdate.enable) { _%>
+      <%_ } else if (theme.outdate.enable && post.outdated !== false) { _%>
         <div class="warning custom-block" id="outdate-blockquote" style="display: none;">
           <p class="custom-block-title">WARNING</p>
           <p></p>
