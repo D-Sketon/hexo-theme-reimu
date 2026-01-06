@@ -309,7 +309,7 @@ clarity: false
 # global control of the comment system
 # you can use multiple comment systems at the same time
 # load order: localStorage(user manually selects) -> default
-# -> valine -> waline -> twikoo -> gitalk -> giscus -> disqus
+# -> valine -> waline -> twikoo -> gitalk -> giscus ->utterances-> disqus
 comment:
   # comment system title
   title:
@@ -394,6 +394,11 @@ giscus:
   # lang: zh-CN # deprecated, use html.lang instead
 
 # https://disqus.com
+utterances:
+  enable: false
+  repo: owner/repo # Change this to "Your GitHub Username/The Repository Name" used for storing blog comments
+  issue_term: title
+  theme: github-light
 disqus:
   enable: false
   shortname: # your disqus shortname

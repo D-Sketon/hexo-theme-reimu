@@ -56,6 +56,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
   - Gitalk
   - Giscus
   - Disqus
+  - utterances
 
 ### Statistics & Analytics
 - 📊 Article reading statistics (Valine / Waline)
@@ -543,6 +544,15 @@ disqus:
   enable: true
   shortname: "your shortname"
   count: true # Whether to enable comment count statistics
+```
+If using utterance [utterances](https://utteranc.es/)
+Please set `utterances.enable` to `true `in your theme's `_config.yml` and fill in your own `repo`
+```yml
+utterances:
+  enable: true
+  repo: owner/repo # Change this to "Your GitHub Username/The Repository Name" used for storing blog comments
+  issue_term: title
+  theme: github-light
 ```
 
 </details>

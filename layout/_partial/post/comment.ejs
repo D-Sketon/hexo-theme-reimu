@@ -5,6 +5,8 @@
 <%_ commentSystems.gitalk = theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret ? true : false; _%>
 <%_ commentSystems.giscus = theme.giscus.enable ? true : false; _%>
 <%_ commentSystems.disqus = theme.disqus.enable && theme.disqus.shortname ? true : false; _%>
+<%_ commentSystems.utterances = theme.utterances.enable && theme.utterances.repo ? true : false; _%>
+
 <%_ const activeSystems = Object.keys(commentSystems).filter(system => commentSystems[system]); _%>
 
 <%_ if (activeSystems.length > 0) { _%>
@@ -180,6 +182,29 @@
       }
     },
     <%_ } _%>
+    <%_ if (commentSystems.utterances) { _%>
+  utterances: {
+    enable: <%= commentSystems.utterances %>,
+    load: () => {
+      const container = document.querySelector('.utterances-comment'); 
+      if (!container) return;
+      container.style.display = 'block';
+
+      // 创建 utterances 脚本
+      const script = document.createElement('script');
+      script.src = 'https://utteranc.es/client.js';
+      script.setAttribute('repo', '<%= theme.utterances.repo %>');
+      script.setAttribute('issue-term', '<%= theme.utterances.issue_term || "pathname" %>');
+      script.setAttribute('theme', '<%= theme.utterances.theme || "github-light" %>');
+      script.setAttribute('crossorigin', 'anonymous');
+      script.async = true;
+
+      // 清空容器（防止重复加载）并插入脚本
+      container.innerHTML = '';
+      container.appendChild(script);
+    }
+  },
+  <%_ } _%>
     <%_ if (commentSystems.giscus) { _%>
     giscus: {
       enable: <%= commentSystems.giscus %>,
