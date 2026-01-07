@@ -183,43 +183,51 @@
     },
     <%_ } _%>
     <%_ if (commentSystems.utterances) { _%>
-  utterances: {
-    enable: <%= commentSystems.utterances %>,
-    load: () => {
-      const container = document.querySelector('.utterances-comment'); 
-      if (!container) return;
-      container.style.display = 'block';
+    utterances: {
+      enable: <%= commentSystems.utterances %>,
+      load: () => {
+        const container = document.querySelector('.utterances-comment'); 
+        if (!container) return;
+        container.style.display = 'block';
 
-      let theme = '<%= theme.utterances.theme || "github-light" %>';
-      const parsedTheme = theme === 'auto' ? (document.documentElement.getAttribute('data-theme') === 'dark' ? 'github-dark' : 'github-light') : theme;
+        let theme = '<%= theme.utterances.theme || "github-light" %>';
+        const parsedTheme = theme === 'auto' ? (document.documentElement.getAttribute('data-theme') === 'dark' ? 'github-dark' : 'github-light') : theme;
 
-      // 创建 utterances 脚本
-      const script = document.createElement('script');
-      script.src = 'https://utteranc.es/client.js';
-      script.setAttribute('repo', '<%= theme.utterances.repo %>');
-      script.setAttribute('issue-term', '<%= theme.utterances.issue_term || "pathname" %>');
-      script.setAttribute('theme', parsedTheme);
-      script.setAttribute('crossorigin', 'anonymous');
-      script.async = true;
+        // 创建 utterances 脚本
+        const script = document.createElement('script');
+        script.src = 'https://utteranc.es/client.js';
+        script.setAttribute('repo', '<%= theme.utterances.repo %>');
+        script.setAttribute('issue-term', '<%= theme.utterances.issue_term || "pathname" %>');
+        script.setAttribute('theme', parsedTheme);
+        script.setAttribute('crossorigin', 'anonymous');
+        script.async = true;
 
-      // 清空容器（防止重复加载）并插入脚本
-      container.innerHTML = '';
-      container.appendChild(script);
-      if (theme === 'auto') {
-        document.body.addEventListener('light-theme-set', () => {
-          const iframe = container.querySelector('iframe.utterances-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ type: 'set-theme', theme: 'github-light' }, 'https://utteranc.es');
-        });
-        document.body.addEventListener('dark-theme-set', () => {
-          const iframe = container.querySelector('iframe.utterances-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ type: 'set-theme', theme: 'github-dark' }, 'https://utteranc.es');
-        });
+        // 清空容器（防止重复加载）并插入脚本
+        container.innerHTML = '';
+        container.appendChild(script);
+        if (theme === 'auto') {
+          const lightThemeHandler = () => {
+            const iframe = container.querySelector('iframe.utterances-frame');
+            if (!iframe || !iframe.contentWindow) {
+              document.body.removeEventListener('light-theme-set', lightThemeHandler);
+              return;
+            }
+            iframe.contentWindow.postMessage({ type: 'set-theme', theme: 'github-light' }, 'https://utteranc.es');
+          }
+          const darkThemeHandler = () => {
+            const iframe = container.querySelector('iframe.utterances-frame');
+            if (!iframe || !iframe.contentWindow) {
+              document.body.removeEventListener('dark-theme-set', darkThemeHandler);
+              return;
+            }
+            iframe.contentWindow.postMessage({ type: 'set-theme', theme: 'github-dark' }, 'https://utteranc.es');
+          }
+          document.body.addEventListener('light-theme-set', lightThemeHandler);
+          document.body.addEventListener('dark-theme-set', darkThemeHandler);
+        }
       }
-    }
-  },
-  <%_ } _%>
+    },
+    <%_ } _%>
     <%_ if (commentSystems.giscus) { _%>
     giscus: {
       enable: <%= commentSystems.giscus %>,
@@ -259,16 +267,24 @@
         giscusScript.setAttribute('crossorigin', 'anonymous');
         giscusScript.async = true;
         container.appendChild(giscusScript);
-        document.body.addEventListener('light-theme-set', () => {
+        const lightThemeHandler = () => {
           const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
+          if (!iframe || !iframe.contentWindow) {
+            document.body.removeEventListener('light-theme-set', lightThemeHandler);
+            return;
+          }
           iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'light' } } }, 'https://giscus.app');
-        });
-        document.body.addEventListener('dark-theme-set', () => {
+        };
+        const darkThemeHandler = () => {
           const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
+          if (!iframe || !iframe.contentWindow) {
+            document.body.removeEventListener('dark-theme-set', darkThemeHandler);
+            return;
+          }
           iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'dark' } } }, 'https://giscus.app');
-        });
+        };
+        document.body.addEventListener('light-theme-set', lightThemeHandler);
+        document.body.addEventListener('dark-theme-set', darkThemeHandler);
       }
     },
     <%_ } _%>

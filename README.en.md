@@ -56,7 +56,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
   - Gitalk
   - Giscus
   - Disqus
-  - utterances
+  - Utterances
 
 ### Statistics & Analytics
 - 📊 Article reading statistics (Valine / Waline)

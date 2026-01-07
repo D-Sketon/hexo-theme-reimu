@@ -57,7 +57,7 @@
   - Gitalk
   - Giscus
   - Disqus
-  - utterances
+  - Utterances
 
 ### 统计与分析
 
