@@ -75,8 +75,6 @@ _$$(".article-entry img").forEach((element) => {
   element.parentNode.removeChild(element);
   a.appendChild(element);
 });
-window.lightboxStatus = "ready";
-window.dispatchEvent(new Event("lightbox:ready"));
 
 // table wrap
 _$$(".article-entry table").forEach((element) => {

@@ -216,7 +216,6 @@ window.addEventListener("pjax:complete", () => {
   }
 });
 window.addEventListener("pjax:send", () => {
-  window.lightboxStatus = "loading";
   // destroy panZoom
   if (window.__panZoomList) {
     window.__panZoomList.forEach((panZoom) => panZoom.destroy());
