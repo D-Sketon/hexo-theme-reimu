@@ -195,8 +195,10 @@
             }
           };
           
-          document.body.addEventListener('dark-theme-set', () => initMermaid('dark'));
-          document.body.addEventListener('light-theme-set', () => initMermaid('default'));
+          document.body.addEventListener('reimu:theme-set', (e) => {
+            const isDark = e.detail.isDark;
+            initMermaid(isDark ? 'dark' : 'default');
+          });
 
           const mode = localStorage.getItem('dark_mode');
           if (mode === 'auto') {

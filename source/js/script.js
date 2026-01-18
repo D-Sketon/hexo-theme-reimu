@@ -93,7 +93,9 @@ window.throttle = (func, limit) => {
     }-btn`;
 
     document.body.dispatchEvent(
-      new CustomEvent(`${isDark ? "dark" : "light"}-theme-set`)
+      new CustomEvent("reimu:theme-set", {
+        detail: { isDark, mode: config },
+      })
     );
   }
   const savedMode =

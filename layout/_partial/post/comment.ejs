@@ -206,24 +206,15 @@
         container.innerHTML = '';
         container.appendChild(script);
         if (theme === 'auto') {
-          const lightThemeHandler = () => {
+          const themeHandler = (e) => {
             const iframe = container.querySelector('iframe.utterances-frame');
             if (!iframe || !iframe.contentWindow) {
-              document.body.removeEventListener('light-theme-set', lightThemeHandler);
+              document.body.removeEventListener('reimu:theme-set', themeHandler);
               return;
             }
-            iframe.contentWindow.postMessage({ type: 'set-theme', theme: 'github-light' }, 'https://utteranc.es');
-          }
-          const darkThemeHandler = () => {
-            const iframe = container.querySelector('iframe.utterances-frame');
-            if (!iframe || !iframe.contentWindow) {
-              document.body.removeEventListener('dark-theme-set', darkThemeHandler);
-              return;
-            }
-            iframe.contentWindow.postMessage({ type: 'set-theme', theme: 'github-dark' }, 'https://utteranc.es');
-          }
-          document.body.addEventListener('light-theme-set', lightThemeHandler);
-          document.body.addEventListener('dark-theme-set', darkThemeHandler);
+            iframe.contentWindow.postMessage({ type: 'set-theme', theme: e.detail.isDark ? 'github-dark' : 'github-light' }, 'https://utteranc.es');
+          };
+          document.body.addEventListener('reimu:theme-set', themeHandler);
         }
       }
     },
@@ -267,24 +258,16 @@
         giscusScript.setAttribute('crossorigin', 'anonymous');
         giscusScript.async = true;
         container.appendChild(giscusScript);
-        const lightThemeHandler = () => {
+        const themeHandler = (e) => {
+          const isDark = e.detail.isDark;
           const iframe = document.querySelector('iframe.giscus-frame');
           if (!iframe || !iframe.contentWindow) {
-            document.body.removeEventListener('light-theme-set', lightThemeHandler);
+            document.body.removeEventListener('reimu:theme-set', themeHandler);
             return;
           }
-          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'light' } } }, 'https://giscus.app');
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: isDark ? 'dark' : 'light' } } }, 'https://giscus.app');
         };
-        const darkThemeHandler = () => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe || !iframe.contentWindow) {
-            document.body.removeEventListener('dark-theme-set', darkThemeHandler);
-            return;
-          }
-          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'dark' } } }, 'https://giscus.app');
-        };
-        document.body.addEventListener('light-theme-set', lightThemeHandler);
-        document.body.addEventListener('dark-theme-set', darkThemeHandler);
+        document.body.addEventListener('reimu:theme-set', themeHandler);
       }
     },
     <%_ } _%>
@@ -364,20 +347,8 @@
           };
           <%_ } _%>
           (document.head || document.body).appendChild(script);
-          document.body.addEventListener('light-theme-set', () => {
-            setTimeout(() => {
-              <%_ if (theme.material_theme.enable) { _%>
-              const cleanup = fixDisqusColorParse();
-              <%_ } _%>
-              window?.DISQUS?.reset({
-                reload: true
-              });
-              <%_ if (theme.material_theme.enable) { _%>
-              cleanup?.();
-              <%_ } _%>
-            }, 500);
-          });
-          document.body.addEventListener('dark-theme-set', () => {
+          document.body.addEventListener('reimu:theme-set', (e) => {
+            const isDark = e.detail.isDark;
             setTimeout(() => {
               <%_ if (theme.material_theme.enable) { _%>
               const cleanup = fixDisqusColorParse();

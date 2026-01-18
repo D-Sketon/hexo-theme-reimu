@@ -198,16 +198,17 @@ window.addEventListener("pjax:success", () => {
 window.addEventListener("pjax:complete", () => {
   _$("#header-nav")?.classList.remove("header-nav-hidden");
   const mode = window.localStorage.getItem("dark_mode");
-  if (mode == "true") {
-    document.body.dispatchEvent(new CustomEvent("dark-theme-set"));
-  } else if (mode == "false") {
-    document.body.dispatchEvent(new CustomEvent("light-theme-set"));
-  } else if (mode === "auto") {
-    const osMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    document.body.dispatchEvent(
-      new CustomEvent(`${osMode ? "dark" : "light"}-theme-set`)
-    );
-  }
+  document.body.dispatchEvent(
+    new CustomEvent("reimu:theme-set", {
+      detail: {
+        isDark:
+          mode === "true" ||
+          (mode === "auto" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches),
+        mode: mode || "auto",
+      },
+    })
+  );
   // destroy waline
   if (window.walineInstance) {
     window.walineInstance.destroy();
