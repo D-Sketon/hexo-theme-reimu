@@ -12,7 +12,7 @@
 
 简体中文 | [English](https://github.com/D-Sketon/hexo-theme-reimu/blob/main/README.en.md)
 
-<img src="https://cdn.jsdelivr.net/gh/D-Sketon/hexo-theme-reimu@main/_screenshot/Reimu_dark.png"/>
+<img src="https://cdn.jsdelivr.net/gh/D-Sketon/hexo-theme-reimu@main/_screenshot/Reimu.png"/>
 </div>
 
 ---
