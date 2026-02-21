@@ -213,12 +213,18 @@
               } else {
                 subtitle = null;
               }
-            } else if (theme.subtitle || config.subtitle) {
-              subtitle = theme.subtitle || config.subtitle;
+            } else if (theme.subtitle && typeof theme.subtitle === 'string') {
+              subtitle = theme.subtitle;
+            } else if (config.subtitle) {
+              subtitle = config.subtitle;
             } _%>
         <h2 id="subtitle-wrap" data-aos="<%= theme.animation.options.header.subTitle %>">
           <%_ if (subtitle) { _%>
-            <span id="subtitle"><%= subtitle %></span>
+            <%_ if (is_home() && theme.subtitle?.typing?.enable) { _%>
+              <span id="subtitle"><span></span></span>
+            <%_ } else { _%>
+              <span id="subtitle"><%= subtitle %></span>
+            <%_ } _%>
           <%_ } _%>
         </h2>
       <%_ } _%>

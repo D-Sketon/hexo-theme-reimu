@@ -19,6 +19,24 @@ menu:
     url: /friend
     icon:
 
+subtitle:
+  typing:
+    enable: false
+    strings:
+      # - Sentence 1
+      # - Sentence 2
+      # - Sentence 3
+      # - Sentence 4
+    typeSpeed: 100              # typing speed (milliseconds/character)
+    backSpeed: 50               # backspacing speed (milliseconds/character)
+    backDelay: 2000             # time before backspacing (milliseconds)
+    startDelay: 300             # time before typing starts (milliseconds)
+    loop: true                  # loop through the strings
+    shuffle: true               # randomize the order of strings
+    showCursor: true            # show the typing cursor
+    cursorChar: "|"             # character for cursor
+    smartBackspace: false       # only backspace what doesn't match the previous string
+
 banner: "/images/banner.webp" # which means themes/reimu/source/images/banner.webp
 # You can also write it in the form of the following url
 # banner: "https://example.com"
@@ -843,6 +861,9 @@ vendor:
     snapdom:
       src: webcache|@zumer/snapdom@1.9.14/dist/snapdom.min.js
       integrity: sha384-OEQ+fJp/Mvi2uzBREXybtxryJvLytWapuHu4EE6LPwTKUwATYcc55tPPcZTzVcmx
+    typed:
+      src: webcache|typed.js@2.1.0/dist/typed.umd.js
+      integrity: sha384-cMrTlShXEGSdSFA359p+3aVUxK/R+0TAfbRZMcTlAn8yqzxEDj05QsS65nTFMMj4
   css:
     photoswipe:
       src: webcache|photoswipe@5.4.4/dist/photoswipe.css
