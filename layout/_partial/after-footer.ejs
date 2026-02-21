@@ -242,6 +242,48 @@
         <%- partial('post/comment', null, { cache: true }) %>
       <%_ } _%>
     <%_ } _%>
+    <%_ if (is_home() && theme.subtitle?.typing?.enable) { _%>
+      <%- js({src: vendorCdn(theme.vendor.js.typed)[0], integrity: vendorCdnIntegrity(theme.vendor.js.typed)[0], crossorigin: "anonymous", defer: true, onload: "initSubtitleTyping()"}) %>
+      <script data-pjax>
+        window.subtitleTypingConfig = {
+          strings: <%- JSON.stringify(theme.subtitle.typing.strings || []) %>,
+          typeSpeed: <%= theme.subtitle.typing.typeSpeed || 100 %>,
+          backSpeed: <%= theme.subtitle.typing.backSpeed || 50 %>,
+          backDelay: <%= theme.subtitle.typing.backDelay || 2000 %>,
+          startDelay: <%= theme.subtitle.typing.startDelay || 300 %>,
+          loop: <%= theme.subtitle.typing.loop !== false %>,
+          shuffle: <%= theme.subtitle.typing.shuffle !== false %>,
+          showCursor: <%= JSON.stringify(theme.subtitle.typing.showCursor) %> || true,
+          cursorChar: "<%= theme.subtitle.typing.cursorChar || '|' %>",
+          smartBackspace: <%= JSON.stringify(theme.subtitle.typing.smartBackspace) %> || false,
+        };
+
+        function initSubtitleTyping() {
+          const subtitleElement = document.querySelector('#subtitle');
+          if (!subtitleElement || !window.Typed || !window.subtitleTypingConfig) {
+            return;
+          }
+
+          if (window.__typedInstance) {
+            window.__typedInstance.destroy();
+          }
+
+          window.__typedInstance = new Typed('#subtitle span', window.subtitleTypingConfig);
+        }
+        
+        if (!window.__typedInitialized) {
+          window.__typedInitialized = true;
+          
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSubtitleTyping);
+          } else {
+            initSubtitleTyping();
+          }
+        } else {
+          initSubtitleTyping();
+        }
+      </script>
+    <%_ } _%>
   </div>
 </div>
 
@@ -350,47 +392,4 @@
       pangu?.spacingPage();
     }
   </script>
-<%_ } _%>
-
-<%_ if (is_home() && theme.subtitle?.typing?.enable) { _%>
-  <script data-pjax>
-    window.subtitleTypingConfig = {
-      strings: <%- JSON.stringify(theme.subtitle.typing.strings || []) %>,
-      typeSpeed: <%= theme.subtitle.typing.typeSpeed || 100 %>,
-      backSpeed: <%= theme.subtitle.typing.backSpeed || 50 %>,
-      backDelay: <%= theme.subtitle.typing.backDelay || 2000 %>,
-      startDelay: <%= theme.subtitle.typing.startDelay || 300 %>,
-      loop: <%= theme.subtitle.typing.loop !== false %>,
-      shuffle: <%= theme.subtitle.typing.shuffle !== false %>,
-      showCursor: <%= JSON.stringify(theme.subtitle.typing.showCursor) %> || true,
-      cursorChar: "<%= theme.subtitle.typing.cursorChar || '|' %>",
-      smartBackspace: <%= JSON.stringify(theme.subtitle.typing.smartBackspace) %> || false,
-    };
-
-    function initSubtitleTyping() {
-      const subtitleElement = document.querySelector('#subtitle');
-      if (!subtitleElement || !window.Typed || !window.subtitleTypingConfig) {
-        return;
-      }
-
-      if (window.__typedInstance) {
-        window.__typedInstance.destroy();
-      }
-
-      window.__typedInstance = new Typed('#subtitle', window.subtitleTypingConfig);
-    }
-    
-    if (!window.__typedInitialized) {
-      window.__typedInitialized = true;
-      
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initSubtitleTyping);
-      } else {
-        initSubtitleTyping();
-      }
-    } else {
-      initSubtitleTyping();
-    }
-  </script>
-  <%- js({src: vendorCdn(theme.vendor.js.typed)[0], integrity: vendorCdnIntegrity(theme.vendor.js.typed)[0], crossorigin: "anonymous", defer: true, onload: "initSubtitleTyping()"}) %>
 <%_ } _%>
