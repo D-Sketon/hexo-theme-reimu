@@ -9,7 +9,11 @@
     "beforeend",
     '<form id="search-form"><input type="text" id="search-text"></form>'
   );
-  fetch("/search.json")
+  const baseUrl = window.REIMU_CONFIG?.base;
+  const searchUrl = baseUrl
+    ? new URL("search.json", baseUrl.replace(/\/?$/, "/")).toString()
+    : "/search.json";
+  fetch(searchUrl)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok " + response.statusText);
