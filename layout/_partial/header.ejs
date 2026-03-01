@@ -5,7 +5,7 @@
         <a class="main-nav-link-wrap" href="<%- url_for_lang(theme.menu[i]) %>">
           <div class="main-nav-icon icon-taichi"></div>
           <span class="main-nav-link"><%= __(i) %></span>
-        </span>
+        </a>
       <%_ } _%>
     <%_ } else { _%>
       <%_ for (let item of theme.menu) { _%>
@@ -24,7 +24,7 @@
             </div>
           <%_ } _%>
           <span class="main-nav-link"><%= __(item.name) %></span>
-        </span>
+        </a>
       <%_ } _%>
     <%_ } _%>
     <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
