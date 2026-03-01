@@ -28,6 +28,7 @@
           const inputText = _$("#search-text").value;
           searchResult.innerHTML = "";
           pagination.innerHTML = "";
+          currentPage = 1;
           if (inputText) {
             const hits = data.filter((post) => {
               return (
