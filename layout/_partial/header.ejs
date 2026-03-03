@@ -101,13 +101,14 @@
   <%_ } _%>
 </div>
 <header id="header" aria-label="Site header">
-  <%_ if (post.cover && post.cover.startsWith("rgb")) { _%>
+  <%_ let headerImage = post.banner ?? post.cover; _%>
+  <%_ if (headerImage && headerImage.startsWith("rgb")) { _%>
     <picture></picture>
-    <img style="position: absolute;top: 0;left: 0;width: 100%;height: 180%;z-index: -2;display: block;background: <%- post.cover %>;mask: linear-gradient(to top, transparent, #fff 50%);"></img>
-  <%_ } else if (post.cover) { _%>
+    <img style="position: absolute;top: 0;left: 0;width: 100%;height: 180%;z-index: -2;display: block;background: <%- headerImage %>;mask: linear-gradient(to top, transparent, #fff 50%);"></img>
+  <%_ } else if (headerImage) { _%>
     <picture></picture>
-    <img <% if (theme.material_theme.enable) { %>crossorigin="anonymous"<% } %> fetchpriority="high" src="<%- url_for(post.cover, {relative: false}) %>" alt="<%= post.title %>">
-  <%_ } else if (post.cover == false) { _%>
+    <img <% if (theme.material_theme.enable) { %>crossorigin="anonymous"<% } %> fetchpriority="high" src="<%- url_for(headerImage, {relative: false}) %>" alt="<%= post.title %>">
+  <%_ } else if (headerImage == false) { _%>
     <picture></picture>
     <img style="visibility:hidden"></img>
   <%_ } else { _%>
