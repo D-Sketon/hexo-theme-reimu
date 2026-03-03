@@ -1624,17 +1624,18 @@ Both formats are supported. It's recommended to use SRI verification for externa
 | link        | Directs the article to an external link                                  | `string`                                           | -                                         | 0.0.1         |
 | sticky      | Whether to pin the article                                               | `boolean`                                          | `false`                                   | 0.0.1         |
 | photos      | Article photo gallery                                                    | `string[]`                                         | -                                         | 0.0.1         |
+| cover       | Article cover                                                            | `https://example.com \| false \| rgb(255,117,117)` | Defaults to global config if not provided | 0.0.7         |
 | mermaid     | Whether to enable mermaid (requires configuration with `mermaid` config) | `boolean`                                          | `false`                                   | 0.2.0         |
 | copyright   | Whether to enable article copyright notice                               | `boolean`                                          | Defaults to global config if not provided | 0.3.1         |
 | sponsor     | Whether to enable article sponsorship                                    | `boolean`                                          | Defaults to global config if not provided | 0.3.2         |
 | comments    | Whether to enable article comments                                       | `boolean`                                          | Defaults to global config if not provided | 0.3.2         |
-| cover       | Article cover                                                            | `https://example.com \| false \| rgb(255,117,117)` | Defaults to global config if not provided | 0.0.7         |
 | sidebar     | Article sidebar position                                                 | `false \| 'left' \| 'right'`                       | Defaults to global config if not provided | 1.3.0         |
 | lang        | Article language (requires configuration with `i18n` config)             | `string`                                           | -                                         | 1.4.0         |
 | toc         | Whether to enable article table of contents                              | `boolean`                                          | Defaults to global config if not provided | 1.6.0         |
 | outdated    | Whether the article is outdated                                          | `boolean`                                          | Defaults to global config if not provided | 1.10.1        |
 | author      | Article author (used for article copyright and sharing cards)            | `string`                                           | Defaults to global config if not provided | 1.10.2        |
 | keywords    | Article keywords for SEO                                                 | `string[] \| string`                               | Defaults to global config if not provided | 1.10.4        |
+| banner      | Article banner image                                                     | `https://example.com \| false \| rgb(255,117,117)` | -                                         | 1.12.2        |
 
 </details>
 

@@ -1635,17 +1635,18 @@ js:
 | link        | 用于文章直接指向外部链接                        | `string`                                           | -                  | 0.0.1     |
 | sticky      | 是否置顶文章                                    | `boolean`                                          | `false`            | 0.0.1     |
 | photos      | 文章照片墙                                      | `string[]`                                         | -                  | 0.0.1     |
+| cover       | 文章封面                                        | `https://example.com \| false \| rgb(255,117,117)` | 不传默认走全局配置 | 0.0.7     |
 | mermaid     | 是否开启 mermaid，需配合 `mermaid` 配置一起使用 | `boolean`                                          | `false`            | 0.2.0     |
 | copyright   | 是否开启文章版权声明                            | `boolean`                                          | 不传默认走全局配置 | 0.3.1     |
 | sponsor     | 是否开启文章赞助                                | `boolean`                                          | 不传默认走全局配置 | 0.3.2     |
 | comments    | 是否开启文章评论                                | `boolean`                                          | 不传默认走全局配置 | 0.3.2     |
-| cover       | 文章封面                                        | `https://example.com \| false \| rgb(255,117,117)` | 不传默认走全局配置 | 0.0.7     |
 | sidebar     | 文章侧边栏位置                                  | `false \| 'left' \| 'right'`                       | 不传默认走全局配置 | 1.3.0     |
 | lang        | 文章语言，需配合 `i18n` 配置一起使用            | `string`                                           | -                  | 1.4.0     |
 | toc         | 是否开启文章目录                                | `boolean`                                          | 不传默认走全局配置 | 1.6.0     |
 | outdated    | 文章是否过期                                    | `boolean`                                          | 不传默认走全局配置 | 1.10.1    |
 | author      | 文章作者，用于文章版权和分享卡片                | `string`                                           | 不传默认走全局配置 | 1.10.2    |
 | keywords    | 文章关键词                                      | `string[] \| string`                               | 不传默认走全局配置 | 1.10.4    |
+| banner      | 文章头图                                        | `https://example.com \| false \| rgb(255,117,117)` | -                  | 1.12.2    |
 </details>
 
 ## 贡献者
