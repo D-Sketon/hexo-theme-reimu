@@ -918,16 +918,16 @@ Disabled by default. When enabled and provided with corresponding image sizes an
 
 ```yml
 banner_srcset:
-enable: false
-srcset:
-  - src: "/images/banner-600w.webp"
-    media: "(max-width: 479px)"
-  - src: "/images/banner-800w.webp"
-    media: "(max-width: 799px)"
-  - src: 
-    - "/images/banner.avif"
-    - "/images/banner.webp" # support array format
-    media: "(min-width: 800px)"
+  enable: false
+  srcset:
+    - src: "/images/banner-600w.webp"
+      media: "(max-width: 479px)"
+    - src: "/images/banner-800w.webp"
+      media: "(max-width: 799px)"
+    - src:
+        - "/images/banner.avif"
+        - "/images/banner.webp" # support array format
+      media: "(min-width: 800px)"
 ```
 
 #### Article Copyright Notice (v0.2.0+)
@@ -1181,7 +1181,7 @@ The first parameter is the level standard for the heatmap (graded based on the w
 #### tagRoulette (v1.9.0+)
 
 ```markdown
-{% heatMapCard tags icon %}
+{% tagRoulette tags icon %}
 ```
 
 tagRoulette is an interactive element that provides a random tag display feature. When the button is clicked, a tag is randomly selected and displayed from a predefined pool of tags.  

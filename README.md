@@ -567,7 +567,7 @@ utterances:
 
 ### 站内搜索
 
-> 注意不要同时开启 Algolia 和 本机搜索
+> 注意不要同时开启 Algolia 和 本地搜索
 
 若选择 [Algolia](https://www.algolia.com/)，请安装 [@reimujs/hexo-algoliasearch](https://github.com/D-Sketon/hexo-algoliasearch)
 
@@ -922,16 +922,16 @@ reimu_cursor:
 
 ```yml
 banner_srcset:
-enable: false
-srcset:
-  - src: "/images/banner-600w.webp"
-    media: "(max-width: 479px)"
-  - src: "/images/banner-800w.webp"
-    media: "(max-width: 799px)"
-  - src: 
-    - "/images/banner.avif"
-    - "/images/banner.webp" #  支持数组形式的 fallback
-    media: "(min-width: 800px)"
+  enable: false
+  srcset:
+    - src: "/images/banner-600w.webp"
+      media: "(max-width: 479px)"
+    - src: "/images/banner-800w.webp"
+      media: "(max-width: 799px)"
+    - src:
+        - "/images/banner.avif"
+        - "/images/banner.webp" #  支持数组形式的 fallback
+      media: "(min-width: 800px)"
 ```
 
 #### 文章版权声明（v0.2.0+）
@@ -1194,7 +1194,7 @@ triangle_badge:
 #### tagRoulette 标签轮盘 (v1.9.0+)
 
 ```markdown
-{% heatMapCard tags icon %}
+{% tagRoulette tags icon %}
 ```
 
 tagRoulette 是一个互动元素，提供随机标签展示功能，点击按钮后会从预定义的标签池中随机抽取并展示一个标签。
