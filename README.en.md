@@ -30,7 +30,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 | [Hugo](https://gohugo.io)    | [hugo-theme-reimu](https://github.com/D-Sketon/hugo-theme-reimu)   | <img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fhugo-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version">  | <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/hugo-theme-reimu">  |
 | [Astro](https://astro.build) | [astro-theme-reimu](https://github.com/D-Sketon/astro-theme-reimu) | <img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2FD-Sketon%2Fastro-theme-reimu%2Fraw%2Fmain%2Fpackage.json&query=%24.version&label=version"> | <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/D-Sketon/astro-theme-reimu"> |
 
-**ISSUE and PR Welcome!**
+**Issues and PRs welcome!**
 
 ## Features
 
@@ -178,7 +178,7 @@ avatar: "avatar.webp" # By default, it looks for the avatar in the avatar folder
 
 The cover image display logic is as follows:
 
-- If the article's Front matter contains a cover URL, both the article header image and homepage thumbnail will display this URL
+- If the article's Front-matter contains a cover URL, both the article header image and homepage thumbnail will display this URL
 
 ```yaml
 ---
@@ -187,7 +187,7 @@ cover: https://example.com
 ---
 ```
 
-- If the article's Front matter contains cover: `false`, no header image will be displayed for that article (the homepage thumbnail will still show a random image)
+- If the article's Front-matter contains cover: `false`, no header image will be displayed for that article (the homepage thumbnail will still show a random image)
 
 ```yaml
 ---
@@ -196,7 +196,7 @@ cover: false
 ---
 ```
 
-- If the article's Front matter contains cover: `rgb(xxx,xxx,xxx)`, the article's header image will be a gradient of that solid color (the homepage thumbnail will still show a random image)
+- If the article's Front-matter contains cover: `rgb(xxx,xxx,xxx)`, the article's header image will be a gradient of that solid color (the homepage thumbnail will still show a random image)
 
 ```yaml
 ---
@@ -265,7 +265,7 @@ sidebar:
     show_common: true # whether to show common sidebar on article pages, ignored on mobile devices
 ```
 
-Additionally, you can control it through the article's front-matter, which takes precedence over the global configuration.
+Additionally, you can control it through the article's Front-matter, which takes precedence over the global configuration.
 
 ```yaml
 ---
@@ -283,7 +283,7 @@ Default enabled. You can modify it in the inner `_config.yml`.
 toc: true # true | false
 ```
 
-Additionally, you can control it through the article's front-matter, which takes precedence over the global configuration.
+Additionally, you can control it through the article's Front-matter, which takes precedence over the global configuration.
 
 ```yaml
 ---
@@ -436,7 +436,7 @@ code_block:
 
 ### Site comments
 
-> Site comments can be individually controlled for each article using `comments` in the Front matter.  
+> Site comments can be individually controlled for each article using `comments` in the Front-matter.  
 > When `comments` is `false`, comments won't be displayed. When it's `true` or not specified, the display will be determined by the `_config.yml` configuration.
 
 > Support for multiple comment systems simultaneously after version 1.7.0+
@@ -546,8 +546,8 @@ disqus:
   count: true # Whether to enable comment count statistics
 ```
 
-If using utterance [utterances](https://utteranc.es/)
-Please set `utterances.enable` to `true `in your theme's `_config.yml` and fill in your own `repo`
+If using [utterances](https://utteranc.es/)
+Please set `utterances.enable` to `true` in your theme's `_config.yml` and fill in your own `repo`
 ```yml
 utterances:
   enable: true
@@ -622,7 +622,7 @@ generator_search:
 
 ### Mathematical formulas
 
-please install [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)
+Please install [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus)
 
 ```bash
 npm uninstall hexo-renderer-marked --save
@@ -701,7 +701,7 @@ mermaid:
   zoom: false # whether to enable zoom
 ```
 
-And add `mermaid: true` to the front-matter of any article where you want to use mermaid diagrams
+And add `mermaid: true` to the Front-matter of any article where you want to use mermaid diagrams
 
 ```yaml
 ---
@@ -947,7 +947,7 @@ article_copyright:
     license_type: by-nc-sa # https://creativecommons.org/licenses
 ```
 
-Additionally, this can be controlled through article front-matter, which takes precedence over global configuration
+Additionally, this can be controlled through article Front-matter, which takes precedence over global configuration
 
 ```yaml
 ---
@@ -1003,7 +1003,7 @@ sponsor:
       src: "/sponsor/alipay.jpg" # QR code path, please fill in yourself
 ```
 
-Additionally, this can be controlled through article front-matter, which takes precedence over global configuration
+Additionally, this can be controlled through article Front-matter, which takes precedence over global configuration
 
 ```yaml
 ---
@@ -1019,7 +1019,7 @@ Disabled by default. When enabled, displays category cards on homepage as an alt
 home_categories:
   enable: false # Display home categories card?
   content:
-    - categories: # Category name, format matches categories in front-matter, can be string (single-level) or array (multi-level)
+    - categories: # Category name, format matches categories in Front-matter, can be string (single-level) or array (multi-level)
       cover: # Card cover, uses random cover if not specified
     - categories:
       cover:
@@ -1027,7 +1027,7 @@ home_categories:
 
 #### Music Player (v1.2.0+)
 
-> It's recommended to enable Pjax first, otherwise the player may auto-pause
+> It's recommended to enable PJAX first, otherwise the player may auto-pause
 
 Uses Aplayer + Meting (optional), disabled by default
 
@@ -1186,7 +1186,7 @@ The first parameter is the level standard for the heatmap (graded based on the w
 
 tagRoulette is an interactive element that provides a random tag display feature. When the button is clicked, a tag is randomly selected and displayed from a predefined pool of tags.  
 
-- tags: Optional parameter specifying the tag pool. Multiple tags should be separated by English commas (,). If not provided, a few example tags will be used by default. Example: `tags="memory decline, loss of expression, increased laziness, numbness, so sleepy"`  
+- tags: Optional parameter specifying the tag pool. Multiple tags should be separated by English commas (,). If not provided, a few example tags will be used by default. Example: "memory decline, loss of expression, increased laziness, numbness, so sleepy"  
 - icon: Optional parameter to customize the trigger button's icon. Default: 🕹️ (game controller emoji). Can be replaced with any emoji or text, such as 🎲, 🎯, 🔄, etc.
 
 #### link (v1.11.0+)
@@ -1285,7 +1285,7 @@ Fallback version of the custom container, suitable for renderers that do not sup
 
 ### Custom Containers
 
-This theme provides custom container functionality similar to Vitepress. Before using it, you need to install [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus).
+This theme provides custom container functionality similar to VitePress. Before using it, you need to install [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus).
 
 Usage is as follows:
 
@@ -1343,7 +1343,7 @@ material_theme:
 
 The hexo-theme-reimu theme supports theme color customization through CSS variables. You can customize your theme colors by modifying CSS variables under the `:root` pseudo-class.
 
-v1.8.0 added `internal_theme` configuration to customize theme colors. You can change the theme colors by modifying the `internal_theme` configuration in `params.yml`. The default theme colors are as follows:
+v1.8.0 added `internal_theme` configuration to customize theme colors. You can change the theme colors by modifying the `internal_theme` configuration in `_config.yml`. The default theme colors are as follows:
 
 ```yaml
 internal_theme:
@@ -1441,7 +1441,7 @@ custom_font:
   enable: true
   article:
     - css: https://fontsapi.zeoseven.com/292/main/result.css # font css
-      name: LXGW WenKai # font css
+      name: LXGW WenKai # font name
   code:
 ```
 
@@ -1453,7 +1453,7 @@ v1.0.0 underwent significant refactoring and exposed many configurations for cha
 
 The `menu` configuration structure changed in v1.0.0, allowing users to customize icons. When icon is empty, it defaults to the Taichi icon. You can fill in a hexadecimal number to customize the icon, supporting both FontAwesome, icon font and `false`.
 
-v1.8.4 icon supports image path, such as `/avatar/avatar.webp`.
+v1.8.4 icons support image paths, such as `/avatar/avatar.webp`.
 
 ```yaml
 menu:
