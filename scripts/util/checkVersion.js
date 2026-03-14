@@ -1,6 +1,25 @@
 const https = require("node:https");
 const { version } = require("../../package.json");
 
+const parseVersion = (rawVersion = "") =>
+  String(rawVersion)
+    .replace(/^[vV]/, "")
+    .split(".")
+    .map((part) => {
+      const num = Number.parseInt(part, 10);
+      return Number.isNaN(num) ? 0 : num;
+    });
+
+const isVersionGreater = (latest, current) => {
+  for (let i = 0; i < Math.max(latest.length, current.length); i++) {
+    const latestPart = latest[i] ?? 0;
+    const currentPart = current[i] ?? 0;
+    if (latestPart > currentPart) return true;
+    if (latestPart < currentPart) return false;
+  }
+  return false;
+};
+
 hexo.on("generateBefore", () => {
   hexo.log.info(String.raw`
   ______     ______     __     __    __     __  __    
@@ -29,21 +48,9 @@ hexo.on("generateAfter", () => {
         });
         res.on("end", () => {
           try {
-            const latest = JSON.parse(result)
-              .tag_name.replace("v", "")
-              .replace("V", "")
-              .split(".");
-            const current = version.split(".");
-            let isOutdated = false;
-            for (let i = 0; i < Math.max(latest.length, current.length); i++) {
-              if (!current[i] || latest[i] > current[i]) {
-                isOutdated = true;
-                break;
-              }
-              if (latest[i] < current[i]) {
-                break;
-              }
-            }
+            const latest = parseVersion(JSON.parse(result).tag_name);
+            const current = parseVersion(version);
+            const isOutdated = isVersionGreater(latest, current);
             if (isOutdated) {
               hexo.log.warn(
                 `Your hexo-theme-reimu is outdated. Current version: v${current.join(
