@@ -2,9 +2,7 @@
  * {% externalLinkCard title link [cover]|"auto" %}
  */
 hexo.extend.tag.register("externalLinkCard", (args) => {
-  let title = args.shift();
-  let link = args.shift();
-  let cover = args.shift();
+  const [title, link, cover] = args;
   if (!title || !link) {
     throw new Error(
       `External link not found: "${title}" doesn't exist for {% externalLinkCard %}`

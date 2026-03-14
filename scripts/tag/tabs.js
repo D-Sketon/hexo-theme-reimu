@@ -22,71 +22,57 @@ function postTabs(args, content) {
   if (tabBlock.length < 1) {
     return "";
   }
-  const tabs = [];
-  tabBlock.forEach((item, i) => {
+  const tabs = tabBlock.reduce((acc, item, i) => {
     if (i % 2 === 0) {
-      tabs.push({ header: item });
-    } else if (tabs.length > 0) {
-      const tab = tabs[tabs.length - 1];
-      tab.body = tab.body ? tab.body + "\n" + item : item;
+      acc.push({ header: item, body: "" });
+      return acc;
     }
-  });
-  let tabId = 0;
-  let tabNav = "";
-  let tabContent = "";
-  let tabActive = 0;
-  let align = "";
-  if (args[0]) {
-    if (args[0] === "center") {
-      align = " center";
-    } else {
-      tabActive = Number(args[0]) || 0;
-      if (args[1] === "center") {
-        align = " center";
-      }
+    if (acc.length > 0) {
+      const tab = acc[acc.length - 1];
+      tab.body = tab.body ? `${tab.body}\n${item}` : item;
     }
-  }
+    return acc;
+  }, []);
+
+  const [arg0, arg1] = args;
+  const tabActive = arg0 && arg0 !== "center" ? Number(arg0) || 0 : 0;
+  const align = arg0 === "center" || arg1 === "center" ? " center" : "";
   const tabName = `tab_${++tabIndex}`;
 
-  for (let i = 0; i < tabs.length; i++) {
-    const tabParameters = tabs[i].header.split("@");
-    let tabCaption, tabIcon;
-    if (tabParameters.length > 1) {
-      tabIcon = tabParameters.pop();
-      tabCaption = tabParameters.join("@");
-    } else {
-      tabCaption = tabParameters[0] || "";
-      tabIcon = "";
-    }
-    let postContent = tabs[i].body || "";
-
-    postContent = hexo.render
-      .renderSync({ text: postContent, engine: "markdown" })
+  const parsedTabs = tabs.map((tab, index) => {
+    const tabId = index + 1;
+    const tabParameters = tab.header.split("@");
+    const tabIcon = tabParameters.length > 1 ? tabParameters.pop() : "";
+    let tabCaption = tabParameters.join("@") || "";
+    const postContent = hexo.render
+      .renderSync({ text: tab.body || "", engine: "markdown" })
       .trim();
-
-    tabId += 1;
     const tabHref = `${tabName}-${tabId}`.toLowerCase();
 
     if (tabCaption.length === 0 && tabIcon.length === 0) {
       tabCaption = `${tabName} ${tabId}`;
     }
 
-    if (tabIcon.length > 0) {
-      tabIcon = `<span class="icon" style="margin: 0 4px;">&#x${tabIcon};</span>`;
-    }
-
+    const iconDom = tabIcon
+      ? `<span class="icon" style="margin: 0 4px;">&#x${tabIcon};</span>`
+      : "";
     const isActive =
       (tabActive > 0 && tabActive === tabId) || (tabActive === 0 && tabId === 1)
         ? " active"
         : "";
-    tabNav += `<li class="tab${isActive}"><a class="#${tabHref}">${
-      tabIcon + tabCaption.trim()
-    }</a></li>`;
-    tabContent += `<div class="tab-pane${isActive}" id="${tabHref}">${postContent}</div>`;
-  }
 
-  tabNav = `<ul class="nav-tabs${align}">${tabNav}<div class="tab-indicator"></div></ul>`;
-  tabContent = `<div class="tab-content">${tabContent}</div>`;
+    return {
+      nav: `<li class="tab${isActive}"><a class="#${tabHref}">${iconDom}${tabCaption.trim()}</a></li>`,
+      content: `<div class="tab-pane${isActive}" id="${tabHref}">${postContent}</div>`,
+    };
+  });
+
+  const tabNav = `<ul class="nav-tabs${align}">${parsedTabs
+    .map((item) => item.nav)
+    .join("")}<div class="tab-indicator"></div></ul>`;
+  const tabContent = `<div class="tab-content">${parsedTabs
+    .map((item) => item.content)
+    .join("")}</div>`;
 
   return `<div class="tabs" id="tab-${tabName.toLowerCase()}">${tabNav}${tabContent}</div>${asyncCss(
     "css/tabs"

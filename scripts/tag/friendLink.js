@@ -8,7 +8,7 @@ const fs = require("fs");
 const path = require("path");
 const yaml = require("js-yaml");
 
-const template = ({ name, url, desc, image }) => {
+const template = ({ name, url, desc = "", image = "" }) => {
   return `<div class="friend-item-wrap">
     <a href="${url}" rel="noopener nofollow noreferrer" target="_blank"></a>
     <div class="friend-icon-wrap">
@@ -25,26 +25,26 @@ const template = ({ name, url, desc, image }) => {
   </div>`;
 };
 const loadFile = (arg) => {
-  if (arg) {
-    let filepath = path.join(hexo.source_dir, arg);
-    if (fs.existsSync(filepath)) {
-      let content = fs.readFileSync(filepath);
-      if (!content) return;
-      let load = yaml.load(content);
-      if (!load) return;
-      return insertHtml(load);
-    }
-  }
+  if (!arg) return;
+
+  const filepath = path.join(hexo.source_dir, arg);
+  if (!fs.existsSync(filepath)) return;
+
+  const content = fs.readFileSync(filepath);
+  if (!content) return;
+
+  const load = yaml.load(content);
+  if (!Array.isArray(load) || load.length === 0) return;
+
+  return insertHtml(load);
 };
 
 const insertHtml = (load) => {
-  let content = `<div class="friend-wrap" data-aos="zoom-in">`;
-  load.forEach((item) => {
-    if (!item.name || !item.url) return;
-    content += template(item);
-  });
-  content += `</div>`;
-  return content;
+  const cards = load
+    .filter((item) => item?.name && item?.url)
+    .map((item) => template(item))
+    .join("");
+  return `<div class="friend-wrap" data-aos="zoom-in">${cards}</div>`;
 };
 
 /**
