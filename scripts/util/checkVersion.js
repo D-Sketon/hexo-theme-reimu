@@ -1,6 +1,12 @@
 const https = require("node:https");
 const { version } = require("../../package.json");
 
+const RELEASE_API_URL =
+  "https://api.github.com/repos/D-Sketon/hexo-theme-reimu/releases/latest";
+const VERSION_CHECK_TIMEOUT_MS = 8000;
+const VERSION_CHECK_FAILED_MSG =
+  "Failed to detect version info. You can get the latest version info at https://github.com/D-Sketon/hexo-theme-reimu/releases";
+
 const parseVersion = (rawVersion = "") =>
   String(rawVersion)
     .replace(/^[vV]/, "")
@@ -20,6 +26,10 @@ const isVersionGreater = (latest, current) => {
   return false;
 };
 
+const reportVersionCheckFailure = () => {
+  hexo.log.warn(VERSION_CHECK_FAILED_MSG);
+};
+
 hexo.on("generateBefore", () => {
   hexo.log.info(String.raw`
   ______     ______     __     __    __     __  __    
@@ -33,45 +43,58 @@ hexo.on("generateBefore", () => {
 
 hexo.on("generateAfter", () => {
   if (!hexo.theme.config.theme_version_check) return;
-  https
-    .get(
-      "https://api.github.com/repos/D-Sketon/hexo-theme-reimu/releases/latest",
-      {
-        headers: {
-          "User-Agent": "hexo-theme-reimu",
-        },
+  const request = https.get(
+    RELEASE_API_URL,
+    {
+      headers: {
+        "User-Agent": "hexo-theme-reimu",
       },
-      (res) => {
-        let result = "";
-        res.on("data", (data) => {
-          result += data;
-        });
-        res.on("end", () => {
-          try {
-            const latest = parseVersion(JSON.parse(result).tag_name);
-            const current = parseVersion(version);
-            const isOutdated = isVersionGreater(latest, current);
-            if (isOutdated) {
-              hexo.log.warn(
-                `Your hexo-theme-reimu is outdated. Current version: v${current.join(
-                  "."
-                )}, latest version: v${latest.join(".")}`
-              );
-              hexo.log.warn(
-                "Visit https://github.com/D-Sketon/hexo-theme-reimu/releases for more information."
-              );
-            }
-          } catch (err) {
+    },
+    (res) => {
+      if (res.statusCode !== 200) {
+        res.resume();
+        reportVersionCheckFailure();
+        return;
+      }
+
+      let result = "";
+      res.setEncoding("utf8");
+      res.on("data", (data) => {
+        result += data;
+      });
+      res.on("end", () => {
+        try {
+          const payload = JSON.parse(result);
+          if (!payload || typeof payload.tag_name !== "string") {
+            reportVersionCheckFailure();
+            return;
+          }
+
+          const latest = parseVersion(payload.tag_name);
+          const current = parseVersion(version);
+          const isOutdated = isVersionGreater(latest, current);
+          if (isOutdated) {
             hexo.log.warn(
-              "Failed to detect version info. You can get the latest version info at https://github.com/D-Sketon/hexo-theme-reimu/releases"
+              `Your hexo-theme-reimu is outdated. Current version: v${current.join(
+                ".",
+              )}, latest version: v${latest.join(".")}`,
+            );
+            hexo.log.warn(
+              "Visit https://github.com/D-Sketon/hexo-theme-reimu/releases for more information.",
             );
           }
-        });
-      }
-    )
-    .on("error", (err) => {
-      hexo.log.warn(
-        "Failed to detect version info. You can get the latest version info at https://github.com/D-Sketon/hexo-theme-reimu/releases"
-      );
-    });
+        } catch {
+          reportVersionCheckFailure();
+        }
+      });
+    },
+  );
+
+  request.setTimeout(VERSION_CHECK_TIMEOUT_MS, () => {
+    request.destroy(new Error("Request timeout"));
+  });
+
+  request.on("error", () => {
+    reportVersionCheckFailure();
+  });
 });
