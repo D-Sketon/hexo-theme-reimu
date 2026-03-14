@@ -9,7 +9,7 @@ const shareMap = {
   reddit: (url, title) =>
     `https://www.reddit.com/submit?url=${url}&title=${title}`,
   qq: (url, title, desc, source) =>
-    `https://connect.qq.com/widget/shareqq/index.html?url=${"www.baidu.com"}&title=${title}&desc=${desc}&source=${source}`,
+    `https://connect.qq.com/widget/shareqq/index.html?url=${url}&title=${title}&desc=${desc}&source=${source}`,
   weixin: () => `javascript:;`,
 };
 
