@@ -11,6 +11,14 @@ hexo.extend.tag.register("tagRoulette", (args) => {
   }
   const inputTags =
     args[0] || "点击按钮抽取标签,标签轮盘,带有模糊效果,好想睡觉";
+  const tags = String(inputTags)
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter(Boolean);
+  const safeTags = JSON.stringify(tags)
+    .replace(/</g, "\\u003C")
+    .replace(/>/g, "\\u003E")
+    .replace(/&/g, "\\u0026");
   const icon = args[1] || "🕹️";
   return `
 <div class="roll">
@@ -19,34 +27,39 @@ hexo.extend.tag.register("tagRoulette", (args) => {
 </div>
 <script>
 var rollTagRoulette = () => {
-  var tags = "${inputTags}".split(",");
-  var tag = document.querySelector('.roll-tags');
+  const tags = ${safeTags};
+  const tag = document.querySelector('.roll-tags');
+  if (!tag || !Array.isArray(tags) || tags.length === 0) return;
   tag.innerHTML = '';
 
-  var interval = setInterval(function () {
-    var span = document.createElement('span');
+  let spans = [];
+
+  const interval = setInterval(() => {
+    const span = document.createElement('span');
     span.classList.add('ready');
     span.classList.add('blur');
-    span.innerText = tags[Math.floor(Math.random() * tags.length)];
+    const randomIndex = Math.floor(Math.random() * tags.length);
+    span.textContent = tags[randomIndex];
     tag.appendChild(span);
     spans = tag.querySelectorAll('span');
-    for (var i = 0; i < spans.length; i++) {
+    for (let i = 0; i < spans.length; i++) {
       spans[i].classList.add('removing');
     }
   }, 200);
 
-  setTimeout(function () {
+  setTimeout(() => {
     clearInterval(interval);
-    for (var i = 0; i < spans.length-1; i++) {
+    if (!spans.length) return;
+    for (let i = 0; i < spans.length - 1; i++) {
       tag.removeChild(spans[i]);
     }
-    setTimeout(function () {
-      spans[spans.length-1].classList.remove('blur');
+    setTimeout(() => {
+      spans[spans.length - 1].classList.remove('blur');
     }, 100);
   }, 1000);
 }
 
-rollTagRoulette(); // 页面加载时自动触发一次滚动
+rollTagRoulette();
 </script>
 ${asyncCss("css/tag-roulette")}
   `;
