@@ -24,7 +24,7 @@
     <%_ if (commentSystems.valine) { _%>
     valine: {
       enable: <%= commentSystems.valine %>,
-      load: () => {
+      load: async () => {
         const container = document.querySelector('.valine-comment');
         if (!container) return;
         if (container.style.display === 'block') return; // already loaded
@@ -101,7 +101,7 @@
     <%_ if (commentSystems.twikoo) { _%>
     twikoo: {
       enable: <%= commentSystems.twikoo %>,
-      load: () => {
+      load: async () => {
         const container = document.querySelector('.twikoo-comment');
         if (!container) return;
         container.style.display = 'block';
@@ -222,7 +222,7 @@
     <%_ if (commentSystems.giscus) { _%>
     giscus: {
       enable: <%= commentSystems.giscus %>,
-      load: () => {
+      load: async () => {
         const container = document.querySelector('.giscus-comment');
         if (!container) return;
         container.style.display = 'block';
@@ -235,6 +235,31 @@
 
         const giscusScript = document.createElement('script');
         const domMode = document.documentElement.getAttribute("data-theme");
+        const defaultTheme = { dark: 'dark', light: 'light' };
+        const customTheme = {
+          dark: new URL('<%- url_for("/css/giscus_reimu_dark.css") %>', window.location.origin).href,
+          light: new URL('<%- url_for("/css/giscus_reimu_light.css") %>', window.location.origin).href
+        };
+        const hasGiscusCorsHeader = async (url) => {
+          try {
+            let response = await fetch(url, { method: 'HEAD', cache: 'no-store' });
+            if (response.status === 405) {
+              response = await fetch(url, { method: 'GET', cache: 'no-store' });
+            }
+            const allowOrigin = response.headers.get('access-control-allow-origin') || '';
+            return allowOrigin === '*' || allowOrigin.split(',').map(value => value.trim()).includes('https://giscus.app');
+          } catch {
+            return false;
+          }
+        };
+        let giscusTheme = defaultTheme;
+        const [darkCorsOk, lightCorsOk] = await Promise.all([
+          hasGiscusCorsHeader(customTheme.dark),
+          hasGiscusCorsHeader(customTheme.light)
+        ]);
+        if (darkCorsOk && lightCorsOk) {
+          giscusTheme = customTheme;
+        }
 
         const docLang = document.documentElement.lang || 'en';
         const langBase = docLang.split('-')[0];
@@ -253,7 +278,7 @@
         giscusScript.setAttribute('data-reactions-enabled', '<%= theme.giscus.reactionsEnabled %>');
         giscusScript.setAttribute('data-emit-metadata', '<%= theme.giscus.emitMetadata %>');
         giscusScript.setAttribute('data-input-position', '<%= theme.giscus.inputPosition %>');
-        giscusScript.setAttribute('data-theme', domMode === 'dark' ? 'dark' : 'light');
+        giscusScript.setAttribute('data-theme', domMode === 'dark' ? giscusTheme.dark : giscusTheme.light);
         giscusScript.setAttribute('data-lang', giscusLang);
         giscusScript.setAttribute('crossorigin', 'anonymous');
         giscusScript.async = true;
@@ -265,7 +290,7 @@
             document.body.removeEventListener('reimu:theme-set', themeHandler);
             return;
           }
-          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: isDark ? 'dark' : 'light' } } }, 'https://giscus.app');
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: isDark ? giscusTheme.dark : giscusTheme.light } } }, 'https://giscus.app');
         };
         document.body.addEventListener('reimu:theme-set', themeHandler);
       }
