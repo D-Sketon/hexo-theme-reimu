@@ -237,10 +237,12 @@
         const domMode = document.documentElement.getAttribute("data-theme");
         const defaultTheme = { dark: 'dark', light: 'light' };
         const customTheme = {
-          dark: new URL('<%- url_for("/css/giscus_reimu_dark.css") %>', window.location.origin).href,
-          light: new URL('<%- url_for("/css/giscus_reimu_light.css") %>', window.location.origin).href
-        };
+          dark: '<%= theme.giscus.theme?.dark %>' ? '<%= theme.giscus.theme.dark %>' : new URL('<%- url_for("/css/giscus_reimu_dark.css") %>', window.location.origin).href,
+          light:'<%= theme.giscus.theme?.light %>' ? '<%= theme.giscus.theme.light %>' : new URL('<%- url_for("/css/giscus_reimu_light.css") %>', window.location.origin).href
+        }; 
         const hasGiscusCorsHeader = async (url) => {
+          if (!url) return false;
+          if (!url.startsWith('http')) return true; // not a url, maybe a name of built-in theme
           try {
             let response = await fetch(url, { method: 'HEAD', cache: 'no-store' });
             if (response.status === 405) {

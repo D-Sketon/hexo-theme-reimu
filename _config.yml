@@ -408,8 +408,9 @@ giscus:
   reactionsEnabled: 1
   emitMetadata: 0
   inputPosition: bottom
-  # commentTheme: light # deprecated, because the theme is set by the theme itself
-  # lang: zh-CN # deprecated, use html.lang instead
+  theme:
+    light:
+    dark:
 
 # https://utteranc.es
 utterances:
