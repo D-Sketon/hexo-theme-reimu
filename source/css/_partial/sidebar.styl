@@ -346,6 +346,27 @@ if ('steam' in social-keys) {
   }
 }
 
+if ('tiktok' in social-keys) {
+  .icon-tiktok {
+    filter: drop-shadow(-1px -1px 0 #69c9d0) drop-shadow(1px 1px 0 #fe2c55);
+    color: #000000;
+  }
+}
+
+.sidebar-social {
+  if ('weixin' in social-keys) {
+     .icon-weixin {
+      color: #09b83e;
+    }
+  }
+
+  if ('qq' in social-keys) {
+    .icon-qq {
+      color: #12b7f5;
+    }
+  }
+}
+
 $menu-link {
   color: var(--color-link);
   opacity: 0.8;

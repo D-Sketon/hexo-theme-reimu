@@ -145,6 +145,9 @@ social:
   # telegram: https://t.me/yourname
   # discord: https://discordapp.com/users/yourname
   # steam: https://steamcommunity.com/id/yourname
+  # weixin:
+  # qq:
+  # tiktok:
 
 widgets:
   # - category
@@ -200,7 +203,7 @@ reimu_cursor:
     text: ../images/cursor/reimu-cursor-text.png
 
 # set to false to enable fontawesome
-icon_font: 4552607_4k4bc36ef96
+icon_font: 4552607_a0oqhord1y
 
 # Font loading strategy
 # Custom Font -> Google Fonts -> Local FallBack Font

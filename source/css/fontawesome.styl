@@ -436,6 +436,14 @@ if (('email' in social-keys) || (hexo-config('triangle_badge.icon') == 'email'))
   }
 }
 
+if (('tiktok' in social-keys) || (hexo-config('triangle_badge.icon') == 'tiktok')) {
+  .icon-tiktok {
+    &:before {
+      content: '\e07b';
+    }
+  }
+}
+
 .sidebar-toc-btn {
   &:before {
     font-family: var(--font-icon);
