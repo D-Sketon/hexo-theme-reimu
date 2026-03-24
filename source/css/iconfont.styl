@@ -480,7 +480,7 @@ if (('email' in social-keys) || (hexo-config('triangle_badge.icon') == 'email'))
   }
 }
 
-if ('weixin' in share-keys) {
+if (('weixin' in share-keys) || ('weixin' in share-keys) || (hexo-config('triangle_badge.icon') == 'weixin')) {
   .icon-weixin {
     &:before {
       font-family: font-icon;
@@ -489,7 +489,7 @@ if ('weixin' in share-keys) {
   }
 }
 
-if ('qq' in share-keys) {
+if (('qq' in share-keys) || ('qq' in share-keys) || (hexo-config('triangle_badge.icon') == 'qq')) {
   .icon-qq {
     &:before {
       font-family: font-icon;
