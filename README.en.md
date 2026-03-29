@@ -176,37 +176,31 @@ avatar: "avatar.webp" # By default, it looks for the avatar in the avatar folder
 
 #### Cover Images
 
-The cover image display logic is as follows:
+The display logic of `banner` and `cover` is as follows:
 
-- If the article's Front-matter contains a cover URL, both the article header image and homepage thumbnail will display this URL
+- The post header image prefers Front-matter `banner`; if `banner` is not set, it falls back to `cover` for compatibility.
+- When both `banner` and `cover` are not set, the post header image uses global `cover` in the inner `_config.yml`, then falls back to global `banner`.
+- The list card cover prefers Front-matter `cover` (URL only). If `cover` is not set, `false`, or `rgb(...)`, it falls back to random images from `source/_data/covers` and `source/_data/covers.yml`.
+- If random covers are unavailable, it falls back to global `banner`.
 
-```yaml
----
-title: Hello World
-cover: https://example.com
----
-```
-
-- If the article's Front-matter contains cover: `false`, no header image will be displayed for that article (the homepage thumbnail will still show a random image)
+Recommended usage (separate header image and card cover):
 
 ```yaml
 ---
 title: Hello World
-cover: false
+banner: https://example.com/post-header.webp
+cover: https://example.com/post-card.webp
 ---
 ```
 
-- If the article's Front-matter contains cover: `rgb(xxx,xxx,xxx)`, the article's header image will be a gradient of that solid color (the homepage thumbnail will still show a random image)
+Legacy-compatible usage (`cover` only):
 
 ```yaml
 ---
 title: Hello World
-cover: rgb(255,117,117)
+cover: https://example.com/cover.webp
 ---
 ```
-
-- Otherwise, the homepage thumbnail will search for images in the `covers` folder and `covers.yml` and randomly select one; the in-article header image will look for the `cover` configuration in the inner `_config.yml`
-- If none of the above files/configurations exist, it will display the `banner` header image as a fallback
 
 #### banner
 
@@ -306,9 +300,11 @@ You can configure the social links in the sidebar in the inner `_config.yml`.
 
 ```yaml
 social:
-  # github: https://github.com/yourname
-  # bilibili: https://space.bilibili.com/yourname
-  # ...
+  github: https://github.com/yourname
+  bilibili: https://space.bilibili.com/yourname
+  # weixin: https://example.com/your-weixin-link
+  # qq: https://example.com/your-qq-link
+  tiktok: https://www.tiktok.com/@yourname
 ```
 
 #### Widgets
@@ -332,6 +328,9 @@ show_count: false # whether to show count in archive
 tag_limits:
 recent_posts_limits: 5
 tagcloud_limits:
+only_show_capsule_in_index: false # show all category/tag capsules only on archive index to improve build performance for large taxonomies
+uppercase_capsule: true # whether to transform category/tag capsules to uppercase
+show_update_time: false # whether to display article update time
 ```
 
 </details>
@@ -520,7 +519,17 @@ giscus:
   reactionsEnabled: 1
   emitMetadata: 0
   inputPosition: bottom
+  theme:
+    light: # optional, supports giscus built-in theme names or custom CSS URL
+    dark: # optional, supports giscus built-in theme names or custom CSS URL
 ```
+
+Notes:
+
+- Giscus is rendered in an iframe and cannot directly inherit global site styles, so theme is controlled via `data-theme`.
+- If `theme.light` / `theme.dark` use URLs, the theme checks whether the URL allows CORS from `https://giscus.app`; if validation fails, it automatically falls back to built-in `light` / `dark`.
+- If both `theme` values are empty, the theme tries built-in Reimu-style CSS (matching cursor style, fonts, and static tokens; dynamic tokens such as `material_theme` are not supported).
+- Local `hexo s` (HTTP and usually without CORS headers) and default static resources on `github.io` usually cannot pass URL-theme validation directly; use a resource domain with configurable CORS (for example, jsDelivr proxy).
 
 If using [gitalk](https://gitalk.github.io/)  
 Please refer to their [official documentation](https://github.com/gitalk/gitalk?tab=readme-ov-file#usage) to complete repository configuration, then set `gitalk.enable` to `true` in the inner `_config.yml` and fill in the corresponding data
@@ -1037,6 +1046,7 @@ Default is after sidebar
 
 ```yml
 player:
+  disable_on_mobile: false # whether to disable player on mobile for better performance
   position: before_sidebar # before_sidebar / after_sidebar / after_widget
 ```
 
