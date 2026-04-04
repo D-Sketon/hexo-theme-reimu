@@ -6,6 +6,7 @@
 <%_ commentSystems.giscus = theme.giscus.enable ? true : false; _%>
 <%_ commentSystems.disqus = theme.disqus.enable && theme.disqus.shortname ? true : false; _%>
 <%_ commentSystems.utterances = theme.utterances.enable && theme.utterances.repo ? true : false; _%>
+<%_ commentSystems.beaudar = theme.beaudar.enable && theme.beaudar.repo && theme.beaudar.branch ? true : false; _%>
 
 <%_ const activeSystems = Object.keys(commentSystems).filter(system => commentSystems[system]); _%>
 
@@ -213,6 +214,63 @@
               return;
             }
             iframe.contentWindow.postMessage({ type: 'set-theme', theme: e.detail.isDark ? 'github-dark' : 'github-light' }, 'https://utteranc.es');
+          };
+          document.body.addEventListener('reimu:theme-set', themeHandler);
+        }
+      }
+    },
+    <%_ } _%>
+    <%_ if (commentSystems.beaudar) { _%>
+    beaudar: {
+      enable: <%= commentSystems.beaudar %>,
+      load: () => {
+        const container = document.querySelector('.beaudar-comment'); 
+        if (!container) return;
+        container.style.display = 'block';
+
+        let theme = '<%= theme.beaudar.theme || "github-light" %>';
+        const parsedTheme = theme === 'auto' ? (document.documentElement.getAttribute('data-theme') === 'dark' ? 'github-dark' : 'github-light') : theme;
+
+        // 创建 beaudar 脚本
+        const script = document.createElement('script');
+        script.src = 'https://beaudar.lipk.org/client.js';
+        script.setAttribute('repo', '<%= theme.beaudar.repo %>');
+        script.setAttribute('branch', '<%= theme.beaudar.branch %>');
+        script.setAttribute('theme', parsedTheme);
+        script.setAttribute('crossorigin', 'anonymous');
+        script.async = true;
+
+        // 透传其他字段
+        <%_ 
+          const _attrMap = {
+            issue_term: 'issue-term',
+            issue_number: 'issue-number',
+            label: 'label',
+            input_position: 'input-position',
+            comment_order: 'comment-order',
+            keep_theme: 'keep-theme',
+            loading: 'loading',
+          }; 
+        _%>
+        <%_ for (const [key, attr] of Object.entries(_attrMap)) { _%>
+          <%_ const _val = theme.beaudar[key]; _%>
+          <%_ if (null !== _val && '' !== _val && undefined !== _val) { _%>
+            script.setAttribute('<%= attr %>', '<%= _val %>');
+          <%_ } _%>
+        <%_ } _%>
+        
+
+        // 清空容器（防止重复加载）并插入脚本
+        container.innerHTML = '';
+        container.appendChild(script);
+        if (theme === 'auto') {
+          const themeHandler = (e) => {
+            const iframe = container.querySelector('iframe.beaudar-frame');
+            if (!iframe || !iframe.contentWindow) {
+              document.body.removeEventListener('reimu:theme-set', themeHandler);
+              return;
+            }
+            iframe.contentWindow.postMessage({ type: 'set-theme', theme: e.detail.isDark ? 'github-dark' : 'github-light' }, 'https://beaudar.lipk.org');
           };
           document.body.addEventListener('reimu:theme-set', themeHandler);
         }
