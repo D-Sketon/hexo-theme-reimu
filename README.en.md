@@ -555,7 +555,7 @@ disqus:
   count: true # Whether to enable comment count statistics
 ```
 
-If using [utterances](https://utteranc.es/)
+If using [utterances](https://utteranc.es/)  
 Please set `utterances.enable` to `true` in your theme's `_config.yml` and fill in your own `repo`
 ```yml
 utterances:
@@ -563,6 +563,23 @@ utterances:
   repo: owner/repo # Change this to "Your GitHub Username/The Repository Name" used for storing blog comments
   issue_term: title
   theme: github-light # You can use auto to automatically adapt to dark and light themes
+```
+
+If using [beaudar](https://beaudar.lipk.org/)  
+Please set `beaudar.enable` to `true` in your theme's `_config.yml` and fill in your own `repo` and `branch`. Then create the [domain whitelist](https://github.com/beaudar/beaudar/blob/master/beaudar.json) in your repository (for Hexo themes, please place this file directly in the `source` directory) and [authorize the installation](https://github.com/apps/beaudar)
+```yml
+beaudar:
+  enable: true
+  repo: owner/repo # Change this to "Your GitHub Username/The Repository Name" used for storing blog comments
+  branch: main # Change this to your repository branch name
+  issue_term: title # Mapping between blog posts and Issues
+  issue_number:
+  theme: auto # You can use auto to automatically adapt to dark and light themes
+  label:
+  input_position: top # top/bottom - Position of the comment box, default is top
+  comment_order: desc # asc/desc - Comment sorting order, default is desc (newest comments on top)
+  keep_theme: # true/false - Save theme settings to the page's sessionStorage, default is true
+  loading: # true/false - Clicking the loading icon redirects to the official page
 ```
 
 </details>

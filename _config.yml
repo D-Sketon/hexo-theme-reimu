@@ -422,6 +422,20 @@ utterances:
   issue_term: title
   theme: auto # auto means to automatically adapt to dark and light themes, you can also use specific themes like github-light, github-dark, preferred-color-scheme, etc.
 
+# https://beaudar.lipk.org/
+beaudar:
+  enable: false
+  repo: owner/repo # Change this to "Your GitHub Username/The Repository Name" used for storing blog comments
+  branch: main # The branch name, default is main
+  issue_term: title # The term to be used to create issues for comments, support pathname, url, title, og:title
+  issue_number:
+  theme: auto # auto means to automatically adapt to dark and light themes, you can also use specific themes like github-light, github-dark, preferred-color-scheme, etc.
+  label:
+  input_position: top # top/bottom, comment input position, default is top
+  comment_order: desc # asc/desc, comment order, asc displays the oldest comments first, while desc displays the newest comments first. The default is desc
+  keep_theme: # true/false, save the theme settings to sessionStorage, default is true
+  loading: # true/false, jump to official website when clicking the loading icon, default is true
+
 # https://disqus.com
 disqus:
   enable: false
