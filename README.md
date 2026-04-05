@@ -572,7 +572,7 @@ utterances:
 ```
 
 若基于 [beaudar](https://beaudar.lipk.org/)  
-请在内层 `_config.yml` 中将 `beaudar.enable` 改为 `true`，并填入自己的 `repo` 和 `branch`，之后需要在仓库中创建一个[域白名单](https://github.com/beaudar/beaudar/blob/master/beaudar.json)，并[授权安装](https://github.com/apps/beaudar)即可
+请在内层 `_config.yml` 中将 `beaudar.enable` 改为 `true`，并填入自己的 `repo` 和 `branch`。之后需要在仓库中创建一个[域白名单](https://github.com/beaudar/beaudar/blob/master/beaudar.json) (Hexo 主题请把该文件直接放在 `source` 目录下)，并[授权安装](https://github.com/apps/beaudar)即可
 ```yml
 beaudar:
   enable: true

@@ -566,7 +566,7 @@ utterances:
 ```
 
 If using [beaudar](https://beaudar.lipk.org/)  
-Please set `beaudar.enable` to `true` in your theme's `_config.yml` and fill in your own `repo` and `branch`. Then you need to create a [domain whitelist](https://github.com/beaudar/beaudar/blob/master/beaudar.json) in your repository and [authorize the installation](https://github.com/apps/beaudar)
+Please set `beaudar.enable` to `true` in your theme's `_config.yml` and fill in your own `repo` and `branch`. Then create the [domain whitelist](https://github.com/beaudar/beaudar/blob/master/beaudar.json) in your repository (for Hexo themes, please place this file directly in the `source` directory) and [authorize the installation](https://github.com/apps/beaudar)
 ```yml
 beaudar:
   enable: true
