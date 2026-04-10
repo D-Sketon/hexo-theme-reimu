@@ -4,9 +4,9 @@
 <%_ commentSystems.twikoo = theme.twikoo.enable && theme.twikoo.envId ? true : false; _%>
 <%_ commentSystems.gitalk = theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret ? true : false; _%>
 <%_ commentSystems.giscus = theme.giscus.enable ? true : false; _%>
-<%_ commentSystems.disqus = theme.disqus.enable && theme.disqus.shortname ? true : false; _%>
 <%_ commentSystems.utterances = theme.utterances.enable && theme.utterances.repo ? true : false; _%>
 <%_ commentSystems.beaudar = theme.beaudar.enable && theme.beaudar.repo && theme.beaudar.branch ? true : false; _%>
+<%_ commentSystems.disqus = theme.disqus.enable && theme.disqus.shortname ? true : false; _%>
 
 <%_ const activeSystems = Object.keys(commentSystems).filter(system => commentSystems[system]); _%>
 
@@ -499,7 +499,10 @@
       waline: false,
       twikoo: false,
       gitalk: false,
-      giscus: false
+      giscus: false,
+      utterances: false,
+      beaudar: false,
+      disqus: false,
     };
 
     // 隐藏所有评论容器

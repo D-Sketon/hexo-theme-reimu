@@ -58,6 +58,7 @@
   - Giscus
   - Disqus
   - Utterances
+  - Beaudar
 
 ### 统计与分析
 
