@@ -57,6 +57,7 @@ hexo.extend.helper.register("themeConfig", function () {
   }
   addConfig("code_block", config.code_block);
   addConfig("base", siteConfig.url);
+  addConfig("relative", url_for.call(hexo, "/"));
   if (config.i18n?.enable) {
     addConfig("i18n_languages", (config.i18n.languages || []).slice(1));
   }

@@ -9,9 +9,8 @@
     "beforeend",
     '<form id="search-form"><input type="text" id="search-text"></form>'
   );
-  const baseUrl = window.REIMU_CONFIG?.base;
-  const searchUrl = baseUrl
-    ? new URL("search.json", baseUrl.replace(/\/?$/, "/")).toString()
+  const baseUrl = window.REIMU_CONFIG?.relative;
+  const searchUrl = baseUrl ? `${baseUrl}search.json`
     : "/search.json";
   fetch(searchUrl)
     .then((response) => {
