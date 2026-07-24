@@ -447,7 +447,11 @@ Global comment system configuration:
 
 ```yaml
 comment:
-  title: Say something! # Title of the comment box  
+  title:
+    en: Leave a comment
+    zh-CN: 说些什么吧！
+    zh-TW: 說些什麼吧！
+    ja: コメントを残す
   default: waline # Default comment system used when multiple are enabled
 ```
 
@@ -806,7 +810,7 @@ For more information, please refer to [How to add multi-language support to Hexo
 By default, this theme uses its own provided iconfont (v0.1.3+)
 
 ```yml
-icon_font: 4552607_0khxww3tj3q9
+icon_font: 4552607_ex15nbittbh
 ```
 
 If you want to continue using fontawesome icons, set `icon_font` to `false`. This will use the corresponding fontawesome from the `vendor`
@@ -814,17 +818,17 @@ If you want to continue using fontawesome icons, set `icon_font` to `false`. Thi
 ```yml
 fontawesome:
   high_priority:
-    - src: webcache|@fortawesome/fontawesome-free@7.1.0/css/regular.min.css
-      integrity: sha384-4qYppzjH8EiA+cGdaubu2vL7Rk8WGiqCSj7oRuP1uwtFWkfKNHD20lPfcrbQc8dU
-    - src: webcache|@fortawesome/fontawesome-free@7.1.0/css/solid.min.css
-      integrity: sha384-wbMWab3UDSPm2kvIgVOn/d9KPTecgPU1+Nb3zoQrm/oVu0EkPL6IaKinjbwW0rum
-  low_priority:
-    - src: webcache|@fortawesome/fontawesome-free@7.1.0/css/brands.min.css
-      integrity: sha384-KTGeC2hIMzpeQakhsmzB9bZfhCD5xZZCgI1iZH6f/O457SxzlkzTQg/WXFNoi3ih
-    - src: webcache|@fortawesome/fontawesome-free@7.1.0/css/v5-font-face.min.css
-      integrity: sha384-nJ1ThfldViXoLpJ6jlKcP2beas8BMbYq26SG9Hi8cH89bZi4RZ644v7helMCqJxd
-    - src: webcache|@fortawesome/fontawesome-free@7.1.0/css/v4-font-face.min.css
-      integrity: sha384-UlkrhOIvZxJFd4MElSUp7ow6/RUeYKi/orfCZIRRiOENFuQPIAA3T3HjYfmBRhNq
+    - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/regular.min.css
+      integrity: sha384-2RNNQHI9yrjVDjr8zReHCzBa25B4jlokRSel4Cnp9s+PCUDvwxBq8ZbIODO51CZL
+    - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/solid.min.css
+      integrity: sha384-p/nJzgOJxEnSeUkMQ0nk5oPsUT5x8eOWi6pxU2ls9qcO9B78dCvZk0JSAOXWXUQN
+    low_priority:
+    - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/brands.min.css
+      integrity: sha384-pIEnzgIAdkjnrjeHT4EuN7Kq2yGdMr3Vk0e3gLOkA7/e07sPVkOqclXo09iTJVEo
+    - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/v5-font-face.min.css
+      integrity: sha384-bgty3ASw/rWgPqaNmdRW2QRzOUN359e1lysD9FJvOi5vcnpF0zw7X3w3SzQ8eXg3
+    - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/v4-font-face.min.css
+      integrity: sha384-PR7IRkzcQVYE18+Qzo+jvCpk7aBZUsKQtpDyImfQ92ONj5u3VwMmMCIi7VMoGCCS
 ```
 
 </details>
@@ -1731,10 +1735,6 @@ Both formats are supported. It's recommended to use SRI verification for externa
 | [@reimujs/hexo-renderer-markdown-it-plus](https://github.com/D-Sketon/hexo-renderer-markdown-it-plus) | ![NPM Version](https://img.shields.io/npm/v/@reimujs/hexo-renderer-markdown-it-plus) | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/hexo-renderer-markdown-it-plus) | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/hexo-renderer-markdown-it-plus) |
 | [@reimujs/instantsearch.js](https://github.com/D-Sketon/instantsearch)                                | ![NPM Version](https://img.shields.io/npm/v/@reimujs/instantsearch.js)               | ![NPM Downloads](https://img.shields.io/npm/dm/@reimujs/instantsearch.js)               | ![jsDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@reimujs/instantsearch.js)               |
 | [plugin-live2d](https://github.com/D-Sketon/plugin-live2d)                                            | -                                                                                    | -                                                                                       | ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/D-Sketon/plugin-live2d)          |
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=D-Sketon/hexo-theme-reimu&type=date&legend=top-left)](https://www.star-history.com/#D-Sketon/hexo-theme-reimu&type=date&legend=top-left)
 
 ## License
 
