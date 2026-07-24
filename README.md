@@ -68,7 +68,7 @@
 ### 媒体与交互功能
 
 - 🎵 音乐播放器支持：
-  - Aplayer
+  - APlayer
   - Meting
 - 🖼️ 图片懒加载
 - ⚡ 加载动画
@@ -81,14 +81,14 @@
 
 - 📑 目录导航
 - 🔄 PJAX 支持
-- 🔧 ServiceWorker 实现
+- 🔧 Service Worker 实现
 - 📰 RSS 订阅
 
 ### 设计与自定义
 
 - 🎨 图标支持：
   - Iconfont
-  - FontAwesome7
+  - Font Awesome
 - 🔗 内置标签插件：
   - 内部链接
   - 外部链接
@@ -97,6 +97,8 @@
   - 标签轮盘
   - 标签页
   - 照片墙
+  - 网格布局
+  - 折叠面板
 - 🎨 动态适配主题色
 - 🎨 自定义容器
 - ©️ 文章版权声明
@@ -184,9 +186,9 @@ avatar: "avatar.webp" # 默认就是在avatar文件夹内寻找，请不要包�
 
 `banner` 和 `cover` 的显示逻辑如下：
 
-- 文章页头图优先使用 Front-matter 的 `banner`；若未设置 `banner`，则兼容使用 `cover`
+- 文章页头图优先使用 front matter 的 `banner`；若未设置 `banner`，则兼容使用 `cover`
 - 当 `banner` / `cover` 均未设置时，文章页头图继续读取内层 `_config.yml` 的全局 `cover`，最终回退到全局 `banner`
-- 列表卡片封面优先使用 Front-matter 的 `cover`（仅 URL 生效）；当 `cover` 未设置、为 `false` 或 `rgb(...)` 时，会回退到 `source/_data/covers` 与 `source/_data/covers.yml` 随机图
+- 列表卡片封面优先使用 front matter 的 `cover`（仅 URL 生效）；当 `cover` 未设置、为 `false` 或 `rgb(...)` 时，会回退到 `source/_data/covers` 与 `source/_data/covers.yml` 随机图
 - 若随机封面不可用，则回退到全局 `banner`
 
 推荐写法（头图与卡片封面分离）：
@@ -226,7 +228,7 @@ favicon: "/images/favicon.ico"
 
 #### 置顶
 
-在文章的 Front-matter 中添加 `sticky: true`
+在文章的 front matter 中添加 `sticky: true`
 
 ```yaml
 ---
@@ -264,7 +266,7 @@ sidebar:
     show_common: true # 文章页是否显示通用侧边栏，移动端忽略
 ```
 
-此外，也可以通过文章的 Front-matter 控制，其优先级高于全局配置
+此外，也可以通过文章的 front matter 控制，其优先级高于全局配置
 
 ```yaml
 ---
@@ -282,7 +284,7 @@ sidebar: left # left | right | false
 toc: true # true | false
 ```
 
-此外，也可以通过文章的 Front-matter 控制，其优先级高于全局配置
+此外，也可以通过文章的 front matter 控制，其优先级高于全局配置
 
 ```yaml
 ---
@@ -438,7 +440,7 @@ code_block:
 
 ### 站内评论
 
-> 站内评论可以使用 Front-matter 中的 `comments` 独立控制每篇文章是否显示评论。  
+> 站内评论可以使用 front matter 中的 `comments` 独立控制每篇文章是否显示评论。  
 > 当 `comments` 为 `false` 时不显示评论，`true` 或不填时根据 `_config.yml` 的配置决定是否显示。
 
 > 1.7.0+ 后支持多评论系统同时使用
@@ -549,7 +551,7 @@ gitalk:
   repo: "your repo"
   owner: "repo owner"
   admin: "repo owner and collaborators"
-  md5: false # 是否使用 md5 加密路径
+  MD5: false # 是否使用 MD5 加密路径
 ```
 
 若基于 [Disqus](https://disqus.com/)  
@@ -734,7 +736,7 @@ mermaid:
   zoom: false # 是否启用缩放功能
 ```
 
-并在需要使用 mermaid 的文章的 Front-matter 中添加 `mermaid: true`
+并在需要使用 mermaid 的文章的 front matter 中添加 `mermaid: true`
 
 ```yaml
 ---
@@ -787,7 +789,7 @@ i18n:
   languages: [zh-CN, en] # 语言列表，第一个为默认语言
 ```
 
-对于 post 的多语言支持，可以在 Front-matter 中添加 `lang` 来指定**除默认语言外的**其他语言（默认语言不需要添加）
+对于 post 的多语言支持，可以在 front matter 中添加 `lang` 来指定**除默认语言外的**其他语言（默认语言不需要添加）
 
 ```yaml
 lang: en
@@ -907,7 +909,7 @@ pjax:
 
 > PJAX 无法与 `relative_link: true` 配合使用！
 
-#### ServiceWorker
+#### Service Worker
 
 默认关闭
 
@@ -984,7 +986,7 @@ article_copyright:
     license_type: by-nc-sa # https://creativecommons.org/licenses
 ```
 
-此外，也可以通过文章的 Front-matter 控制，其优先级高于全局配置
+此外，也可以通过文章的 front matter 控制，其优先级高于全局配置
 
 ```yaml
 ---
@@ -1040,7 +1042,7 @@ sponsor:
       src: "/sponsor/alipay.jpg" # 二维码路径，请自行填写
 ```
 
-此外，也可以通过文章的 Front-matter 控制，其优先级高于全局配置
+此外，也可以通过文章的 front matter 控制，其优先级高于全局配置
 
 ```yaml
 ---
@@ -1056,7 +1058,7 @@ sponsor: true # 是否展示赞助二维码？
 home_categories:
   enable: false # 是否展示首页目录卡片？
   content:
-    - categories: # 目录名称，格式和 Front-matter 中的 categories 一致，可以为字符串（单级分类）或数组（多级分类）
+    - categories: # 目录名称，格式和 front matter 中的 categories 一致，可以为字符串（单级分类）或数组（多级分类）
       cover: # 卡片封面，不填则使用随机封面
     - categories:
       cover:
@@ -1066,7 +1068,7 @@ home_categories:
 
 > 使用前建议先打开 PJAX，否则会出现播放器自动暂停的问题
 
-使用 Aplayer + Meting（可选）默认关闭
+使用 APlayer + Meting（可选）默认关闭
 
 ##### 音乐播放器位置（v1.9.1+）
 
@@ -1078,9 +1080,9 @@ player:
   position: before_sidebar # before_sidebar / after_sidebar / after_widget
 ```
 
-##### 纯 Aplayer
+##### 纯 APlayer
 
-将 `player.aplayer.enable` 设置为 `true`，并在 `player.aplayer.options` 中参考 [Aplayer Docs](https://aplayer.js.org/#/home?id=options) 进行配置
+将 `player.aplayer.enable` 设置为 `true`，并在 `player.aplayer.options` 中参考 [APlayer Docs](https://aplayer.js.org/#/home?id=options) 进行配置
 
 ```yml
 player:
@@ -1099,9 +1101,9 @@ player:
       lrcType:
 ```
 
-##### Aplayer + Meting
+##### APlayer + Meting
 
-同时将 `player.aplayer.enable` 和 `player.meting.enable` 设置为 `true`，并在 `player.meting.options` 中参考 [Meting Docs](https://github.com/metowolf/MetingJS?tab=readme-ov-file#option) 进行配置，`player.aplayer.options` 为 Aplayer 配置
+同时将 `player.aplayer.enable` 和 `player.meting.enable` 设置为 `true`，并在 `player.meting.options` 中参考 [Meting Docs](https://github.com/metowolf/MetingJS?tab=readme-ov-file#option) 进行配置，`player.aplayer.options` 为 APlayer 配置
 
 ```yml
 player:
@@ -1692,9 +1694,9 @@ js:
 </details>
 
 <details>
-<summary>Front-matter 字段</summary>
+<summary>front matter 字段</summary>
 
-### Front-matter 字段
+### front matter 字段
 
 | meta        | 描述                                            | 类型                                               | 取值逻辑           | 版本      |
 | ----------- | ----------------------------------------------- | -------------------------------------------------- | ------------------ | --------- |

@@ -65,7 +65,7 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 
 ### Media & Interactive Features
 - 🎵 Music player support:
-  - Aplayer
+  - APlayer
   - Meting
 - 🖼️ Lazy loading for images
 - ⚡ Loading animations
@@ -77,13 +77,13 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
 ### Navigation & Structure
 - 📑 Table of Contents
 - 🔄 PJAX support
-- 🔧 ServiceWorker implementation
+- 🔧 Service Worker implementation
 - 📰 RSS feed
 
 ### Design & Customization
 - 🎨 Icon support:
   - Iconfont
-  - FontAwesome7
+  - Font Awesome
 - 🔗 Built-in tag plugins:
   - Internal links
   - External links
@@ -92,6 +92,8 @@ A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[
   - Tag Roulette
   - Tabs
   - Gallery
+  - Grid Layout
+  - Foldable Panel
 - 🎨 Dynamic theme color adaptation
 - 🎨 Custom Containers
 - ©️ Article copyright declaration
@@ -179,9 +181,9 @@ avatar: "avatar.webp" # By default, it looks for the avatar in the avatar folder
 
 The display logic of `banner` and `cover` is as follows:
 
-- The post header image prefers Front-matter `banner`; if `banner` is not set, it falls back to `cover` for compatibility.
+- The post header image prefers front matter `banner`; if `banner` is not set, it falls back to `cover` for compatibility.
 - When both `banner` and `cover` are not set, the post header image uses global `cover` in the inner `_config.yml`, then falls back to global `banner`.
-- The list card cover prefers Front-matter `cover` (URL only). If `cover` is not set, `false`, or `rgb(...)`, it falls back to random images from `source/_data/covers` and `source/_data/covers.yml`.
+- The list card cover prefers front matter `cover` (URL only). If `cover` is not set, `false`, or `rgb(...)`, it falls back to random images from `source/_data/covers` and `source/_data/covers.yml`.
 - If random covers are unavailable, it falls back to global `banner`.
 
 Recommended usage (separate header image and card cover):
@@ -221,7 +223,7 @@ favicon: "/images/favicon.ico"
 
 #### Pinned Posts
 
-Add `sticky: true` to the article's Front-matter to pin it:
+Add `sticky: true` to the article's front matter to pin it:
 
 ```yaml
 ---
@@ -260,7 +262,7 @@ sidebar:
     show_common: true # whether to show common sidebar on article pages, ignored on mobile devices
 ```
 
-Additionally, you can control it through the article's Front-matter, which takes precedence over the global configuration.
+Additionally, you can control it through the article's front matter, which takes precedence over the global configuration.
 
 ```yaml
 ---
@@ -278,7 +280,7 @@ Default enabled. You can modify it in the inner `_config.yml`.
 toc: true # true | false
 ```
 
-Additionally, you can control it through the article's Front-matter, which takes precedence over the global configuration.
+Additionally, you can control it through the article's front matter, which takes precedence over the global configuration.
 
 ```yaml
 ---
@@ -436,7 +438,7 @@ code_block:
 
 ### Site comments
 
-> Site comments can be individually controlled for each article using `comments` in the Front-matter.  
+> Site comments can be individually controlled for each article using `comments` in the front matter.  
 > When `comments` is `false`, comments won't be displayed. When it's `true` or not specified, the display will be determined by the `_config.yml` configuration.
 
 > Support for multiple comment systems simultaneously after version 1.7.0+
@@ -543,7 +545,7 @@ gitalk:
   repo: "your repo"
   owner: "repo owner"
   admin: "repo owner and collaborators"
-  md5: false # Whether to use md5 to encrypt the path
+  MD5: false # Whether to use MD5 to encrypt the path
 ```
 
 If using [Disqus](https://disqus.com/)  
@@ -728,7 +730,7 @@ mermaid:
   zoom: false # whether to enable zoom
 ```
 
-And add `mermaid: true` to the Front-matter of any article where you want to use mermaid diagrams
+And add `mermaid: true` to the front matter of any article where you want to use mermaid diagrams
 
 ```yaml
 ---
@@ -782,7 +784,7 @@ i18n:
   languages: [zh-CN, en] # List of languages, the first one is the default language
 ```
 
-For multilingual support in posts, you can add `lang` in the Front-matter to specify languages **other than the default language** (the default language does not need to be added).
+For multilingual support in posts, you can add `lang` in the front matter to specify languages **other than the default language** (the default language does not need to be added).
 
 ```yaml
 lang: en
@@ -902,7 +904,7 @@ pjax:
 
 > PJAX cannot be used with `relative_link: true`!
 
-#### ServiceWorker
+#### Service Worker
 
 Disabled by default
 
@@ -979,7 +981,7 @@ article_copyright:
     license_type: by-nc-sa # https://creativecommons.org/licenses
 ```
 
-Additionally, this can be controlled through article Front-matter, which takes precedence over global configuration
+Additionally, this can be controlled through article front matter, which takes precedence over global configuration
 
 ```yaml
 ---
@@ -1035,7 +1037,7 @@ sponsor:
       src: "/sponsor/alipay.jpg" # QR code path, please fill in yourself
 ```
 
-Additionally, this can be controlled through article Front-matter, which takes precedence over global configuration
+Additionally, this can be controlled through article front matter, which takes precedence over global configuration
 
 ```yaml
 ---
@@ -1051,7 +1053,7 @@ Disabled by default. When enabled, displays category cards on homepage as an alt
 home_categories:
   enable: false # Display home categories card?
   content:
-    - categories: # Category name, format matches categories in Front-matter, can be string (single-level) or array (multi-level)
+    - categories: # Category name, format matches categories in front matter, can be string (single-level) or array (multi-level)
       cover: # Card cover, uses random cover if not specified
     - categories:
       cover:
@@ -1061,7 +1063,7 @@ home_categories:
 
 > It's recommended to enable PJAX first, otherwise the player may auto-pause
 
-Uses Aplayer + Meting (optional), disabled by default
+Uses APlayer + Meting (optional), disabled by default
 
 ##### Music Player Position (v1.9.1+)
 
@@ -1073,9 +1075,9 @@ player:
   position: before_sidebar # before_sidebar / after_sidebar / after_widget
 ```
 
-##### Pure Aplayer
+##### Pure APlayer
 
-Set `player.aplayer.enable` to `true` and configure `player.aplayer.options` according to [Aplayer Docs](https://aplayer.js.org/#/home?id=options)
+Set `player.aplayer.enable` to `true` and configure `player.aplayer.options` according to [APlayer Docs](https://aplayer.js.org/#/home?id=options)
 
 ```yaml
 player:
@@ -1094,9 +1096,9 @@ player:
       lrcType:
 ```
 
-##### Aplayer + Meting
+##### APlayer + Meting
 
-Set both `player.aplayer.enable` and `player.meting.enable` to `true`, configure `player.meting.options` according to [Meting Docs](https://github.com/metowolf/MetingJS?tab=readme-ov-file#option), `player.aplayer.options` is for Aplayer configuration
+Set both `player.aplayer.enable` and `player.meting.enable` to `true`, configure `player.meting.options` according to [Meting Docs](https://github.com/metowolf/MetingJS?tab=readme-ov-file#option), `player.aplayer.options` is for APlayer configuration
 
 ```yaml
 player:
@@ -1680,9 +1682,9 @@ Both formats are supported. It's recommended to use SRI verification for externa
 </details>
 
 <details>
-<summary>Front-matter Fields</summary>
+<summary>front matter Fields</summary>
 
-### Front-matter Fields
+### front matter Fields
 
 | meta        | Description                                                              | Type                                               | Value Logic                               | Version       |
 | ----------- | ------------------------------------------------------------------------ | -------------------------------------------------- | ----------------------------------------- | ------------- |
