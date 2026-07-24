@@ -853,11 +853,16 @@ top:
 
 ```yaml
 dark_mode:
+  # true 代表显示切换按钮
+  # false 代表隐藏切换按钮
+  button: true # true | false
   # true 代表暗黑模式默认开启
   # false 代表暗黑模式默认关闭
   # auto 代表根据用户系统设置自动切换
-  enable: auto # true | false | auto
+  type: auto # true | false | auto
 ```
+
+旧格式 `dark_mode: {enable: true|false|auto}` 仍然兼容
 
 #### 站点统计
 

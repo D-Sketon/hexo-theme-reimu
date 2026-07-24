@@ -1,13 +1,5 @@
 <!DOCTYPE html>
-<html <% if (config.language) { %>lang="<%- config.language %>" <% } %> 
-<%_ if (theme.dark_mode.enable === true) { _%>
-  data-theme-mode="true"
-<%_ } else if (theme.dark_mode.enable === 'auto') { _%>
-  data-theme-mode="auto"
-<%_ } else if (theme.dark_mode.enable === false) { _%>
-  data-theme-mode="false"
-<%_ } _%>
->
+<html <% if (config.language) { %>lang="<%- config.language %>" <% } %> data-theme-mode="<%= darkMode().mode %>">
 <%- partial('_partial/head') %>
 <body>
   <%_ if (theme.injector.body_begin) { _%>

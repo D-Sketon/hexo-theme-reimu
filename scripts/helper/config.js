@@ -65,5 +65,7 @@ hexo.extend.helper.register("themeConfig", function () {
     addConfig("anchor", config.anchor);
   }
 
+  addConfig("dark_mode", this.darkMode());
+
   return `<script>${_global.join("")}</script>`;
 });

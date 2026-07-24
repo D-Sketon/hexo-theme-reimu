@@ -848,11 +848,16 @@ The default setting is `auto`, which automatically switches based on the user's 
 
 ```yaml
 dark_mode:
+  # true means the toggle button is shown
+  # false means the toggle button is hidden
+  button: true # true | false
   # true means that the dark mode is enabled by default
   # false means that the dark mode is disabled by default
   # auto means that the dark mode is automatically switched according to the system settings
-  enable: auto # true | false | auto
+  type: auto # true | false | auto
 ```
+
+The legacy format `dark_mode: {enable: true|false|auto}` is still supported.
 
 #### Analytics
 
