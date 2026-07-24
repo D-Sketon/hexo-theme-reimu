@@ -855,8 +855,8 @@ vendor:
       src: webcache|pace-js@1.2.4/pace.min.js
       integrity: sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8
     mermaid:
-      src: webcache|mermaid@11.12.0/dist/mermaid.min.js
-      integrity: sha384-o+g/BxPwhi0C3RK7oQBxQuNimeafQ3GE/ST4iT2BxVI4Wzt60SH4pq9iXVYujjaS
+      src: webcache|mermaid@11.16.0/dist/mermaid.min.js
+      integrity: sha384-T/0lMUdJpd2S1ZHtRiofG3htU3xPCrFVeAQ1UUE2TJwlEJSV5NUwn30kP28n238E
     svg_pan_zoom:
       src: webcache|svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js
       integrity: sha384-GGX4llYprEPGp9w5caepn95YWAEflHnsA5ewt+Y+cBEb95og5cXKllnWKSELlzbx
@@ -879,11 +879,11 @@ vendor:
       src: webcache|quicklink@3.0.1/dist/quicklink.umd.js
       integrity: sha384-caMDqvgav/HWdEYQU1QRRHMLleigpL1YHAG0m371DhzfL8rRzUyOb+bEHtwlmYjD
     katex:
-      src: webcache|katex@0.16.24/dist/katex.min.js
-      integrity: sha384-MWNUH0WmtsYGhn2cbH6ELRCbf9LG3QDqCC+gqPB3IBNO35xjZK3Ejb6oONRpDbPg
+      src: webcache|katex@0.18.1/dist/katex.min.js
+      integrity: sha384-ycJ6GAwiS15LoUPipwJOrWTvkUHl/YqELValBwI5I4awP1EeEQJYarj+w85ntcz7
     katex_auto_render:
-      src: webcache|katex@0.16.24/dist/contrib/auto-render.min.js
-      integrity: sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh
+      src: webcache|katex@0.18.1/dist/contrib/auto-render.min.js
+      integrity: sha384-bjyfbGPij8/NDKJhSGZNP/khQVgtHUE5exjm4Ydllo42FwIgYsdLO2lXGmRBf5Mz
     mathjax:
       src: webcache|mathjax@3.2.2/es5/tex-mml-chtml.js
       integrity: sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei
@@ -891,8 +891,8 @@ vendor:
       src: webcache|aplayer@1.10.1/dist/APlayer.min.js
       integrity: sha384-gdGYZwHnfJM54evoZhpO0s6ZF5BQiybkiyW7VXr+h5UfruuRL/aORyw+5+HZoU6e
     meting:
-      src: webcache|meting@2.0.1/dist/Meting.min.js
-      integrity: sha384-ASVlpKF80A22OXTK3tfEjZm1EL6uFMKIC4p8+0maanw1S/IyB+Y4JG+ZDU7GpKE8
+      src: webcache|meting@2.0.2/dist/Meting.min.js
+      integrity: sha384-fbKru+jstKDdWI11+8ziKY8ts5Sv48OB1WWGUom0J9ZxRGKLm/hmuYNnkIYeT3lu
     qrcode:
       src: webcache|qrcode@1.5.1/build/qrcode.js
       integrity: sha384-VT1EeewTCEXgndcPMQ0PzV+uVFYjxFIjmAA7s5gcMX9t4Dt5TD+OVQIn7NJWIXn7
@@ -916,8 +916,8 @@ vendor:
       src: webcache|photoswipe@5.4.4/dist/photoswipe.css
       integrity: sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE
     katex:
-      src: webcache|katex@0.16.24/dist/katex.min.css
-      integrity: sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz+YI
+      src: webcache|katex@0.18.1/dist/katex.min.css
+      integrity: sha384-1vdNCNel6Tx/NQa8IR1mGOGKsbGreCkOPfbtPPnUURJ5Tu2PRVfQ/7KLZC+Pi1p1
     waline:
       src: webcache|@waline/client@2.15.8/dist/waline.css
       integrity: sha384-vltfZtesCdl6NYVcFVcjEaIi5RpNvZe9t7fXvq8twVtcoy+Ub9QgnxUYJmwOhYCK
@@ -926,19 +926,19 @@ vendor:
       integrity: sha384-X7z7PUv2B67D8sPJyzDyGZSco1ADwmdI7ed4eCGtTKkClfyDFpPL9WgAn9XVr/Io
     fontawesome:
       high_priority:
-        - src: webcache|@fortawesome/fontawesome-free@7.1.0/css/regular.min.css
-          integrity: sha384-4qYppzjH8EiA+cGdaubu2vL7Rk8WGiqCSj7oRuP1uwtFWkfKNHD20lPfcrbQc8dU
-        - src: webcache|@fortawesome/fontawesome-free@7.1.0/css/solid.min.css
-          integrity: sha384-wbMWab3UDSPm2kvIgVOn/d9KPTecgPU1+Nb3zoQrm/oVu0EkPL6IaKinjbwW0rum
+        - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/regular.min.css
+          integrity: sha384-2RNNQHI9yrjVDjr8zReHCzBa25B4jlokRSel4Cnp9s+PCUDvwxBq8ZbIODO51CZL
+        - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/solid.min.css
+          integrity: sha384-p/nJzgOJxEnSeUkMQ0nk5oPsUT5x8eOWi6pxU2ls9qcO9B78dCvZk0JSAOXWXUQN
       low_priority:
-        - src: webcache|@fortawesome/fontawesome-free@7.1.0/css/brands.min.css
-          integrity: sha384-KTGeC2hIMzpeQakhsmzB9bZfhCD5xZZCgI1iZH6f/O457SxzlkzTQg/WXFNoi3ih
-        - src: webcache|@fortawesome/fontawesome-free@7.1.0/css/v5-font-face.min.css
-          integrity: sha384-nJ1ThfldViXoLpJ6jlKcP2beas8BMbYq26SG9Hi8cH89bZi4RZ644v7helMCqJxd
-        - src: webcache|@fortawesome/fontawesome-free@7.1.0/css/v4-font-face.min.css
-          integrity: sha384-UlkrhOIvZxJFd4MElSUp7ow6/RUeYKi/orfCZIRRiOENFuQPIAA3T3HjYfmBRhNq
+        - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/brands.min.css
+          integrity: sha384-pIEnzgIAdkjnrjeHT4EuN7Kq2yGdMr3Vk0e3gLOkA7/e07sPVkOqclXo09iTJVEo
+        - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/v5-font-face.min.css
+          integrity: sha384-bgty3ASw/rWgPqaNmdRW2QRzOUN359e1lysD9FJvOi5vcnpF0zw7X3w3SzQ8eXg3
+        - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/v4-font-face.min.css
+          integrity: sha384-PR7IRkzcQVYE18+Qzo+jvCpk7aBZUsKQtpDyImfQ92ONj5u3VwMmMCIi7VMoGCCS
     aos:
-      src: webcache|@reimujs/aos@0.1.2/dist/aos.css
+      src: webcache|@reimujs/aos@0.1.3/dist/aos.css
       integrity: sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa
     aplayer:
       src: webcache|aplayer@1.10.1/dist/APlayer.min.css
