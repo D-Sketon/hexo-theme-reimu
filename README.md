@@ -1232,7 +1232,7 @@ anchor:
 {% friendsLink path %}
 ```
 
-第一个参数 `path` 表示友链 yaml 的路径
+第一个参数 `path` 表示友链 yaml 的路径。可通过 `_config.yml` 中的 `friends.shuffle` 控制是否随机排列友链顺序
 
 #### postLinkCard 内链卡片 (不推荐，建议使用 link)
 

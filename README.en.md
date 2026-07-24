@@ -1218,7 +1218,7 @@ anchor:
 {% friendsLink path %}
 ```
 
-The first parameter `path` indicates the path to the friend links yaml file
+The first parameter `path` indicates the path to the friend links yaml file. Use `friends.shuffle` in `_config.yml` to randomize the order.
 
 #### postLinkCard - Internal Link Card (Not recommended, use `link` instead)
 

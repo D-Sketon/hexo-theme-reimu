@@ -39,8 +39,18 @@ const loadFile = (arg) => {
   return insertHtml(load);
 };
 
+const shuffle = (arr) => {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
+
 const insertHtml = (load) => {
-  const cards = load
+  const list = hexo.theme.config.friends?.shuffle ? shuffle(load) : load;
+  const cards = list
     .filter((item) => item?.name && item?.url)
     .map((item) => template(item))
     .join("");

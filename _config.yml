@@ -19,6 +19,10 @@ menu:
     url: /friend
     icon:
 
+# friend links
+friends:
+  shuffle: false # whether to shuffle the friend links
+
 subtitle:
   typing:
     enable: false
