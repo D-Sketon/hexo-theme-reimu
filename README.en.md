@@ -1221,10 +1221,21 @@ anchor:
 #### friendLink - Friend Link Card
 
 ```markdown
-{% friendsLink path %}
+{% friendsLink path [style] %}
 ```
 
-The first parameter `path` indicates the path to the friend links yaml file. Use `friends.shuffle` in `_config.yml` to randomize the order.
+The first parameter `path` indicates the path to the friend links yaml file. The second parameter `style` (optional) controls the display style: `standard` (default), `compact`, or `detailed`. Use `friends.shuffle` in `_config.yml` to randomize the order.
+
+Friend link data format:
+
+```yaml
+- name: D-Sketon
+  url: https://d-sketon.top/
+  desc: 东方音mader
+  image: https://d-sketon.top/img/icon/icon.png
+  badge: Friend # optional, colored badge on the card
+  remark: Met via GitHub # optional, extra note line below desc
+```
 
 #### postLinkCard - Internal Link Card (Not recommended, use `link` instead)
 

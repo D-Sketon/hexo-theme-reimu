@@ -19,6 +19,7 @@
   display: flex;
   transition: 0.3s;
   box-sizing: border-box;
+  overflow: hidden;
 
   &:hover {
     transform: scale(1.015);
@@ -36,6 +37,19 @@
     top: 0;
     left: 0;
   }
+}
+
+.friend-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: tag-radius;
+  background: var(--red-1);
+  color: #fff;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .friend-icon-wrap {
@@ -83,11 +97,129 @@
 }
 
 .friend-desc {
-  color: var(--grey-9);
+  color: var(--grey-7);
   font-size: 14px;
   -webkit-line-clamp: 2;
   line-clamp: 2;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   margin: 4px 0;
+}
+
+.friend-remark {
+  color: var(--grey-9);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 2px 0 0;
+}
+
+.friend-wrap.compact {
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.friend-item-wrap.compact {
+  width: calc(50% - 10px);
+  padding: 5px 8px;
+  gap: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+
+  @media mg-normal {
+    width: 100%;
+  }
+}
+
+.friend-icon-wrap.compact {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  flex-shrink: 0;
+
+  img {
+    border-radius: tag-radius;
+  }
+}
+
+.friend-info-wrap.compact {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 6px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.friend-name.compact {
+  font-size: 15px;
+  white-space: nowrap;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.friend-desc.compact {
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  margin: 0;
+}
+
+.friend-wrap.detailed {
+  gap: 20px;
+  padding: 16px 0;
+}
+
+.friend-item-wrap.detailed {
+  width: 100%;
+  padding: 14px;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.friend-icon-wrap.detailed {
+  width: 85px;
+  height: 85px;
+  padding: 0;
+  flex-shrink: 0;
+
+  img {
+    border-radius: tag-radius;
+  }
+}
+
+.friend-info-wrap.detailed {
+  gap: 4px;
+}
+
+.friend-name.detailed {
+  font-size: 20px;
+  padding: 2px 0;
+}
+
+.friend-desc.detailed {
+  font-size: 14px;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  display: block;
+  line-height: 1.6;
+}
+
+.friend-remark.detailed {
+  font-size: 13px;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  margin: 4px 0 0;
+  color: var(--grey-7);
+}
+
+.friend-badge.detailed {
+  font-size: 12px;
+  padding: 3px 8px;
 }
