@@ -312,9 +312,43 @@
 <%_ } _%>
 
 <%_ if (theme.math.enable) { _%>
+  <%_ if (theme.math.katex.enable) { _%>
+    <script data-pjax>
+      var __katexTagOverflowHandler;
+      if (__katexTagOverflowHandler) {
+        window.removeEventListener("resize", __katexTagOverflowHandler);
+      }
+      __katexTagOverflowHandler = function() {
+        _$$(".katex-display").forEach(function(elem) {
+          var ts = elem.querySelectorAll(".tag");
+          var eqns = elem.querySelectorAll(".base");
+          if (ts.length === 0 || eqns.length === 0) return;
+          var t = ts[0];
+          var lastEqn = eqns[eqns.length - 1];
+          var firstEqn = eqns[0];
+          if (lastEqn.getBoundingClientRect().right > t.getBoundingClientRect().left) {
+            t.classList.add("tag-overflowed");
+          } else if (firstEqn.getBoundingClientRect().left - elem.getBoundingClientRect().left >= t.offsetWidth / 2) {
+            t.classList.remove("tag-overflowed");
+          }
+        });
+      };
+      window.addEventListener("resize", __katexTagOverflowHandler);
+      window.katexTagOverflowHandler = __katexTagOverflowHandler;
+    </script>
+    <%_ if (!theme.math.katex.autoRender) { _%>
+      <script>
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", katexTagOverflowHandler, { once: true });
+        } else {
+          katexTagOverflowHandler();
+        }
+      </script>
+    <%_ } _%>
+  <%_ } _%>
   <%_ if (theme.math.katex.enable && theme.math.katex.autoRender) { _%>
     <%- js({src: vendorCdn(theme.vendor.js.katex)[0], integrity: vendorCdnIntegrity(theme.vendor.js.katex)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
-    <%- js({src: vendorCdn(theme.vendor.js.katex_auto_render)[0], integrity: vendorCdnIntegrity(theme.vendor.js.katex_auto_render)[0], crossorigin: "anonymous", defer: true, onload: "renderMathInElement(_$('article'), {delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});", 'data-pjax': true}) %>
+    <%- js({src: vendorCdn(theme.vendor.js.katex_auto_render)[0], integrity: vendorCdnIntegrity(theme.vendor.js.katex_auto_render)[0], crossorigin: "anonymous", defer: true, onload: "renderMathInElement(_$('article'), {delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});window.katexTagOverflowHandler?.();", 'data-pjax': true}) %>
   <% } else if (theme.math.mathjax.enable) { %>
     <%- js({src: vendorCdn(theme.vendor.js.mathjax)[0], integrity: vendorCdnIntegrity(theme.vendor.js.mathjax)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
     <script data-pjax>

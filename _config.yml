@@ -879,11 +879,11 @@ vendor:
       src: webcache|quicklink@3.0.1/dist/quicklink.umd.js
       integrity: sha384-caMDqvgav/HWdEYQU1QRRHMLleigpL1YHAG0m371DhzfL8rRzUyOb+bEHtwlmYjD
     katex:
-      src: webcache|katex@0.18.1/dist/katex.min.js
-      integrity: sha384-ycJ6GAwiS15LoUPipwJOrWTvkUHl/YqELValBwI5I4awP1EeEQJYarj+w85ntcz7
+      src: webcache|katex@0.16.47/dist/katex.min.js
+      integrity: sha384-CwjPRVHTvLiMBFjEoij+QZViMV5rhTOIp7CJzl24JEqpRDA1sJFHVXXLURktbYYp
     katex_auto_render:
-      src: webcache|katex@0.18.1/dist/contrib/auto-render.min.js
-      integrity: sha384-bjyfbGPij8/NDKJhSGZNP/khQVgtHUE5exjm4Ydllo42FwIgYsdLO2lXGmRBf5Mz
+      src: webcache|katex@0.16.47/dist/contrib/auto-render.min.js
+      integrity: sha384-bjyGPfbij8/NDKJhSGZNP/khQVgtHUE5exjm4Ydllo42FwIgYsdLO2lXGmRBf5Mz
     mathjax:
       src: webcache|mathjax@3.2.2/es5/tex-mml-chtml.js
       integrity: sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei
@@ -916,8 +916,8 @@ vendor:
       src: webcache|photoswipe@5.4.4/dist/photoswipe.css
       integrity: sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE
     katex:
-      src: webcache|katex@0.18.1/dist/katex.min.css
-      integrity: sha384-1vdNCNel6Tx/NQa8IR1mGOGKsbGreCkOPfbtPPnUURJ5Tu2PRVfQ/7KLZC+Pi1p1
+      src: webcache|katex@0.16.47/dist/katex.min.css
+      integrity: sha384-nH0MfJ44wi1dd7w6jinlyBgljjS8EJAh2JBoRad8a3VDw2K69vfaaqm4WnR+gXtA
     waline:
       src: webcache|@waline/client@2.15.8/dist/waline.css
       integrity: sha384-vltfZtesCdl6NYVcFVcjEaIi5RpNvZe9t7fXvq8twVtcoy+Ub9QgnxUYJmwOhYCK
@@ -934,7 +934,7 @@ vendor:
         - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/brands.min.css
           integrity: sha384-pIEnzgIAdkjnrjeHT4EuN7Kq2yGdMr3Vk0e3gLOkA7/e07sPVkOqclXo09iTJVEo
         - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/v5-font-face.min.css
-          integrity: sha384-bgty3ASw/rWgPqaNmdRW2QRzOUN359e1lysD9FJvOi5vcnpF0zw7X3w3SzQ8eXg3
+          integrity: sha384-bgty3ASWr/wgPqaNmdRW2QRzOUN359e1lysD9FJvOi5vcnpF0zw7X3w3SzQ8eXg3
         - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/v4-font-face.min.css
           integrity: sha384-PR7IRkzcQVYE18+Qzo+jvCpk7aBZUsKQtpDyImfQ92ONj5u3VwMmMCIi7VMoGCCS
     aos:
