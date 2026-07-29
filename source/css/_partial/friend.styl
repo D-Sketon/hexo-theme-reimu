@@ -40,16 +40,28 @@
 }
 
 .friend-badge {
-  position: absolute;
-  top: 8px;
-  right: 8px;
+  flex-shrink: 0;
   font-size: 12px;
   padding: 2px 6px;
   border-radius: tag-radius;
   background: var(--red-1);
   color: #fff;
   pointer-events: none;
-  z-index: 1;
+  transition: 0.3s;
+}
+
+.friend-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  min-width: 0;
+  justify-content: space-between;
+
+  .friend-name {
+    flex-shrink: 1;
+    min-width: 0;
+  }
 }
 
 .friend-icon-wrap {
@@ -77,9 +89,9 @@
 
 .friend-info-wrap {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   overflow: hidden;
+  flex: 1;
   gap: 4px;
 
   div {
@@ -200,6 +212,11 @@
 .friend-name.detailed {
   font-size: 20px;
   padding: 2px 0;
+}
+
+.friend-name-row .friend-name.detailed {
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .friend-desc.detailed {

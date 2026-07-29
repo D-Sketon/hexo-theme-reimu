@@ -13,13 +13,13 @@ const yaml = require("js-yaml");
 const standardTemplate = ({ name, url, desc = "", image = "", badge, remark }) => {
   return `<div class="friend-item-wrap">
     <a href="${url}" rel="noopener nofollow noreferrer" target="_blank"></a>
-    ${badge ? `<span class="friend-badge">${badge}</span>` : ""}
     <div class="friend-icon-wrap">
       <img class="no-lightbox" src="${image}" alt="${name}">
     </div>
     <div class="friend-info-wrap">
-      <div class="friend-name">
-          ${name} 
+      <div class="friend-name-row">
+        <div class="friend-name">${name}</div>
+        ${badge ? `<span class="friend-badge">${badge}</span>` : ""}
       </div>
       <div class="friend-desc">
         ${desc}
@@ -73,13 +73,13 @@ const shuffle = (arr) => {
 const detailedTemplate = ({ name, url, desc = "", image = "", badge, remark }) => {
   return `<div class="friend-item-wrap detailed">
     <a href="${url}" rel="noopener nofollow noreferrer" target="_blank"></a>
-    ${badge ? `<span class="friend-badge detailed">${badge}</span>` : ""}
     <div class="friend-icon-wrap detailed">
       <img class="no-lightbox" src="${image}" alt="${name}">
     </div>
     <div class="friend-info-wrap detailed">
-      <div class="friend-name detailed">
-          ${name} 
+      <div class="friend-name-row">
+        <div class="friend-name detailed">${name}</div>
+        ${badge ? `<span class="friend-badge detailed">${badge}</span>` : ""}
       </div>
       <div class="friend-desc detailed">
         ${desc}

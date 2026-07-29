@@ -1231,20 +1231,22 @@ anchor:
 #### friendLink 友链卡片
 
 ```markdown
-{% friendsLink path [style] %}
+{% friendsLink path %}
+{% friendsLink path compact %}
+{% friendsLink path detailed %}
 ```
 
-第一个参数 `path` 表示友链 yaml 的路径。第二个参数 `style`（可选）控制展示风格，支持 `standard`（默认）、`compact`（紧凑）、`detailed`（详细）。可通过 `_config.yml` 中的 `friends.shuffle` 控制是否随机排列友链顺序
+第一个参数 `path` 表示友链 yaml 的路径。第二个参数 `style`（可选）控制展示风格，支持 `standard`（默认）、`compact`（紧凑）、`detailed`（详细）。直接读取 YAML 文件。可通过 `_config.yml` 中的 `friends.shuffle` 控制是否随机排列友链顺序。
 
-友链数据格式：
+友链数据格式（YAML 文件）：
 
 ```yaml
 - name: D-Sketon
-  url: https://d-sketon.top/
-  desc: 东方音mader
-  image: https://d-sketon.top/img/icon/icon.png
-  badge: 朋友 # 可选，右上角徽标
-  remark: 通过 GitHub 认识 # 可选，额外备注行
+  url: https://d-sketon.github.io/
+  desc: 东方人的日常
+  image: https://d-sketon.github.io/avatar/avatar.webp
+  badge: 朋友 # 可选，卡片上的徽标
+  remark: 通过 GitHub 认识 # 可选，备注行
 ```
 
 #### postLinkCard 内链卡片 (不推荐，建议使用 link)
