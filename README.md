@@ -551,7 +551,7 @@ gitalk:
   repo: "your repo"
   owner: "repo owner"
   admin: "repo owner and collaborators"
-  MD5: false # 是否使用 MD5 加密路径
+  md5: false # 是否使用 MD5 加密路径
 ```
 
 若基于 [Disqus](https://disqus.com/)  
@@ -817,19 +817,21 @@ icon_font: 4552607_ex15nbittbh
 如果想要继续使用 fontawesome 图标，请将 `icon_font` 设置为 `false`，此时会使用 `vendor` 中对应的 fontawesome
 
 ```yml
-fontawesome:
-  high_priority:
-    - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/regular.min.css
-      integrity: sha384-2RNNQHI9yrjVDjr8zReHCzBa25B4jlokRSel4Cnp9s+PCUDvwxBq8ZbIODO51CZL
-    - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/solid.min.css
-      integrity: sha384-p/nJzgOJxEnSeUkMQ0nk5oPsUT5x8eOWi6pxU2ls9qcO9B78dCvZk0JSAOXWXUQN
-    low_priority:
-    - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/brands.min.css
-      integrity: sha384-pIEnzgIAdkjnrjeHT4EuN7Kq2yGdMr3Vk0e3gLOkA7/e07sPVkOqclXo09iTJVEo
-    - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/v5-font-face.min.css
-      integrity: sha384-bgty3ASw/rWgPqaNmdRW2QRzOUN359e1lysD9FJvOi5vcnpF0zw7X3w3SzQ8eXg3
-    - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/v4-font-face.min.css
-      integrity: sha384-PR7IRkzcQVYE18+Qzo+jvCpk7aBZUsKQtpDyImfQ92ONj5u3VwMmMCIi7VMoGCCS
+vendor:
+  css:
+    fontawesome:
+      high_priority:
+        - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/regular.min.css
+          integrity: sha384-2RNNQHI9yrjVDjr8zReHCzBa25B4jlokRSel4Cnp9s+PCUDvwxBq8ZbIODO51CZL
+        - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/solid.min.css
+          integrity: sha384-p/nJzgOJxEnSeUkMQ0nk5oPsUT5x8eOWi6pxU2ls9qcO9B78dCvZk0JSAOXWXUQN
+      low_priority:
+        - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/brands.min.css
+          integrity: sha384-pIEnzgIAdkjnrjeHT4EuN7Kq2yGdMr3Vk0e3gLOkA7/e07sPVkOqclXo09iTJVEo
+        - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/v5-font-face.min.css
+          integrity: sha384-bgty3ASw/rWgPqaNmdRW2QRzOUN359e1lysD9FJvOi5vcnpF0zw7X3w3SzQ8eXg3
+        - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/v4-font-face.min.css
+          integrity: sha384-PR7IRkzcQVYE18+Qzo+jvCpk7aBZUsKQtpDyImfQ92ONj5u3VwMmMCIi7VMoGCCS
 ```
 
 </details>
@@ -1072,7 +1074,7 @@ home_categories:
 
 ##### 音乐播放器位置（v1.9.1+）
 
-默认在 sidebar 之后
+默认在 sidebar 之前
 
 ```yml
 player:
@@ -1305,10 +1307,10 @@ externalLinkCard 和 postLinkCard 的升级版，推荐使用该标签。
 
 ```markdown
 {% tabs [activeTab] ["center"] %}
-<!-- tabName -->
-Tab content
-<!-- tabName -->
-Tab content
+<!-- tab 标签页1 -->
+内容1
+<!-- tab 标签页2 -->
+内容2
 {% endtabs %}
 ```
 
@@ -1316,10 +1318,10 @@ Tab content
 
 - activeTab：可选参数，指定默认激活的标签页下标，从 1 开始计数，默认为 1
 - "center"：可选参数，指定标签页标题居中显示，默认左对齐
-- tabName：每个标签页的标题，必须用 `<!-- tabName -->` 包裹，支持使用 `@` + 图标十六进制代码 展示图标，例：
-  - 标题 `<!-- 标题 -->`
-  - 图标 `<!-- @e60c -->`
-  - 图标+标题 `<!-- 标题@e60c -->` 
+- tabName：每个标签页的标题，必须用 `<!-- tab tabName -->` 包裹，支持使用 `@` + 图标十六进制代码 展示图标，例：
+  - 标题 `<!-- tab 标题 -->`
+  - 图标 `<!-- tab @e60c -->`
+  - 图标+标题 `<!-- tab 标题@e60c -->` 
 
 #### gallery 照片墙 (v1.11.0+)
 

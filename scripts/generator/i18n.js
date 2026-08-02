@@ -2,6 +2,10 @@
 
 let localPostsCache = null;
 
+hexo.on("generateBefore", () => {
+  localPostsCache = null;
+});
+
 hexo.extend.generator.register("post", function (locals) {
   if (!localPostsCache && hexo.theme.config.i18n?.enable) {
     localPostsCache = locals.posts.sort("-date").toArray();

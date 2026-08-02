@@ -27,3 +27,8 @@ hexo.extend.helper.register("randomCover", () => {
 
   return cover;
 });
+
+hexo.on("generateBefore", () => {
+  shuffledCovers = [];
+  currentIndex = 0;
+});

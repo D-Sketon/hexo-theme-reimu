@@ -82,3 +82,9 @@ hexo.extend.helper.register("totalmin2read", function () {
   }
   return cachedTotalMin2Read;
 });
+
+hexo.on("generateBefore", () => {
+  cachedWordCount.flush();
+  cachedTotalCount = undefined;
+  cachedTotalMin2Read = undefined;
+});

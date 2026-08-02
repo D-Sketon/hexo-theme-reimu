@@ -9,7 +9,7 @@
 
 💘 Hakurei Reimu 💘
 
-[Demo](https://d-sketon.github.io)
+[Demo](https://d-sketon.github.io) | [Development Log](https://d-sketon.github.io/en/20240601/hexo-theme-reimu-log/)
 
 [简体中文](https://github.com/D-Sketon/hexo-theme-reimu/blob/main/README.md) | English
 
@@ -22,7 +22,7 @@
 > Versions below v1.0.0 have been deprecated. Please upgrade to version v1.0.0 or above as soon as possible.
 
 A Hakurei Reimu style Hexo theme.  
-A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian) and [Shoka](https://github.com/amehime/hexo-theme-shoka) themes.
+A combination of [landscape](https://github.com/hexojs/hexo-theme-landscape), [Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian) and [Shoka](https://github.com/amehime/hexo-theme-shoka) themes.
 
 | framework                    | repository                                                         | version                                                                                                                                                                                     | stars                                                                                              |
 | ---------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
@@ -549,7 +549,7 @@ gitalk:
   repo: "your repo"
   owner: "repo owner"
   admin: "repo owner and collaborators"
-  MD5: false # Whether to use MD5 to encrypt the path
+  md5: false # Whether to use MD5 to encrypt the path
 ```
 
 If using [Disqus](https://disqus.com/)  
@@ -816,19 +816,21 @@ icon_font: 4552607_ex15nbittbh
 If you want to continue using fontawesome icons, set `icon_font` to `false`. This will use the corresponding fontawesome from the `vendor`
 
 ```yml
-fontawesome:
-  high_priority:
-    - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/regular.min.css
-      integrity: sha384-2RNNQHI9yrjVDjr8zReHCzBa25B4jlokRSel4Cnp9s+PCUDvwxBq8ZbIODO51CZL
-    - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/solid.min.css
-      integrity: sha384-p/nJzgOJxEnSeUkMQ0nk5oPsUT5x8eOWi6pxU2ls9qcO9B78dCvZk0JSAOXWXUQN
-    low_priority:
-    - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/brands.min.css
-      integrity: sha384-pIEnzgIAdkjnrjeHT4EuN7Kq2yGdMr3Vk0e3gLOkA7/e07sPVkOqclXo09iTJVEo
-    - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/v5-font-face.min.css
-      integrity: sha384-bgty3ASw/rWgPqaNmdRW2QRzOUN359e1lysD9FJvOi5vcnpF0zw7X3w3SzQ8eXg3
-    - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/v4-font-face.min.css
-      integrity: sha384-PR7IRkzcQVYE18+Qzo+jvCpk7aBZUsKQtpDyImfQ92ONj5u3VwMmMCIi7VMoGCCS
+vendor:
+  css:
+    fontawesome:
+      high_priority:
+        - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/regular.min.css
+          integrity: sha384-2RNNQHI9yrjVDjr8zReHCzBa25B4jlokRSel4Cnp9s+PCUDvwxBq8ZbIODO51CZL
+        - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/solid.min.css
+          integrity: sha384-p/nJzgOJxEnSeUkMQ0nk5oPsUT5x8eOWi6pxU2ls9qcO9B78dCvZk0JSAOXWXUQN
+      low_priority:
+        - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/brands.min.css
+          integrity: sha384-pIEnzgIAdkjnrjeHT4EuN7Kq2yGdMr3Vk0e3gLOkA7/e07sPVkOqclXo09iTJVEo
+        - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/v5-font-face.min.css
+          integrity: sha384-bgty3ASw/rWgPqaNmdRW2QRzOUN359e1lysD9FJvOi5vcnpF0zw7X3w3SzQ8eXg3
+        - src: webcache|@fortawesome/fontawesome-free@7.3.1/css/v4-font-face.min.css
+          integrity: sha384-PR7IRkzcQVYE18+Qzo+jvCpk7aBZUsKQtpDyImfQ92ONj5u3VwMmMCIi7VMoGCCS
 ```
 
 </details>
@@ -1071,7 +1073,7 @@ Uses APlayer + Meting (optional), disabled by default
 
 ##### Music Player Position (v1.9.1+)
 
-Default is after sidebar
+Default is before sidebar
 
 ```yml
 player:
@@ -1298,9 +1300,9 @@ The fourth parameter (optional) indicates whether the article title is escaped.
 
 ```markdown
 {% tabs [activeTab] ["center"] %}
-<!-- tabName -->
+<!-- tab Tab 1 -->
 Tab content
-<!-- tabName -->
+<!-- tab Tab 2 -->
 Tab content
 {% endtabs %}
 ```
@@ -1309,10 +1311,10 @@ Adapted from the next, volantis, and stellar themes, this feature supports creat
 
 - activeTab: Optional parameter, specifies the default active tab index (counting starts from 1). Default is 1.
 - "center": Optional parameter, specifies that tab titles should be center-aligned. Default is left-aligned.
-- tabName: The title of each tab, must be wrapped in `<!-- tabName -->`. Supports displaying icons using `@` + icon hexadecimal code. Examples:
-  - Title only: `<!-- Title -->`
-  - Icon only: `<!-- @e60c -->`
-  - Icon + Title: `<!-- Title@e60c -->`
+- tabName: The title of each tab, must be wrapped in `<!-- tab tabName -->`. Supports displaying icons using `@` + icon hexadecimal code. Examples:
+  - Title only: `<!-- tab Title -->`
+  - Icon only: `<!-- tab @e60c -->`
+  - Icon + Title: `<!-- tab Title@e60c -->`
 
 #### Gallery Photo Wall (v1.11.0+)
 

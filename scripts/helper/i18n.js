@@ -289,3 +289,7 @@ function listArchivesHelper(options = {}) {
   return result;
 }
 hexo.extend.helper.register("list_archives_lang", listArchivesHelper);
+
+hexo.on("generateBefore", () => {
+  getPostsByLangCache.flush();
+});

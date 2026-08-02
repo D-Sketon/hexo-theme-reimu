@@ -89,3 +89,10 @@ hexo.extend.helper.register("tagCached", (key, fn) => {
   tagCache.set(key, value);
   return value;
 });
+
+hexo.on("generateBefore", () => {
+  cachedSortedPosts.flush();
+  cachedToc.flush();
+  getCachedArchivesDates.clear();
+  tagCache.clear();
+});
