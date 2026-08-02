@@ -18,12 +18,13 @@
   "bugs": {
     "url": "https://github.com/D-Sketon/hexo-theme-reimu/issues"
   },
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
+  },
   "homepage": "https://github.com/D-Sketon/hexo-theme-reimu#readme",
   "files": [
     "_config.yml",
-    "LICENSE",
-    "README.en.md",
-    "README.md",
     "_example",
     "languages",
     "layout",
