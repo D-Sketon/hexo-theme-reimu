@@ -6,9 +6,9 @@
   <%_ }) _%>
 </div>
 <div class="category-wrap">
-  <%_ site.categories.each((cagetory, i) => { _%>
+  <%_ site.categories.each((category) => { _%>
     <div class="archives-category-list-item" data-aos="<%= theme.animation.options.archive.category %>">
-      <a class="archives-category-list-link" href="<%- url_for_lang(cagetory.path) %>"><%= cagetory.name %></a>
+      <a class="archives-category-list-link" href="<%- url_for_lang(category.path) %>"><%= category.name %></a>
     </div>
   <%_ }) _%>
 </div>
