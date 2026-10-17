@@ -256,9 +256,9 @@
           startDelay: <%= theme.subtitle.typing.startDelay || 300 %>,
           loop: <%= theme.subtitle.typing.loop !== false %>,
           shuffle: <%= theme.subtitle.typing.shuffle !== false %>,
-          showCursor: <%= JSON.stringify(theme.subtitle.typing.showCursor) %> || true,
+          showCursor: <%= JSON.stringify(theme.subtitle.typing.showCursor ?? true) %>,
           cursorChar: "<%= theme.subtitle.typing.cursorChar || '|' %>",
-          smartBackspace: <%= JSON.stringify(theme.subtitle.typing.smartBackspace) %> || false,
+          smartBackspace: <%= JSON.stringify(theme.subtitle.typing.smartBackspace ?? false) %>,
         };
 
         function initSubtitleTyping() {
@@ -377,16 +377,16 @@
         new APlayer({
           theme: "var(--color-link)",
           container: document.getElementById('aplayer'),
-          audio: <%- JSON.stringify(theme.player.aplayer.options.audio) %> || [],
-          fixed: isMobile ? true : (<%= JSON.stringify(theme.player.aplayer.options.fixed) %> || false),
-          autoplay: <%= JSON.stringify(theme.player.aplayer.options.autoplay) %> || false,
-          loop: '<%= theme.player.aplayer.options.loop %>' || 'all',
-          order: '<%= theme.player.aplayer.options.order %>' || 'list',
-          preload: '<%= theme.player.aplayer.options.preload %>' || 'auto',
-          volume: <%= JSON.stringify(theme.player.aplayer.options.volume) %> || 0.7,
-          mutex: <%= JSON.stringify(theme.player.aplayer.options.mutex) %> || true,
-          listFolded: <%= JSON.stringify(theme.player.aplayer.options.listFolded) %> || false,
-          lrcType: <%= JSON.stringify(theme.player.aplayer.options.lrcType) %> || 0,
+          audio: <%- JSON.stringify(theme.player.aplayer.options.audio ?? []) %>,
+          fixed: isMobile ? true : (<%= JSON.stringify(theme.player.aplayer.options.fixed ?? false) %>),
+          autoplay: <%= JSON.stringify(theme.player.aplayer.options.autoplay ?? false) %>,
+          loop: '<%= theme.player.aplayer.options.loop || 'all' %>',
+          order: '<%= theme.player.aplayer.options.order || 'list' %>',
+          preload: '<%= theme.player.aplayer.options.preload || 'auto' %>',
+          volume: <%= JSON.stringify(theme.player.aplayer.options.volume ?? 0.7) %>,
+          mutex: <%= JSON.stringify(theme.player.aplayer.options.mutex ?? true) %>,
+          listFolded: <%= JSON.stringify(theme.player.aplayer.options.listFolded ?? false) %>,
+          lrcType: <%= JSON.stringify(theme.player.aplayer.options.lrcType ?? 0) %>,
         });
       }
     }
