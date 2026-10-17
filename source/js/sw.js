@@ -13,21 +13,16 @@ self.addEventListener("install", (event) => {
 });
 
 async function cacheRequest(request, options) {
+  let responseToCache;
   try {
-    const responseToCache = await fetch(request);
-    const cache = await caches.open(VERSION);
-    if (!/^https?:$/i.test(new URL(request.url).protocol))
-      return responseToCache;
-    cache.put(request, responseToCache.clone());
-    return responseToCache;
+    responseToCache = await fetch(request);
   } catch (e) {
-    const responseToCache = await fetch(request, options);
-    const cache = await caches.open(VERSION);
-    if (!/^https?:$/i.test(new URL(request.url).protocol))
-      return responseToCache;
-    cache.put(request, responseToCache.clone());
-    return responseToCache;
+    responseToCache = await fetch(request, options);
   }
+  const cache = await caches.open(VERSION);
+  if (!/^https?:$/i.test(new URL(request.url).protocol)) return responseToCache;
+  cache.put(request, responseToCache.clone());
+  return responseToCache;
 }
 
 async function respondRequest(request, options) {

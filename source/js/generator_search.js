@@ -60,7 +60,7 @@
             _$$(".page-number").forEach((element) => {
               element.off("click").on("click", (event) => {
                 event.preventDefault();
-                currentPage = element.innerText;
+                currentPage = Number(element.innerText);
                 _$$(".ais-Pagination-item").forEach((element) => {
                   element.classList.remove(
                     "ais-Pagination-item--selected",

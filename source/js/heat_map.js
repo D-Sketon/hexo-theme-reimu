@@ -223,7 +223,6 @@ function createCalendar(element, contributionData) {
         tile.className = "tile";
         tile.dataset.level = c.level;
         tile.title = getTooltip(c, date);
-        tile.dataset.level = c.level;
         tile.dataset.date = c.date; // 添加日期数据
         tile.addEventListener("click", tileClickHandler);
         tiles.push(tile);

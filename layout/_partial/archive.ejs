@@ -25,17 +25,10 @@
       <%_ } _%>
     </div>
   <%_ } _%>
-  <%_ if (page.lang) { _%>
-    <%_ let i = 0; _%>
-    <%_ for (const post of get_posts_by_lang(page.posts, page.lang)) { _%>
+  <%_ const homePosts = page.lang ? get_posts_by_lang(page.posts, page.lang) : page.posts.toArray(); _%>
+  <%_ homePosts.forEach((post, i) => { _%>
       <%- partial('post', {post: post, even: i % 2 === 0}) %>
-      <%_ i++; _%>
-    <%_ } _%>
-  <%_ } else { _%>
-    <%_ page.posts.forEach((post, i) => { _%>
-      <%- partial('post', {post: post, even: i % 2 === 0}) %>
-    <%_ }) _%>
-  <%_ } _%>
+  <%_ }) _%>
 <%_ } else { _%>
 <div class="archives-outer-wrap" data-aos="<%= theme.animation.options.archive.whole %>">
   <%_ if (theme.only_show_capsule_in_index) { _%>
@@ -45,10 +38,9 @@
   <%_ } else { _%>
     <%- partial_lang('post/archives', null, { cache: !config.relative_link, lang: page.lang }) %>
   <%_ } _%>
-  <%_ if (page.lang) { _%>
-    <%_ const posts = get_posts_by_lang(page.posts, page.lang); _%>
+  <%_ const archivePosts = page.lang ? get_posts_by_lang(page.posts, page.lang) : page.posts.toArray(); _%>
     <%_ var last; _%>
-    <%_ posts.forEach((post, i) => { _%>
+    <%_ archivePosts.forEach((post, i) => { _%>
       <%_ var year = post.date.year(); _%>
       <%_ if (last != year) { _%>
         <%_ if (last != null) { _%>
@@ -67,28 +59,6 @@
           </ul>
         </section>
     <%_ } _%>
-  <%_ } else { _%>
-    <%_ var last; _%>
-    <%_ page.posts.each((post, i) => { _%>
-      <%_ var year = post.date.year(); _%>
-      <%_ if (last != year) { _%>
-        <%_ if (last != null) { _%>
-          </section>
-        <%_ } _%>
-        <%_ last = year; _%>
-        <section class="archives-wrap" data-aos="<%= theme.animation.options.archive.section %>">
-          <div class="archive-year-wrap">
-            <a href="<%- url_for_lang(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
-          </div>
-          <ul>
-            <%_ } _%>
-            <%- partial('archive-post', {post: post}) %>
-            <%_ }) _%>
-            <%_ if (page.posts.length) { _%>
-          </ul>
-        </section>
-    <%_ } _%>
-  <%_ } _%>
   </div>
 <%_ } _%>
 <%_ if (page.total > 1) { _%>

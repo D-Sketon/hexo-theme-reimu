@@ -16,18 +16,15 @@ function getPostsByLangHelper(lang) {
   };
   this.site.posts.each((post) => {
     if (post.lang) {
-      pageMap[post.lang][post.permalink] = post;
+      (pageMap[post.lang] ||= {})[post.permalink] = post;
     } else {
       pageMap.default[post.permalink] = post;
     }
   });
+  const langPosts = pageMap[lang] || {};
   const mergedPosts = {};
   for (const key of Object.getOwnPropertyNames(pageMap.default)) {
-    if (pageMap[lang][key]) {
-      mergedPosts[key] = pageMap[lang][key];
-    } else {
-      mergedPosts[key] = pageMap.default[key];
-    }
+    mergedPosts[key] = langPosts[key] || pageMap.default[key];
   }
   return mergedPosts;
 }

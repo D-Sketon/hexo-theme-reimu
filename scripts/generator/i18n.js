@@ -172,30 +172,26 @@ hexo.extend.generator.register("post-i18n", function (locals) {
     localPostsCache = locals.posts.sort("-date").toArray();
   }
   const posts = localPostsCache || locals.posts.sort("-date").toArray();
+  const mergeLangPost = (permalink, lang, page) => {
+    if (i18nMap[permalink]) {
+      i18nMap[permalink].langs.push(lang);
+    } else {
+      const mappedPost = locals.posts
+        .toArray()
+        .find((p) => p.permalink === permalink && !p.lang);
+      i18nMap[permalink] = {
+        langs: [lang],
+        page: mappedPost || page,
+      };
+    }
+  };
   posts.forEach((page) => {
     let { path, lang, permalink } = page;
     if (lang) {
-      if (i18nMap[permalink]) {
-        i18nMap[permalink].langs.push(lang);
-      } else {
-        const mappedPost = locals.posts
-          .toArray()
-          .find((p) => p.permalink === permalink && !p.lang);
-        if (mappedPost) {
-          i18nMap[permalink] = {
-            langs: [lang],
-            page: mappedPost,
-          };
-        } else {
-          i18nMap[permalink] = {
-            langs: [lang],
-            page,
-          };
-        }
-      }
+      mergeLangPost(permalink, lang, page);
     } else {
-      const lang = path.split("/")[0];
-      if (!languages.includes(lang)) {
+      const firstPathLang = path.split("/")[0];
+      if (!languages.includes(firstPathLang)) {
         if (!i18nMap[permalink]) {
           i18nMap[permalink] = {
             page,
@@ -204,24 +200,7 @@ hexo.extend.generator.register("post-i18n", function (locals) {
         }
         return;
       }
-      if (i18nMap[permalink]) {
-        i18nMap[permalink].langs.push(lang);
-      } else {
-        const mappedPost = locals.posts
-          .toArray()
-          .find((p) => p.permalink === permalink && !p.lang);
-        if (mappedPost) {
-          i18nMap[permalink] = {
-            langs: [lang],
-            page: mappedPost,
-          };
-        } else {
-          i18nMap[permalink] = {
-            langs: [lang],
-            page,
-          };
-        }
-      }
+      mergeLangPost(permalink, firstPathLang, page);
     }
   });
 
