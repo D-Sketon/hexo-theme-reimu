@@ -23,7 +23,8 @@
   --color-sticky: #fff;
   --color-h2-border: #eee;
   --color-meta-shadow: var(--red-6);
-  --color-hover-shadow: rgba(120, 120, 120, 0.15);
+  --color-shadow: rgba(0, 0, 0, 0.06);
+  --color-shadow-ambient: rgba(0, 0, 0, 0.04);
   --color-h2-after: var(--red-1);
   --color-red-6-shadow: unquote(light-color-red-6-shadow);
   --color-red-3-shadow: unquote(light-color-red-3-shadow);
@@ -58,10 +59,10 @@
   --footer-icon: url(footer-icon);
   --sponsor-icon: url(sponsor-icon);
   --top-icon: url(top-icon);
-  --shadow-meta: 0 0 5px 2px var(--color-meta-shadow);
-  --shadow-meta-hover: 0 0 6px 4px var(--color-meta-shadow);
-  --shadow-card: 0 0 10px 2px var(--color-hover-shadow);
-  --shadow-card-hover: 0 0 10px 4px var(--color-hover-shadow);
+  --shadow-meta: 0 1px 3px var(--color-meta-shadow), 0 5px 16px var(--color-meta-shadow);
+  --shadow-meta-hover: 0 2px 5px var(--color-meta-shadow), 0 8px 22px var(--color-meta-shadow);
+  --shadow-card: 0 2px 8px var(--color-shadow), 0 8px 32px var(--color-shadow-ambient);
+  --shadow-card-hover: 0 8px 24px var(--color-shadow), 0 24px 64px var(--color-shadow-ambient);
   --shadow-red-6-shadow: 0 0 8px var(--color-red-6-shadow);
 }
 
@@ -82,8 +83,9 @@
     --color-mobile-nav-background: #21252b;
     --color-wrap: #272b30;
     --color-h2-border: #47474a;
-    --color-meta-shadow: rgba(0, 0, 0, 0.2);
-    --color-hover-shadow: rgba(0, 0, 0, 0.2);
+    --color-meta-shadow: rgba(8, 8, 12, 0.2);
+    --color-shadow: rgba(8, 8, 12, 0.3);
+    --color-shadow-ambient: rgba(8, 8, 12, 0.15);
     --highlight-nav: unquote(dark-highlight-nav);
     --highlight-scrollbar: unquote(dark-highlight-scrollbar);
     --highlight-background: unquote(dark-highlight-background);
@@ -101,6 +103,8 @@
     --highlight-deletion-bg: unquote(dark-highlight-deletion-bg);
     --highlight-addition: unquote(dark-highlight-addition);
     --highlight-addition-bg: unquote(dark-highlight-addition-bg);
+    --shadow-card: 0 4px 16px var(--color-shadow), 0 24px 80px var(--color-shadow-ambient);
+    --shadow-card-hover: 0 8px 24px var(--color-shadow), 0 32px 96px var(--color-shadow-ambient);
 
     img {
       filter: brightness(70%);

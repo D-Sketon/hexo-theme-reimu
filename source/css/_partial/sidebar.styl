@@ -83,12 +83,11 @@
     min-height: 100px;
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: post-radius;
     transition: opacity 0.3s;
     opacity: 0;
     object-fit: cover;
     margin: 20px;
-    box-shadow: 0 0 15px 5px var(--color-red-6-shadow);
     will-change: transform;
     transition: 0.3s;
 
@@ -122,7 +121,7 @@
   padding: 24px 0;
   color: var(--red-0);
   opacity: 0.8;
-  transition: opacity 0.5s, color 0.5s;
+  transition: opacity 0.3s, color 0.3s;
 
   &:hover {
     opacity: 1;
@@ -394,7 +393,7 @@ $menu-link {
   margin: 8px auto;
   justify-content: center;
   border: 10px var(--color-red-3-shadow) double;
-  transition: border 0.5s, background 0.5s, color 0.5s;
+  transition: border 0.3s, background 0.3s, color 0.3s;
 
   &:hover {
     border: 10px var(--color-h2-after) double;
@@ -417,7 +416,7 @@ $menu-link {
   @extend $menu-link;
   font-size: 24px;
   font-weight: 400;
-  transition: transform 0.3s, background 0.5s, color 0.5s;
+  transition: transform 0.3s, background 0.3s, color 0.3s;
   will-change: transform;
 
   &:before {
