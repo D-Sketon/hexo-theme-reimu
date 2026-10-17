@@ -6,7 +6,7 @@ var debounce = (func, delay) => {
   return (...args) => {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
-      func.apply(this, args);
+      func(...args);
     }, delay);
   };
 };

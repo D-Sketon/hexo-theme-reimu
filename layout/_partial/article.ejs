@@ -28,14 +28,10 @@
       <%_ } _%>
     </div>
     <footer class="article-footer">
-      <%_ if (post.copyright === true) { _%>
-        <%- articleCopyright(post) %>
-      <%_ } else if (post.copyright !== false && theme.article_copyright.enable) { _%>
+      <%_ if (post.copyright === true || (post.copyright !== false && theme.article_copyright.enable)) { _%>
         <%- articleCopyright(post) %>
       <%_ } _%>
-      <%_ if (post.sponsor === true) { _%>
-        <%- partial('post/sponsor') %>
-      <%_ } else if (post.sponsor !== false && theme.sponsor.enable) { _%>
+      <%_ if (post.sponsor === true || (post.sponsor !== false && theme.sponsor.enable)) { _%>
         <%- partial('post/sponsor') %>
       <%_ } _%>
       <%_ if (Array.isArray(theme.share) && theme.share.length) { _%>
@@ -87,14 +83,14 @@
   <%- partial('post/nav') %>
 </article>
 <%_ const commentSystems = {}; _%>
-<%_ commentSystems.valine = theme.valine.enable && theme.valine.appId && theme.valine.appKey ? true : false; _%>
-<%_ commentSystems.utterances = theme.utterances && theme.utterances.enable && theme.utterances.repo ? true : false; _%>
-<%_ commentSystems.beaudar = theme.beaudar && theme.beaudar.enable && theme.beaudar.repo && theme.beaudar.branch ? true : false; _%>
-<%_ commentSystems.waline = theme.waline.enable && theme.waline.serverURL ? true : false; _%>
-<%_ commentSystems.twikoo = theme.twikoo.enable && theme.twikoo.envId ? true : false; _%>
-<%_ commentSystems.gitalk = theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret ? true : false; _%>
-<%_ commentSystems.giscus = theme.giscus.enable ? true : false; _%>
-<%_ commentSystems.disqus = theme.disqus.enable && theme.disqus.shortname ? true : false; _%>
+<%_ commentSystems.valine = !!(theme.valine.enable && theme.valine.appId && theme.valine.appKey); _%>
+<%_ commentSystems.utterances = !!(theme.utterances && theme.utterances.enable && theme.utterances.repo); _%>
+<%_ commentSystems.beaudar = !!(theme.beaudar && theme.beaudar.enable && theme.beaudar.repo && theme.beaudar.branch); _%>
+<%_ commentSystems.waline = !!(theme.waline.enable && theme.waline.serverURL); _%>
+<%_ commentSystems.twikoo = !!(theme.twikoo.enable && theme.twikoo.envId); _%>
+<%_ commentSystems.gitalk = !!(theme.gitalk.enable && theme.gitalk.clientID && theme.gitalk.clientSecret); _%>
+<%_ commentSystems.giscus = !!theme.giscus.enable; _%>
+<%_ commentSystems.disqus = !!(theme.disqus.enable && theme.disqus.shortname); _%>
 <%_ const activeSystems = Object.keys(commentSystems).filter(system => commentSystems[system]); _%>
 
 <%_ if (post.comments !== false && activeSystems.length) { _%>

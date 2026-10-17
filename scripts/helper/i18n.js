@@ -148,7 +148,6 @@ function tagcloudHelper(tags, options) {
     options = tags;
     tags = this.site.tags;
   }
-  tags = tags;
   if (!tags || !tags.length) return "";
   options = options || {};
   const min = options.min_font || 10;

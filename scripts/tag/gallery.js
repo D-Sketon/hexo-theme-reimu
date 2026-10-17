@@ -20,7 +20,7 @@ hexo.extend.tag.register(
       imageUrls.push(match[1]);
     }
 
-    const galleryId = `photoWall-${Math.random().toString(36).substr(2, 9)}`;
+    const galleryId = `photoWall-${Math.random().toString(36).slice(2, 11)}`;
     const galleryHtml = `
 <div class="gallery-wall" id="${galleryId}"></div>
 <script>
