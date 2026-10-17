@@ -2,18 +2,14 @@ categories: Categorias
 search: Buscar
 tags: Tags
 tagcloud: Nuvem de Tags
-tweets: Tweets
 prev: Anterior
 next: Próximo
 comment: Comentários
 reading: Leituras
 archive_a: Arquivos
-archive_b: "Arquivos: %s"
-page: "Página %d"
 recent_posts: Posts Recentes
 newer: Anterior
 older: Próximo
-share: Compartilhar
 powered_by: Desenvolvido com
 rss_feed: Feed RSS
 category: Categoria
