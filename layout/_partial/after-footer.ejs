@@ -1,8 +1,15 @@
-<%- js({ src: vendorCdn(theme.vendor.js.lazysizes)[0], integrity: vendorCdnIntegrity(theme.vendor.js.lazysizes)[0], crossorigin: "anonymous"}) %>
-<%- js({ src: vendorCdn(theme.vendor.js.clipboard)[0], integrity: vendorCdnIntegrity(theme.vendor.js.clipboard)[0], crossorigin: "anonymous"}) %>
+<%_
+  const vendor = (key, extra = {}) => js(Object.assign({
+    src: vendorCdn(theme.vendor.js[key])[0],
+    integrity: vendorCdnIntegrity(theme.vendor.js[key])[0],
+    crossorigin: "anonymous",
+  }, extra));
+_%>
+<%- vendor('lazysizes') %>
+<%- vendor('clipboard') %>
 
 <%_ if (theme.material_theme.enable) { _%>
-  <%- js({src: vendorCdn(theme.vendor.js.material_theme)[0], integrity: vendorCdnIntegrity(theme.vendor.js.material_theme)[0], crossorigin: "anonymous"}) %>
+  <%- vendor('material_theme') %>
 <%_ } _%>
 
 <%- js('js/script.js') %>
@@ -51,8 +58,8 @@
       }
     };
   </script>
-  <%- js({src: vendorCdn(theme.vendor.js.algolia)[0], integrity: vendorCdnIntegrity(theme.vendor.js.algolia)[0], crossorigin: "anonymous", defer: true}) %>
-  <%- js({src: vendorCdn(theme.vendor.js.instantsearch)[0], integrity: vendorCdnIntegrity(theme.vendor.js.instantsearch)[0], crossorigin: "anonymous", defer: true}) %>
+  <%- vendor('algolia', { defer: true }) %>
+  <%- vendor('instantsearch', { defer: true }) %>
   <%- js({src: 'js/algolia_search.js', defer: true}) %>
 <%_ } _%>
 
@@ -64,11 +71,11 @@
       }
     }
   </script>
-  <%- js({src: vendorCdn(theme.vendor.js.firework)[0], integrity: vendorCdnIntegrity(theme.vendor.js.firework)[0], crossorigin: "anonymous", onload: "setupFirework()", defer: true}) %>
+  <%- vendor('firework', { onload: "setupFirework()", defer: true }) %>
 <%_ } _%>
 
 <%_ if (theme.pjax.enable) { _%>
-  <%- js({src: vendorCdn(theme.vendor.js.pjax)[0], integrity: vendorCdnIntegrity(theme.vendor.js.pjax)[0], crossorigin: "anonymous"}) %>
+  <%- vendor('pjax') %>
   <%- js('js/pjax.js') %>
 <%_ } _%>
 
@@ -82,11 +89,11 @@
 <%_ } _%>
 
 <%_ if (theme.live2d_widgets.enable) { _%>
-  <%- js({src: vendorCdn(theme.vendor.js.live2d_widgets)[0], integrity: vendorCdnIntegrity(theme.vendor.js.live2d_widgets)[0], crossorigin: "anonymous"}) %>
+  <%- vendor('live2d_widgets') %>
 <%_ } _%>
 
 <%_ if (theme.quicklink.enable) { _%>
-  <%- js({src: vendorCdn(theme.vendor.js.quicklink)[0], integrity: vendorCdnIntegrity(theme.vendor.js.quicklink)[0], crossorigin: "anonymous"}) %>
+  <%- vendor('quicklink') %>
   <script data-pjax>
     window.quicklink?.listen({
       timeout: <%= theme.quicklink.timeout %>,
@@ -116,10 +123,10 @@
       </script>
     <%_ } _%>   
     <%_ if (theme.mermaid.enable && page.mermaid) { _%>
-      <%- js({src: vendorCdn(theme.vendor.js.mermaid)[0], integrity: vendorCdnIntegrity(theme.vendor.js.mermaid)[0], crossorigin: "anonymous", 'data-pjax': true}) %>
-      <%- js({src: vendorCdn(theme.vendor.js.dompurify)[0], integrity: vendorCdnIntegrity(theme.vendor.js.dompurify)[0], crossorigin: "anonymous"}) %>
+      <%- vendor('mermaid', { 'data-pjax': true }) %>
+      <%- vendor('dompurify') %>
       <%_ if (theme.mermaid.zoom) { _%>
-        <%- js({src: vendorCdn(theme.vendor.js.svg_pan_zoom)[0], integrity: vendorCdnIntegrity(theme.vendor.js.svg_pan_zoom)[0], crossorigin: "anonymous"}) %>
+        <%- vendor('svg_pan_zoom') %>
       <%_ } _%>
       <script data-pjax>
         if (window.mermaid) {
@@ -219,8 +226,8 @@
       <%_ } _%>
       <%- js({ src: 'js/tabs.js', 'data-pjax': true, defer: true }) %>
       <%_ if (Array.isArray(theme.share) && theme.share.includes("weixin")) { _%>
-        <%- js({src: vendorCdn(theme.vendor.js.snapdom)[0], integrity: vendorCdnIntegrity(theme.vendor.js.snapdom)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
-        <%- js({src: vendorCdn(theme.vendor.js.qrcode)[0], integrity: vendorCdnIntegrity(theme.vendor.js.qrcode)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
+        <%- vendor('snapdom', { defer: true, 'data-pjax': true }) %>
+        <%- vendor('qrcode', { defer: true, 'data-pjax': true }) %>
       <%_ } _%>
       <script type="module" data-pjax>
         (async () => {
@@ -246,7 +253,7 @@
       <%_ } _%>
     <%_ } _%>
     <%_ if (is_home() && theme.subtitle?.typing?.enable) { _%>
-      <%- js({src: vendorCdn(theme.vendor.js.typed)[0], integrity: vendorCdnIntegrity(theme.vendor.js.typed)[0], crossorigin: "anonymous", defer: true, onload: "initSubtitleTyping()"}) %>
+      <%- vendor('typed', { defer: true, onload: "initSubtitleTyping()" }) %>
       <script data-pjax>
         window.subtitleTypingConfig = {
           strings: <%- JSON.stringify(theme.subtitle.typing.strings || []) %>,
@@ -294,7 +301,7 @@
 <%- outdate() %>
 
 <%_ if (theme.footer.busuanzi) { _%>
-  <%- js({src: vendorCdn(theme.vendor.js.busuanzi)[0], integrity: vendorCdnIntegrity(theme.vendor.js.busuanzi)[0], crossorigin: "anonymous", async: true}) %>
+  <%- vendor('busuanzi', { async: true }) %>
 <%_ } _%>
 
 <%_ if (theme.service_worker.enable) { _%>
@@ -347,10 +354,10 @@
     <%_ } _%>
   <%_ } _%>
   <%_ if (theme.math.katex.enable && theme.math.katex.autoRender) { _%>
-    <%- js({src: vendorCdn(theme.vendor.js.katex)[0], integrity: vendorCdnIntegrity(theme.vendor.js.katex)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
-    <%- js({src: vendorCdn(theme.vendor.js.katex_auto_render)[0], integrity: vendorCdnIntegrity(theme.vendor.js.katex_auto_render)[0], crossorigin: "anonymous", defer: true, onload: "renderMathInElement(_$('article'), {delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});window.katexTagOverflowHandler?.();", 'data-pjax': true}) %>
+    <%- vendor('katex', { defer: true, 'data-pjax': true }) %>
+    <%- vendor('katex_auto_render', { defer: true, onload: "renderMathInElement(_$('article'), {delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});window.katexTagOverflowHandler?.();", 'data-pjax': true }) %>
   <% } else if (theme.math.mathjax.enable) { %>
-    <%- js({src: vendorCdn(theme.vendor.js.mathjax)[0], integrity: vendorCdnIntegrity(theme.vendor.js.mathjax)[0], crossorigin: "anonymous", defer: true, 'data-pjax': true}) %>
+    <%- vendor('mathjax', { defer: true, 'data-pjax': true }) %>
     <script data-pjax>
       window.MathJax = <%- JSON.stringify(theme.math.mathjax.options) %>;
     </script>
@@ -413,14 +420,14 @@
       <%_ } _%>
     </script>
   <%_ } _%>
-  <%- js({src: vendorCdn(theme.vendor.js.aplayer)[0], integrity: vendorCdnIntegrity(theme.vendor.js.aplayer)[0], crossorigin: "anonymous", defer: true, onload: "setupAPlayer()"}) %>
+  <%- vendor('aplayer', { defer: true, onload: "setupAPlayer()" }) %>
   <%_ if (theme.player.meting.enable) { _%>
-    <%- js({src: vendorCdn(theme.vendor.js.meting)[0], integrity: vendorCdnIntegrity(theme.vendor.js.meting)[0], crossorigin: "anonymous", defer: true}) %>
+    <%- vendor('meting', { defer: true }) %>
   <%_ } _%>
 <%_ } _%>
 
 <%_ if (theme.pangu.enable) { _%>
-  <%- js({src: vendorCdn(theme.vendor.js.pangu)[0], integrity: vendorCdnIntegrity(theme.vendor.js.pangu)[0], crossorigin: "anonymous", defer: true}) %>
+  <%- vendor('pangu', { defer: true }) %>
   <script data-pjax>
     if (document.readyState === "loading") {
       document.addEventListener('DOMContentLoaded', () => {
