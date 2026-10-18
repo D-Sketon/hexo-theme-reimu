@@ -124,7 +124,6 @@ _%>
     <%_ } _%>   
     <%_ if (theme.mermaid.enable && page.mermaid) { _%>
       <%- vendor('mermaid', { 'data-pjax': true }) %>
-      <%- vendor('dompurify') %>
       <%_ if (theme.mermaid.zoom) { _%>
         <%- vendor('svg_pan_zoom') %>
       <%_ } _%>
@@ -146,16 +145,15 @@ _%>
             });
           };
           const saveOriginalData = () => processElements(el => {
-            if (!el.getAttribute('data-original-code')) {
-              el.setAttribute('data-original-code', el.innerHTML);
+            if (!el.__originalNodes) {
+              el.__originalNodes = Array.from(el.childNodes);
             }
           });
 
           const resetProcessed = () => processElements(el => {
-            const originalCode = el.getAttribute('data-original-code');
-            if (originalCode) {
+            if (el.__originalNodes) {
               el.removeAttribute('data-processed');
-              el.innerHTML = DOMPurify.sanitize(originalCode);
+              el.replaceChildren(...el.__originalNodes);
             }
           });
           const loadMermaid = async (theme) => {

@@ -894,9 +894,6 @@ vendor:
     qrcode:
       src: webcache|qrcode@1.5.1/build/qrcode.js
       integrity: sha384-VT1EeewTCEXgndcPMQ0PzV+uVFYjxFIjmAA7s5gcMX9t4Dt5TD+OVQIn7NJWIXn7
-    dompurify:
-      src: webcache|dompurify@3.2.6/dist/purify.min.js
-      integrity: sha384-JEyTNhjM6R1ElGoJns4U2Ln4ofPcqzSsynQkmEc/KGy6336qAZl70tDLufbkla+3
     pangu:
       src: webcache|pangu@4.0.7/dist/browser/pangu.min.js
       integrity: sha384-HeUHqi0nVsPUm/E0ss7OfnIV/yD96JWB8ehZvUuoVax9DpNHL17jj9pdfXHzqDxm
