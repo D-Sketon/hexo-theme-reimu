@@ -17,9 +17,6 @@
 
 ---
 
-> [!WARNING]
-> v1.0.0 以下版本已经废弃，请尽快升级到 v1.0.0 以上版本
-
 本人是车车人，所以制作了这样一款博丽灵梦风格的 Hexo 主题，融合了 [landscape](https://github.com/hexojs/hexo-theme-landscape)、[Tangyuxian](https://github.com/tangyuxian/hexo-theme-tangyuxian) 和 [Shoka](https://github.com/amehime/hexo-theme-shoka) 三个主题
 
 | framework                    | repository                                                         | version                                                                                                                                                                                     | stars                                                                                              |
@@ -237,7 +234,7 @@ sticky: true
 ---
 ```
 
-#### 文章总结
+#### 文章摘要
 
 默认关闭，可选择在副标题或者文章开头显示文章摘要
 
@@ -1166,7 +1163,7 @@ injector:
 
 #### Pangu 自动分割（v1.6.0+）
 
-默认关闭，自动替你在文章中所有的中文字和半形的英文、数字、符号之间插入空白。
+默认关闭，自动替你在文章中所有的中文字和半角的英文、数字、符号之间插入空白。
 
 ```yml
 pangu:

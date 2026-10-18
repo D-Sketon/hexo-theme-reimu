@@ -80,6 +80,29 @@ hexo.on("generateBefore", () => {
           `[REIMU] i18n is enabled but the first language (${defaultLang}) is not the same as the default site language(${config.language}).`,
         );
       }
+      const posts = hexo.locals.get("posts");
+      if (posts && posts.length > 0) {
+        const defaultPosts = posts
+          .toArray()
+          .filter((post) => !post.lang || post.lang === defaultLang);
+        if (defaultPosts.length === 0) {
+          hexo.log.warn(
+            `[REIMU] i18n is enabled but no post belongs to the default language (${defaultLang}). Check the "lang" field of your posts: posts in the default language should not set "lang".`,
+          );
+        }
+      }
+    }
+  }
+
+  if (!themeConfig.i18n?.enable) {
+    const posts = hexo.locals.get("posts");
+    if (posts && posts.length > 0) {
+      const langPosts = posts.toArray().filter((post) => post.lang);
+      if (langPosts.length > 0) {
+        hexo.log.warn(
+          `[REIMU] i18n is disabled but ${langPosts.length} post(s) set a "lang" field. They will be generated under "/<lang>/..." and excluded from the home page and archive. Remove "lang" or enable i18n.`,
+        );
+      }
     }
   }
 });

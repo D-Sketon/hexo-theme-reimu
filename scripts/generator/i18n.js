@@ -269,7 +269,7 @@ hexo.extend.generator.register("archive-i18n", function (locals) {
     generators[g]
       .call(hexo, siteLocals)
       .then((data) => {
-        return data;
+        return data || [];
       })
       .reduce((result, data) => {
         return data ? result.concat(data) : result;
