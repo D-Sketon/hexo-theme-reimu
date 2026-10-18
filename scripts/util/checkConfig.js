@@ -67,6 +67,51 @@ hexo.on("generateBefore", () => {
     "[REIMU] meting is enabled but aplayer is not enabled. Please enable aplayer first.",
   );
 
+  // comment systems: keep in sync with layout/_partial/post/comment.ejs
+  const commentSystems = [
+    ["valine", ["appId", "appKey"]],
+    ["waline", ["serverURL"]],
+    ["twikoo", ["envId"]],
+    ["gitalk", ["clientID", "clientSecret"]],
+    ["giscus", []],
+    ["utterances", ["repo"]],
+    ["beaudar", ["repo", "branch"]],
+    ["disqus", ["shortname"]],
+  ];
+  const incompleteComments = commentSystems
+    .filter(([name]) => themeConfig[name]?.enable)
+    .map(([name, fields]) => {
+      const missing = fields.filter((field) => !themeConfig[name]?.[field]);
+      return missing.length ? `${name} (missing: ${missing.join(", ")})` : null;
+    })
+    .filter(Boolean);
+  warnIf(
+    incompleteComments.length > 0,
+    `[REIMU] These comment systems are enabled but incomplete, and will be skipped: ${incompleteComments.join("; ")}.`,
+  );
+
+  const activeComments = commentSystems
+    .filter(
+      ([name, fields]) =>
+        themeConfig[name]?.enable &&
+        fields.every((field) => themeConfig[name]?.[field]),
+    )
+    .map(([name]) => name);
+  const defaultComment = themeConfig.comment?.default;
+  warnIf(
+    defaultComment &&
+      !activeComments.includes(defaultComment) &&
+      (activeComments.length > 1 || !!themeConfig[defaultComment]?.enable),
+    `[REIMU] comment.default is "${defaultComment}" but that comment system is not active (disabled or incomplete). It will fall back to ${activeComments.length ? `"${activeComments[0]}"` : "no comment system"}.`,
+  );
+
+  warnIf(
+    themeConfig.math?.enable &&
+      !themeConfig.math?.katex?.enable &&
+      !themeConfig.math?.mathjax?.enable,
+    "[REIMU] math is enabled but neither katex nor mathjax is enabled. Nothing will be rendered.",
+  );
+
   const languages = themeConfig.i18n?.languages;
   if (themeConfig.i18n?.enable && Array.isArray(languages)) {
     if (languages.length === 0) {
