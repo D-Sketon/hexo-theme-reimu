@@ -1,4 +1,3 @@
-<%_ /* Backward compatibility */ _%>
 <%_ let showMenu = true; _%>
 <%_ if (typeof theme.sidebar === 'object' && theme.sidebar !== null && theme.sidebar.menu !== undefined) { _%>
   <%_ showMenu = theme.sidebar.menu; _%>
@@ -11,7 +10,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div><%= __("sidebar.post") %></div>
-    <div class="sidebar-state-number"><%= site.posts.length %></div>
+    <div class="sidebar-state-number"><%= get_posts_by_lang(site.posts, page.lang).length %></div>
   </div>
   <div class="sidebar-state-category">
     <div><%= __("sidebar.category") %></div>
