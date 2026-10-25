@@ -434,7 +434,7 @@ giscus:
   repoId:
   category:
   categoryId:
-  mapping: mapping
+  mapping: pathname
   strict: 0
   reactionsEnabled: 1
   emitMetadata: 0

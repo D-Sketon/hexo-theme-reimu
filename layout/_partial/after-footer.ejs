@@ -247,7 +247,7 @@ _%>
         })();
       </script>
       <%_ if (page.comments !== false) { _%>
-        <%- partial('post/comment', null, { cache: true }) %>
+        <%- partial('post/comment', null) %>
       <%_ } _%>
     <%_ } _%>
     <%_ if (is_home() && theme.subtitle?.typing?.enable) { _%>
